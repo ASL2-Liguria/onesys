@@ -1,0 +1,82 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+name: ONESYS
+url: 'https://github.com/ASL2-Liguria/onesys'
+releaseDate: '2019-11-18'
+developmentStatus: stable
+softwareType: standalone/web
+platforms:
+  - web
+categories:
+  - workflow-management
+maintenance:
+  type: internal
+  contacts:
+    - name: Alessandro Cavaliere
+      email: a.cavaliere@asl2.liguria.it
+      affiliation: ASL2 Regione Liguria
+legal:
+  license: EUPL-1.2
+localisation:
+  localisationReady: false
+  availableLanguages:
+    - it
+it:
+  riuso:
+    codiceIPA: asl_2sav
+  conforme:
+    modelloInteroperabilita: false
+    misureMinimeSicurezza: true
+    gdpr: true
+description:
+  it:
+    genericName: Sistema Informativo Ospedaliero
+    shortDescription: Sistema informativo ospedaliero
+    longDescription: >
+      **Sistema informativo ospedaliero**
+
+       
+
+      Applicativo modulare sviluppato con l'obiettivo di  informatizzare
+      tutti i percorsi amministrativi e sanitari inerenti i  pazienti che accedono
+      ai servizi dell'Azienda, relativamente a prestazioni erogate sia in regime
+      di ricovero, sia in regime ambulatoriale e presso i servizi sanitari
+      territoriali.
+
+
+      Le macro - componenti del sistema ONE.SYS disponibili in riuso sono le seguenti:
+
+      1.  Sistema di autenticazione utenti mediante smart card;
+
+      2.  Cartella di ricovero (ordinario e DH) completa in tutte le sue
+      componenti compresa la gestione della farmacoterapia (prescrizione e somministrazione a bordo letto), integrata
+      con il sistema di gestione order entry unificato per la richiesta di
+      prestazioni diagnostiche e consulenze interne e la consultazione dei
+      relativi referti;
+
+      3. Prescrizione ricetta rossa/dematerializzata e relativo invio dati al SAC, tramite SAR;
+
+      4. Prescrizione piani terapeutici e relativo invio al sistema regionale di
+      monitoraggio;
+
+      5. Cartella ambulatoriale;
+
+      6. ADT (Accettazione, Dimissione e Trasferimento pazienti, con
+      compilazione SDO);
+
+      7. Pronto Soccorso;
+
+      8. Cartella Medici di Medicina Generale / Pediatri di Libera Scelta,
+      integrata nel sistema di dossier sanitario, con condivisione del patient summary del paziente;
+      
+    features:
+      - Pronto Soccorso
+      - Cartella di ricovero
+      - Prescrizione ricetta
+      - Cartella ambulatoriale
+      - Cartella medici di medicina generale
+      - ADT
+      - Prescrizione piani terapeutici
