@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Medico/OscuramentiPaziente.js" />
+	<CSS path="css/MMG/Medico/OscuramentiPaziente.css" />
+</INCLUDE>

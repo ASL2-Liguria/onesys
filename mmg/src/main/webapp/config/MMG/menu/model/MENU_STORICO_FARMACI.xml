@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<ID>MENU_STORICO_FARMACI</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+
+		<ITEM>
+			<ID>MSF.CN</ID>
+			<LINK><![CDATA[function(rec){WK_STORICO_FARMACI.cancella(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblCancella</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>STORICO_FARMACI_OSCURA</ID>
+			<LINK><![CDATA[function(rec){WK_STORICO_FARMACI.oscura(rec);}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WK_STORICO_FARMACI.whereOscura(rec);}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>STORICO_FARMACI_DISOSCURA</ID>
+			<LINK><![CDATA[function(rec){WK_STORICO_FARMACI.disOscura(rec);}]]></LINK>
+			<ICON_CLASS>utente</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WK_STORICO_FARMACI.whereDisOscura(rec);}]]></WHERE>
+			<OUTPUT>traduzione.lblDisoscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+	</LIST>
+</MENU>

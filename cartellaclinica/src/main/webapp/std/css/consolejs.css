@@ -1,0 +1,39 @@
+#consolejs{
+	font-size:12px;
+	margin:5px;
+	padding:0px 5px 5px 5px;
+	background:#ddd;
+	position:absolute;
+	bottom:0;
+	right:0;
+	border:1px dotted #666;
+	display:block;
+	width:700px;
+	height:320px;
+	}
+	#moveConsole{cursor:move;margin:5px 0 0 0;}
+	#consolejs a.pulsConsole{
+		float:right;
+		font-weight:bold;
+		text-align:right;
+		margin:3px 5px;
+		height:16px;
+		line-height:19px;
+		}
+	#filtriConsole{position:absolute;right:-1px;background:#ddd;border:1px dotted #666;padding:5px;display:none;width:300px;}	
+	#consolejs #cConsole{
+		clear:both;
+		display:block;
+		background:#fff;
+		padding:5px;
+		width:688px;
+		height:284px;
+		overflow:auto;
+		border:1px solid #999;
+		}
+		#consolejs #cConsole li{font-size:10px;line-height:14px;border-bottom:1px dotted #ddd;}
+		
+		#consolejs #cConsole li strong.DEBUG{color:#00F;}
+		#consolejs #cConsole li strong.INFO{color:#00F;}
+		#consolejs #cConsole li strong.WARN{color:#F90;}				
+		#consolejs #cConsole li strong.ERROR{color:#F00;}

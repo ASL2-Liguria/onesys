@@ -1,0 +1,50 @@
+<PAGINA key_id="MAIN_PAGE">
+	<TOP key_id="MAIN_PAGE" valore="MAIN_PAGE#DEFAULT_MMG,MAIN_PAGE#MMG"
+		evento="START_END">
+	</TOP>
+	<DIV key_id="integration" valore="integration#" evento="START">
+		<DIV key_id="offline" valore="offline" evento="START">
+		</DIV>
+	</DIV>
+	<DIV key_id="divInfo" valore="divInfo" evento="START">
+		<!--
+		<MMG_INTESTAZIONE key_id="slidemenuRapido" valore=""
+			evento="START">
+		</MMG_INTESTAZIONE>
+		-->
+	</DIV>
+	<DIV key_id="menuBar" valore="menuBar#sfLight" evento="START">
+		<MENU_GENERICO key_id="menuCartella"
+			valore="PRINCIPALE#menuCartella#jsm jqueryslidemenu#MMG#ORDINE#N#S,S"
+			evento="START">
+		</MENU_GENERICO>
+		<MENU_GENERICO key_id="menuEsterno"
+			valore="ESTERNO#menuEsterno#jsm jqueryslidemenu#MMG#ORDINE,ALFA#N#S,S"
+			evento="START">
+		</MENU_GENERICO>
+		<MENU_GENERICO key_id="menuShortcut"
+			valore="MENU_SHORTCUT#menuShortcut#menuShortcut#MMG#ORDINE#N#N,S"
+			evento="START">
+		</MENU_GENERICO>
+	</DIV>
+	<DIV key_id="content" valore="content" evento="START">
+		<IFRAME key_id="iContent" valore="iContent" evento="START">
+		</IFRAME>
+	</DIV>
+	<STATUS_BAR key_id="statusBar" valore="statusBar" evento="START">
+		<DIV key_id="statSx" valore="statSx" evento="START">
+			<STATUS_BAR_H5 key_id="h5NomeHost" valore="h5NomeHostTit#h5NomeHostVal"
+				evento="START">
+			</STATUS_BAR_H5>
+			<STATUS_BAR_H5 key_id="h5Username" valore="h5UsernameTit#h5UsernameVal"
+				evento="START">
+			</STATUS_BAR_H5>
+			<STATUS_BAR_H5 key_id="h5Debug" valore="h5DebugTit#h5DebugVal"
+				evento="START">
+			</STATUS_BAR_H5>
+		</DIV>
+		<DIV key_id="statDx" valore="statDx" evento="START">
+		</DIV>
+	</STATUS_BAR>
+</PAGINA>
+

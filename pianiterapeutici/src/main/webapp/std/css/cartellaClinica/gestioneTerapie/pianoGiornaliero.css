@@ -1,0 +1,527 @@
+/*html{height:100%;overflow-y:scroll;overflow-x:hidden;}*/
+/*body {background-color:#FFFFCC;margin: 0 0 0 0;background-image:url(../../../../imagexPix/wallpaper/pattern_sfondo.gif);font-size: 12px;font-family: Arial, Helvetica, sans-serif;padding:0;height:100%;}*/
+
+div.tipoPrescrizione{
+	PADDING-LEFT: 5px;
+	FONT-size: 8px;
+	font-weight: bold;	
+	WIDTH: 150px;
+	margin:0px;
+	}
+	
+div.liv0{BACKGROUND: url(../../../../imagexPix/bar/sf_gray2.png) repeat-x;COLOR: #333;}	
+div.liv1{BACKGROUND: url(../../../../imagexPix/bar/sf_orange.jpg) repeat-x;COLOR: #333;}	
+	
+div.GiorniResidui{float:left;border:1px solid red;color:red;height:auto;}	
+div.farmaci{cursor:hand;float:left;}
+	div.std{BORDER: none;}
+	div.chemio{BORDER: #FADBA3 1px solid;}
+	div.antibio{BORDER: #BBFC8B 1px solid;}		
+
+div.farmaci table{width:100%;}
+div.farmaci tr.Pari{BACKGROUND: #efefef;;}
+div.farmaci td{padding:2px;}
+div.farmaci td.dose{font-size:12px;}
+div.farmaci td div.Descr{font-size:10px;width:100%;overflow:hidden;}
+div.farmaci td div.Sost{font-size:8px;width:100%;overflow:hidden;}
+
+div.farmaci .Bold{font-weight:bold;color:red;}
+
+
+#tableTerapie {
+	left:15px;
+	width:100%;
+	font-size:10px;   
+	table-layout:fixed;
+	background:#6fa1d4;
+	border-right:3px solid #1B519A;	
+}
+
+#tableHeader {background:url(../../../../imagexPix/bar/sf_turni.jpg) repeat-x;font-style:normal;color:#FFF;font-size:10px;}
+#tableHeader th{border-right:2px solid #1B519A;}
+
+#tableDivisore { width: 100%;
+	background:#1B519A;
+	color: #FFF;
+	font-weight:bold;
+	font-size:10px;
+	text-align: left;
+	height:12px;	
+}
+
+
+#tableDivisore a{border:1px solid #FFF;color:#FFF;margin:0px 0px 0px 5px;padding:0px 3px;text-decoration:none;}
+#tableDivisore a:hover{border:1px solid yellow;color:yellow;}
+
+#tableDivisore th{padding-left:7px;}
+#tableDivisore td{background:url(../../../../imagexPix/bar/sf_fasce.jpg) repeat-x;text-align:center;font-size:10px;}
+
+.separatore{height:1px;	background:#1B519A}
+
+.separatore th{}
+.separatore td{}
+
+.trDispari th{text-align:left;background:#f1f3f5;border-left:3px solid #1B519A;border-right:3px solid #1B519A;border-bottom:1px solid #6fa1d4;}
+.trPari th{text-align:left;background:#ffffff;border-left:3px solid #1B519A;border-right:3px solid #1B519A;border-bottom:1px solid #6fa1d4;}
+
+.giornoPari{background:url(../../../../imagexPix/bar/sf_orange.jpg) repeat-x;text-align:center;font-weight:bold;}
+.giornoDispari{background:url(../../../../imagexPix/bar/sf_yellow.jpg) repeat-x;text-align:center;font-weight:bold;}
+
+/*
+table.tabNonPianificate{width:98%;margin:3px;padding:px;background:#1b519a;border:none;}
+table.tabNonPianificate tr{border:none;}
+table.tabNonPianificate th{border:none;background:#1b519a;}
+table.tabNonPianificate th div{background:url(../../../../imagexPix/bar/sf_fasce.jpg) repeat-x;border:none;margin:1px 1px 0px 1px;padding:2px;font-size:10px;}
+table.tabNonPianificate td{}
+table.tabNonPianificate td div{cursor:hand;background:#FFF url(../../../../imagexPix/button/mini/forward_off.gif) left no-repeat;border:none;margin:1px;padding:2px 2px 2px 22px;}
+table.tabNonPianificate td div:hover{background-image:url(../../../../imagexPix/button/mini/forward_on.gif);}
+*/
+#divInfo{
+	display:block;
+	width:5%;
+	float:left;
+	background-image:url(../../../../imagexPix/GestioneRichieste/btinfo.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+	cursor:hand;
+	height:30px;
+}
+/*
+#divFarmaci{display:block;width:95%;float:left;padding: 8px 3px;font-size:12px;cursor:hand;}
+#rowFarmaco{width:100%;padding: 1px;color:blue;}
+#descrFarmaco{width:70%;float:left;text-decoration:underline;}
+#dosaggioFarmaco{width:9%;text-align:right;float:left;text-decoration:underline;}
+#udmFarmaco{width:20%;float:left;text-decoration:underline;}
+
+.divOperatori{
+	position:absolute;
+	width:50px;
+	height:50px;
+	display:none;
+	background-color:transparent;
+	overflow:hidden;
+}
+*/
+.infusione,.Ossigienoterapia{position:absolute;z-index:2;}
+
+.divModalita{float:left;display:block;/*background:url(../../../../imagexPix/bar/gray1x15.PNG) left repeat-y;*/}
+.modalita{float:left;display:block;font-size:12px;width:100%;text-align:left;line-height:12px;/*margin-left:1px;*/}
+.modalita[Modifica]{background:#F00;}
+
+.Pianificata{background:url(../../../../imagexPix/bar/sf_dettagli.jpg) repeat-x center;}
+.Iniziata{background:url(../../../../imagexPix/bar/sf_dettagli_azzurro.jpg) repeat-x  center;}
+.Finita{background:url(../../../../imagexPix/bar/sf_dettagli_grigio.jpg) repeat-x center;}
+.Sospesa{background:url(../../../../imagexPix/bar/sf_dettagli_grigio.jpg) repeat-x center;}
+/*.Chiusa {background: url(../../../../imagexPix/bar/sf_dettagli_grigio_scuro.jpg) repeat;}*/
+
+.Ini{display:block;text-align:left;width:100%;font-size:8px;}
+.Fine{display:block;text-align:right;width:100%;font-size:9px;font-weight:bold;}
+.Up{line-height:8px;height:10px;}
+.Down{line-height:12px; height:10px;background:none;}
+
+.vuoto{line-height:10px; height:12px;width:100%;display:block;font-size:10px;}
+
+.borderRight{border-right:1px solid #999;}
+
+#contenitoreZoom{position:absolute;z-index:3;left:5px;background:#FFF;}
+
+.dettaglio{background:url(../../../../imagexPix/bar/sf_dettagli_grigio_scuro.jpg);text-align:center;font-size:12px;font-weight:bold;/*width:99%;*/height:14px;border:1px solid #CEE9FB;cursor:default;color:#FFF;}
+/*.dettaglio8{background:#FEFCE7;text-align:center;font-size:8px;font-weight:200;width:99%;height:25px;border:1px solid #CEE9FB;cursor:default;}
+.dettaglio12{background:url(../../../../imagexPix/bar/sf_dettagli_grigio_scuro.jpg) repeat-x;text-align:center;font-size:12px;font-weight:400;width:99%;height:25px;border:1px solid #CEE9FB;cursor:default;color:#FFF;}*/
+
+.dettaglioChiuso{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -249px;height:99%;display:block;line-height:14px;padding-right:16px;}
+
+.dettaglioNonConfermato{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -141px;height:100%;display:block;line-height:14px;padding-right:16px;cursor:hand;}
+.dettaglioNonConfermato:hover{background-color:#FF0;color:#00F;}
+
+.dettaglioConfermato{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -195px;;height:99%;display:block;line-height:14px;padding-right:16px;cursor:hand;}
+.dettaglioConfermato:hover{background-color:#FF0;color:#00F;}
+
+.dettaglioEseguito{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -168px;height:99%;display:block;line-height:14px;padding-right:16px;}
+
+.dettaglioNonEseguito{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -222px;height:99%;display:block;line-height:14px;padding-right:16px;}
+
+.dettaglioSospeso{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -276px;height:99%;display:block;line-height:14px;padding-right:16px;}
+.dettaglioSospeso:hover{background-color:#FF0;:hand;color:#00F;}
+
+.livelloAttenzione3{border-bottom:3px solid #F00;}
+.livelloAttenzione2{border-bottom:3px solid #FF0;}
+.livelloAttenzione1{border-bottom:3px solid #0F0;}
+.livelloAttenzione0,.livelloAttenzione{border-bottom:3px solid #CEE9FB;}
+
+.menuLivelloAttenzione3{border-left:25px solid #F00;width:100px;cursor:hand;display:block;height:30px;line-height:30px;padding-left:5px;}
+.menuLivelloAttenzione2{border-left:25px solid #FF0;width:100px;cursor:hand;display:block;height:30px;line-height:30px;padding-left:5px;}
+.menuLivelloAttenzione1{border-left:25px solid #0F0;width:100px;cursor:hand;display:block;height:30px;line-height:30px;padding-left:5px;}
+.menuLivelloAttenzione0{border-left:25px solid #CEE9FB;width:100px;cursor:hand;display:block;height:30px;line-height:30px;padding-left:5px;}
+
+.menuLivelloAttenzione3:hover{background:#FF0;}
+.menuLivelloAttenzione2:hover{background:#FF0;}
+.menuLivelloAttenzione1:hover{background:#FF0;}
+.menuLivelloAttenzione0:hover{background:#FF0;}
+
+.trDispari #divAttivo{width:100%;}
+
+.trDispari #divStartSospeso{text-align:center;width:100%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#D9FDFF, endColorstr=#A6A6A6);}
+.trDispari #divSospeso{width:100%;background-color:#A6A6A6;}
+.trDispari #divEndSospeso{text-align:center;width:100%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#A6A6A6, endColorstr=#D9FDFF);}
+.trDispari #divStartEndSospesoStart{text-align:left;float:left;width:50%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#D9FDFF, endColorstr=#A6A6A6);}
+.trDispari #divStartEndSospesoEnd{text-align:right;float:left;width:50%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#A6A6A6, endColorstr=#D9FDFF);}
+
+.trPari #divAttivo{width:100%;}
+
+.trPari #divStartSospeso{text-align:center;width:100%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#F0FEFF, endColorstr=#A6A6A6);}
+.trPari #divSospeso{width:100%;background-color:#A6A6A6;}
+.trPari #divEndSospeso{text-align:center;width:100%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#A6A6A6, endColorstr=#F0FEFF);}
+.trPari #divStartEndSospesoStart{text-align:left;float:left;width:50%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#F0FEFF, endColorstr=#A6A6A6);}
+.trPari #divStartEndSospesoEnd{text-align:right;float:left;width:50%;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,enabled='true',startColorstr=#A6A6A6, endColorstr=#F0FEFF);}
+
+.parametroPianificato{background:#FDF9A6;height:99%;display:block;line-height:14px;}
+.parametroRegolare{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -60px;height:99%;display:block;line-height:14px;padding-right:16px;}
+.parametroAllertaTop{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -33px;height:99%;display:block;line-height:14px;padding-right:16px;}
+
+.parametroCriticoTop{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -6px;height:99%;display:block;line-height:14px;padding-right:16px;}
+.parametroCriticoBottom{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -114px;height:99%;display:block;line-height:14px;padding-right:16px;}
+
+.parametroAllertaBottom{background:url(../../../../imagexPix/arrow/sprite_frecce_stati.png) no-repeat right -87px;height:99%;display:block;line-height:14px;padding-right:16px;}
+
+
+.livello{background:url(../../../../imagexPix/bar/sf_head_blu.jpg) repeat-x;width:100%;text-align:center;}
+.livello1{background:url(../../../../imagexPix/bar/sf_head_verde.jpg) repeat-x;width:100%;text-align:center;}
+.livello2{background:url(../../../../imagexPix/bar/sf_head_giallo.jpg) repeat-x;width:100%;text-align:center;}
+.livello3{background:url(../../../../imagexPix/bar/sf_head_rosso.jpg) repeat-x;width:100%;text-align:center;}
+
+.attivitaDescrizione{background:#FFF;font-size:12px;font-weight:normal;}
+
+.attivitaPianificata{background:#FDF9A6;text-align:right;font-size:12px;font-weight:400;width:100%;height:30px;}
+.attivitaEseguita{background:#CAF7B7;text-align:right;font-size:12px;font-weight:400;width:100%;height:30px;}
+.attivitaNonEseguita{background:#FFACAA;text-align:right;font-size:12px;font-weight:400;width:100%;height:30px;}
+
+.divParamDescr{float:left;width:40%;}
+.divParamInsVal{float:left;width:60%;}
+.divParamInsVal input{cursor:text;}
+
+.parametriTuttiBottomBorder{border-bottom:2px solid #1B519A;}
+
+.pulsanteShort {
+	width:50px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	/*background-image:url(../../imagexPix/bar/btLightCyan.jpg);*/
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	float:left;
+
+}
+.pulsanteShort A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: #FFF;
+	display:block;
+}
+
+.pulsanteShort A:hover {
+	/*background-image:url(../../imagexPix/bar/btCyan.jpg);*/
+	background-repeat:repeat-x;
+	color: yellow;
+}
+
+#filtri{font-size:10px;}
+
+input,label{display:block;cursor:pointer;}
+
+.floatLeft{float:left;}
+p{line-height:3px;}
+
+.objTrascinato{background:#FB7589;filter:alpha(opacity=30);font-size:12px;text-align:center;cursor:pointer;}
+.objSelezionato{background:#999;color:#F00;filter:alpha(opacity=50);}
+
+form#filtri table{background:#1b519a;border-top:1px solid #1b519a;border-left:3px solid #1b519a;border-bottom:1px solid #1b519a;font-size:12px;}
+	form#filtri th{border-right:1px solid #ccc;background:#1b519a;color:#fff;height:17px;line-height:17px;}
+	form#filtri td{border-right:1px solid #1b519a;background:#f0f9fe;padding:5px 3px 0 3px;}
+form#filtri p{height:22px;display:block;line-height:24px;margin:0;}
+form#filtri select{width:100%;}
+
+.trRosso{background:#F00;}
+
+form#label{line-height:19px;height:17px;display:block;}
+
+form#filtri th label{cursor:pointer;}
+form#filtri .curs{cursor:pointer;}
+.floatLeft{float:left;margin-right:3px;}
+p.turni{margin:3px 0;}
+
+#thRange{width:160px;}
+
+.none{display:none;}
+
+/*nuovi css per le procedure*/
+	tr.selected th{background:#FF0;}
+
+	div.Relative{position:relative;height:100%;width:100%;overflow:hidden;}		
+	
+	/*div.Header{position:absolute;left:0px;}*/
+
+	/*div.Terapia{/*position:absolute;*/width:100%;top:0px;display:none;}*/	
+	/*div.Terapia div div{font-family:Verdana, Geneva, sans-serif;cursor:hand;}*/
+
+	/*div.Procedura{position:absolute;width:100%;height:48px;top:0px;}	*/
+	div.Procedura div div{font-family:Verdana, Geneva, sans-serif;cursor:hand;}
+
+/* css per avere uno sfondo colorato e bon */
+	div.Outer div.Inner div.white {background-color: white;}
+
+	div.H6{height:6px;line-height:6px;font-size:0px;}
+	div.H10{height:10px;line-height:10px;font-size:10px;}
+	div.H14{height:14px;line-height:14px;font-size:12px;}
+	div.H28{height:28px;line-height:14px;font-size:12px;}
+
+	div.White.H6 div{background:url(../../../../imagexPix/bar/6/sf-white.png) repeat-x;color:#000;}
+	div.Green.H6 div{background:url(../../../../imagexPix/bar/6/sf-green.png) repeat-x;color:#FFF;}
+	div.Yellow.H6 div{background:url(../../../../imagexPix/bar/6/sf-yellow.png) repeat-x;color:#000;}
+	div.Orange.H6 div{background:url(../../../../imagexPix/bar/6/sf-orange.png) repeat-x;color:#000;}		
+	div.Red.H6 div{background:url(../../../../imagexPix/bar/6/sf-red.png) repeat-x;color:#FFF;}
+	div.Gray.H6 div{background:url(../../../../imagexPix/bar/6/sf-gray.png) repeat-x;color:#FFF;}
+
+	div.White.H10 div{background:url(../../../../imagexPix/bar/10/sf-white.png) repeat-x;color:#000;}
+	div.Green.H10 div{background:url(../../../../imagexPix/bar/10/sf-green.png) repeat-x;color:#FFF;}
+	div.Yellow.H10 div{background:url(../../../../imagexPix/bar/10/sf-yellow.png) repeat-x;color:#000;}			
+	div.Orange.H10 div{background:url(../../../../imagexPix/bar/10/sf-orange.png) repeat-x;color:#000;}		
+	div.Red.H10 div{background:url(../../../../imagexPix/bar/10/sf-red.png) repeat-x;color:#FFF;}
+	div.Gray.H10 div{background:url(../../../../imagexPix/bar/10/sf-gray.png) repeat-x;color:#FFF;}
+	
+	div.White.H14 div{background:url(../../../../imagexPix/bar/14/sf-white.png) repeat-x;color:#000;}
+	div.Green.H14 div{background:url(../../../../imagexPix/bar/14/sf-green.png) repeat-x;color:#FFF;}		
+	div.Yellow.H14 div{background:url(../../../../imagexPix/bar/14/sf-yellow.png) repeat-x;color:#000;}
+	div.Orange.H14 div{background:url(../../../../imagexPix/bar/14/sf-orange.png) repeat-x;color:#000;}		
+	div.Red.H14 div{background:url(../../../../imagexPix/bar/14/sf-red.png) repeat-x;color:#FFF;}
+	div.Gray.H14 div{background:url(../../../../imagexPix/bar/14/sf-gray.png) repeat-x;color:#FFF;}	
+
+	div.White.H28 div{background:url(../../../../imagexPix/bar/28/sf-white.png) repeat-x;color:#000;}
+	div.Green.H28 div{background:url(../../../../imagexPix/bar/28/sf-green.png) repeat-x;color:#FFF;}		
+	div.Yellow.H28 div{background:url(../../../../imagexPix/bar/28/sf-yellow.png repeat-x;color:#000;}
+	div.Orange.H28 div{background:url(../../../../imagexPix/bar/28/sf-orange.png) repeat-x;color:#000;}		
+	div.Red.H28 div{background:url(../../../../imagexPix/bar/28/sf-red.png) repeat-x;color:#FFF;}
+	div.Gray.H28 div{background:url(../../../../imagexPix/bar/28/sf-gray.png) repeat-x;color:#FFF;}	
+
+	div.LWhite.H6{background:url(../../../../imagexPix/bar/6/sx-white.png) no-repeat;width:5px;}	
+	div.RWhite.H6{background:url(../../../../imagexPix/bar/6/dx-white.png) no-repeat;width:5px;}	
+	div.LGreen.H6{background:url(../../../../imagexPix/bar/6/sx-green.png) no-repeat;width:5px;}	
+	div.RGreen.H6{background:url(../../../../imagexPix/bar/6/dx-green.png) no-repeat;width:5px;}
+	div.LYellow.H6{background:url(../../../../imagexPix/bar/6/sx-yellow.png) no-repeat;width:5px;}	
+	div.RYellow.H6{background:url(../../../../imagexPix/bar/6/dx-yellow.png) no-repeat;width:5px;}			
+	div.LOrange.H6{background:url(../../../../imagexPix/bar/6/sx-orange.png) no-repeat no-repeat;width:5px;}	
+	div.ROrange.H6{background:url(../../../../imagexPix/bar/6/dx-orange.png) no-repeat;width:5px;}		
+	div.LRed.H6{background:url(../../../../imagexPix/bar/6/sx-red.png) no-repeat;width:5px;}	
+	div.RRed.H6{background:url(../../../../imagexPix/bar/6/dx-red.png) no-repeat;width:5px;}	
+	div.LGray.H6{background:url(../../../../imagexPix/bar/6/sx-gray.png) no-repeat;width:5px;}	
+	div.RGray.H6{background:url(../../../../imagexPix/bar/6/dx-gray.png) no-repeat;width:5px;}	
+
+	div.LWhite.H10{background:url(../../../../imagexPix/bar/10/sx-white.png) no-repeat;width:5px;}	
+	div.RWhite.H10{background:url(../../../../imagexPix/bar/10/dx-white.png) no-repeat;width:5px;}	
+	div.LGreen.H10{background:url(../../../../imagexPix/bar/10/sx-green.png) no-repeat;width:5px;}	
+	div.RGreen.H10{background:url(../../../../imagexPix/bar/10/dx-green.png) no-repeat;width:5px;}	
+	div.LYellow.H10{background:url(../../../../imagexPix/bar/10/sx-yellow.png) no-repeat;width:5px;}	
+	div.RYellow.H10{background:url(../../../../imagexPix/bar/10/dx-yellow.png) no-repeat;width:5px;}		
+	div.LOrange.H10{background:url(../../../../imagexPix/bar/10/sx-orange.png) no-repeat;width:5px;}	
+	div.ROrange.H10{background:url(../../../../imagexPix/bar/10/dx-orange.png) no-repeat;width:5px;}		
+	div.LRed.H10{background:url(../../../../imagexPix/bar/10/sx-red.png) no-repeat;width:5px;}	
+	div.RRed.H10{background:url(../../../../imagexPix/bar/10/dx-red.png) no-repeat;width:5px;}	
+	div.LGray.H10{background:url(../../../../imagexPix/bar/10/sx-gray.png) no-repeat;width:5px;}	
+	div.RGray.H10{background:url(../../../../imagexPix/bar/10/dx-gray.png) no-repeat;width:5px;}	
+	
+	div.LWhite.H14{background:url(../../../../imagexPix/bar/14/sx-white.png) no-repeat;width:5px;}	
+	div.RWhite.H14{background:url(../../../../imagexPix/bar/14/dx-white.png) no-repeat;width:5px;}	
+	div.LGreen.H14{background:url(../../../../imagexPix/bar/14/sx-green.png) no-repeat;width:5px;}	
+	div.RGreen.H14{background:url(../../../../imagexPix/bar/14/dx-green.png) no-repeat;width:5px;}	
+	div.LYellow.H14{background:url(../../../../imagexPix/bar/14/sx-yellow.png) no-repeat;width:5px;}	
+	div.RYellow.H14{background:url(../../../../imagexPix/bar/14/dx-yellow.png) no-repeat;width:5px;}			
+	div.LOrange.H14{background:url(../../../../imagexPix/bar/14/sx-orange.png) no-repeat;width:5px;}	
+	div.ROrange.H14{background:url(../../../../imagexPix/bar/14/dx-orange.png) no-repeat;width:5px;}		
+	div.LRed.H14{background:url(../../../../imagexPix/bar/14/sx-red.png) no-repeat;width:5px;}	
+	div.RRed.H14{background:url(../../../../imagexPix/bar/14/dx-red.png) no-repeat;width:5px;}	
+	div.LGray.H14{background:url(../../../../imagexPix/bar/14/sx-gray.png) no-repeat;width:5px;}	
+	div.RGray.H14{background:url(../../../../imagexPix/bar/14/dx-gray.png) no-repeat;width:5px;}	
+	
+	div.LWhite.H28{background:url(../../../../imagexPix/bar/28/sx-white.png) no-repeat;width:5px;}	
+	div.RWhite.H28{background:url(../../../../imagexPix/bar/28/dx-white.png) no-repeat;width:5px;}	
+	div.LGreen.H28{background:url(../../../../imagexPix/bar/28/sx-green.png) no-repeat;width:5px;}	
+	div.RGreen.H28{background:url(../../../../imagexPix/bar/28/dx-green.png) no-repeat;width:5px;}	
+	div.LYellow.H28{background:url(../../../../imagexPix/bar/28/sx-yellow.png) no-repeat;width:5px;}	
+	div.RYellow.H28{background:url(../../../../imagexPix/bar/28/dx-yellow.png) no-repeat;width:5px;}			
+	div.LOrange.H28{background:url(../../../../imagexPix/bar/28/sx-orange.png) no-repeat;width:5px;}	
+	div.ROrange.H28{background:url(../../../../imagexPix/bar/28/dx-orange.png) no-repeat;width:5px;}		
+	div.LRed.H28{background:url(../../../../imagexPix/bar/28/sx-red.png) no-repeat;width:5px;}	
+	div.RRed.H28{background:url(../../../../imagexPix/bar/28/dx-red.png) no-repeat;width:5px;}	
+	div.LGray.H28{background:url(../../../../imagexPix/bar/28/sx-gray.png) no-repeat;width:5px;}	
+	div.RGray.H28{background:url(../../../../imagexPix/bar/28/dx-gray.png) no-repeat;width:5px;}				
+	
+	div.Outer div div{margin:1px;line-height:12px;height:12px;font-size:12px;}
+	div.H14 div.red div{background:red;}
+	div.H14 div.orange div{background:#ff8000;}
+	div.H14 div.green div{background:green;}		
+	
+	div.Outer{position:absolute;}
+	div.Inner{position:relative;top:0px;left:0px;width:100%;height:100%;}
+	div.FarmaciaLogo div.Inner{background-image:url(../../../../imagexPix/contextMenu/farmaciaLogo10.png);}
+	
+/* z-index */
+.Under {z-index: -1000;}
+.z1 {z-index: 1;}
+
+th div.note {background: transparent url(../../../../imagexPix/button/note_pinned.gif) no-repeat; float: left; width: 15px; height: 20px;};
+
+/*
+ * FancyBox - jQuery Plugin
+ * Version: 1.3.4 (11/11/2010)
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
+#fancybox-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1100;
+	display: none;
+}
+#fancybox-wrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 20px;
+	z-index: 1101;
+	outline: none;
+	display: none;
+}
+#fancybox-outer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+#fancybox-content {
+	width: 0;
+	height: 0;
+	padding: 0;
+	outline: none;
+	position: relative;
+	overflow: hidden;
+	z-index: 1102;
+	border: 0px solid #fff;
+}
+#fancybox-hide-sel-frame {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	z-index: 1101;
+}
+#fancybox-close {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 30px;
+	height: 30px;
+	background: transparent url(../../../../imagexPix/fancybox/fancybox.png) -40px 0px;
+	cursor: pointer;
+	z-index: 1103;
+	display: none;
+}
+#fancybox-frame {
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+}
+
+
+/*piano nuove regole css*/
+div.Terapia[stato="C"],div.Procedura[stato="C"] {BACKGROUND: black; FILTER: alpha(opacity=30);}
+/*.velonero {BACKGROUND: black; FILTER: alpha(opacity=8);}*/
+
+div.in_validita {height: 100%;background:none;position:relative;}
+/*div.in_validita div.inner{position:relative; height:100%;/*border-left:1px solid #1b519b;border-right:1px solid #1b519b;background:white;}*/
+
+div.in_validita div.inner{/*margin:2px;*/border:1px solid #1b519b;/*height:90%;width:99%;*/background:white;FILTER: alpha(opacity=50);position:absolute;top:2px;left:1px;right:1px;bottom:2px;}
+div.in_validita.selected div.inner {BACKGROUND: #ff9; /*margin:2px;*/}
+
+/*div.cambioscheda {border-right: 2px solid orange;}*/
+div.Terapia, div.Parametro, div.Procedura {border-bottom: 1px solid #1b519a; background:transparent;/*border-left: 3px solid #1b519a;border-right: 3px solid #1b519a;*/width: 100%;}
+/*div.Scheda{BORDER-TOP: 1px dashed #1b519a;BORDER-LEFT: 3px solid #1b519a;}*/
+div.tableDivisore {	background:#1B519A;	color: #FFF;font-weight:bold;font-size:10px;text-align: left;height:12px;padding-left: 7px;}
+div.tableDivisore a{border:1px solid #FFF;color:#FFF;margin:0px 0px 0px 5px;padding:0px 3px;text-decoration:none;}
+div.tableDivisore a:hover{border:1px solid yellow;color:yellow;}
+/*div.Intestazione {height: 100%; background-color:  #f0f9fe;BORDER-RIGHT: 3px solid #1b519a;}*/
+/*table#tableTerapie th {width: 262px;}*/
+table.Scheda { left:15px; table-layout:fixed;}
+table.Scheda th { background-color:white; cursor:hand;font-size:12px; width:241px;BORDER-RIGHT: 3px solid #1b519a;BORDER-LEFT: 3px solid #1b519a;}
+table.Scheda[stato="E"]{color:gray; font-style: italic; }
+table.Scheda td{padding:0px;}
+table.Scheda div.Inner {cursor:pointer;}
+th.CHIUSA{background:url(../../../../imagexPix/dialog/error_NObg.png) no-repeat right bottom #A6A6A6;}
+
+div.toolbar {cursor: hand; font-size: 12px;}
+/*table#tableFasce{position: absolute; width: 100%;}*/
+/*body {background: transparent url(../../../../imagexPix/test.jpg) 264px 0px; background-size: 10px;}*/
+#tableTimeLine {
+	left:15px;
+	width:100%;
+	font-size:10px;   
+	table-layout:fixed;
+	/*background:#F00;trabuzzo per visualizzare la linea di interruzione tra i giorni*/
+	/*background:#6fa1d4;*/
+	border-right:3px solid #1B519A;	
+}
+tr#fasce{height: 0px; }
+tr#fasce td {padding: 0px; margin: 0px;}
+td.Turno1{background:#efefef;padding:3px;border-bottom:1px solid #6fa1d4;}
+td.Turno2{background:#e8e8e8;padding:3px;border-bottom:1px solid #6fa1d4;}
+td.inizioGiorno{border-left:1px solid #fa2;}
+
+
+div.Procedura div.Header{position:relative;height:48px;top:0px;}
+
+div.Parametro table, div.Procedura table {width: 100%; height: 100%;}
+div.legenda{width:20px; height: 20px;position:absolute; top:0px; right:0px; cursor:hand;
+	background: transparent url(../../../../imagexPix/button/help.png); }
+
+html {
+height:100%; /* fix height to 100% for IE */
+max-height:100%; /* fix height for other browsers */
+padding:0; /*remove padding */
+margin:0; /* remove margins */
+border:0; /* remove borders */
+background:#fff; /*color background - only works in IE */
+font-size:80%; /*set default font size */
+font-family:"trebuchet ms", tahoma, verdana, arial, sans-serif; /* set default font */
+/* hide overflow:hidden from IE5/Mac */
+/* \*/
+overflow:hidden; /*get rid of scroll bars in IE */
+/* */
+}
+
+body {
+height:100%; /* fix height to 100% for IE */
+max-height:100%; /* fix height for other browsers */
+overflow:hidden; /*get rid of scroll bars in IE */
+padding:0; /*remove padding */
+margin:0; /* remove margins */
+border:0; /* remove borders */
+}
+
+#content { margin:0px;
+display:block; /* set up as a block */
+height:90%; /* set height to full page */
+max-height:95%;
+overflow-y:scroll; /* add scroll bars as required */
+overflow-x:hidden; /* add scroll bars as required */
+/* pad left to avoid navigation div if required */
+position:relative; /* set up relative positioning so that z-index will work */
+z-index:3; /* allocate a suitable z-index */
+}

@@ -1,0 +1,202 @@
+/* Based partially on Matthew Carroll's keyboard accessible flavor of Suckerfish 
+ * Dropdowns by Patrick Griffiths and Dan Webb. 
+ * http://carroll.org.uk/sandbox/suckerfish/bones2.html
+ */
+
+/* ----[ LINKS ]----*/
+
+/* all menu links */
+#nav a, #subMenusContainer a{
+	text-decoration:none;
+	display:block;
+	padding:2px 4px 2px 6px;
+	color: #000;
+	width:120px;
+	font-size:12px;
+	font-weight:bold;
+	}
+
+
+
+/* Just main menu links --[for non-javascript users this applies to submenu links as well]*/
+#nav a{
+	margin:0;
+	float:left;
+	height:15px;
+}
+
+
+/* link dei sotto menu */
+#subMenusContainer a, #nav li li a{
+	text-align:left;
+	line-height:25px;
+	height:25px;
+	background:white;
+	color:#000;
+	border-bottom:1px dotted #aaa;
+}
+
+/* All menu links on hover or focus */
+
+#nav a:hover, #nav a:focus, #subMenusContainer a:focus, #nav a.mainMenuParentBtnFocused{
+}
+
+/* hover menu di primo livello */
+#subMenusContainer a.subMenuParentBtnFocused, #subMenusContainer a:hover{
+	background:#e6e6e6;
+}
+
+
+
+
+/* sub menu links on hover or focus */
+#subMenusContainer a:hover, 
+#subMenusContainer a:focus, 
+#nav a.mainMenuParentBtnFocused, 
+#subMenusContainer a.subMenuParentBtnFocused,
+#nav li a:hover,
+#nav li a:focus{
+	color:black;
+}
+
+/* Parent Sub Menu Links ---[javascript users only]*/
+.subMenuParentBtn{ 
+	background: url(../../../../imagexPix/button/mini/arrow_right.gif) right center no-repeat; 
+}
+
+/* Parent Sub Menu Links on hover or focus ---[javascript users only]*/
+.subMenuParentBtnFocused{ 
+	/*background: url(../../../../imagexPix/button/mini/arrow_right_over.gif) right center no-repeat;  */
+	 left:100px;
+	
+}
+
+/* Parent Main Menu Links ---[javascript users only]*/
+.mainMenuParentBtn{	
+	 margin-right:20px;	 
+}
+
+/* Parent Main Menu Links on hover or focus ---[javascript users only]*/
+.mainMenuParentBtnFocused{	
+	/*background: url(../../../../imagexPix/button/mini/bt/arrow_down_over2010.png) right center no-repeat; */
+	background : url(../../../../imagexPix/menuMatic/button_hover.png) no-repeat;
+	 margin-right:20px;	
+}
+
+/* ----[ OLs ULs, LIs, and DIVs ]----*/
+
+/* Submenu Outer Wrapper - each submenu is inside a div with this class - javascript users only */
+.smOW{ 
+	display:none; 
+	position: absolute; 
+/* ---	overflow:hidden;  ----*/
+	/*the 2px left & right padding lets you have a 1px border 
+	  on the ul or ol inside since overflow is set to hidden*/
+	padding:0 2px;
+	margin:0 0 0 -2px;
+}
+
+
+/* All ULs and OLs */
+#nav, #nav ul, #nav ol, #subMenusContainer ul, #subMenusContainer ol { 
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1em;
+	
+}
+
+/* All submenu OLs and ULs
+interlinea tra un option e l'altro
+*/
+#nav ol, #nav ul, #subMenusContainer ul, #subMenusContainer ol {	
+	border:1px solid #aaa;
+	left:0;
+	background:#fff;
+	
+}
+
+
+/* List items in main menu --[for non-javascript users this applies to submenus as well]  */
+#nav li { 
+	/*great place to use a background image as a divider*/
+	display:block;
+	list-style:none;
+	position:relative;
+	float:left;
+}
+/* interlinea tra un option e l'altro*/
+#subMenusContainer li{
+	list-style: none;
+	line-height:0px;
+}
+
+/* main menu ul or ol elment */
+#nav{
+	display:block;
+	position: absolute;
+	list-style:none;
+	margin:0 0 0 0;
+	z-index:5;
+	text-align: left;
+	display:block;
+}
+
+#subMenusContainer{	display:block; 	position:absolute;	top:0;	left:0;	width:100%;	height:0;	overflow:visible;	z-index:1000000000; }
+
+
+/* --------------------------[ The below is just for non-javscript users ]--------------------------*/
+#nav li li{	float:none; 	height:25px;	line-height:25px; }
+
+#nav li li a{ /* Just submenu links*/	
+	position:relative;
+	float:none;
+	height:25px;
+	line-height:30px;
+}
+
+#nav li ul { /* second-level lists */
+	position: absolute;
+	width: 10em;
+	margin-left: -1000em; /* using left instead of display to hide menus because display: none isn't read by screen readers */
+	margin-top:2.2em;
+	height:25px;
+	line-height:25px;
+}
+
+/* third-and-above-level lists */
+#nav li ul ul { margin: -1em 0 0 -1000em; }
+#nav li:hover ul ul {	margin-left: -1000em; }
+
+ /* lists nested under hovered list items */
+#nav li:hover ul{	margin-left: 0; }
+#nav li li:hover ul {	margin-left: 10em; margin-top:-2.5em; }
+
+/* extra positioning rules for limited noscript keyboard accessibility */
+#nav li a:focus + ul {  margin-left: 0; margin-top:2.2em; }
+#nav li li a:focus + ul { left:0; margin-left: 1010em; margin-top:-2.2em;}
+#nav li li a:focus {left:0;  margin-left:1000em; width:10em;  margin-top:0;}
+#nav li li li a:focus {left:0; margin-left: 2010em; width: 10em;  margin-top:-1em;}
+#nav li:hover a:focus{ margin-left: 0; }
+#nav li li:hover a:focus + ul { margin-left: 10em; }
+
+
+
+.iconMultiLevelDDMenu{
+	width:0px;
+	height:15px;
+	border:0;
+	margin:0;
+}
+
+.iconMultiLevelDDMenuShim{
+	width:0px;
+	height:15px;
+	border:0;
+	margin:0;
+}
+
+#menuDDcontainer ul#nav li{
+	background : url(../../../../imagexPix/menuMatic/button.png) no-repeat;
+	margin:0px 5px 0 0;
+	}

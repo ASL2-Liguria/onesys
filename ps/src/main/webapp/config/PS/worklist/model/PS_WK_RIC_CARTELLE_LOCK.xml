@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>PS_WK_RIC_CARTELLE_LOCK</ID>
+    <ID-QUERY connection="PS">WORKLIST.CARTELLE_LOCK</ID-QUERY>
+    <TITLE>"Worklist Cartelle bloccate"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_CARTELLE_LOCK</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>TABELLA_IDEN</COL>
+                        <DB>TABELLA_IDEN</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>USERNAME_LOCK</COL>
+                        <DB>USERNAME_LOCK</DB>
+                    </ID>
+                    <DESCRIPTOR>"USERNAME LOCK"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_LOCK</COL>
+                        <DB>DATA_LOCK</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA BLOCCO"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NUMERO_PRATICA</COL>
+                        <DB>NUMERO_PRATICA</DB>
+                    </ID>
+                    <DESCRIPTOR>"NUMERO PRATICA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PAZIENTE</COL>
+                        <DB>PAZIENTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"PAZIENTE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>300px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTE_LOCK</COL>
+                        <DB>UTE_LOCK</DB>
+                    </ID>
+                    <DESCRIPTOR>"UTENTE LOCK"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PC_LOCK</COL>
+                        <DB>PC_LOCK</DB>
+                    </ID>
+                    <DESCRIPTOR>"PC BLOCCANTE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

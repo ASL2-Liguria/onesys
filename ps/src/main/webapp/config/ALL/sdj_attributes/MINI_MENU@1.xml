@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="MINI_MENU">
+        <OBJ classe_id="PATH::div{.extMiniMenu}">
+            <PROC id="generaMenu"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

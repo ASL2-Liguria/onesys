@@ -1,0 +1,85 @@
+<PAGINA key_id="CONFIGURAZIONE_UTENTI">
+
+	<HEADER_PAGE key_id="CONFIGURAZIONE_UTENTI" valore="DEFAULT_MMG,SCHEDA,CONFIGURAZIONE_UTENTI#DEFAULT_MMG,CONFIGURAZIONE_UTENTI" evento="START_END"></HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_UTENTI_INTERFACCIA#MMG_DATI#CONFIGURAZIONE_UTENTI#IDEN#IDEN##VCONFUTENTE" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="ConfigurazioneUtenti#lblTitolo#butInserisci,butResetPwd,butSalva,butChiudi" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabLista" valore="tabLista" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldRicercaUtente" valore="fldRicercaUtente"
+					evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="txtRicerca" valore="lblRicerca##txtRicerca###" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca#butCerca#5" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+					
+				
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldLista" valore="fldLista"
+					evento="START">
+					<DIV.WORKLIST key_id="wkUtenti" valore="wkUtenti"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabConfigurazioneUtenti" valore="tabConfigurazioneUtenti" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldUtente" valore="fldUtente" evento="START">
+
+					<TR_TD_LABEL_TEXT key_id="Username" valore="lblUsername##txtUsername###USERNAME" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR.INIT key_id="trPassword" valore="" evento="START">
+
+						<TD_LABEL_PASSWORD key_id="Password" valore="lblPassword##txtPassword###PASSWORD" evento="START">
+						</TD_LABEL_PASSWORD>
+						
+						<TD_LABEL_RADIO key_id="MostraPassword" valore="lblMostraPassword##MostraPassword#radMostraPassword#{width:80,idxDefault:1}#S" evento="START">
+						</TD_LABEL_RADIO>
+						
+					</TR.INIT>
+
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldTipologiaUtente" valore="fldTipologiaUtente" evento="START">
+				
+					<TR_TD_LABEL_RADIO key_id="TipologiaUtente" valore="lblTipologiaUtente##TipologiaUtente#radTipologiaUtente#{width:130,idxDefault:1}#N#TIPOLOGIA_UTENTE" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_AUTOCOMPLETE key_id="personale"
+						valore="lblPersonale#acPersonale#personale#txtPersonale#AC_PERSONALE#PERSONALE"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+				
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldAttributiUtente" valore="fldAttributiUtente" evento="START">
+
+					<TR_TD_LABEL_RADIO key_id="amministratore" valore="lblAmministratore##amministratore#radAmministratore#{width:180,idxDefault:1}#S#AMMINISTRATORE" evento="START">
+					</TR_TD_LABEL_RADIO>
+				
+					<TR_TD_LABEL_RADIO key_id="dematerializzataFarmaci" valore="lblDematerializzataFarmaci##dematerializzataFarmaci#radDematerializzataFarmaci#{width:180,idxDefault:1}#S#DEMATERIALIZZATA_FARMACI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="dematerializzataPrestazioni" valore="lblDematerializzataPrestazioni##dematerializzataPrestazioni#radDematerializzataPrestazioni#{width:180,idxDefault:1}#S#DEMATERIALIZZATA_PRESTAZIONI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldGruppi" valore="fldGruppi" evento="START">
+				
+					<DIV.WORKLIST key_id="wkGruppi" valore="wkGruppi"
+						evento="START">
+					</DIV.WORKLIST>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+	
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

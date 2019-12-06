@@ -1,0 +1,23 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_BACHECA'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Priorita" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_PRIORITA_BACHECA" />
+	<DATO key_id="Sezione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="CMB_SEZIONE_BACHECA" />
+	<DATO key_id="AssociaPaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MostraUtente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="fldPaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="LEGEND_PAZIENTE" db_descrizione="LEGEND_PAZIENTE"
+		configurazione_multi_data="" />
+	<DATO key_id="fldOggi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="LEGEND_OGGI" db_descrizione="LEGEND_OGGI"
+		configurazione_multi_data="" />
+	<DATO key_id="fldUtente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="LEGEND_UTENTE" db_descrizione="LEGEND_UTENTE"
+		configurazione_multi_data="" />
+	<DATO key_id="fldAggiornamenti" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="LEGEND_AGGIORNAMENTI" db_descrizione="LEGEND_AGGIORNAMENTI"
+		configurazione_multi_data="" />	
+</DATI>

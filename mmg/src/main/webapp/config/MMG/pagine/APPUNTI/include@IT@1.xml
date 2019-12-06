@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/MMG/Medico/Appunti.css" />
+	<JS path="js/Base/tinymce4/tinymce.min.js" />
+	<JS path="js/MMG/Medico/Appunti.js" />
+</INCLUDE>

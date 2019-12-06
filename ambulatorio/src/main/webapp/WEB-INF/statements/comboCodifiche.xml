@@ -1,0 +1,32 @@
+<root>
+	<statements_list>
+		<statement name="getCodificheCombo">				
+			<sql>
+			<![CDATA[
+					select IDEN, COD_DEC, DESCRIZIONE from TAB_CODIFICHE_COMBO  where  tipo = ? and cod_dec_procedura= ? and attivo='S' order by ordine					
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getCodificheComboSortByDescr">				
+			<sql>
+			<![CDATA[
+					select IDEN, COD_DEC, DESCRIZIONE from TAB_CODIFICHE_COMBO  where  tipo = ? and cod_dec_procedura= ? and attivo='S' order by DESCRIZIONE					
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		
+		<statement name="getCodificheComboWithFather">				
+			<sql>
+			<![CDATA[
+					select IDEN, COD_DEC, DESCRIZIONE from TAB_CODIFICHE_COMBO  where  tipo = ? and cod_dec_procedura=  (select cod_dec from tab_eco_codifiche where iden =?) and attivo='S' order by ordine					
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+	</statements_list>
+</root>

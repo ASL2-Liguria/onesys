@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabProfili>Profili</tabProfili>
+    	<lblTitolo>Gestione dei profili di accertamenti</lblTitolo>
+        <fldtbl>Gestione Profili</fldtbl>
+		<butChiudi>Chiudi</butChiudi>
+		<lblGruppi>Nome Profilo</lblGruppi>
+		<lbllistCross>Elenco Accertamenti Profilo</lbllistCross>
+		<lblPrestazioni>Ricerca Accertamento</lblPrestazioni>
+		<fldDettaglio>Dettaglio del profilo</fldDettaglio>
+		<lblAbilitato>Abilitato</lblAbilitato>
+		<lblSi>Si</lblSi>
+		<lblNo>No</lblNo>
+		<lblCommento>Commento Prestazione</lblCommento>
+		<lblCommentoGruppo>Commento Gruppo</lblCommentoGruppo>
+		<lblNomeGruppo>Nome Gruppo</lblNomeGruppo>	
+		<butRegistra>Registra</butRegistra>
+		<butAggiungiAccertamento>Aggiungi Accertamento</butAggiungiAccertamento>
+		<butRimuoviAccertamento>Rimuovi Accertamento</butRimuoviAccertamento>
+		<butChiudiDettaglio>Chiudi Dettaglio</butChiudiDettaglio>
+		<butElimina>Elimina</butElimina>
+		<NomeNonCorretto>Nome Gruppo Non Corretto</NomeNonCorretto>
+		<NessunAccertamento>Impossibile registrare un profilo senza accertamenti</NessunAccertamento>
+		<acListChiudi>Chiudi</acListChiudi>
+		<acListCerca>Cerca</acListCerca>
+		<butRimuovi>Rimuovi</butRimuovi>
+		<butAggiungi>Aggiungi Profilo</butAggiungi>
+		<butDuplica>Duplica Profilo</butDuplica>
+		<butModificaNome>Modifica Nome Profilo</butModificaNome>
+		<butSalvaDuplicato>Salva Profilo Duplicato</butSalvaDuplicato>
+		<lbllblCancellazioneEseguita>Notifica</lbllblCancellazioneEseguita>
+		<lblTitoloCancellazioneEseguita>Cancellazione eseguita con successo</lblTitoloCancellazioneEseguita>
+		<lblCancellazioneError>Cancellazione non consentita. La causa potrebbe essere la mancanza di permessi per cancellare il profilo scelto</lblCancellazioneError>
+		<lblCancellazioneAnnullata>Cancellazione Annullata</lblCancellazioneAnnullata>
+		<butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

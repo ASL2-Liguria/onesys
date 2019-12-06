@@ -1,0 +1,89 @@
+<root>
+	<statements_list>
+
+
+		<statement name="getAnagID1">
+			<sql>
+			<![CDATA[
+				SELECT id1 FROM cod_est_anag where iden_anag = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+
+        <statement name="getDocumenti_RADIO">	
+            <pool>elcoPool_polaris</pool>
+            <catalogo>dati</catalogo>
+            <sql>
+            <![CDATA[
+            		SELECT 
+                        te.DESCR PRESTAZIONE
+                        , radsql.datetimeconverter(e.DAT_ESA,'YYYYMMDD','DD/MM/YYYY') DATA_PRESTAZIONE
+                        , tp.DESCR PROVENIENZA
+                        , e.IDEN_REF iden_dettaglio
+                        , cee.ARRIVATODA
+                        , cee.IDEN_INFOWEB_RICHIESTA
+                        , vr.ID_REPOSITORY
+                        , vr.DATA_ORA_FIRMA CREATIONTIME
+                        --, EXTRACTVALUE(e.PRIVACY_ESAME, '/consenso/confidentiality-code/text()') OSCURAMENTO
+                        , (SELECT NUM_NOSOLOGICO FROM radsql.VIEW_NOSOLOGICI_REPOSITORY WHERE IDEN = e.IDEN)                 NUM_NOSOLOGICO ,
+                        TXT.TESTO,
+                        tper.DESCR REFERTANTE,
+                        cdc.descr REPARTO,
+						TO_CHAR(vr.DATA_ORA_FIRMA, 'dd/mm/yyyy') DATA_DOCUMENTO	,
+						vr.DATA_ORA_FIRMA				
+                    FROM ESAMI e
+                    INNER JOIN TAB_ESA te ON te.IDEN = e.IDEN_ESA
+                    INNER JOIN TAB_PRO tp ON tp.IDEN = e.IDEN_PRO
+                    INNER JOIN TAB_PER tper ON tper.IDEN = e.IDEN_MEDR 
+                    INNER JOIN COD_EST_ESAMI cee ON cee.IDEN_ESAME = e.IDEN
+                    INNER JOIN centri_di_costo cdc on cdc.cod_cdc = e.reparto
+                    INNER JOIN VERSIONI_REFERTI vr ON vr.IDEN_REF = e.IDEN_REF AND vr.IDEN_VR = (SELECT MAX(IDEN_VR) FROM VERSIONI_REFERTI WHERE IDEN_REF = e.IDEN_REF)
+                    inner JOIN REFTXT TXT on TXT.IDEN_REF =  e.iden_REF
+                    WHERE 
+                    e.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 =?)
+                    and e.ESEGUITO  = '1'
+                    AND e.DELETED   = 'N'
+                    AND e.REPARTO   <> 'UVAPL'
+                    AND te.METODICA <> '0'
+                    ORDER BY e.DAT_ESA DESC
+            ]]>
+            </sql>
+        </statement>
+		
+        <statement name="getReferto_RADIO">	
+            <pool>elcoPool_polaris</pool>
+            <catalogo>dati</catalogo>
+            <sql>
+            <![CDATA[		
+				select testo, testo_html from reftxt where iden_ref = to_number(?)
+			 ]]>
+            </sql>
+        </statement>		
+		
+        <statement name="getDocumenti_LETTERE">	
+            <pool>elcoPool_whale</pool>
+            <catalogo>dati</catalogo>
+            <sql>
+            <![CDATA[
+				SELECT iden_lettera iden_dettaglio, tipologia PRESTAZIONE, cod_cdc, descrizione_cdc reparto,
+				medico REFERTANTE, data_fine_ricovero DATA_DOCUMENTO, data_fine_ricovero_orderby FROM VIEW_WK_LETTERE_PRECEDENTI
+				where iden_anag = (select iden_anag from cod_est_anag where id1=?)
+				order by data_fine_ricovero_orderby desc
+            ]]>
+            </sql>
+        </statement>	
+		
+        <statement name="getReferto_LETTERE">	
+            <pool>elcoPool_whale</pool>
+            <catalogo>dati</catalogo>
+            <sql>
+            <![CDATA[		
+				SELECT labelarea, testo_piano, testo_html, iden_versione FROM VIEW_WK_LETTERE_PRECEDENTI_SEZ WHERE IDEN_VERSIONE = to_number(?)			
+			 ]]>
+            </sql>
+        </statement>				
+		 			
+			
+	</statements_list>
+</root>

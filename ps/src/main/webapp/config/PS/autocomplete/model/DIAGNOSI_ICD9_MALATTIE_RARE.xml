@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){NS_INS_MALATTIE_RARE.valorizeDescr(data.DESCR)}]]>
+        </onSelect>
+        <maxHeight>400</maxHeight>
+        <width>300</width>
+        <zIndex>9999</zIndex>
+        <datasource>PS</datasource>
+        <deferRequestBy>200</deferRequestBy>
+        <storedQuery>AUTOCOMPLETE.DIAGNOSI_ICD9_MALATTIE_RARE</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Diagnosi ICD9</title>
+        <id_wk>WK_ICD9_MALATTIE_RARE</id_wk>
+    </LIST>
+</AUTOCOMPLETE>

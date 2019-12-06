@@ -1,0 +1,425 @@
+<PAGINA key_id="ACC_RICOVERO">
+	<HEADER_PAGE key_id="ACC_RICOVERO" valore="DEFAULT,SCHEDA,ACC_RICOVERO#DEFAULT,ACC_RICOVERO" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="ACC_RICOVERO#lblTitolo#butFirma,butStampaSTP,butStampaENI,butStampaTesseraENI,butStampa,butApriCartella,butSalva,butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabAnagrafica" valore="tabAnagrafica" evento="START">
+				<FIELDSET_TABLE key_id="fldDP" valore="fldDP" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtAnagCognome###COGNOME###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtAnagNome###NOME###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="DataNasc" valore="lblDataNascita##txtAnagDataNasc#DataNasc#readonly_element: false, format: 'd/m/Y',onSelect: function(){},direction:false#disabled:false##DATA_NASCITA" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_RADIO key_id="Sesso" valore="lblSesso##Sesso#radAnagSesso#{width:'none',idxDefault:2}#S#SESSO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <INPUT.HIDDEN key_id="hCodComNasc" valore="hCodComNasc###" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="ID4" valore="ID4" evento="START">
+                    </INPUT.HIDDEN>
+                    <TR_TD_AUTOCOMPLETE key_id="LocResNasc" valore="lblLuogoNasc#acLuogoNascita#LuogoNasc#txtLuogoNasc#AnagraficaComuneNascita#IDEN_COMUNE_NASCITA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="CodFisc" valore="lblCodiceFiscale##txtAnagCodFisc###CODICE_FISCALE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="STP" valore="lblSTP##STP#radSTP#{width:'none',idxDefault:1}#S#STP" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="codSTP" valore="lblcodSTP##txtCodSTP######N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="scadCodSTP" valore="lblscadcodSTP#maskData#txtScadCodSTP##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_RADIO key_id="ENI" valore="lblENI##ENI#radENI#{width:'none',idxDefault:1}#S#ENI" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="codENI" valore="lblcodENI##txtCodENI######N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="scadCodENI" valore="lblscadcodENI#maskData#txtScadCodENI##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START" >
+                    </TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_RADIO key_id="GIU" valore="lblGIU##GIU#radGIU#{width:'none',idxDefault:1}#S#GIU" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="codGIU" valore="lblcodGIU##txtCodGIU######N" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_DATA key_id="scadCodGIU" valore="lblscadcodGIU#maskData#txtScadCodGIU##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START" >
+					</TR_TD_LABEL_DATA>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldInfoPaz" valore="fldInfoPaz" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="StatoCivile" valore="lblStatoCivile#acStatoCivile#StatoCivile#txtStatoCivile#AnagraficaStatoCivile#IDEN_STATO_CIVILE" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="TitoloStudio" valore="lblTitoloStudio#acTitoloStudio#TitoloStudio#txtTitoloStudio#AnagraficaTitoloStudio#IDEN_TITOLO_STUDIO" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt" valore="lblCitt#acCittadinanza0#Citt#txtCitt0#AnagraficaCittadinanza#IDEN_CITTADINANZA##AUTOCOMPLETECITTADINANZA" evento="START">
+                        <TD.INIT key_id="tdPlus" valore="1#tdPlus#tdPlus" evento="START">
+                            <DIV key_id="divPlus" valore="#divPlus" evento="START"></DIV>
+                        </TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt1" valore="lblCitt1#acCittadinanza1#Citt#txtCitt1#AnagraficaCittadinanza#IDEN_CITTADINANZA1##AUTOCOMPLETECITTADINANZA" evento="START">
+                        <TD.INIT key_id="tdPlus" valore="1#tdPlus#tdPlus" evento="START">
+                            <DIV key_id="divPlus" valore="#divPlus" evento="START"></DIV>
+                        </TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt2" valore="lblCitt2#acCittadinanza2#Citt#txtCitt2#AnagraficaCittadinanza#IDEN_CITTADINANZA2##AUTOCOMPLETECITTADINANZA" evento="START">
+                        <TD.INIT key_id="tdPlus" valore="1#tdPlus#tdPlus" evento="START">
+                            <DIV key_id="divPlus" valore="#divPlus" evento="START"></DIV>
+                        </TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt3" valore="lblCitt3#acCittadinanza3#Citt#txtCitt3#AnagraficaCittadinanza#IDEN_CITTADINANZA3##AUTOCOMPLETECITTADINANZA" evento="START"></TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="tessera" valore="lblTessera##txtTessera###TESSERA" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="scadenzaTessera" valore="lblScadenzaTessera##txtScadenzaTessera#readonly_element: false, format: 'd/m/Y',onSelect: function(){;},direction:false#disabled:true##SCADENZA_TESSERA" evento="START">
+                    </TR_TD_LABEL_DATA>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldRes" valore="fldRes" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="ComRes" valore="lblComuneResidenza#acComRes#ComuneResidenza#txtComuneRes#AnagraficaComuneResidenza#IDEN_COMUNE_RESIDENZA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="IndRes" valore="lblIndRes##txtIndRes###RES_INDIRIZZO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CivRes" valore="lblCivRes##txtCivRes###RES_NUMERO_CIVICO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CAPRes" valore="lblCAPRes##txtCAPRes###RES_CAP" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="TelRes" valore="lblTelRes##txtTelRes###RES_TELEFONO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="ProvRes" valore="lblProvRes##txtProvRes###RES_PROVINCIA" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CodiceRegioneRes" valore="lblCodiceRegioneRes##txtCodiceRegioneRes###CODICE_REGIONALE_RES" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_AUTOCOMPLETE key_id="ASLResidenza" valore="lblASLResidenza#acASLResidenza#ASLResidenza#txtASLResidenza#AnagraficaASLStandard#ASL_RESIDENZA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabRicovero" valore="tabRicovero" evento="START">
+				<FIELDSET_TABLE key_id="Assistito" valore="idAssistito" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome##txtCognome####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtDataNasc" valore="lblDataNascita##txtDataNasc####S#w80px#N" evento="START">"
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtSesso" valore="lblSesso##txtSesso####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtCodFisc" valore="lblCodiceFiscale##txtCodFisc####S#w130px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="tableUrg" valore="lblLivelloUrg" evento="START">
+					<TR_TD_LABEL_DATA key_id="dataPren" valore="lblDataPren#maskData#txtDataPren##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_PREN" evento="START">"
+						<TD_CHECK key_id="cmbLivelloUrg" valore="cmbLivelloUrg#cmbLivelloUrg#N#{width:'200px',single_val:true}##URGENZA" evento="START">
+						</TD_CHECK>
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="idAccRico" valore="idAccRico" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataRico" valore="lblDataRicovero#maskData#txtDataRico##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_RICO" evento="START">"
+						<TD_LABEL_ORA key_id="txtOraRico" valore="lblOraRicovero##txtOraRico#N" evento="START">
+                        </TD_LABEL_ORA>
+                        <TD_LABEL_TEXT key_id="txtNumNosologico" valore="lblNumNosologico##txtNumNosologico####S#w130px#N" evento="START">
+                        </TD_LABEL_TEXT>
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_COMBO key_id="cmbRegime" valore="lblRegime##cmbRegime#cmbRegime#N#SALVA#S#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbTipoRico" valore="lblTipoRico##cmbTipoRico#cmbTipoRico#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO key_id="cmbRepartoRico" valore="lblRepartoRico##cmbRepartoRico#cmbRepartoRico#N#SALVA#S#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbRepartoAss" valore="lblRepartoAss##cmbRepartoAss#cmbRepartoAss#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO key_id="cmbMotivoRico" valore="lblMotivoRico##cmbMotivoRico#cmbMotivoRico#N#SALVA#S#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbProvenienza" valore="lblProvenienza##cmbProvenienza#cmbProvenienza#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_AUTOCOMPLETE key_id="MedicoAcc" valore="lblMedicoAcc#acMedicoAcc#MedicoAcc#txtMedicoAcc#Medici#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbTipoMedicoPresc" valore="lblTipoMedPresc##cmbTipoMedicoPresc#cmbTipoMedicoPresc#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_COMBO key_id="cmbOnere" valore="lblOnere##cmbOnere#cmbOnere#N#SALVA#S#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbSubOnere" valore="lblSubOnere##cmbSubOnere#cmbSubOnere#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="cmbTicket" valore="lblTicket##cmbTicket#cmbTicket#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+					</TR_TD_LABEL_COMBO>
+                    <TR_TD_LABEL_TEXTAREA key_id="txtDiagnosiAcc" valore="lblDiagnosiAcc#txtDiagnosiAcc##N#N###STD##" evento="START">
+
+						<TD_AUTOCOMPLETE key_id="DiagnosiICD9" valore="lblDiagnosiIcd9#acDiagnosiICD9#DiagnosiICD9#txtDiagnosiICD9#AccRicoveroDiagnosiICD9#" evento="START">
+						</TD_AUTOCOMPLETE>
+
+					</TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="taNoteBraccialettoRicovero" valore="lbltaNoteBraccialettoRicovero#taNoteBraccialettoRicovero#taNoteBraccialettoRicovero#N#N#" evento="START">
+						<TD_LABEL_RADIO key_id="radLateralita" valore="lblLateralita##radLateralita#radLateralita#{width:100}#N#SAVE" evento="START"></TD_LABEL_RADIO>
+					</TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="cmbTrauma" valore="lblTrauma##cmbTrauma#cmbTrauma#N#SALVA#S#" evento="START">
+						<TD_AUTOCOMPLETE key_id="CategoriaCausaEsterna" valore="lblCategoriaCausaEsterna#acCategoriaCausaEsterna#CategoriaCausaEsterna#txtCategoriaCausaEsterna#AccRicoveroCategorieCausaEsterna#" evento="START">
+						</TD_AUTOCOMPLETE>
+						<TD_LABEL_COMBO key_id="cmbCausaEsterna" valore ="lblCausaEsterna##cmbCausaEsterna#cmbCausaEsterna#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+					</TR_TD_LABEL_COMBO>
+
+
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="TableDatiNeonato" valore="idDatiNeonato" evento="START">
+					<TR_TD_CHECK key_id="chkNeonato" valore="chkNeonato#chkNeonato#N#{width:100, ctrl:false}##NEONATO" evento="START">
+						<TD_LABEL_COMBO key_id="cmbTipoNeonato" valore="lblTipoNeonato##cmbTipoNeonato#cmbTipoNeonato#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_TEXT key_id="txtPesoNascita" valore="lblPesoNascita##txtPesoNascita#####w60px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_CHECK>
+					<TR_TD_AUTOCOMPLETE key_id="MadreCartella" valore="lblMadreCartella#acMadreCartella#MadreCartella#txtMadreCartella#MadreCartella##2" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="TablePrimoAccessoDh" valore="idPrimoAccessoDh" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataFineAccesso" valore="lblDataFineAccesso#maskData#txtDataFineAccesso##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START">"
+						<TD_LABEL_ORA key_id="txtOraFineAccesso" valore="lblOraFineAccesso##txtOraFineAccesso#N" evento="START">
+                        </TD_LABEL_ORA>
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabTrasferimento" valore="tabTrasferimento" evento="START">
+            	 <FIELDSET_TABLE key_id="DatiRicoveroAcc" valore="idDatiRicoveroAcc" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCartellaAcc" valore="lblCartellaAcc##txtCartellaAcc####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtDataRicoveroAcc" valore="lblDataRicoAcc##txtDataRicoveroAcc####S#w80px#N" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtOraRicoveroAcc" valore="lblOraRicoAcc##txtOraRicoveroAcc####S#w40px#N" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtRepartoAcc1" valore="lblRepartoAcc1##txtRepartoAcc1####S##N" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Degenza" valore="idDegenza" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtRepartoAttGiu" valore="lblRepartoAttGiu##txtRepartoAttGiu####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtRepartoAttAss" valore="lblRepartoAttAss##txtRepartoAttAss####S##N" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="datipaziente" valore="lbldatiPaziente" evento="START">
+                    <TR.INIT  key_id="rigaCont1" valore="" evento="START" >
+                        <TD_AUTOCOMPLETE key_id="repartoGiuridico" valore="lblRepDestinazione#acRepGiu#repartoGiuridico#repartoGiuridico#TrasferimentoRepartoGiuridico#" evento="START"></TD_AUTOCOMPLETE>
+                        <TD.INIT key_id="tdButtonRepartoAttuale" valore="" evento="START">
+                            <BUTTON key_id="butRepartoAttuale" valore="butRepartoAttuale" evento="START"></BUTTON>
+                        </TD.INIT>
+                        <TD_AUTOCOMPLETE key_id="repartoAssistenziale" valore="lblRepAss#acRepAss#repartoAssistenziale#repartoAssistenziale#TrasferimentoRepartoAssistenziale#" evento="START"></TD_AUTOCOMPLETE>
+                    </TR.INIT>
+                    <TR.INIT key_id="rigaCont2" valore="" evento="START" >>
+                        <TD_LABEL_DATA key_id="dateData" valore="lblData#maskData#dateData##startWithToday:true, readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_inizio" evento="START"></TD_LABEL_DATA>
+                    </TR.INIT>
+                    <TR.INIT key_id="rigaCont3" valore="" evento="START" >>
+                        <TD_LABEL_ORA key_id="txtOraInizio" valore="lbloraInizioRicovero##txtOraInizio#N" evento="START"></TD_LABEL_ORA>
+                    </TR.INIT>
+                    <TR.INIT  key_id="rigaCont4" valore="" evento="START" >
+                    	<TD_LABEL_RADIO key_id="radTrasfAmbulanza" valore="lblTrasfAmbulanza##radTrasfAmbulanza#radTrasfAmbulanza#{width:40}#S#SAVE" evento="START"></TD_LABEL_RADIO>
+					</TR.INIT>
+					<TR.INIT  key_id="rigaCont5" valore="" evento="START" >
+						<TD_LABEL_DATA key_id="txtDataPartenzaAmbulanza" valore="lblDataPartenzaAmbulanza#maskData#txtDataPartenzaAmbulanza##startWithToday:true, readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_inizio" evento="START"></TD_LABEL_DATA>
+						<TD_LABEL_ORA key_id="txtOraPartenzaAmbulanza" valore="lblOraPartenzaAmbulanza##txtOraPartenzaAmbulanza#N" evento="START"></TD_LABEL_ORA>
+					</TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="tableWkTrasferimenti" valore="tableWkTrasferimenti" evento="START">
+	            	<DIV key_id="divWkTrasferimenti" valore="divWkTrasferimenti" evento="START"></DIV>
+	            </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+            <TABULAZIONE.CREA_TAB key_id="tabAccessiDh" valore="tabAccessiDh" evento="START">
+				<FIELDSET_TABLE key_id="tableAccessiDh" valore="idAccessiDh" evento="START">
+	            	<DIV key_id="divAccessiDh" valore="divAccessiDh" evento="START">
+	            	</DIV>
+	            </FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabDimissione" valore="tabDimissione" evento="START">
+				<FIELDSET_TABLE key_id="DatiRicovero" valore="idDatiRicovero" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCartella" valore="lblCartella##txtCartella####S##N" evento="START">
+					<TD_LABEL_TEXT key_id="txtDataRicovero" valore="lblDataRico##txtDataRicovero####S#w80px#N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtOraRicovero" valore="lblOraRico##txtOraRicovero####S#w40px#N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtRepartoAcc" valore="lblRepartoAcc##txtRepartoAcc####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Degenza" valore="idDegenzaDimi" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtRepartoDeg" valore="lblRepartoDeg##txtRepartoDeg####S##N" evento="START">
+					<TD_LABEL_TEXT key_id="txtRepartoAss" valore="lblRepartoAss##txtRepartoAss####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtDataUltimoMov" valore="lblDataUltimoMov##txtDataUltimoMov####S#w80px#N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtOraUltimoMov" valore="lblOraUltimoMov##txtOraUltimoMov####S#w40px#N" evento="START">
+					</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Dimissione" valore="idDimissione" evento="START">
+                    <TR_TD_LABEL_DATA key_id="txtDataDimi" valore="lblDataDimi#maskData#txtDataDimi##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_DIMI" evento="START">"
+						<TD_LABEL_ORA key_id="txtOraDimi" valore="lblOraDimi##txtOraDimi#N" evento="START">
+	                    </TD_LABEL_ORA>
+	                    <TD.INIT key_id="td3_1" valore="1" evento="START"></TD.INIT>
+						<TD.INIT key_id="td4_1" valore="1" evento="START"></TD.INIT>
+                    </TR_TD_LABEL_DATA>
+                    <TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="cmbTipoDimi" valore="lblTipoDimi##cmbTipoDimi#cmbTipoDimi#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+	                    <INPUT.HIDDEN key_id="hcmbTipoDimi" valore="h-cmbTipoDimi" evento="START">
+	                    </INPUT.HIDDEN>
+	                    <TD.INIT key_id="td2" valore="1" evento="START">
+                            <BUTTON key_id="butStampaDecesso" valore="butStampaDecesso" evento="START"></BUTTON>
+                        </TD.INIT>
+                        <TD_LABEL_TEXTAREA key_id="txtDiagnosiDimissione" valore="lblDiagnosiDimissione#txtDiagnosiDimissione##N#N#N" evento="START">
+						</TD_LABEL_TEXTAREA>
+					</TR.INIT>
+					<TR.INIT key_id="tr1B" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="cmbIstitutoTrasferimento" valore="lblIstitutoTrasferimento##cmbIstitutoTrasferimento#cmbIstitutoTrasferimento#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_AUTOCOMPLETE key_id="MedicoDimi" valore="lblMedicoDimi#acMedicoDimi#MedicoDimi#txtMedicoDimi#Medici#" evento="START">
+						</TD_AUTOCOMPLETE>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtMedicoCompilatore" valore="lblMedicoCompilatore##txtMedicoCompilatore######N" evento="START">
+							<INPUT.HIDDEN key_id="h-txtMedicoCompilatore" valore="h-txtMedicoCompilatore" evento="START">
+	                    	</INPUT.HIDDEN>
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						<TD.INIT key_id="td1_4" valore="1" evento="START"></TD.INIT>
+						<TD.INIT key_id="td2_4" valore="2" evento="START">
+							<DIV_CHECK key_id="chkDimi" valore="chkDimi#chkDimi#N#{width:100, ctrl:false}##DIMI" evento="START">
+                        	</DIV_CHECK>
+							<DIV_CHECK key_id="chkDimiProt" valore="chkDimiProt#chkDimiProt#N#{width:100, ctrl:false}##DIMI_PROT" evento="START">
+                        	</DIV_CHECK>
+						</TD.INIT>
+						<TD.INIT key_id="td4_4" valore="1" evento="START"></TD.INIT>
+						<TD.INIT key_id="td5_4" valore="1" evento="START">
+							<BUTTON key_id="butDiagnosiFromCartella" valore="butDiagnosiFromCartella" evento="START"></BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Dati ausiliari" valore="idDatiAusiliari" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtGgPermesso" valore="lblGgPermesso##txtGgPermesso#####w50px#N" evento="START">
+						<TD_LABEL_COMBO key_id="cmbAssDomi" valore="lblAssDomi##cmbAssDomi#cmbAssDomi##N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="cmbRefAutop" valore="lblRefAutop##cmbRefAutop#cmbRefAutop##N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_TEXT key_id="txtNumAccessiDh" valore="lblNumAccessiDh##txtNumAccessiDh#####w50px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="traumatismiDimissione" valore="traumatismiDimissione" evento="START">
+					<TR_TD_LABEL_COMBO key_id="cmbTraumatismiDimissione" valore="lblTraumatismiDimissione##cmbTraumatismiDimissione#cmbTraumatismiDimissione#N#SALVA#S#" evento="START">
+						<TD.INIT key_id="tdButDiagnosi1" valore="tdButDiagnosi1" evento="START">
+                    		<BUTTON key_id="butImportaTraumatismi" valore="butImportaTraumatismi#butImportaTraumatismi" evento="START"></BUTTON>
+                    	</TD.INIT>
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_AUTOCOMPLETE key_id="categoriaCausaEsternaDimissione" valore="lblCategoriaCausaEsternaDimissione#acCategoriaCausaEsternaDimissione#CategoriaCausaEsternaDimissione#txtCategoriaCausaEsternaDimissione#DimissioneSDOCategorieCausaEsterna#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbCausaEsternaDimissione" valore ="lblCausaEsternaDimissione##cmbCausaEsternaDimissione#cmbCausaEsternaDimissione#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+					</TR_TD_AUTOCOMPLETE>
+				</FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldDiagnosi" valore="fldDiagnosi" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD9P" valore="lblDiagnosiIcd90#acDiagnosiICD90#DiagnosiICD90#DiagnosiICD90#DiagnosiICD9#" evento="START">
+						<TD.INIT key_id="tdButDiagnosi0" valore="tdButDiagnosi0" evento="START">
+                    		<BUTTON key_id="butDiagnosi0UP" valore="butDiagnosi0UP#btnOrdineDiagnosiICDUP" evento="START"></BUTTON>
+                    		<BUTTON key_id="butDiagnosi0DOWN" valore="butDiagnosi0DOWN#btnOrdineDiagnosiICDDOWN" evento="START"></BUTTON>
+                    	</TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD91" valore="lblDiagnosiIcd91#acDiagnosiICD91#DiagnosiICD91#DiagnosiICD91#DiagnosiICD9###diagnosiSecondarie#" evento="START">
+                    	<TD.INIT key_id="tdButDiagnosi1" valore="tdButDiagnosi1" evento="START">
+                    		<BUTTON key_id="butDiagnosi1UP" valore="butDiagnosi1UP#btnOrdineDiagnosiICDUP" evento="START"></BUTTON>
+                    		<BUTTON key_id="butDiagnosi1DOWN" valore="butDiagnosi1DOWN#btnOrdineDiagnosiICDDOWN" evento="START"></BUTTON>
+                    	</TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD92" valore="lblDiagnosiIcd92#acDiagnosiICD92#DiagnosiICD92#DiagnosiICD92#DiagnosiICD9###diagnosiSecondarie#" evento="START">
+                    	<TD.INIT key_id="tdButDiagnosi1" valore="tdButDiagnosi2" evento="START">
+                    		<BUTTON key_id="butDiagnosi2UP" valore="butDiagnosi2UP#btnOrdineDiagnosiICDUP" evento="START"></BUTTON>
+                    		<BUTTON key_id="butDiagnosi2DOWN" valore="butDiagnosi2DOWN#btnOrdineDiagnosiICDDOWN" evento="START"></BUTTON>
+                    	</TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD93" valore="lblDiagnosiIcd93#acDiagnosiICD93#DiagnosiICD93#DiagnosiICD93#DiagnosiICD9###diagnosiSecondarie#" evento="START">
+                    	<TD.INIT key_id="tdButDiagnosi3" valore="tdButDiagnosi3" evento="START">
+                    		<BUTTON key_id="butDiagnosi3UP" valore="butDiagnosi3UP#btnOrdineDiagnosiICDUP" evento="START"></BUTTON>
+                    		<BUTTON key_id="butDiagnosi3DOWN" valore="butDiagnosi3DOWN#btnOrdineDiagnosiICDDOWN" evento="START"></BUTTON>
+                    	</TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD94" valore="lblDiagnosiIcd94#acDiagnosiICD94#DiagnosiICD94#DiagnosiICD94#DiagnosiICD9###diagnosiSecondarie#" evento="START">
+                    	<TD.INIT key_id="tdButDiagnosi4" valore="tdButDiagnosi4" evento="START">
+                    		<BUTTON key_id="butDiagnosi4UP" valore="butDiagnosi4UP#btnOrdineDiagnosiICDUP" evento="START"></BUTTON>
+                    		<BUTTON key_id="butDiagnosi4DOWN" valore="butDiagnosi4DOWN#btnOrdineDiagnosiICDDOWN" evento="START"></BUTTON>
+                    	</TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD95" valore="lblDiagnosiIcd95#acDiagnosiICD95#DiagnosiICD95#DiagnosiICD95#DiagnosiICD9###diagnosiSecondarie#" evento="START">
+                    	<TD.INIT key_id="tdButDiagnosi5" valore="tdButDiagnosi5" evento="START">
+                    		<BUTTON key_id="butDiagnosi5UP" valore="butDiagnosi5UP#btnOrdineDiagnosiICDUP" evento="START"></BUTTON>
+                    		<BUTTON key_id="butDiagnosi5DOWN" valore="butDiagnosi5DOWN#btnOrdineDiagnosiICDDOWN" evento="START"></BUTTON>
+                    	</TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD96" valore="lblDiagnosiIcd96#acDiagnosiICD96#DiagnosiICD96#DiagnosiICD96#DiagnosiICD9###diagnosiSecondarie#" evento="START">
+                    	<TD.INIT key_id="tdButDiagnosi6" valore="tdButDiagnosi6" evento="START">
+                    		<BUTTON key_id="butDiagnosi6UP" valore="butDiagnosi1UP#btnOrdineDiagnosiICDUP" evento="START"></BUTTON>
+                    		<BUTTON key_id="butDiagnosi6DOWN" valore="butDiagnosi6DOWN#btnOrdineDiagnosiICDDOWN" evento="START"></BUTTON>
+                    	</TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+					<BUTTON key_id="btnDiagnosi" valore="btnDiagnosi#btnDiagnosi" evento="START"></BUTTON>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldInterventi" valore="fldInterventi" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="InterventiICD90" valore="lblInterventiIcd90#acInterventiICD90#InterventiICD90#InterventiICD90#InterventiICD9###interventi#" evento="START">
+                        <TD.INIT key_id="tdButIntervento0" valore="tdButIntervento0" evento="START">
+                   			<BUTTON key_id="butIntervento0UP" valore="butIntervento0UP#btnOrdineInterventoICDUP" evento="START"></BUTTON>
+                   			<BUTTON key_id="butIntervento0DOWN" valore="butIntervento0DOWN#btnOrdineInterventoICDDOWN" evento="START"></BUTTON>
+                   		</TD.INIT>
+                        <TD_LABEL_DATA key_id="txtDataInterventiICD90" valore="lblDataInterventiICD90#maskData#txtDataInterventiICD90##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATAInterventiICD90" evento="START"></TD_LABEL_DATA>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="InterventiICD91" valore="lblInterventiIcd91#acInterventiICD91#InterventiICD91#InterventiICD91#InterventiICD9###interventiSecondari interventi#" evento="START">
+                        <TD.INIT key_id="tdButIntervento1" valore="tdButIntervento1" evento="START">
+                   			<BUTTON key_id="butIntervento1UP" valore="butIntervento1UP#btnOrdineInterventoICDUP" evento="START"></BUTTON>
+                   			<BUTTON key_id="butIntervento1DOWN" valore="butIntervento1DOWN#btnOrdineInterventoICDDOWN" evento="START"></BUTTON>
+                   		</TD.INIT>
+                        <TD_LABEL_DATA key_id="txtDataInterventiICD91" valore="lblDataInterventiICD91#maskData#txtDataInterventiICD91##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATAInterventiICD91" evento="START"></TD_LABEL_DATA>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="InterventiICD92" valore="lblInterventiIcd92#acInterventiICD92#InterventiICD92#InterventiICD92#InterventiICD9###interventiSecondari interventi#" evento="START">
+                    	<TD.INIT key_id="tdButIntervento2" valore="tdButIntervento2" evento="START">
+                   			<BUTTON key_id="butIntervento2UP" valore="butIntervento2UP#btnOrdineInterventoICDUP" evento="START"></BUTTON>
+                   			<BUTTON key_id="butIntervento2DOWN" valore="butIntervento2DOWN#btnOrdineInterventoICDDOWN" evento="START"></BUTTON>
+                   		</TD.INIT>
+                        <TD_LABEL_DATA key_id="txtDataInterventiICD92" valore="lblDataInterventiICD92#maskData#txtDataInterventiICD92##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATAInterventiICD92" evento="START"></TD_LABEL_DATA>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="InterventiICD93" valore="lblInterventiIcd93#acInterventiICD93#InterventiICD93#InterventiICD93#InterventiICD9###interventiSecondari interventi#" evento="START">
+                    	<TD.INIT key_id="tdButIntervento3" valore="tdButIntervento3" evento="START">
+                   			<BUTTON key_id="butIntervento3UP" valore="butIntervento3UP#btnOrdineInterventoICDUP" evento="START"></BUTTON>
+                   			<BUTTON key_id="butIntervento3DOWN" valore="butIntervento3DOWN#btnOrdineInterventoICDDOWN" evento="START"></BUTTON>
+                   		</TD.INIT>
+                        <TD_LABEL_DATA key_id="txtDataInterventiICD93" valore="lblDataInterventiICD93#maskData#txtDataInterventiICD93##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATAInterventiICD93" evento="START"></TD_LABEL_DATA>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="InterventiICD94" valore="lblInterventiIcd94#acInterventiICD94#InterventiICD94#InterventiICD94#InterventiICD9###interventiSecondari interventi#" evento="START">
+                    	<TD.INIT key_id="tdButIntervento4" valore="tdButIntervento4" evento="START">
+                   			<BUTTON key_id="butIntervento4UP" valore="butIntervento4UP#btnOrdineInterventoICDUP" evento="START"></BUTTON>
+                   			<BUTTON key_id="butIntervento4DOWN" valore="butIntervento4DOWN#btnOrdineInterventoICDDOWN" evento="START"></BUTTON>
+                   		</TD.INIT>
+                        <TD_LABEL_DATA key_id="txtDataInterventiICD94" valore="lblDataInterventiICD94#maskData#txtDataInterventiICD94##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATAInterventiICD94" evento="START"></TD_LABEL_DATA>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="InterventiICD95" valore="lblInterventiIcd95#acInterventiICD95#InterventiICD95#InterventiICD95#InterventiICD9###interventiSecondari interventi#" evento="START">
+                        <TD.INIT key_id="tdButIntervento5" valore="tdButIntervento5" evento="START">
+                   			<BUTTON key_id="butIntervento5UP" valore="butIntervento5UP#btnOrdineInterventoICDUP" evento="START"></BUTTON>
+                   			<BUTTON key_id="butIntervento5DOWN" valore="butIntervento5DOWN#btnOrdineInterventoICDDOWN" evento="START"></BUTTON>
+                   		</TD.INIT>
+                        <TD_LABEL_DATA key_id="txtDataInterventiICD95" valore="lblDataInterventiICD95#maskData#txtDataInterventiICD95##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATAInterventiICD95" evento="START"></TD_LABEL_DATA>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="InterventiICD96" valore="lblInterventiIcd96#acInterventiICD96#InterventiICD96#InterventiICD96#InterventiICD9###interventiSecondari interventi#" evento="START">
+                    	<TD.INIT key_id="tdButIntervento6" valore="tdButIntervento6" evento="START">
+                   			<BUTTON key_id="butIntervento6UP" valore="butIntervento6UP#btnOrdineInterventoICDUP" evento="START"></BUTTON>
+                   			<BUTTON key_id="butIntervento6DOWN" valore="butIntervento6DOWN#btnOrdineInterventoICDDOWN" evento="START"></BUTTON>
+                   		</TD.INIT>
+                        <TD_LABEL_DATA key_id="txtDataInterventiICD96" valore="lblDataInterventiICD96#maskData#txtDataInterventiICD96##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATAInterventiICD96" evento="START"></TD_LABEL_DATA>
+                    </TR_TD_AUTOCOMPLETE>
+					<BUTTON key_id="btnInterventi" valore="btnInterventi#btnInterventi" evento="START"></BUTTON>
+                </FIELDSET_TABLE>
+                <IFRAME key_id="iframeFinder" valore="IFRAMEFINDER##ipkxdomain.html" evento="START"></IFRAME>
+                <FIELDSET_TABLE key_id="fieldsetFinder" valore="fieldsetFinder" evento="START" >
+                    <TR.INIT key_id="ff1" valore="" evento="START">
+	                    <TD.INIT key_id="tdButFinder" valore="tdButFinder" evento="START">
+	                    	<BUTTON key_id="butFinder" valore="butFinder" evento="START"></BUTTON>
+	                    	<BUTTON key_id="butFinderInterface" valore="butFinderInterface" evento="START"></BUTTON>
+	                    </TD.INIT>
+	                    <TD_LABEL_TEXT key_id="txtCodDRG" valore="lblCodDRG##txtCodDRG#####w50px#N" evento="START"></TD_LABEL_TEXT>
+	                    <TD_LABEL_TEXT key_id="txtDescrDRG" valore="lblDescrDRG##txtDescrDRG#####w200px#N" evento="START"></TD_LABEL_TEXT>
+	                </TR.INIT>
+	                <TR.INIT key_id="ff2" valore=""  evento="START">
+	                	<TD.INIT key_id="tdButFinder" valore="tdButFinder" evento="START">
+	                    	<BUTTON key_id="butCalcoloDrgTariffa" valore="butCalcoloDrgTariffa" evento="START"></BUTTON>
+	                    </TD.INIT>
+	                    <TD_LABEL_TEXT key_id="txtImportoDRG" valore="lblImportoDRG##txtImportoDRG#####w50px#N" evento="START"></TD_LABEL_TEXT>
+	                    <TD_LABEL_TEXT key_id="txtImportoDRGFuoriSoglia" valore="lblImportoDRGFuoriSoglia##txtImportoDRGFuoriSoglia#####w50px#N" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="ff3" valore="" evento="START">
+						<TD_CHECK key_id="chkSdoCompleta" valore="chkSdoCompleta#chkSdoCompleta#N#{width:150, ctrl:false}##" evento="START"></TD_CHECK>
+					</TR.INIT>
+                </FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabSintesiPaziente" valore="tabSintesiPaziente" evento="START">
+            </TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

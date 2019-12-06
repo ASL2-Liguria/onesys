@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_WK_TRASFERIMENTI</ID>
+    <TITLE>"Menu trasferimenti reparto"</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>ANNULLA_TRASF</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT_FUNZIONI_CONTATTO.richiediAnnullamentoTrasferimento(rec[0].IDEN_CONTATTO, rec[0].IDEN_ACCESSO_CARTELLA);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[ function(rec){ if( rec[0].TRASFERIMENTO_SUCCESSIVO === "S" && (rec[0].HOURS_FROM_INSERT < 12 || home.basePermission.hasOwnProperty('BACKOFFICE')) ){ return true} else {return false}}]]></WHERE>
+            <OUTPUT>"Annulla trasferimento"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

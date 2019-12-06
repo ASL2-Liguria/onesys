@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_WK_CODICI_MISSIONE</ID>
+    <TITLE>"MENU CODICI MISSIONE"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ASSOCIA</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_CODICI_MISSIONE.associaPaziente(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_dati_prontosoccorso.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return rec;}]]></WHERE>
+            <OUTPUT>"Associa Paziente"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"inserimento"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

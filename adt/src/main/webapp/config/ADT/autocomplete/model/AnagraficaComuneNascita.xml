@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>2</minChars>
+		<onSelect type="js">
+			<![CDATA[function(data){}]]>
+		</onSelect>
+		<deferRequestBy>200</deferRequestBy>
+		<datasource>ADT</datasource>
+		<storedQuery>AUTOCOMPLETE.AC_ANAG_COMUNE_NASC</storedQuery>
+		<maxResults>40</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>Luogo Nascita</title>
+	    <id_wk>AC_ANAG_COMUNE_NASCITA</id_wk>
+	</LIST>
+
+</AUTOCOMPLETE>	 
+    

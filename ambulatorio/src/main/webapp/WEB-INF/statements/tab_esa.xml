@@ -1,0 +1,13 @@
+<root>
+	<statements_list>
+		<statement name="getInfoEsa">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					select attributi from tab_esa where iden = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+	</statements_list>
+</root>

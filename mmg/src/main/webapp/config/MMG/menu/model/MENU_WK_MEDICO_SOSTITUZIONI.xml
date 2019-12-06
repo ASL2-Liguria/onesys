@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<ID>MENU_WK_MEDICO_SOSTITUZIONI</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>WK_SOST.NEW</ID>
+			<LINK><![CDATA[function(rec){NS_WK_SOSTITUZIONI.insert();}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Inserisci Nuovo"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>WK_SOST.UPD</ID>
+			<LINK><![CDATA[function(rec){NS_WK_SOSTITUZIONI.update(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Modifica Sostituzione"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>WK_SOST.DEL</ID>
+			<LINK><![CDATA[function(rec){NS_WK_SOSTITUZIONI.deleteRow(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Cancella Sostituzione"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

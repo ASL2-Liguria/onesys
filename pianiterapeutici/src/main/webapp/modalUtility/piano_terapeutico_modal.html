@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/orologio/orologio.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<title>Conferma Orario</title>
+<style>
+body { background:#b9e0ff; overflow: hidden;}
+.Intestazione{padding-left:10px; width:100%;background:url(../imagexPix/bar/sf_turni.jpg) repeat-x;
+	font-weight:bold; font-style:normal;color:#FFF;}
+div#Note{margin:10px;}
+div#Note label{font-weight:bold; font-style: italic;}
+textarea#txtarea_note{width:95%;}
+
+
+.rowButton{background:url(../imagexPix/bar/sf_turni.jpg) repeat-x; width:100%; position:absolute;
+   bottom:0;}
+.button{float:right;margin-right:10px;font-weight:bold;color:white;cursor: pointer;}
+
+		
+.DataAttiva{
+		background:#FECEC2;
+		font-size:16px;
+		font-weight:bold;
+}
+
+div.left{float:left; margin-left:10px; margin-top:10px;}
+div.right{float:right; margin-right: 10px;margin-top:10px;}
+
+div#dose_variabile{width:100%;}
+div#dose_variabile *{float:left;}
+div#dose_variabile select {float:right;}
+</style>
+</head>
+
+<body>
+    <DIV id=Header class=Intestazione>Conferma Orario</DIV>
+	
+	<div>
+    	<div class="left">
+			<input style="text-align:center"   name='txt_ora' type="text" id='txt_ora' onkeyup='oraControl_onkeyup(this);' onblur='oraControl_onblur(this);'  size="6"/>
+		 	<img src="../imagexPix/calendario/orologio.jpg" onclick= "apriOrologio('txt_ora');"/>        
+        </div>
+        <div class="right" id="ContainerDate">
+        
+        </div>
+    </div>
+    <br/><br/><br/>
+	<div id="dose_variabile">
+	</div>
+	<br/>
+	<div id=Note style="width:100%;">
+		<label><strong>Note</strong></label>
+		<br/>
+	    <input name="radioStato" value="E" type="radio" id="radioOK" checked="checked"/><label for="radioOK">Positivo</label>
+    	<input name="radioStato" value="K" type="radio" id="radioKO"/><label for="radioKO">Negativo</label> 
+		<textarea id=txtarea_note></textarea>
+    </div>
+		
+	<DIV class=rowButton><SPAN class=button onclick=parent.chiudiFinestra();>Annulla</SPAN> <SPAN class=button onclick=aux_registra();>OK</SPAN> </DIV>
+</body>
+<script type='text/javascript' src='../std/jscript/orologio/wz_jsgraphics.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/engine/toolkit_pagina.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/calendario/calendarview.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/orologio/orologio.js' language='JavaScript'></script>
+<script>
+	var options = parent.modal.options;
+
+	if (options.ora_default) {
+		document.all.txt_ora.value =options.ora_default;
+	} else {
+		var now = new Date();
+		var ora ='00'+now.getHours();
+		ora= ora.substring(ora.length-2,ora.length);
+		var minuti='00'+now.getMinutes();
+		minuti= minuti.substring(minuti.length-2,minuti.length);
+		document.all.txt_ora.value = ora + ':' + minuti;		
+	}
+			
+	creaOrologio(); 
+	
+	var myRadio;
+	var myLabel;
+	var myDiv;
+	var convData;
+	var tosave = false;
+
+	if(options.array_date!=null && options.array_date.length>0){
+		arDate = options.array_date;
+		for(var i=0;i<arDate.length;i++){
+			myDiv = document.createElement("div");
+			convData = arDate[i].substring(6,8) + '/' + arDate[i].substring(4,6) + '/'+ arDate[i].substring(0,4) ;
+			if(arDate[i]==options.data_default){
+				myRadio = document.createElement("<input type=radio name=radioData id='"+arDate[i]+"' checked />");
+				myDiv.className = "DataAttiva";
+			}else{
+				myRadio = document.createElement("<input type=radio name=radioData id='"+arDate[i]+"'/>");	
+			}
+			myLabel = document.createElement('LABEL');
+			myLabel.setAttribute('for',''+arDate[i]+'');
+			myLabel.innerText= convData;
+			
+			myRadio.attachEvent("onclick",toggleRadioData);
+			
+			
+			myDiv.appendChild(myRadio);
+			myDiv.appendChild(myLabel);
+			
+			document.getElementById('ContainerDate').appendChild(myDiv);	
+			
+		}
+	}
+	var in_dosi;
+	if (options.dose_var) {
+
+		var Title = document.createElement('strong');
+		Title.innerText = 'Dosi:';
+		Title.style.width='100%';
+		document.getElementById('dose_variabile').appendChild(Title);
+		in_dosi = options.dose_var.split('|');
+		var innerHtml = '';
+		for (var i = 0; i < in_dosi.length; i++) {
+
+			in_dosi[i] = in_dosi[i].split('§');
+			
+			var Farmaco = document.createElement('div');
+			Farmaco.setAttribute("iden_farmaco",in_dosi[i][0]);
+			
+			var Label= document.createElement('label');
+			Label.innerText = in_dosi[i][1];
+			
+			var Input= document.createElement('input');
+			Input.style.width = '25px';
+
+			var Select =fillSelectUdm(in_dosi[i][0],in_dosi[i][2]);
+			
+			Farmaco.appendChild(Label);
+			Farmaco.appendChild(Input);
+			Farmaco.appendChild(Select);			
+			
+		}
+
+		document.getElementById('dose_variabile').appendChild(Farmaco);
+		
+	}
+	if (options.nota){
+		document.getElementById('txtarea_note').value=options.nota;
+		if (options.livello == 'K') {document.getElementById('radioKO').checked=true};
+	}
+	
+function toggleRadioData(){
+	var lst = document.getElementsByName("radioData");
+	for (var i=0;i<lst.length;i++){
+		if(lst[i].checked){
+			lst[i].parentNode.className = "DataAttiva";
+		}else{
+			lst[i].parentNode.className = "";
+		}
+	}
+}
+
+function closeModal()
+{
+	resp = new Object();
+	resp.registra='OK';
+	resp.ora = document.all.txt_ora.value;
+	resp.note = document.all.txtarea_note.value;
+	resp.stato= (document.getElementById('radioOK').checked?'E':'K');
+	if(document.all.radioData.length==undefined){
+		resp.data=document.all.radioData.id;
+	}else{
+		for(var i=0;i<document.all.radioData.length;i++){
+			if(document.all.radioData[i].checked){resp.data=document.all.radioData[i].id;}
+		}
+	}
+	
+	var out_dosi='';
+	var dosi_var = document.getElementById('dose_variabile').getElementsByTagName('input');
+	var dosi_udm = document.getElementById('dose_variabile').getElementsByTagName('select');
+	if (dosi_var){ 
+		for (var i=0;i<dosi_var.length;i++){
+			if (dosi_var[i].value=='') {
+				return alert('Compilare il dosaggio della terapia');
+			}
+			if (i>0) {
+				out_dosi+='|';
+			}
+			out_dosi += in_dosi[i][0]+'§'+dosi_var[i].value+'§'+dosi_udm[i][dosi_udm[i].selectedIndex].value;
+		}
+	} else {
+		out_dosi=null;
+	}
+	resp.dosi = out_dosi;
+	var newDate = top.clsDate.str2date(resp.data,'YYYYMMDD',resp.ora);
+
+	var diff=top.clsDate.difference.hour(newDate,new Date());
+
+	if(diff>2){
+		if(!confirm("Attenzione!!\n L'ora selezionata differisce di " + diff +" ore dall'ora attuale!\n Si vuole confermare la selezione?"))return;
+	}
+	/*window.returnValue = resp; 
+	
+	self.close(); */
+	parent.modal.response=resp;
+	parent.modal.save(resp);
+	parent.chiudiFinestra();
+}
+
+function aux_registra(){
+	oraControl_onblur(document.getElementById("txt_ora"));
+
+	if(document.getElementById('txt_ora').value!=''){
+		closeModal()
+	}
+}
+
+function fillSelectUdm(pIdenFarmaco,pDefault){
+	var arUdm = options.arUdm;
+	
+	var Select = document.createElement('select');
+	var Option;
+	Select.setAttribute("class","cmbUdm");	
+	Select.setAttribute("iden_farmaco",pIdenFarmaco);
+	for (var i =0 ; i < arUdm.length ; i++){
+		Option = document.createElement('option');
+		Option.setAttribute("value",arUdm[i].id);
+		Option.innerText = arUdm[i].descr;
+		if(pDefault == arUdm[i].id)
+			Option.setAttribute("selected","selected");
+		Select.appendChild(Option);
+	}
+	return Select;
+}
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+fieldset {
+	border: 1px solid blue;
+	padding: 5px 5px 5px 5px;
+	background-color:#E2FBFE;
+	margin: 5px 5px 5px 5px;
+}
+
+legend {
+	padding: 0.2em 0.5em;
+	color: blue;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+
+TABLE.clsDatiTabella{
+	width:100%;
+}
+
+TABLE.clsDatiTabella THEAD TH{
+	background-color:black;
+	color:white;
+	font-weight:bold;
+	padding:3px 3px 3px 3px;
+}
+
+TABLE.clsDatiTabella TBODY TR {
+	background-color:#CCC;
+}
+
+TABLE.clsDatiTabella TBODY TR TD{
+	color:black;
+	padding:3px 3px 3px 3px;
+}
+
+TABLE.clsDatiTabella TBODY TR TD.highlight {
+	background-color: yellow;
+}
+
+
+
+
+DIV.containerDataTable{
+	height:300px;
+	overflow:auto;
+
+}
+
+/* LOG LABEL */
+LABEL#lblLogInfo{
+	color:red;
+	margin-left:15px;
+	padding:3px 3px 3px 3px;
+	display:inline-block;
+}
+
+LABEL#lblLogInfo.info{
+	color:white;
+	background-color:blue;;
+}
+
+
+LABEL#lblLogInfo.warning{
+	color:black;
+	background-color:orange;
+}
+
+LABEL#lblLogInfo.errore{
+	color:white;
+	background-color:red;
+}
+/* ******** */

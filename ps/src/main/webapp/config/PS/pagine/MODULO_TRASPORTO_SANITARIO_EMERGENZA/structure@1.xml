@@ -1,0 +1,28 @@
+<PAGINA key_id="MODULO_TRASPORTO_SANITARIO_EMERGENZA">
+    <HEADER_PAGE key_id="MODULO_TRASPORTO_SANITARIO_EMERGENZA" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,MODULO_TRASPORTO_SANITARIO_EMERGENZA#DEFAULT,PS_MODULO_TRASPORTO_SANITARIO_EMERGENZA" evento="START_END">
+    </HEADER_PAGE>
+        <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+            <TABULAZIONE.INIT key_id="MODULO_TRASPORTO_SANITARIO_EMERGENZA" valore="MODULO_TRASPORTO_SANITARIO_EMERGENZA#lblTitolo#butSalva,butFirma,butChiudi" evento="START">
+                <FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+                    <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="hIDEN" valore="hIDEN" evento="START">
+                    </INPUT.HIDDEN>
+
+                    <TR_TD_LABEL_TEXT key_id="txtRecapito" valore="lblRecapito#txtRecapito#txtRecapito##N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtTrasportoDi" valore="lblTrasportoDi#txtTrasportoDi#txtTrasportoDi##N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtReparto" valore="lblReparto#txtReparto#txtReparto##N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtOspedale" valore="lblOspedale#txtOspedale#txtOspedale##N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXTAREA key_id="taDiagnosi" valore="lblDiagnosi#taDiagnosi#taDiagnosi###3" evento="START">
+                    </TR_TD_LABEL_TEXTAREA>
+
+                </FIELDSET_TABLE>
+            </TABULAZIONE.INIT>
+        </FORM>
+</PAGINA>

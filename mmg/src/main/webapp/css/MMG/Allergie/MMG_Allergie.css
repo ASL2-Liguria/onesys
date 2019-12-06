@@ -1,0 +1,8 @@
+body { width: 960px; }
+
+#buttonInsAllergie {
+	height: 20px;
+	float:right;
+	margin-right:30px;
+	width: 80px;
+}

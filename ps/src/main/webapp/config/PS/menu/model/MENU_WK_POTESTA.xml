@@ -1,0 +1,19 @@
+<MENU>
+    <ID>MENU_WK_POTESTA</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+
+
+        <ITEM>
+            <ID>AGGIUNGI_POTESTA</ID>
+            <LINK><![CDATA[function(rec){ NS_SET_POTESTA.setPotestaWk(rec);
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/storico.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec.length != 0){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>traduzione.lblInsert</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Visualizza storico paziente"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

@@ -1,0 +1,799 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+div#draggableLayer
+{
+  position:absolute;
+  width: 340px;
+  height: 35px;
+  border: Solid 1px #CCCCCC;
+  cursor: Move;
+  background-color:#E9E9E9;
+  visibility:hidden;
+  overflow:hidden;
+}
+<!-- ****************************************** -->
+<!-- ********* layer ricerca paziente ********* -->
+<!-- ****************************************** --> 
+
+div#layerRicercaPaziente{
+	height:180px;
+	width:99%;
+	display:block; 
+	visibility:visible;
+}
+
+
+<!-- ****************************************** -->
+<!-- ********* Content ************************ -->
+<!-- ****************************************** --> 
+div#content{
+		margin-right:350px;
+		padding: 10px 10px 10px 10px;
+		background-image:url(../../../../imagexPix/wallpaper/sfondo-stanze2.jpg);
+		height:800px;
+		overflow:auto;
+}
+
+
+<!-- ****************************************** -->
+<!-- ********* Barra menu********************** -->
+<!-- ****************************************** --> 
+
+div#barraMenu{
+	height:25px;
+	background-color:#69C;
+	color:white;
+	background-image:url(../../../../imagexPix/tabheader/touch/topTabella.gif);
+	background-repeat:repeat-x;
+	height:25px;
+}
+
+
+
+<!-- ****************************************** -->
+<!-- ********* Navigatgion layer*************** -->
+<!-- ****************************************** --> 
+div#navigation{
+	float:left;
+	width:350px;
+	margin-left:-350px; 
+	height:50%; 
+	overflow:hidden;
+	background-color:#09F;
+	background-image:url(../../../../imagexPix/wallpaper/pattern_sfondo.gif);
+}
+
+/*div#navigationContent{
+ height:600px;
+	overflow:hidden;	
+}*/
+
+div#divWardPatients{
+	height:380px;
+	overflow:auto;
+}
+
+
+<!-- ****************************************** -->
+<!-- ********* Footer  ************************ -->
+<!-- ****************************************** --> 
+
+div#footer{
+	clear:left;
+	background: #333;
+	color: #FFF;
+	background-image:url(../../../../imagexPix/tabheader/touch/topTabella.gif); 
+	height:25px;
+	background-repeat:repeat-x;
+}
+
+
+<!-- ****************************************** -->
+<!-- ********* Wrapper ************************ -->
+<!-- ****************************************** --> 
+div#wrapper{
+	float:left;width:100%;
+}
+
+
+<!-- ****************************************** -->
+<!-- ********* Pulsanti barre    ************** -->
+<!-- ****************************************** -->
+.pulsanteBarra{
+	height:25px;
+	visibility:visible;
+	cursor:pointer;
+}
+
+
+
+.pulsanteBarra A{
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:25px;
+	padding-left:5px;
+	padding-right:5px;	
+	float:left;
+	background-image:url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+.pulsanteBarra A:hover {
+	background-image:url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+
+
+
+.pulsanteBarraDestra{
+	height:25px;
+	visibility:visible;
+	cursor:pointer;
+	
+}
+
+
+.pulsanteBarraDestra A{
+	TEXT-DECORATION: none;
+	color: blue;
+	visibility:visible;
+	cursor:pointer;
+	background-image:url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;	
+	line-height:25px;
+	position:absolute;
+	right:350px;	
+	padding-left:5px;
+	padding-right:5px;	
+
+}
+
+.pulsanteBarraDestra A:hover {
+	background-image:url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+
+}
+
+
+.pulsanteBarraFooter{
+	visibility:visible;
+	cursor:pointer;	
+}
+
+.pulsanteBarraFooter A{
+	width:120px;	
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:25px;
+	padding-left:5px;
+	padding-right:5px;	
+	float:right;
+	background-image:url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	text-align:center;
+}
+
+.pulsanteBarraFooter A:hover {
+	background-image:url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+
+}
+
+
+
+.pulsanteInline{
+	height:25px;
+	visibility:visible;
+	cursor:pointer;
+	width:95%;	
+}
+
+
+
+.pulsanteInline A{
+	width:99%;
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:25px;
+	padding-left:5px;
+	padding-right:5px;	
+	float:left;
+	background-image:url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	margin-left:5px;
+	margin-right:5px;
+	display:block;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.pulsanteInline A:hover {
+	width:99%;	
+	background-image:url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	margin-left:5px;
+	margin-right:5px;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;	
+}
+
+
+<!-- ****************************************** -->
+<!-- ********* Stanze e letti    ************** -->
+<!-- ****************************************** -->
+
+
+.stanza{
+	height:120px;
+	width:200px;
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:5px 5px 5px 5px ;
+	
+}
+
+.stanzaOver{
+	background-color:#FF0;
+	border:thin;
+	border-color:#F00;
+	height:120px;
+	width:200px;
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border-width:thick;
+	padding:5px 5px 5px 5px ;
+
+}
+
+
+.stanzaSpazioLetti{
+	width:50px;
+	float:left;
+}
+
+.stanzaSpazioInfo{
+	margin-left:50px;
+	background-color:#3F0; 	
+}
+
+.lettoSpazioInfo{
+	margin-left:120px;
+	background-color:#3F0; 	
+}
+
+
+
+.titoloStanza_occupata{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/top_yellow.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+	font-weight:bold;
+}
+
+.contenutoStanza_occupata{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/middle_yellow.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.footerStanza_occupata{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/bottom_yellow.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+
+.titoloStanza_libera{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/top_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+	overflow:hidden;
+	font-weight:bold;
+}
+
+.contenutoStanza_libera{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/middle_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.footerStanza_libera{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/bottom_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+
+.titoloStanza_piena{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/top_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+	font-weight:bold;
+}
+
+.contenutoStanza_piena{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/middle_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.footerStanza_piena{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/bottom_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+
+
+span#lettoLibero{
+	width:25px;
+	height:25px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;	
+	background-image:url(../../../../imagexPix/room/freeBed.gif);
+	margin-right:5px;
+	
+}
+
+span#lettoOccupato{
+	width:25px;
+	height:25px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+	background-image:url(../../../../imagexPix/room/busyBed.gif);
+	margin-right:5px;	
+}
+
+
+
+<!-- ****************************************** -->
+<!-- ********* Tabella lista attesa *********** -->
+<!-- ****************************************** -->
+
+
+.rigaDispari{
+	background-color:#B7D9FB;
+}
+
+.rigaPari{
+	background-color:#F4FEFF;
+}
+
+
+.rigaSelezionata{
+	background-color:yellow;
+}
+
+.rigaOver{
+	background-color:#FDFFD7;
+}
+
+
+.rigaTestata{
+	background-color:#03F;	
+	color:white;
+	font-weight:bold;
+	font-size:14px;
+	text-align:center;		
+}
+
+<!-- ****************************************** -->
+<!-- ********* Riga funzionante da titolo ***** -->
+<!-- ****************************************** -->
+
+
+
+.infoInLine{
+	display:block;
+	background-color:#09C;
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+	height:25px;
+	line-height:25px; 	
+}
+
+.infoInLineSubTitle{
+	display:block;
+	background-color:#03F;	
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+}
+
+.infoBarra{
+	float:left; 
+	display:block; 
+	line-height:25px; 
+	margin-left:10px;
+	font-size:14px;
+	color:white;
+	font-weight:bold;
+	text-align:center;
+}
+
+
+
+
+<!-- ****************************************** -->
+<!-- ********* Icone omini ******************** -->
+<!-- ****************************************** -->
+
+
+span#iconMan{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/man.png);
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+}
+
+span#iconWoman{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/woman.png);
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+}
+
+span#iconInfo{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/btInfo.png);
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+}
+
+
+span#patientSpan{
+	float:left;
+}
+
+
+span#imgListaDegenti_UOMINI {
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+	background-image:url(../../../../imagexPix/room/listaDegenti_UOMINI.png);
+}
+
+span#imgListaDegenti_DONNE {
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+	background-image:url(../../../../imagexPix/room/listaDegenti_DONNE.png);
+}
+
+span#imgListaDegenti_MISTA {
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+	background-image:url(../../../../imagexPix/room/listaDegenti_MISTA.png);
+}
+
+
+span#imgSvuotaLetto{
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+	background-image:url(../../../../imagexPix/room/svuotaLetto.png);	
+}
+
+<!-- ****************** COLONNE TABELLA RICERCA -->
+.colonneRicercaLabel{
+	background-color:#DFFDFF;
+	border-style:none;
+	font-weight:bold;
+	font-size:12px;
+}
+
+.colonneRicercaField{
+	background-color:#F4FEFF;border-style:none;
+}
+
+<!-- pulsante button up -->
+.btUpDD{
+	visibility:visible;
+	cursor:pointer;
+	width:17px;
+	height:16px;	
+	right:18px;		
+}
+
+
+.btUpDD A{
+	TEXT-DECORATION: none;
+	color: blue;
+	visibility:visible;
+	cursor:pointer;
+	background-image:url(../../../../imagexPix/button/mini/icnDD_up.gif);
+	position:absolute;
+	right:18px;	
+	width:17px;
+	height:16px;		
+
+	
+}
+
+.btUpDD A:hover {
+	background-image:url(../../../../imagexPix/button/mini/icnDD_upOver.gif);
+}
+
+<!-- pulsante button down -->
+.btDownDD{
+	visibility:visible;
+	cursor:pointer;
+	width:17px;
+	height:16px;	
+}
+
+
+.btDownDD A{
+	TEXT-DECORATION: none;
+	color: blue;
+	visibility:visible;
+	cursor:pointer;
+	background-image:url(../../../../imagexPix/button/mini/icnDD_down.gif);
+	position:absolute;
+	right:18px;	
+	width:17px;
+	height:16px;		
+
+	
+}
+
+.btDownDD A:hover {
+	background-image:url(../../../../imagexPix/button/mini/icnDD_downOver.gif);
+}
+
+<!--  pulsante calendario -->
+.imgCalendar{
+	background-image:url(../../../../imagexPix/calendario/cal20x20.gif);
+	cursor:pointer;
+	width:20px;
+	height:20px;
+	display:block;
+	
+}
+
+
+table#oTablePatientList TH{
+
+}
+
+
+<!-- ************************ LETTO ********************** -->
+.titoloLetto_occupato{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_top_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	font-size:12px;
+	font-weight:bold;
+	top:100px;
+	overflow:hidden;
+	vertical-align:middle;
+}
+
+.contenutoLetto_occupatoDonna{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_red_woman.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+.contenutoLetto_occupatoUomo{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_red_man.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+
+.footerLetto_occupato{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_bottom_red.png);
+	background-repeat:no-repeat;
+	padding-left:15px;
+	line-height:60px;
+}
+
+
+.titoloLetto_libero{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_top_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+	overflow:hidden;
+	font-weight:bold;
+}
+
+.contenutoLetto_libero{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+.contenutoLetto_liberoDonna{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_green_woman.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+.contenutoLetto_liberoUomo{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_green_man.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+
+.footerLetto_libero{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_bottom_green.png);
+	background-repeat:no-repeat;
+	padding-left:15px;
+	line-height:60px;
+}
+
+
+.letto{
+	height:180px;
+	width:320px;
+	font:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	padding:5px 5px 5px 5px ;
+	
+}
+
+.lettoOver{
+	background-color:#FF0;
+	border:thin;
+	border-color:#F00;
+	height:180px;
+	width:320px;
+	font:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	border-width:thick;
+	padding:5px 5px 5px 5px ;
+}
+
+<!-- ***************************************************** -->
+
+span#buttonLettoInfoAnag{
+	width:45px;
+	height:45px;
+	margin-top:5px;
+	float:left;
+	visibility:visible;
+	background-image:url(../../../../imagexPix/room/buttonLettoInfoAnag.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+
+
+span#buttonLettoDiarioInferm{
+	width:45px;
+	height:45px;
+	margin-top:5px;
+	float:left;
+	visibility:visible;
+	background-image:url(../../../../imagexPix/room/buttonLettodiarioInferm.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+}
+
+span#buttonLettoDiarioMedico{
+	width:45px;
+	height:45px;
+	margin-top:5px;
+	float:left;
+	visibility:visible;
+	background-image:url(../../../../imagexPix/room/buttonLettoDiarioMedico.png);
+	background-repeat:no-repeat;
+	cursor:pointer;	
+}
+
+span#buttonLettoStampaCartClin{
+	width:45px;
+	height:45px;
+	margin-top:3px;
+	margin-right:5px;
+	float:left;
+	visibility:visible;
+	cursor:pointer;
+	background-image:url(../../../../imagexPix/room/buttonLettoStampaCartClin.png);
+	background-repeat:no-repeat;
+}
+
+SPAN.titoloLabelLetto{
+	font-size:14px;
+	font-weight:bold;
+	position:relative;
+	top:5px;
+
+
+}
+
+LABEL.InfoBarraStanza{
+	color:yellow;
+	text-align:center;
+}
+
+
+SPAN.iconaUomo{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/man.png);
+	visibility:visible;
+	float:left;
+}
+
+
+SPAN.iconaDonna{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/woman.png);
+	visibility:visible;
+	float:left;
+}
+
+
+IMG.iconeFooterLetto{
+	width:45px;
+	height:45px;
+}

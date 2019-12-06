@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dataTables_filter {
+	display: none; 
+}
+
+.dataTables_scrollHead{
+	background-color:#0CF;
+	padding:2px 2px 2px 2px;
+}
+
+
+#TAB_MODULI.dataTable td {
+	font-size:14px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-bottom:5px;
+	padding-righ:5px;
+}
+
+#TAB_MODULI td.highlight {
+	background-color: yellow;
+}
+
+#TAB_MODULI thead th , tfoot th{
+	background-color:#0CF;
+}
+
+#TAB_MODULI thead tr th{
+	cursor:pointer;
+}
+
+#TAB_MODULI td.selectedChk {
+	background-color:#F60;
+}
+
+
+SPAN.previewFormat{
+	width:32px;
+	height:32px;
+	display:block;
+	background-image:url(../../../imagexPix/contextMenu/anteprima.gif);
+	cursor:pointer;
+}
+
+SPAN.deleteFormat{
+	width:30px;
+	height:30px;
+	display:block;
+	background-image:url(../../../imagexPix/contextMenu/ico_canc.png);
+	cursor:pointer;
+}
+
+
+/*
+#TAB_MODULI_wrapper{
+	margin-top:20px;
+	margin-bottom:20px;
+} */
+
+
+fieldset {
+	border: 1px solid blue;
+	padding: 5px 5px 5px 5px;
+	background-color:#E2FBFE;
+}
+
+legend {
+	padding: 0.2em 0.5em;
+	color: blue;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+fieldset.FSinserimento {
+	background-color: #E6EEFF;
+	border-color: #0090F0;
+}
+
+

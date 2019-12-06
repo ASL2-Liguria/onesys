@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_ASSOCIA</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ASSOCIA</ID>
+            <LINK><![CDATA[function(rec){NS_ASS_PAZ_SCONO.associa(rec[0].IDEN_ANAG, document.getElementById('IDEN_CONTATTO').value)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_nomi_utenti_orari_modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Associa ricovero al paziente selezionato"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

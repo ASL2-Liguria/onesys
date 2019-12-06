@@ -1,0 +1,21 @@
+i.icon-cancel-squared { color: red; font-size: 20px;}
+i.icon-minus-circled { font-size: 20px;}
+i:before {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+	width: 20px !important;
+}
+
+div.clsWk div.clsWkScroll table tr td div{
+	white-space: nowrap;
+}
+
+#divOuterdivStoricoPosologia {
+	height:500px;
+	width:95%;
+}
+
+#divStoricoPosologia {
+	height:95%;
+}
+

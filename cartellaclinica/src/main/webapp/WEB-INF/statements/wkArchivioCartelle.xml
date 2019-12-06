@@ -1,0 +1,53 @@
+<root>
+	<statements_list>
+		<statement name="wkArchivioCartelle.invia">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenRicovero 	pls_integer 	:= to_number(?);
+					pNumNosologico 	varchar2(5000) 	:= ?;
+					pStato 			varchar2(5000) 	:= 'ARCHIVIATA';
+					pDeleted 		varchar2(5000) 	:= 'N';					
+					pIdenPer 		pls_integer 	:= to_number(?);
+					pDataOra		date			:= sysdate;
+				begin 
+					INSERT INTO radsql.ARCHIVIO_CARTELLE
+					(iden_ricovero,num_nosologico,stato_cartella,deleted,iden_per,data_ora)
+					values(pIdenRicovero,pNumNosologico,pStato,pDeleted,pIdenPer,pDataOra);
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="wkArchivioCartelle.annulla">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenRicovero 	pls_integer 	:= to_number(?);				
+					pDataOraCanc	date			:= sysdate;
+					pDeleted		varchar2(1)		:= 'S';					
+				begin 
+					update radsql.ARCHIVIO_CARTELLE
+					set deleted = pDeleted,data_ora_canc=pDataOraCanc,data_ora='',iden_per=null 
+					where iden_ricovero=pIdenRicovero;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="wkArchivioCartelle.inviaAnnullata">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenRicovero 	pls_integer 	:= to_number(?);
+					pIdenPer		pls_integer		:= to_number(?);				
+					pDataOra		date			:= sysdate;
+					pDeleted		varchar2(1)		:= 'N';				
+				begin 
+					update radsql.ARCHIVIO_CARTELLE
+					set deleted = pDeleted, data_ora=pDataOra,iden_per=pIdenPer
+					where iden_ricovero=pIdenRicovero;
+				end;
+			]]>
+			</sql>
+		</statement>						
+	</statements_list>
+</root>

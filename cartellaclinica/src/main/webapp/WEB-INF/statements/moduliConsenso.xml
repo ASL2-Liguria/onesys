@@ -1,0 +1,99 @@
+<root>
+	<statements_list>
+		<statement name="checkData">				
+			<sql>
+			<![CDATA[
+			select count(*) TOTALE from radsql.cc_moduli_consenso where tipo=? and iden_visita=?
+			]]>
+			</sql>
+		</statement>    
+		<statement name="getDescrModulo">				
+			<sql>
+			<![CDATA[
+			select descrizione  DESCRIZIONE from radsql.tab_codifiche where tipo_scheda='MODULI_CONSENSO' and codice=?
+			]]>
+			</sql>
+		</statement>     
+		<statement name="getIdenRegistrazione">				
+			<sql>
+			<![CDATA[
+			select max(iden) IDEN from radsql.cc_moduli_consenso where iden_visita=? and tipo='PROCEDURE_ANEST'
+			]]>
+			</sql>
+		</statement>     
+		<statement name="getDatiLetteraAn">				
+			<sql>
+			<![CDATA[
+			SELECT iden,
+			IDEN_VISITA,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'txtInterventoEsame')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoInterventoEsame'
+			  ) intervento_esame,
+			  (SELECT testo_piano
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'idProblemiAperti'
+			  ) problematiche,
+			  (SELECT extractvalue(xmltype(testo_html),'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radSceltaAnestesiologicoASA"]/OPTIONVAL[@CHECKED="true"]/@TEXT')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoASA'
+			  ) AsaRadio ,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'inputcheckAnestesiologicoProposta1')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoAnestesiaProposta'
+			  ) AnestesiaProposta1 ,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'inputcheckAnestesiologicoProposta2')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoAnestesiaProposta'
+			  ) AnestesiaProposta2 ,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'inputcheckAnestesiologicoProposta3')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoAnestesiaProposta'
+			  ) AnestesiaProposta3 ,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'inputcheckAnestesiologicoProposta4')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoAnestesiaProposta'
+			  ) AnestesiaProposta4 ,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'inputcheckAnestesiologicoProposta5')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoAnestesiaProposta'
+			  ) AnestesiaProposta5 ,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'inputcheckAnestesiologicoProposta6')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoAnestesiaProposta'
+			  ) AnestesiaProposta6 ,
+			  (SELECT get_key_campo_value(xmltype(testo_html),'inputcheckAnestesiologicoProposta7')
+			  FROM CC_LETTERA_SEZIONE
+			  WHERE iden_versione=clv.iden
+			  AND id_elemento    = 'anestesiologicoAnestesiaProposta'
+			  ) AnestesiaProposta7
+			FROM CC_LETTERA_VERSIONI clv
+			WHERE clv.funzione='VISITA_ANESTESIOLOGICA'
+			AND clv.attivo    ='S'
+			AND Clv.Deleted   ='N'
+			and iden_visita=?
+			]]>
+			</sql>
+		</statement>     
+		<statement name="cancellaModulo">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenModulo pls_integer := to_number(?);
+				begin
+					delete radsql.cc_moduli_consenso where iden= pIdenModulo;
+				end;
+			]]>
+			</sql>
+		</statement>            
+	</statements_list>
+</root>

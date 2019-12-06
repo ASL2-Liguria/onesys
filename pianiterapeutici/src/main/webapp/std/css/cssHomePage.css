@@ -1,0 +1,73 @@
+body {
+	margin:0px;
+	padding:0px;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333;
+	height: 100%;
+}
+
+.backgroundRR{
+	background-image: url(../../imagexPix/wallpaper/homepage.jpg);
+}
+
+.backgroundPT{
+	background-image: url(../../imagexPix/wallpaper/homepage.jpg);	
+}
+
+#oLayMain{
+	position:absolute;
+	top:350px;
+	left:560px;
+	visibility: visible;
+}
+
+#oLayPwd_manager{
+	width:350px;
+	position:absolute;
+	top:350px;
+	left:560px;
+	visibility: hidden;
+}
+
+#oLayPwd{
+	width:350px;
+	position:absolute;
+	top:350px;
+	left:560px;
+	height:60px;
+	visibility:hidden;
+}
+
+.LoginTable{
+	width:360px;
+}
+
+.LoginLabel{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFF00;
+	font-weight: bold;
+	text-align:right;
+	width:100px;
+}
+
+.LoginField{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFF00;
+	font-weight: bold;
+}
+
+.LoginButton{
+	text-align:left;
+	padding-left:5px;
+}
+
+.SystemInfo{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFFFF;
+	font-weight: bold;
+	background-color:#3366FF;
+	padding-left:5px;
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<style>
+body{
+	margin:0 0 0 0;
+}
+#divChart{
+	cursor:hand;
+	background:no-repeat;
+}
+#menu{
+	width:100%;
+	background-color:#358DF9;
+	float:left;
+}
+#Close{
+	background:url(../../imagexPix/arrow/cancel.png) no-repeat center;
+}
+#Restore{
+	background:url(../../imagexPix/arrow/arrow_inout.png) no-repeat center;
+}
+#InXY{
+	background:url(../../imagexPix/arrow/arrow_out.png) no-repeat center;
+}
+#InX{
+	background:url(../../imagexPix/arrow/allargaX.png) no-repeat center;
+}
+#InY{
+	background:url(../../imagexPix/arrow/allargaY.png) no-repeat center;
+}
+#OutXY{
+	background:url(../../imagexPix/arrow/arrow_in.png) no-repeat center;
+}
+#OutX{
+	background:url(../../imagexPix/arrow/stringiX.png) no-repeat center;
+}
+#OutY{
+	background:url(../../imagexPix/arrow/stringiY.png) no-repeat center;
+}
+.button
+{
+	float:right;
+	width:36px;
+	line-height:32px;
+	cursor:hand;
+	border:1px #FF0 solid;
+}
+.button :hover{
+	background-color:#FF0;
+}
+</style>
+<body onload="init();" onselectstart="return false;">
+<div id=menu>
+	<div class=button id=Close onClick="javascript:self.close();" title="Chiudi">&nbsp;</div>
+	<div class=button id=Restore onClick="javascript:restore();" title="Ottimizza">&nbsp;</div>
+	<div class=button id=OutY onClick="javascript:zoom(false,true,false);" title="Riduci altezza">&nbsp;</div>
+	<div class=button id=OutX onClick="javascript:zoom(true,false,false);" title="Riduci larghezza">&nbsp;</div>
+	<div class=button id=OutXY onClick="javascript:zoom(true,true,false);" title="Riduci altezza e larghezza">&nbsp;</div>
+    <div class=button id=InY onClick="javascript:zoom(false,true,true);" title="Aumenta altezza">&nbsp;</div>    
+    <div class=button id=InX onClick="javascript:zoom(true,false,true);" title="Aumenta larghezza">&nbsp;</div>    
+    <div class=button id=InXY onClick="javascript:zoom(true,true,true);" title="Aumenta altezza e larghezza">&nbsp;</div>
+</div>
+<div id=divChart onmousedown="setDrag(true);" onmouseup="setDrag(false);">
+</div>
+
+</body>
+<script>
+
+var imgH;
+var imgW;
+
+var bgX =0;
+var bgY = 0;
+
+var originalX=0;
+var originalY=0;
+
+var diffX;
+var diffY;
+
+var Obj;
+
+function setDrag(attivo){
+	if (attivo)
+	{
+		if(document.all.divChart.style.backgroundPositionX!='')
+			bgX= parseInt(document.all.divChart.style.backgroundPositionX,10);
+		if(document.all.divChart.style.backgroundPositionY!='')			
+			bgY= parseInt(document.all.divChart.style.backgroundPositionY,10);	
+		
+		originalX=event.clientX;
+		originalY=event.clientY;
+		
+		document.all.divChart.onmousemove= function()
+		{
+			diffX = originalX-event.clientX;
+			diffY = originalY-event.clientY;	
+			
+			document.all.divChart.style.backgroundPositionX = (bgX - diffX)+'px';
+			document.all.divChart.style.backgroundPositionY = (bgY - diffY)+'px';			
+		}
+	}else
+	{
+		document.all.divChart.onmousemove= null;
+	}
+}
+
+function init()
+{	
+	document.all.divChart.style.width = (screen.availWidth-50)+'px';		
+	document.all.divChart.style.height = (screen.availHeight-document.all.menu.offsetHeight-50)+'px';	
+
+	
+	restore();
+}
+function restore(){
+	document.all.divChart.style.backgroundPositionX = '0px';
+	document.all.divChart.style.backgroundPositionY = '32px';
+
+	imgH = parseInt(document.all.divChart.style.height,10)-35;
+	imgW = parseInt(document.all.divChart.style.width,10); 
+	loadChart();	
+}
+function zoom(horizontal,vertical,zoomIn){
+	if (zoomIn)
+	{
+		if (horizontal)
+			imgW = imgW + parseInt(imgW/100*30,10);
+		if (vertical)
+			imgH = imgH + parseInt(imgH/100*30,10);			
+	}else
+	{
+		if (horizontal)
+			imgW = imgW - parseInt(imgW/100*30,10);
+		if (vertical)
+			imgH = imgH - parseInt(imgH/100*30,10);		
+	}
+	loadChart();
+}
+function loadChart()
+{	
+
+	var myUrl = "../../chartLaboWhale?";
+	
+	myUrl+= "&TESTATE="+escape(window.dialogArguments.pTestate);
+	myUrl+= "&RISULTATI="+escape(window.dialogArguments.pRisultati);
+	myUrl+= "&COD_ESA="+escape(window.dialogArguments.pCodiceEsame);
+	myUrl+= "&DESCR_ESA="+escape(window.dialogArguments.pDescrEsame);
+	myUrl+= "&VAL_MIN="+escape(window.dialogArguments.pValMin);
+	myUrl+= "&VAL_MAX="+escape(window.dialogArguments.pValMax); 
+
+	myUrl+= "&HEIGHT="+ imgH;
+	myUrl+= "&WIDTH="+ imgW; 
+
+	document.all.divChart.style.backgroundImage='url("'+myUrl+'")';
+	
+}
+function onClose(){
+	window.returnValue = 'gfhdgfh';
+}
+</script>
+</html>

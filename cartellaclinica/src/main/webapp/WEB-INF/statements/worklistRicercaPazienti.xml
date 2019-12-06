@@ -1,0 +1,50 @@
+<root>
+    <statements_list>
+        <statement name="getRichieste">
+            <sql>
+                <![CDATA[
+                SELECT STATO_RICHIESTA, TIPOLOGIA_RICHIESTA, PRENOTAZIONE_DIRETTA 
+                FROM INFOWEB.TESTATA_RICHIESTE 
+                WHERE IDEN_VISITA = TO_NUMBER(?)
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getCartellaMetal">
+			<sql>
+			<![CDATA[
+					declare
+					  	pIdenAnag 		pls_integer := to_number(?);
+					  	pStruttura 		varchar2(20) := ?;
+					  	vIdenAccesso	pls_integer;
+					  	vIdenRicovero	pls_integer;
+					  	vIdenPro		pls_integer;
+					  	vDataRicovero	varchar2(20);
+					  	vOraRicovero	varchar2(20);
+					  	vMetal			varchar2(1):='N';
+					begin
+						 begin  
+						 --cerco se esiste un ricovero attivo non metal
+						   select iden into vIdenAccesso from nosologici_paziente where iden_anag=pIdenAnag and deleted='N' AND dimesso='N' AND ACCESSO=1 and cod_cdc not in ('REP_MET_PL','REP_MET_SV','REP_MET_AL','REP_MET_CA') AND IDEN_TIPO_RICOVERO IN (1,2,4,5,121,61) and rownum=1;
+						   
+						   exception when no_data_found then
+						      begin
+						       vMetal:='S';
+						     --cerco se è già stato inserito il ricovero metal
+						        select iden into vIdenAccesso from nosologici_paziente where iden_anag=pIdenAnag and deleted='N' AND dimesso='N' AND ACCESSO=1 and cod_cdc=pStruttura;
+						        exception when no_data_found then
+							        select to_char(sysdate,'YYYYMMDD'), to_char(sysdate,'hh24:mi') into vDataRicovero, vOraRicovero from dual;
+							        select iden into vIdenPro from tab_pro where cod_dec=pStruttura;
+							    	insert into nosologici_paziente (num_nosologico,iden_pro,iden_anag,data_ricovero,ora_ricovero,tipo_ricovero,iden_tipo_ricovero,cod_cdc,accesso) values(pStruttura||to_char(pIdenAnag),vIdenPro,pIdenAnag,vDataRicovero,vOraRicovero,1,1,pStruttura,0) returning iden into vIdenRicovero;
+									insert into nosologici_paziente (num_nosologico,iden_pro,iden_anag,data_ricovero,ora_ricovero,tipo_ricovero,iden_tipo_ricovero,cod_cdc,accesso,parent) values(pStruttura||to_char(pIdenAnag),vIdenPro,pIdenAnag,vDataRicovero,vOraRicovero,1,1,pStruttura,1,vIdenRicovero) returning iden into vIdenAccesso;	
+							  end; 
+						 end;
+					    ? := vIdenAccesso;
+					    ? := vMetal;
+					end;
+			]]>
+			</sql>
+		</statement>
+    </statements_list>	
+</root>
+
+

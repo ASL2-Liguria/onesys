@@ -1,0 +1,14 @@
+<PAGINA key_id="LISTA_ATTESA_DELETE">
+    <HEADER_PAGE key_id="LISTA_ATTESA_DELETE" valore="DEFAULT,SCHEDA,LISTA_ATTESA_DELETE#DEFAULT,LISTA_ATTESA_DELETE" evento="START_END"></HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="LISTA_ATTESA_DELETE#lblTitolo#butSalva,butChiudi" evento="START">
+            <FIELDSET_TABLE key_id="tableInfoDelete" valore="tableInfoDelete" evento="START">
+                <TD_LABEL_TEXT key_id="txtUtente" valore="lblUtente##txtUtente#####w130px#N" evento="START"></TD_LABEL_TEXT>
+                <TR.INIT  key_id="riga1" valore="" evento="START" >
+                    <TD_LABEL_TEXTAREA key_id="motivoDelete" valore="lblMotivoDelete#txtMotivoDelete##N#N#5" evento="START"></TD_LABEL_TEXTAREA>
+             	</TR.INIT>
+            </FIELDSET_TABLE>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

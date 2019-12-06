@@ -1,0 +1,24 @@
+<PAGINA key_id="SCHEDA_CDC">
+    <HEADER_PAGE key_id="SCHEDA_CDC" valore="DEFAULT,SCHEDA,SCHEDA_CDC#DEFAULT,SCHEDA_CDC" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SAVE_DATA#POLARIS_DATI#CENTRI_DI_COSTO#IDEN#IDEN##V_CDC" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaCdc" valore="SchedaCdc#lblTitolo#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabDatiCdc" valore="tabDatiCdc" evento="START">
+                <FIELDSET_TABLE key_id="fldDatiCdc" valore="fldDatiCdc" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="CodiceCdc" valore="lblCodiceCdc##txtCodiceCdc###CODICE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="OrdineCdc" valore="lblOrdineCdc##txtOrdineCdc###ORDINE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="DescrizioneCdc" valore="lblDescrizioneCdc##txtDescrizioneCdc###DESCRIZIONE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="Tipologia" valore="lblTipologia##Tipologia#radTipologia#{width:80}#N#TIPOLOGIA" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_RADIO key_id="Struttura" valore="lblStruttura##Struttura#radStruttura#{width:120}#N#STRUTTURA" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_RADIO key_id="Attivo" valore="lblAttivo##Attivo#radAttivo#{width:80,idxDefault:0}#S#ATTIVO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

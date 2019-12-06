@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Riepilogo/Wrapper.js" />
+	<CSS path="css/MMG/Riepilogo/Wrapper.css" />
+</INCLUDE>

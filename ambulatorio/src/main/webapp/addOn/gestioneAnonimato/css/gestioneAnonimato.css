@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+fieldset {
+	border: 1px solid blue;
+	padding: 5px 5px 5px 5px;
+	background-color:#E2FBFE;
+	margin: 5px 5px 5px 5px;
+}
+
+legend {
+	padding: 0.2em 0.5em;
+	color: blue;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+
+

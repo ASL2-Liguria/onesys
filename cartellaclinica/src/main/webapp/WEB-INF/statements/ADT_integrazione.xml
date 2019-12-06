@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <statements_list>
+        <statement name="getCodiciICD9CM">
+            <sql>
+                <![CDATA[
+                        SELECT col01 CODICE, COL02 DESCRIZIONE, COL03 TIPO FROM TABLE(RADSQL.GETINTERVENTIDIAGNOSI(?))
+                ]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

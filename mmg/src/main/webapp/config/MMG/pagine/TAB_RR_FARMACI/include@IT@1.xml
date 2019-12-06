@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/MMG/RicettaRossa/ricetta.css" />
+	<JS path="js/MMG/RicettaRossa/ricetta.js" />
+	<JS path="js/MMG/RicettaRossa/ricettaFarmaci.js" />
+</INCLUDE>

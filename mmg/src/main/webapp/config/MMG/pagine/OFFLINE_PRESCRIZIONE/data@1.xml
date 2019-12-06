@@ -1,0 +1,11 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="TipoRicetta" configurazione_stato="begin :stato := 'E'; end;" db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_TIPO_RICETTA" />
+	
+	<DATO key_id="TipoPrescrizione" configurazione_stato="begin :stato := 'E'; end;" db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_TIPO_PRESCRIZIONE" />
+	
+	<DATO key_id="Urgenza" configurazione_stato="begin :stato := 'E'; end;" db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="Q_RR_URGENZA" />
+		
+	<DATO key_id="Prestazione" configurazione_stato="begin :stato := 'E'; end;" db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_PRESTAZIONE_RR" />	
+			
+</DATI>

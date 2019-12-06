@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+<MENU>
+
+    <ID>MENU_ASSISTITI</ID>
+    
+    <TITLE>traduzione.lblMenu</TITLE>
+    
+    <LIST>
+    
+    	<ITEM>
+    	
+            <ID>MA.APRI_CARTELLA</ID>
+            <LINK>
+            	<![CDATA[ 
+            		function( rec ){ NS_MENU_WORKLIST_ASSISTITI.apriCartellaAssistito( rec[0] ); }
+            	]]>
+            </LINK>
+            <WHERE>
+            	<![CDATA[ 
+            		function( rec ){ return rec.length == 1; } 
+            	]]>
+            </WHERE>
+            <ICON_CLASS>apri-scheda</ICON_CLASS>
+            <OUTPUT>traduzione.lblCartellaAssistito</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        
+        <ITEM>
+    	
+            <ID>MA.APRI_DATI_STRUTTURATI</ID>
+            <LINK>
+            	<![CDATA[ 
+            		function( rec ){ NS_MENU_WORKLIST_ASSISTITI.apriDatiStrutturati( rec[0] ); }
+            	]]>
+            </LINK>
+            <WHERE>
+            	<![CDATA[ 
+            		function( rec ){ return rec.length == 1; } 
+            	]]>
+            </WHERE>
+            <ICON_CLASS>apri-datawharehouse</ICON_CLASS>
+            <OUTPUT>traduzione.lblDatiStrutturati</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+            
+        </ITEM>
+        
+        <ITEM>
+    	
+            <ID>MA.APRI_DOCUMENTI_PAZIENTE</ID>
+            <LINK>
+            	<![CDATA[ 
+            		function( rec ){ NS_MENU_WORKLIST_ASSISTITI.apriDocumentiPaziente( rec[0] ); }
+            	]]>
+            </LINK>
+            <WHERE>
+            	<![CDATA[ 
+            		function( rec ){ return rec.length == 1; } 
+            	]]>
+            </WHERE>
+            <ICON_CLASS>anteprima</ICON_CLASS>
+            <OUTPUT>traduzione.lblDocumentiPaziente</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+            
+        </ITEM>
+        
+        <ITEM>
+    	
+            <ID>MA.APRI_SCHEDA_ANGRAFICA</ID>
+            <LINK>
+            	<![CDATA[ 
+            		function( rec ){ NS_MENU_WORKLIST_ASSISTITI.apriSchedaAnagrafica( rec[0] ); }
+            	]]>
+            </LINK>
+            <WHERE>
+            	<![CDATA[ 
+            		function( rec ){ return rec.length == 1; } 
+            	]]>
+            </WHERE>
+            <ICON_CLASS>utente</ICON_CLASS>
+            <OUTPUT>traduzione.lblSchedaAnagrafica</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+            
+        </ITEM>
+    
+    </LIST>
+    
+</MENU>

@@ -1,0 +1,118 @@
+
+td.classTdLabelNoWidth{
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:10px;	
+}
+td.classTdText{
+	background-color:#DAF5FE;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:10px;	
+	text-align:right;
+	text-decoration: underline;
+	border-bottom:1px;
+}
+
+td.classTdLabel{
+	background-color:#DAF5FE;
+	width:100px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:10px;	
+	white-space:nowrap;
+}
+
+td.classTdField{
+	background-color:#F2FEFF;
+	white-space:nowrap;	
+}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+/* **************************  */
+table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #5089FF;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	overflow:hidden;
+	width: 100%;
+	border-top-width:10px;
+}
+
+table.classDataTable td{
+	border: 1px solid #83E2BC;
+}
+
+table.classDataTable th {
+	background-color:#3399FF;
+	border: 1px solid #83E2BC;
+}
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	border-color:#3399FF;
+	border-width:thin;
+	border-style:solid;
+	font-family: Arial, Helvetica, sans-serif;
+	color:white;
+}
+
+div.classDatiTabella{
+	white-space:nowrap;
+}
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+
+.classNormalRow{
+	height:25px;
+}
+
+IFRAME.classFrmInfoScheda{
+	width: 100%;
+	height: 600px;
+}
+
+div#containerSchedaCaso{
+	width:100%;
+}
+
+DIV.sottoTitoloTabulatoreCorrente{
+	background-color:blue; 
+	color:yellow;
+	padding-top:2px;
+	padding-bottom:2px;
+	text-align:center;
+	padding-top:2px;	
+	font-size:14px;
+}
+
+DIV.sottoTitoloTabulatorePrecedente{
+	background-color:#33CCFF; 
+	color:black;
+	padding-top:2px;
+	padding-bottom:2px;
+	text-align:center;
+	padding-top:2px;
+	font-size:14px;
+}
+
+div#schedaCasoLeftFrame{float:left;}
+div#schedaCasoLeftFrame.mezzo{float:left;width:49.9%;display:block;overflow:auto;border: 2px solid black;}
+div#schedaCasoLeftFrame.intero{width:99%;display:block;}
+div#schedaCasoLeftFrame.vuoto{width:1%; display:none;}	
+
+div#schedaCasoRightFrame{float:left;}
+div#schedaCasoRightFrame.mezzo{float:left;width:50%;display:block;overflow:auto;border: 2px solid black;}
+div#schedaCasoRightFrame.intero{width:99%;display:block;}
+div#schedaCasoRightFrame.vuoto{width:1%; display:none;}	

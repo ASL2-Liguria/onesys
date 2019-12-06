@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<butStampaRicetta>Prescrivi e Stampa</butStampaRicetta>
+		<butSalvaRicetta>Salva</butSalvaRicetta>
+		<butChiudi>Chiudi</butChiudi>
+		<butInserisci>Aggiungi Riga</butInserisci>
+		<butCancella>Cancella Selez.</butCancella>
+		<butAggiorna>Aggiorna</butAggiorna>
+		<butPrescrLibera>Prescriz. Libera</butPrescrLibera>
+		
+		<lblInfoAdmin>Informazioni Riga</lblInfoAdmin>
+		
+		<lblCancella>Cancella Prescrizione</lblCancella> 
+		<lblCancellaMulti>Cancella Prescrizioni Selezionate</lblCancellaMulti>
+		<lblCambiaDataMulti>Cambia data a prescrizioni selezionate</lblCambiaDataMulti>
+		<lblSelAlmeno>Selezionare almeno una prescrizione</lblSelAlmeno>
+		<lblAnnullaCancella>Annulla Cancellazione</lblAnnullaCancella>
+		<lblRimuoviCronica>Rimuovi Cronicità</lblRimuoviCronica>
+		<lblApplicaEsenzioni>Applica alle prescrizioni selezionate</lblApplicaEsenzioni>
+		<lblInserisciNota>Inserisci Nota</lblInserisciNota>
+		<lblAssociaProblema>Associa a problema</lblAssociaProblema>
+		<lblDialogCancella>Cancellare le prescrizioni selezionate?</lblDialogCancella>
+		<lblForzaRicettaBianca>Forza su ricetta bianca</lblForzaRicettaBianca>
+		<lblForzaRicettaRossa>Forza su ricetta rossa</lblForzaRicettaRossa>
+		<lblRimuoviForzatura>Rimuovi forzatura</lblRimuoviForzatura>
+		
+		<!-- label dei dialog -->
+		<lblSi>Si</lblSi>
+		<lblNo>No</lblNo>
+		<lblEsePazAperte>Il paziente ha delle esenzioni totali aperte: </lblEsePazAperte>
+		<lblConfermaPrescrizione>Conferma prescrizione</lblConfermaPrescrizione>
+		<lblProcediApplica>Applica esenzione</lblProcediApplica>
+		<lblProcediSenzaApplica>Procedi senza applicare</lblProcediSenzaApplica>		
+		<lblDesAssociare>Si desidera associare l'esenzione (scegliere nella lista seguente) </lblDesAssociare>
+		<lblAllePrescr>alle prescrizioni?</lblAllePrescr>
+		<lblCancellaEsenzioni>Cancella esenzioni alle prescrizioni selezionate</lblCancellaEsenzioni>
+		<lblOscuramentoTitle>Oscuramento della prescrizione</lblOscuramentoTitle>
+		<lblConfermaOscuraPrescrizione>Oscurare la singola prescrizione o tutte le prescrizioni dello stesso tipo (stesso codice)?</lblConfermaOscuraPrescrizione>
+		<lblConfermaDisOscuraPrescrizione>Rimuovere oscuramento della singola prescrizione o di tutte le prescrizioni dello stesso tipo (stesso codice)?</lblConfermaDisOscuraPrescrizione>
+		<lblOscuraSingola>Singola</lblOscuraSingola>
+		<lblOscuraTutte>Tutte</lblOscuraTutte>
+		
+		<!-- MI -->
+		<setMI>Segnala per Med. Iniziativa</setMI>
+		<removeMI>Rimuovi da Med. Iniziativa</removeMI>
+		<MedicinaIniziativa>Medicina d'Iniziativa</MedicinaIniziativa>
+		<BPCO>BPCO</BPCO>
+		<scompensoCardiaco>Scompenso Cardiaco</scompensoCardiaco>
+		<diabete>Diabete</diabete>
+		<deniedDeleteMI>Non è possibile cancellare prescrizioni non inserite con il modulo MMG/PLS</deniedDeleteMI>
+		<deniedDeleteMIMulti>Alcune righe non sono state cancellate poichè non inserite con il modulo MMG/PLS</deniedDeleteMIMulti>
+		<deniedCambioDataMI>Non è possibile modificare la data per prescrizioni non inserite con il modulo MMG/PLS</deniedCambioDataMI>
+		<deniedCambioDataMIMulti>Alcune righe non sono state modificate poichè non inserite con il modulo MMG/PLS</deniedCambioDataMIMulti>
+    </ROW>
+</ROWSET>

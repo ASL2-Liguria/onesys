@@ -1,0 +1,20 @@
+body { background:#b9e0ff; /*padding-right:'10px';*/ overflow: auto;}
+
+
+fieldset{
+	border:4px solid #FFF;
+	padding:5px;
+	}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+
+td.colRemove {display:none;}
+td.colRemove.active {display:block;background: url(../../../../imagexPix/button/canc.png) center no-repeat; cursor: pointer;}
+fieldset#lbltabAccesso legend.active {cursor: pointer;padding-right: 25px;background: url(../../../../imagexPix/button/plusBt.png) right no-repeat; }
+fieldset#lbltabAgenda legend input {width: 80px; float:none;margin-left:5px; }

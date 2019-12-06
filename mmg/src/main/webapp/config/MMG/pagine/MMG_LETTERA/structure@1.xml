@@ -1,0 +1,34 @@
+<PAGINA key_id="MMG_LETTERA">
+	<HEADER_PAGE key_id="MMG_LETTERA" valore="DEFAULT_MMG,SCHEDA,MMG_LETTERA#DEFAULT_MMG,MMG_LETTERA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_LETTERA#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="MMGLettera#lblTitolo#butStampa,butSalva,butChiudi" evento="START_END">
+			<FIELDSET_TABLE key_id="fld1" valore="fld1" evento="START">
+				<TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome###NOME" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome###COGNOME" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Indirizzo" valore="lblIndirizzo##txtIndirizzo##lettura#INDIRIZZO" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Localita" valore="lblLocalita##txtLocalita##lettura#LOCALITA" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="CAP" valore="lblCAP##txtCAP##lettura#CAP" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Recapito_Tel" valore="lblRecapito_Tel##txtRecapito_Tel##lettura#RECAPITO_TEL" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="E_Mail" valore="lblE_Mail##txtE_Mail##lettura#E_MAIL" evento="START">
+				</TR_TD_LABEL_TEXT>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fld2" valore="fld2" evento="START">
+				<TR_TD_LABEL_COMBO key_id="Diagnosi" valore="lblDiagnosi##Diagnosi#Diagnosi#N#DIAGNOSI" evento="START">
+				</TR_TD_LABEL_COMBO>
+				<TR_TD_LABEL_TEXTAREA key_id="Dettaglio" valore="lblDettaglio#txtDettaglio#DETTAGLIO" evento="START">
+				</TR_TD_LABEL_TEXTAREA>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fld3" valore="fld3" evento="START">
+				<TR_TD_LABEL_TEXTAREA key_id="Corpo" valore="lblCorpo#txtCorpo#CORPO_LETTERA" evento="START">
+				</TR_TD_LABEL_TEXTAREA>
+			</FIELDSET_TABLE>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

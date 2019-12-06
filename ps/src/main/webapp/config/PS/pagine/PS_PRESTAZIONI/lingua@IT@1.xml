@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+       <lblTitolo>Lista Prestazioni</lblTitolo>
+       <tabDati>Lista Prestazioni</tabDati>
+       <fldPrestazioniPS>Prestazioni interne PS</fldPrestazioniPS>
+       <fldPrestazioni>Prestazioni altri erogatori</fldPrestazioni>
+       <titDettPrest>Dettaglio prestazioni</titDettPrest>
+       <thDescrizione>Descrizione</thDescrizione>
+       <thIden>Iden richiesta</thIden>
+    </ROW>
+</ROWSET>

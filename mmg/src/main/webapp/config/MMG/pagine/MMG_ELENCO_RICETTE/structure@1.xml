@@ -1,0 +1,51 @@
+<PAGINA key_id="MMG_ELENCO_RICETTE">
+	<HEADER_PAGE key_id="MMG_ELENCO_RICETTE"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ELENCO_RICETTE#DEFAULT_MMG,MMG_ELENCO_RICETTE,COMMON_RICETTE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_DATA#MMG_DATI#MMG_ELENCO_RICETTE#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="Elenco_Ricette#lblTitolo#butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabElencoRicette" valore="tabElencoRicette"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_COMBO key_id="Medico"
+							valore="lblMedico##Medico#cmbMedico#N#MEDICO"
+							evento="START">
+						</TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome"
+							valore="lblCognome##Cognome##lettura#COGNOME" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##Nome##lettura#NOME"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR_TD_LABEL_RADIO key_id="filtroStampate" valore="lblSituazioneStampa##filtroStampate#radStampate#{width:150,idxDefault:2}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca#butCerca#6" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+					<DIV key_id="divInfoSearch" valore="divInfoSearch" evento="START"></DIV>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="ElencoWork" valore="ElencoWork"
+					evento="START_END">
+				</DIV.WORKLIST>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

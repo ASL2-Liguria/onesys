@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Sectra Integration Test Page</title>
+<script>
+var sectraExePathDEFAULT = "\"C://Program Files//Sectra//IDS5//bin//run_ids5.exe\"";
+var nomeProcessoSectraDEFAULT ="workstation.exe";
+
+function launchSectraApp(){
+	var sectraObj;
+	try{
+		sectraObj = new ActiveXObject("Sectra_desktop_sync.SectraDesktopSync");
+		if (sectraObj){
+			alert("Creato!");
+		}
+		else{
+			alert("Oggetto non creato!");		
+			return;
+		}
+		alert("Oggetto creato. Pacs connesso ? " + sectraObj.PACSIsConnected());
+		try{
+			sectraObj.PACSInitialize("RIS",1000) ; 
+		}
+		catch(e){
+			alert("Error on PACSInitialize - Error: " + e.description);
+		}
+		if (sectraObj.PACSIsConnected()==true){
+			sectraObj.PACSResetDisplayList(); 
+			// numero visita 201003089108
+			// id esame 20100308910
+			// altri con valori (sembra) uguali 
+			sectraObj.PACSAddToDisplayList('201003089108','20100308910'); 
+			sectraObj.PACSShowDisplayList();	
+			alert("aperte immagini. num.visita 201003089108  id esame 20100308910. ora le chiudo");
+			// per chiudere
+			sectraObj.PACSCloseImages();
+		}				
+
+		
+	}
+	catch(e){
+		alert("launch - Errore: " +e.description);
+	}
+}
+</script>
+</head>
+
+<body>
+Utente&nbsp;<input type="text" value="" id="idUser" name="txtUser"/><br />
+Password&nbsp;<input type="text"  id="idPwd" name="txtPwd"/>
+<br />
+Patient ID&nbsp;<input type="text"  id="idPATID" name="txtPatId" value="1043982"/>
+<br />
+Accession number list (splitted by *)&nbsp;<input type="text"  id="idAccNum" name="txtAccNum"  value="1776471*1777186*1777314"/><br />
+Accession number to append to open study (only on at a time)&nbsp;
+<input type="text" value="1776471*1777186*1777314" id="idAccNumToAdd" name="txtAccNumToAdd"/><br />
+<br />
+
+
+<a href="#" onclick="javascript:launchSectraApp();">Lancia Sectra</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:createContextServerObject();">Crea oggetto</a>&nbsp;&nbsp;
+<a href="#" onclick="javscript:loginToSectra(document.getElementById('idUser').value, document.getElementById('idPwd').value);">Login</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:openStudies(document.getElementById('idPATID').value,document.getElementById('idAccNum').value);">Open studies</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:openStudies(document.getElementById('idPATID').value,document.getElementById('idAccNumToAdd').value);">Add Studies</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:closeAllStudies();">Close studies</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:logoutSectra();">Logout/Quit</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:killaSectra();">Killa Sectra</a><HR />
+<div style="display:block; background-color:blue; color:white; width:100%;">Output:&nbsp;<label id="lblOutput"></label> </div>
+</body>
+</html>

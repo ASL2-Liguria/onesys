@@ -1,0 +1,25 @@
+<PAGINA key_id="SCHEDA_PC">
+    <HEADER_PAGE key_id="SCHEDA_PC" valore="DEFAULT,SCHEDA,SCHEDA_PC#DEFAULT,SCHEDA_PC" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SALVA_CONF_PC#PS#####" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaPC" valore="SchedaPC#lblTabPC#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabDatiPC" valore="tabDatiPC" evento="START">
+                <FIELDSET_TABLE key_id="fldDatiPC" valore="fldDatiPC" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="IP" valore="lblIp##txtIp###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="StampanteBraccialetto" valore="lblStampanteBraccialetto##txtStampanteBraccialetto###STAMPANTE_BRACIALETTO##N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="TriageDefault" valore="lblTriageDefault##txtTriageDefault###TRIAGE_DEFAULT##N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="StampanteConfigurazione" valore="lblStampanteConfigurazione##txtStampanteConfigurazione###STAMPANTE_CONFIGURAZIONE##N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="StampanteReferto" valore="lblStampanteReferto##txtStampanteReferto###STAMPANTE_REFERTO##N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="StampanteEtichette" valore="lblStampanteEtichette##txtStampanteEtichette###STAMPANTE_ETICHETTE##N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

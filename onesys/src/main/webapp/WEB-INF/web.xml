@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>unisys</display-name>
+  
+  	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Statistics</web-resource-name>
+			<url-pattern>/PoolStatistics</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+  
+  <!-- Parametri -->
+  <context-param>
+  	<param-name>VERSIONE</param-name>
+  	<param-value>1</param-value>
+  </context-param>
+  <context-param> <!-- Parametro utile per debug, da rimuovere in produzione... forse -->
+  	<param-name>LOGIN_CLASS</param-name>
+  	<param-value>unisys.login.LoginDbProcedure</param-value>
+  </context-param>
+<!-- <context-param>
+  	<param-name>LOGIN_PAGE</param-name>
+  	<param-value>unisys.login.PageLoginEngineUnified</param-value>
+  </context-param> -->
+  <context-param>
+    <param-name>PoolName</param-name>
+    <param-value>elcoPool_oracle_unisys</param-value>
+  </context-param>
+  <context-param>
+    <param-name>WebUser</param-name>
+    <param-value>imagoweb</param-value>
+  </context-param>
+  <context-param>
+    <param-name>WebPwd</param-name>
+    <param-value>password</param-value>
+  </context-param>
+  <context-param>
+    <param-name>CryptType</param-name>
+    <param-value>imago.crypto.PlainPassword</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>CACHE_INCLUDE_FILES</param-name>
+  	<param-value>1</param-value>
+  </context-param>
+  
+  <!-- Listener -->
+  <listener>
+    <listener-class>imago.sql.ElcoContextListener</listener-class>
+  </listener>
+<!--   <listener> Non funziona perche' cerca l'attributo "login" (invece e' "utente")-->
+<!--     <listener-class>imago.http.classSessionListener</listener-class> -->
+<!--   </listener> -->
+
+	<!-- Filtri -->
+	<filter>
+	    <filter-name>IECompatibilityFilter</filter-name>
+	    <filter-class>unisys.utils.IECompatibilityFilter</filter-class>
+	    <init-param>
+	        <param-name>X-UA-Compatible</param-name>
+	        <param-value>IE=8</param-value>
+	        <!--
+	            <param-value>IE=5</param-value> Quirks mode
+	            <param-value>IE=7</param-value> Forza IE7 anche senza doctype
+	            <param-value>IE=8</param-value> Forza IE8 anche senza doctype
+	            <param-value>IE=9</param-value> Forza IE9 anche senza doctype
+	            <param-value>IE=Edge</param-value> Versione corrente
+	            <param-value>IE=EmulateIE7</param-value> Emula IE7
+	            <param-value>IE=EmulateIE8</param-value> Emula IE8
+	            <param-value>IE=EmulateIE9</param-value> Emula IE9
+	        -->
+	    </init-param>
+	</filter>
+	<filter-mapping>
+	    <filter-name>IECompatibilityFilter</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- /Filtri -->
+
+  <!-- Servlet speciali -->
+  <servlet>
+    <servlet-name>log4j-init</servlet-name>
+    <servlet-class>imago.sql.Log4jConfigLoader</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+	<servlet-name>Global</servlet-name>
+	<servlet-class>core.Global</servlet-class>
+	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <!-- Servlet -->
+  	<servlet>
+		<servlet-name>PoolStatistics</servlet-name>
+		<servlet-class>imago.sql.PoolStatistics</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PoolStatistics</servlet-name>
+		<url-pattern>/PoolStatistics</url-pattern>
+	</servlet-mapping>
+	
+  <servlet>
+    <servlet-name>PageLogin</servlet-name>
+    <servlet-class>unisys.login.PageLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PageLogin</servlet-name>
+    <url-pattern>/PageLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Authentication</servlet-name>
+    <servlet-class>unisys.login.PostAuthentication</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Authentication</servlet-name>
+    <url-pattern>/Authentication</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LogAction</servlet-name>
+    <servlet-class>unisys.login.PostLogAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogAction</servlet-name>
+    <url-pattern>/LogAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AuthenticationSiss</servlet-name>
+    <servlet-class>unisys.login.PostAuthenticationSiss</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthenticationSiss</servlet-name>
+    <url-pattern>/AuthenticationSiss</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>menu_principale</display-name>
+    <servlet-name>menu_principale</servlet-name>
+    <servlet-class>unisys.menu.menu_principale</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>menu_principale</servlet-name>
+    <url-pattern>/menu_principale</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>unloadSessionUnisys</description>
+    <display-name>unloadSessionUnisys</display-name>
+    <servlet-name>unloadSessionUnisys</servlet-name>
+    <servlet-class>unisys.logout.unloadSessionUnisys</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>unloadSessionUnisys</servlet-name>
+    <url-pattern>/unloadSession</url-pattern>
+  </servlet-mapping>
+  <session-config>
+    <session-timeout>180</session-timeout>
+  </session-config>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>  
+  
+</web-app>

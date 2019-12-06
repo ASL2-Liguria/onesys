@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>
+
+        <statement name="getInfoRichiesta">
+            <sql>
+                <![CDATA[
+                   select
+					cdc.cod_cdc CDC_SORGENTE,
+					  tr.cdc CDC_DESTINATARIO,
+					  tr.data_filtro,
+					  tr.ora_proposta,
+					  tr.stato_richiesta,
+					  tr.prenotazione_diretta,
+					  tr.prelievo_effettuato,
+					  tr.tipologia_richiesta
+					from					
+					  infoweb.testata_richieste tr
+					  join tab_pro tp on tp.iden = tr.iden_tab_pro
+					  join centri_di_costo cdc on cdc.cod_dec = tp.cod_dec
+					where
+					  tr.iden = to_number(?)
+				]]>
+            </sql>
+        </statement>
+
+    </statements_list>
+</root>				

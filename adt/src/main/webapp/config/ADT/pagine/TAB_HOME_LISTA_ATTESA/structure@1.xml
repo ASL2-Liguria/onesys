@@ -1,0 +1,37 @@
+<PAGINA key_id="TAB_HOME_LISTA_ATTESA">
+    <HEADER_WK key_id="TAB_HOME_LISTA_ATTESA" valore="DEFAULT,WK,TAB_HOME_LISTA_ATTESA#DEFAULT,TAB_HOME_LISTA_ATTESA" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroListaAttesa" valore="filtroListaAttesa#WK_LISTA_ATTESA_STD" evento="START">
+            <TABELLA.INIT key_id="tableListaAttesa" valore="" evento="START">
+                <TR.INIT key_id="rigaListaAttesa1" valore="" evento="START">
+                    <FILTRO_TEXT key_i="listaAttesaCognome" valore="lblListaAttesaCognome#txtListaAttesaCognome#cognome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="listaAttesaNome" valore="lblListaAttesaNome#txtListaAttesaNome#nome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TAG key_id="ListaAttesaMedicoProponente" valore="lblListaAttesaMedicoProponente#titListaAttesaMedicoProponente#LISTA_ATTESA_MEDICO_PROPONENTE#tagListaAttesaMedicoProponente#txtListaAttesaMedicoProponente#{width:'230px'}#N##LISTA_ATTESA_MEDICO_PROPONENTE#N" evento="START"></FILTRO_TAG>
+                </TR.INIT>
+                <TR.INIT key_id="rigaListaAttesa2" valore ="" evento="START">
+                    <FILTRO_TAG key_id="listaAttesaPriorita" valore="lblListaAttesaPriorita#titListaAttesaPriorita#LISTA_ATTESA_PRIORITA#tagListaAttesaPriorita#txt#{width:'230px'}#N##LISTA_ATTESA_PRIORITA#N" evento="START"></FILTRO_TAG>
+                    <FILTRO_DATA key_id ="listaAttesaDaData" valore ="lblListaAttesaDataInizio#txListaAttesatDataInizio####lblListaAttesaDataInizio##LISTA_ATTESA_DATA_INIZIO#N" evento="START"></FILTRO_DATA>
+                    <FILTRO_DATA key_id ="listaAttesaAData" valore ="lblListaAttesaDataFine#txtListaAttesaDataFine####lblListaAttesaDataFine##LISTA_ATTESA_DATA_FINE#N" evento="START"></FILTRO_DATA>
+                </TR.INIT>
+                <TR.INIT key_id="rigaListaAttesa3" valore ="" evento ="START">
+                    <FILTRO_COMBO key_id="listaAttesaID" valore="lblListaAttesaID#cmbListaAttesaID#LISTA_ATTESA_ELENCO#N##LISTA_ATTESA_ID#N" evento="START"></FILTRO_COMBO>
+                    <FILTRO_TAG key_id="listaAttesaStato" valore="lblListaAttesaStato#titListaAttesaStato#LISTA_ATTESA_STATO#tagListaAttesaStato#txtListaAttesaStato#{width:'230px'}#N##LISTA_ATTESA_STATO#N" evento="START"></FILTRO_TAG>
+                    <FILTRO_TAG key_id="ListaAttesaStatoContatto" valore="lblListaAttesaStatoContatto#titListaAttesaStatoContatto#LISTA_ATTESA_STATO_CONTATTO#tagListaAttesaStatoContatto#txtListaAttesaStatoContatto#{width:'230px'}#N##LISTA_ATTESA_STATO_CONTATTO#V" evento="START"></FILTRO_TAG>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroListaChiamata" valore="filtroListaChiamata#" evento="START">
+            <TABELLA.INIT key_id="tableListaChiamata" valore="" evento="START">
+                <TR.INIT key_id="rigaChiamata1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="listaChiamataCognome" valore="lblListaChiamataCognome#txtListaChiamataCognome#cognome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="listaChiamataNome" valore="lblListaChiamataNome#txtListaChiamataNome#nome##T" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaChiamata3" valore ="" evento ="START">
+                    <FILTRO_COMBO key_id="listaChiamataID" valore="lblListaChiamataID#cmbListaChiamataID#LISTA_CHIAMATA_ELENCO#N##LISTA_CHIAMATA_ID#N" evento="START"></FILTRO_COMBO>
+                    <FILTRO_TAG key_id="ListaChiamataMedicoProponente" valore="lblListaChiamataMedicoProponente#titListaChiamataMedicoProponente#LISTA_CHIAMATA_MEDICO_PROPONENTE#tagListaChiamataMedicoProponente#txtListaChiamataMedicoProponente#{width:'230px'}#N##LISTA_CHIAMATA_MEDICO_PROPONENTE#N" evento="START"></FILTRO_TAG>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+</PAGINA>

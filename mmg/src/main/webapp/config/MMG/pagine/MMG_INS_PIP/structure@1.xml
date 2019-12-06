@@ -1,0 +1,69 @@
+<PAGINA key_id="MMG_INS_PIP">
+	<HEADER_PAGE key_id="MMG_INS_PIP"
+		valore="DEFAULT_MMG,SCHEDA,MMG_INS_PIP#DEFAULT_MMG,MMG_INS_PIP" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_MMG_PIP#MMG_DATI###" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="InsPip#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabElencoPip"
+				valore="tabElencoPip" evento="START">
+				<FIELDSET_TABLE key_id="fldWkPip" valore="fldWkPip"
+					evento="START">
+					<DIV.WORKLIST key_id="divWk" valore="divWk" evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabInsPip" valore="tabInsPip"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldInsPip" valore="fldInsPip"
+					evento="START">
+					<TR_TD_LABEL_DATA key_id="txtData"
+						valore="lblDataPip##txtDataPip#DataPip#startWithToday:true,format: 'd/m/Y',direction:false#disabled:false##DATA_PIP"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_AUTOCOMPLETE key_id="ac_pip"
+						valore="lblPip#acPip#Pip#txtPip#AC_PIP#CODICE_PIP" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="ac_pip_PLS"
+						valore="lblPip_PLS#acPip_PLS#Pip_PLS#txtPip_PLS#AC_PIP_PLS#CODICE_PIP_PLS"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_RADIO key_id="radVaccino"
+						valore="lblTipoVaccino##Vaccino#radVaccino#{width:150}#N#TIPO_VACCINO"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD.INIT key_id="TD" valore="" evento="START">
+							<TD.INIT key_id="TD2" valore="" evento="START">
+								<EXCHANGE_LISTS key_id="excClasseRischio"
+									valore="excClasseRischio#ComboIn#ComboOut#N#btnControls#{
+onlySingleTransfert: true
+,
+clickAndTransfert:false,
+callback:function(a,v){
+},
+removeFirstListItems:true,
+listHeaders:{
+	listFrom:{
+		title:'Classi',
+		buttons:null,
+	}
+,
+	listTo:{	
+		title:'Classi Selezionate',
+		buttons:null
+	     }
+	}
+}#CLASSI"
+									evento="START">
+								</EXCHANGE_LISTS>
+							</TD.INIT>
+						</TD.INIT>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXTAREA key_id="Descrizione" valore="lblDescrizione#taDescrizione#DESCRIZIONE" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

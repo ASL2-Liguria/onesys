@@ -1,0 +1,51 @@
+<DATI configurazione="
+    begin :stato_pagina := 'I';
+        :key_query := 'PS.Q_EMPTY@PS';
+        :where := null;
+        :campo_xml := null;
+    end;
+    ">
+    <DATO
+            key_id="chkFiltroAreeAttesa"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="FILTRI_PS.Q_AREE@PS"
+            />
+    <DATO
+            key_id="chkFiltroAreeAperti"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="FILTRI_PS.Q_AREE@PS"
+            />
+    <DATO
+            key_id="chkFiltroAreeOBI"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="FILTRI_PS.Q_AREE@PS"
+            />
+    <DATO
+            key_id="chkFiltroUrgenze"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="FILTRI_PS.Q_URGENZA_TRIAGE@PS"
+            />
+    <DATO
+            key_id="UTENTE_LISTA_APERTI"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="FILTRI_PS.Q_UTENTI_PS@PS"
+            />
+    <DATO
+            key_id="UTENTE_LISTA_OBI"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="FILTRI_PS.Q_UTENTI_PS@PS"
+            />
+</DATI>
+

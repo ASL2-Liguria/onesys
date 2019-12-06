@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>SOSTITUZIONE TEMPORANEA DEL MEDICO CURANTE</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<fldSostituzione>Sostituzione</fldSostituzione>
+		<fldMotivo>Motivo Sostituzione</fldMotivo>
+		<fldPeriodo>Periodo di sostituzione</fldPeriodo>
+		
+		
+		<lblDaData>Data Inizio</lblDaData>
+		<lblAData>Data Fine 	</lblAData>
+		<lblMedicoBase>Medico Curante</lblMedicoBase>
+		<lblMedicoSostituto>Medico Sostituto</lblMedicoSostituto>
+		<lblVisione>Dare visione dei dati al sostituente</lblVisione>
+		<lblDataIniVisione>Dare visione dei dati pregressi successivi a questa data (lasciare vuoto per non imporre vincoli)</lblDataIniVisione>
+		<lblDatiGruppo>Subentra anche nella medicina di gruppo</lblDatiGruppo>
+		<lblInfoDatiGruppo>Il  medico sostituto è abilitato a vedere i pazienti e i dati dei pazienti associati ai medici, facenti parte della rete o della medicina di gruppo, per il periodo della sostituzione</lblInfoDatiGruppo>
+		<lblInfoDatiInVisione>Questa data serve a dare un limite temporale nel passato per la visione dei dati al medico che effettua la sostituzione</lblInfoDatiInVisione>
+		<tabSostituzione>Sostituzione</tabSostituzione>
+    </ROW>
+</ROWSET>

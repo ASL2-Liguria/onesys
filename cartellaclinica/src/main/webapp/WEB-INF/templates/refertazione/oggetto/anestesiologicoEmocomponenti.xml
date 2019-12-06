@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblEmocomponenti" TYPE="label" TEXT="Emocomponenti necessari:"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="lblEmocomponentiPFC" TYPE="label" TEXT="PFC in kg" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="txtEmocomponentiPFC" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="lblEmocomponentiEC" TYPE="label" TEXT="EC" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="txtEmocomponentiEC" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="lblEmocomponentiPLT" TYPE="label" TEXT="PLT" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="txtEmocomponentiPLT" TYPE="input" TYPEINPUT="text"/>
+    </CAMPI>
+</PAGINA>

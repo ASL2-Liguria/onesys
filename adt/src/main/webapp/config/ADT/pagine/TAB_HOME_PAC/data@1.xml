@@ -1,0 +1,12 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'SDJ.Q_EMPTY@ADT'; :where := null; :campo_xml := null; end;">
+    <DATO 
+    	key_id="PAC_APERTI_REPARTO" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_PAC@ADT"
+    />
+    <DATO 
+    	key_id="PAC_CHIUSI_REPARTO" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_PAC@ADT"
+    />
+</DATI>

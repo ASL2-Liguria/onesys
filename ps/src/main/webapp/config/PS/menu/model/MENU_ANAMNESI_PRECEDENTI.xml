@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_ANAMNESI_PRECEDENTI</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>Visualizza_dettaglio</ID>
+            <LINK><![CDATA[function(rec){DIALOG_PS.dettaglioAnamnesiPrecedenti(rec[0])}]]></LINK>
+            <URL_IMAGE>img/CMenu/cerca2.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return top.name != 'schedaRicovero'}]]></WHERE>
+            <OUTPUT>"Visualizza_dettaglio"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Rimuovi Rivalutazione"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

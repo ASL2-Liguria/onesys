@@ -1,0 +1,45 @@
+<root>
+    <statements_list>
+        <statement name="getDati">
+            <sql>
+                <![CDATA[
+				SELECT def.campo,
+				  def.tipo,
+				  def.label_campo,
+				  dati.ute_ins,
+				  tp.descr ute_ins_descr,
+				   to_char(dati.data_ins,'DD/MM/YYYY hh24:mi') data_ins,
+				  dati.valore,
+				  dati.iden,
+				  def.ordinamento,
+				  dati.progr
+				FROM pagina_def def
+				JOIN pagina_dati dati
+				ON (def.pagina    =dati.pagina and def.campo=dati.campo)
+				JOIN tab_per tp 
+				ON (dati.ute_ins=tp.iden)
+				where def.pagina=?
+				AND dati.iden_rif=to_number(?)
+				AND dati.deleted='N'
+				union
+				select 
+				def.campo,
+				  def.tipo,
+				  def.label_campo,
+				  null,
+				  null,
+				  null,
+				  null,
+				  null,
+				  def.ordinamento,
+				  1000 progr
+				FROM pagina_def def
+				where def.pagina=?
+				order by 
+				  ordinamento,
+				  progr      
+                ]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

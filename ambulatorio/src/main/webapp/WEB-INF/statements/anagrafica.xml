@@ -1,0 +1,24 @@
+<root>
+	<statements_list>
+		<statement name="getReadOnlyState">
+			<sql>
+			<![CDATA[
+				SELECT readonly FROM anag where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>				
+		<statement name="sbloccaReadOnly">				
+			<sql>
+			<![CDATA[
+				declare
+					vIden number := ?;
+				begin
+					update anag set readonly='N' where iden = vIden;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+	</statements_list>
+</root>

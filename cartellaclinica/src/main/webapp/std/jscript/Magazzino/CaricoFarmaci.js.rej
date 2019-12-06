@@ -1,0 +1,22 @@
+--- CaricoFarmaci.js
++++ CaricoFarmaci.js
+@@ -22,9 +22,8 @@
+ 
+ var NS_CARICO_FARMACI = {
+     init : function() {
+-        document.getElementById('hIdenMagazzino').value =  $('#IDEN_MAGAZZINO').val();
+-        inserisciUnita();
+-
++        document.getElementById('hIdenMagazzino').value = $('#IDEN_MAGAZZINO').val();
++        NS_GESTIONE_MAGAZZINO.unitaCaricoScarico('CARICO');
+     },
+     event: function () {
+        $('[name="cmbRepartoProvenienza"]').change(function(){
+@@ -28,6 +27,6 @@
+     },
+     event: function () {
+        $('[name="cmbRepartoProvenienza"]').change(function(){
+-           inserisciUnita();
++    	   NS_GESTIONE_MAGAZZINO.unitaCaricoScarico('CARICO');
+        });
+     }

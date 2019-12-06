@@ -1,0 +1,15 @@
+<PAGINA key_id="SCELTA_INF">
+    <HEADER_REFERTAZIONE key_id="SCELTA_INF" valore="DEFAULT,SCHEDA,SCELTA_INF#DEFAULT,PS_SCELTA_INF" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="Scelta_Inf" valore="SCELTA_INF#Scelta_Inf#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabDati" valore="tabDati" evento="START">
+                <FIELDSET_TABLE key_id="fldInfermieri" valore="fldInfermieri" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="scelta_inf" valore="lblInfermieri#acSceltaInf#SceltaInf#txtSceltaInf#Infermieri" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+             </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

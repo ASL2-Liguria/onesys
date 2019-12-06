@@ -1,0 +1,62 @@
+<PAGINA key_id="MODULO_RICHIESTA_POSIZIONAMENTO_CVC">
+    <HEADER_PAGE key_id="MODULO_RICHIESTA_POSIZIONAMENTO_CVC" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,MODULO_RICHIESTA_POSIZIONAMENTO_CVC#DEFAULT,PS_MODULO_RICHIESTA_POSIZIONAMENTO_CVC" evento="START_END">
+    </HEADER_PAGE>
+        <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+            <TABULAZIONE.INIT key_id="MODULO_RICHIESTA_POSIZIONAMENTO_CVC" valore="MODULO_RICHIESTA_POSIZIONAMENTO_CVC#lblTitolo#butSalva,butFirma,butChiudi" evento="START">
+
+                <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+                </INPUT.HIDDEN>
+
+                <INPUT.HIDDEN key_id="hTermine" valore="hTermine" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hCol1" valore="hCol1" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hCol2" valore="hCol2" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hCol3" valore="hCol3" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hIDEN" valore="hIDEN" evento="START">
+                </INPUT.HIDDEN>
+
+                <FIELDSET_TABLE key_id="fldDatiPrincipali" valore="fldDatiPrincipali" evento="START">
+                    <TR_TD_LABEL_RADIO key_id="radScelta" valore="lblScelta##radScelta#radScelta#{width:220}#N#" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="txtIndicazioni" valore="lblIndicazioni#txtIndicazioni#txtIndicazioni###3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtDiagnosi" valore="lblDiagnosi#txtDiagnosi#txtDiagnosi###3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtNotizie" valore="lblNotizie#txtNotizie#txtNotizie###3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="radTerapiaProgrammata" valore="lblTerapiaProgrammata##radTerapiaProgrammata#radTerapiaProgrammata#{width:220}#N#" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="txtAllergieNote" valore="lblAllergieNote#txtAllergieNote#txtAllergieNote###3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtLatoPreferibile" valore="lblLatoPreferibile#txtLatoPreferibile#txtLatoPreferibile###3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtTerapieDaSospendere" valore="lblTerapieDaSospendere#txtTerapieDaSospendere#txtTerapieDaSospendere###3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+
+
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldTempoCVC" valore="fldTempoCVC" evento="START">
+
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldTempoRichiesto" valore="fldTempoRichiesto" evento="START">
+                    <TR_TD_LABEL_RADIO key_id="radUrgente" valore="lblUrgente##radUrgente#radUrgente#{width:220}#N#" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="txtMotivo" valore="lblMotivo#txtMotivo#txtMotivo###3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="txtData" valore="lblData##txtData#Data#startWithToday:false, readonly_element: false, format: 'd/m/Y'##lblDataAvvenimento#DATA_AVVENIMENTO" evento="START">
+                    </TR_TD_LABEL_DATA>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldCompilato" valore="fldCompilato" evento="START">
+                    <TR_TD_LABEL_RADIO key_id="radCompilato" valore="lblCompilato##radCompilato#radCompilato#{width:220}#N#" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+
+
+            </TABULAZIONE.INIT>
+        </FORM>
+</PAGINA>

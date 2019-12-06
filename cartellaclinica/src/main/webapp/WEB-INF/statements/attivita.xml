@@ -1,0 +1,247 @@
+<root>
+	<statements_list>
+		<statement name="getBisogniReparto">				
+			<sql>
+			<![CDATA[
+				select 
+                    cbr.iden_bisogno,
+                    cbt.iden,
+                    cbt.descrizione,
+                    cbt.intestazione,
+                    cbt.funzione,
+                    cbt.cod_dec 
+                from 
+                    cc_bisogni_reparto cbr
+                    join cc_bisogni_type cbt on (cbt.iden = cbr.iden_bisogno)
+                where 
+                    cbr.codice_reparto = ? 
+                    and cbr.attivo='S' 
+                order by cbr.ordine asc 
+			]]>
+			</sql>
+		</statement>
+		<statement name="getAttivitaBisogno">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenObiettivo pls_integer := to_number(?);
+				begin
+					delete from radsql.cc_bisogni_obiettivi where iden= pIdenObiettivo;
+				end;
+			]]>
+			</sql>
+		</statement>        
+		<statement name="getGruppoReparto">				
+			<sql>
+			<![CDATA[
+                select 
+                    cag.descrizione descrizione_gruppo,
+                    car.iden_gruppo,
+                    car.iden_bisogno 
+                from 
+                    cc_attivita_reparto car
+                join cc_attivita_gruppi cag on (car.iden_gruppo = cag.iden)
+                where 
+                    car.codice_reparto = ? 
+                group by car.iden_bisogno,car.iden_gruppo,cag.descrizione
+                order by car.iden_bisogno,car.iden_gruppo
+			]]>
+			</sql>
+		</statement>  
+		<statement name="getAttivitaReparto">				
+			<sql>
+			<![CDATA[
+                select 
+                    cat.descrizione descrizione_attivita,
+                    car.iden_gruppo,
+                    car.iden_attivita,
+                    car.iden_bisogno 
+                from 
+                    cc_attivita_reparto car
+                join cc_attivita_type cat on (cat.iden = car.iden_attivita) 
+                join cc_attivita_gruppi cag on (car.iden_gruppo = cag.iden)
+                where 
+                    car.codice_reparto = ? 
+                group by car.iden_bisogno,car.iden_gruppo,car.iden_attivita,cat.descrizione    
+			]]>
+			</sql>
+		</statement>
+ 		<statement name="getAttivitaRepartoGruppo">				
+			<sql>
+			<![CDATA[
+                select 
+                    cat.descrizione descrizione_attivita,
+                    car.iden_gruppo,
+                    car.iden_attivita,
+                    car.iden_bisogno 
+                from 
+                    cc_attivita_reparto car
+                join cc_attivita_type cat on (cat.iden = car.iden_attivita) 
+                join cc_attivita_gruppi cag on (car.iden_gruppo = cag.iden)
+                where 
+                    car.codice_reparto = ? and car.iden_gruppo = ? and car.iden_bisogno=?
+                order by car.ordine asc
+			]]>
+			</sql>
+		</statement>
+ 		<statement name="inserisciAttivita">				
+			<sql>
+			<![CDATA[
+                declare
+                  vStrAttivita      varchar2(4000)  :=?;
+                  vIdenRicovero     pls_integer     :=to_number(?);
+                  vIdenAccesso      pls_integer     :=to_number(?);
+                  vIdenUte          pls_integer     :=to_number(?);
+
+                  vArrAttivita      ARRAY_VALUE := new ARRAY_VALUE();
+                begin
+                  select radsql.split2array(vStrAttivita,'|') into vArrAttivita from dual; 
+                  for curSave in vArrAttivita.first..vArrAttivita.last
+                  loop
+                    if vArrAttivita(curSave) is not null then
+                      insert into cc_attivita_ricovero
+                      (iden_attivita,iden_visita,iden_visita_registrazione,UTE_INS_INI,DATA_INS_INI,data_ini,ora_ini,ute_ultima_modifica,stato)
+                      values
+                      (vArrAttivita(curSave),vIdenRicovero,vIdenAccesso,vIdenUte,sysdate,to_char(sysdate,'yyyyMMdd'),to_char(sysdate,'hh24:mi'),vIdenUte,'I');
+                    end if;            
+                  end loop;
+
+                end;
+			]]>
+			</sql>
+		</statement>         
+        <statement name="chiudi">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenAttivitaRicovero   pls_integer     := to_number(?);
+					vUtente                 pls_integer     := to_number(?);
+				begin 
+					update CC_ATTIVITA_RICOVERO 
+                    set 
+                        ute_ultima_modifica = vUtente,
+                        data_ultima_modifica= sysdate,
+                        ute_ins_fine        = vUtente,
+                        data_ins_fine       = sysdate,
+                        data_fine           = to_char(sysdate,'yyyyMMdd'),
+                        ora_fine            = to_char(sysdate,'hh24:mi'),
+                        stato               = 'C'
+					where IDEN=vIdenAttivitaRicovero;	
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="cancella">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenAttivitaRicovero   pls_integer     := to_number(?);
+					vUtente                 pls_integer     := to_number(?);
+				begin 
+					update CC_ATTIVITA_RICOVERO 
+                    set 
+                        ute_ultima_modifica = vUtente,
+                        data_ultima_modifica= sysdate,
+                        stato               = 'X'
+					where IDEN=vIdenAttivitaRicovero;	
+				end;
+			]]>
+            </sql>
+        </statement>
+ 		<statement name="inserisciEsecuzioneDettaglio">				
+			<sql>
+			<![CDATA[
+                declare
+                  vIdenAttivitaRicovero pls_integer     := to_number(?);
+                  vEsito                varchar2(1)     := ?;
+                  vData                 varchar2(8)     := ?;
+                  vOra                  varchar2(5)     := ?;
+                  vUte                  pls_integer     := to_number(?);
+                  vNote                 varchar2(4000)  := ?;                 
+                begin
+                  insert into cc_attivita_dettagli
+                  (iden_attivita_ricovero,esito,data,ora,data_ora,date_ultima_modifica,ute_ultima_modifica,note)
+                  values(vIdenAttivitaRicovero,vEsito,vData,vOra,to_date(vData||vOra,'yyyyMMddhh24:mi'),sysdate,vUte,vNote);
+                end;
+			]]>
+			</sql>
+		</statement>        
+        <statement name="cancellaDettaglio">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenDettaglioAttivita  pls_integer     := to_number(?);
+					vEsito                  varchar2(1)     := ?;
+                    vData                   varchar2(8)     := ?;
+                    vOra                    varchar2(8)     := ?;
+                    vUtente                 pls_integer     := to_number(?);
+                    vNoteNonEsecuzione      varchar2(4000)  := ?;
+				begin 
+					update CC_ATTIVITA_DETTAGLI 
+                    set 
+                        NOTE_NON_ESECUZIONE     = vNoteNonEsecuzione, 
+                        ESITO                   = vEsito,
+                        DATA                    = vData,
+                        ORA                     = Vora,
+                        DATA_ORA                = to_date(vData||vOra,'yyyyMMddhh24:mi')
+                        DATE_ULTIMA_MODIFICA    = sysdate,
+                        UTE_ULTIMA_MODIFICA     = vUtente     
+					where IDEN=vIdenDettaglioAttivita;	
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="segnalaNonEseguitoDettaglio">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenDettaglioAttivita  pls_integer     := to_number(?);
+					vEsito                  varchar2(1)     := ?;
+                    vData                   varchar2(8)     := ?;
+                    vOra                    varchar2(8)     := ?;
+                    vUtente                 pls_integer     := to_number(?);
+                    vNoteNonEsecuzione      varchar2(4000)  := ?;
+				begin 
+					update CC_ATTIVITA_DETTAGLI 
+                    set 
+                        NOTE_NON_ESECUZIONE     = vNoteNonEsecuzione, 
+                        ESITO                   = vEsito,
+                        DATA                    = vData,
+                        ORA                     = Vora,
+                        DATA_ORA                = to_date(vData||vOra,'yyyyMMddhh24:mi')
+                        DATE_ULTIMA_MODIFICA    = sysdate,
+                        UTE_ULTIMA_MODIFICA     = vUtente     
+					where IDEN=vIdenDettaglioAttivita;
+				end;
+			]]>
+            </sql>
+        </statement>        
+        <statement name="inserisciNotaAttivita">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenAttivitaRicovero   pls_integer     := to_number(?);
+					vUtente                 pls_integer     := to_number(?);
+                    vData                   varchar2(8)  := ?;
+                    vOra                    varchar2(5)  := ?;					
+                    vNota                   varchar2(4000)  := ?;
+				begin 
+					update CC_ATTIVITA_RICOVERO 
+                    set 
+                        ute_ultima_modifica = vUtente,
+                        data_ultima_modifica= to_date(vData||vOra,'yyyyMMddhh24:mi'),
+                        nota                = vNota
+					where IDEN=vIdenAttivitaRicovero;	
+				end;
+			]]>
+            </sql>           
+        </statement>                                                        
+        <statement name="getFiltroAttivita">
+            <sql>
+                <![CDATA[
+                    select lastvaluechar from filtri where user_name = ? and tipo=to_number(?)
+			]]>
+            </sql>           
+        </statement>                                                        
+    </statements_list>
+</root>

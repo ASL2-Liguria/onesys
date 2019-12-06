@@ -1,0 +1,62 @@
+<PAGINA key_id="MMG_MODULO_PORTO_ARMI_V2">
+	<HEADER_PAGE key_id="MMG_MODULO_PORTO_ARMI_V2"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_PORTO_ARMI_V2#DEFAULT_MMG,MMG_MODULO_PORTO_ARMI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_PORTO_ARMI_V2#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabModuloPortoArmi"
+			valore="ModuloPortoArmi#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabModuloPortoArmi" valore="tabModuloPortoArmi" evento="START">
+				<FIELDSET_TABLE key_id="fldIntestazione" valore="fldIntestazione" evento="START">
+					<TR_TD_LABEL key_id="lblIntestazione" valore="lblIntestazione#" evento="START"></TR_TD_LABEL>
+					<!-- <TR_TD_TEXTAREA key_id="taDettaglio" valore="taDettaglio#DETTAGLIO" evento="START"></TR_TD_TEXTAREA> -->
+					<TR_TD_TEXT key_id="txtDettaglio" valore="txtDettaglio###DETTAGLIO" evento="START"></TR_TD_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDatiAssistito" valore="fldDatiAssistito" evento="START">
+					<TR.INIT key_id="riga1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtProfessione" valore="lblProfessione##txtProfessione###PROFESSIONE" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtTessera" valore="lblTessera##txtTessera###TESSERA" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldMalattieSysNervoso" valore="fldMalattieSysNervoso" evento="START">
+					<TR_TD_LABEL_RADIO key_id="MalattieSysNervoso" valore="lblMalattieSysNervoso##MalattieSysNervoso#radMalattieSysNervoso#{width:100}#N#MALATTIE_SYS_NERVOSO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtCentrale" valore="lblCentrale##txtCentrale###CENTRALE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtPeriferico" valore="lblPeriferico##txtPeriferico###PERIFERICO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtPostumiInvalidanti" valore="lblPostumiInvalidanti##txtPostumiInvalidanti###POSTUMI_INVALIDANTI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtEpilessia" valore="lblEpilessia##txtEpilessia###EPILESSIA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtAltre" valore="lblAltre##txtAltre###ALTRE" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldTurbePsichiche" valore="fldTurbePsichiche" evento="START">
+					<TR_TD_LABEL_RADIO key_id="TurbePsichiche" valore="lblTurbePsichiche##TurbePsichiche#radTurbePsichiche#{width:100}#N#TURBE_PSICHICHE" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtDaMalattie" valore="lblDaMalattie##txtDaMalattie###DA_MALATTIE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDaTraumatismi" valore="lblDaTraumatismi##txtDaTraumatismi###DA_TRAUMATISMI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtPostOperatorie" valore="lblPostOperatorie##txtPostOperatorie###POST_OPERATORIE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDaRitMentGrave" valore="lblDaRitMentGrave##txtDaRitMentGrave###DA_RIT_MENT_GRAVE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDaPsicosi" valore="lblDaPsicosi##txtDaPsicosi###DA_PSICOSI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDellaPersonalita" valore="lblDellaPersonalita##txtDellaPersonalita###DELLA_PERSONALITA" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldSostanzeStupefacenti" valore="fldSostanzeStupefacenti" evento="START">
+					<TR_TD_LABEL_RADIO key_id="SostanzeStupefacenti" valore="lblSostanzeStupefacenti##SostanzeStupefacenti#radSostanzeStupefacenti#{width:100}#N#SOSTANZE_STUPEFACENTI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtAbusoAlcol" valore="lblAbusoAlcol##txtAbusoAlcol###ABUSO_ALCOL" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtUsoStupefacenti" valore="lblUsoStupefacenti##txtUsoStupefacenti###USO_STUPEFACENTI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtUsoSosPsicotrope" valore="lblUsoSosPsicotrope##txtUsoSosPsicotrope###USO_SOS_PSICOTROPE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDipendenzaAlcol" valore="lblDipendenzaAlcol##txtDipendenzaAlcol###DIPENDENZA_ALCOL" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDipendenzaStupefacenti" valore="lblDipendenzaStupefacenti##txtDipendenzaStupefacenti###DIPENDENZA_STUPEFACENTI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDipendenzaSosPsicotrope" valore="lblDipendenzaSosPsicotrope##txtDipendenzaSosPsicotrope###DIPENDENZA_SOS_PSICOTROPE" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldLuogoRilascio" valore="fldLuogoRilascio" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtLuogoRilascio" valore="lblLuogoRilascio##txtLuogoRilascio###LUOGO_RILASCIO" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNotaBene" valore="fldNotaBene" evento="START">
+					<TR_TD_LABEL key_id="lblNotaBene" valore="lblNotaBene#" evento="START"></TR_TD_LABEL>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

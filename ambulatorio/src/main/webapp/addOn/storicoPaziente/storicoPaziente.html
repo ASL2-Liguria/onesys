@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- <link href='../../../std/css/textArea.css' type='text/css' rel='stylesheet'> -->
+
+<link href="../../std/jscript/jQueryUI/themes/cupertino/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet"
+	href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script src="../../std/jscript/jQueryOloader/js/jquery.oLoader.min.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1//ui/jquery.ui.widget.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+
+
+<script type="text/javascript"
+	src="../../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script type="text/javascript"
+	src="../../std/jscript/moduloConsole/jquery.multi-accordion-1.5.3.js"></script>
+<link rel="stylesheet"
+	href="../../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<!--    <link rel="stylesheet" href="../../std/jscript/jqDataTable/themes/smoothness/jquery-ui-1.8.4.custom.css">-->
+<script type="text/javascript" language="javascript"
+	src="../../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+<script type='text/javascript' src="../../std/jscript/jsArrayUtil.js" language='JavaScript'></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<script type="text/javascript" src="../../std/jscript/fancybox2.1.3/jquery.mousewheel-3.0.6.pack.js"></script>
+<link rel="stylesheet" href="../../std/jscript/fancybox2.1.3/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../../std/jscript/fancybox2.1.3/jquery.fancybox.pack.js"></script>
+
+
+
+<script type='text/javascript' src='../../std/jscript/jsElementUtil.js' language='JavaScript'></script>
+<script type='text/javascript' src='../../std/jscript/xmlHttpRequestHandler/xmlHttpRequestHandler.js' language='JavaScript'></script>
+<script type='text/javascript' src='../../std/jscript/xmlHttpRequestHandler/XMLWriter-1.0.0.js' language='JavaScript'></script>
+
+
+<script type='text/javascript' src="../../std/jscript/jqDataTable/jquery.jeditable.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/jqDataTable/KeyTable.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/jqDataTable/jquery.jeditable.datepicker.js" language='JavaScript'></script>
+
+<script type='text/javascript' src="../../std/jscript/commonProcedures.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/notificaFunction.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/jsStringUtil.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/optionJsUtil.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script> 
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script> 
+<script type='text/javascript'	src="../../std/jscript/moduloConsole/jsComboHandler.js"	language='JavaScript'></script>
+<script type='text/javascript'	src="../../std/jscript/jQueryUI/1.9.1/ui/i18n/jquery.ui.datepicker-it.js"></script>
+
+<script type='text/javascript'	src="../../std/jscript/moduloConsole/commonFunction.js"></script>
+<script type='text/javascript'	src="../../std/jscript/moduloConsole/jsComboHandler.js"></script>
+<script type='text/javascript'	src="../../std/jscript/moduloConsole/jsControlli.js"></script>
+
+<script type="text/javascript" src="../../dwr/engine.js"></script>
+<!--<script type="text/javascript" src="dwr/util.js"></script>-->
+<script type="text/javascript" src="../../dwr/interface/ajaxFormatConverter.js"></script>
+ 
+<link href="../../std/css/dataEntryTable.css" type='text/css' rel='stylesheet'>
+<link href="../../std/css/classeCampi.css" type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+<link href="../../std/css/headerTable.css" type='text/css' rel='stylesheet'>
+<link href="../../std/css/attesaBox.css" type='text/css' rel='stylesheet'>
+<link href="../../std/css/infoButton.css" type='text/css' rel='stylesheet'>
+<script type="text/javascript" src="js/storicoPaziente.js"></script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Storico paziente</title>
+<style>
+body{
+	font-size:12px;
+ }
+ 
+ 
+/* override */
+TABLE.classTabHeader TD.classTabHeaderSx{
+	padding:0px 0px 0px 0px;
+}
+
+TABLE.classTabHeader TD.classTabFooterSx{
+	padding:0px 0px 0px 0px;
+}
+/******************************/
+
+ 
+ 
+.input-disabled{background-color:#EBEBE4;border:1px solid #ABADB3;padding:2px 1px;}
+
+FORM.formNoMargin{
+	margin-top:0px; margin-bottom:0px;
+}
+TABLE#TAB_GRAVIDANZE tr.aborti{
+	background-color:#F90;
+}
+
+TABLE#TAB_GRAVIDANZE tr.parti{
+	background-color:#6F9;
+}
+ 
+ /* nel caso non usassi datatable */
+
+
+.clsTabStorico{
+	width:100%; 
+	border-collapse:collapse; 
+}
+.clsTabStorico td{ 
+	padding:7px; border:#4e95f4 1px solid;
+}
+
+.clsTabStorico tbody tr{
+	background:#EAEAEA;
+	cursor:pointer;
+}
+
+.clsTabStorico tbody tr:hover {
+	  background-color: #ffff99;
+}
+
+.clsTabStorico thead th {
+    background-color:#CCC;
+} 
+
+.clsTabStorico tbody tr.rigaEvidenziata{
+	background-color:#FF0;
+}
+/* ********************* */
+
+
+
+ 
+LEGEND.collapseFieldSet{
+	text-decoration:underline;
+	cursor:pointer;
+	font-size:14px;
+	padding-left:5px;
+	padding-right:5px;
+}
+ 
+
+textarea {
+    width: 100%;
+	border: 1px solid black;	
+    -webkit-box-sizing: border-box; /* <=iOS4, <= Android  2.3 */
+       -moz-box-sizing: border-box; /* FF1+ */
+            box-sizing: border-box; /* Chrome, IE8, Opera, Safari 5.1*/
+}
+
+
+
+
+DIV#infoCdc{
+	background-color:red;
+	color:white;
+	padding:5px 5px 5px 5px; 
+	text-align:center;
+	vertical-align:middle; 
+	font-weight:bold; 
+	font-size:12px;
+	visibility:hidden; 
+	display:none;
+}
+
+fieldset.FSinserimento {
+	background-color: #E6EEFF;
+	border-color: #0090F0;
+	
+	padding-left:3px;	
+	padding-right:3px;	
+	margin-left:3px;
+	
+}
+
+fieldset.FSinserimento LEGEND{
+	font-size:14px;
+	color:blue;
+	
+}
+
+
+
+button{
+	margin-top:5px;
+}
+
+label#lblSceltaTipo{
+	font-weight:bold;
+	font-size:14px;
+}
+
+DIV#containerTesto{
+	padding-left:5px;
+	padding-right:5px;
+	font-size:12px;
+}
+
+</style>
+</head>
+
+<script>
+
+</script>
+<!-- style="height:500px" -->
+<body >
+<!-- <div class="preload"><img src="../../imagexPix/roundTimeout.gif"></div>-->
+<div id='content' style="width:99%;">
+	<table cellpadding='0' cellspacing='0' class='classTabHeader' id ="myHeader"  intestazioni="S">
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Storico paziente</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+    <div class="sezione" id="divInfoAnag" >
+        <fieldset class="FSinserimento">
+            <legend>Tipologia </legend>
+            <div>
+            	<label id='lblSceltaTipo'>Scelta tipo</label>
+              <select id='TIPOLOGIA' onchange="javascript:caricaDettaglio(this.value);">
+                <option value="">&nbsp;</option>
+                <option value="RADIO">Referti Radiologici</option>
+                <option value="LETTERE">Lettere Dimissione</option>                        
+                </select>
+	            <br />
+	            <br />
+<!--                <button id="btRicerca" >Ricerca documenti paziente</button>                        		-->
+          </div>
+      </fieldset>                                                            
+    </div>    
+
+    
+        <fieldset class="FSinserimento">
+        <legend >Documenti</legend>
+        <div id='divStorico' style='overflow:auto; height:250px;'>
+        <table class="clsTabStorico" id="TAB_STORICO" width="100%">
+            <thead>
+                <tr>
+<!--                    <th>&nbsp;</th>-->
+<!--                    <th>ID</th>-->
+                    <th>DATA</th>
+                    <th>DESCRIZIONE</th>
+                    <th>PROVENIENZA</th>
+                    <th>REFERTANTE</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>    
+        </div>
+        </fieldset>
+        <fieldset class="FSinserimento">
+        <legend >Testo documento</legend>
+        <div id='containerTesto' style='overflow:auto; height:250px;'>
+        </div>
+		<button id="btImporta" >Importa testo documenti paziente</button>                        		
+        </fieldset>        
+    <!-- 
+     <table cellpadding='0' cellspacing='0' class='classTabHeader' id ="myFooter" intestazioni="S">
+        <tr>
+           <td class='classTabFooterSx'></td>
+           <td class='classTabHeaderMiddle'><label>&nbsp;</label></td>
+           <td class='classButtonHeader'> 
+              <div class='pulsante'><a id='regi' href="#" onclick="javascript:ricerca();return false;">Cerca</a></div>
+           </td>
+           <td class='classButtonHeader'>
+              <div class='pulsante'><a id='chiudi' href='#' onclick="javascript:chiudi(true);return false;">Chiudi</a></div>
+           </td>
+           <td class='classTabFooterDx'></td>
+        </tr>
+     </table>    -->
+ </div>
+ <!-- layer storico -->
+<div style="display:none;">
+    <div id="storico" >
+        &nbsp;
+    </div>
+</div>
+<!-- ********************* -->
+
+
+     
+     <script>
+
+		$(function() {
+		   showLoader(true);
+		   setTimeout(function(){init();},500);
+	   });	 
+     </script>
+	 
+</body>
+</html>

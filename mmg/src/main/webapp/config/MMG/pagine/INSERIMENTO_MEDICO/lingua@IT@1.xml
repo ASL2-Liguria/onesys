@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>SCELTA DEL MEDICO PRESCRITTORE</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butSalvataggio>Salva</butSalvataggio>
+		<butChiudi>Chiudi</butChiudi>
+		<butPulisci>Pulisci Lista Medici</butPulisci>
+		
+		<tabDiario>Scelta del Medico Prescrittore</tabDiario>
+		<tabInserimento>Ricerca</tabInserimento>
+		
+		<fldMedico>Medici selezionati</fldMedico>
+		<fldSceltaMedico>Scelta Del Medico</fldSceltaMedico>
+		
+		<lblMedico>Ricerca</lblMedico>
+		<lblListaMedici>Lista medici selezionati</lblListaMedici>
+		<salvataggioNonRiuscito>Salvataggio non riuscito</salvataggioNonRiuscito>
+		
+    </ROW>
+</ROWSET>

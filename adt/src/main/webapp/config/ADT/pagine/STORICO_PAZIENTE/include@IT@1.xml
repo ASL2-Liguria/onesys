@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/ADT/Anagrafica/Anagrafica.js"/>   
+    <CSS path="css/ADT/STORICO_PAZIENTE/storicoPaziente.css"/>
+    <JS path="js/ADT/StoricoPaziente/StoricoPaziente.js"/>
+</INCLUDE>

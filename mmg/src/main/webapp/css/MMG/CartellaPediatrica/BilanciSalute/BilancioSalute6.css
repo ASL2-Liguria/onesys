@@ -1,0 +1,12 @@
+body#page{ width: 960px; }
+
+#txtEtaAnni, #txtEtaMesi, #txtEtaGiorni, #txtFontanellaAnteriore {
+	width: 150px;
+}
+
+#fldDentizioneCompleta .tdCheck:first-child .CBpuls { float: right; }
+#labelsupSX { text-align: left; }
+
+#fldDatiAuxometrici td.tdText input { width: 150px; }
+
+#lblPesoCentile, #lblAltezzaCentile, #lblCirconferenza_CranicaCentile { text-align: left; width: 60%; }

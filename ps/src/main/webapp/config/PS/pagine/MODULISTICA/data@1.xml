@@ -1,0 +1,19 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'PS.Q_MODULI_STAMPA@PS'; :where := null; :campo_xml := null; end;">
+
+    <!-- DATI MODULO INAIL -->
+    <DATO key_id="hModuli" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_LOAD_MODULI@PS" />
+
+    <DATO key_id="hTipo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_LOAD_TIPI_MODULI@PS" />
+
+    <DATO key_id="iden_certificato" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_CERTIFICATO" db_descrizione="IDEN_CERTIFICATO"
+          configurazione_multi_data="" />
+    <DATO key_id="iden_evento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="" />
+
+</DATI>

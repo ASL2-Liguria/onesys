@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>AC_MEDICO_SOSTITUTO</ID>
+	<ID-QUERY connection="MMG_DATI">AUTOCOMPLETE.AC_MEDICO_SOSTITUTO</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>DESCR</COL>
+						<DB>DESCR</DB>
+					</ID>
+                    <DESCRIPTOR>"Medico"</DESCRIPTOR>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DESCR">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

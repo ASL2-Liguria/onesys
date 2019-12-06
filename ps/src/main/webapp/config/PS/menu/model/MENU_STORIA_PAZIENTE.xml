@@ -1,0 +1,35 @@
+<MENU>
+    <ID>MENU_STORIA_PAZIENTE</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>APRI_CARTELLA</ID>
+            <LINK><![CDATA[function(rec){
+                if (typeof STORICO_ANAGRAFICA != 'undefined'){
+                    STORICO_ANAGRAFICA.apriCartellaStorico(rec);
+                }
+                else{
+                    CARTELLA_INFO.apriCartellaStorico(rec);
+                    }
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec.length != 0 && $("#STATO_PAGINA").val() != 'R'){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>traduzione.apriCartella</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Apri cartella"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_VERBALE</ID>
+            <LINK><![CDATA[
+                function(rec){home.NS_STAMPE_PS.stampaVerbale(rec[0].IDEN, "N", null, '{"N_COPIE":"1"}', rec[0].STATO);
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Visualizza Verbale"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Verbale"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

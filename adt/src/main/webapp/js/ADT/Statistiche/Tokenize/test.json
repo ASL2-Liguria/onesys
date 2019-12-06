@@ -1,0 +1,17 @@
+[
+ {"value":"1","text":"uno","html":"uno"},
+ {"value":"2","text":"due","html":"due"},
+ {"value":"3","text":"tre","html":"tre"},
+ {"value":"4","text":"quattro","html":"quattro"},
+ {"value":"5","text":"cinque","html":"cinque"},
+ {"value":"6","text":"sei","html":"sei"},
+ {"value":"7","text":"sette","html":"sette"},
+ {"value":"8","text":"otto","html":"otto"},
+ {"value":"9","text":"nove","html":"nove"},
+ {"value":"10","text":"dieci","html":"dieci"},
+ {"value":"11","text":"undici","html":"undici"},
+ {"value":"12","text":"dodici","html":"dodici"},
+ {"value":"13","text":"tredici","html":"tredici"},
+ {"value":"14","text":"quattordici","html":"quattordici"},
+ {"value":"15","text":"quindici","html":"quindici"}
+]

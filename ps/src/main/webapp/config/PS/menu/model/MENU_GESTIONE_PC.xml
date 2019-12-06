@@ -1,0 +1,17 @@
+<MENU>
+    <ID>MENU_GESTIONE_PC</ID>
+    <TITLE>"MENU"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>MODIFICA_PC</ID>
+            <LINK><![CDATA[function(rec){
+              home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=SCHEDA_PC&PC='+rec[0].IP,id:'editPc',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true; }]]></WHERE>
+            <OUTPUT>"Modifica Configurazione"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Modifica Configurazione"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

@@ -1,0 +1,19 @@
+#lblNome,#lblCognome,#txtOraRico{
+	width: 50px;
+}
+
+#lblSesso{
+	width: 40px;
+}
+#txtSesso{
+	width: 25px;
+}
+#txtCodFisc{
+	width: 140px;
+}
+#txtCognome,#txtNome{
+	width: 220px;
+}
+#lblCodiceFiscale,#lblDataNascita,#lblTitoloStudio{
+	width: 100px;
+}

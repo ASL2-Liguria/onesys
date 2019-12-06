@@ -1,0 +1,19 @@
+fieldset.fldCampi {width:48%; margin-top:5px;margin-down:5px;}
+td.tdTextarea textarea {height:40px !important;} 
+
+#fldDatiGenerali,  #fldSonno,#fldAllattamento, #fldEsameClinicoOsservazioni { float:left; }
+#fldDatiAuxometrici, #fldEsameClinico, #fldSviluppoPsicomotorio { float:right; }
+
+#txtEtaAnni, #txtEtaMesi, #txtEtaGiorni, #txtPeso, #txtLunghezza, #txtCirconferenzaCranica, #txtFontanellaAnteriore {
+	width: 150px;
+}
+
+table.campi tr td.tdLbl {
+	width: 200px;
+}
+
+#tabs-WKBilanci {
+	
+	height: 0px;
+}
+

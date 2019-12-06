@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>LISTA_MESSAGGI</ID>
+	<ID-QUERY connection="CONFIG_WEB">MESSAGGISTICA.MESSAGGI_UTENTE</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+	
+		<MENU>
+			<ID>MENU_LISTA_MESSAGGI</ID>
+		</MENU>
+		
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>20px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){
+					$(this).selectedLine('IDEN');
+					CENTRO_MESSAGGI.worklist.showMessaggio(rec);
+					CENTRO_MESSAGGI.worklist.setLetto(rec, $(this));
+				}</CLICK>
+              	<DBLCLICK>function(rec){CENTRO_MESSAGGI.worklist.rispondi(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){NS_LISTA_MESSAGGI.worklist.rispondi(rec);}</TAPHOLD>
+            </EVENTS>  
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+				<COLUMN>
+					<ID>
+						<COL>DA_LEGGERE</COL>
+						<DB>DA_LEGGERE</DB>
+					</ID>
+					<DESCRIPTOR>" "</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.showStatoLettura( data ); }]]></PROCESS> 			
+					<WIDTH>20px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>DATA</COL>
+						<DB>DATA</DB>
+					</ID>
+					<DESCRIPTOR>"Data"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>        				
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>INFO</COL>
+						<DB>INFO</DB>
+					</ID>
+					<DESCRIPTOR>" "</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setListaMessaggi( data ); }]]></PROCESS> 			
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>MITTENTE_DESCR_USERNAME</COL>
+						<DB>MITTENTE_DESCR_USERNAME</DB>
+					</ID>
+					<DESCRIPTOR>"Mittente"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>TITOLO</COL>
+						<DB>TITOLO</DB>
+					</ID>
+					<DESCRIPTOR>"Oggetto Messaggio"</DESCRIPTOR>           				
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

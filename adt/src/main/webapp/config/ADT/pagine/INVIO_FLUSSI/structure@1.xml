@@ -1,0 +1,116 @@
+<PAGINA key_id="INVIO_FLUSSI">
+    <HEADER_PAGE key_id="INVIO_FLUSSI" valore="DEFAULT,SCHEDA,INVIO_FLUSSI#DEFAULT,INVIO_FLUSSI" evento="START_END"></HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG##V_INVIO_FLUSSI" evento="START_END">
+    	<!-- TABULAZIONE.INIT key_id="tabber" valore="INS_LISTA_ATTESA#lblTitolo#butGenera,butInvia,butGeneraInvia,butChiudi" evento="START" -->
+        <TABULAZIONE.INIT key_id="tabber" valore="INVIO_FLUSSI#lblTitolo#butGenera,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabInvioFlussoSDO" valore="tabInvioFlussoSDO" evento="START">
+                <FIELDSET_TABLE key_id="fieldsetInvioFlusso" valore="fieldsetInvioFlusso" evento="START">
+                    <TR.INIT key_id="rigaFlusso1" valore="" evento="START">
+                    	<TD_LABEL_COMBO key_id="cmbTipoFlusso" valore="lblTipoFlusso##cmbTipoFlusso#cmbTipoFlusso#N#SALVA#N#" evento="START"></TD_LABEL_COMBO>
+                    	<TD_LABEL_DATA key_id="dataFine" valore="lblDataFine#maskData#txtDataFine##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_FINE" evento="START"></TD_LABEL_DATA>
+                    	<!--  TD_LABEL_TEXT key_id="txtMail" valore="lblMail##txtMail####N##N" evento="START"></TD_LABEL_TEXT -->
+                    	<!-- TD_LABEL_TEXT key_id="txtOggettoMail" valore="lblOggettoMail##txtOggettoMail####N##N" evento="START"></TD_LABEL_TEXT -->
+                	</TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fieldsetOutputSDO" valore="fieldsetOutputSDO" evento="START">
+                    <TR.INIT key_id="rigaFlusso1" valore="" evento="START">
+                    	<TD_LABEL key_id="lblFileAnagraficoSDO_Savona" valore="lblFileAnagraficoSDO_Savona#" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdSDO1_Savona" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileAnagraficoSDO_Savona" valore="txtFileAnagraficoSDO_Savona####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileAnagraficoSDO_Savona" valore="btnShowFileAnagraficoSDO_Savona#" evento="START"></BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileClinicoSDO_Savona" valore="lblFileClinicoSDO_Savona#" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdSDO2_Savona" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileClinicoSDO_Savona" valore="txtFileClinicoSDO_Savona####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileClinicoSDO_Savona" valore="btnShowFileClinicoSDO_Savona#" evento="START"></BUTTON>
+						</TD.INIT>
+						<!-- TD_LABEL_TEXT key_id="txtInvioSDO" valore="lblInvioSDO##txtInvioSDO####S#w60px#N" evento="START"></TD_LABEL_TEXT -->
+                	</TR.INIT>
+                	<TR.INIT key_id="rigaFlusso2" valore="" evento="START">
+                    	<TD_LABEL key_id="lblFileAnagraficoSDO_Pietra" valore="lblFileAnagraficoSDO_Pietra#" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdSDO1_Pietra" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileAnagraficoSDO_Pietra" valore="txtFileAnagraficoSDO_Pietra####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileAnagraficoSDO_Pietra" valore="btnShowFileAnagraficoSDO_Pietra#" evento="START"></BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileClinicoSDO_Pietra" valore="lblFileClinicoSDO_Pietra#" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdSDO2_Pietra" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileClinicoSDO_Pietra" valore="txtFileClinicoSDO_Pietra####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileClinicoSDO_Pietra" valore="btnShowFileClinicoSDO_Pietra#" evento="START"></BUTTON>
+						</TD.INIT>
+						<!-- TD_LABEL_TEXT key_id="txtInvioSDO" valore="lblInvioSDO##txtInvioSDO####S#w60px#N" evento="START"></TD_LABEL_TEXT -->
+                	</TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fieldsetOutputDSA" valore="fieldsetOutputDSA" evento="START">
+                    <TR.INIT key_id="rigaFlusso1" valore="" evento="START">
+                    	<TD_LABEL key_id="lblFileAnagraficoDSA" valore="lblFileAnagraficoDSA#tdLblShort" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdDSA1" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileAnagraficoDSA" valore="txtFileAnagraficoDSA##iFile##S#N" evento="START">
+							</INPUT.TEXT>
+							<BUTTON key_id="btnShowFileAnagraficoDSA" valore="btnShowFileAnagraficoDSA#" evento="START">
+							</BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileClinicoDSA" valore="lblFileClinicoDSA#tdLblShort" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdDSA2" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileClinicoDSA" valore="txtFileClinicoDSA##iFile##S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileClinicoDSA" valore="btnShowFileClinicoDSA#" evento="START"></BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileRRDSA" valore="lblFileRRDSA#tdLblShort" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdDSA3" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileRRDSA" valore="txtFileRRDSA##iFile##S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileRRDSA" valore="btnShowFileRRDSA#" evento="START"></BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileTipiDSA" valore="lblFileTipiDSA#tdLblShort" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdDSA4" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileTipiDSA" valore="txtFileTipiDSA##iFile##S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileTipiDSA" valore="btnShowFileTipiDSA#" evento="START"></BUTTON>
+						</TD.INIT>
+						<!--TD_LABEL_TEXT key_id="txtInvioDSA" valore="lblInvioDSA#tdLblShort#txtInvioDSA####S#w60px#N" evento="START"></TD_LABEL_TEXT -->
+                	</TR.INIT>
+                </FIELDSET_TABLE>
+                <!-- FIELDSET_TABLE key_id="fieldsetOutputCCD" valore="fieldsetOutputCCD" evento="START">
+                    <TR.INIT key_id="rigaFlusso1" valore="" evento="START">
+                    	<TD_LABEL key_id="lblFileClinicoCCD" valore="lblFileClinicoCCD#" evento="START"></TD_LABEL>
+                    	<TD.INIT key_id="tdDSA1" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileClinicoCCD" valore="txtFileClinicoCCD####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileClinicoCCD" valore="btnShowFileClinicoCCD#" evento="START"></BUTTON>
+						</TD.INIT>
+                	</TR.INIT>
+                </FIELDSET_TABLE -->
+                <!-- FIELDSET_TABLE key_id="fieldsetOutputPS" valore="fieldsetOutputPS" evento="START">
+                    <TR.INIT key_id="rigaFlusso1" valore="" evento="START">
+                    	<TD_LABEL key_id="lblFileAnagraficoPS" valore="lblFileAnagraficoPS#" evento="START"></TD_LABEL>
+                    	<TD.INIT key_id="tdDSA1" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileAnagraficoPS" valore="txtFileAnagraficoPS####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileAnagraficoPS" valore="btnShowFileAnagraficoPS#" evento="START"></BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileClinicoPS" valore="lblFileClinicoPS#" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdDSA2" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileClinicoPS" valore="txtFileClinicoPS####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileClinicoPS" valore="btnShowFileClinicoPS#" evento="START"></BUTTON>
+						</TD.INIT>
+						</TR.INIT>
+                </FIELDSET_TABLE -->
+                <FIELDSET_TABLE key_id="fieldsetOutputST" valore="fieldsetOutputST" evento="START">
+                    <TR.INIT key_id="rigaFlussoST1" valore="" evento="START">
+                    	<TD_LABEL key_id="lblFileS" valore="lblFileS#" evento="START"></TD_LABEL>
+                    	<TD.INIT key_id="tdST1" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileS" valore="txtFileS####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileS" valore="btnShowFileS#" evento="START"></BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileT" valore="lblFileT#" evento="START"></TD_LABEL>
+                    	<TD.INIT key_id="tdST2" valore="2" evento="START">
+							<INPUT.TEXT key_id="txtFileT" valore="txtFileT####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileT" valore="btnShowFileT#" evento="START"></BUTTON>
+						</TD.INIT>
+                	</TR.INIT>
+                </FIELDSET_TABLE >
+                <FIELDSET_TABLE key_id="fieldsetOutputFile" valore="fieldsetOutputFile" evento="START">
+                    <TR.INIT key_id="rigaFlusso1" valore="" evento="START">
+                    	<IFRAME key_id="iOutputFile" valore="iOutputFile" evento="START"></IFRAME>
+                	</TR.INIT>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

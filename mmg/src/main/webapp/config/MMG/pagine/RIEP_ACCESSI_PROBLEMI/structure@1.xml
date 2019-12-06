@@ -1,0 +1,16 @@
+<PAGINA key_id="RIEP_ACCESSI_PROBLEMI">
+	<HEADER_PAGE key_id="RIEP_ACCESSI_PROBLEMI"
+		valore="DEFAULT_MMG,SCHEDA,RIEP_ACCESSI_PROBLEMI#DEFAULT_MMG,RIEP_ACCESSI_PROBLEMI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="filtri" valore="GestioneAccessiProblemi#lblTitolo#butGravidanza,butFiltra,butInserisci" evento="START">
+			<INPUT.HIDDEN key_id="h-dadata" valore="h-dadata" evento="START"></INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="h-adata" valore="h-adata" evento="START"></INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="h-radchiusaperto" valore="h-radchiusaperto" evento="START"></INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="h-nascosto" valore="h-nascosto" evento="START"></INPUT.HIDDEN>
+			<DIV.WORKLIST key_id="wk2" valore="divWk2" evento="START"></DIV.WORKLIST>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

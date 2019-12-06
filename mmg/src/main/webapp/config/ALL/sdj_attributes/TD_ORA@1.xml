@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TD_ORA">
+        <OBJ classe_id="PATH::td*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="tdOra"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::td*(ORA)">
+            <PROC id="VOID">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="1"/>
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

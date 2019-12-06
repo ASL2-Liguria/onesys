@@ -1,0 +1,8 @@
+<INCLUDE>
+	<CSS path="css/PS/Cartella/CartellaInfo.css" />
+    <JS path="js/PS/ParamentriVitali/ControlliParametri.js" />
+ 	<JS path="js/PS/Cartella/CARTELLA_INFO.js" />
+    <JS path="js/Base/jquery.toolbar.js" />
+    <CSS path="css/base/bootstrap.icons.css" />
+    <CSS path="css/base/jquery.toolbars.css" />
+</INCLUDE>

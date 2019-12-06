@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ADT_WK_REPARTI</ID>
+    <ID-QUERY connection="ADT">AUTOCOMPLETE.ADT_REPARTI_CDC</ID-QUERY>
+    <TITLE>"ELENCO REPARTI"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_DECODIFICA</COL>
+                        <DB>CODICE_DECODIFICA</DB>
+                    </ID>
+                    <DESCRIPTOR>"Codice decodifica"</DESCRIPTOR>
+                    <!--<PROCESS type="java"></PROCESS>-->
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCR</COL>
+                        <DB>DESCR</DB>
+                    </ID>
+                    <DESCRIPTOR>"Descrizione"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>400px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

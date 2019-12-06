@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>DIARI_WK_MED_INIZ</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.DIARI_WK_MED_INIZ</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_DIARI_MED_INIZ</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine(''); WK_DIARI.select(rec);}</CLICK>
+                <DBLCLICK>function(rec){$(this).selectedLine(''); WK_DIARI.modificaDblClick(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){$(this).selectedLine(''); WK_DIARI.modificaDblClick(rec);}</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+                    <ID>
+                        <COL>TIPO</COL>
+                    </ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                    <PROCESS type='javascript'><![CDATA[function(data){ return NS_PROCESS_CLASS_MMG.processTipoDiari(data); }]]></PROCESS>
+                    <WIDTH>30px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DATA_ISO</COL>
+						<DB>DATA_ISO</DB>
+					</ID>
+					<DESCRIPTOR>"Data"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>		           				
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>NOTA</COL>
+						<DB>NOTA</DB>
+					</ID>
+					<DESCRIPTOR>"Visita/Nota"</DESCRIPTOR>
+					<!-- <PROCESS type="javascript"><![CDATA[function(data, wk){alert(10);return $(this).click(function(){wk.data.edit(this,'TEXT');});});}]]></PROCESS> --> 
+					<WIDTH>600px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>MEDICO</COL>
+						<DB>MEDICO</DB>
+					</ID>
+					<DESCRIPTOR>"Medico di riferimento"</DESCRIPTOR>           				
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>UTENTE_INSERIMENTO</COL>
+						<DB>UTENTE_INSERIMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Utente Inserimento"</DESCRIPTOR>	           				
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_ISO">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

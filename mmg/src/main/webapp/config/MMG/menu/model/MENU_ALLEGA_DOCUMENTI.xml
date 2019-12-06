@@ -1,0 +1,46 @@
+<MENU>
+    <ID>MENU_ALLEGA_DOCUMENTI</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>MAD.VIS</ID>
+            <LINK><![CDATA[function(rec){DOCUMENTI_ALLEGATI.loadDocumento(rec);}]]></LINK>
+            <ICON_CLASS>anteprima</ICON_CLASS>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblVisualizza</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>MAD.DEL</ID>
+            <LINK><![CDATA[function(rec){DOCUMENTI_ALLEGATI.cancellaDocumento(rec);}]]></LINK>
+            <ICON_CLASS>bidone</ICON_CLASS>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblElimina</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <!-- <ITEM>
+        	<ID>MAD.VIS</ID>
+            <LINK><![CDATA[function(rec){VISUALIZZA_DOCUMENTI.loadDocumento(rec);}]]></LINK>
+            <ICON_CLASS>anteprima</ICON_CLASS>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblVisualizza</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>MAD.DEL</ID>
+            <LINK><![CDATA[function(rec){VISUALIZZA_DOCUMENTI.cancellaDocumento(rec);}]]></LINK>
+            <ICON_CLASS>bidone</ICON_CLASS>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblElimina</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM> -->
+    </LIST>
+</MENU>

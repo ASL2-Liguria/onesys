@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>GRAVIDANZA</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.GRAVIDANZA</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+	<WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_GRAVIDANZA</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+			</EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+					<ID>
+						<COL>NGRAVIDANZA</COL>
+						<DB>NGRAVIDANZA</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblNumeroGravidanza</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>NUMERO_FETI</COL>
+						<DB>NUMERO_FETI</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblNumeroFeti</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DATA_ULTIMO_MESTRUO</COL>
+						<DB>DATA_ULTIMO_MESTRUO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblUltimoMestruo</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DATA_PRESUNTA_PARTO</COL>
+						<DB>DATA_PRESUNTA_PARTO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPartoPrevisto</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DATA_PARTO</COL>
+						<DB>DATA_PARTO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPartoEffettuato</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>CONCLUSA</COL>
+						<DB>CONCLUSA</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblConclusa</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>RISCHIO_COMPLETO</COL>
+						<DB>RISCHIO_COMPLETO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblRischio</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			<SORT>
+                <COLUMN ID="NGRAVIDANZA">DESC</COLUMN>
+            </SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,107 @@
+body {
+	background-color:#e6e6e6;
+}
+
+#barretta {
+font-size: 13px;
+font-weight: bold;
+color: #000000;
+border-top: 2px solid #FFFFFF;
+border-bottom: 2px solid #FFFFFF;
+padding-left: 1px;
+padding-top: 2px;
+padding-bottom: 2px;
+text-align:right;
+/*background:url(../../../imagexPix/bar/btDarkBlu.jpg);*/
+background:#c6c7c8;
+height:211px;
+}
+
+#barretta a {
+font-size: 14px;
+font-weight: bold;
+color: black;
+text-decoration: none;
+margin-right: 2px; 
+}
+
+#barretta a:hover {
+color: black;
+background-color: #FFFF66;
+text-decoration: none;
+}
+
+
+
+#barMenuMain {
+font-size: 13px;
+font-weight: bold;
+color: #000000;
+border-top: 2px solid #e0e0e0;
+border-bottom: 2px solid #e0e0e0;
+padding-left: 1px;
+padding-top: 4px;
+padding-bottom: 2px;
+text-align:right;
+background:#c6c7c8;
+height:211px;
+text-decoration:none;
+}
+
+#barMenuMain a {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 12px;
+font-weight: bold;
+color: black;
+text-decoration: none;
+margin-right: 3px; 
+}
+
+#barMenuMain a:hover {
+color: black;
+background-color: #FFFF66;
+text-decoration: none;
+}
+
+
+SPAN#idSPANinfoUtente{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: black;
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 2px;
+	text-align:left;
+	height:25px;
+	width:500px;
+	overflow:hidden;
+	position:absolute;
+	top:2px;
+	left:0px;
+}
+
+SPAN#span_linkCambiaLogin{
+	width:15px;
+	height:15px;
+	background:url(../../../imagexPix/button/icon/bw/login.png) no-repeat;
+	margin: 0 3px;
+}
+
+SPAN#span_linkLockWk{
+	width:15px;
+	height:15px;
+	background:url(../../../imagexPix/button/icon/bw/blocco_ws.png) no-repeat;
+	margin-right:3px;	
+}
+SPAN#span_linkCdc{
+	width:15px;
+	height:15px;
+	background:url(../../../imagexPix/button/icon/bw/cdc.png) no-repeat;
+	margin-right:3px;	
+}
+SPAN#span_linkClose{
+	width:15px;
+	height:15px;
+	background:url(../../../imagexPix/button/icon/bw/annulla.png) no-repeat;
+	margin-right:3px;	
+}

@@ -1,0 +1,35 @@
+<ROWSET>
+    <ROW>
+    	<tabRichiesta>Gestione richieste cartelle</tabRichiesta>
+    	<lblTitolo>Richiesta cartella</lblTitolo>
+    	<idAssistito>Dati assistito</idAssistito>
+        <lblCAP>CAP</lblCAP>
+        <lblProvincia>Provincia</lblProvincia>
+    	<lblSesso>Sesso</lblSesso>
+        <lblComuneResidenza>Comune residenza</lblComuneResidenza>
+        <lblIndirizzoResidenza>Indirizzo residenza</lblIndirizzoResidenza>
+        <lblProvinciaResidenza>Provincia di residenza</lblProvinciaResidenza>
+        <lblASLResidenza>ASL Residenza</lblASLResidenza>
+    	<idDatiRichiesta>Dati richiesta</idDatiRichiesta>
+    	<lblNumRichiesta>Numero richiesta</lblNumRichiesta>
+    	<lblDataRichiesta>Data richiesta</lblDataRichiesta>
+    	<lblOraRichiesta>Ora richiesta</lblOraRichiesta>
+    	<lblNumNosologico>Nosologico cartella</lblNumNosologico>
+    	<lblTipoRichiedente>Tipo richiedente</lblTipoRichiedente>
+    	<lblSpecRichiedente>Specifica ente richiedente</lblSpecRichiedente>
+    	<lblSpec>Persona / reparto richiedente</lblSpec>
+    	<lblAltroEnte>Altro ente</lblAltroEnte>
+    	<lblModalitaConsegna>Tipo consegna</lblModalitaConsegna>
+    	<lblModalitaRichiesta>Modalita richiesta</lblModalitaRichiesta>
+    	<idDatiSpedizione>Dati spedizione</idDatiSpedizione>
+    	<lblIndirizzo>Indirizzo</lblIndirizzo>
+    	<lblComune>Comune</lblComune>
+    	<lblCo>c/o</lblCo>
+    	<idStatoRichiesta>Gestione stato richiesta</idStatoRichiesta>
+    	<lblStatoRichiesta>Stato</lblStatoRichiesta>
+    	<lblDataStato>in data</lblDataStato>
+    	<lblOraStato>ora</lblOraStato>
+    	<lblTelefono>Telefono</lblTelefono>
+		<lblNote>Note</lblNote>
+    </ROW>
+</ROWSET>  

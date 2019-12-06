@@ -1,0 +1,22 @@
+<PAGINA key_id="DOCUMENTI_ALLEGATI">
+    <HEADER_PAGE key_id="DOCUMENTI_ALLEGATI" valore="DEFAULT,SCHEDA,DOCUMENTI_ALLEGATI#DEFAULT,DOCUMENTI_ALLEGATI" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SAVE_DATA#POLARIS_DATI#DOCUMENTI_ALLEGATI#IDEN#IDEN" evento="START_END">
+        <TABULAZIONE.INIT key_id="tab" valore="SchedaDocumentiAllegati#lblTitolo#butImporta,butAcquisisci,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabAllegati" valore="tabAllegati" evento="START">
+                <FIELDSET_TABLE key_id="fldAllegato" valore="fldAllegato" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="NomeAllegato" valore="lblNomeAllegato##txtNomeAllegato###NOME_FILE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_FILE key_id="AllegaFile" valore="lblAllegaFile##AllegaFile" evento="START">
+                    </TR_TD_LABEL_FILE>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        <TABULAZIONE.CREA_TAB key_id="tabStorico" valore="tabStorico" evento="START">
+            <FIELDSET_TABLE key_id="tableWkdocumenti" valore="tableWkdocumenti" evento="START">
+                <DIV key_id="divWkdocumenti" valore="divWkdocumenti" evento="START">
+                </DIV>
+            </FIELDSET_TABLE>
+        </TABULAZIONE.CREA_TAB>
+    </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

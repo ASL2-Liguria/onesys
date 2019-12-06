@@ -1,0 +1,20 @@
+<root>
+	<statements_list>
+		<statement name="getPersonaleMedico">		
+			<sql>
+			<![CDATA[
+				select
+					/*+first_rows(1)*/				
+					tp.IDEN,
+					tp.COGNOME,
+					tp.NOME,
+                                        tp.COD_FISC
+				from 
+					tab_per tp
+				where
+					tp.iden = to_number(?)
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <filtroGestTabelle>Gestione Tabelle</filtroGestTabelle>
+        <butReset>Reset Campi</butReset>
+        <fldRicerca>Ricerca</fldRicerca>
+        <lblTabella>Cerca</lblTabella>
+        <lblFiltroCampo>Campo</lblFiltroCampo>
+        <lblCdcIden>Iden</lblCdcIden>
+        <lblCdcCodice>Codice</lblCdcCodice>
+        <lblCdcDescrizione>Descrizione</lblCdcDescrizione>
+        <lblCdcOrdine>Ordine</lblCdcOrdine>
+        <GestTabInserisci>Inserisci</GestTabInserisci>
+        <GestTabModifica>Modifica</GestTabModifica>
+        <GestTabVisualizza>Visualizza</GestTabVisualizza>
+        <GestTabAssociaEsami>Associa esami</GestTabAssociaEsami>
+        <GestTabCopiaAssociazione>Copia associazione esami</GestTabCopiaAssociazione>
+        <GestTabIncollaAssociazione>Incolla associazione esami</GestTabIncollaAssociazione>
+        <GestTabAssociaAgenda>Associa agenda</GestTabAssociaAgenda>
+        <lblComuniIden>Iden</lblComuniIden>
+        <lblComuniCap>Cap</lblComuniCap>
+        <lblComuniDescrizione>Descrizione</lblComuniDescrizione>
+        <lblComuniProvincia>Provincia</lblComuniProvincia>
+        <lblComuniCodice>Codice Comune</lblComuniCodice>
+        <lblComuniCodiceRegione>Codice Regione</lblComuniCodiceRegione>
+        <lblComuniCodiceUsl>Codice Usul</lblComuniCodiceUsl>
+        <lblComuniCodiceIstat>Codice Istat</lblComuniCodiceIstat>
+        <lblComuniCodiceDistretto>Codice Distretto</lblComuniCodiceDistretto>
+        <lblComuniInizioValidita>Inizio Validità</lblComuniInizioValidita>
+        <lblComuniFineValidita>Fine Validità</lblComuniFineValidita>
+        <lblNomenclatoreIden>Iden</lblNomenclatoreIden>
+        <lblNomenclatoreCodiceDecodifica>Codice</lblNomenclatoreCodiceDecodifica>
+        <lblNomenclatoreDescrizione>Descrizione</lblNomenclatoreDescrizione>
+        <lblNomenclatoreCodiceCup>Codice Cup</lblNomenclatoreCodiceCup>
+        <lblNomenclatoreCodiceNomenclatore>Codice Nomenclatore</lblNomenclatoreCodiceNomenclatore>
+        <lblNomenclatoreCodiceMinisteriale>Codice Min.</lblNomenclatoreCodiceMinisteriale>
+        <lblNomenclatoreCodiceAppropriatezza>Codice Appr.</lblNomenclatoreCodiceAppropriatezza>
+        <lblNomenclatoreCodiceSIRM>Codice Sirm</lblNomenclatoreCodiceSIRM>
+        <lblNomenclatoreLivelloRadiazioni>Livello Radiazioni</lblNomenclatoreLivelloRadiazioni>
+        <lblNomenclatoreMdC>Mdc</lblNomenclatoreMdC>
+        <lblNomenclatoreMetodica>Metodica</lblNomenclatoreMetodica>
+        <lblOneriIden>Iden</lblOneriIden>
+        <lblOneriCodice>Codice</lblOneriCodice>
+        <lblOneriDescrizione>Descrizione</lblOneriDescrizione>
+        <lblPatologieIden>Iden</lblPatologieIden>
+        <lblPatologieCodice>Codice</lblPatologieCodice>
+        <lblPatologieDescrizione>Descrizione</lblPatologieDescrizione>
+        <lblPersonaleIden>Iden</lblPersonaleIden>
+        <lblPersonaleCodice>Codice</lblPersonaleCodice>
+        <lblPersonaleDescrizione>Descrizione</lblPersonaleDescrizione>
+        <lblPersonaleTipoPersonale>Tipo Personale</lblPersonaleTipoPersonale>
+        <lblPersonaleTipoMedico>Tipo Medico</lblPersonaleTipoMedico>
+        <lblPersonaleCodiceFiscale>Codice Fiscale</lblPersonaleCodiceFiscale>
+        <lblProfessioneIden>Iden</lblProfessioneIden>
+        <lblProfessioneCodice>Codice</lblProfessioneCodice>
+        <lblProfessioneDescrizione>Descrizione</lblProfessioneDescrizione>
+        <lblProvenienzeIden>Iden</lblProvenienzeIden>
+        <lblProvenienzeCodice>Codice</lblProvenienzeCodice>
+        <lblProvenienzeDescrizione>Descrizione</lblProvenienzeDescrizione>
+        <lblProvenienzeTipo>Tipo</lblProvenienzeTipo>
+        <lblProvenienzeCodiceCup>Codice Cup</lblProvenienzeCodiceCup>
+        <lblSaleIden>Iden</lblSaleIden>
+        <lblSaleCodice>Codice</lblSaleCodice>
+        <lblSaleDescrizione>Descrizione</lblSaleDescrizione>
+        <lblStatiEsameIden>Iden</lblStatiEsameIden>
+        <lblStatiEsameCodice>Codice</lblStatiEsameCodice>
+        <lblStatiEsameDescrizione>Descrizione</lblStatiEsameDescrizione>
+        <lblStatiEsameStato>Stato</lblStatiEsameStato>
+        <lblStatiEsameOrdine>Ordine</lblStatiEsameOrdine>
+        <lblStatiEsameFiltro>Filtro</lblStatiEsameFiltro>
+        <lblStatiPazienteIden>Iden</lblStatiPazienteIden>
+        <lblStatiPazienteCodice>Codice</lblStatiPazienteCodice>
+        <lblStatiPazienteDescrizione>Descrizione</lblStatiPazienteDescrizione>
+        <lblTicketIden>Iden</lblTicketIden>
+        <lblTicketCodice>Codice</lblTicketCodice>
+        <lblTicketDescrizione>Descrizione</lblTicketDescrizione>
+        <lblTipiIden>Iden</lblTipiIden>
+        <lblTipiCodice>Codice</lblTipiCodice>
+        <lblTipiDescrizione>Descrizione</lblTipiDescrizione>
+        <lblTipiOrdine>Ordine</lblTipiOrdine>
+        <lblTipiTipo>Tipo</lblTipiTipo>
+        <lblRefIden>Identificativo</lblRefIden>
+        <lblRefStdCodice>Codice</lblRefStdCodice>
+        <lblRefStdNomenclatore>Prestazione</lblRefStdNomenclatore>
+        <lblRefStdMedico>Medico</lblRefStdMedico>
+        <lblNomeReferto>Nome Referto</lblNomeReferto>
+        <lblFasceIden>Identificativo</lblFasceIden>
+        <lblFasceGiorni>Giorni Attivi</lblFasceGiorni>
+        <lblOraInizio>Ora Inizio</lblOraInizio>
+        <lblOraIFine>Ora Fine</lblOraIFine>
+        <lblFasceDescrizione>Descrizione</lblFasceDescrizione>
+        <lblCodice>Codice</lblCodice>
+        <lblDescrizione>Descrizione</lblDescrizione>
+        <lblIden>Iden</lblIden>
+        <lblTarmedIden>Iden</lblTarmedIden>
+        <lblTarmedCod>Codice</lblTarmedCod>
+        <lblTarmedBase>Base</lblTarmedBase>
+        <lblTarmedDescrizione>Descrizione</lblTarmedDescrizione>
+        <lblTarmedTipologia>Tipologia</lblTarmedTipologia>
+        <lblTarmedGruppo>Gruppo</lblTarmedGruppo>
+        <lblDelete>Cancellate</lblDelete>
+        <lblCancellate>Cancellate</lblCancellate>
+        <lblNonCancellate>Non cancellate</lblNonCancellate>
+        <GestTabAssocia>Associa Sala-Tarmed</GestTabAssocia>
+        <noFiltroStato>Selezionare uno Stato</noFiltroStato>
+        <noFiltroCampo>Selezionare un Campo</noFiltroCampo>
+        <noFiltroDelete>Selezionare se Cancellate</noFiltroDelete>
+        <lblStruttura>Struttura</lblStruttura>
+        <lblPacsIden>Iden</lblPacsIden>
+        <lblPacsStringaConnessione>Stringa Connessione</lblPacsStringaConnessione>
+        <lblPacsAetitle>Aetitle</lblPacsAetitle>
+        <lblPacsDbDriver>DB Driver</lblPacsDbDriver>
+        <lblPacsQuery>ID Query</lblPacsQuery>
+    </ROW>
+</ROWSET>

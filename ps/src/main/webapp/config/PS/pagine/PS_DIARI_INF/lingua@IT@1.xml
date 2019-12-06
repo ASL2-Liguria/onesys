@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+    		<lblTitolo>Diario Infermieristico </lblTitolo>
+            <fldDiario>Inserisci evento</fldDiario>
+            <lblInserisci>Inserisci Diario</lblInserisci>
+            <lblDataIns>Data</lblDataIns>
+            <lblOraIns>Ora</lblOraIns>
+            <lblNoteDiari>Note</lblNoteDiari>
+            <lblElimina>Elimina Diario</lblElimina>
+            <lblDiari>Diari</lblDiari>
+             <fldDiari>Diari</fldDiari>
+    		<tabEventiPrec>Eventi Precedenti</tabEventiPrec>
+            <!--CAMPI WORKLIST-->
+            <lblDataIns>DATA INSERIMENTO</lblDataIns>
+            <lblDataMod>DATA MODIFICA</lblDataMod>
+            <lblUteIns>UTENTE INSERIMENTO</lblUteIns>
+            <lblUteMod>UTENTE MODIFICA</lblUteMod>
+            <lblTesto>TESTO</lblTesto>
+        <lblultim>as</lblultim>
+    </ROW>
+</ROWSET>

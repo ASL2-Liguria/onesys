@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	
+    	<tabWorklist>Visite</tabWorklist>
+        <lblTitolo>Lista delle visite effettuate</lblTitolo>
+        <fldRicerca>Ricerca</fldRicerca>
+        <lblDaData>Dal </lblDaData>
+		<lblAData>al </lblAData>
+		<butCerca>Cerca</butCerca>
+		<lblNome>Nome</lblNome>
+		<lblCognome>Cognome</lblCognome>
+		<lblCancellaVisita>Vuoi veramente cancellare la visita corrente?</lblCancellaVisita>
+		
+    </ROW>
+</ROWSET>

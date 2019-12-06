@@ -1,0 +1,14 @@
+<PAGINA key_id="VAL_MEDICA_ACC_PASSATI">
+    <HEADER_REFERTAZIONE key_id="VAL_MEDICA_ACC_PASSATI" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,VAL_MEDICA_ACC_PASSATI#DEFAULT,PS_ESAME_OBIETTIVO" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="RivalutazioniMedichePassate" valore="RIVALUTAZIONI_MEDICHE_PASSATE#lblTitolo#" evento="START">
+
+                <FIELDSET_TABLE key_id="fldRivalutazioniMedichePassate" valore="fldRivalutazioniMedichePassate" evento="START">
+                    <DIV key_id="divWkRivalutazioniMedichePassate" valore="divWkRivalutazioniMedichePassate##" evento="START">
+                    </DIV>
+                </FIELDSET_TABLE>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

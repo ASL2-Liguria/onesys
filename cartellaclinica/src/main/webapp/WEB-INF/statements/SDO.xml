@@ -1,0 +1,11 @@
+<root>
+    <statements_list>
+        <statement name="getContatto">
+            <sql>
+                <![CDATA[
+				SELECT iden CONTATTO FROM CONTATTI@ADT WHERE CODICE =? and deleted='N' and assigning_authority_area = 'ADT'
+			]]>
+            </sql>
+        </statement>
+   </statements_list>
+</root>

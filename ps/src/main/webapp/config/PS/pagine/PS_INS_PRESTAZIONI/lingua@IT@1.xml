@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>PRESTAZIONE</lblTitolo>
+    	<tabDati>Inserisci prestazione</tabDati>
+    	<fldPrestazioni>Scelta prestazione</fldPrestazioni>
+    	<fldDati>Dati prestazione</fldDati>
+    	<lblEsami>Prestazione</lblEsami>
+    	<lblStatoEsami>Stato prestazione</lblStatoEsami>
+    	<lblEsaNote>Note</lblEsaNote>
+    	<lblTipoEsami>Tipo prestazione</lblTipoEsami>
+    	<lblProvenienza>Provenienza</lblProvenienza>
+    	<lblStatoPaz>Stato paziente</lblStatoPaz>
+    	
+    </ROW>
+</ROWSET>

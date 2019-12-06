@@ -1,0 +1,28 @@
+<PAGINA key_id="RILEVAZIONE_ALCOL">
+	<HEADER_PAGE key_id="RILEVAZIONE_ALCOL"
+		valore="DEFAULT_MMG,SCHEDA,RILEVAZIONE_ALCOL#DEFAULT_MMG,RILEVAZIONE_ALCOL"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_RILEVAZIONE_ALCOL#MMG_DATI#MMG_ACCERT_RILEVAZIONI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabInsAlcol"
+			valore="nuovaRilAlcol#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabAlcol" valore="tabAlcol"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldAlcol" valore="fldAlcol"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="Alcol"
+						valore="lblAlcolSiNo##Alcol#radAlcol#{width:60}#S#ALCOL" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteAlcol" valore="fldNoteAlcol"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="NoteAlcol" valore="txtAreaNoteAlcol#NOTE#2"
+						evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

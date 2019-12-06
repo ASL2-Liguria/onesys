@@ -1,0 +1,29 @@
+<PAGINA key_id="INSERIMENTO_MEDICO">
+	<HEADER_PAGE key_id="INSERIMENTO_MEDICO"
+		valore="DEFAULT_MMG,SCHEDA,INSERIMENTO_MEDICO#DEFAULT_MMG,INSERIMENTO_MEDICO"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SP_SAVE_INSERIMENTO_MEDICO#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabScelta"
+			valore="inserimentoMedico#lblTitolo#butPulisci,butSalvataggio,butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento" valore="tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldSceltaMedico" valore="fldSceltaMedico"
+					evento="START">
+					<TR_TD_AUTOCOMPLETE key_id="Medico"
+						valore="lblMedico#acMedico#Medico#Medico#AC_MEDICO#MEDICO" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldMedico" valore="fldMedico"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="ListaMedici"
+						valore="lblListaMedici##ListaMedici#radListaMedici#{width:300}#N#MEDICO_LISTA"
+						evento="START_END">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

@@ -1,0 +1,106 @@
+/** foglio di stile per i pulsanti dello zoom **/
+
+.DivUpArrow{
+	width:10px;
+	height:15px;
+	line-height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowUp.gif);
+	background-repeat: no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;
+
+	
+}
+
+.DivDownArrow{
+	width:10px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowDown.gif);
+	background-repeat: no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;	
+}
+
+.DivUpArrowSelected{
+	width:10px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowUp_over.gif);
+	background-repeat: no-repeat;
+	display:inline;
+	position:relative;	
+	cursor:pointer;	
+}
+
+.DivDownArrowSelected{
+	width:10px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowDown_over.gif);
+	background-repeat: no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{ 
+    .DivUpArrow { float:left;} 
+	.DivDownArrow { float:left;} 
+	.DivUpArrowSelected { float:left;} 
+	.DivDownArrowSelected { float:left;} 
+}
+
+
+
+#idDragDropResizeElement
+{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  cursor:w-resize;
+  display:none;
+  top:0;
+  left:0;
+  background-image:url(../../imagexPix/button/mini/hResize.gif);
+  z-index:100;
+}
+
+
+#idResizeElementForColumn{
+	width:15px;
+	height:15px;
+	display:inline;
+	position:relative;
+	background-image:url(../../imagexPix/button/mini/resize4Col.gif);
+	cursor:w-resize;
+	
+}
+
+.divUniqueArrow{
+	width:15px;
+	height:15px;
+	BACKGROUND-IMAGE: url(../../imagexPix/Visualizzatore/selASC.png);
+	background-repeat: no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;
+	
+}
+
+.divUniqueArrowDesc{
+	width:15px;
+	height:15px;
+	BACKGROUND-IMAGE: url(../../imagexPix/Visualizzatore/selDESC.png) ;
+	background-repeat: no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;
+	
+}
+
+.divUniqueArrowNull{
+
+	display: none;
+
+}

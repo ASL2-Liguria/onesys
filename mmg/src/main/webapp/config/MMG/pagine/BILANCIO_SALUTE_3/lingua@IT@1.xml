@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Bilancio di salute n.3 (121°-180° giorno di vita)</lblTitolo>
+        
+        <tabBilancioSalute>Bilancio di salute</tabBilancioSalute>
+        <tabSviluppoMotorio>Sviluppo motorio</tabSviluppoMotorio>
+        <tabSviluppoPsicoSensoriale>Sviluppo psico-sensoriale</tabSviluppoPsicoSensoriale>
+        
+        
+        <fldDatiGenerali>Dati generali</fldDatiGenerali>
+        <fldDatiAuxometrici>Dati auxometrici</fldDatiAuxometrici>
+        <fldEsameClinico>Esame clinico</fldEsameClinico>
+        <fldSonno>Sonno</fldSonno>
+        <fldAllattamento>Allattamento</fldAllattamento>
+        <fldSviluppoMotorio4Mesi>Sviluppo motorio a 4 mesi</fldSviluppoMotorio4Mesi>
+        <fldSviluppoMotorio5Mesi>Sviluppo motorio a 5 mesi</fldSviluppoMotorio5Mesi>
+        <fldSviluppoMotorio6Mesi>Sviluppo motorio a 6 mesi</fldSviluppoMotorio6Mesi>
+        <fldSviluppoPsicoSensoriale4Mesi>Sviluppo psico-sensoriale a 4 mesi</fldSviluppoPsicoSensoriale4Mesi>
+        <fldSviluppoPsicoSensoriale5Mesi>Sviluppo psico-sensoriale a 5 mesi</fldSviluppoPsicoSensoriale5Mesi>
+        <fldSviluppoPsicoSensoriale6Mesi>Sviluppo psico-sensoriale a 6 mesi</fldSviluppoPsicoSensoriale6Mesi>
+        
+        <lblData>Data compilazione</lblData>
+        <lblEtaMesi>Mesi</lblEtaMesi>
+        <lblEtaGiorni>Giorni</lblEtaGiorni>
+        <lblRaccordoAnamnestico>Raccordo anamnestico</lblRaccordoAnamnestico>
+        <lblPeso>Peso (kg)</lblPeso>
+        <lblPesoCentile>...</lblPesoCentile>
+        <lblAltezza>Lunghezza (cm)</lblAltezza>
+        <lblAltezzaCentile>...</lblAltezzaCentile>
+        <lblBMI>BMI</lblBMI>
+        <lblCirconferenza_Cranica>Circ. cranica (cm)</lblCirconferenza_Cranica>
+        <lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+        <lblNoteSonno>Note</lblNoteSonno>
+        <lblAllattamento>Allattamento</lblAllattamento>
+        <lblNoteAllattamento>Note</lblNoteAllattamento>
+        <lblNoteEsameClinico>Note</lblNoteEsameClinico>
+        
+		<lblCapoAsse_Si_No>Alla trazione mantiene il capo in asse con il corpo</lblCapoAsse_Si_No>
+		<lblRiflessoMoro_Si_No>Si estingue il Riflesso di Moro</lblRiflessoMoro_Si_No>
+		<lblTestaSollevata_Si_No>In posizione prona la testa e il torace vengono sollevati</lblTestaSollevata_Si_No>
+		<lblManiAperte_Si_No>Tiene le mani aperte</lblManiAperte_Si_No>
+		<lblManiBocca_Si_No>Porta le mani alla bocca e se le guarda</lblManiBocca_Si_No>
+		<lblCapoAnticipa_Si_No>Alla trazione anticipa il corpo con il capo</lblCapoAnticipa_Si_No>
+		<lblPiediBocca_Si_No>Porta i piedi alla bocca e gioca con le dita dei piedi</lblPiediBocca_Si_No>
+		<lblAfferraOggetto_Si_No>Afferra un oggetto con entrambe le mani e lo passa da una mano all'altra</lblAfferraOggetto_Si_No>
+		<lblRotola_Si_No>Si rotola</lblRotola_Si_No>
+		<lblSostienePeso_Si_No>Sorretto sostiene il proprio peso con le gambe</lblSostienePeso_Si_No>
+		<lblSiede_Si_No>Siede senza sostegno</lblSiede_Si_No>
+		<lblPresaPalmare_Si_No>Presa palmare</lblPresaPalmare_Si_No>
+		<lblPassaOggetti_Si_No>Passa gli oggetti da una mano all'altra</lblPassaOggetti_Si_No>
+		<lblOggettiBocca_Si_No>Porta gli oggetti alla bocca</lblOggettiBocca_Si_No>
+		<lblRiflessoParacadute_Si_No>Riflesso del paracadute anteriore</lblRiflessoParacadute_Si_No>
+		<lblReggeAvambracci_Si_No>Prono si regge sugli avambracci</lblReggeAvambracci_Si_No>
+		<lblAscoltaVoce_Si_No>Ascolta la voce</lblAscoltaVoce_Si_No>
+		<lblGorgheggia_Si_No>Gorgheggia</lblGorgheggia_Si_No>
+		<lblManipolaOggetti_Si_No>Manipola oggetti</lblManipolaOggetti_Si_No>
+		<lblRiconosceMamma_Si_No>Riconosce la mamma e le sorride</lblRiconosceMamma_Si_No>
+		<lblIndagaRumori_Si_No>Indaga i rumori</lblIndagaRumori_Si_No>
+		<lblLallazione_Si_No>Lallazione</lblLallazione_Si_No>
+		<lblRiconosceOggetti_Si_No>Riconosce gli oggetti comuni</lblRiconosceOggetti_Si_No>
+		<lblStrabismo_Si_No>Strabismo</lblStrabismo_Si_No>
+		<lblVocalizza_Si_No>Vocalizza</lblVocalizza_Si_No>
+		<lblRide_Si_No>Ride</lblRide_Si_No>
+		<lblTimidezza_Si_No>Mostra timidezza verso gli estranei</lblTimidezza_Si_No>
+        
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <butSalva>Salva</butSalva>
+        <butStampa>Salva e Stampa</butStampa>
+        <butChiudi>Chiudi</butChiudi>
+        <PD></PD>
+        
+    </ROW>
+</ROWSET>

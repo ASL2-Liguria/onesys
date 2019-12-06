@@ -1,0 +1,140 @@
+<PAGINA key_id="MMG_MODULO_DISPOSITIVI_DIABETE">
+	<HEADER_PAGE key_id="MMG_MODULO_DISPOSITIVI_DIABETE"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_DISPOSITIVI_DIABETE#DEFAULT_MMG,MMG_MODULO_DISPOSITIVI_DIABETE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_DISPOSITIVI_DIABETE#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="ModuloRSA#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabModulo" valore="tabModulo" evento="START">
+				<FIELDSET_TABLE key_id="fldData" valore="fldData" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtData" valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA" evento="START"></TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDataTesserino" valore="fldDataTesserino" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataTesserino" valore="lblDataTesserino##txtDataTesserino#DataTesserino#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA_TESSERINO" evento="START"></TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldStrisce" valore="fldStrisce" evento="START">
+				<TR.INIT key_id="tr1" valore="tr1" evento="START">
+						<TD.INIT key_id="tdlblStrisce" valore="2#tdlblStrisce" evento="START">
+							<LABEL key_id="lblStrisce" valore="lblStrisce#arrivederci" evento="START"></LABEL>
+						</TD.INIT>
+				</TR.INIT>
+					<!-- <TR_TD_LABEL key_id="lblStrisce" valore="lblStrisce" evento="START"></TR_TD_LABEL> -->
+					<TR_TD_RADIO key_id="Strisce" valore="Strisce#radStrisce#{width:870}#N#STRISCE" evento="START"></TR_TD_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtDettGlucometro" valore="lbltxtDettGlucometro##txtDettGlucometro##lettura#DETT_GLUCOMETRO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXTAREA key_id="txtDettRischio" valore="lbltxtDettRischio#txtDettRischio#DETT_RISCHIO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldTabella1" valore="fldTabella1" evento="START">
+					<TR.INIT key_id="TR1" valore="TR1" evento="START">
+						<TD.INIT key_id="TD11" valore="1" evento="START"></TD.INIT>
+						<TD.INIT key_id="TD12" valore="2#tdLbl" evento="START">
+							<LABEL key_id="lblHeader12" valore="lblHeader12#arrivederci" evento="START"></LABEL>
+						</TD.INIT>
+						<TD.INIT key_id="TD13" valore="2#tdLbl" evento="START">
+							<LABEL key_id="lblHeader13" valore="lblHeader13#arrivederci" evento="START"></LABEL>
+						</TD.INIT>
+						<TD.INIT key_id="TD14" valore="2#tdLbl" evento="START">
+							<LABEL key_id="lblHeader14" valore="lblHeader14#arrivederci" evento="START"></LABEL>
+						</TD.INIT>
+							<TD_LABEL key_id="lblHeader15" valore="lblHeader15#arrivederci" evento="START"></TD_LABEL>
+					</TR.INIT>
+					<TR.INIT key_id="TR2" valore="TR2" evento="START">
+						<TD.INIT key_id="TD21" valore="1" evento="START"></TD.INIT>
+						<TD_LABEL key_id="lblHeader22" valore="lblHeader22#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader23" valore="lblHeader23#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader24" valore="lblHeader24#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader25" valore="lblHeader25#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader26" valore="lblHeader26#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader27" valore="lblHeader27#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader28" valore="lblHeader28#salve" evento="START"></TD_LABEL>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXT key_id="txtInsulinoMax1" valore="lbltxtInsulinoMax1##txtInsulinoMax1##center#INSULINO_MAX_1" evento="START">
+						<TD_LABEL_TEXT key_id="txtInsulinoMax2" valore="lbltxtInsulinoMax2##txtInsulinoMax2##center#INSULINO_MAX_2" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtInsulinoMax3" valore="lbltxtInsulinoMax3##txtInsulinoMax3##center#INSULINO_MAX_3" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtInsulinoMax4" valore="lbltxtInsulinoMax4##txtInsulinoMax4##center#INSULINO_MAX_4" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtInsulinoMax5" valore="lbltxtInsulinoMax5##txtInsulinoMax5##center#INSULINO_MAX_5" evento="START">
+						<TD_LABEL_TEXT key_id="txtInsulinoMax6" valore="lbltxtInsulinoMax6##txtInsulinoMax6##center#INSULINO_MAX_6" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtInsulinoMax7" valore="lbltxtInsulinoMax7##txtInsulinoMax7##center#INSULINO_MAX_7" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtInsulinoMax8" valore="lbltxtInsulinoMax8##txtInsulinoMax8##center#INSULINO_MAX_8" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtInsulinoMax9" valore="lbltxtInsulinoMax9##txtInsulinoMax9##center#INSULINO_MAX_9" evento="START">
+						<TD_TEXT key_id="txtInsulinoMax12" valore="txtInsulinoMax12##center#INSULINO_MAX_12" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtInsulinoMax13" valore="txtInsulinoMax13##center#INSULINO_MAX_13" evento="START"></TD_TEXT>
+						<TD_LABEL_TEXT key_id="txtInsulinoMax10" valore="lbltxtInsulinoMax10##txtInsulinoMax10##center#INSULINO_MAX_10" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtInsulinoMax11" valore="lbltxtInsulinoMax11##txtInsulinoMax11##center#INSULINO_MAX_11" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtMax12Mesi1" valore="lbltxtMax12Mesi1##txtMax12Mesi1##mesi#MAX_12_MESI1" evento="START"></TR_TD_LABEL_TEXT>
+					<!-- <TR_TD_LABEL_TEXT key_id="txtHeader11" valore="lbltxtHeader11##txtHeader11#Strisce Chetonuria Glicosuria a mese#header1#HEADER_11" evento="START">
+						<TD_TEXT key_id="txtHeader12" valore="txtHeader12#Strisce Glicemia a mese#header1#HEADER_12" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader13" valore="txtHeader13#Lancette Pungidito a mese#header1#HEADER_13" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader14" valore="txtHeader14#Aghi penna/Siringhe a mese#lettura#HEADER_14" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtHeader21" valore="lbltxtHeader21##txtHeader21#Quantità Utile (*)#lettura#HEADER_21" evento="START">
+						<TD_TEXT key_id="txtHeader22" valore="txtHeader22#Quantità max#lettura#HEADER_22" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader23" valore="txtHeader23#Quantità Utile (*)#lettura#HEADER_23" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader24" valore="txtHeader24#Quantità max#lettura#HEADER_24" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader25" valore="txtHeader25#Quantità Utile (*)#lettura#HEADER_25" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader26" valore="txtHeader26#Quantità max#lettura#HEADER_26" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader27" valore="txtHeader27#Quantità Utile (*)#lettura#HEADER_27" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_TEXT key_id="txtHeader31" valore="lbltxtHeader31##txtHeader31##lettura#HEADER_31" evento="START">
+						<TD_TEXT key_id="txtHeader32" valore="txtHeader32##lettura#HEADER_32" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader33" valore="txtHeader33##lettura#HEADER_33" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader34" valore="txtHeader34##lettura#HEADER_34" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader35" valore="txtHeader35##lettura#HEADER_35" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader36" valore="txtHeader36##lettura#HEADER_36" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader37" valore="txtHeader37##lettura#HEADER_37" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader38" valore="txtHeader38##lettura#HEADER_38" evento="START"></TD_TEXT>
+					</TR_TD_TEXT>
+					<TR_TD_TEXT key_id="txtHeader41" valore="lbltxtHeader41##txtHeader41##lettura#HEADER_41" evento="START">
+						<TD_TEXT key_id="txtHeader42" valore="txtHeader42##lettura#HEADER_42" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader43" valore="txtHeader43##lettura#HEADER_43" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader44" valore="txtHeader44##lettura#HEADER_44" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader45" valore="txtHeader45##lettura#HEADER_45" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader46" valore="txtHeader46##lettura#HEADER_46" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader47" valore="txtHeader47##lettura#HEADER_47" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader48" valore="txtHeader48##lettura#HEADER_48" evento="START"></TD_TEXT>
+					</TR_TD_TEXT>
+					<TR_TD_TEXT key_id="txtHeader51" valore="lbltxtHeader51##txtHeader51##lettura#HEADER_51" evento="START">
+						<TD_TEXT key_id="txtHeader52" valore="txtHeader52##lettura#HEADER_52" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader53" valore="txtHeader53##lettura#HEADER_53" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader54" valore="txtHeader54##lettura#HEADER_54" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader55" valore="txtHeader55##lettura#HEADER_55" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader56" valore="txtHeader56##lettura#HEADER_56" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader57" valore="txtHeader57##lettura#HEADER_57" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtHeader58" valore="txtHeader58##lettura#HEADER_58" evento="START"></TD_TEXT>
+					</TR_TD_TEXT> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldTabella2" valore="fldTabella2" evento="START">
+					<TR.INIT key_id="TR3" valore="TR3" evento="START">
+						<TD.INIT key_id="TD211" valore="1" evento="START"></TD.INIT>
+						<TD_LABEL key_id="lblHeader212" valore="lblHeader212#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader213" valore="lblHeader213#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader214" valore="lblHeader214#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader215" valore="lblHeader215#salve" evento="START"></TD_LABEL>
+					</TR.INIT>
+					<TR.INIT key_id="TR4" valore="TR4" evento="START">
+						<TD.INIT key_id="TD221" valore="1" evento="START"></TD.INIT>
+						<TD_LABEL key_id="lblHeader222" valore="lblHeader222#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader223" valore="lblHeader223#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader224" valore="lblHeader224#salve" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="lblHeader225" valore="lblHeader225#salve" evento="START"></TD_LABEL>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXT key_id="txtDiabete232" valore="lbltxtDiabete232##txtDiabete232##center#DIABETE_232" evento="START">
+						<TD_TEXT key_id="txtDiabete233" valore="txtDiabete233##center#DIABETE_233" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtDiabete234" valore="txtDiabete234##center#DIABETE_234" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtDiabete235" valore="txtDiabete235##center#DIABETE_235" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDiabete242" valore="lbltxtDiabete242##txtDiabete242##center#DIABETE_242" evento="START">
+						<TD_TEXT key_id="txtDiabete243" valore="txtDiabete243##center#DIABETE_243" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtDiabete244" valore="txtDiabete244##center#DIABETE_244" evento="START"></TD_TEXT>
+						<TD_TEXT key_id="txtDiabete245" valore="txtDiabete245##center#DIABETE_245" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtMax12Mesi2" valore="lbltxtMax12Mesi2##txtMax12Mesi2##mesi#MAX_12_MESI2" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

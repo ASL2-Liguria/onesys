@@ -1,0 +1,7 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Anagrafe" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_ANAGRAFE" />
+	<DATO key_id="TipoAssistito" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_ANAGRAFE_ASSISTITI" />
+</DATI>

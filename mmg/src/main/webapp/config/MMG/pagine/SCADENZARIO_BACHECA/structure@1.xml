@@ -1,0 +1,15 @@
+<PAGINA key_id="SCADENZARIO_BACHECA">
+	<HEADER_PAGE key_id="SCADENZARIO_BACHECA"
+		valore="DEFAULT_MMG,SCHEDA,SCADENZARIO_BACHECA#SCADENZARIO_BACHECA"
+		evento="START_END"></HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabMain" valore="tabMain#lblTitolo"
+			evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabScadenziario"
+				valore="tabScadenziario" evento="START">
+				<DIV key_id="wk" valore="divWk" evento="START_END"></DIV>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

@@ -1,0 +1,60 @@
+<PAGINA key_id="MMG_INFO_FARMACO">
+	<HEADER_PAGE key_id="MMG_INFO_FARMACO"
+		valore="DEFAULT_MMG,SCHEDA,MMG_INFO_FARMACO#DEFAULT_MMG,MMG_INFO_FARMACO"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="MMGInfoFarmaco#lblTitolo#butChiudi" evento="START_END">
+			<FIELDSET_TABLE key_id="fld1" valore="fld1" evento="START">
+				<TR_TD_LABEL_TEXT key_id="Nome"
+					valore="lblNome##txtNome##lettura#DESCRIZIONE" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Classe"
+					valore="lblClasse##txtClasse##lettura#CLASSE" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Principio_Attivo"
+					valore="lblPrincipio_Attivo##txtPrincipio_Attivo##lettura#PRINCIPIO_ATTIVO" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Prezzo"
+					valore="lblPrezzo##txtPrezzo##lettura#PREZZO_EURO" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Concedibile"
+					valore="lblConcedibile##txtConcedibile##lettura#REGIME_SSN" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Conservazione"
+					valore="lblConservazione##txtConservazione##lettura#CONSERVAZIONE" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Tipo_Prodotto"
+					valore="lblTipo_Prodotto##txtTipo_Prodotto##lettura#TIPO_PRODOTTO" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Val_dopo_Apert"
+					valore="lblVal_dopo_Apert##txtVal_dopo_Apert##lettura#VALIDITA_DOPO_APERTURA" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Forma"
+					valore="lblForma##txtForma##lettura#FORMA" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Contenitore"
+					valore="lblContenitore##txtContenitore##lettura#CONTENITORE" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="ATC"
+					valore="lblATC##txtATC##lettura#ATC_GMP" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXTAREA key_id="Gruppo_Terapeutico"
+					valore="lblGruppo_Terapeutico#txtGruppo_Terapeutico#GRUPPO_TERAPEUTICO" evento="START">
+				</TR_TD_LABEL_TEXTAREA>
+				<TR_TD_LABEL_TEXTAREA key_id="Prescrivibilita"
+					valore="lblPrescrivibilita#txtPrescrivibilita#PRESCRIVILITA" evento="START">
+				</TR_TD_LABEL_TEXTAREA>
+				<TR_TD_LABEL_TEXT key_id="Prescr_Max_Pezzi"
+					valore="lblPrescr_Max_Pezzi##txtPrescr_Max_Pezzi##lettura#PRESCR_MAX_PEZZI" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXT key_id="Codice_Farmaco"
+					valore="lblCodice_Farmaco##txtCodice_Farmaco##lettura#CODICE_FARMACO" evento="START">
+				</TR_TD_LABEL_TEXT>
+			</FIELDSET_TABLE>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

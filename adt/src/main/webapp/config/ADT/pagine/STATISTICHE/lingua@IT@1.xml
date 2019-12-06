@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+		<tabStatistiche>Statistiche</tabStatistiche>
+		<lblTitolo>Filtri</lblTitolo>
+		<fldStatistiche>Filtri</fldStatistiche>
+		<lblFiltriSalvati>Filtri Salvati</lblFiltriSalvati>
+		<lblFiltro>Aggiungi Filtro</lblFiltro>
+		<lblGroupBy>Raggruppa per</lblGroupBy>
+		<butEsportaGriglia>Esporta</butEsportaGriglia>
+		<butApplicaFiltri>Applica</butApplicaFiltri>
+		<butSalvaFiltro>SalvaFiltro</butSalvaFiltro>
+    	<btnRemove>&#45;</btnRemove>
+    </ROW>
+</ROWSET>

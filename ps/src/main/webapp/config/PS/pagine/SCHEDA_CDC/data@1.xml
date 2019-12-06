@@ -1,0 +1,45 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'PS.Q_SCHEDA_CDC@PS'; :where := null; :campo_xml := null; end;">
+    <DATO
+            key_id="CodiceCdc"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE"
+            db_descrizione="CODICE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="DescrizioneCdc"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DESCRIZIONE"
+            db_descrizione="DESCRIZIONE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="OrdineCdc"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ORDINE"
+            db_descrizione="ORDINE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="Attivo"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ATTIVO"
+            db_descrizione="ATTIVO"
+            configurazione_multi_data="R_SI_NO"
+            />
+    <DATO
+            key_id="Tipologia"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="TIPOLOGIA"
+            db_descrizione="TIPOLOGIA"
+            configurazione_multi_data="PS.RAD_TIPOLOGIA_CDC@PS"
+            />
+    <DATO
+            key_id="Struttura"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="STRUTTURA"
+            db_descrizione="STRUTTURA"
+            configurazione_multi_data="PS.RAD_STRUTTURA_CDC@PS"
+            />
+</DATI>
+

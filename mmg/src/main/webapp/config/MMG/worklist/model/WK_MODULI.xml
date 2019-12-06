@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_MODULI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.WK_MODULI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_MODULI</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <!--<CLICK>function(rec){$(this).selectedLine('IDEN');VISUALIZZA_DOCUMENTI.loadDocumento(rec);}</CLICK>-->
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+                <DBLCLICK>function(rec){WK_MODULI.apriModulo(rec);}</DBLCLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>PAZIENTE</COL>
+						<DB>PAZIENTE</DB>
+					</ID>
+					<DESCRIPTOR>"Paziente"</DESCRIPTOR>           				
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Modulo"</DESCRIPTOR>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DATA_INS</COL>
+						<DB>DATA_INS</DB>
+					</ID>
+					<DESCRIPTOR>"Data del Modulo"</DESCRIPTOR>
+					<!--<PROCESS type="java">.processData</PROCESS>-->
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_SEARCH">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

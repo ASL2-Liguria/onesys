@@ -1,0 +1,67 @@
+table.classTabHeader {
+	text-align: left;
+	width: 100%;
+	margin:0;
+	border: 0;
+	height:30px;
+	height:25px;
+	font-size:12px;
+}
+
+div#DIVFLTUP{margin-top:5px;}
+
+table.classTabHeader td.classTabHeaderSx {
+	background:url(../../../imagexPix/tabheader/tab_sx_2010.png) no-repeat;
+	width:14px;
+}
+
+table.classTabHeader td.classTabHeaderMiddle {
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	text-align: center;
+	font-size:12px;
+	color:#000;
+	font-weight: bold;		
+}
+
+table.classTabHeader td.classTabHeaderDx {
+	background:url(../../../imagexPix/tabheader/tab_dx_2010.png) no-repeat;
+	width:14px;	
+}
+
+table.classTabHeader td.classTabFooterSx {
+	background:url(../../../imagexPix/tabheader/tab_sx_down_2010.png);
+	width:14px;	
+}
+
+table.classTabHeader td.classTabFooterDx {
+	background:url(../../../imagexPix/tabheader/tab_dx_down_2010.png) no-repeat;
+	width:14px; 
+}
+
+table.classTabHeader td.classButtonHeader {
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png);
+	background-repeat:repeat-x;
+	width:80px; 
+}
+
+table.classTabHeader td.classTabHeaderMiddleTitle {
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	text-align: center;
+	font-size:16px;
+	color:#000;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/* classe per i pulsanti mini (21*21) */
+table.classTabHeader td.miniButton {
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png);
+	width:25px;
+	padding:0 2px 0 2px;
+}
+
+td.classVaiA{
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	}
+
+

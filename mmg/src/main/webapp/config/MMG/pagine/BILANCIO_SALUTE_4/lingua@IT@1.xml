@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Bilancio di salute n.4 (211°-270° giorno di vita)</lblTitolo>
+        
+        <tabBilancioSalute>Bilancio di salute</tabBilancioSalute>
+        <tabSviluppoMotorio>Sviluppo motorio</tabSviluppoMotorio>
+        <tabSviluppoPsicoSensoriale>Sviluppo psico-sensoriale</tabSviluppoPsicoSensoriale>
+        
+        
+        <fldDatiGenerali>Dati generali</fldDatiGenerali>
+        <fldDatiAuxometrici>Dati auxometrici</fldDatiAuxometrici>
+        <fldEsameClinico>Esame clinico</fldEsameClinico>
+        <fldSonno>Sonno</fldSonno>
+        <fldAllattamento>Allattamento</fldAllattamento>
+        <fldSviluppoMotorio7Mesi>Sviluppo motorio a 7 mesi</fldSviluppoMotorio7Mesi>
+        <fldSviluppoMotorio9Mesi>Sviluppo motorio a 9 mesi</fldSviluppoMotorio9Mesi>
+        <fldSviluppoPsicoSensoriale8Mesi>Sviluppo psico-sensoriale a 8 mesi</fldSviluppoPsicoSensoriale8Mesi>
+        <fldSviluppoPsicoSensoriale9Mesi>Sviluppo psico-sensoriale a 9 mesi</fldSviluppoPsicoSensoriale9Mesi>
+        <fldSviluppoPsicoSensorialeAltro>Altro</fldSviluppoPsicoSensorialeAltro>
+        
+        <lblData>Data compilazione</lblData>
+        <lblEtaMesi>Mesi</lblEtaMesi>
+        <lblEtaGiorni>Giorni</lblEtaGiorni>
+        <lblRaccordoAnamnestico>Raccordo anamnestico</lblRaccordoAnamnestico>
+        <lblPeso>Peso (kg)</lblPeso>
+        <lblPesoCentile>...</lblPesoCentile>
+        <lblAltezza>Lunghezza (cm)</lblAltezza>
+        <lblAltezzaCentile>...</lblAltezzaCentile>
+        <lblBMI>BMI</lblBMI>
+        <lblCirconferenza_Cranica>Circ. cranica (cm)</lblCirconferenza_Cranica>
+        <lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+        <lblNoteSonno>Note</lblNoteSonno>
+        <lblAllattamento>Allattamento</lblAllattamento>
+        <lblDivezzamento>Divezzamento</lblDivezzamento>
+        <lblNoteAllattamento>Note</lblNoteAllattamento>
+        <lblNoteEsameClinico>Note</lblNoteEsameClinico>
+        
+        <lblMantienePosizione_Si_No>Mantiene la posizione seduta con testa ferma e spalle dritte</lblMantienePosizione_Si_No>
+		<lblPassaOggetti_Si_No>Passa gli oggetti da una mano all'altra</lblPassaOggetti_Si_No>
+		<lblSgambetta_Si_No>Sgambetta</lblSgambetta_Si_No>
+		<lblPresa_Si_No>Nella presa usa pollice ed indice</lblPresa_Si_No>
+		<lblRiflessoParacadute_Si_No>Riflesso del paracadute laterale</lblRiflessoParacadute_Si_No>
+		<lblAfferraAnello_Si_No>Afferra l'anello di sostegno del box</lblAfferraAnello_Si_No>
+		<lblSiAlza_Si_No>Si alza in piedi</lblSiAlza_Si_No>
+		<lblIniziaGattonare_Si_No>Inizia a gattonare</lblIniziaGattonare_Si_No>
+		<lblLallazione_Si_No>Lallazione (ma-ma, pa-pa)</lblLallazione_Si_No>
+		<lblRicercaSuono_Si_No>Ricerca la fonte del suono</lblRicercaSuono_Si_No>
+		<lblRiconosceFamigliari_Si_No>Riconosce i famigliari e teme gli estranei</lblRiconosceFamigliari_Si_No>
+		<lblCercaOggetto_Si_No>Cerca l'oggetto nascosto</lblCercaOggetto_Si_No>
+		<lblImitaVoci_Si_No>Imita le voci</lblImitaVoci_Si_No>
+		<lblTestAmbliopia_Si_No>Test per ambliopia: eseguito</lblTestAmbliopia_Si_No>
+		<lblTestBoel_Si_No>Boel test: eseguito</lblTestBoel_Si_No>
+		
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <butSalva>Salva</butSalva>
+        <butStampa>Salva e Stampa</butStampa>
+        <butChiudi>Chiudi</butChiudi>
+        <PD></PD>
+        
+    </ROW>
+</ROWSET>

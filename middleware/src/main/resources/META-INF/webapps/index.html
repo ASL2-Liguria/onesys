@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ElcoMiddleware</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+	<meta name="author" content="Roberto Rizzo">
+	<meta name="description" content="ELCOMiddleware main web page">
+	<link href="monitor/css/ui/1.12.1/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/table.min.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/dataTables.tableTools.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/jquery.treeview.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/page.min.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/toastr.min.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/jquery-ui-1.12.icon-font.min.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/jquery.qtip.min.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/jqueryFileTree.css" type="text/css" rel="stylesheet"/>
+	<link href="monitor/css/middleware-upload-min.css" type="text/css" rel="stylesheet"/>
+</head>
+
+<body class="highlight_row">
+	<div id="alert"></div>
+	<div id="question" style="display:none; cursor: default"></div>
+	<div id="tabs">
+		<ul>
+			<li><a href="#integrations" title="">Integrations</a></li>
+			<li id='liactivemqqueues'><a href="#activemqqueues" title="">ActiveMQ queues</a></li>
+			<li id='liactivemqtopics'><a href="#activemqtopics" title="">ActiveMQ topics</a></li>
+			<li><a href="#utilities" title="">Utilities</a></li>
+		</ul>
+		<div id="integrations">
+			<div id="divbottom" class="divbottom">
+				<div id="addContext"></div>
+				<div id="div_browser" class="divbottomleft"></div>
+				<div id="div_info_accordion" class="divbottomright"></div>
+			</div>
+		</div>
+		<div id="activemqqueues">
+			<div id="divbottomAMQ" class="divbottom">
+				<div id="div_browserAMQ" class="divbottomleft"></div>
+				<div id="div_infoParagraphAMQ" class="divbottomright">
+					<p id="infoParagraphAMQ"><br></p>
+				</div>
+			</div>
+		</div>
+		<div id="activemqtopics">
+			<div id="divbottomAMQT" class="divbottom">
+				<div id="div_browserAMQT" class="divbottomleft"></div>
+				<div id="div_infoParagraphAMQT" class="divbottomright">
+					<p id="infoParagraphAMQT"><br></p>
+				</div>
+			</div>
+		</div>
+		<div id="utilities">
+			<div id="internalDB"></div>
+			<div id="scripts" class="table"></div>
+			<hr width="95%">
+			<div id="informations"></div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="monitor/src-min-noconflict/ace.js"></script>
+	<script type="text/javascript" src="monitor/src-min-noconflict/ext-language_tools.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.blockUI.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.treeview.min.js"></script>
+	<script type="text/javascript" src="monitor/js/ui/jquery-ui-1.12.1.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.crypt.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.jeditable.mini.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="monitor/js/dataTables.tableTools.min.js"></script>
+	<script type="text/javascript" src="monitor/js/ZeroClipboard.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.iframe-transport.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.fileupload.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.ui-contextmenu.min.js"></script>
+	<script type="text/javascript" src="monitor/js/purl.min.js"></script>
+	<script type="text/javascript" src="monitor/js/toastr.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.qtip.min.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.easing.js"></script>
+	<script type="text/javascript" src="monitor/js/jqueryFileTree.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.fileDownload.js"></script>
+	<script type="text/javascript" src="monitor/js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="monitor/js/camel/utils.min.js"></script>
+	<script type="text/javascript" src="monitor/js/camel/camel.manager.functions.min.js"></script>
+	<script type="text/javascript" src="monitor/js/camel/camel.manager.min.js"></script>
+</body>
+</html>

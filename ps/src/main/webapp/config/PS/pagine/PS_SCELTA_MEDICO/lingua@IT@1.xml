@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <Scelta_Medico>Scelta Medico</Scelta_Medico>
+        <tabDati>Scelta Medico</tabDati>
+        <lblMedico>Medici disponibili</lblMedico>
+        <fldMedico>Medici</fldMedico>
+        <lblcmbAreaPS>Area</lblcmbAreaPS>
+        <lblcmbUbicazione>Ubicazione</lblcmbUbicazione>
+    </ROW>
+</ROWSET>

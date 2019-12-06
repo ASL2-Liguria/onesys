@@ -1,0 +1,22 @@
+/*
+  User: Matteop
+  Date: 02/07/2013
+  Time: 11:33
+*/
+
+#txtIl{
+    width: 80px;
+}
+#lblNecroscopo{
+    width:200px;
+}
+#lblPortatore{
+    width: 350px;
+}
+#lblDichiara{
+    text-align        : center;
+    padding-top       : 10px;
+    padding-bottom    : 10px;
+    height            : 20px;
+    /*width             : 1000px;*/
+}

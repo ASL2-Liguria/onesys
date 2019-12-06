@@ -1,0 +1,28 @@
+<MENU>
+	<ID>MENU_FRASI_STD_REFERTAZIONE</ID>
+	<TITLE>"Menu"</TITLE>
+	<LIST>
+		 <ITEM>
+            <ID>INSERISCI_RIGA</ID>
+            <LINK><![CDATA[function(rec){FRASI_STD.inserisciDettaglio('FRASI_STD_INSERT',FRASI_STD.divWkFrasi);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"inserisci frase standard"</OUTPUT>
+            <CONCEALING>N</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>MODIFICA_RIGA</ID>
+            <LINK><![CDATA[function(rec){FRASI_STD.modificaDettaglio('FRASI_STD_INSERT',rec[0].IDEN,FRASI_STD.divWkFrasi);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0);}]]></WHERE>
+            <OUTPUT>"modifica frase standard"</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <ENABLE>S</ENABLE>
+            <SEPARATOR>N</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+	</LIST>
+</MENU>

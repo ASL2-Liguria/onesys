@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>2</minChars>
+		<onSelect type="js">
+			<![CDATA[function(data){$("#txtCodiceRegioneAss").val(data.REGIONE_CODICE);}]]>
+		</onSelect>
+		<deferRequestBy>200</deferRequestBy>
+		<datasource>ADT</datasource>
+		<storedQuery>AUTOCOMPLETE.AC_ASL</storedQuery>
+		<maxResults>40</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>ASL Assistenza</title>
+	    <id_wk>WK_SCHEDA_ANAGRAFICA_AC_ASL</id_wk>
+	</LIST>
+	<QUERY_BINDS>
+        <reg_codice>0</reg_codice>
+    </QUERY_BINDS>
+</AUTOCOMPLETE>	 
+    

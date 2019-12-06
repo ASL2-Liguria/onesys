@@ -1,0 +1,149 @@
+<ROWSET>
+    <ROW>
+		<tabDatiGenerali>Dati Generali</tabDatiGenerali>
+		<tabInterventi>Interventi</tabInterventi>
+		<tabAllergie>Allergie/Intolleranze</tabAllergie>
+		<tabProblemi>Problemi</tabProblemi>
+		<tabVaccinazioni>Vaccinazioni</tabVaccinazioni>
+		<tabTerapieCroniche>Terapie Croniche</tabTerapieCroniche>
+		<fldVaccinazioni>Vaccinazioni</fldVaccinazioni>
+		<tabEsenzioni>Esenzioni</tabEsenzioni>
+		<tabDatiAnagrafici>Anagrafica paziente</tabDatiAnagrafici>
+		<tabDatiMedico>Info e Medico curante</tabDatiMedico>
+		<tabAccertamenti>Accertamenti</tabAccertamenti>
+		<tabScreening>Screening</tabScreening>
+		<tabAnamnesi>Anamnesi</tabAnamnesi>
+		<tabAnamnesiClinica>Anamnesi Clinica</tabAnamnesiClinica>
+		<tabOldVersion>Old Version</tabOldVersion>
+		<tabInfo>Info</tabInfo>
+		
+		<fldAccertamenti>Accertamenti</fldAccertamenti>
+		<fldEsenzioni>Esenzioni</fldEsenzioni>
+		<fldInfo>Info</fldInfo>
+		<fldScreening>Screening</fldScreening>
+		<fldNote>Note</fldNote>
+		<fldRiferimenti>Riferimenti</fldRiferimenti>
+		<fldAmministratore>Amministratore</fldAmministratore>
+		<fldDatiGenerali>Dati Generali</fldDatiGenerali>
+		<fldRadio>Stato</fldRadio>
+		<fldInserimentoAllergie>Inserimento</fldInserimentoAllergie>
+		<fldWkProblemi>Lista Problemi del Paziente</fldWkProblemi>
+		<fldInserimentoIntervento>Inserimento</fldInserimentoIntervento>
+		<fldAnamnesiFisiologica>Anamnesi Fisiologica</fldAnamnesiFisiologica>
+		<fldAnamnesiFamiliare>Anamnesi Familiare</fldAnamnesiFamiliare>
+		<fldAbitudiniDiVita>Abitudini di Vita</fldAbitudiniDiVita>
+		<fldAnamnesiPatologicaRemota>Anamnesi Patologica Remota</fldAnamnesiPatologicaRemota>
+		<fldTerapieCroniche>Lista Terapie Croniche</fldTerapieCroniche>
+		<fldInterventiChirurgici>Interventi Chirurgici</fldInterventiChirurgici>
+		<fldOrgani>Organi</fldOrgani>
+		<fldProtesi>Protesi</fldProtesi>
+		<fldAllergie>Allergie e Intolleranze</fldAllergie>
+		<fldFattoriRischi>Fattori Rischio</fldFattoriRischi>
+		<fldConsensoOrgani>Consenso Donazione Organi</fldConsensoOrgani>
+		<fldMalformazioni>Rilevanti Malformazioni Assistito</fldMalformazioni>
+		
+		<lblExFumo>Ex Fumatore</lblExFumo>
+		<lblDataFineFumo>Dal</lblDataFineFumo>
+		<lblQtaSigarette>Sigarette die</lblQtaSigarette>
+		<lblAttivitaLavorativa>Attività lavorativa</lblAttivitaLavorativa>
+		<lblRetiPatologia>Reti di Patologia Assistito</lblRetiPatologia>
+		<lblCapacitaMotoria>Capacità motoria</lblCapacitaMotoria>
+		<lblMalformazioni>Malformazioni</lblMalformazioni>
+		<lblConsensoDonazioneOrgani>Consenso</lblConsensoDonazioneOrgani>
+		<lblEmailPEC>PEC</lblEmailPEC>
+		<lblAggiungiPatologia>Aggiungi Patologia</lblAggiungiPatologia>
+		<lblOrganiMancanti>Organi Mancanti</lblOrganiMancanti>
+		<lblTrapianti>Trapianti</lblTrapianti>
+		<lblEspianti>Espianti</lblEspianti>
+		<lblProtesi>Protesi</lblProtesi>
+		<lblImpianti>Impianti</lblImpianti>
+		<lblAusili>Ausili</lblAusili>
+		<lblRHSanguigno>RH</lblRHSanguigno>
+		<lblDipendenze>Dipendenze</lblDipendenze>
+		<lblSostanzeTossiche>Esp. a Sostanze Tossiche</lblSostanzeTossiche>
+		<lblProfessione>Professione</lblProfessione>
+		<lblViveSolo>Vive Solo</lblViveSolo>
+		<lblStatoCivile>Stato Civile</lblStatoCivile>
+		<lblRecapitoTelefonico>Recapito Telefonico</lblRecapitoTelefonico>
+		<lblComposizioneNucleoFam>Composizione Nucleo Familiare</lblComposizioneNucleoFam>
+		<lblViveStruttura>Vive in Struttura</lblViveStruttura>
+		<lblTelefonoStruttura>Telefono Struttura</lblTelefonoStruttura>
+		<lblUtilizzoServiziSociali>Utilizzo Servizi Sociale</lblUtilizzoServiziSociali>
+		<lblOrientamentoReligioso>Orientamento Religioso</lblOrientamentoReligioso>
+		<lblPersonaInterdetta>Persona Interdetta</lblPersonaInterdetta>
+		<lblPersonaInabilitata>Persona Inabilitata</lblPersonaInabilitata>
+		<lblAmmSostegno>Amministratore di Sostegno (Nome e Cognome)</lblAmmSostegno>
+		<lblTelAmmSostegno>Telefono</lblTelAmmSostegno>
+		<lblNominativo1>Nominativo</lblNominativo1>
+		<lblTelefono1>Telefono</lblTelefono1>
+		<lblParentela1>Parentela</lblParentela1>
+		<lblNominativo2>Nominativo</lblNominativo2>
+		<lblTelefono2>Telefono</lblTelefono2>
+		<lblParentela2>Parentela</lblParentela2>
+		<lblNominativo3>Nominativo</lblNominativo3>
+		<lblTelefono3>Telefono</lblTelefono3>
+		<lblParentela3>Parentela</lblParentela3>
+		<lblSviluppoPsicoMotorio>Sviluppo Psico Motorio</lblSviluppoPsicoMotorio>
+		<lblMestruazioni>Mestruazioni</lblMestruazioni>
+		<lblMenopausa>Menopausa</lblMenopausa>
+		<lblMearcaAnni>Anni Menarca</lblMearcaAnni>
+		<lblgruppoSanguigno>Gruppo Sanguigno</lblgruppoSanguigno>
+		<lblDataUltimaMestruazione>Data Ultima Mestruazione</lblDataUltimaMestruazione>
+		<lblFamiliarita>Familiarità</lblFamiliarita>
+		<lblAltreFamiliarita>Altre Familiarità</lblAltreFamiliarita>
+		<lblNatoDa>Nato a</lblNatoDa>
+		<lblParto>Da Parto</lblParto>
+		<lblFumo>Fumo</lblFumo>
+		<lblAlcol>Alcol</lblAlcol>
+		<lblEta>Età</lblEta>
+		<lblAttivitaFisicaExtraLavorativa>Attivita Fisica Extra Lavorativa</lblAttivitaFisicaExtraLavorativa>
+		<lblTitolo>PATIENT SUMMARY</lblTitolo>
+		<lblDescrInterventi>Descrizione</lblDescrInterventi>
+		<lblInterventi>Codifica</lblInterventi>
+		<lblDataIntervento>Data Intervento</lblDataIntervento>
+		<lblTipoAllergia>Tipologia</lblTipoAllergia>
+		<lblAllergia>Descrizione Visualizzata</lblAllergia>
+		<lblAltreInfo>Altre informazioni</lblAltreInfo>
+		
+		<buttonInsAllergie>Inserisci</buttonInsAllergie>
+		<buttonIns>Inserisci</buttonIns>
+		<butAnagrafica>Scheda anagrafica</butAnagrafica>
+		<butOldVersion>Campi vecchia versione</butOldVersion>
+		
+		<lblFarmaco>Nome Farmaco</lblFarmaco>
+		<lblTipoSostanza>Tipo Sostanza</lblTipoSostanza>
+		<lblPrincipioAttivo>Principio Attivo</lblPrincipioAttivo>
+		<lblLivello>Livello ATC</lblLivello>
+		<lblTipoReazAllergica>Tipo Reazione Allergica</lblTipoReazAllergica>
+		<lblInsNotaCont>Nota Contestuale</lblInsNotaCont>
+		<lblInseritoIntervento>Inserito intervento</lblInseritoIntervento>
+		<lblOldVersion>I campi presenti in questa sezione non vengono riportati nella stampa e nel Patient Summary visibile agli specialisti</lblOldVersion>
+		
+		<lbltaNoteEspianti>Note espianti</lbltaNoteEspianti>
+		<lbltaNoteDipendenze>Note dipendenze</lbltaNoteDipendenze>
+		<lbltaNoteSostanzeTossiche>Note sostanze tossiche</lbltaNoteSostanzeTossiche>
+		<lbltaNoteOrgani>Note organi</lbltaNoteOrgani>
+		<lbltaNoteAusili>Note ausili</lbltaNoteAusili>
+		<lbltaNoteImpianti>Note impianti</lbltaNoteImpianti>
+		<lbltaNoteTrapianti>Note trapianti</lbltaNoteTrapianti>
+		<lbltaNoteProtesi>Note protesi</lbltaNoteProtesi>
+		
+		<lblConfirmCancella>Cancellare il problema selezionato?</lblConfirmCancella>
+		<fldMedico>Dati del medico curante</fldMedico>
+		<lblNomeMedico>Nome</lblNomeMedico>
+		<lblCognomeMedico>Cognome</lblCognomeMedico>
+		<lblCodiceFiscaleMedico>Cod. Fiscale</lblCodiceFiscaleMedico>
+		<lblIndirizzoMedico>Indirizzo</lblIndirizzoMedico>
+		<lblTelefonoMedico>Telefono</lblTelefonoMedico>
+		<lblEmailMedico>E-mail</lblEmailMedico>
+		<lblFaxMedico>Fax</lblFaxMedico>
+		<lblCancella>Cancella</lblCancella>
+		<lblCellulareMedico>Cellulare</lblCellulareMedico>
+		<lblIndirizzoSecondarioMedico>Indirizzo secondario</lblIndirizzoSecondarioMedico>
+		<lblIndirizzoTerziarioMedico>Indirizzo terziario</lblIndirizzoTerziarioMedico>
+		
+		<lblPreStampaPS>La stampa include i dati fino all'ultimo salvataggio effettuato. Per includere anche i recenti dati inseriti occorre salvare la scheda prima di stampare</lblPreStampaPS>
+		<lblTitlePreStampa>Attenzione</lblTitlePreStampa>
+		
+    </ROW>
+</ROWSET>

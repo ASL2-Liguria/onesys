@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Utilita/Utilita.js" />
+	<CSS path="css/MMG/Utilita/Utilita.css" />
+</INCLUDE>

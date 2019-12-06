@@ -1,0 +1,570 @@
+<root>
+	<statements_list>
+	
+			<statement name="duplicaRichiesta">
+				<sql>
+				<![CDATA[		
+
+					declare
+					v_out varchar2(4000);
+					
+					begin 
+					
+					  INFOWEB.DUPLICA_RICHIESTA(?,?,?,?,?,?,v_out);
+					  
+					END;
+					
+				]]>
+				</sql>
+			</statement>
+						<statement name="gestContrAllergie">
+				<sql>
+				<![CDATA[		
+
+					begin 
+					
+					  RADSQL.SP_GEST_CONTR_ALLERGIE(?,?,?,?,?);
+					  
+					END;
+					
+				]]>
+				</sql>
+			</statement>
+			<statement name="getEsamiProfiliMNVitro">
+				<sql>
+				<![CDATA[		
+					
+					select
+					iden,
+					descr,  
+					cod_esa,
+					cod_min,
+					info_esame
+					from RADSQL.VIEW_SCELTA_PROFILI_MNVITRO
+					where cod_gruppo = ?
+					and reparto = ?
+					order by descr
+					
+				]]>
+				</sql>
+			</statement>
+	
+			<statement name="getRichiesta">
+				<sql>
+				<![CDATA[		
+					SELECT
+						T.IDEN,
+						T.IDEN_XML,
+						T.KEY_LEGAME,
+						t.VERSIONE,
+						T.CDC,
+						T.URGENZA,
+						T.IDEN_ANAG,
+						t.IDEN_TAB_PRO,
+						T.IDEN_VISITA,
+						T.TIPOLOGIA_RICHIESTA,
+						T.METODICA,
+						A.NOME,
+						A.COGN,
+						(SELECT COD_CDC FROM RADSQL.CENTRI_DI_COSTO WHERE COD_DEC = (SELECT COD_DEC FROM RADSQL.TAB_PRO WHERE IDEN = T.IDEN_TAB_PRO)) REPARTO						
+					from 
+						infoweb.testata_richieste t 
+						join anag a on a.iden=t.iden_anag 
+					where 
+						t.iden = to_number(:1)		
+				]]>
+				</sql>
+			</statement>
+			
+			<statement name="getEsami">
+				<sql>
+				<![CDATA[		
+					select
+						T.IDEN,
+						T.COD_ESA,
+						T.COD_MIN,
+						T.DESCR,
+            			RS.RIGA
+					from
+						RADSQL.TAB_ESA T
+            		join 
+              			(select TO_NUMBER(column_value)id, rownum RIGA from table(split(?,','))) RS on (RS.id=T.IDEN)
+              
+				]]>
+				</sql>
+			</statement>
+			
+		<!-- @deprecato in favore di "Annulla"	
+		<statement name="annulla">
+			<sql>
+			<![CDATA[
+				declare
+					pIden    pls_integer := to_number(?);
+					pIdenPer pls_integer := to_number(?);
+					pData    varchar2(8) := to_char(sysdate,'yyyyMMdd');
+					pOra     varchar2(8) := to_char(sysdate,'hh24:mi');
+				begin
+					update infoweb.testata_richieste set STATO_RICHIESTA='X', UTE_ANNULLA=pIdenPer, DATA_ANNULLAMENTO=pData, ORA_ANNULLAMENTO=pOra where iden=pIden;
+				end;
+			]]>
+			</sql>
+		</statement>
+		-->
+
+		<statement name="getEsamiRichiedibili">
+			<sql>
+			<![CDATA[
+				-- // IDEN - DESCR - DESCSIRM - COD_DEC - COD_ESA - COD_MIN - METODICA - URGENZA - MDC - IDEN_SCHEDA - IDEN_TAPPO - DESCR_TAPPO - CLASSE_TAPPO - ORDINE_ESAME
+  				SELECT * FROM TABLE(GETESAMIRICHIEDIBILI(?,?,?,?,?)) ORDER BY TO_NUMBER(COL14), COL12, TO_NUMBER(COL15), COL02
+			]]>
+			</sql>
+		</statement>
+		<statement name="Annulla">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenRichiesta  pls_integer := to_number(?);
+					pMotivoAnnullamento varchar2(5000) := ?;
+					pIdenPer 		pls_integer := to_number(?);	
+					pIdenMed 		pls_integer := to_number(?);
+					
+					vOut varchar2(5000);
+				begin
+  
+					SP_ANNULLA_RICHIESTA(
+						pIdenRichiesta,
+						pMotivoAnnullamento,
+						pIdenPer,
+						pIdenMed,
+						vOut
+					);
+					
+					? := vOut;				
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="ConfermaLetturaEsito">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenRichiesta  pls_integer := to_number(?);
+					pIdenPer 		pls_integer := to_number(?);	
+					vNum			pls_integer;
+				begin
+					Select 1 into vNum from ESITI_CONSULTATI where iden_testata_richieste=pIdenRichiesta and IDEN_PER=pIdenPer and PRESENZA_ULTERIORI_VERSIONI='N';
+					exception when no_data_found then
+						Insert into ESITI_CONSULTATI (iden_testata_richieste,IDEN_PER) values (pIdenRichiesta,pIdenPer);				
+				end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getElencoProvetteRichiesta">
+			<sql>
+			<![CDATA[
+  				-- select Radsql.concat_fields_param('Select  Etichetta||'' (''||count(Etichetta)||'')'' as Etichetta From Infoweb.Rpt_View_Eti_Whale Eti Where Eti.identificativo_Esterno = :parametro Group By Etichetta',?) as ETICHETTE From Dual
+  				select Radsql.concat_fields_param('Select  Etichetta||'' (''||count(Etichetta)||'')'' as Etichetta From table(rpt_get_eti(:parametro)) Group By Etichetta',?) as ETICHETTE From Dual
+			]]>
+			</sql>
+		</statement>
+		<statement name="getRichiesteInserite">
+			<sql>
+			<![CDATA[
+  				select 
+					valore1 IDEN 
+					,valore4 DATA
+					,valore5 ORA
+				from 
+					TAB_WORK 
+				where 
+					WEBUSER = get_webuser 
+					and TIPO = 'RICHIESTA_INSERITA'
+			]]>
+			</sql>
+		</statement>				
+		<statement name="setIdenEsameAmbulatorio">
+			<sql>
+			<![CDATA[
+  				declare
+					pIdenRichiesta pls_integer := to_number(?);
+					pIdenEsame varchar2(5000) := ?;
+				begin
+				
+					update 
+						infoweb.cod_est_tabella 
+					set 
+						CODICE = pIdenEsame
+					where
+						TABELLA = ''
+						and IDEN_TABELLA = pIdenRichiesta
+						and NOME_CODICE = 'AMB_IDEN_ESAME'
+					;
+				
+					if(SQL%RowCount = 0) then
+						insert into infoweb.cod_est_tabella (
+							TABELLA,
+							IDEN_TABELLA,
+							CODICE,
+							NOME_CODICE,
+							ORIGINE
+						) values (
+							'TESTATA_RICHIESTE',
+							pIdenRichiesta,
+							pIdenEsame,
+							'AMB_IDEN_ESAME',
+							'WHALE'
+						);
+					end if;
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="setDataOra">
+			<sql>
+			<![CDATA[
+  				declare
+					pIdenRichiesta pls_integer := to_number(?);
+					pData varchar2(5000) := ?;
+					pOra  varchar2(5000) := ?;
+					pIdenPer pls_integer := to_number(?);
+				begin
+					infoweb.OE_RICHIESTE.setDataOra(pIdenRichiesta, pData, pOra, pIdenPer);
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.setAccettato">
+			<sql>
+			<![CDATA[
+				declare
+					sOut varchar2(4001);
+				begin
+				
+					radsql.OE_CONSULENZA.accettaConsulenza(?,?,null,sOut);
+								
+				end;
+			]]>
+			</sql>
+		</statement>
+	
+		<statement name="consulenze.annullaAccettato">
+			<sql>
+			<![CDATA[
+				declare
+					sOut varchar2(4001);
+				begin
+				
+					radsql.OE_CONSULENZA.accettaConsulenza(?,?,?,sOut);
+								
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.caricaPrestazioniRichiesta">
+			<sql>
+			<![CDATA[
+  				select 
+  					te.iden valore,
+  					te.descr testo,
+  					dr.esame_associato 
+  				from infoweb.dettaglio_richieste dr
+  				join tab_esa te on (dr.iden_tab_esa = te.iden)
+  				where dr.iden_testata = ? and stato_dettaglio<>'X'
+			]]>
+			</sql>
+		</statement>	
+		<statement name="consulenze.caricaPrestazioniSelezionabili">
+			<sql>
+			<![CDATA[
+  				SELECT col01 valore,col02 testo FROM TABLE(GETESAMIRICHIEDIBILI(?,?,?))
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.registraPrestazioniAggiuntive">
+			<sql>
+			<![CDATA[
+					declare
+					  	pPrestazioniAggiunte  		varchar2(4001) := ?;
+					  	pIdenTestataRichiesta 		pls_integer := to_number(?);
+					  	vArrayPrestazioni			ARRAY_NUMBER;
+					  	vOut						varchar2(4001):='';
+					begin
+					  	vArrayPrestazioni := split2array_number(pPrestazioniAggiunte,'@');
+					  	if pPrestazioniAggiunte='' or pPrestazioniAggiunte is null then
+					  		vOut := 'KO';
+					    else
+					  		vOut := radsql.OE_CONSULENZA.salvaPrestazioniAggiunte(pIdenTestataRichiesta,vArrayPrestazioni);					    	
+					    end if;
+					    ? := vOut;
+					end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.controllaRefertoAnnullativo">
+			<sql>
+			<![CDATA[
+  				select 
+  					type_firma
+  				from cc_firma_pdf 
+  				where iden_tab = ? 
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.retrieveNumNosologico">
+			<sql>
+			<![CDATA[
+					declare
+						pIdenVisita  pls_integer := to_number(?);
+						pOut varchar2(5000);
+					begin
+						pOut := radsql.cc_ricoveri.getNumNosologico(pIdenVisita);
+						? := pOut;
+					end;
+
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.retrieveTipoMed">
+			<sql>
+			<![CDATA[
+				select 
+					TIPO,
+					TIPO_MED,
+					DESCR 
+				from xmltable( 'ROOT/UTENTI/UTENTE'
+				passing xmltype(imagoweb.pck_configurazioni.getValue('','',?,'SCELTA_TIPO_MED_CONSULENZE'))
+				columns 
+  					"TIPO" varchar2(1000) path '@tipo',
+  					"TIPO_MED" varchar2(1000) path '@tipo_med',
+  					"DESCR" varchar2(1000) path 'text()'  					
+  					) 
+			]]>
+			</sql>
+		</statement>		
+		<statement name="pacs.retrieveIdEsameDicom">
+			<sql>
+			<![CDATA[
+  				select 
+  					id_esame_dicom,node_name
+  				from infoweb.dettaglio_richieste 
+  				left join infoweb.tab_aetitle on (infoweb.dettaglio_richieste.iden_aetitle = infoweb.tab_aetitle.iden)
+  				where iden_testata = ? 
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoPaziente">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				Declare
+  
+			  		pIdenAnag	varchar2(4001) := ?;
+					pCodCdc		varchar2(4001) := ?;
+					vNomePz		varchar2(4001);
+					vCognPz		varchar2(4001);
+					vDataPz		varchar2(4001);
+					vSesso		varchar2(4001);
+					vCFPz		varchar2(4001);
+					vDescrCdc		varchar2(4001);
+			  	
+				Begin
+		
+					Select 
+						Nome, Cogn, Radsql.Datetimeconverter(Data,'yyyyMMdd','dd/MM/yyyy'),Sesso, Cod_Fisc 
+					into
+						vNomePz, vCognPz, vDataPz, vSesso, vCFPz
+					From 
+						Radsql.Anag Where Iden = pIdenAnag;
+		
+		    		
+					select descr into vDescrCdc from Radsql.Centri_Di_Costo Where Cod_Cdc =pCodCdc;					
+					
+					? := vNomePz;
+					? := vCognPz;
+					? := vDataPz; 
+					? := vSesso;
+					? := vCFPz;
+					? := vDescrCdc;
+		 
+				End;							
+			]]>
+			</sql>
+		</statement>
+		<statement name="getConfigurazioneEsamiReparto">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				Declare
+  
+			  		pCdcSorg	varchar2(4001) := ?;
+					pCdcDest	varchar2(4001) := ?;
+					vCount		pls_Integer;
+					vReturn		varchar2(4001);
+			  	
+				Begin
+					
+					Select Count(Iden) into vCount From Radsql.Tab_Esa_Reparto Where Reparto_Sorgente = pCdcSorg and Reparto_Destinazione = pCdcDest;					
+
+		    		If vCount > 0 Then
+		    			vReturn	:= 'REPARTO_SORGENTE = '''|| pCdcSorg ||''' AND REPARTO_DESTINAZIONE = '''|| pCdcDest ||''' ';
+		    		Else
+		    			vReturn	:= 'REPARTO_SORGENTE Is Null AND REPARTO_DESTINAZIONE = '''|| pCdcDest ||''' ';
+		    		End If;
+		    		
+					? := vReturn;
+							 
+				End;							
+			]]>
+			</sql>
+		</statement>
+
+                <statement name="getCdc">
+                    <schema>RADSQL</schema>
+                    <sql>
+                        <![CDATA[
+                        declare
+                        vcodcdc varchar2(4001) := ?;
+                        struttura varchar2(4001);
+                        begin
+                                    select struttura into struttura from centri_di_costo where cod_cdc = vcodcdc ;
+                                          ? := struttura;
+                        end;
+                        ]]>
+                    </sql>
+                </statement>
+		
+		<statement name="esegui">
+			<sql>
+			<![CDATA[
+				Declare
+					pIdenRichiesta pls_integer := to_number(?);
+					pIdenPer pls_integer := to_number(?);
+					pData varchar2(5000) := ?;
+					pOra varchar2(5000) := ?;								  	
+				Begin
+		
+		    		INFOWEB.OE_RICHIESTE.esegui(pIdenRichiesta, pIdenPer, pData, pOra);
+							 
+				End;							
+			]]>
+			</sql>
+		</statement>      
+
+
+        <statement name="getUltimeNote">
+            <sql>
+                <![CDATA[
+
+				    select note from (select note from infoweb.testata_richieste where key_legame = ? and iden_anag = ? order by iden desc) where rownum=1
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="getIdenSchedaLabo">
+            <sql>
+                <![CDATA[
+					select iden from tab_labo_schede where tipo_scheda = ? and attivo = 'S' 
+			]]>
+            </sql>
+        </statement>		
+        <statement name="getEsamiRichiedibiliTrasfSv">
+            <sql>
+				<![CDATA[
+				    select  iden||'@'||METODICA||'@'||MDC_SINO  valore, descsirm campo from radsql.view_esa_reparto where struttura_richiedente = ? and reparto_sorgente is null and reparto_destinazione = 'TRASF_SV'
+				]]>
+            </sql>
+        </statement>
+        <statement name="prenotazione.WhaleToAmbu.recuperoCodDecUtente">
+            <sql>
+				<![CDATA[
+				    select  cod_dec from tab_per where iden = to_number(?)
+				]]>
+            </sql>
+        </statement>
+        <statement name="getEsameSottoIndagine">
+            <sql>
+                <![CDATA[
+
+					select
+						TIPO.DESCRIZIONE  as TIPO,
+						STATO.DESCRIZIONE as STATO,
+						TAB_ESA.DESCR     as DESCR_ESAME
+					from (
+						select
+							INFOWEB.DETTAGLIO_RICHIESTE.IDEN_TAB_ESA,
+							INFOWEB.DETTAGLIO_RICHIESTE.ESAME_SOTTO_INDAGINE_TIPO,
+					    	INFOWEB.DETTAGLIO_RICHIESTE.ESAME_SOTTO_INDAGINE_STATO
+						from INFOWEB.DETTAGLIO_RICHIESTE
+						where INFOWEB.DETTAGLIO_RICHIESTE.iden_testata=?
+					) TEMP
+					join RADSQL.TAB_CODIFICHE TIPO on TIPO.CODICE = TO_CHAR(TEMP.ESAME_SOTTO_INDAGINE_TIPO)
+					join RADSQL.TAB_CODIFICHE STATO on STATO.CODICE = TO_CHAR(TEMP.ESAME_SOTTO_INDAGINE_STATO)
+					join RADSQL.TAB_ESA on TAB_ESA.IDEN = TEMP.IDEN_TAB_ESA
+					where
+						TIPO.TIPO_SCHEDA = 'WK_RICHIESTE'
+					and
+						TIPO.TIPO_DATO   = 'ESAME_SOTTO_INDAGINE_TIPO'
+					and
+						STATO.TIPO_DATO  = 'ESAME_SOTTO_INDAGINE_STATO'
+
+                ]]>
+            </sql>
+        </statement> 
+		<statement name="getInfoEsamiRichiesti">
+            <sql>
+                <![CDATA[
+
+					select
+						INFOWEB.VIEW_VIS_RICHIESTA.DESCR,
+						INFOWEB.VIEW_VIS_RICHIESTA.DESCR_MED_RICHIEDENTE,
+						INFOWEB.VIEW_VIS_RICHIESTA.OPE_RICH,
+						INFOWEB.VIEW_VIS_RICHIESTA.DESCR_TAB_SPAZ,
+						INFOWEB.VIEW_VIS_RICHIESTA.QUESITO,
+						INFOWEB.VIEW_VIS_RICHIESTA.QUADRO_CLI,
+						INFOWEB.VIEW_VIS_RICHIESTA.DESCR_UTE_CONTROLLO,
+						INFOWEB.VIEW_VIS_RICHIESTA.DESCR_UTE_ANNULLA,
+						INFOWEB.VIEW_VIS_RICHIESTA.NOTE
+					from INFOWEB.VIEW_VIS_RICHIESTA
+					where tr_iden=?
+
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getUbicazione">
+            <sql>
+                <![CDATA[
+					SELECT DESCRIZIONE FROM radsql.tab_codifiche t WHERE tipo_dato = 'NOTE' AND tipo_scheda ='REPORT_PREOPERATORIO' AND codice      =(SELECT cod_esa FROM tab_esa WHERE iden=?) AND codice_reparto= (select descrizione from radsql.gruppi where TIPO='REPARTO_CHIRURGICO' AND CODICE=?) AND rownum        =1
+                ]]>
+            </sql>
+        </statement>
+         <statement name="cancellaAppVpo">
+            <sql>
+                <![CDATA[
+				declare
+				 pIden pls_integer := to_number(?);
+				begin
+					update radsql.cc_note_vpo set deleted='S' where iden= pIden;
+				end;
+				]]>
+            </sql>
+        </statement>
+        <statement name="getInfoExtVerona">
+            <sql>
+                <![CDATA[
+					Select  COD_MDA,STANZA,LETTO,NOTE From nosologici_paziente where iden=?
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getDescrCdc">
+            <sql>
+                <![CDATA[
+					Select  descr from centri_di_costo where cod_cdc=?
+                ]]>
+            </sql>
+        </statement>
+	</statements_list>	
+</root>
+
+

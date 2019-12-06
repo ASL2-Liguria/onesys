@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/MMG/Accessi/nuovoAccesso.js" />
+	<CSS path="css/MMG/Accessi/nuovoAccesso.css" />
+</INCLUDE>
+

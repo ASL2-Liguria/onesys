@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+  <allow>
+    <convert converter="array" match="[L*"/> <!-- Array di stringhe -->
+    <convert converter="collection" match="java.util.Collection"/>     
+   	<convert converter="map" match="java.util.Map"/>
+	<convert match="java.lang.Exception" converter="exception">
+		<param name='include' value='message'/>
+	</convert>
+    <create creator="new" javascript="prenDWRBar">
+      <param name="class" value="imago_jack.gesPrenotazione.prenotazioneEsame.prenotazioneBTDirection.dwr.prenDWRBar"/>
+    </create>
+	 <create creator="new" javascript="dwrRepository">
+      <param name="class" value="Repository.dwrRepository"/>
+    </create>
+	<create creator="new" javascript="dwrGetFile">
+      <param name="class" value="Scanner.dwrGetFile"/>
+    </create>
+    <create creator="new" javascript="dwrLockPage">
+      <param name="class" value="imago_jack.imago_function.lock_page.dwrLockPage"/>
+    </create>
+
+    <create creator="new" javascript="functionDwr">
+      <param name="class" value="imago_jack.imago_function.dwr.functionDwr"/>
+    </create>
+
+    <create creator="new" javascript="dwrCheckCampo">
+      <param name="class" value="src.imago_gestione_campi.dwrCheckCampo"/>
+    </create>
+    
+    <create creator="new" javascript="consultazioneDWR">
+      <param name="class" value="imago_jack.gesPrenotazione.consultazione.dwr.consultazioneDWR"/>
+    </create>
+    
+    <create creator="new" javascript="ajaxFormatConverter">
+      <param name="class" value="ajaxPolarisFormatConverter.ajaxFormatConverter"/>
+    </create>
+    
+    <create creator="new" javascript="ajaxDoAllLoginCheck">
+      <param name="class" value="ajaxPolaris.ajaxDoAllLoginCheck"/>
+    </create>	
+	
+    <create creator="new" javascript="ajaxGetReportProcessed">
+      <param name="class" value="ajaxProcessReport.ajaxGetReportProcessed"/>
+    </create>
+    
+    <create creator="new" javascript="pRipetiDWR">
+      <param name="class" value="imago_jack.gesPrenotazione.prenotazioneEsame.prenotazioneRipeti.dwr.pRipetiDWR"/>
+    </create>
+    
+    <create creator="new" javascript="prenDWRClient">
+      <param name="class" value="imago_jack.gesPrenotazione.prenotazioneEsame.prenotazioneDWRServer.prenDWRClient"/>
+    </create>
+    
+    <create creator="new" javascript="CJsUpdTabFiltri">
+      <param name="class" value="jsRemote.CJsUpdTabFiltri"/>
+    </create>
+	
+    <create creator="new" javascript="CJsCheck">
+      <param name="class" value="jsRemote.CJsCheck"/>
+    </create>
+    
+    <create creator="new" javascript="CJsCheckOrdineCdc">
+      <param name="class" value="jsRemote.CJsCheckOrdineCdc"/>
+    </create>
+
+    <create creator="new" javascript="CJsGestioneAnagrafica">
+      <param name="class" value="jsRemote.CJsGestioneAnagrafica"/>
+    </create>
+    
+    <create creator="new" javascript="CJsUpdTareEsa">
+      <param name="class" value="jsRemote.CJsUpdTareEsa"/>
+    </create>
+    
+    <create creator="new" javascript="CJsCheckCodSirm">
+      <param name="class" value="jsRemote.CJsCheckCodSirm"/>
+    </create>
+    
+    <create creator="new" javascript="CJsRichieste">
+      <param name="class" value="jsRemote.CJsRichieste"/>
+    </create>
+    
+    <create creator="new" javascript="CJsSegreteria">
+      <param name="class" value="jsRemote.CJsSegreteria"/>
+    </create>
+	
+	<create creator="new" javascript="CJsFiltroStato">
+      <param name="class" value="jsRemote.CJsFiltroStato"/>
+    </create>
+	
+	<create creator="new" javascript="CJsCheckPrimaryKey">
+      <param name="class" value="jsRemote.CJsCheckPrimaryKey"/>
+    </create>
+	
+	<create creator="new" javascript="CJsGestioneCancellati">
+      <param name="class" value="jsRemote.CJsGestioneCancellati"/>
+    </create>
+	
+	<create creator="new" javascript="CJsAreeProvenienze">
+      <param name="class" value="jsRemote.CJsAreeProvenienze"/>
+    </create>
+	
+	<!-- Gestione Esecuzione Multipla Esami -->
+    <create creator="new" javascript="CJsEMGestioneEsami">
+      <param name="class" value="jsRemote.CJsEMGestioneEsami"/>
+    </create>
+
+    <create creator="new" javascript="CJsEMEseguiEsame">
+      <param name="class" value="jsRemote.CJsEMEseguiEsame"/>
+    </create>
+	
+	<create creator="new" javascript="CJsEMAltraSchedaAppr">
+      <param name="class" value="jsRemote.CJsEMAltraSchedaAppr"/>
+    </create>
+	
+	<create creator="new" javascript="CJsEM">
+      <param name="class" value="jsRemote.CJsEM"/>
+    </create>
+
+ 		<create creator="new" javascript="ajaxLockManage">
+      <param name="class" value="ajaxPolaris.ajaxLockManage"/>
+    </create>
+
+    <create creator="new" javascript="ajaxUserManage">
+      <param name="class" value="ajaxPolaris.ajaxUserManage"/>
+    </create>
+    
+    <create creator="new" javascript="ajaxPcManage">
+      <param name="class" value="ajaxPolaris.ajaxPcManage"/>
+    </create>    
+
+    <create creator="new" javascript="ajaxManageAppropriatezza">
+      <param name="class" value="ajaxCheckAppropriatezza.ajaxManageAppropriatezza"/>
+    </create>
+
+    <create creator="new" javascript="ajaxTraceUserAction">
+      <param name="class" value="ajaxPolaris.ajaxTraceUserAction"/>
+    </create>
+
+    <create creator="new" javascript="ajaxLicenceCheck">
+      <param name="class" value="ajaxPolaris.ajaxLicenceCheck"/>
+    </create>
+    
+    <create creator="new" javascript="ajaxCheckUpdatedDataWk">
+      <param name="class" value="ajaxPolaris.ajaxCheckUpdatedDataWk"/>
+    </create>
+    
+    <create creator="new" javascript="ajaxGetIndexUtenteDifferenteIp">
+      <param name="class" value="ajaxPolaris.ajaxGetIndexUtenteDifferenteIp"/>
+    </create>
+
+    <create creator="new" javascript="ajaxRecordCheck">
+      <param name="class" value="ajaxPolaris.ajaxRecordCheck"/>
+    </create>
+    
+    <create creator="new" javascript="ajaxQueryCommand">
+      <param name="class" value="ajaxPolaris.ajaxQueryCommand"/>
+    </create>
+
+    <create creator="new" javascript="ajaxManageLDAP">
+      <param name="class" value="ajaxPolarisLDAP.ajaxManageLDAP"/>
+    </create>
+
+	<create creator="new" javascript="Update">
+      <param name="class" value="ACR.Update"/>
+    </create>
+	<create creator="new" javascript="UpdatePermissioni">
+      <param name="class" value="src.Gestione_Campi.UpdatePermissioni"/>
+    </create>
+<create creator="new" javascript="UpdateTabConfigGiorno">
+      <param name="class" value="prenotazione.Gestione_Tab_Config_Giorno.UpdateTabConfigGiorno"/>
+    </create>
+   <create creator="new" javascript="annullamentoGestione">
+      <param name="class" value="imago_jack.geTabEsami.schedaEsame.annullamento.annullamentoGestione"/>
+   </create>
+   <create creator="new" javascript="disabilitaMacchinaDWR">
+      <param name="class" value="imago_jack.gesPrenotazione.disabilitaMacchina.dwr.disabilitaMacchinaDWR"/>
+   </create>
+	 <create creator="new" javascript="LogJavascript">
+      <param name="class" value="src.Sel_Stampa.LogJavascript"/>
+    </create>
+    <create creator="new" javascript="scaricoDWR">
+      <param name="class" value="imago_jack.scaricoMateriale.dwr.scaricoDWR"/>
+    </create>
+    <create creator="new" javascript="consultazioneSceltaDWR">
+      <param name="class" value="imago_jack.gesPrenotazione.consultazione.scelta.dwr.consultazioneSceltaDWR"/>
+    </create>
+	   <create creator="new" javascript="Update_Firmato">
+      <param name="class" value="Firma_digitale.Update_Firmato"/>
+    </create>
+   <create creator="new" javascript="SceltaStampa">
+      <param name="class" value="src.Sel_Stampa.SceltaStampa"/>
+    </create>
+   <create creator="new" javascript="CJsUpdate">
+      <param name="class" value="jsRemote.CJsUpdate"/>
+   </create>
+    
+   <create creator="new" javascript="CJsGestioneUtentePwd">
+      <param name="class" value="jsRemote.CJsGestioneUtentePwd"/>
+   </create>
+   <create creator="new" javascript="cardioDWR">
+      <param name="class" value="imago_jack.gesCardio.dwr.cardioDWR"/>
+   </create>
+   <create creator="new" javascript="eventDWR" scope="script">
+      <param name="class" value="generatoreEngine.dwr.eventDWR"/>
+    </create>
+
+<create creator="new" javascript="dwrDAO">
+      <param name="class" value="Firma_digitale.dwrDAO"/>
+    </create>
+<create creator="new" javascript="dwrRFID">
+      <param name="class" value="RFID.dwrRFID"/>
+    </create>
+	  <create creator="new" javascript="dwrImmaginiEsame">
+      <param name="class" value="AppImage.dwrImmaginiEsame"/>
+    </create>
+    <create creator="new" javascript="RichiesteConsulenzaUtils">
+      <param name="class" value="matteos.polaris.teleconsulto.RichiesteConsulenzaUtils"/>
+    </create>
+	<create creator="new" javascript="dwrGetUrlRefertiEsterni">
+      <param name="class" value="StampaGenerica.dwrGetUrlRefertiEsterni"/>
+    </create>
+   <create creator="new" javascript="toolKitDB">
+      <param name="class" value="generatoreEngine.dwr.toolKitDB"/>
+    </create>
+   <create creator="new" javascript="toolKitUtility">
+      <param name="class" value="generatoreEngine.dwr.toolKitUtility"/>
+    </create>
+    <create creator="new" javascript="dwrUtility">
+      <param name="class" value="whale.cartellaclinica.dwr.dwrUtility"/>
+    </create>
+    <create creator="new" javascript="DataDistribution">
+      <param name="class" value="whale.snodo.DataDistribution"/>
+    </create>
+  </allow>
+</dwr>

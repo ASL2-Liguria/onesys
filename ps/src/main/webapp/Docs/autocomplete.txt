@@ -1,0 +1,24 @@
+/***** AUTOCOMPLETE  *****/
+
+	
+	
+		/**** XML CONFIG  ****/  Importante!!: I nome dei tag sono CaseSensitive!!!
+		
+			/**** AJAX *****/ 
+	   OBB		<serviceUrl></serviceUrl>  										Servlet che gestisce gli autocomplete (non deve variare)
+       DEF 2 	<minChars></minChars>     										Numero di Caratteri minimi inseriti dall'utente per poter visualizzare la lista delle opzioni 
+	   			<onSelect type="js">     										funzione javascript richiamata nel momento della selezione
+					<![CDATA[  ]]>   
+				</onSelect>
+				<maxHeight>400</maxHeight>    									massima dimensione del contenitore delle opzioni
+				<width>300</width>  											larghezza del contenitore delle opzioni
+				<zIndex>9999</zIndex>       									non importante
+				<deferRequestBy>200</deferRequestBy> 							tempo di attesa prima di far partire la richiesta 
+		OBB		<storedQuery>AC_COMUNI_DESCR</storedQuery> 						query di riferimento per la ricerca
+				<storedQueryOpz>AC_COMUNI_CODICE_COMUNE</storedQueryOpz> 		query opzionale per la ricerca multiricerca  (Importante!!: deve essere un valore ALFANUMERICO o NUMERICO)
+				<!--<condition></condition>-->									condizione supplementare,se usata,la query deve avere la where contition con la bind variable :condition
+			/**** END AJAX *****/
+			
+		/**** END XML CONFIG  ****/	
+		
+/**** END AUTOCOMPLETE  ****/

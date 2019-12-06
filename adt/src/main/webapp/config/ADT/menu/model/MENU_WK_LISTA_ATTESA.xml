@@ -1,0 +1,36 @@
+<MENU>
+    <ID>MENU_WK_LISTA_ATTESA</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INS_NEW_LISTA_ATTESA</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=GESTIONE_LISTA_ATTESA&IDEN=&STATO_PAGINA=I',id:'ModLista',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Inserisci nuova lista"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>EDIT_REP_ASSOCIATI</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=GESTIONE_LISTA_ATTESA&IDEN='+rec[0].IDEN+'&STATO_PAGINA=E',id:'ModLista',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Modifica reparti associati"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>DELETE_LISTA_ATTESA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_AMM.cancellaListaAttesa(rec[0].IDEN)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Bidone.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cancella lista"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<lblTitolo>MODULO PRIVACY</lblTitolo>
+		
+		<butStampa>Salva e Stampa</butStampa>
+		
+		<tabDichiarante>Dichiarante</tabDichiarante>
+		<tabTrattamento>Trattamento dati</tabTrattamento>
+		<tabCondivisione>Condivisione Dati</tabCondivisione>
+		<tabConsensoComunicazione>Comunicazione dati</tabConsensoComunicazione>
+		<tabDichiarazioneSostitutiva>Dichiarazione sostitutiva</tabDichiarazioneSostitutiva>
+
+		<fldDatiDichiarante>Riepilogo dati paziente</fldDatiDichiarante>
+		
+		<lblSottoscrittoNomeCognome>Io sottoscritto/a</lblSottoscrittoNomeCognome>	
+		<lblSottoscrittoLuogoNascita>nato/a a </lblSottoscrittoLuogoNascita>
+		
+		<fldDataCertificato>Data Consenso</fldDataCertificato>
+		<lblDataCertificato>Data</lblDataCertificato>
+		
+		<lblSottoscrittoDataNascita>il</lblSottoscrittoDataNascita>
+	  	<lblSottoscrittoResidente>residente a </lblSottoscrittoResidente>
+	  	
+	  	<lblSottoscrittoCodiceFiscale>codice fiscale</lblSottoscrittoCodiceFiscale>
+	  	
+	  	<lblTipoDichiarante>oppure come:</lblTipoDichiarante>
+        
+        <lblGaranteNomeCognome>di</lblGaranteNomeCognome>	
+		<lblGaranteLuogoNascita>nato/a a </lblGaranteLuogoNascita>
+		
+		<lblGaranteDataNascita>il</lblGaranteDataNascita>
+	  	<lblGaranteResidente>residente a</lblGaranteResidente>
+	  	
+	  	<lblGaranteCodiceFiscale>codice fiscale</lblGaranteCodiceFiscale>
+       
+       	<lblInformativa>Il sottoscritto, acquisite e comprese le informazioni fornite dal titolare del trattamento, SOSTITUIRE_CON_NOME_MEDICO , ai sensi dell'articolo 13 del D.Lgs. 196/2003</lblInformativa>
+        
+        <lblTrattamentoConsensoDati>A. Relativamente al trattamento dei dati comuni per l'espletamento delle attività indispensabili alla gestione del rapporto medico paziente</lblTrattamentoConsensoDati>
+        <lblTrattamentoConsensoDatiPost>il proprio consenso al trattamento dei propri dati personali per le finalità indicate nell'apposita informativa, necessarie per permettere al Titolare una corretta gestione del rapporto ed un congruo trattamento dei dati stessi.</lblTrattamentoConsensoDatiPost>
+        
+        <lblConsensoDatiSensibili>B. Relativamente al trattamento dei dati sensibili e giudiziari (articoli .4 comma 1 lett. d),e) e 26 del D.Lgs. 196/2003), ed in particolare: convinzioni religiose, origini razziali o etniche, vita sessuale, Stato di salute)</lblConsensoDatiSensibili>
+        <lblConsensoDatiSensibiliPost>il proprio consenso, consapevole dei limiti imposti dalla legislazione vigente</lblConsensoDatiSensibiliPost>
+		
+		<lblCondivisioneDati>C. Relativamente alla condivisione dei dati necessari alla cura del paziente, con altre figure professionali, al fine di garantire la conitnuità di cura e assistenziale</lblCondivisioneDati>
+		
+		<fldTrattamentoDatiSostituto></fldTrattamentoDatiSostituto>
+		<lblTrattamentoDatiSostituto>il consenso al SOSTITUTO, cioè il medico che sostituisce temporaneamente il medico o il pediatra che la cura (art.78 comma 4 lett. a del codice)</lblTrattamentoDatiSostituto>
+		
+		<fldSpecialista></fldSpecialista>
+		<lblSpecialista>il consenso allo SPECIALISTA su richiesta del medico di base e del pediatra  (art.78 comma 4 lett. a del codice)</lblSpecialista>
+		
+		<fldAssociati></fldAssociati>		
+		<lblAssociati>il consenso dagli ASSOCIATI (art.78 comma 4 lett. c del codice), qualora l'attività professionale sia prestata in forma associata, anche mediante l'ausilio di strumenti, reti,
+		e comunicazioni elettroniche per le quali il suo MMG o PLS è l'unico titolare del trattamento per le finalità di prevenzione, diagnosi, cura, terapia e riabilitazione. 
+		Anche in tale caso Lei può esercitare il diritto all'oscuramento delle informazioni sanitarie che ritiene</lblAssociati>
+		
+		<fldCollaboratori></fldCollaboratori>
+		<lblCollaboratori>il consenso ai COLLABORATORI designati dal MMG o PLS, in qualità di responsabili o incaricati al fine di coadiuvarlo nelle attività amministrative e contabili, di segreteria, di caricamento manuale dei dati sanitari 
+		nelle procedure/banche informatiche/profilo sanitario sintetico ed in generale nelle attività di supporto, per garantirLe l'efficacia del servizio </lblCollaboratori>
+		
+		<lblConsensoPersonaleASL>Il consenso al personale di ASL2 Savonese coinvolto nell'ambito di procssi di diagnosi e cura che interessassero la sua persona, limitatamente alle informazioni normativamente riconducibili all'alimentazione del Patient Summary del suo Fascicolo Sanitario Elettronico provinciale e regionale</lblConsensoPersonaleASL>
+		
+		<lblDomandaConsenso>Relativamente alla COMUNICAZIONE dei propri dati personali?</lblDomandaConsenso>
+		
+		<fldConsensoComunicazione></fldConsensoComunicazione>
+		<lblConsensoComunicazione>anche sul suo stato di salute a familiari/conviventi o terzi che si occupano della sua persona (Care giver), da Lei delegati per iscritto o da Lei di seguito espressamente indicati: </lblConsensoComunicazione>
+		<fldElencoNominativo>Eventuale elenco dei soggetti terzi ai quali possono essere comunicate informazioni sul suo stato di salute:</fldElencoNominativo>
+		<lblTelefono>Telefono</lblTelefono>
+		<lblNominativo>Nominativo</lblNominativo>
+		
+		<fldDatiRecepimento>Dati Modulo</fldDatiRecepimento>
+		<lblDataRecepimento>Data recepimento consenso cartaceo </lblDataRecepimento>
+		<lblOpeRecepimento>Operato recepimento consenso cartaceo</lblOpeRecepimento>
+		
+		<fldDatiUltimaModifica>Dati ultima modifica</fldDatiUltimaModifica>
+		<lblDataModulo>Data ultima modifica</lblDataModulo>
+		<lblUtenteModulo>Utente ultima modifica</lblUtenteModulo>
+		<lblOraModulo>Ora ultima modifica</lblOraModulo>
+		
+		<butConsensoVergine>Stampa consenso vuoto</butConsensoVergine>
+		
+		<fldMedicoTitolare>Medico titolare</fldMedicoTitolare>
+		<butMedicoTitolare>Clicca qui per impostare il medico del paziente come titolare del consenso</butMedicoTitolare>
+		<msgMedicoTitolare>Il medico che viene impostato è il titolare del consenso e verrà inserito il suo timbro sul modulo in fase di stampa</msgMedicoTitolare>
+		
+		<lblConcede>CONCEDE</lblConcede>
+		<lblNega>NEGA</lblNega>
+		
+    </ROW>
+</ROWSET>

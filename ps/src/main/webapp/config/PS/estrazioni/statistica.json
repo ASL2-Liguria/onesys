@@ -1,0 +1,1177 @@
+{
+  "ID":"DEA_STATISTICA",
+  "QUERY_DATI" : "SELECT ANNO,ANNO_FINE,ANNO_INIZIO,ANNO_TURNO_INIZIO,AREA_CHIUSURA,AREA_CHIUSURA_IDEN,ASL_ASSISTENZA_CODICE,ASL_ASSISTENZA_CODICE_UNIVOCO,ASL_ASSISTENZA_DESCR,ASSIGNING_AUTHORITY_AREA,AUTORITA_GIUDIZIARIA,AUTORITA_INTERVENUTA,AUTORITA_INTERVENUTA_CODICE,CARTELLA,CATENA_CUSTODIA,CITTADINANZA,COD_COMUNE_NASCITA,COD_COMUNE_RESIDENZA,COD_ESITO,COD_ESITO_CONCLUSIVO,COD_ESITO_OBI,CODICE_AREA_CHIUSURA,CODICE_CITTADINANZA,CODICE_FISCALE,CODICE_REPARTO,CODICE_REPARTO_ID,CODICE_STATO,COGNOME,COMUNE_NASCITA,COMUNE_RESIDENZA,DATA_COMPLETA_TRIAGE,DATA_ESITO,DATA_FINE,DATA_FINE_HUM,DATA_FINE_ISO,DATA_INGRESSO,DATA_INIZIO,DATA_INIZIO_HUM,DATA_INIZIO_ISO,DATA_INS,DATA_INSERIMENTO_TRIAGE,DATA_INS_TRIAGE_HUM,DATA_INS_TRIAGE_ISO,DATA_NASCITA,DATA_NASCITA_HUM,DATA_PRESA_IN_CARICO,DESCR_STATO,DIAGNOSI_ICD9,DIAGNOSI_ICD9_DESCR,DOLORE_AVG,DOLORE_FIRST,DOLORE_LAST,DOLORE_MAX,DOLORE_MIN,ESITO,ESITO_CONCLUSIVO,ESITO_OBI,ETA,FREQUENZA_CARDIACA_AVG,FREQUENZA_CARDIACA_FIRST,FREQUENZA_CARDIACA_LAST,FREQUENZA_CARDIACA_MAX,FREQUENZA_CARDIACA_MIN,GIORNI_PROGNOSI,GIORNO_FINE,GIORNO_INIZIO,GIORNO_SETTIMANA,GIORNO_TURNO_INIZIO,GLASGOW_AVG,GLASGOW_FIRST,GLASGOW_LAST,GLASGOW_MAX,GLASGOW_MIN,HGT_AVG,HGT_FIRST,HGT_LAST,HGT_MAX,HGT_MIN,IDEN,IDEN_ANAGRAFICA,ID_INAIL,MESE_FINE,MESE_INIZIO,MESE_TURNO_INIZIO,MEZZO_ARRIVO,MEZZO_ARRIVO_CODICE,MEZZO_INCIDENTE,MODALITA_ARRIVO,MODALITA_ARRIVO_CODICE,MOTIVO_INGRESSO,MOTIVO_INGRESSO_CODICE,NOME,NUMERO_ACCESSI,NUMERO_PRATICA,ORA_FINE,ORA_INIZIO,ORA_INSERIMENTO_TRIAGE,OSPEDALE_TRASFERIMENTO,OSPEDALE_TRASFERIMENTO_CODICE,PRESIDIO_OSPEDALIERO,PRESIDIO_PROVENIENZA,PRESIDIO_PROVENIENZA_CODICE,PRESSIONE_DIASTOLICA_AVG,PRESSIONE_DIASTOLICA_FIRST,PRESSIONE_DIASTOLICA_LAST,PRESSIONE_DIASTOLICA_MAX,PRESSIONE_DIASTOLICA_MIN,PRESSIONE_SISTOLICA_AVG,PRESSIONE_SISTOLICA_FIRST,PRESSIONE_SISTOLICA_LAST,PRESSIONE_SISTOLICA_MAX,PRESSIONE_SISTOLICA_MIN,PROBLEMA_PRINCIPALE,REGIONE_ASSISTENZA,REPARTO_APPOGGIO,REPARTO_ASSISTENZIALE,REPARTO_GIURIDICO,REPARTO_GIURIDICO_ID,RIVALUTAZIONE_CODICE,RIVALUTAZIONE_DESCR,RIVALUTAZIONE_IDEN,RTS_AVG,RTS_FIRST,RTS_LAST,RTS_MAX,RTS_MIN,SATURAZIONE_AVG,SATURAZIONE_FIRST,SATURAZIONE_LAST,SATURAZIONE_MAX,SATURAZIONE_MIN,SESSO,SETTIMANA_FINE,SETTIMANA_INIZIO,STATO,STATO_SCHEDA,STP,STRUTTURA,TEMPO_ATTESA,TEMPO_TRIAGE,TEMPO_TRIAGE_ATTESA,TEMPO_TRIAGE_ESITO,TEMPO_VALUTAZIONE,TIPO_PRESTAZIONI_ASSOCIATE,TIPO_PROGNOSI_CODICE,TIPO_PROGNOSI_DESCR,TRIAGE_CHIUSURAPRATICAPS,TRIAGE_VISITAPS,TURNO_INIZIO,URGENZA_TRIAGE,UTENTE_APERTURA,UTENTE_APERTURA_ID,UTENTE_COMPLETA_TRIAGE,UTENTE_COMPLETA_TRIAGE_ID,UTENTE_ESITO,UTENTE_ESITO_ID,UTENTE_INTERVISTA,UTENTE_PRESA_IN_CARICO,UTENTE_PRESA_IN_CARICO_ID,VISITAPS_CHIUSURAPRATICAPS FROM PRONTO_SOCCORSO.STAT_CONTATTI",
+  "KEY_CONNECTION":"ADT",
+  "FILTRI" : {
+    "BEFORE_APPLICA" : "checkBeforeApplica",
+    "LIST": [
+      {
+        "ID": "COGNOME",
+        "KEY_CAMPO": "COGNOME",
+        "TYPE": "TEXT",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Cognome",
+        "OPERATORS": {
+          "VALUE": [
+            "eq",
+            "ne",
+            "bw",
+            "ew",
+            "cn"
+          ],
+          "LABEL": [
+            "Uguale",
+            "Diverso",
+            "Inizia con",
+            "Finisce con",
+            "Contiene"
+          ]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "NOME",
+        "KEY_CAMPO": "NOME",
+        "TYPE": "TEXT",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Nome",
+        "OPERATORS": {
+          "VALUE": [
+            "eq",
+            "ne",
+            "bw",
+            "ew",
+            "cn"
+          ],
+          "LABEL": [
+            "Uguale",
+            "Diverso",
+            "Inizia con",
+            "Finisce con",
+            "Contiene"
+          ]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "SESSO",
+        "KEY_CAMPO": "SESSO",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Sesso",
+        "OPTIONS": {
+          "VALUE": [
+            "M",
+            "F"
+          ],
+          "LABEL": [
+            "Maschio",
+            "Femmina"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "ETA",
+        "KEY_CAMPO": "ETA",
+        "TYPE": "NUMBER",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Età",
+        "OPERATORS": {
+          "VALUE": [
+            "eq",
+            "gt",
+            "lt"
+          ],
+          "LABEL": [
+            "Uguale",
+            "Maggiore di",
+            "Minore di"
+          ]
+        },
+        "ALLOW_MULTIPLE": true
+      },
+      {
+        "ID": "NAZIONALITA",
+        "TYPE": "AUTOCOMPLETE",
+        "LABEL": "Nazionalità",
+        "DETAIL": {
+          "URL": "api/nazioni/?",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr",
+          "TYPE": "FUNCTION",
+          "NAME": "HAS_CITTADINANZA",
+          "CONDITION": " HAS_CITTADINANZA(IDEN_ANAGRAFICA, ?, CITTADINANZA_XML) > 0",
+          "TYPE_BIND": "STRING_ARRAY"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "ASL_ASSISTENZA",
+        "TYPE": "AUTOCOMPLETE",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Asl Assistenza",
+        "DETAIL": {
+          "URL": "api/asl/",
+          "TYPE": "FIELD",
+          "NAME": "ASL_ASSISTENZA_CODICE_UNIVOCO",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "DATA_ACCESSO",
+        "KEY_CAMPO": "DATA_INIZIO",
+        "TYPE": "DATE_RANGE",
+        "TYPE_DATA": "DATE",
+        "LABEL": "Data Accesso",
+        "REQUIRED": false,
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "DATA_APERTURA",
+        "KEY_CAMPO": "DATA_PRESA_IN_CARICO",
+        "TYPE": "DATE_RANGE",
+        "TYPE_DATA": "DATE",
+        "LABEL": "Data Apertura",
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "DATA_CHIUSURA",
+        "KEY_CAMPO": "DATA_FINE",
+        "TYPE": "DATE_RANGE",
+        "TYPE_DATA": "DATE",
+        "LABEL": "Data Chiusura",
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "MEDICO_PRESCRIZIONE",
+        "TYPE": "AUTOCOMPLETE",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Medico Prescrivente",
+        "DETAIL": {
+          "URL": "api/personale/medici?",
+          "TYPE": "FIELD",
+          "NAME": "UTENTE_PRESA_IN_CARICO_ID",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "UTENTE_ACCETTAZIONE",
+        "TYPE": "AUTOCOMPLETE",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Utente Accettante",
+        "DETAIL": {
+          "URL": "api/personale/",
+          "TYPE": "FIELD",
+          "NAME": "UTENTE_APERTURA_ID",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "MEDICO_DIMETTENTE",
+        "TYPE": "AUTOCOMPLETE",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Medico Dimettente",
+        "DETAIL": {
+          "URL": "api/personale/medici?",
+          "TYPE": "FIELD",
+          "NAME": "UTENTE_ESITO_ID",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "UTENTE_TRIAGE",
+        "TYPE": "AUTOCOMPLETE",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Triagista",
+        "DETAIL": {
+          "URL": "api/personale/",
+          "TYPE": "FIELD",
+          "NAME": "UTENTE_COMPLETA_TRIAGE_ID",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "ESITO",
+        "KEY_CAMPO": "COD_ESITO",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Esito",
+        "OPTIONS": {
+          "VALUE": [
+            "6",
+            "9",
+            "8",
+            "7",
+            "5",
+            "4",
+            "3",
+            "2",
+            "A",
+            "1"
+          ],
+          "LABEL": [
+            "OBI (OSSERVAZIONE BREVE INTENSIVA)",
+            "RIFIUTA RICOVERO",
+            "GIUNTO CADAVERE",
+            "DECEDUTO IN PRONTO SOCCORSO",
+            "ABBANDONO SPONTANEO (DURANTE ITER)",
+            "ALLONTANATO",
+            "TRASFERITO (AD ALTRO PRESIDIO)",
+            "RICOVERATO PRESSO PROPRIO PRESIDIO",
+            "DIMISSIONE A STRUTTURE AMBULATORIALI",
+            "DIMESSO"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "ESITO_OBI",
+        "KEY_CAMPO": "COD_ESITO_OBI",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Esito OBI",
+        "OPTIONS": {
+          "VALUE": [
+            "5",
+            "3",
+            "2",
+            "1",
+            "A",
+            "9",
+            "7"
+          ],
+          "LABEL": [
+            "ABBANDONO SPONTANEO (DURANTE L'ITER)",
+            "TRASFERITO (AD ALTRO PRESIDIO)",
+            "RICOVERATO PRESSO PROPRIO PRESIDIO",
+            "DIMESSO",
+            "DIMISSIONE A STRUTTURE AMBULATORIALI",
+            "RIFIUTA RICOVERO",
+            "DECEDUTO IN OBI"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "FASCIA_ORARIA",
+        "KEY_CAMPO": "TURNO_INIZIO",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Orario",
+        "OPTIONS": {
+          "VALUE": [
+            "Mattino",
+            "Pomeriggio",
+            "Notte"
+          ],
+          "LABEL": [
+            "Mattino",
+            "Pomeriggio",
+            "Notte"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "GIORNO_SETTIMANA",
+        "KEY_CAMPO": "GIORNO_SETTIMANA",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Giorno",
+        "OPTIONS": {
+          "VALUE": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+          ],
+          "LABEL": [
+            "Lunedì",
+            "Martedì",
+            "Mercoledì",
+            "Giovedì",
+            "Venerdì",
+            "sabato",
+            "Domenica"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "TIPO_PRESTAZIONI",
+        "KEY_CAMPO": "TIPO_PRESTAZIONI_ASSOCIATE",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Tipo Prestazioni",
+        "OPTIONS": {
+          "VALUE": [
+            "CONSULENZE",
+            "IMAGING",
+            "LABO",
+            "PS"
+          ],
+          "LABEL": [
+            "Consulenze",
+            "Imaging",
+            "Laboratorio",
+            "Prestazioni P.S."
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["cn"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "STATO_SCHEDA",
+        "KEY_CAMPO": "STATO_SCHEDA",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Stato Scheda",
+        "OPTIONS": {
+          "VALUE": [
+            "ANNULLATA",
+            "APERTA",
+            "CHIUSA",
+            "IN ATTESA",
+            "STAND-BY"
+          ],
+          "LABEL": [
+            "Annullata",
+            "Aperta",
+            "Chiusa",
+            "In Attesa",
+            "Stand-By"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "PRONTO_SOCCORSO",
+        "KEY_CAMPO": "PRESIDIO_OSPEDALIERO",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Pronto Soccorso",
+        "OPTIONS": {
+          "DATA_SLAVE": "AMBULATORIO_PS",
+          "VALUE": [
+            "ALBENGA",
+            "CAIRO",
+            "PIETRA LIGURE",
+            "SAVONA"
+          ],
+          "LABEL": [
+            "Albenga",
+            "Cairo",
+            "Pietra Ligure",
+            "Savona"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "AMBULATORIO_PS",
+        "KEY_CAMPO": "CODICE_REPARTO_ID",
+        "TYPE": "MULTISELECT",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Ambulatorio PS",
+        "OPTIONS": {
+          "DATA_MASTER": {
+            "FIELD": "PRONTO_SOCCORSO",
+            "CASE": {
+              "ALBENGA": {
+                "VALUE": [
+                  742,
+                  2672,
+                  2673
+                ],
+                "LABEL": [
+                  "PUNTO DI PRIMO INTERVENTO OSPEDALIERO ALBENGA",
+                  "PUNTO DI PRIMO INTERVENTO OSPEDALIERO ORL ALBENGA",
+                  "PUNTO DI PRIMO INTERVENTO OSPEDALIERO OCULISTICO ALBENGA"
+                ],
+                "SIZE": 3
+              },
+              "CAIRO": {
+                "VALUE": [893],
+                "LABEL": ["PUNTO DI PRIMO INTERVENTO OSPEDALIERO CAIRO"],
+                "SIZE": 2
+              },
+              "PIETRA LIGURE": {
+                "VALUE": [
+                  722,
+                  930,
+                  931,
+                  2871
+                ],
+                "LABEL": [
+                  "PRONTO SOCCORSO (PIETRA LIGURE)",
+                  "PRONTO SOCCORSO PEDIATRICO(PIETRA LIGURE)",
+                  "PRONTO SOCCORSO OSTETRICO GINECOLOGICO (PIETRA LIGURE)",
+                  "PRONTO SOCCORSO ORTOPEDICO (PIETRA LIGURE)"
+                ],
+                "SIZE": 4
+              },
+              "SAVONA": {
+                "VALUE": [
+                  821,
+                  820,
+                  744,
+                  932
+                ],
+                "LABEL": [
+                  "PRONTO SOCCORSO ORTOPEDICO(SAVONA)",
+                  "PRONTO SOCCORSO PEDIATRICO(SAVONA)",
+                  "PRONTO SOCCORSO SAVONA",
+                  "PRONTO SOCCORSO OSTETRICO GINECOLOGICO (SAVONA)"
+                ],
+                "SIZE": 4
+              }
+            }
+          }
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "REPARTO_RICOVERO",
+        "TYPE": "AUTOCOMPLETE",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Reparto di Ricovero",
+        "DETAIL": {
+          "URL": "api/cdc/ordinario?",
+          "TYPE": "FIELD",
+          "NAME": "REPARTO_GIURIDICO_ID",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "TRIAGE",
+        "KEY_CAMPO": "URGENZA_TRIAGE",
+        "TYPE": "MULTISELECT",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Triage",
+        "OPTIONS": {
+          "VALUE": [
+            "BIANCO",
+            "VERDE",
+            "GIALLO",
+            "ROSSO",
+            "NERO"
+          ],
+          "LABEL": [
+            "Bianco",
+            "Verde",
+            "Giallo",
+            "Rosso",
+            "Nero"
+          ],
+          "SIZE": 4
+        },
+        "GROUPABLE": true,
+        "KEY_CAMPO_GROUP_ORDER": "URGENZA_TRIAGE",
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "RIVALUTAZIONE",
+        "KEY_CAMPO": "RIVALUTAZIONE_CODICE",
+        "TYPE": "MULTISELECT",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Rivalutazione",
+        "OPTIONS": {
+          "VALUE": [
+            "CBcolorDefault",
+            "CBcolorGreen",
+            "CBcolorYellow",
+            "CBcolorRed",
+            "CBcolorBlack"
+          ],
+          "LABEL": [
+            "Bianco",
+            "Verde",
+            "Giallo",
+            "Rosso",
+            "Nero"
+          ],
+          "SIZE": 4
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "STP",
+        "KEY_CAMPO": "STP",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "STP",
+        "OPTIONS": {
+          "VALUE": [
+            "S",
+            "N"
+          ],
+          "LABEL": [
+            "Si",
+            "No"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "FARMACI",
+        "TYPE": "AUTOCOMPLETE",
+        "LABEL": "Farmaci",
+        "DETAIL": {
+          "URL": "api/farmaci/",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr",
+          "TYPE": "FUNCTION",
+          "NAME": "HAS_FARMACO",
+          "CONDITION": " PRONTO_SOCCORSO.HAS_FARMACO(IDEN, ?) > 0",
+          "TYPE_BIND": "STRING_ARRAY"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "PRESTAZIONI_PS",
+        "TYPE": "AUTOCOMPLETE",
+        "LABEL": "Prestazioni Interne PS",
+        "DETAIL": {
+          "URL": "api/prestazioni/8",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr",
+          "TYPE": "FUNCTION",
+          "NAME": "HAS_FARMACO",
+          "CONDITION": " PRONTO_SOCCORSO.HAS_PRESTAZIONE(IDEN, ?) > 0",
+          "TYPE_BIND": "NUMBER_ARRAY"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "DIAGNOSI_ICD9",
+        "TYPE": "AUTOCOMPLETE",
+        "LABEL": "Diagnosi",
+        "DETAIL": {
+          "URL": "api/icd9/diagnosi?",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr",
+          "TYPE": "FUNCTION",
+          "NAME": "HAS_ICD_CONTATTO",
+          "CONDITION": " HAS_ICD_CONTATTO(IDEN, ?) > 0",
+          "TYPE_BIND": "STRING_ARRAY"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "GIORNI_PROGNOSI",
+        "KEY_CAMPO": "GIORNI_PROGNOSI",
+        "TYPE": "NUMBER",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Giorni di Prognosi",
+        "OPERATORS": {
+          "VALUE": [
+            "eq",
+            "gt",
+            "lt"
+          ],
+          "LABEL": [
+            "Uguale",
+            "Maggiore di",
+            "Minore di"
+          ]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "TIPO_PROGNOSI",
+        "KEY_CAMPO": "TIPO_PROGNOSI_CODICE",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Tipo Prognosi",
+        "OPTIONS": {
+          "VALUE": [
+            "1",
+            "0"
+          ],
+          "LABEL": [
+            "Salvo Complicazioni",
+            "Riservata"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "STRUTTURA",
+        "KEY_CAMPO": "STRUTTURA",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Struttura",
+        "OPTIONS": {
+          "VALUE": [
+            "8",
+            "9"
+          ],
+          "LABEL": [
+            "8",
+            "9"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "GROUPABLE": true,
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "ANNO",
+        "KEY_CAMPO": "ANNO",
+        "TYPE_DATA": "INTEGER",
+        "TYPE": "NUMBER",
+        "LABEL": "Anno",
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "CARTELLA",
+        "KEY_CAMPO": "CARTELLA",
+        "TYPE_DATA": "INTEGER",
+        "TYPE": "NUMBER",
+        "LABEL": "Cartella",
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "CERTIFICATO_INAIL",
+        "KEY_CAMPO": "ID_INAIL",
+        "TYPE_DATA": "INTEGER",
+        "TYPE": "NUMBER",
+        "LABEL": "Certificato INAIL",
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "MODALITA_ARRIVO",
+        "KEY_CAMPO": "MODALITA_ARRIVO_CODICE",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Modalità Arrivo",
+        "OPTIONS": {
+          "VALUE": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07"
+          ],
+          "LABEL": [
+            "01 - AMBULANZA 118 ",
+            "02 - ALTRA AMBULANZA",
+            "03 - AUTONOMO (ARRIVATO CON MEZZI PROPRI)",
+            "04 - ELICOTTERO 118",
+            "05 - ALTRO ELICOTTERO ",
+            "06 - MEZZO DI SOCCORSO 118 ALTRE REGIONI",
+            "07 - ALTRO (AMBULANZE ESERCITO,VVFF,POL,...)"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "AUTORITA_INTERVENUTA",
+        "KEY_CAMPO": "AUTORITA_INTERVENUTA_CODICE",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Autorità Intervenuta",
+        "OPTIONS": {
+          "VALUE": [
+            "2",
+            "1",
+            "3",
+            "4",
+            "7",
+            "VUOTO",
+            "6",
+            "5",
+            "8"
+          ],
+          "LABEL": [
+            "2 - POLIZIA",
+            "1 - 118",
+            "3 - CARABINIERI",
+            "4 - VIGILI DEL FUOCO",
+            "7 - ALTRO",
+            "VUOTO - NESSUNA",
+            "6 - POLIZIA STRADALE",
+            "5 - POLIZIA MUNICIPALE",
+            "8 - UOPSAL"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "PROVENIENZA",
+        "KEY_CAMPO": "MODALITA_ARRIVO_CODICE",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Provenienza",
+        "OPTIONS": {
+          "VALUE": [
+            "13",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12",
+            "14"
+          ],
+          "LABEL": [
+            "13 - CENTRALE OPERATIVA 118",
+            "01 - ARRIVO DIRETTO",
+            "02 - MEDICO DI BASE (MMG/PLS)",
+            "03 - SPECIALISTA AMBULATORIALE",
+            "04 - MEDICO OSPEDALIERO",
+            "05 - GUARDIA MEDICA",
+            "06 - REPARTO OSPEDALIERO STESSO PRESIDIO",
+            "07 - ALTRO",
+            "08 - TRASFERIMENTO DA STRUTT.RICOVERO PUBB.",
+            "09 - TRASFERIMENTO DA CASA DI CURA PRIVATA",
+            "10 - SERVIZI SOCIALI",
+            "11 - SU DISPOSIZIONE AUTORITA GIUDIZIARIA",
+            "12 - ALTRA STRUTTURA SANITARIA PUB/PRIV",
+            "14 - STRUTTURA PENITENZIARIA"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "MOTIVO_ARRIVO",
+        "KEY_CAMPO": "MOTIVO_INGRESSO_CODICE",
+        "TYPE_DATA": "VARCHAR",
+        "TYPE": "SELECT",
+        "LABEL": "Motivo di Arrivo",
+        "OPTIONS": {
+          "VALUE": [
+            "2",
+            "1",
+            "3",
+            "4",
+            "7",
+            "VUOTO",
+            "6",
+            "5",
+            "8"
+          ],
+          "LABEL": [
+            "2 - POLIZIA",
+            "1 - 118",
+            "3 - CARABINIERI",
+            "4 - VIGILI DEL FUOCO",
+            "7 - ALTRO",
+            "VUOTO - NESSUNA",
+            "6 - POLIZIA STRADALE",
+            "5 - POLIZIA MUNICIPALE",
+            "8 - UOPSAL"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "TRASFERITO_DA",
+        "KEY_CAMPO": "PRESIDIO_PROVENIENZA_CODICE",
+        "TYPE": "SELECT",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Trasferito Da",
+        "OPTIONS": {
+          "VALUE": [
+            "RPVA",
+            "RSAAT",
+            "RPIDT",
+            "RPSNEG",
+            "RSAVM",
+            "RPVDA",
+            "RPH",
+            "RPB",
+            "RPVA",
+            "RPSU",
+            "RPCDN",
+            "RPNSM",
+            "RPB",
+            "RSAR",
+            "RPRU",
+            "RPV",
+            "RPIPM",
+            "RPMR",
+            "RSACDT",
+            "RPL",
+            "RPVR",
+            "RPSS",
+            "RPOSA",
+            "RSALG",
+            "RSAS",
+            "RSAN",
+            "RPSA",
+            "RPMBM",
+            "RPRO",
+            "RPLG",
+            "RPSL",
+            "RPOPS",
+            "RSAV",
+            "RSAVSND",
+            "RPVS",
+            "RSALV",
+            "RPSC",
+            "ALTRO"
+          ],
+          "LABEL": [
+            "R.P. VILLE PARADISO",
+            "R.S.A. ALBENGA  C/O TRICHERI ",
+            "R.P. ISTITUTO DOMENICO TRINCHERI",
+            "R.P. SAN NICOLÒ E GIUSEPPE",
+            "R.S.A. VAL MERULA",
+            "R.P. VILLA DEGLI ABETI",
+            "R.P. HUMANITAS",
+            "R.P. BACCINO",
+            "R.P. VILLA ALFIERI",
+            "R.P. Suarez",
+            "R.P. CASA DEI NONNI",
+            "R.P. N.S. MISERICORDIA",
+            "R.P. Bagnasco",
+            "R.S.A. RUFFINI",
+            "R.P. RUFFINI",
+            "R.P. VALVERDE",
+            "R.P. ISTITUTO P. MAGLIONE",
+            "R.P. MADRE RUBATTO",
+            "R.S.A. CASA DEI TIGLI",
+            "R.P. Levratto",
+            "R.P. VILLA ROSA",
+            "R.P. SANTO SPIRITO",
+            "R.P. OSPEDALE S.ANTONIO",
+            "R.S.A. LA GIOIOSA",
+            "R.S.A. SANTUARIO",
+            "R.S.A. NOCETI",
+            "R.P. SANTUARIO",
+            "R.P. M.BAGNASCO MONTICELLO",
+            "R.P. ROSSELLO",
+            "R.P. LA GIOIOSA",
+            "R.P. S.LUCIA",
+            "R.P. OPERA PIA SICCARDI",
+            "R.S.A. VADA SABATIA",
+            "R.S.A. VADA SABATIA N.DEMENZE",
+            "R.P. VADA SABATIA",
+            "R.S.A. LA VILLA",
+            "R.P. SANTA CATERINA",
+            "ALTRO"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "TRASFERITO_A",
+        "KEY_CAMPO": "OSPEDALE_TRASFERIMENTO_CODICE",
+        "TYPE": "SELECT",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Trasferito A",
+        "OPTIONS": {
+          "VALUE": [
+            "07000101",
+            "07000102",
+            "07000103",
+            "07000104",
+            "07021101",
+            "07021102",
+            "07021203",
+            "07021204",
+            "07030101",
+            "07030102",
+            "07030103",
+            "07030104",
+            "07030105",
+            "07030106",
+            "07003901",
+            "07003902",
+            "07003903",
+            "07005801",
+            "07005802",
+            "07005803",
+            "07005804"
+          ],
+          "LABEL": [
+            "STABILIMENTO OSPEDALIERO DI IMPERIA",
+            "STABILIMENTO OSPEDALIERO DI SANREMO",
+            "STABILIMENTO OSPEDALIERO DI BORDIGHERA",
+            "STABILIMENTO OSPEDALIERO DI COSTARAINERA",
+            "OSPEDALE SANTA MARIA MISERICORDIA",
+            "OSPEDALE SANTA CORONA",
+            "OSPEDALE SAN GIUSEPPE",
+            "OSPEDALE SAN PAOLO",
+            "OSPEDALE LA COLLETTA ARENZANO",
+            "OSPEDALE SAN CARLO VOLTRI",
+            "OSPEDALE PADRE ANTERO MICONE SESTRI P.",
+            "OSPEDALE VILLA SCASSI",
+            "OSPEDALE GALLINO",
+            "OSPEDALE SANT'ANTONIO RECCO",
+            "OSP. RIUNITI LEONARDI E RIBOLI LAVAGNA",
+            "OSPEDALE CIVILE DI SESTRI LEVANTE",
+            "OSPEDALE CIVILE DI S.MARGHERITA LIGURE",
+            "OSPEDALE SANT`ANDREA LA SPEZIA",
+            "OSPEDALE FELETTINO",
+            "OSPEDALE SAN NICOLO` LEVANTO",
+            "STABILIMENTO SAN BARTOLOMEO DI SARZANA"
+          ]
+        },
+        "OPERATORS": {
+          "VALUE": ["eq"],
+          "LABEL": ["Uguale"]
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "ESITO",
+        "KEY_CAMPO": "COD_ESITO",
+        "TYPE": "MULTISELECT",
+        "TYPE_DATA": "VARCHAR",
+        "LABEL": "Triage",
+        "OPTIONS": {
+          "VALUE": [
+            "6",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "8",
+            "9",
+            "A"
+          ],
+          "LABEL": [
+            "6 - OBI (OSSERVAZIONE BREVE INTENSIVA)",
+            "1 - DIMESSO (ESCLUSO IL RIFIUTO RICOVERO)",
+            "2 - RICOVERATO PRESSO PROPRIO PRESIDIO",
+            "3 - TRASFERITO (AD ALTRO PRESIDIO)",
+            "4 - ALLONTANATO",
+            "5 - ABBANDONO SPONTANEO (DURANTE ITER)",
+            "7 - DECEDUTO IN PRONTO SOCCORSO",
+            "8 - GIUNTO CADAVERE",
+            "9 - RIFIUTA RICOVERO",
+            "A - DIMISSIONE A STRUTTURE AMBULATORIALI"
+          ],
+          "SIZE": 4
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "TEMPO_DI_ATTESA",
+        "KEY_CAMPO": "TEMPO_TRIAGE_ATTESA",
+        "TYPE": "NUMBER",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Tempo di Attesa (in minuti)",
+        "OPERATORS": {
+          "VALUE": [
+            "eq",
+            "gt",
+            "lt"
+          ],
+          "LABEL": [
+            "Uguale",
+            "Maggiore di",
+            "Minore di"
+          ]
+        },
+        "ALLOW_MULTIPLE": true
+      },
+      {
+        "ID": "PRIMO_RESPONSABILE",
+        "TYPE": "AUTOCOMPLETE",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Primo Responsabile",
+        "DETAIL": {
+          "URL": "api/personale/medici?",
+          "TYPE": "FIELD",
+          "NAME": "UTENTE_PRESA_IN_CARICO_ID",
+          "FIELD_VALUE": "VALUE",
+          "FIELD_TEXT": "DESCRIZIONE",
+          "FIELD_HTML": "DESCRIZIONE",
+          "SEARCH_PARAM_GET": "descr"
+        },
+        "ALLOW_MULTIPLE": false
+      },
+      {
+        "ID": "NUMERO_ACCESSI",
+        "KEY_CAMPO": "NUMERO_ACCESSI",
+        "TYPE": "NUMBER",
+        "TYPE_DATA": "INTEGER",
+        "LABEL": "Numero Accessi",
+        "OPERATORS": {
+          "VALUE": [
+            "eq",
+            "gt",
+            "lt"
+          ],
+          "LABEL": [
+            "Uguale",
+            "Maggiore di",
+            "Minore di"
+          ]
+        },
+        "ALLOW_MULTIPLE": true
+      }
+    ]
+  },
+  "GRID" : {
+    "COL_MODEL" : [
+      {"name":"IDEN","index":"IDEN","width":50,"search":false,"sorttype":"int"},
+      {"name":"NUMERO_PRATICA","index":"NUMERO_PRATICA","width":100,"search":false,"sorttype":"JQGridFormatter.normalizeNosologico"},
+      {"name":"STRUTTURA","index":"STRUTTURA","width":100,"search":false,"stype":"select","searchoptions":{"value":":Tutti;8:8;9:9"}},
+      {"name":"ANNO","index":"ANNO","width":100,"search":false,"sorttype":"int"},
+      {"name":"CARTELLA","index":"CARTELLA","width":100,"search":false,"sorttype":"int"},
+      {"name":"NOME","index":"NOME","width":100,"search":false},
+      {"name":"COGNOME","index":"COGNOME","width":100,"search":false},
+      {"name":"SESSO","index":"SESSO","width":100,"align":"right","formatter":"JQGridFormatter.formatSesso","search":false},
+      {"name":"REGIONE_ASSISTENZA","index":"REGIONE_ASSISTENZA","width":100,"search":false,"formatter":"JQGridFormatter.formatRegione"},
+      {"name":"DATA_NASCITA","index":"DATA_NASCITA","width": 100,"search":false,"formatter":"JQGridFormatter.dateFromISO","sorttype":"int"},
+      {"name":"ETA","index":"ETA","width":100,"search":false,"sorttype":"int"},
+      {"name":"ASL_ASSISTENZA_DESCR","index":"ASL_ASSISTENZA_DESCR","width":150,"search":false},
+      {"name":"URGENZA_TRIAGE","index":"URGENZA_TRIAGE","width":100,"align":"right","search":false},
+      {"name":"CODICE_REPARTO","index":"CODICE_REPARTO","width":200,"search":false},
+      {"name":"AREA_CHIUSURA","index":"AREA_CHIUSURA", "width":200,"search":false},
+      {"name":"DATA_INIZIO_ISO","index":"DATA_INIZIO_ISO","width":100,"search":false,"formatter":"JQGridFormatter.dateFromISO","sorttype":"int"},
+      {"name":"DATA_FINE_ISO","index":"DATA_FINE_ISO","width":100,"search":false,"formatter":"JQGridFormatter.dateFromISO","sorttype":"int"},
+      {"name":"UTENTE_APERTURA","index":"UTENTE_APERTURA", "width":175,"search":false},
+      {"name":"UTENTE_ESITO","index":"UTENTE_ESITO","width":175,"search":false},
+      {"name":"UTENTE_PRESA_IN_CARICO","index":"UTENTE_PRESA_IN_CARICO", "width":175,"search":false},
+      {"name":"AUTORITA_GIUDIZIARIA","index":"AUTORITA_GIUDIZIARIA","width":100,"search":false},
+      {"name":"AUTORITA_INTERVENUTA","index":"AUTORITA_INTERVENUTA","width":100,"search":false},
+      {"name":"CATENA_CUSTODIA","index":"CATENA_CUSTODIA", "width":100,"search":false},
+      {"name":"ESITO","index":"ESITO", "width":200,"search":false},
+      {"name":"COMUNE_NASCITA","index":"COMUNE_NASCITA","width":150,"search":false},
+      {"name":"COMUNE_RESIDENZA","index":"COMUNE_RESIDENZA", "width":150,"search":false},
+      {"name":"ESITO_OBI","index":"ESITO_OBI", "width":150,"search":false},
+      {"name":"MEZZO_ARRIVO","index":"MEZZO_ARRIVO", "width":125,"search":false},
+      {"name":"MEZZO_INCIDENTE","index":"MEZZO_INCIDENTE", "width":125,"search":false},
+      {"name":"MODALITA_ARRIVO","index":"MODALITA_ARRIVO", "width":125,"search":false},
+      {"name":"MOTIVO_INGRESSO","index":"MOTIVO_INGRESSO", "width":125,"search":false},
+      {"name":"RIVALUTAZIONE_DESCR","index":"RIVALUTAZIONE_DESCR", "width":75,"search":false},
+      {"name":"STATO_SCHEDA","index":"STATO_SCHEDA", "width":100,"search":false},
+      {"name":"REPARTO_GIURIDICO","index":"REPARTO_GIURIDICO", "width":125,"search":false},
+      {"name":"PRESIDIO_PROVENIENZA","index":"PRESIDIO_PROVENIENZA", "width":125,"search":false},
+      {"name":"OSPEDALE_TRASFERIMENTO","index":"OSPEDALE_TRASFERIMENTO", "width":125,"search":false},
+      {"name":"STP","index":"STP", "width":50,"search":false,"sorttype":"int"}
+    ],
+    "COL_NAME":["Id","Nosologico","Struttura","Anno","Cartella","Nome","Cognome","Sesso","Regione Assistenza","Data di nascita","Età","Asl Assistenza","Urgenza","Reparto Accettazione","Reparto Dimissione","Data accesso","Data dimissione","Utente Accettante","Medico Dimettente","Utente Presa in Carico","Autorità Giudiziaria","Autorità Intervenuta","Catena di Custodia","Esito","Comune Nascita","Comune Residenza","Esito OBI","Mezzo Arrivo","Mezzo Incidente","Modalità Arrivo","Motivo Ingresso","Rivalutazione","Stato Scheda","Reparto di Ricovero","Arrivato da","Trasferito a","STP"],
+    "FORMATTER_EXTENSION":"config/PS/estrazioni/JQGridFormatterExtension.js",
+    "URL_DATA":"query/JQGridQuery?",
+    "SORT_NAME":"IDEN",
+    "SORT_ORDER":"ASC",
+    "CAPTION":"Estrazione"
+  }
+
+}

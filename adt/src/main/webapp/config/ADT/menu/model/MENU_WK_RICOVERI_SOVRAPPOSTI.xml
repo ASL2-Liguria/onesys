@@ -1,0 +1,126 @@
+<MENU>
+    <ID>MENU_WK_RICOVERI_SOVRAPPOSTI</ID>
+    <TITLE>"Menu wk Ricoveri Sovrapposti"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>VISUALIZZA_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACC_RICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&STATO_PAGINA=L',id:'VisualizzaRicovero',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;} ]]></WHERE>
+            <OUTPUT>"Visualizza Ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_DIMISSIONE</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT_FUNZIONI_CONTATTO.richiediAnnullamentoDimissione(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if( home.basePermission.hasOwnProperty('BACKOFFICE') || parseInt(rec[0].HOURS_FROM_INSERT) < 12) { return true; } else {return false}}]]></WHERE>
+            <OUTPUT>"Annulla dimissione"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CANCELLA_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT_FUNZIONI_CONTATTO.richiediCancellazioneRicoveroDimesso(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if (rec[0].IS_CONTATTO_FROM_PS == "N" && home.basePermission.hasOwnProperty('BACKOFFICE')) { return true } else {return false}}]]></WHERE>
+            <OUTPUT>"Cancellazione Ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACC_RICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&STATO_PAGINA=E',id:'ModificaRicovero',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;} ]]></WHERE>
+            <OUTPUT>"Modifica Ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COMPILA_SDO</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=DIMISSIONE_SDO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA +'&IDEN_CONTATTO='+ rec[0].IDEN_CONTATTO + '&SDO=S',id:'DimissioneSdo',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(home.baseUser.TIPO_PERSONALE == 'M'){return true} else {return false}}]]></WHERE>
+            <OUTPUT>"Compila SDO"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ASSOCIA_PAZIENTE_A_SCONOSCIUTO</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ASS_PAZ_SCONOSCIUTO&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO,id:'assPazSconosciuto',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_documento.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec[0].COGNOME == 'SCONOSCIUTO'){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>"Associa a paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <!--ITEM>
+            <ID>FRONTESPIZIO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT.printFrontespizio(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/print.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Stampa frontespizio"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM-->
+        <ITEM>
+            <ID>CERTIFICATO_DIMISSIONE</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT.printCertificatoDimi(rec[0].IDEN_CONTATTO,'N');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/print.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Stampa certificato Dimissione"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CERTIFICATO_DIMISSIONE_DIAGNOSI</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT.printCertificatoDimi(rec[0].IDEN_CONTATTO,'S');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/print.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(home.baseUser.GRUPPO_PERMESSI.indexOf('GEST_CART') < 0){return false} else {return true}}]]></WHERE>
+            <OUTPUT>"Stampa cert Dimisione con Diagnosi"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_SDO</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_ADT.stampaSDO(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/print.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if (rec[0].STATO_SDO == "F"){ return true; } else {return false;}}]]></WHERE>
+            <OUTPUT>"Stampa SDO"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>VERBALE_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT.printVerbaleRicovero(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/print.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Stampa verbale ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PRINT_RIEPILOGO_ACCESSI_DH</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT.printAccessiDH(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec[0].REGIME_RICOVERO_CODICE == '2'){return true} else {return false}}]]></WHERE>
+            <OUTPUT>"Stampa riepilogo accessi DH"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

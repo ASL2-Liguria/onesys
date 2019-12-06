@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){NS_ANAGRAFICA.getCapRegioneProvincia(data,'DOMICILIO'); $('#acASLDomicilio').data('acList').changeBindValue({"reg_codice": data.CODICE_REGIONE});}]]>
+        </onSelect>
+        <maxHeight>400</maxHeight>
+        <width>300</width>
+        <zIndex>9999</zIndex>
+        <datasource>PS</datasource>
+	<deferRequestBy>1000</deferRequestBy>
+        <selectOnSingleResult>false</selectOnSingleResult>
+        <storedQuery>AUTOCOMPLETE.AC_ANAG_COMUNE_ATTIVO</storedQuery>
+        <maxResults>40</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Domicilio</title>
+        <id_wk>AC_ANAG_COMUNE_DOMICILIO</id_wk>
+        <onSelect type="js">
+            <![CDATA[function(data){NS_ANAGRAFICA.getCapRegioneProvincia(data,'DOMICILIO'); $('#acASLDomicilio').data('acList').changeBindValue({"reg_codice": data.CODICE_REGIONE});}]]>
+        </onSelect>
+    </LIST>
+
+</AUTOCOMPLETE>	 
+    

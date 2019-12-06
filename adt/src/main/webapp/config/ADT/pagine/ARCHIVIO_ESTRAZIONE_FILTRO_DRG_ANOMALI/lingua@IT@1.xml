@@ -1,0 +1,21 @@
+<ROWSET>
+	<ROW>
+		<filtroEstrazione>Estrazione</filtroEstrazione>
+		<lblrepartoEstrazione>Reparto</lblrepartoEstrazione>
+		<lblStrutturaEstrazione>Struttura</lblStrutturaEstrazione>
+		<lblDRGAnomaliEstrazione>DRG Anomalo</lblDRGAnomaliEstrazione>
+		<lblAnnoEstrazione>Anno</lblAnnoEstrazione>
+		<lblCartellaEstrazione>Cartella</lblCartellaEstrazione>
+		<lblStrutturaEstrazione>Struttura</lblStrutturaEstrazione>
+		<lblStatoCartellaEstrazione>Stato cartella</lblStatoCartellaEstrazione>
+		<lblCognomeEstrazione>Cognome</lblCognomeEstrazione>
+		<lblNomeEstrazione>Nome</lblNomeEstrazione>
+		<lblDaDataEstrazione>Da data</lblDaDataEstrazione>
+		<lblADataEstrazione>A data</lblADataEstrazione>
+		<butChiudiEstrazione>Chiudi</butChiudiEstrazione>
+		<lblvuota1></lblvuota1>
+		<lblvuota2></lblvuota2>
+		<lblvuota3></lblvuota3>
+		<lblvuota4></lblvuota4>
+	</ROW>
+</ROWSET>

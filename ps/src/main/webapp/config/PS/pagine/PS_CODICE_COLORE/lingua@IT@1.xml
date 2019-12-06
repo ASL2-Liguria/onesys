@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Triage</lblTitolo>
+        <tabInserimento>Triage</tabInserimento>
+        <fldTemplate>Selezionare l'urgenza</fldTemplate>
+        <fldNote>Note</fldNote>
+        <lblcmbAreaPS>Area PS</lblcmbAreaPS>
+        <lbltaNoteBraccialetto>Note Braccialetto</lbltaNoteBraccialetto>
+        <lbltaNote>Profilo sintetico triage</lbltaNote>
+        <lblcmbUbicazione>Ubicazione</lblcmbUbicazione>
+        <tabRiepilogoTriage>Andamento Triage</tabRiepilogoTriage>
+        <butStampaModuli>Stampa Moduli</butStampaModuli>
+        <butStampaBraccialetto>Stampa Braccialetto</butStampaBraccialetto>
+        <lblcmbStatoPaziente>Stato paziente</lblcmbStatoPaziente>
+        <lbltaNoteRivalutazione>Motivo Rivalutazione</lbltaNoteRivalutazione>
+        <UltimotagSenoNonFunza>eeeee</UltimotagSenoNonFunza>
+    </ROW>
+</ROWSET>

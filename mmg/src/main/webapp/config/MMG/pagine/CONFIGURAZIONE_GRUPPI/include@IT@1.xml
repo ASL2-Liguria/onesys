@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Configurazioni/configurazioneGruppi.js" />
+	<CSS path="css/MMG/Configurazioni/configurazioneGruppi.css" />
+</INCLUDE>

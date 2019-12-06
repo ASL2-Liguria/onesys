@@ -1,0 +1,13 @@
+body { width: 960px; }
+
+.Domenica { color: green; }
+
+.informativa {
+	background: #FDFFDB;
+	padding:10px;
+	text-align: center !important;
+}
+
+.informativa label {
+	font-size: 13px !important;
+}

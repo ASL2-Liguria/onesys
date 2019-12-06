@@ -1,0 +1,8 @@
+<INCLUDE>
+    <JS path="js/PS/SchedaUtente/SchedaUtente.js" />
+    <CSS path="css/menu_config.css" />
+    <JS path="js/Base/NO-min/jquery.menu_config.js" />
+    <JS path="js/Base/NO-min/jquery.exchangeLists.js" />
+    <CSS path="css/PS/Scheda_Utente/SchedaUtente.css" />
+</INCLUDE>
+

@@ -1,0 +1,17 @@
+body { width: 960px; }
+
+#fldSospettoDiagnostico{
+	width:350px;
+	float:left;
+}
+
+#fldSospettoDiagnostico table.campi tr td.tdLbl { text-align: left; }
+
+#fldDettMononeuropatia, #fldDettAltro {
+	width:500px;
+	float:right;
+}
+
+#fldDettMononeuropatia textarea, #fldDettAltro textarea{
+	height:250px;
+}

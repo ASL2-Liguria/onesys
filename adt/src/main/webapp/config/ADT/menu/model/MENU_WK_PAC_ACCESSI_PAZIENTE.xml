@@ -1,0 +1,36 @@
+<MENU>
+    <ID>MENU_WK_PAC_ACCESSI_PAZIENTE</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISCI_ACCESSO_PAC</ID>
+            <LINK><![CDATA[function(rec){NS_PAC_WK_ACCESSI.inserisciAccessoPAC(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { if (rec[0].STATO_CONTATTO_CODICE === "ADMITTED" && rec[0].STATO_CONTATTO_CODICE === "ADMITTED") { return true; } else { return false; } }]]></WHERE>
+            <OUTPUT>"Inserisici Accesso"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CHIUDI_ACCESSO_PAC</ID>
+            <LINK><![CDATA[function(rec){NS_PAC_WK_ACCESSI.chiudiAccessoPAC(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/chiudi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { if (rec[0].STATO_CODICE === "ADMITTED") { return true; } else { return false; } }]]></WHERE>
+            <OUTPUT>"Chiudi Accesso"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_ACCESSO_PAC</ID>
+            <LINK><![CDATA[function(rec){NS_PAC_WK_ACCESSI.annullaAccessoPAC(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { if (NS_PAC_WK_ACCESSI.wkAccessi.getRows().length > 1 && rec[0].STATO_CODICE === "ADMITTED" && rec[0].STATO_CONTATTO_CODICE === "ADMITTED") { return true; } else { return false; } }]]></WHERE>
+            <OUTPUT>"Annulla Accesso"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

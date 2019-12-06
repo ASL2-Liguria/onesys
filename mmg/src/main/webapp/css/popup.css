@@ -1,0 +1,115 @@
+.popup {
+    background: #f8f8f8;
+    border: 1px solid  #f8f8f8 !important;
+    box-shadow: 0px 0px 15px #444;
+    position: absolute;
+    z-index: 98;
+}
+
+    .popup > div.arrow {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index:99;
+    }
+
+        .popup > div.arrow.top {
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-bottom: 11px solid #C3DCEC;
+        }
+
+        .popup > div.arrow.left {
+            border-top: 11px solid transparent;
+            border-right: 11px solid #f8f8f8;
+            border-bottom: 11px solid transparent;
+        }
+
+        .popup > div.arrow.bottom {
+            border-top: 11px solid #f8f8f8;
+            border-right: 11px solid transparent;
+            border-left: 11px solid transparent;
+        }
+
+        .popup > div.arrow.right {
+            border-top: 11px solid transparent;
+            border-left: 11px solid #f8f8f8;
+            border-bottom: 11px solid transparent;
+        }
+
+    .popup > div.arrow-border {
+        width: 0;
+        height: 0;
+        position: absolute;
+        z-index: 98;
+    }
+
+        .popup > div.arrow-border.top {
+            border-left: 11px solid transparent;
+            border-right: 11px solid transparent;
+            border-bottom: 11px solid #f8f8f8;
+        }
+
+        .popup > div.arrow-border.left {
+            border-top: 11px solid transparent;
+            border-right: 11px solid #f8f8f8;
+            border-bottom: 11px solid transparent;
+        }
+
+        .popup > div.arrow-border.bottom {
+            border-top: 11px solid #f8f8f8;
+            border-right: 11px solid transparent;
+            border-left: 11px solid transparent;
+        }
+
+        .popup > div.arrow-border.right {
+            border-top: 11px solid transparent;
+            border-left: 11px solid #f8f8f8;
+            border-bottom: 11px solid transparent;
+        }
+
+    .popup > div.title {
+        width: 100%;
+        height: 26px;
+        padding: 0 8px;
+        font-size: 11px;
+        text-align: left;
+        background-color: #C3DCEC;
+        text-transform: uppercase;
+    }
+
+        .popup > div.title > span {
+            color: #333;
+            line-height: 24px;
+            font-weight: bold;
+        }
+
+        .popup > div.title > a.close {
+            clear: both;
+            text-align: right;
+            float: right;
+            font-size: 17px;
+            line-height: 24px;
+        }
+
+        .popup > div.title > a.close > i {
+            color: #333;
+        }
+
+
+    .popup > div.content {
+        width: 100%;
+        margin: 0;
+        padding: 16px 8px;
+        color: #333;
+        overflow-x: hidden;
+        font-size: 11px !important;
+    }
+
+.notvisible {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

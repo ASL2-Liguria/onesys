@@ -1,0 +1,19 @@
+<root>
+	<statements_list>
+	
+		<statement name="GEST_LOGS.LOG">			
+			<sql>
+			<![CDATA[
+				declare
+					pLogger 		varchar2(5000) := ?;
+					pMessaggio		varchar2(5000) := ?;
+					pLivello		varchar2(5000) := ?;
+				begin
+					GEST_LOGS.LOG(pLogger,pMessaggio,pLivello);
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+	</statements_list>
+</root>

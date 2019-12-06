@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>2</minChars>
+		<onSelect type="js">
+            <![CDATA[function(ret){ $("button.butSalva").focus(); }]]>
+		</onSelect>
+		<maxHeight>300</maxHeight>
+		<width>300</width>
+		<zIndex>9999</zIndex>
+        <datasource>PS</datasource>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_PERSONALE_INF</storedQuery>
+		<maxResults>30</maxResults>
+	</AJAX>
+	<LIST>
+	    <title>Infermieri</title>
+	    <id_wk>AC_PERSONALE_INF</id_wk>
+	    <onSelect type="js">
+			<![CDATA[function(ret){ $("button.butSalva").focus(); }]]>
+		</onSelect>
+	</LIST>
+    <QUERY_BINDS>
+        <iden_cdc>[iden_cdc@value]</iden_cdc>
+    </QUERY_BINDS>
+</AUTOCOMPLETE>

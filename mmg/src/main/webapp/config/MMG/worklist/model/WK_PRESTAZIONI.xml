@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_PRESTAZIONI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.WK_PRESTAZIONI_ESENZIONI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <DBLCLICK>function(rec){SCELTA_ESENZIONI.scegliAccertamento(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){SCELTA_ESENZIONI.scegliAccertamento(rec);}</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>CODICE</COL>
+						<DB>CODICE</DB>
+					</ID>
+					<DESCRIPTOR>"Codice"</DESCRIPTOR>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>N</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>ACCERTAMENTO</COL>
+						<DB>ACCERTAMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Accertamenti"</DESCRIPTOR>
+					<WIDTH>420px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>BRANCA</COL>
+						<DB>BRANCA</DB>
+					</ID>
+					<DESCRIPTOR>"Branca"</DESCRIPTOR>
+					<WIDTH>420px</WIDTH>
+					<VISIBLE>N</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DESCRIZIONE">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,54 @@
+<root>
+	<statements_list>
+        <statement name="getAnag">
+            <sql>
+                <![CDATA[
+                 select count(1)  from anag  where cod_fisc =? and iden<>? and deleted= 'N' and rownum = 1
+	 
+			]]>
+            </sql>
+        </statement>
+        <statement name="getAnagDatiFondamentali">
+            <sql>
+                <![CDATA[
+                select count(1) from radsql.anag where nome=? and cogn=? and data=datetimeconverter(?,'dd/mm/yyyy', 'yyyymmdd') and sesso=? and com_nasc=? and iden<>? and deleted= 'N' and rownum=1	 
+			]]>
+            </sql>
+        </statement>
+        <statement name="getEsenzioni">
+            <sql>
+                <![CDATA[
+                SELECT '( ' || VESE.esenzione_descr || ' ) - '|| ESEPAZ.CODICE_ESENZIONE ||' -  '|| ESEPAZ.DESCR_ESENZIONE ESE_DESC FROM RADSQL.VIEW_RR_PAZIENTI_ESENZIONI ESEPAZ INNER JOIN RADSQL.view_rr_esenzioni VESE ON (esepaz.codice_esenzione=VESE.CODICE) WHERE (DATA_INI_ES_PAZ is null or DATA_INI_ES_PAZ<=TO_CHAR(SYSDATE,'YYYYMMDD')) and (DATA_FINE_ES_PAZ is null or DATA_FINE_ES_PAZ>=to_char(sysdate,'YYYYMMDD')) AND ESEPAZ.ID_REMOTO =?	 
+			]]>
+            </sql>
+        </statement>
+                <statement name="allineaEsenzioni">
+            <sql>
+                <![CDATA[
+               		declare
+					pNome varchar2(4000):=?;   
+					pCogn varchar2(4000):=?; 
+					pSesso varchar2(1):=?;
+					pCodFisc varchar2(4000):=?;
+					begin
+					RR_ALLINEA_ESENZIONI_REMOTE (pNome,pCogn,pSesso,pCodFisc);						
+					end;
+			]]>
+            </sql>
+        </statement>
+
+		<statement name="sbloccaReadOnly">				
+			<sql>
+			<![CDATA[
+				declare
+					vIden number := ?;
+				begin
+					update anag set readonly='N' where iden = vIden;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+	</statements_list>
+</root>

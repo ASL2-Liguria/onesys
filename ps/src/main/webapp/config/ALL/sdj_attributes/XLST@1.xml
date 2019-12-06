@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="XLST">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div*{.extXSLTransformation}">
+            <PROC id="transform">
+                <PAR type="idx" value="1"/>
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

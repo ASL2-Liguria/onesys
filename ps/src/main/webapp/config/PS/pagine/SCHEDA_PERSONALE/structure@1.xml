@@ -1,0 +1,85 @@
+<PAGINA key_id="SCHEDA_PERSONALE">
+    <HEADER_PAGE key_id="SCHEDA_PERSONALE" valore="DEFAULT,SCHEDA,SCHEDA_PERSONALE#DEFAULT,SCHEDA_PERSONALE,INDIRIZZI" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SAVE_DATA_PERSONALE#POLARIS_DATI#PERSONALE#IDEN#IDEN##V_PERSONALE" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaPersonale" valore="SchedaPersonale#lblTabTitolo#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabDatiPersonale" valore="tabDatiPersonale" evento="START">
+                <FIELDSET_TABLE key_id="fldDatiPersonale" valore="fldDatiPersonale" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="CodiceDecodifica" valore="lblCodiceDecodifica##txtCodiceDecodifica###CODICE_DECODIFICA" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="Titolo" valore="lblTitolo##Titolo#radTitoloMedico#{width:80,idxDefault:0},verificaTipo#S#TITOLO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome###NOME" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome###COGNOME" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale##txtCodiceFiscale###CODICE_FISCALE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Indirizzo" valore="lblIndirizzo##txtIndirizzo###INDIRIZZO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Email" valore="lblEmail##txtEmail###EMAIL" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="OreContratto" valore="lblOreContratto##txtOreContratto###ORE_CONTRATTO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="Attivo" valore="lblAttivo##Attivo#radAttivo#{width:80,idxDefault:0}#S#ATTIVO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_RADIO key_id="TipoPersonale" valore="lblTipoPersonale##TipoPersonale#TipoPersonale#{width:100,idxDefault:2,callback:changeInfoPersonale}#S#TIPO_PERSONALE" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldCdC" valore="fldCdC" evento="START">
+                    <EXCHANGE_LISTS key_id="exchangeCdC" valore="exCdC#ComboIn#ComboOut#N#btnControls#{listHeaders:{
+                        listFrom:{
+                            title:'CDC Disponibili',
+                            buttons:null,
+
+                                   },
+                        listTo:{
+                            title:'CDC Associati',
+                            buttons:null
+                                 }
+                        }}
+                    #" evento="START">
+                    </EXCHANGE_LISTS>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldInfoMedico" valore="fldInfoMedico" evento="START">
+                    <TR_TD_LABEL_RADIO key_id="TipoMedico" valore="lblTipoMedico##TipoMedico#radTipoMedico#{width:120,idxDefault:0}#N#TIPO_MEDICO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="ProfiloVocale" valore="lblProfiloVocale##txtProfiloVocale###PROFILO_VOCALE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="MedicoReparto" valore="lblMedicoReparto##MedicoReparto#radMedicoReparto#{width:80,idxDefault:1}#S#MEDICO_REPARTO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_RADIO key_id="MedicoMammo" valore="lblMedicoMammo##MedicoMammo#radMedicoMammo#{width:80,idxDefault:1}#S#MEDICO_MAMMO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+            <!--<TABULAZIONE.CREA_TAB key_id="tabIndirizzi" valore="tabIndirizzi" evento="START">
+                <DIV key_id="divOperazioni" valore="divOperazioni" evento="START">
+                     <BUTTON key_id="butAddIndirizzo" valore="butAddIndirizzo" evento="START">
+                     </BUTTON>
+                 </DIV>
+                <DIV.WORKLIST key_id="divWkIndirizzi" valore="divWkIndirizzi" evento="START">
+                </DIV.WORKLIST>
+            </TABULAZIONE.CREA_TAB>
+            <TABULAZIONE.CREA_TAB key_id="tabTurni" valore="tabTurni" evento="START">
+                <FIELDSET key_id="fldParametri" valore="fldParametri" evento="START">
+                    <EXCHANGE_LISTS key_id="exchangeParamPers" valore="excPar#ComboInParamPersonale#ComboOutParamPersonale#N#btnControls#{
+                        onlySingleTransfert: false
+                        ,
+                        removeFirstListItems:true,
+                        listHeaders:{
+                            listFrom:{
+                                title:'Parametri Disponibili'
+
+                                       },
+                            listTo:{
+                                title:'Parametri Selezionati',
+                                     }
+                            }
+                        }#PARAMETRI" evento="START">
+                    </EXCHANGE_LISTS>
+                </FIELDSET>
+            </TABULAZIONE.CREA_TAB>-->
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

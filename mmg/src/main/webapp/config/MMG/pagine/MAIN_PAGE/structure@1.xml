@@ -1,0 +1,107 @@
+<PAGINA key_id="MAIN_PAGE">
+	<TOP key_id="MAIN_PAGE" valore="MAIN_PAGE#DEFAULT_MMG,MAIN_PAGE#MMG"
+		evento="START_END">
+	</TOP>
+	<DIV key_id="integration" valore="integration#" evento="START">
+		<DIV key_id="offline" valore="offline" evento="START">
+		</DIV>
+	</DIV>
+	<DIV key_id="stampa" valore="stampa#invisible" evento="START">
+		<FORM key_id="mainForm" valore="mainForm" evento="START_END"></FORM>
+		<OBJECT key_id="AppStampa" valore="AppStampa#text/plain#800px#800px" evento="START"> <!--AppStampa#application/x-java-applet#800px#800px#APPLET_MMG-->
+<!--		<SCRIPT key_id="NoApplet" evento="START" valore="js/Base/NOAPPLET.js"></SCRIPT>
+			<PARAM key_id="jnlp_href" valore="jnlp_href#AppStampaEager.jnlp" evento="START"></PARAM> 
+			<PARAM key_id="loadStampe" valore="loadStampe#true" evento="START"></PARAM>
+			<PARAM key_id="loadFirma" valore="loadFirma#false" evento="START"></PARAM>
+			<PARAM key_id="loadSCL" valore="loadSCL#false" evento="START"></PARAM>
+			<PARAM key_id="wmode" valore="wmode#transparent" evento="START"></PARAM>
+			<PARAM key_id="ShowMediaTrays" valore="ShowMediaTrays#S" evento="START"></PARAM>
+			<PARAM key_id="logoutOnDestroy" valore="logoutOnDestroy#N" evento="START"></PARAM>
+			<PARAM key_id="initial_focus" valore="initial_focus#false" evento="START"></PARAM>
+			-->
+			<PARAM_SESSION_ID key_id="session_id" valore="session_id" evento="START"></PARAM_SESSION_ID>
+		</OBJECT>
+		<DIV key_id="tastiFunzione" valore="tastiFunzione" evento="START">
+			<FIELDSET_TABLE key_id="fldFunzioni" valore="fldFunzioni"
+				evento="START">
+				<TR_TD_BUTTON key_id="butIngrandisci" valore="butIngrandisci"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butDiminuisci" valore="butDiminuisci"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagPrec" valore="butPagPrec"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagSucc" valore="butPagSucc"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagPrima" valore="butPagPrima"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagUltima" valore="butPagUltima"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butRuotaOrario" valore="butRuotaOrario"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butRuotaAnti" valore="butRuotaAnti"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butChiudi" valore="butChiudi"
+					evento="START">
+				</TR_TD_BUTTON>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fldFunzioniStampa" valore="fldFunzioniStampa"
+				evento="START">
+				<TR_TD_BUTTON key_id="butStampa" valore="butStampa"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butStampaSu" valore="butStampaSu"
+					evento="START">
+				</TR_TD_BUTTON>
+			</FIELDSET_TABLE>
+		</DIV>
+	</DIV>
+	<DIV key_id="divInfo" valore="divInfo" evento="START">
+		<!--
+		<MMG_INTESTAZIONE key_id="slidemenuRapido" valore=""
+			evento="START">
+		</MMG_INTESTAZIONE>
+		-->
+	</DIV>
+	<DIV key_id="menuBar" valore="menuBar#sfLight" evento="START">
+		<MENU_GENERICO key_id="menuCartella"
+			valore="PRINCIPALE#menuCartella#jsm jqueryslidemenu#MMG#ORDINE#N#S,S"
+			evento="START">
+		</MENU_GENERICO>
+		<MENU_GENERICO key_id="menuEsterno"
+			valore="ESTERNO#menuEsterno#jsm jqueryslidemenu#MMG#ORDINE#N#S,S"
+			evento="START">
+		</MENU_GENERICO>
+		<MENU_GENERICO key_id="menuShortcut"
+			valore="MENU_SHORTCUT#menuShortcut#menuShortcut#MMG#ORDINE#N#N,S"
+			evento="START">
+		</MENU_GENERICO>
+	</DIV>
+	<DIV key_id="content" valore="content" evento="START">
+		<IFRAME key_id="iContent" valore="iContent" evento="START">
+		</IFRAME>
+	</DIV>
+	<STATUS_BAR key_id="statusBar" valore="statusBar" evento="START">
+		<DIV key_id="statSx" valore="statSx" evento="START">
+			<STATUS_BAR_H5 key_id="h5NomeHost" valore="h5NomeHostTit#h5NomeHostVal"
+				evento="START">
+			</STATUS_BAR_H5>
+			<STATUS_BAR_H5 key_id="h5Username" valore="h5UsernameTit#h5UsernameVal"
+				evento="START">
+			</STATUS_BAR_H5>
+			<STATUS_BAR_H5 key_id="h5Debug" valore="h5DebugTit#h5DebugVal"
+				evento="START">
+			</STATUS_BAR_H5>
+		</DIV>
+		<DIV key_id="statDx" valore="statDx" evento="START">
+		</DIV>
+	</STATUS_BAR>
+</PAGINA>
+

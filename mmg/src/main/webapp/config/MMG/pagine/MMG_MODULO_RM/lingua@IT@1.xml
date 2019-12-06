@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>Modulo di richiesta e questionario per esame RM</lblTitolo>
+        <butStampaInformativa>Stampa Consenso Informato</butStampaInformativa>
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        <butCerca>Inserisci Accertamento</butCerca>
+        <butInserisci>Inserisci</butInserisci>
+        
+        <tabDati>Dati assistito</tabDati>
+        <tabQuestionario_I>Questionario I</tabQuestionario_I>
+        <tabQuestionario_II>Questionario II</tabQuestionario_II>
+        
+        <fld0>Dati assistito </fld0>
+        <fldNotizie_Clin>Notizie cliniche </fldNotizie_Clin>
+        <fldQuesito>Quesito diagnostico </fldQuesito>
+        <fldIndagine>Indagine proposta </fldIndagine>
+        <fldQuestionario>Questionario </fldQuestionario>
+        <fldEsameRM>RM precedenti </fldEsameRM>
+        <fldOperazioni>E' già stato operato a </fldOperazioni>
+        <fldCorpi_Metallici>Corpi metallici </fldCorpi_Metallici>
+        <fldPortatore>Il paziente è inoltre portatore di </fldPortatore>
+        
+        <lblCollaborazione>Paziente collaborante </lblCollaborazione>
+        <lblPeso>Peso (Kg)</lblPeso>
+        <lblProblemiPaziente>Diagnosi effettuate per il paziente</lblProblemiPaziente>
+        <lblEsameRM>Ha già eseguito un esame RM ?</lblEsameRM>
+        <lblDove>Dove ?</lblDove>
+        <lblQuando>Quando ?</lblQuando>
+        <lblParte_Corpo>Quale parte del corpo ?</lblParte_Corpo>
+        <lblPerche>Perchè ?</lblPerche>
+        <lblCuore>Cuore</lblCuore>
+        <lblCervello>Cervello</lblCervello>
+        <lblOcchio_Orecchio>Occhio e Orecchio</lblOcchio_Orecchio>
+        <lblColonna>Colonna</lblColonna>
+        <lblVasi>Vasi</lblVasi>
+        <lblAddome>Addome</lblAddome>
+		<lblTorace>Torace</lblTorace>
+		<lblArti>Arti</lblArti>
+		<lblAltri_Interventi>Altri Interventi</lblAltri_Interventi>
+		<lblCorpi_Metallici>Il paziente è portatore di schegge o di corpi di natura metallica ?</lblCorpi_Metallici>
+		<fldElementi>Su base clinica ed anamestica emergono elementi riferibili a :</fldElementi>
+		
+		<lblPace_Maker>pace-maker o altri tipi di impianti o cateteri cardiaci</lblPace_Maker>
+		<lblValvole>protesi valvolari cardiache</lblValvole>
+		<lblDistrattori>distrattori della colonna vertebrale</lblDistrattori>
+		<lblPompe_Infusione>pompe per infusione di insulina o altri farmaci</lblPompe_Infusione>
+		<lblNeurostimolatori>neurostimolatori impiantati nel cranio o nelle colonna vertebrale</lblNeurostimolatori>
+		<lblDerivazione>derivazione spinale o ventricolare</lblDerivazione>
+		<lblTatuaggi_Piercing>Il paziente è portatore di tatuaggi, trucco permanente e/o piercing ?</lblTatuaggi_Piercing>
+		<lblMagneto_Compatibilita>Esiste Magneto Compatibilità ?</lblMagneto_Compatibilita>
+		<lblClaustrofobia>Il paziente soffre di claustrofobia ?</lblClaustrofobia>
+		<lblGravidanza>La paziente dichiara di essere in stato di gravidanza</lblGravidanza>
+		<lblImpianti>impianti otologici o cocleari</lblImpianti>
+		
+		<lblAllergie_Mezzi_Contrasto>allergie a mezzi di contrasto</lblAllergie_Mezzi_Contrasto>
+		<lblAllergie_Metalli>allergia a metalli</lblAllergie_Metalli>
+		<lblInsuff_Renale>insufficienza renale</lblInsuff_Renale>
+		
+		<lblCreatininemia>creatininemia </lblCreatininemia>
+		<lblAzotemia>azotemia </lblAzotemia>
+		
+    </ROW>
+</ROWSET>

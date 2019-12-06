@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Consegna Medica</lblTitolo>
+        <fldTrasferimento>Passaggio Di Consegne</fldTrasferimento>
+        <lbloraInizioRicovero>Ora inizio</lbloraInizioRicovero>
+        <lblRepDestinazione>Area</lblRepDestinazione>
+        <lblData>Data inizio</lblData>
+        <lblMedico>Medico</lblMedico>
+        <lblMezzoTrasporto>Mezzo di trasporto</lblMezzoTrasporto>
+        <lblNote>Note</lblNote>
+        <butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

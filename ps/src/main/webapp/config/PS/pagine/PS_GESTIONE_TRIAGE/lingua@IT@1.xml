@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <tabDati>Gestione Triage</tabDati>        
+	        <lblCognome>Cognome</lblCognome>
+	        <lblNome>Nome</lblNome>
+	        <lblDataNasc>Data nascita</lblDataNasc>
+	        <lblSesso>Sesso</lblSesso>
+	        <lblNote>Note</lblNote>
+	        <lblCodFisc>Codice fiscale</lblCodFisc>
+	        <lbldataIns>Data inserimento</lbldataIns>
+	        <lblOraIns>Ora inserimento</lblOraIns>
+	        <lblEta>Età</lblEta>
+	        <lblIChirurgo>Primo chirurgo</lblIChirurgo>
+	        <lblMateriale>Materiale</lblMateriale>
+	        <lblAnestesista>Anestesista</lblAnestesista>
+	        <lblInterPreno>Intervento prenotato</lblInterPreno>
+	        <lblDurata>Durata (min)</lblDurata>
+	        <lblDiagnosi>Diagnosi</lblDiagnosi>
+	        
+        <tabInserimento>Codice colore</tabInserimento>
+	        <dati_pazlbl>TRIAGE</dati_pazlbl>
+	        <fldChange>List Box</fldChange>        
+	        <lblDataIngresso>Data di ingresso</lblDataIngresso>
+	        <dati_amm>Dati amministrativi</dati_amm>
+	        <fldDati>Dati Amministrativi</fldDati>
+	        <lblMotivoIngresso>Motivo Ingresso</lblMotivoIngresso>
+	        <lblMezzoIncidente>Mezzo incidente</lblMezzoIncidente>
+	        <lblAutorita>Autorità int</lblAutorita>
+	        <lblProvenienza>Provenienza</lblProvenienza>
+	        <lblPresidio>Presidio</lblPresidio>
+	        <lblDataEvento>Data evento</lblDataEvento>
+	        <lblComune>Comune evento(per infortunio)</lblComune>
+            <lblDichiarazione>Dichiarazione</lblDichiarazione>
+	        <lblLocEvento>Descrizione località evento</lblLocEvento>
+	        <lblModArrivo>Modalità arrivo</lblModArrivo>
+	        <lblProbPrinc>Problema principale</lblProbPrinc>
+	        <lblAccompagnatore>Accompagnatore</lblAccompagnatore>
+	        <lblTriageAcc>Triage Accompagnatore</lblTriageAcc>
+	        <lblDich>Dichiarazione</lblDich>
+	        <fldDich>Dichiarazione </fldDich>
+        <tabDati>Inserimento Dati</tabDati>
+        	<lblOraIngresso>Ora ingresso</lblOraIngresso>
+        
+        <tabRiepilogoTriage>Riepilogo</tabRiepilogoTriage>
+        	<tableWkRiepilogoTriage>Worklist Riepilogo</tableWkRiepilogoTriage>
+        	
+        	<aei00000000000></aei00000000000>
+    </ROW>
+</ROWSET>

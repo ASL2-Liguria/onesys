@@ -1,0 +1,17 @@
+# DEFAULT CACHE REGION
+jcs.default=
+jcs.default.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+jcs.default.cacheattributes.MaxObjects=2000
+jcs.default.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
+jcs.default.cacheattributes.ShrinkerIntervalSeconds=14400
+jcs.default.cacheattributes.UseMemoryShrinker=true
+jcs.default.elementattributes=org.apache.jcs.engine.ElementAttributes
+jcs.default.elementattributes.IdleTime=2592000
+jcs.default.elementattributes.IsEternal=false
+jcs.default.elementattributes.MaxLifeSeconds=25920000
+
+#  SECONDI
+# 25920000 = 300 giorni
+#  2592000 =  30 giorni
+#    86400 =   1 giorno
+#    14400 =   4 ore

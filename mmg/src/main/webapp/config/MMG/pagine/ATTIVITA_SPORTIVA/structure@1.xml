@@ -1,0 +1,58 @@
+<PAGINA key_id="ATTIVITA_SPORTIVA">
+	
+	<HEADER_PAGE key_id="ATTIVITA_SPORTIVA" valore="DEFAULT_MMG,SCHEDA,ATTIVITA_SPORTIVA#DEFAULT_MMG,ATTIVITA_SPORTIVA" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#ATTIVITA_SPORTIVA#IDEN#IDEN" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="ModuloAttivitaSportiva#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabModuloAttivitaSportiva" valore="tabModuloAttivitaSportiva" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldDatiPaziente" valore="fldDatiPaziente" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome##txtCognome###COGNOME" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome###NOME" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_DATA key_id="txtDataNascita" valore="lblDataNascita##txtDataNascita#DataNascita#format: 'd/m/Y'###DATA_DI_NASCITA" evento="START">
+					</TR_TD_LABEL_DATA>	
+					
+					<TR_TD_LABEL_TEXT key_id="txtLuogoNascita" valore="lblLuogoNascita##txtLuogoNascita###LUOGO_DI_NASCITA" evento="START">
+					</TR_TD_LABEL_TEXT>
+						
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldDatiModulo" valore="fldDatiModulo" evento="START">
+				
+					<TR_TD_LABEL_RADIO key_id="radMioAssistito" valore="lblMioAssistito##radMioAssistito#radMioAssistito#{width:100,idxDefault:0}#S#MIO_ASSISTITO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="radECG" valore="lblECG##radECG#radECG#{width:100,idxDefault:1}#S#ECG" evento="START">
+						<TD_LABEL_DATA key_id="txtDataECG" valore="lblDataECG##txtDataECG#DataECG#format: 'd/m/Y'###DATA_ECG" evento="START"></TD_LABEL_DATA>
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="radScopoLudico" valore="lblScopoLudico##radScopoLudico#radScopoLudico#{width:100,idxDefault:1}#S#SCOPO_LUDICO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET key_id="fldRiepilogo" valore="fldRiepilogo" evento="START">
+				
+					<DIV key_id="riepilogo" valore="riepilogo" evento="START">
+					</DIV>
+					
+					<INPUT.HIDDEN key_id="hTesto" valore="hTesto###TESTO" evento="START">
+					</INPUT.HIDDEN>
+					
+				</FIELDSET>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>

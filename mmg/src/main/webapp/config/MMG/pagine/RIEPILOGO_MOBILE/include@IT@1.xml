@@ -1,0 +1,9 @@
+<INCLUDE>
+	
+	<CSS path="css/MMG/RiepilogoMobile/RiepilogoMobile.css" />
+	
+	<JS path="js/MMG/RiepilogoMobile/RiepilogoMobile.js" />
+	<JS path="js/MMG/RiepilogoMobile/Farmaci.js" />
+	<JS path="js/MMG/RiepilogoMobile/Accertamenti.js" />
+	
+</INCLUDE>

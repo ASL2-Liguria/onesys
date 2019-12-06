@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <fldFunzioni>Funzioni</fldFunzioni>
+        <butIngrandisci>Ingrandisci</butIngrandisci>
+        <butDiminuisci>Diminuisci</butDiminuisci>
+        <butPagPrec>Pag. Precedente</butPagPrec>
+        <butPagSucc>Pag. Successiva</butPagSucc>
+        <butPagPrima>Prima Pagina</butPagPrima>
+        <butPagUltima>Ultima Pagina</butPagUltima>
+        <butRuotaOrario>Ruota Orario</butRuotaOrario>
+        <butRuotaAnti>Ruota Antiorario</butRuotaAnti>
+        <butChiudi>Chiudi</butChiudi>
+        <fldFunzioniStampa>Funzioni Stampa</fldFunzioniStampa>
+        <butStampa>Stampa</butStampa>
+        <butStampaSu>Stampa Su</butStampaSu>
+        <lblPin>Pin</lblPin>
+        <butFirma>Firma</butFirma>
+        <fldFunzioniFirma>Funzioni Firma</fldFunzioniFirma>
+        <butValida>Valida</butValida>
+        <fldFunzioniValida>Funzioni Validazione</fldFunzioniValida>
+        <fldFunzioniRitornaWk>Funzioni Chiudi E Torna</fldFunzioniRitornaWk>
+        <butChiudiReturnWorklist>Chiudi e Torna Worklist</butChiudiReturnWorklist>
+        <lblPassword>Psw</lblPassword>
+        <h5NomeHostTit>Hostname:</h5NomeHostTit>
+        <h5UsernameTit>Username:</h5UsernameTit>
+        <h5DebugTit>Debug:</h5DebugTit>
+        <lblScelta>Scelta effettuata dall'assistito: </lblScelta>
+        <lblPrivacyASL>Scelte del Consenso Unico Privacy ASL2</lblPrivacyASL>
+        <confermaCancellazioneNote>Sei sicuro di voler eliminare questa nota?</confermaCancellazioneNote>
+		<lblNoMedicoCurante>L'operazione è consentita solo al medico curante</lblNoMedicoCurante>
+       	<lblNoMedicoCurante2>L'operazione è consentita solo al medico curante o per conto di quest'ultimo</lblNoMedicoCurante2>
+        
+        <!--  consenso privacy temporaneo inserito con l'aggiornamento del  15/10/2014 -->
+        <lblPrivacyConcessa>Consenso alla privacy CONCESSO</lblPrivacyConcessa>
+        <lblPrivacyNonConcessa>Consenso alla privacy NON CONCESSO</lblPrivacyNonConcessa>
+        <lblPrivacyNonRilevata>Consenso alla privacy NON ANCORA RILEVATO</lblPrivacyNonRilevata>
+       	
+       	<!-- dialog privacy dettaglio -->
+       	<lblConsensoDatiNegato>Negato il consenso realtivamente al TRATTAMENTO DEI DATI COMUNI per l'espletamento delle attività indispensabili alla gestione del rapporto medico paziente</lblConsensoDatiNegato>
+		<lblSostitutoNegato>Negato il consenso, relativamente alla condivisione dei dati necessari alla cura del paziente, al SOSTITUTO, cioè il medico che sostituisce temporaneamente il medico o il pediatra</lblSostitutoNegato>
+		<lblAssociatiNegato>Negato il consenso, relativamente alla condivisione dei dati necessari alla cura del paziente, agli ASSOCIATI</lblAssociatiNegato>
+		<lblCollaboratoriNegato>Negato il consenso, relativamente alla condivisione dei dati necessari alla cura del paziente, ai COLLABORATORI</lblCollaboratoriNegato>
+		<lblConsensoPersASLNegato>Negato il consenso, relativamente alla condivisione dei dati necessari alla cura del paziente, al PERSONALE ASL coinvolto nell'ambito di processi di diagnosi e cura che interessassero il paziente, limitatamente alle informazioni normativamente riconducibili all'alimentazione del Patient Summary del Fascicolo Sanitario Elettronico provinciale e regionale</lblConsensoPersASLNegato>
+		<lblSpecialistaNegato>Negato il consenso, relativamente alla condivisione dei dati necessari alla cura del paziente, allo SPECIALISTA coinvolto nell'ambito di processi di diagnosi e cura dal medico o pediatra</lblSpecialistaNegato>
+		<lblConsensoComunicazioneNegato>Negato il consenso alla comunicazione dei dati personali, anche relativi allo stato di salute del paziente, a FAMILIARI, CONVIVENTI o TERZI che si occupano del paziente (CARE GIVER)</lblConsensoComunicazioneNegato>
+		<lblConsensoDatiSensibiliNegato>Negato il consenso al trattamento dei DATI SENSIBILI E GIUDIZIARI (articoli .4 comma 1 lett. d),e) e 26 del D.Lgs. 196/2003), ed in particolare: convinzioni religiose, origini razziali o etniche, vita sessuale, Stato di salute)</lblConsensoDatiSensibiliNegato>
+		<lblConsensoVisioneDatiAslNegato>(Modulo consenso ASL) Negato il consenso alla gestione dei dati da parte dell'ASL o alla visione dei dati prodotti nell'ASL da parte del MMG/PLS</lblConsensoVisioneDatiAslNegato>
+		<butConsenso>Vai al Modulo</butConsenso>
+		<lblDeniedSpecialistaTitle>Consenso NEGATO</lblDeniedSpecialistaTitle>
+		
+        <!-- PRIVACY -->
+        <lblDeniedTrattamentoDati>PRIVACY: ATTENZIONE! I dati non sono accessibili. L'assistito ha negato il Consenso al trattamento dei suoi dati personali e sensibili</lblDeniedTrattamentoDati>
+        <lblDeniedVisualizzazioneDati>PRIVACY: ATTENZIONE! I dati non sono accessibili in quanto il paziente ha negato il consenso alla consultazione dei dati presenti nel Fascicolo Sanitario Elettronico</lblDeniedVisualizzazioneDati>
+        <lblDeniedIntegrazionePS>Il Patient Summary non è accessibile in quanto il paziente ha negato il consenso alla integrazione del Fascicolo Sanitario Elettronico Provinciale da parte del MMG/PLS</lblDeniedIntegrazionePS>
+        <butPortale>Accedi al Portale Privacy</butPortale>
+        <lblAvvisoLetturaDocumenti>Attenzione: selezionando OK sarà consentita la visualizzazione di tutti i documenti sanitari memorizzati. E' responsabilità dell'utente accedere alle sole informazioni di competenza, nel rispetto della vigente normativa sulla privacy. Tutte le operazioni eseguite verranno tracciate. Continuare?</lblAvvisoLetturaDocumenti>
+
+        <lblConsensoNonPrelevato>PRIVACY: ATTENZIONE! Non è ancora stato recepito il modulo di consenso alla privacy per il paziente in questione.</lblConsensoNonPrelevato>
+       	<lblDeniedSpecialista>PRIVACY: ATTENZIONE! Il paziente ha negato il consenso per la condivisione del dato con lo specialista. Valutare attentamente l'inserimento delle informazioni!</lblDeniedSpecialista>
+       	<lblTitleAttenzionePrivacy>ATTENZIONE! CONSENSO PRIVACY NEGATO</lblTitleAttenzionePrivacy>
+       	<lblCatConsensoNegato>Negazione del consenso per le seguenti voci di menu:</lblCatConsensoNegato>
+       	<lblDettaglioConsenso>DETTAGLIO PRIVACY</lblDettaglioConsenso>
+       	<msgConsensoNonRecepito>PRIVACY: ATTENZIONE! Non è ancora stato recepito il modulo di consenso alla privacy per il paziente in questione</msgConsensoNonRecepito>
+       	
+        <lblInformazione>Informazione</lblInformazione>
+        <lblNoPagineManuale>Non ci sono pagine del manuale dedicate a questa scheda</lblNoPagineManuale>
+		
+        <!-- label dialog menu shortcut -->
+        <lblLogout>Si desidera uscire dal programma?</lblLogout>
+        <lblCambiaLogin>Si desidera tornare alla schermata di login?</lblCambiaLogin>
+        <lblConfermaLogout>Conferma</lblConfermaLogout>
+        <lblConfermaCambioLogin>Conferma</lblConfermaCambioLogin>
+        
+        <lblPazienteMedIniz>Il paziente è inserito in un percorso di medicina di iniziativa relativo a</lblPazienteMedIniz>
+        
+        <lblOpzioniDematerializzata>Scegliere l'opzione per la conferma della dematerializzata sulle prescrizione effettuate da personale non medico (segretarie, front-end,...)*:&lt;br&gt;&lt;ul&gt;&lt;li&gt;
+        &lt;br&gt;- &lt;v&gt;CONFERMA AUTOMATICA&lt;/v&gt;: le prescrizioni vengono confermate in maniera automatica&lt;/li&gt;&lt;br&gt;
+        &lt;li&gt;- &lt;v&gt;POPUP&lt;/v&gt;: ad ogni prescrizione del personale non medico verrà inviato un popup, in real time, che permetterà di confermare o meno la prescrizione&lt;/li&gt;&lt;br&gt;
+        &lt;li&gt;- &lt;v&gt;INCREMENTO NOTIFICA&lt;/v&gt;: verrà incrementato un contatore numerico sull'icona dedicata in base al numero di prescrizioni da confermare&lt;/li&gt;&lt;/ul&gt;&lt;br&gt;&lt;br&gt;
+        &lt;i&gt;* l'opzione attualmente selezionata (se presente) è evidenziata in verde&lt;/i&gt;</lblOpzioniDematerializzata>
+    </ROW>
+</ROWSET>

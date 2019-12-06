@@ -1,0 +1,8 @@
+<INCLUDE>
+	<JS path="js/Base/DIALOG.js" />
+    <JS path="js/PS/TabHomePS/WorkStation.js" />
+    <JS path="js/PS/Consulenze/Consulenze.js" />
+    <JS path="js/Base/jquery.plugin/jquery.tooltipster.js"/>
+    <CSS path="css/PS/TabHomePS/TabHomePS.css" />
+    <CSS path="css/base/jquery.plugin/tooltipster.css"/>
+</INCLUDE>

@@ -1,0 +1,44 @@
+<root>
+	<statements_list>
+		<statement name="caricaParametri">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+			 	SELECT  TYPE.IDEN IDEN_PARAMETRO, DESCRIZIONE, REP.ORDINE, REP.TERAPIA_AL_BISOGNO,REP.SEZIONE,REP.ATTIVO,critico_basso, allerta_basso, allerta_alto, critico_alto, critico_basso_2,allerta_basso_2, allerta_alto_2, critico_alto_2 FROM CC_PARAMETRI_TYPE type JOIN CC_PARAMETRI_REPARTO REP ON ( REP.IDEN_PARAMETRO=TYPE.IDEN AND TYPE.ATTIVO ='S' ) WHERE REP.CODICE_REPARTO=? ORDER BY rep.ordine		
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaSingoloParametro">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+			 	SELECT  TYPE.IDEN IDEN_PARAMETRO, DESCRIZIONE, REP.ORDINE, REP.TERAPIA_AL_BISOGNO,REP.SEZIONE,REP.ATTIVO,critico_basso, allerta_basso, allerta_alto, critico_alto, critico_basso_2,allerta_basso_2, allerta_alto_2, critico_alto_2 FROM CC_PARAMETRI_TYPE type JOIN CC_PARAMETRI_REPARTO REP ON ( REP.IDEN_PARAMETRO=TYPE.IDEN AND TYPE.ATTIVO ='S' ) WHERE REP.CODICE_REPARTO='CONF_STANDARD' AND IDEN_PARAMETRO=? ORDER BY rep.ordine		
+			]]>
+			</sql>
+		</statement>
+		<statement name="registraParametri">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				declare					
+					pReparto varchar2(4000) := ?;
+					pStringa varchar2(4000) := ?;
+					vParametri ARRAY_VALUE := split2array(pStringa,'#');
+					 vCampi ARRAY_VALUE;
+				begin
+					DELETE CC_PARAMETRI_REPARTO WHERE CODICE_REPARTO=pReparto;
+					for idx in vParametri.first..vParametri.last
+                    loop
+                      vCampi:= split2array(vParametri(idx),'*');
+                        begin
+                         Insert into CC_PARAMETRI_REPARTO (IDEN_PARAMETRO,CODICE_REPARTO,ORDINE,TERAPIA_AL_BISOGNO,SEZIONE,ATTIVO,CRITICO_BASSO,ALLERTA_BASSO,CRITICO_ALTO,ALLERTA_ALTO,CRITICO_BASSO_2,ALLERTA_BASSO_2,CRITICO_ALTO_2,ALLERTA_ALTO_2) values (to_number(vCampi(1)),pReparto,to_number(vCampi(2)),vCampi(3),vCampi(4),vCampi(5),to_number(replace(vCampi(6),'.',',')),to_number(replace(vCampi(7),'.',',')),to_number(replace(vCampi(8),'.',',')),to_number(replace(vCampi(9),'.',',')),to_number(replace(vCampi(10),'.',',')),to_number(replace(vCampi(11),'.',',')),to_number(replace(vCampi(12),'.',',')),to_number(replace(vCampi(13),'.',',')));
+                    --	exception when others then
+                   -- 	 gest_logs.error('registra_parametri',vCampi(1)||' '||pReparto||' '||vCampi(2)||' '||vCampi(3)||' '||vCampi(4)||' '||vCampi(5)||' '||vCampi(6)||' '||vCampi(7)||' '||vCampi(8)||' '||vCampi(9)||' '||vCampi(10)||' '||vCampi(11)||' '||vCampi(12)||' '||vCampi(13));
+                    	end;
+                    end loop;
+				end;			
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

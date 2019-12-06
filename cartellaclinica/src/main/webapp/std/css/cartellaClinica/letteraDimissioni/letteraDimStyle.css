@@ -1,0 +1,528 @@
+/*html{overflow:hidden;}*/
+body {
+	overflow-x: hidden;
+}
+
+form {
+	margin: 0px;
+}
+
+#divHeader {
+	width: 100%;
+}
+
+#divBody {
+	width: 100%;
+	height: 661px;
+}
+
+#headerLeft {
+	float: left;
+	width: 55%;
+}
+
+#headerRight {
+	float: left;
+	width: 44%;
+}
+
+#sections {
+	background: #E9F3FE;
+	border: blue;
+	padding-left: 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 100%;
+	float: left;
+	width: 54%;
+	margin-bottom: 20px;	
+}
+
+#infos {
+	background: #E9F3FE;
+	border: blue;
+	padding: 5px;
+	height: 97%;
+	/*overflow-x: scroll;*/
+	overflow-y: auto;
+	float: left;
+	width: 44%;
+	margin-bottom: 20px;	
+}
+
+#divFrame{
+	width		: 100%;	
+	height		: 125px;	
+}
+
+#idFrameConsenso{
+	width		: 100%;	
+	height		: 100%;	
+}
+
+/*#infos iframe{height:100%;width:100%;}*/
+#infos div.dataContainer {
+	height: 95%;
+	width: 100%;
+    overflow-x:visible;
+	clear: both; /*overflow-y:scroll;overflow-x:hidden;*/
+}
+
+#infos div.dataContainerRic {
+	height: 95%;
+	width: 600px;
+	overflow-x:visible;
+	clear: both; /*overflow-y:scroll;overflow-x:hidden;*/
+}
+
+div.tabHide {
+	display: none;
+}
+
+div.tabShow {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+ul {
+	MARGIN: 0px;
+	padding: 0px;
+	FONT: bold 12px Verdana, sans-serif;
+}
+
+ul li {
+	DISPLAY: inline-block;float:left;
+	LINE-HEIGHT: 28px;
+}
+
+/*ul li a {
+	background: url(../../../../imagexPix/tabulator/normalTab.png) repeat-x;
+	COLOR: black;
+	text-decoration: none;
+	PADDING: 5px 10px;
+	BORDER: 1px solid #E9FEFE;
+}
+
+ul li.active a {
+	background: url(../../../../imagexPix/tabulator/selectedTab.png)
+		repeat-x;
+	COLOR: white;
+}
+
+ul li a:hover {
+	background: url(../../../../imagexPix/tabulator/hoverTab.png) repeat-x;
+	BORDER: 1px solid blue;
+	COLOR: black;
+}*/
+
+ul li span {
+	background: url(../../../../imagexPix/tabulator/normalTab.png) repeat-x;
+	COLOR: black;
+	text-decoration: none;
+	PADDING: 5px 10px;
+	BORDER: 1px solid #E9FEFE;
+}
+
+ul li.active span {
+	background: url(../../../../imagexPix/tabulator/selectedTab.png)
+		repeat-x;
+	COLOR: white;
+}
+
+ul li span:hover {
+	background: url(../../../../imagexPix/tabulator/hoverTab.png) repeat-x;
+	BORDER: 1px solid blue;
+	COLOR: black;
+	cursor:pointer;
+}
+
+textarea {
+	width: 100%;
+}
+
+span.SubTitleSection {
+	float: left;
+	/*background: #95BAFF;*/
+	background: #3a8fe8;
+	text-align:center;
+	height: 22px;
+	color: white;
+	FONT: bold 12px Verdana, sans-serif;
+	padding-top: 5px;
+	/*	padding-left:15px;
+	padding-right:15px;	*/
+	width: 90%;
+}
+
+div.row {
+	width: 100%;
+	clear: both;
+}
+
+
+
+.right {
+	float: right;
+}
+
+div.ricerca {
+	height: 10%
+}
+
+div.ricerca input {
+	margin: 3px;
+}
+
+div.risultati {
+	height: 230px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+table.risultati {
+	width: 100%;
+}
+
+div.testo {
+	height: 40%;
+	overflow: hidden;
+	display: none;
+	width: 100%;
+}
+
+div.testo input {
+	margin: 3px;
+}
+
+div.testoShow {
+	background: #FFF;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: auto;
+	padding: 5px;
+}
+
+a.btn {
+	line-height: 21px;
+	padding: 0px 10px;
+	margin-top: 3px;
+	text-decoration: none;
+	background: url(../../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	font-weight: bold;
+	color: blue;
+}
+
+a.btn:hover {
+	text-decoration: none;
+	background: url(../../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color: yellow;
+}
+
+table{
+	width: 98%;
+	table-layout: auto;
+	white-space: nowrap;
+}
+
+tr:hover th {
+	background: #FCFDC6;
+}
+
+tr:hover td {
+	background: #FCFDC6;
+}
+
+th {
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: 000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+div#infos td,div#divRisultati td,div#divTestoEdit td {
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+}
+
+div.tableButton {
+	margin: 1px;
+	border: 1px solid #95BAFF;
+	background: white;
+	font-weight:900; 
+	/*color: #95BAFF;*/
+	width: 15px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	padding:2px;
+}
+
+.tableButton:hover { border-color: blue; color: blue; background: green;}
+
+div.mod{ background: #FFF7B8; color:black; font-weight:900; }
+div.duplica{ background: #C2EAFF; color:black; font-weight: 900; }
+div.canc{ background: #FF9A8A; color:black; font-weight: 900; }
+div.imp { background: #278A00; color:white; font-weight: 900; padding:2px; }
+
+/* Filtro + Tabella contenente i dati di laboratorio */
+#wrapperFiltroDatiLabo{height:22px;line-height:22px;vertical-align:middle;}
+.vrapSezFiltroLabo{height:22px;display:inline-block;line-height:22px;float:left;}
+#wrapperFiltroDatiLabo span{height:22px;display:inline-block;line-height:22px;}
+#wrapperFiltroDatiLabo input{position:static;vertical-align:middle;}
+#btnAllegaDatiLabo{
+	display:inline-block;width:80px;height:20px;line-height:20px;margin-left:10px;vertical-align:middle;
+	background: url(../../../../imagexPix/bar/btLightCyan.jpg) repeat-x;color: blue;font-weight:bold;text-align:center;cursor:pointer;
+}
+#btnAllegaDatiLabo:hover{BACKGROUND: url(../../../../imagexPix/bar/btCyan.jpg) repeat-x;color:yellow;}
+
+.divFiltroLaboratorio { height: 5%; clear: both; }
+.divTabLaboratorio { height: 95%; overflow: auto; }
+
+#divTabLaboratorio{overflow:visible;}
+tr#head{height:20px;}
+#trNoDatiLabo{height:20px;}
+#tabRisultatiLabo th{height:20px;line-height:20px;vertical-align:middle;text-align:left;}
+#tabRisultatiLabo th label{vertical-align:middle;display:inline-block;padding-left:5px;float:left;}
+#tabRisultatiLabo th input{vertical-align:middle;display:inline-block;float:left;}
+#tabRisultatiLabo tr th,td { font-size: 9px; }
+
+.lblCheckPrestazione{display:inline-block;width:100px;}
+.lblCheckRichiesta{display:inline-block;width:75px;float:left;}
+
+#tabRisultatiLabo tr.gruppoEsami th {background-color: #06C; color: white;padding: 0p;margin-left:25px;}
+#tabRisultatiLabo tr.rigaAnalisiMulti td{background-color: #FC0;color:#039}
+#tabRisultatiLabo .rimosso { background: #DADADA; color: #BBB; }
+
+
+
+
+/*
+<!-- ****************************************** -->
+<!-- ********* Footer  ************************ -->
+<!-- ****************************************** --> 
+*/
+div#footer {
+	color: #FFF;
+	height: 25px;
+	background: url(../../../../imagexPix/tabheader/top_tabella.gif) repeat-x;
+	position: absolute;
+	width: 99%;
+	bottom: 0;
+	padding: 2px;
+	clear: both;
+	overflow: hidden;
+}
+
+.pulsanteBarraFooter {
+	width			: 120px;
+	TEXT-DECORATION	: none;
+	color			: blue;
+	line-height		: 21px;
+	padding-left	: 2px;
+	padding-right	: 2px;
+	margin-left		: 3px;
+	float			: right;
+/*	background-image:url(../../../../imagexPix/bar/btContainer.jpg);*/
+	background-image: url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-weight: bold;
+	displaY: block;
+}
+
+.pulsanteBarraFooter:hover {
+	background-image: url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat: repeat-x;
+	color: yellow;
+	font-weight: bold;
+	cursor:pointer;
+}
+
+iframe#frmInserimentoTerapie { width: 99%; height: 99%; }
+
+#sections label { FONT: bold 12px Verdana, sans-serif; }
+
+#divTerapie { height: 600px; }
+
+#divDataFineRicovero{
+	height: 26px;
+	width: 245px;
+	display:block;
+	overflow:hidden;
+}
+	
+#divRicerca{ 
+	text-align: center; 
+	background: #e5effd;/*#95BAFF  #7AA9FF;*/ 
+	border-left: 2px solid #95BAFF;
+	border-right: 2px solid #95BAFF;
+}
+#divRicerca label{ font-weight:bold; height: 20px; }
+#divRicerca input{ margin-left: 10px; }
+
+#divRisultati, #divTestoEdit, #divTestoShow{
+	height: 230px;
+	background: E9F3FE;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	border-left: 2px solid #95BAFF;
+	border-right: 2px solid #95BAFF;
+	padding: 5px;
+}
+
+#txtShowTestoStd {
+	margin: 10px;
+	border: 2px solid #95BAFF;
+	border-top: 1px solid #95BAFF;
+	padding: 10px;
+}
+
+.labelRicerca{
+	font-size:12px;
+	padding-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 25px;
+	line-height: 25px;
+	color:black;
+}
+
+input.textRic{
+	padding-left:10px;
+	margin-left: 15px;
+	border: 2px solid #95BAFF;
+	border-bottom: 2px solid #95BAFF;
+	border-right: 2px solid #95BAFF;
+	text-align:left;
+	width: 300px;
+}
+
+.SubTitleSectionSTD {
+	/*background: url(../../../../imagexPix/tabheader/top_tabella.gif) repeat-x;*/
+	background: #95BAFF;
+	text-align:center;
+	height: 22px;
+	color: black;
+	FONT: bold 12px Verdana, sans-serif;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	width:100%;
+	height: 25px;
+}
+
+#divFiltroRicerca{ 
+	text-align: center; 
+	/*background: url(../../../../imagexPix/tabheader/top_tabella.gif) repeat-x;*/
+	background: #95BAFF;
+}
+#divFiltroRicerca label{ font-weight:bold; height: 20px; }
+#divFiltroRicerca input{ margin-left: 10px; }
+
+
+
+.rowDetail SPAN {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	width: 99%;
+	font-size: 12px;
+}
+
+.rowHead SPAN {
+	margin-bottom: 0px;
+	width: 99%;
+	text-align: center;
+	font-size: 12px;
+}
+span.header_title {
+	width: 98%;
+	display:inline-block; 
+	text-align:center;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+span.detail_title{
+	width: 98%;
+	display:inline-block; 
+	text-align:center;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+
+}
+
+span.header {
+	width: 30%;
+	float: left;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+span.detail,td.detail {
+	width: 60%;
+	float: left;
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+	display:block;
+}
+
+span.detail:hover,span.detail_title:hover{
+	background: #FCFDC6;
+}
+
+table#tableInfoFromRs{
+	width: 98%;
+	table-layout: auto;
+	white-space:normal;
+	padding: 3px;
+	margin: 5px;
+}
+
+#tableInfoFromRs tr.detail {
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+	display:block;
+}
+
+#tableInfoFromRs tr.detail td {
+	border: 1px solid #95BAFF;
+	background: #FFF;
+}
+
+#tableInfoFromRs tr.detail td:hover {
+	background: #FCFDC6;
+}
+
+#tableInfoFromRs .header_title_info {
+	width: 98%;
+	display:inline-block; 
+	text-align:center;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+#lblMedPed {
+    cursor: pointer;
+}
+
+div#idVerbaleOperatorio table td {
+	width: 66%;
+}

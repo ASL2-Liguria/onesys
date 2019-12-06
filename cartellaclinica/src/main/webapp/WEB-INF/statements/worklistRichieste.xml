@@ -1,0 +1,11 @@
+<root>
+	<statements_list>
+		<statement name="preparazioneEsami">				
+			<sql>
+			<![CDATA[		
+				select t_e.descr ESAME,c_est.descr2 PREPARAZIONE from infoweb.testata_richieste t join INFOWEB.dettaglio_richieste d on (t.iden=d.iden_testata) join radsql.tab_esa t_e on (d.iden_tab_esa=t_e.iden) join radsql.cod_est_tab_esa c_est on (t_e.iden=c_est.iden_esa) where cod2='PREPARAZIONE' and t.iden=to_number(?)
+			]]>
+			</sql>
+		</statement>
+	</statements_list>	
+</root>	

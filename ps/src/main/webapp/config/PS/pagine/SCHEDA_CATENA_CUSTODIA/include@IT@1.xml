@@ -1,0 +1,5 @@
+<INCLUDE>
+    <CSS path="css/PS/SchedaCatenaCustodia/CatenaCustodia.css" />
+    <JS path="js/PS/CatenaCustodia/CatenaCustodia.js" />
+    <JS path="config/PS/validator/model/V_CATENA_CUSTODIA.js" />
+</INCLUDE>

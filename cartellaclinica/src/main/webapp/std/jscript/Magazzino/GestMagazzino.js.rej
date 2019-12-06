@@ -1,0 +1,32 @@
+--- GestMagazzino.js
++++ GestMagazzino.js
+@@ -109,29 +185,1 @@
+ }
+-function inserisciUnita(){
+-
+-    var iden_farmaco = document.getElementById("IDEN_FARMACO").value;
+-    //document.getElementById('hIdenFarmaco').value;
+-    var iden_magazzino_prov = $('[name="cmbRepartoProvenienza"]').find('option:selected').val();
+-
+-    //alert(iden_farmaco +'\n'+ iden_magazzino_prov);
+-    if (iden_farmaco != '' && iden_magazzino_prov != ''){
+-        var vResp = WindowHome.executeStatement("Magazzino.xml", "GETUNITA", [iden_farmaco,iden_magazzino_prov],1);
+-        if(vResp[0]=='KO'){
+-            return alert(vResp[1]);
+-        }else{
+-            $('#txtUnitaDisp').val(vResp[2]);
+-        }
+-    }
+-}
+-
+-function trim (str) {
+-    str = str.replace(/^\s+/, '');
+-    for (var i = str.length - 1; i >= 0; i--) {
+-        if (/\S/.test(str.charAt(i))) {
+-            str = str.substring(0, i + 1);
+-            break;
+-        }
+-    }
+-    return str;
+-}
+-

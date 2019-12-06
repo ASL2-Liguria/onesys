@@ -1,0 +1,58 @@
+body {
+	width: 1024px;
+}
+
+#butApplica {
+	float:right;
+	margin-right: 20px;
+	margin-top: 10px;
+	width: 100px;
+}
+
+td div.red, td div.green {
+	padding: 5px;
+}
+
+td div.red {
+	background: #e74c3c;
+	color: #fff;
+}
+
+td div.green  {
+	background: #2ecc71;
+	color: #fff;
+}
+
+#divInfoSearch {
+	padding-bottom: 10px;
+	color: grey;
+	text-align: center !important;
+	font-style: italic;
+	font-size: 14px;
+	float:left;
+	width: 700px;
+}
+
+#fldFiltriDate{
+	width: 20%;
+	float: right;
+	padding: 0;
+}
+
+#fldFiltri{
+	width: 75%;
+	float: left;
+	padding: 0;
+}
+
+#fldApplica {
+	width: 100%;
+	margin-top: 0px;
+	border: 0px;
+	height: 35px;
+	padding: 0;
+}
+
+#divWk {
+	clear:left;
+}

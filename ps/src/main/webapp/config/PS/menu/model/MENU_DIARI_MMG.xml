@@ -1,0 +1,47 @@
+<MENU>
+    <ID>MENU_DIARI_MMG</ID>
+    <TITLE>traduzione.menuDiariMMG</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISCI</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                home.MALATTIE_RARE.MALATTIE_RARE.inserisciNotaDiario(rec);
+            }]]></LINK>
+            <URL_IMAGE>img/CMenu/apri_datawharehouse.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return $("#READONLY").val()!='S'}]]></WHERE>
+            <OUTPUT>traduzione.menuInserisci</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                home.MALATTIE_RARE.MALATTIE_RARE.modificaNotaDiario(rec);
+            }]]></LINK>
+            <URL_IMAGE>img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return $("#READONLY").val()!='S' && WHERE_MENU_MALATTIE_RARE.modifica(rec);}]]></WHERE>
+            <OUTPUT>traduzione.menuModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ELIMINA</ID>
+            <LINK><![CDATA[function(rec)
+            {
+               home.MALATTIE_RARE.MALATTIE_RARE.deleteNotaDiario(rec);
+            }]]></LINK>
+            <URL_IMAGE>img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return $("#READONLY").val()!='S' && WHERE_MENU_MALATTIE_RARE.modifica(rec);}]]></WHERE>
+            <OUTPUT>traduzione.menuDelete</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+    </LIST>
+</MENU>

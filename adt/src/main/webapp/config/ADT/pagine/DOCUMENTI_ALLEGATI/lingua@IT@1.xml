@@ -1,0 +1,33 @@
+<ROWSET>
+    <ROW>
+        <fldAllegato>Allegato</fldAllegato>
+        <tabStorico>Storico</tabStorico>
+        <tableWkdocumenti>Allegati presenti</tableWkdocumenti>
+        <tabAllegati>Allegati</tabAllegati>
+        <lblTipologiaAllegato>Tipologia</lblTipologiaAllegato>
+        <lblTitolo>Allega documenti</lblTitolo>
+        <lblNomeAllegato>Nome allegato</lblNomeAllegato>
+        <lblAllegaPazienteEpisodio>Allega a</lblAllegaPazienteEpisodio>
+        <lblAllegaFile>Scegli il file da allegare</lblAllegaFile>
+        <butImporta>Importa da PC</butImporta>
+        <butAcquisisci>Acquisisci da Scanner</butAcquisisci>
+        <butChiudi>Chiudi</butChiudi>
+        <lblTipologiaAllegato>Tipologia</lblTipologiaAllegato>
+        <tabAllegati>Documenti Allegati</tabAllegati>
+        <tabSegreteria>Segreteria</tabSegreteria>
+        <tabVersioniReferti>Versioni Referti</tabVersioniReferti>
+        <WKsegrData>Data Operazione</WKsegrData>
+        <WKsegrTipo>Tipo Operazione</WKsegrTipo>
+        <SegrApri>Apri</SegrApri>
+        <SegrCancella>Cancella</SegrCancella>
+        <WKdocDescr>Descrizione</WKdocDescr>
+        <WkdocTipo>Tipo</WkdocTipo>
+        <WKdocData>Data</WKdocData>
+        <WKdocOra>Ora</WKdocOra>
+        <VersioniApri>Apri</VersioniApri>
+        <VersioniVisualizza>Visualizza</VersioniVisualizza>
+        <WKverData>Data</WKverData>
+        <WKverOra>Ora</WKverOra>
+        <WKverProgr>Numero Versione</WKverProgr>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,6 @@
+body { width: 960px; }
+
+#divPrestazioni,
+#divListaGravidanze { margin: 10px 0; }
+
+#txtSettimanaGravidanza { width: 120px; }

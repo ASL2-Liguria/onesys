@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>GESTIONE_UTENTI</ID>
+	<ID-QUERY connection="WHALE">WORKLIST.GESTIONE_UTENTI</ID-QUERY>
+	<TITLE>"Worklist Gestione Utenti"</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+	<STRUCTURE>
+        <MENU>
+            <ID>MENU_UTENTI_INS_MOD</ID>
+        </MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+					<ID>
+						<COL>IDEN</COL>
+						<DB>IDEN</DB>
+					</ID>
+					<DESCRIPTOR>"Iden"</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>N</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>USERNAME</COL>
+						<DB>USERNAME</DB>
+					</ID>
+                    <DESCRIPTOR>"Username"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+					<ID>
+						<COL>DESCR_PER</COL>
+						<DB>DESCR_PER</DB>
+					</ID>
+                    <DESCRIPTOR>"Utente"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+					<ID>
+						<COL>LINGUA</COL>
+						<DB>LINGUA</DB>
+					</ID>
+                    <DESCRIPTOR>"Lingua"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+					<ID>
+						<COL>ATTIVO</COL>
+						<DB>ATTIVO</DB>
+					</ID>
+                    <DESCRIPTOR>"Attivo"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+			</LIST>
+			<SORT>
+				<!-- <COLUMN id="PAZIENTE">ASC</COLUMN>
+                <COLUMN id="CODICE_FISCALE">DESC</COLUMN> -->
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

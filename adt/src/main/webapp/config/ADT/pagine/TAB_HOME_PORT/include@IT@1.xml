@@ -1,0 +1,5 @@
+<INCLUDE>
+    <JS path="js/Base/NS_FENIX_FILTRI.js"/>
+    <JS path="js/NS_APPLICATIONS.js"/>
+    <JS path="js/ADT/TabHomePortineria/TabHomePortineria.js"/>
+</INCLUDE>

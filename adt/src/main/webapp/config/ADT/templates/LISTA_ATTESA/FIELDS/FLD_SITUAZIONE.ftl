@@ -1,0 +1,2 @@
+<@lib.tdLbl class="tdLbl" id="lblSituazione" value="${traduzione.lblSituazione}" ></@lib.tdLbl>
+<@lib.tdCombo id="cmbSituazione" option={"Situazione 1":"S1", "Situazione 2":"S2", "Situazione 3":"S3"} ></@lib.tdCombo>

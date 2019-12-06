@@ -1,0 +1,25 @@
+<DATI
+	configurazione="begin 
+   if '#IDEN#' is null then
+		   :stato_pagina := 'R'; 
+		   :key_query := 'LOAD_SCHEDA_XML_LAST'; 
+		   :where := null; 
+		   :campo_xml := 'CONTENUTO'; 
+   else
+		   :stato_pagina := 'M'; 
+		   :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; 
+		   :where := null; 
+		   :campo_xml := 'CONTENUTO'; 
+   end if;
+end;">
+	<DATO key_id="chkSintomi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_RSA'' and TIPO_DATO=''Sintomi'''; end;" />
+	<DATO key_id="Ricovero" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_RSA'' and TIPO_DATO=''Ricovero'''; end;" />
+	<DATO key_id="TipRicovero" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_RSA'' and TIPO_DATO=''Tipologia'''; end;" />
+	<DATO key_id="DettADI" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_RSA'' and TIPO_DATO=''ADI'''; end;" />
+	<DATO key_id="cmbProblemiPaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="CMB_PROBLEMI_MODULI" />
+</DATI>

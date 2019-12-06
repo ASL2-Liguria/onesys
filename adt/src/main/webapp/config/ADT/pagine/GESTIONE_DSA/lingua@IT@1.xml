@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+	<ROW>
+        <butStampaInformativaDSA>Stampa informativa DSA</butStampaInformativaDSA>
+		<lblTitolo>Gestione DSA</lblTitolo>
+        <butRefStrum>Referti strumentali</butRefStrum>
+        <butDatiLabo>Dati laboratorio</butDatiLabo>
+        <datiPaziente>Dati paziente</datiPaziente>
+		<tabDSA>Apertura DSA</tabDSA>
+        <DatiEsami>Dati paziente</DatiEsami>
+		<tabPrestDSA>Prestazioni e ricette DSA</tabPrestDSA>
+		<idAperturaDSA>Apertura DSA</idAperturaDSA>
+		<lblDataAperturaDSA>Data apertura</lblDataAperturaDSA>
+		<lblOraAperturaDSA>Ora Apertura</lblOraAperturaDSA>
+		<lblDataPrenDSA>Data prenotazione</lblDataPrenDSA>
+		<idChiusuraDSA>Chiusura DSA</idChiusuraDSA>
+		<lblDataChiusuraDSA>Data chiusura</lblDataChiusuraDSA>
+		<idPrestazioniDSA>Prestazioni DSA</idPrestazioniDSA>
+		<lblTipoDSA>Tipo DSA</lblTipoDSA>
+		<lblReparto>Reparto</lblReparto>
+		<lblLivelloUrg>Urgenza</lblLivelloUrg>
+		<idPrestazioniDSA>Prestazioni</idPrestazioniDSA>
+		<idRicetteDSA>Ricette</idRicetteDSA>
+		<lblDataRiceIniDSA>Data ricetta iniziale</lblDataRiceIniDSA>
+		<lblCodiceRiceIniDSA>Codice ricetta iniziale</lblCodiceRiceIniDSA>
+		<lblTicketRiceIniDSA>Ticket ricetta iniziale</lblTicketRiceIniDSA>
+		<lblCaseManager>Case manager</lblCaseManager>
+		<lblDiagnosiPrinc>Diagnosi principale</lblDiagnosiPrinc>
+		<lblInterventoPrinc>Intervento principale</lblInterventoPrinc>
+		<lblTicketCalcolato>Ticket calcolato</lblTicketCalcolato>
+		<lblTicketDefinitivo>Ticket definitivo</lblTicketDefinitivo>
+		<lblGaranziaTempiAtt>Garanzia tempi di attesa</lblGaranziaTempiAtt>
+		<idDatiPrimoAccesso>Dati clinici primo accesso</idDatiPrimoAccesso>
+		<lblAnamnesi>Anamnesi</lblAnamnesi>
+		<lblSospettoDia>Sospetto diagnostico</lblSospettoDia>
+		<lblEsameObi>Esame obiettivo</lblEsameObi>
+		<idEsenzioniPaziente>Tipo e priorita' ricette - Esenzioni paziente</idEsenzioniPaziente>
+		<lblEsenzioniPaziente>Esenzioni del paziente</lblEsenzioniPaziente>
+		<lblEsenzioniScelte>Esenzioni scelte</lblEsenzioniScelte>
+		<idAssistito>Dati assistito</idAssistito>
+		<lblTipologiaDSA>Tipologia DSA</lblTipologiaDSA>
+		<idAssistito>Dati assistito</idAssistito>
+  		<lblSesso>Sesso</lblSesso>
+  		<butGeneraRicette>Genera ricette</butGeneraRicette>
+  		<lblDataNascita>Data di nascita</lblDataNascita>
+  		<lblCodiceFiscale>Codice fiscale</lblCodiceFiscale>
+  		<lblDiagnosiIcd9>Diagnosi ICD9</lblDiagnosiIcd9>
+  		<butSelTutte>Seleziona tutte</butSelTutte>
+  		<lblTipologiaDSA>Tipologia DSA</lblTipologiaDSA>
+  		<idAccessiDSA>Accessi DSA</idAccessiDSA>
+  		<idRichiesteDSA>Richieste OE</idRichiesteDSA>
+  		<lblNumNosologico>Numero DSA</lblNumNosologico>
+  		<butRegistraCodiceRicetta>Registra Codice Ricetta (n.poligrafo)</butRegistraCodiceRicetta>
+  		<lblOnere>Onere</lblOnere>
+  		<lblTipoRicetta>Tipo ricetta</lblTipoRicetta>
+  		<lblPrioritaRicetta>Priorità ricetta</lblPrioritaRicetta>
+  		<lblEsamiPrec>Risultati esami precedenti</lblEsamiPrec>
+  		<lblRisultati>Risultati degli esami praticati</lblRisultati>
+  		<lblSintesiClinica>Sintesi clinica e formulazione della diagnosi</lblSintesiClinica>
+  		<lblTerapieProposte>Eventuali proposte terapeutiche</lblTerapieProposte>
+  		<tabChiusuraDSA>Chiusura DSA</tabChiusuraDSA>
+  		<butFirma>Firma</butFirma>
+  		<butStampaRicette>Stampa ricette</butStampaRicette>
+  		<butPrenotaPrestazioni>Prenota prestazioni</butPrenotaPrestazioni>
+  		<butStampaRelazione>Stampa relazione</butStampaRelazione>
+  		<butAnnullaRicetta>Annulla ricette</butAnnullaRicetta>
+  		<butStampaLetteraAperturaDSA>Stampa lettera apertura DSA</butStampaLetteraAperturaDSA>
+  		<butIPatient>Apri I-Patient</butIPatient>
+  		<butDocumenti>Apri Visualizzatore Documenti</butDocumenti>
+  		<butDatiLaboratorio>Dati di Laboratorio</butDatiLaboratorio>
+  		<butModuloDiagnosi>Stampa Modulo Diagnosi</butModuloDiagnosi>
+  		<lblMedicoRicette>Medico prescrittore</lblMedicoRicette>
+  		<lblDataProposta>Data proposta</lblDataProposta>
+  		<lblOraProposta>Ora proposta</lblOraProposta>
+  		<butRichiestePrestazioni>Invia richieste prestazioni a OneSys</butRichiestePrestazioni>
+  		<tabRichiesteAccessi>Richieste OE ed accessi DSA</tabRichiesteAccessi>
+  		<lblDiagnosiFinale>Diagnosi</lblDiagnosiFinale>
+  		<lblNAccessi>N. Accessi DSA</lblNAccessi>
+  		<lblPrimoAccesso>Primo accesso</lblPrimoAccesso>
+  		<lblEsenzioneProposta>Esenzione proposta</lblEsenzioneProposta>
+  		<lblStampanti>Stampante ricetta</lblStampanti>
+  		<butRefStd1>frasi standard</butRefStd1>
+  		<butRefStd2>frasi standard</butRefStd2>
+  		<butRefStd3>frasi standard</butRefStd3>
+  		<lblvuota>x</lblvuota>
+	    <lblVuota4>e</lblVuota4>
+		<aaa></aaa>
+	</ROW>
+</ROWSET>

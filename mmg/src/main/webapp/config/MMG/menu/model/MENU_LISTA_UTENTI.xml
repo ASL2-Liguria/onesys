@@ -1,0 +1,27 @@
+<MENU>
+	<id>MENU_LISTA_UTENTI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MLUA</ID>
+			<LINK><![CDATA[function(rec){NS_LISTA_UTENTI.apri(rec);}]]></LINK>
+			<ICON_CLASS>anteprima</ICON_CLASS>
+			<WHERE><![CDATA[function(){return true;}]]></WHERE>
+			<OUTPUT>"Apri"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MLUC</ID>
+			<LINK><![CDATA[function(rec){NS_LISTA_UTENTI.cancella(rec)}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return true;}]]></WHERE>
+			<OUTPUT>"Cancella"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

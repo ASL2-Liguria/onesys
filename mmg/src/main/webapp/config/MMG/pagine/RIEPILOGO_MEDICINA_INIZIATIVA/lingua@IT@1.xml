@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Riepilogo informazioni medicina iniziativa</lblTitolo>
+		
+		<tabDiariMedicinaDiIniziativa>Diari e visite</tabDiariMedicinaDiIniziativa>
+		<tabAccertamentiMedIniz>Accertamenti</tabAccertamentiMedIniz>
+		<tabFarmaciMedIniz>Farmaci</tabFarmaciMedIniz>
+		
+		<fldRicercaAcc>Ricerca</fldRicercaAcc>
+		<fldRicercaFarmaci>Ricerca</fldRicercaFarmaci>
+		<fldWkAcc>Lista</fldWkAcc>
+		<fldWkFarmaci>Lista</fldWkFarmaci>
+		
+		<lblStampaNota>Stampa</lblStampaNota>
+		<lblConfermaCancellazioneVisita>Cancellare la visita selezionata?</lblConfermaCancellazioneVisita>
+		<lblConfermaCancellazioneBilancio>Cancellare il bilancio selezionato?</lblConfermaCancellazioneBilancio>
+		<lblConfermaCancellazioneAnamnesi>Cancellare l'anamnesi selezionata?</lblConfermaCancellazioneAnamnesi>
+		<lblConfermaCancellazioneNota>Cancellare la nota selezionata?</lblConfermaCancellazioneNota>
+		<lblConfermaCancellazioneGravidanza>Cancellando questa nota verrà cancellata anche la gravidanza correlata. Procedere?</lblConfermaCancellazioneGravidanza>
+		<lblDaData>Da</lblDaData>
+		<lblAData>A</lblAData>
+		<lblUtente>Utente Inserimento</lblUtente>
+		<lblUtenteMedico>Medico</lblUtenteMedico>
+		
+		<butCercaAcc>Cerca</butCercaAcc>
+		<butCercaFarmaci>Cerca</butCercaFarmaci>
+		
+		<butDocumenti>Visualizza Documenti Paziente</butDocumenti>
+                
+    </ROW>
+</ROWSET>

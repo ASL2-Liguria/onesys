@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://directwebremoting.org/dwr/dwr20.dtd">
+<dwr>
+  <allow>
+   <convert converter="array" match="[L*"/> <!-- Array di stringhe -->
+	<convert match="java.lang.Exception" converter="exception">
+		<param name='include' value='message'/>
+	</convert>
+<!--     <create creator="new" javascript="dwrAllettamento"> -->
+<!--       <param name="class" value="ajax.allettamento.dwrAllettamento"/> -->
+<!--     </create> -->
+    <create creator="new" javascript="dwrRepository">
+      <param name="class" value="ajax.dwrRepository"/>
+    </create>
+    <create creator="new" javascript="eventDWR">
+      <param name="class" value="generatoreEngine.dwr.eventDWR"/>
+    </create>
+    <create creator="new" javascript="fieldDWR">
+      <param name="class" value="imago_jack.imago_function.html_field.dwr.fieldDWR"/>
+    </create>
+    <create creator="new" javascript="dwrLockPage">
+      <param name="class" value="imago_jack.imago_function.lock_page.dwrLockPage"/>
+    </create>
+    <create creator="new" javascript="functionDwr">
+      <param name="class" value="imago_jack.imago_function.dwr.functionDwr"/>
+    </create>
+    <create creator="new" javascript="dwrCheckCampo">
+      <param name="class" value="src.imago_gestione_campi.dwrCheckCampo"/>
+    </create>
+    <create creator="new" javascript="CJsUpdTabFiltri">
+      <param name="class" value="jsRemote.CJsUpdTabFiltri"/>
+    </create>
+    <create creator="new" javascript="CJsCheck">
+      <param name="class" value="jsRemote.CJsCheck"/>
+    </create>
+    <create creator="new" javascript="CJsCheckOrdineCdc">
+      <param name="class" value="jsRemote.CJsCheckOrdineCdc"/>
+    </create>
+    <create creator="new" javascript="CJsGestioneAnagrafica">
+      <param name="class" value="jsRemote.CJsGestioneAnagrafica"/>
+    </create>
+    <create creator="new" javascript="CJsUpdTareEsa">
+      <param name="class" value="jsRemote.CJsUpdTareEsa"/>
+    </create>
+    <create creator="new" javascript="CJsCheckCodSirm">
+      <param name="class" value="jsRemote.CJsCheckCodSirm"/>
+    </create>
+    <create creator="new" javascript="CJsRichieste">
+      <param name="class" value="jsRemote.CJsRichieste"/>
+    </create>
+    <create creator="new" javascript="CJsFiltroStato">
+      <param name="class" value="jsRemote.CJsFiltroStato"/>
+    </create>
+    <create creator="new" javascript="CJsCheckPrimaryKey">
+      <param name="class" value="jsRemote.CJsCheckPrimaryKey"/>
+    </create>
+    <create creator="new" javascript="CJsAreeProvenienze">
+      <param name="class" value="jsRemote.CJsAreeProvenienze"/>
+    </create>
+    <!-- Gestione Esecuzione Multipla Esami -->
+    <create creator="new" javascript="CJsGestioneUtentePwd">
+      <param name="class" value="jsRemote.CJsGestioneUtentePwd"/>
+    </create>
+    <create creator="new" javascript="ajaxLockManage">
+      <param name="class" value="ajax.ajaxLockManage"/>
+    </create>
+    <create creator="new" javascript="ajaxUserManage">
+      <param name="class" value="ajax.ajaxUserManage"/>
+    </create>
+    <create creator="new" javascript="ajaxPcManage">
+      <param name="class" value="ajax.ajaxPcManage"/>
+    </create>
+    <create creator="new" javascript="ajaxTraceUserAction">
+      <param name="class" value="ajax.ajaxTraceUserAction"/>
+    </create>
+    <create creator="new" javascript="ajaxCheckUpdatedDataWk">
+      <param name="class" value="ajax.ajaxCheckUpdatedDataWk"/>
+    </create>
+    <create creator="new" javascript="ajaxGetIndexUtenteDifferenteIp">
+      <param name="class" value="ajax.ajaxGetIndexUtenteDifferenteIp"/>
+    </create>
+    <create creator="new" javascript="ajaxRecordCheck">
+      <param name="class" value="ajax.ajaxRecordCheck"/>
+    </create>
+    <create creator="new" javascript="ajaxQueryCommand">
+      <param name="class" value="ajax.ajaxQueryCommand"/>
+    </create>
+    <create creator="new" javascript="ajaxManageLDAP">
+      <param name="class" value="ajax.ajaxManageLDAP"/>
+    </create>
+    <create creator="new" javascript="Update">
+      <param name="class" value="ACR.Update"/>
+    </create>
+    <create creator="new" javascript="UpdatePermissioni">
+      <param name="class" value="src.Gestione_Campi.UpdatePermissioni"/>
+    </create>
+    <create creator="new" javascript="LogJavascript">
+      <param name="class" value="stampe.anteprima.LogJavascript"/>
+    </create>
+    <create creator="new" javascript="SceltaStampa">
+      <param name="class" value="stampe.anteprima.SceltaStampa"/>
+    </create>
+    <create creator="new" javascript="CJsUpdate">
+      <param name="class" value="jsRemote.CJsUpdate"/>
+    </create>
+<!--     <create creator="new" javascript="dwrEseguiOperazione"> -->
+<!--       <param name="class" value="cartellaclinica.dwr.eseguiOperazione"/> -->
+<!--     </create> -->
+    <create creator="new" javascript="dwrTerapie">
+      <param name="class" value="cartellaclinica.dwr.dwrTerapie"/>
+    </create>
+   <create creator="new" javascript="toolKitDB">
+      <param name="class" value="generatoreEngine.dwr.toolKitDB"/>
+    </create>
+   <create creator="new" javascript="toolKitUtility">
+      <param name="class" value="generatoreEngine.dwr.toolKitUtility"/>
+    </create>
+    <create creator="new" javascript="dwrUtility">
+      <param name="class" value="cartellaclinica.dwr.dwrUtility"/>
+    </create>
+    <create creator="new" javascript="dwrPreparaFirma">
+      <param name="class" value="firma.dwrPreparaFirma"/>
+    </create>
+    <create creator="new" javascript="dwrConfigurazioneVisualizzazione">
+      <param name="class" value="cartellaclinica.dwr.dwrConfigurazioneVisualizzazione"/>
+    </create>
+    <create creator="new" javascript="dwrTraceUserAction">
+      <param name="class" value="cartellaclinica.dwr.dwrTraceUserAction"/>
+    </create>
+    <create creator="new" javascript="dwrSISS">
+      <param name="class" value="ajax.dwrSISS"/>
+    </create>
+    <create creator="new" javascript="dwrStampaMulti">
+    	<param name="class" value="stampe.multi.dwrStampaMulti"/>
+    </create>
+   	<create creator="new" javascript="configurazioneReparto">
+		<param name="class" value="configurazioneReparto.interfaccia.Header"/>
+    </create>
+     <create creator="new" javascript="dwrPianiTerapeutici">
+      <param name="class" value="pianiTerapeutici.dwrPianiTerapeutici"/>
+    </create>
+  </allow>
+
+</dwr>

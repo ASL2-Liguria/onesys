@@ -1,0 +1,59 @@
+body {
+	background: #b9e0ff;
+	padding: 0px;
+	margin: 0px;
+	overflow:hidden;
+}
+
+div.std {
+	border:4px solid #FFF;
+	height: 95px;
+}
+#divTitle {
+	float: left;
+	width: 110px;
+	border-right: none;
+	position: relative;
+}
+#divTitle div{
+	position: absolute;
+	top: 25%;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-align: center;
+}
+#divTable {
+	float: right;
+	overflow-x: scroll; 
+	overflow-y: hidden; 
+}
+table{
+	table-layout:fixed;
+	margin:0px;
+	padding:0px;
+	border-collapse:collapse;
+}
+td, th {
+	height: 25px;
+	font-size: 12px;
+	text-align: center;
+	width: 35px;
+	padding: 5px;
+	border:1px solid #FFF;
+}
+td.pazPresente  {
+	background: #9e8;
+	cursor:default;
+}
+th.dispari {
+	background: #a0d0f0; 
+	cursor: pointer;
+}
+th.pari {
+	background: #9dc; 
+	cursor: pointer;
+}
+form {
+	padding: 0px;
+	margin: 0px;
+}

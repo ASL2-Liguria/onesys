@@ -1,0 +1,38 @@
+<MENU>
+    <ID>MENU_TERAPIE_ASSOCIATE</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>DUPLICA_TERAPIA</ID>
+            <LINK><![CDATA[function(rec){TERAPIA.duplicaTerapia(rec[0].IDEN)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/storico.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+                if( ($("#READONLY").val()!=='S') && (rec[0].IDEN_UTENTE_COMPETENTE == home.baseUser.IDEN_PER  || rec[0].IDEN_UTENTE_COMPETENTE =='null' || rec[0].IDEN_UTENTE_COMPETENTE == null) ){
+                    return true;
+                }
+                else{
+                    return false;
+            }}]]></WHERE>
+            <OUTPUT>traduzione.lblRipetiSomministrazione</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Duplica Terapia"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ELIMINA_TERAPIA</ID>
+            <LINK><![CDATA[function(rec){TERAPIA.eliminaTerapia(rec[0].IDEN)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+                if($("#READONLY").val()!=='S' && (rec[0].IDEN_UTENTE_COMPETENTE == home.baseUser.IDEN_PER || rec[0].IDEN_UTENTE_COMPETENTE =='null' || rec[0].IDEN_UTENTE_COMPETENTE == null)){
+                    return true;
+                }
+                else{
+                    return false;
+            }}]]></WHERE>
+            <OUTPUT>traduzione.lblEliminaTerapia</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Elimina Terapia"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

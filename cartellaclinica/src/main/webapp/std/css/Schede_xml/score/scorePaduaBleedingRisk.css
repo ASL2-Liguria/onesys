@@ -1,0 +1,16 @@
+/* Padua */
+#lblPaduaInfo1{font-size:14px;width:900px;}
+
+#lblPaduaInfo2{width:900px;dispaly:inline-block}
+#lblPaduaInfo2 h4{margin:0}
+#lblPaduaInfo2 p{margin-top:2px}
+
+#lblPaduaInfo3{font-size:14px;width:900px;}
+#lblPaduaInfo4{width:900px;}
+#lblPaduaInfo5{width:300px;}
+
+/* Bleeding Risk */
+#lblBleedingRiskInfo1{width:900px;dispaly:inline-block}
+#lblBleedingRiskInfo1 h4{margin:0}
+#lblBleedingRiskInfo1 p{margin-top:2px}
+#txtQuesitoBleedingRisk{width:100%;height:80px;}

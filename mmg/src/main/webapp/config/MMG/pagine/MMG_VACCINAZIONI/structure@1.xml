@@ -1,0 +1,23 @@
+<PAGINA key_id="MMG_VACCINAZIONI">
+	<HEADER_PAGE key_id="MMG_VACCINAZIONI"
+		valore="DEFAULT_MMG,SCHEDA,MMG_VACCINAZIONI#DEFAULT_MMG,MMG_VACCINAZIONI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#####" evento="START_END">
+		<EXCHANGE_LISTS key_id="exchangeVaccinazioni"
+			valore="exVaccinazioni#ComboVaccinazioni#ComboVaccinazioniOut#N#btnControls#{listHeaders:{
+listFrom:{
+title:'Lista Vaccinazioni',
+buttons:null },
+listTo:{
+title:'Vaccinazioni Associate',
+buttons:null
+ }
+}}
+#VACCINAZIONI
+"
+			evento="START_END">
+		</EXCHANGE_LISTS>
+	</FORM>
+</PAGINA>
+

@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* CSS Document */
+
+#lblLegenda{
+	width:1000px;
+}
+
+table#tableInfoTIS {
+	border: 1px solid;
+}
+table#tableInfoTIS td {
+	padding: 5px;
+	font-size: 12px;
+	border: solid #000 1px;
+}
+
+.Link{
+	background:url(../../../../imagexPix/interrogativo.png) no-repeat;
+	float:right;
+	margin-right:10px;
+	width:20px;height:20px;
+	cursor:pointer;
+}
+
+.labelClass{
+	float:left;
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}
+
+.tdClass{
+	height:30px;
+}
+
+.totale {
+	color:#6D6D6D;
+	background-color:transparent;
+	border:1px solid transparent;
+}

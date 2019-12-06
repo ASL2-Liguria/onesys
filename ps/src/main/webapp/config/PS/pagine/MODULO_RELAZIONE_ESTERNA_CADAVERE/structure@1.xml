@@ -1,0 +1,33 @@
+<PAGINA key_id="MODULO_RELAZIONE_ESTERNA_CADAVERE">
+    <HEADER_PAGE key_id="MODULO_RELAZIONE_ESTERNA_CADAVERE" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,MODULO_RELAZIONE_ESTERNA_CADAVERE#DEFAULT,PS_MODULO_RELAZIONE_ESTERNA_CADAVERE" evento="START_END">
+    </HEADER_PAGE>
+        <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+            <TABULAZIONE.INIT key_id="MODULO_RELAZIONE_ESTERNA_CADAVERE" valore="MODULO_RELAZIONE_ESTERNA_CADAVERE#lblTitolo#butSalva,butFirma,butChiudi" evento="START">
+                <FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+                    <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="hIDEN" valore="hIDEN" evento="START">
+                    </INPUT.HIDDEN>
+                    <TR_TD_LABEL_DATA key_id="txtDataIspezione" valore="lblDataIspezione##txtDataIspezione#DataIspezione#startWithToday:false, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_ORA key_id="txtOraIspezione" valore="lblOraIspezione##txtOraIspezione##ORA_ISPEZIONE" evento="START">
+                    </TR_TD_LABEL_ORA>
+                    <TR_TD_LABEL_RADIO key_id="radSegni" valore="lblSegni##radSegni#radSegni#{width:800}#N#" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_ORA key_id="txtOraGiuntoCadavere" valore="lblOraGiuntoCadavere##txtOraGiuntoCadavere##ORA_GIUNTO_CADAVERE" evento="START">
+                    </TR_TD_LABEL_ORA>
+                    <TR_TD_LABEL_RADIO key_id="radMezzo" valore="lblMezzo##radMezzo#radMezzo#{width:500}#N#" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="txtSpecificare" valore="lblSpecificare#txtSpecificare#txtSpecificare##N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_AUTOCOMPLETE key_id="Provenienza" valore="lblProvenienza#acProvenienza#Provenienza#txtProvenienza#Comuni#IDEN_COMUNE_PROVENIENZA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="txtSpecificaProvenienza" valore="lblSpecificaProvenienza#txtSpecificaProvenienza#txtSpecificaProvenienza##N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+
+                </FIELDSET_TABLE>
+            </TABULAZIONE.INIT>
+        </FORM>
+</PAGINA>

@@ -1,0 +1,5 @@
+<INCLUDE>
+    <CSS path="css/PS/MalattieRare/MalattieRare.css" />
+    <JS path="config/PS/validator/model/V_ORGANISMI_MULTIRESISTENTI.js" />
+    <JS path="js/PS/OrganismiMultiresistenti/OrganismiMultiresistenti.js" />
+</INCLUDE>

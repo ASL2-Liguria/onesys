@@ -1,0 +1,57 @@
+<PAGINA key_id="MMG_SCELTA_ESENZIONI">
+	<HEADER_PAGE key_id="MMG_SCELTA_ESENZIONI"
+		valore="DEFAULT_MMG,SCHEDA,MMG_SCELTA_ESENZIONI#DEFAULT_MMG,MMG_SCELTA_ESENZIONI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabSceltaEsenzioni"
+			valore="sceltaEsenzioni#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabEsenzione" valore="tabEsenzione" evento="START">
+				<FIELDSET_TABLE key_id="fldEsenzioniPaziente" valore="fldEsenzioniPaziente"
+					evento="START">
+					<DIV.WORKLIST key_id="wkEsenzioni" valore="divWkEsenzioni"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="rigaRicerca" valore="" evento="START">
+						<INPUT.HIDDEN key_id="hRicerca" valore="hRicerca"
+							evento="START">
+						</INPUT.HIDDEN>
+						<TD_LABEL_TEXT key_id="Ricerca" valore="lblRicerca##txtRicerca"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_BUTTON key_id="butRicercaCodice" valore="butRicercaCodice"
+							evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butRicerca" valore="butRicerca"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldEsenzioni" valore="fldEsenzioni"
+					evento="START">
+					<DIV.WORKLIST key_id="wk" valore="divWk" evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabEsenzioniAssociabili" valore="tabEsenzioniAssociabili" evento="START">
+				<FIELDSET_TABLE key_id="fldRicPrestazione" valore="fldRicPrestazione" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCercaPrest" valore="lblCercaPrest##txtCercaPrest##lettura#CERCA_PREST" evento="START">
+						<TD_BUTTON key_id="butCercaPrest" valore="butCercaPrest" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+					<!-- <DIV.WORKLIST key_id="wkPrestazioniIN" valore="wkPrestazioniIN" evento="START"></DIV.WORKLIST> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkEsenzioniOUT" valore="fldwkEsenzioniOUT" evento="START">
+					<DIV.WORKLIST key_id="wkEsenzioniOUT" valore="wkEsenzioniOUT" evento="START"></DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkPrestazioniIN" valore="fldwkPrestazioniIN" evento="START">
+					<DIV.WORKLIST key_id="wkPrestazioniIN" valore="wkPrestazioniIN" evento="START"></DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+       <lblTitolo>ADR</lblTitolo>
+        <tabPrincipale>Dati</tabPrincipale>
+        <tabInfoFarmaco>Informazioni farmaco</tabInfoFarmaco>
+        <tabInfoSegnalatore>Informazioni segnalazione</tabInfoSegnalatore>
+        <lblDescrizioneRelazione>Descrizione della reazione ed eventuale diagnosi</lblDescrizioneRelazione>
+        <lblGravita>Gravità della reazione</lblGravita>
+        <lblEsamiLaboRilevanti>Eventuali esami di laboratorio rilevanti per ADR</lblEsamiLaboRilevanti>
+        <lblEsito>Esito</lblEsito>
+        <lblDataDecesso>Data decesso</lblDataDecesso>
+        <lblDecesso>Causa</lblDecesso>
+        <lblDataRisoluzione>Data risoluzione</lblDataRisoluzione>
+        <lblAzioniIntraprese>Azioni intraprese</lblAzioniIntraprese>
+        <lblOrigineEtnica>Origine Etnica</lblOrigineEtnica>
+        <lblDataInsReazione>Data Insorgenza Reazione</lblDataInsReazione>
+        <fldFarmaciSospetti>Farmaci sospetti</fldFarmaciSospetti>
+        <lblFarmacoA>A)</lblFarmacoA>
+        <lblFarmacoB>B)</lblFarmacoB>
+        <lblFarmacoC>C)</lblFarmacoC>
+        <lblLottoA>Lotto</lblLottoA>
+        <lblLottoB>Lotto</lblLottoB>
+        <lblLottoC>Lotto</lblLottoC>
+        <lblDosaggioA>Dosaggio/Die</lblDosaggioA>
+        <lblDosaggioB>Dosaggio/Die</lblDosaggioB>
+        <lblDosaggioC>Dosaggio/Die</lblDosaggioC>
+        <lblViaSommA>Via di somministrazione</lblViaSommA>
+        <lblViaSommB>Via di somministrazione</lblViaSommB>
+        <lblViaSommC>Via di somministrazione</lblViaSommC>
+        <lblInUsoDalA>Durata dell'uso: Dal</lblInUsoDalA>
+        <lblInUsoDalB>Durata dell'uso: Dal</lblInUsoDalB>
+        <lblInUsoDalC>Durata dell'uso: Dal</lblInUsoDalC>
+        <lblInUsoAlA>Al</lblInUsoAlA>
+        <lblInUsoAlB>Al</lblInUsoAlB>
+        <lblInUsoAlC>Al</lblInUsoAlC>
+        <lblSospeso>Il farmaco è stato sospeso?</lblSospeso>
+        <lblReazione>La reazione è migliorata dopo la sospensione?</lblReazione>
+        <lblRipreso>Il farmaco è stato ripreso?</lblRipreso>
+        <lblSospesoA>A)</lblSospesoA>
+        <lblSospesoB>B)</lblSospesoB>
+        <lblSospesoC>C)</lblSospesoC>
+        <lblReazioneA>A)</lblReazioneA>
+        <lblReazioneB>B)</lblReazioneB>
+        <lblReazioneC>C)</lblReazioneC>
+        <lblRipresoA>A)</lblRipresoA>
+        <lblRipresoB>B)</lblRipresoB>
+        <lblRipresoC>C)</lblRipresoC>
+        <lblRicomparsi>Sono ricomparsi i sintomi dopo la risomministrazione?</lblRicomparsi>
+        <lblRicomparsiA>A)</lblRicomparsiA>
+        <lblRicomparsiB>B)</lblRicomparsiB>
+        <lblRicomparsiC>C)</lblRicomparsiC>
+        <lblIndicazioniA>A)</lblIndicazioniA>
+        <lblIndicazioniB>B)</lblIndicazioniB>
+        <lblIndicazioniC>C)</lblIndicazioniC>
+        <lblFarmacoConcomitante>Farmaco(i) concomitante(i), dosaggio, via di somministrazione, durata del trattamento</lblFarmacoConcomitante>
+        <lblUsoConcomitante>Uso concomitante di altri prodotti a base di piante officinali, omeopatici, integratori alimentari, ecc.</lblUsoConcomitante>
+        <lblCondizioniConcomitanti>Condizioni concomitanti predisponenti</lblCondizioniConcomitanti>
+        <fldIndicazioni>Indicazioni o altro motivo per cui il farmaco è stato usato</fldIndicazioni>
+       <fldDati>Si è recato/a</fldDati>
+        <lblFax>Fax</lblFax>
+        <lblCodiceASL>Codice ASL</lblCodiceASL>
+        <lblDataCompilazione>Data compilazione</lblDataCompilazione>
+        <lblQualifica>Qualifica operatore</lblQualifica>
+       <butFirma>Firma</butFirma>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

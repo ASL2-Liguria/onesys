@@ -1,0 +1,57 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_SCHEDA_ANAGRAFICA'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="VacciniAntinfluenzali" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="PIP" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		<DATO key_id="RiepilogoADI" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		<DATO key_id="RiepilogoADP" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		<DATO key_id="RiepilogoRP" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Problemi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="TerapieCroniche" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="DataNascita" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA" db_descrizione="DATA" configurazione_multi_data="" />
+	<DATO key_id="Nome" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOME" db_descrizione="NOME" configurazione_multi_data="" />
+	<DATO key_id="Sesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="SESSO" db_descrizione="SESSO" configurazione_multi_data="R_SESSO" />
+	<DATO key_id="Cognome" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COGN" db_descrizione="COGN" configurazione_multi_data="" />
+	<DATO key_id="StampaTesto" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="PatientSummary" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="PatientSummarySintesi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="SchedaAnagrafica" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="intestazioneCartella" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="DatiAnagrafici" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Diario" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Vaccinazioni" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Rilevazioni" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="StoricoVaccinazioni" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="FarmaciPrescritti" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="AccertamentiPrescritti" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="TipoVaccino" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TIPO_VACCINO_ANTINFLUENZALE" db_descrizione="TIPO_VACCINO_ANTINFLUENZALE" configurazione_multi_data="R_VACCINO_ADIUVATO" />
+</DATI>
+
+
+
+
+
+

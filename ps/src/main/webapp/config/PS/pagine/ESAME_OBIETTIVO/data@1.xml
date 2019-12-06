@@ -1,0 +1,50 @@
+<DATI configurazione="
+	begin
+	    :stato_pagina := '';
+	    :key_query := 'PS.Q_LOAD_ESAME_OBIETTIVO@PS';
+	    :where := null;
+	    :campo_xml := null;
+	end;">
+	
+	<DATO key_id="hUrgenza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="PS.Q_COMBO_URGENZA@PS" />
+
+	<DATO key_id="hUrgenzaEsame" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="URGENZA_ESAME" db_descrizione="URGENZA_ESAME" configurazione_multi_data="" />
+
+    <DATO key_id="hRegime" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REGIME" db_descrizione="REGIME" configurazione_multi_data="" />
+
+	<DATO key_id="hUrgenzaLista" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="URGENZA_LISTA" db_descrizione="URGENZA_LISTA" configurazione_multi_data="" />
+
+    <DATO key_id="hStatoListaAttesa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_LISTA_ATTESA" db_descrizione="STATO_LISTA_ATTESA" configurazione_multi_data="" />
+
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_CONTATTO" db_descrizione="STATO_CONTATTO" configurazione_multi_data="" />
+
+    <DATO key_id="hUteRiferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTE_RIFERIMENTO" db_descrizione="UTE_RIFERIMENTO" configurazione_multi_data="" />
+
+    <DATO key_id="hOreDiffChiusura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORE_DIFF_CHIUSURA" db_descrizione="ORE_DIFF_CHIUSURA" configurazione_multi_data="" />
+
+    <DATO key_id="hUtenteDimissione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTENTE_DIMISSIONE" db_descrizione="UTENTE_DIMISSIONE" configurazione_multi_data="" />
+
+    <DATO key_id="hSesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="sesso" db_descrizione="sesso"
+          configurazione_multi_data="" />
+
+    <DATO key_id="hDataNascita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="data_nascita" db_descrizione="data_nascita"
+          configurazione_multi_data="" />
+
+	<DATO key_id="txtEsameObiettivo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="" />
+
+    <DATO key_id="txtAllergie" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ALLERGIE" db_descrizione="ALLERGIE" configurazione_multi_data="" />
+
+</DATI>

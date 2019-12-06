@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="elcoInfo" class="it.elco.listener.ElcoContextInfo" lazy-init="false"/>
+
+    <bean id="dbRIS" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="#{elcoInfo.getContextPath() + 'config/caronte/connection_fenix.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+    <bean id="dbWhale" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="#{elcoInfo.getContextPath() + 'config/caronte/connection_whale.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="POLARIS_SDJ" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbRIS"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="SDJ"/>
+                <!-- Opzionale, se non viene impostato il suo valore sarà uguale al POOL.USERNAME... -->
+                <!--<entry key="CONNECTION.ACTION" value="SDJ"/>-->
+                <entry key="POOL.ID" value="SDJ"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list>
+                <value>config/caronte/query_sdj.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="MMG" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbWhale"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="MMG"/>
+                <entry key="POOL.ID" value="MMG"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list>
+                <value>config/caronte/query_mmg.xml</value>
+                <value>config/caronte/query_wk_mmg.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+
+    <bean id="CONFIG_WEB" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbRIS"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="CONFIG_WEB"/>
+                <entry key="POOL.ID" value="WEB"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list>
+                <value>config/caronte/query_config.xml</value>
+                <value>config/caronte/query_config_ps.xml</value>
+
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="POLARIS_DATI" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbRIS"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="POLARIS_DATI"/>
+                <entry key="POOL.ID" value="DATI"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list>
+                <value>config/caronte/query_dati_old.xml</value>
+                <!--<value>config/caronte/query_dati_moncucco.xml</value>
+                <value>#{dbRIS.getProperty('QUERY_SITO.PATH_FILE')}</value>-->
+            </util:list>
+        </property>
+    </bean>
+
+
+    <bean id="WHALE" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbWhale"/>
+
+        <property name="listQuery">
+            <util:list>
+                <value>config/caronte/query_order_entry.xml</value>
+                <value>config/caronte/query_cce.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="ADT" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbRIS"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="ADT"/>
+                <entry key="POOL.ID" value="ADT"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list>
+                <value>config/caronte/query_api.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="PS" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbRIS"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="PRONTO_SOCCORSO"/>
+                <entry key="POOL.ID" value="PRONTO_SOCCORSO"/>
+                <entry key="defaultRowPrefetch" value="10"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list>
+                <value>config/caronte/query_ps.xml</value>
+                <value>config/caronte/query_wk_ps.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="invocaIntegrazioneSincrona" class="it.elco.fenix.adt.action.executeScriptContatto">
+        <constructor-arg value="groovy/ADT/controllerAccessor/invocaIntegrazione.groovy"/>
+    </bean>
+
+    <bean id="invocaIntegrazioneSincronaPs" class="it.elco.fenix.adt.action.executeScriptContatto">
+        <constructor-arg value="groovy/PS/controllerAccessor/invocaIntegrazione.groovy"/>
+    </bean>
+
+    <bean id="invocaIntegrazioneSincronaA40" class="it.elco.fenix.adt.action.executeScriptContatto">
+        <constructor-arg value="groovy/ADT/controllerAccessor/invocaIntegrazioneA40.groovy"/>
+    </bean>
+
+    <bean id="invocaIntegrazioneMoveVisit" class="it.elco.fenix.adt.action.executeScriptContatto">
+        <constructor-arg value="groovy/PS/controllerAccessor/invocaIntegrazioneMoveVisit.groovy"/>
+    </bean>
+
+    <util:map id="controllerPs.accessors" value-type="java.util.List">
+        <entry key="default">
+            <util:list value-type="it.elco.fenix.adt.action.RpcContattoAction">
+                <!--ref bean="invocaIntegrazioneSincronaPs"/-->
+            </util:list>
+        </entry>
+        <entry key="moveVisit">
+            <util:list value-type="it.elco.fenix.adt.action.RpcContattoAction">
+                <!--ref bean="invocaIntegrazioneMoveVisit" /-->
+            </util:list>
+        </entry>
+    </util:map>
+
+    <util:map id="controllerAdt.accessors" value-type="java.util.List">
+        <entry key="default">
+            <util:list value-type="it.elco.fenix.adt.action.RpcContattoAction">
+                <!--ref bean="invocaIntegrazioneSincrona" /-->
+            </util:list>
+        </entry>
+        <entry key="dischargeVisit">
+            <util:list value-type="it.elco.fenix.adt.action.RpcContattoAction">
+                <!--ref bean="invocaIntegrazioneSincrona"/-->
+                <!--<ref bean="notificaMQDimissione" />-->
+            </util:list>
+        </entry>
+        <entry key="transferPatientGiuridicoAssistenziale">
+            <util:list value-type="it.elco.fenix.adt.action.RpcContattoAction">
+                <!--ref bean="invocaIntegrazioneSincrona" /-->
+               <!-- <ref bean="notificaMQTrasferimentoAssistenziale" />-->
+            </util:list>
+        </entry>
+        <entry key="transferPatientAssistenziale">
+            <util:list value-type="it.elco.fenix.adt.action.RpcContattoAction">
+                <!--ref bean="invocaIntegrazioneSincrona" /-->
+               <!-- <ref bean="notificaMQTrasferimentoAssistenziale" />-->
+            </util:list>
+        </entry>
+        <entry key="moveVisit">
+            <util:list value-type="it.elco.fenix.adt.action.RpcContattoAction">
+                <!--ref bean="invocaIntegrazioneSincronaA40"/-->
+            </util:list>
+        </entry>
+    </util:map>
+
+    <util:map id="controllerAnagrafica.accessors" value-type="java.util.List">
+        <entry key="default">
+            <util:list value-type="it.elco.fenix.anagrafica.action.RpcAnagraficaAction">
+                <!--ref bean="invocaIntegrazioneSincrona" /-->
+            </util:list>
+        </entry>
+        <entry key="mergePatient">
+            <util:list value-type="it.elco.fenix.anagrafica.action.RpcAnagraficaAction">
+               <!-- <ref bean="invocaIntegrazioneSincronaA45" />-->
+            </util:list>
+        </entry>
+    </util:map>
+
+</beans>

@@ -1,0 +1,57 @@
+<root>
+	<statements_list>
+		<statement name="getCodicePrestazioni">
+			<sql>
+			<![CDATA[
+				select codice||'@'||dm_codice || '@'|| descrizione codice_prestazioni from rr_prestazioni where codice = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>			
+		</statement>	
+		<statement name="getCodiciDema">
+			<sql>
+			<![CDATA[
+				select cee.esame_associato, cee.codice_autenticazione_sac, e.NUMIMP_NUMRICH nre from cod_est_esami cee, esami e where e.iden = cee.iden_esame   and e.iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="check_poligrafico">
+			<sql>
+			<![CDATA[
+				select is_poligrafico(?) esito from dual
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="check_nre">
+			<sql>
+			<![CDATA[
+				select is_NRE(?) esito from dual
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="is_dematerializzata">
+			<sql>
+			<![CDATA[		
+				select * from cod_est_esami where iden_esame = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="isTicket_to_check">
+			<sql>
+			<![CDATA[		
+				select nvl(COUNT(DISTINCT iden),0) NUM  from tab_tick where cod_dec in ('T','F') and iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>							
+							
+	</statements_list>
+</root>

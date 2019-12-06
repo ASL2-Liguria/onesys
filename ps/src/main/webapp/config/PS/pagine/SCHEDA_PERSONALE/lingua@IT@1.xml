@@ -1,0 +1,21 @@
+<ROWSET>
+    <ROW>
+   		<lblTabTitolo>Scheda Personale</lblTabTitolo>  
+		<tabDatiPersonale>Personale</tabDatiPersonale> 
+		<fldDatiPersonale>Dati Personali</fldDatiPersonale>
+		<fldCdC>Centri di Costo</fldCdC>
+		<fldInfoMedico>Info Medico</fldInfoMedico>
+        <tabIndirizzi>Indirizzi</tabIndirizzi>
+        <butAddIndirizzo>Inserisci nuovo indirizzo</butAddIndirizzo>
+        <lblTipoPersonale>Tipo Personale</lblTipoPersonale>
+        <MEDICO>Medico</MEDICO>
+        <TECNICO>Tecnico</TECNICO>
+        <OPERATORE>Operatore</OPERATORE>
+        <INFERMIERE>Infermiere</INFERMIERE>
+        <ARCHIVISTA>Archivista</ARCHIVISTA>
+        <fldParametri>Parametri</fldParametri>
+        <tabTurni>Turni</tabTurni>
+        <lblTitolo>Titolo</lblTitolo>
+        <lblOreContratto>Ore Contratto</lblOreContratto>
+    </ROW>
+</ROWSET>

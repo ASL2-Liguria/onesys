@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Cronologia stato cartella</lblTitolo>
+    	<tabStatoCrono>Stato cartella</tabStatoCrono>
+    	<idAssistito>Dati assistito</idAssistito>
+    	<lblSesso>Sesso</lblSesso>
+    	<lblCodiceFiscale>Codice fiscale</lblCodiceFiscale>
+    	<idCronoStato>Cronologia stato cartella</idCronoStato>
+    </ROW>
+</ROWSET>    

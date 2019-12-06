@@ -1,0 +1,71 @@
+form {background-color: transparent}
+input[disabled] {color: #ccc;}
+input #aData, #daData {width: 70px;}
+input[type=checkbox] {margin-left: 15px}
+
+#filters {margin: 15px 15px 0px 15px;}
+#filters label {font-weight: bold; margin-left: 5px}
+
+#butAggiorna {
+	margin-left: 20px;
+	display:inline-block;
+	height: 20px;
+	width: 20px;
+	background: url("../../../../../imagexPix/button/mini/spostata.png") no-repeat;
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+
+#butAggiorna:hover {
+	border: 1px solid black;
+	background-color: white;
+}
+
+.legendTesto{
+    float   : left;
+    margin-right: 5px;
+}
+
+.legendImage:hover{
+    background: url(../../../../../imagexPix/jquery-ui/ui-lightness/ui-icons_ef8c08_256x240.png) -33px -130px;
+    width : 15px;
+    height : 14px;
+}
+
+.legendImage{
+    background: url(../../../../../imagexPix/jquery-ui/ui-lightness/ui-icons_222222_256x240.png) -33px -130px;
+    width : 15px;
+    height : 14px;
+    cursor : pointer;
+}
+
+#container {
+	padding: 0px;
+    margin: 0px;
+}
+
+#container ul{
+	overflow:hidden;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#container ul li{
+	line-height:1.5em;
+	float:left;
+	display:inline;
+	width:49%; /* su due colonne */
+}
+
+#container fieldset {border: 0px solid #369; overflow: hidden; width: auto}
+#container table {border-collapse: collapse; width: 100%}
+#container table caption {background-color: #69c; color: white; font-weight: bold; text-align: left; border: 1px solid black; padding-left:0.5em;}
+/*#container table caption:hover {background-color:#369; color: yellow}*/
+#container table th {background-color: #ccc; color: #246; border: 1px solid black; border-top: 0;}
+#container table td {border: 1px solid black; word-wrap: break-word;}
+#container table tr.odd {background-color: white; color: black;}
+#container table tr.even {background-color: #f8f8f8; color: black;}
+#container table tr:hover {background-color: #369; color: white;}
+#container table tr[stato="C"] {background-color: #ddd; color: #333;}
+#container table tr[stato="C"]:hover {background-color: #369; color: white; cursor: help}

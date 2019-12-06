@@ -1,0 +1,8 @@
+#colWkSel, #colWkSel1{width: 50%;}
+#colWkSel3{ width: 100%; }
+#taDiagnosi{ font-size: 12px !important; font-weight: bolder; }
+#MODULO_ADR{
+    width: 960px;
+    display: block;
+    margin:0 auto;
+}

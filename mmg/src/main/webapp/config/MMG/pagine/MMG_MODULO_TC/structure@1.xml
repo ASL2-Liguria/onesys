@@ -1,0 +1,62 @@
+<PAGINA key_id="MMG_MODULO_TC">
+	<HEADER_PAGE key_id="MMG_MODULO_TC"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_TC#DEFAULT_MMG,MMG_MODULO_TC"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_TC#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ModuloTC#lblTitolo#butConsensoInformato,butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabTC" valore="tabTC" evento="START">
+				<FIELDSET_TABLE key_id="fldAnamnesi" valore="fldAnamnesi" evento="START">
+					<TR_TD_TEXTAREA key_id="Anamnesi" valore="Anamnesi#ANAMNESI" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="ProblemiPaziente" valore="lblProblemiPaziente##cmbProblemiPaziente#cmbProblemiPaziente#N#PROBLEMI_PAZIENTE" evento="START">
+						<TD_BUTTON key_id="butInserisci" valore="butInserisci" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldQuesito" valore="fldQuesito" evento="START">
+					<TR_TD_TEXTAREA key_id="Quesito" valore="Quesito#QUESITO" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldIndagine" valore="fldIndagine" evento="START">
+					<TR_TD_TEXTAREA key_id="Indagine" valore="txtAcc_Eff#INDAGINE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TR_TD_BUTTON>
+					<!-- <TR.INIT key_id="TR" valore="" evento="START">
+						<TD.INIT key_id="TD" valore="2" evento="START">
+							<TEXTAREA key_id="Indagine" valore="txtAcc_Eff#INDAGINE" evento="START"></TEXTAREA>
+						</TD.INIT>
+					</TR.INIT>
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TD_BUTTON>
+						<TD_TEXT key_id="Accertamenti" valore="Accertamenti##lettura#ACCERTAMENTI" evento="START"></TD_TEXT>
+					</TR.INIT> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldMdc" valore="fldMdc" evento="START">
+					<TR_TD_LABEL_TEXT key_id="Peso" valore="lblPeso##txtPeso##lettura#PESO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Mdc_Iodato" valore="lblMdc_Iodato##Mdc_Iodato#radMdc_Iodato#{width:150}#S#MDC_IODATO" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Disturbi" valore="lblDisturbi##Disturbi#radDisturbi#{width:150}#S#DISTURBI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="TR0" valore="TR0" evento="START">
+						<TD_LABEL_RADIO key_id="Rischio_Allergico" valore="lblRischio_Allergico##Rischio_Allergico#radRischio_Allergico#{width:150}#S#RISCHIO_ALLERGICO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Rischio_Allergico" valore="Dett_Rischio_Allergico##lettura#DETTAGLIO_RISCHIO_ALLERGICO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR_TD_LABEL_RADIO key_id="Insuff_Renale" valore="lblInsuff_Renale##Insuff_Renale#radInsuff_Renale#{width:150}#S#INSUFF_RENALE" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Insuff_Epatica" valore="lblInsuff_Epatica##Insuff_Epatica#radInsuff_Epatica#{width:150}#S#INSUFF_EPATICA" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Insuff_Cardio_Vasc" valore="lblInsuff_Cardio_Vasc##Insuff_Cardio_Vasc#radInsuff_Cardio_Vasc#{width:150}#S#INSUFF_CARDIO_VASC" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Diabete" valore="lblDiabete##Diabete#radDiabete#{width:150}#S#DIABETE" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Stato_Gravidanza" valore="lblStato_Gravidanza##Stato_Gravidanza#radStato_Gravidanza#{width:150}#S#STATO_GRAVIDANZA" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Ipertiroidismo" valore="lblIpertiroidismo##Ipertiroidismo#radIpertiroidismo#{width:150}#S#IPERTIROIDISMO" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Mieloma" valore="lblMieloma##Mieloma#radMieloma#{width:150}#S#MIELOMA" evento="START"></TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="TR1" valore="TR1" evento="START">
+						<TD_LABEL_RADIO key_id="Tratt_Farma" valore="lblTratt_Farma##Tratt_Farma#radTratt_Farma#{width:150}#S#TRATT_FARMA" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Tratt_Farma" valore="Dett_Tratt_Farma##lettura#DETTAGLIO_TRATT_FARMA" evento="START"></TD_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldEsami" valore="fldEsami" evento="START">
+					<TR_TD_LABEL_TEXT key_id="G_Insuff_Card" valore="lblG_Insuff_Card##G_Insuff_Card#Valutazione Cardiologica#sololettura#GRAVE_INSUFF_CARDIO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="G_Insuff_Epa" valore="lblG_Insuff_Epa##G_Insuff_Epa#Transaminasi, T. di protrombina#sololettura#GRAVE_INSUFF_EPATICA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="G_Insuff_Ren" valore="lblG_Insuff_Ren##G_Insuff_Ren#Creatininemia#sololettura#GRAVE_INSUFF_RENALE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Linfomi" valore="lblLinfomi##Linfomi#Elettroforesi sierica, catene K e Lambda#sololettura#LINFOMI" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

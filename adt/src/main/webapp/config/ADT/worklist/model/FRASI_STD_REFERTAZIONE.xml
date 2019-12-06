@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>FRASI_STD_REFERTAZIONE</ID>
+	<ID-QUERY connection="ADT">ADT.FRASI</ID-QUERY>
+	<TITLE>"frasi standard"</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+	<STRUCTURE>
+		<MENU>
+            <ID>MENU_FRASI_STD_REFERTAZIONE</ID>
+        </MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+           <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+                <DBLCLICK><![CDATA[function(rec){FRASI_STD.applica(rec.FRASE);}]]></DBLCLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+					<ID>
+						<COL>IDEN</COL>
+						<DB>IDEN</DB>
+					</ID>
+                    <DESCRIPTOR>"IDEN"</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>N</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+					<ID>
+						<COL>GRUPPO</COL>
+						<DB>GRUPPO</DB>
+					</ID>
+                    <DESCRIPTOR>"GRUPPO"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+					<ID>
+						<COL>CODICE</COL>
+						<DB>CODICE</DB>
+					</ID>
+                    <DESCRIPTOR>"CODICE"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+					<ID>
+						<COL>TITOLO</COL>
+						<DB>TITOLO</DB>
+					</ID>
+                    <DESCRIPTOR>"DESCRIZIONE BREVE"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+					<ID>
+						<COL>FRASE</COL>
+						<DB>FRASE</DB>
+					</ID>
+                    <DESCRIPTOR>"TESTO FRASE"</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>500px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+			</LIST>
+			<SORT><COLUMN id="CODICE">DESC</COLUMN></SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

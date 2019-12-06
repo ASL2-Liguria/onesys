@@ -1,0 +1,80 @@
+<MENU>
+	<id>MENU_VACCINI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>WK_VACCINI_DEL</ID>
+			<LINK><![CDATA[function(rec){VACCINO.cancellaVaccino(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<!-- <WHERE><![CDATA[function(rec){return true;}]]></WHERE> -->
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_INSERIMENTO_VACCINO");}]]></WHERE>
+			<OUTPUT>"Cancella Vaccino"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>WK_VACCINI_MOD</ID>
+			<LINK><![CDATA[function(rec){VACCINO.apriVaccino(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<!-- <WHERE><![CDATA[function(rec){return true;}]]></WHERE> -->
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_INSERIMENTO_VACCINO");}]]></WHERE>
+			<OUTPUT>"Modifica Vaccino"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>WK_P_SUMMARY_DEL</ID>
+			<LINK><![CDATA[function(rec){NS_MMG_PATIENT_SUMMARY.cancellaVaccino(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'MOD');}]]></WHERE>
+			<OUTPUT>"Cancella Vaccino"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>WK_P_SUMMARY_MDO</ID>
+			<LINK><![CDATA[function(rec){NS_MMG_PATIENT_SUMMARY.apriVaccino(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'MOD');}]]></WHERE>
+			<OUTPUT>"Modifica Vaccino"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>VUOTO</ID>
+			<LINK><![CDATA[function(){}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'VIS');}]]></WHERE>
+			<OUTPUT>"Nessuna voce di menù disponibile"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>OSCURA</ID>
+			<LINK><![CDATA[function(rec){NS_PRIVACY.WK.oscuraRecord(rec, 'S', "MMG_VACCINI_PAZIENTE", NS_MMG_PATIENT_SUMMARY.wkVaccinazioni);}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (home.ASSISTITO.IDEN_MED_BASE == home.baseUser.IDEN_PER && rec[0].OSCURATO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>DISOSCURA</ID>
+			<LINK><![CDATA[function(rec){NS_PRIVACY.WK.oscuraRecord(rec, 'N', "MMG_VACCINI_PAZIENTE", NS_MMG_PATIENT_SUMMARY.wkVaccinazioni);}]]></LINK>
+			<ICON_CLASS>utente</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (home.ASSISTITO.IDEN_MED_BASE == home.baseUser.IDEN_PER &&  rec[0].OSCURATO == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblDisoscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

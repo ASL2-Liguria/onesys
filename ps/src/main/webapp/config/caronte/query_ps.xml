@@ -1,0 +1,3132 @@
+<?xml version = "1.0"?>
+<!-- Mettere le query in ordine alfabetico! ALFABETO : A B C D E F G H I J K L M N O P Q R S T U V W X Y Z -->
+<!--**************************************************AUTOCOMPLETE***************************************************-->
+<QUERIES>
+    <QUERY_GROUP id="AUTOCOMPLETE">
+        <QUERY id="AC_ASL">
+            <SQL>SELECT AZD_CODICE AS VALUE, ASL_DESCR AS DESCR, REG_CODICE AS REGIONE_CODICE, REG_DESCR AS REGIONE_DESCR FROM FX$TAB_ASL WHERE ASL_DESCR LIKE :descr and (:reg_codice = 0 or REG_CODICE = :reg_codice) {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_CITTADINANZA">
+            <SQL>
+                SELECT IDEN VALUE,COD_ISTAT, DESCR
+                from fx$NAZIONI
+                WHERE attivo = 'S'
+                and descr like :descr {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_COMUNE">
+            <SQL>
+                SELECT
+                IDEN_COMUNE VALUE, DESCRIZIONE descr,
+                CAP, CODICE_PROVINCIA , CODICE_COMUNE,
+                CODICE_REGIONE, CODICE_USL,
+                (SELECT asl_descr FROM FX$TAB_ASL WHERE  asl_codice = CODICE_REGIONE||CODICE_USL) DESCR_ASL
+                from fx$COMUNI WHERE DESCRIZIONE
+                like :descr {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_COMUNE_ATTIVO">
+            <SQL>
+                SELECT
+                IDEN_COMUNE VALUE, DESCRIZIONE descr,
+                CAP, CODICE_PROVINCIA , CODICE_COMUNE,
+                CODICE_REGIONE, CODICE_USL,
+                (SELECT asl_descr FROM FX$TAB_ASL WHERE  asl_codice = CODICE_REGIONE||CODICE_USL) DESCR_ASL
+                from fx$COMUNI WHERE DESCRIZIONE
+                like :descr AND ATTIVO = 'S' {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_MEDICO_BASE">
+            <SQL>SELECT IDEN value,
+                descrizione DESCR
+                FROM FX$PERSONALE
+                WHERE TIPO_MEDICO = 'B'
+                AND descrizione LIKE :descr
+                AND ATTIVO = 'S' order by descr asc
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_PROFESSIONI">
+            <SQL>
+                SELECT iden value, DESCR
+                FROM FX$TAB_PRF
+                where DESCR like :descr
+                AND ATTIVO = 'S'
+                order by descr
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_STATO_CIVILE">
+            <SQL>
+                SELECT iden value, descrizione DESCR
+                FROM fx$tipi
+                WHERE tipo = 'STATO_CIVILE'
+                AND descrizione like '%'||:descr
+                AND ATTIVO = 'S'
+                order by CODICE_DECODIFICA asc
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_TITOLO_STUDIO">
+            <SQL>
+                SELECT
+                IDEN VALUE, DESCRIZIONE DESCR
+                FROM ADT$TIPI
+                WHERE TIPO='ADT_ACC_RICOVERO_TITOLO_STUDIO'
+                AND ATTIVO = 'S'
+                AND upper(DESCRIZIONE) like upper(:descr)
+                order by ordine asc
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_COMUNI">
+            <SQL>
+                SELECT
+                IDEN VALUE,DESCRIZIONE DESCR, CAP, CODICE_PROVINCIA, CODICE_REGIONE,IDEN_COMUNE
+                FROM FX$COMUNI
+                WHERE DESCRIZIONE like '%'||:descr
+                AND ATTIVO='S' {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_COMUNI_IDEN">
+            <SQL>
+                SELECT
+                IDEN VALUE,DESCRIZIONE DESCR, CAP, CODICE_PROVINCIA, CODICE_REGIONE,IDEN_COMUNE
+                FROM FX$COMUNI
+                WHERE IDEN = :iden
+                AND ATTIVO='S' {#ORDER#}
+            </SQL>
+        </QUERY>
+
+        <QUERY id="AC_PERSONALE_INF">
+            <SQL>
+                select
+                /*+ first_rows(10)*/
+                descrizione descr,
+                iden value
+                from FX$PERSONALE
+                where
+                iden in (select  tabella_iden from FX$CENTRI_DI_COSTO_ASSOCIATI where tabella_nome = 'PERSONALE' and  iden_cdc = :iden_cdc and attivo = 'S')
+                AND tipo_personale in ('I','OST')
+                AND DESCRIZIONE like :descr
+                {#ORDER#}
+            </SQL>
+            <BINDS>
+                <BIND id="iden_cdc" value="#IDEN_CDC_PS#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="AC_PERSONALE_MED">
+            <SQL>
+                select
+                /*+ first_rows(10)*/
+                descrizione descr,
+                iden value
+                from FX$PERSONALE
+                where
+                iden in (select  tabella_iden from FX$CENTRI_DI_COSTO_ASSOCIATI where tabella_nome = 'PERSONALE' and  iden_cdc in
+                (select iden from  FX$CENTRI_DI_COSTO cdc where sub_codice_struttura in (select sub_codice_struttura from FX$CENTRI_DI_COSTO where iden = :iden_cdc)  and cdc.TIPOLOGIA = 8 and attivo = 'S')
+                )
+                and tipo_personale = 'M'
+                AND DESCRIZIONE like :descr
+                {#ORDER#}
+            </SQL>
+            <BINDS>
+                <BIND id="iden_cdc" value="#IDEN_CDC#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="AC_PERSONALE">
+            <SQL>
+                Select
+                IDEN VALUE,
+                DESCRIZIONE DESCR
+                from FX$PERSONALE
+                where ATTIVO = 'S'
+                and DESCRIZIONE like :descr
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+
+        <QUERY id="ADT_DIAGNOSI_ICD9">
+            <SQL>
+                SELECT CODICE AS VALUE, COD_DEC, CODICE, CODICE||' '||DESCRIZIONE AS DESCR FROM ICD9_PS
+                WHERE ATTIVO = 'S' AND TIPO = 'DIAGNOSI' AND(CODICE||' '||DESCRIZIONE like '%'||:descr OR COD_DEC LIKE :descr)
+            </SQL>
+        </QUERY>
+
+        <QUERY id="ADT_DIAGNOSI_ICD9_IDEN">
+            <SQL>
+                SELECT CODICE AS VALUE, COD_DEC, CODICE, CODICE||' '||DESCRIZIONE AS DESCR
+                FROM ICD9_PS WHERE ATTIVO = 'S' AND TIPO = 'DIAGNOSI' AND CODICE = :iden
+            </SQL>
+        </QUERY>
+
+        <QUERY id="OBI_DIAGNOSI_ICD9">
+            <SQL>
+                SELECT
+                CODICE AS  VALUE ,
+                CODICE,
+                CODICE||' '||DESCRIZIONE AS DESCR
+                FROM FX$ICD9_OBI
+                WHERE ATTIVO = 'S' AND TIPO = 'DIAGNOSI' and DIAGNOSI_OBI = 'S'
+                AND (CODICE||' '||DESCRIZIONE like '%'||:descr OR COD_DEC LIKE :descr)
+            </SQL>
+        </QUERY>
+        <QUERY id="DIAGNOSI_ICD9_MALATTIE_RARE">
+            <SQL>
+                SELECT mmg_icd.CODICE AS VALUE, icd9.COD_DEC, mmg_icd.CODICE, mmg_icd.CODICE||' '||mmg_icd.DESCRIZIONE AS DESCR
+                from fx$icd9 icd9
+                join mmg.mmg_icd@whale mmg_icd on (icd9.codice = mmg_icd.codice)
+                where
+                (
+                COD_SETTORE = '001-139' or
+                COD_SETTORE = '140-239' or
+                COD_SETTORE = '240-279' or
+                COD_SETTORE = '280-289' or
+                COD_SETTORE = '320-389' or
+                COD_SETTORE = '390-459' or
+                COD_SETTORE = '520-579' or
+                COD_SETTORE = '580-629' or
+                COD_SETTORE = '680-709' or
+                COD_SETTORE = '710-739' or
+                COD_SETTORE = '740-759' or
+                COD_SETTORE = '760-779' or
+                COD_SETTORE = '780-799'
+                ) and mmg_icd.attivo ='S'
+                and tipo = 'DIAGNOSI'
+                and CATEGORIA = 'ICD9'
+                AND(mmg_icd.CODICE||' '||mmg_icd.DESCRIZIONE like '%'||:descr OR icd9.COD_DEC LIKE :descr)
+            </SQL>
+        </QUERY>
+        <QUERY id="ADT_REPARTI">
+            <SQL>
+                SELECT
+                PR.IDEN VALUE,
+                PR.CODICE_DECODIFICA,
+                PR.DESCRIZIONE DESCR
+                FROM FX$PROVENIENZE PR
+                inner join FX$CENTRI_DI_COSTO cdc ON(PR.CODICE_DECODIFICA=CDC.CODICE)
+                WHERE PR.ATTIVO = 'S' and PR.DESCRIZIONE like '%'|| :descr
+                and CDC.CODICE_STRUTTURA is not null
+                AND CDC.ABILITA_ORDINARIO='S'
+                and cdc.attivo = 'S'
+                order by PR.DESCRIZIONE asc
+            </SQL>
+        </QUERY>
+
+        <QUERY id="REPARTI_ASSISTENZIALI_RICOVERO">
+            <SQL>
+                select
+                /*+ first_rows(10)*/
+                CDC.iden_provenienza value,
+                CDC.codice CODICE_DECODIFICA,
+                CDC.descrizione DESCR
+                from FX$CENTRI_DI_COSTO cdc
+                where codice_struttura IN (select CODICE_STRUTTURA from FX$CENTRI_DI_COSTO where (:iden = 0 or iden_provenienza = :iden))
+                and cdc.attivo = 'S' and (cdc.abilita_ordinario='S' or cdc.abilita_day_hospital='S')
+                and CDC.TIPOLOGIA in (0,5)
+                and (cdc.DESCRIZIONE like '%' || :descr|| '%'  or cdc.codice_sezione like  '%' || :descr || '%' )
+                order by cdc.descrizione asc
+            </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN_PROVENIENZA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="REPARTI_GIURIDICI_RICOVERO">
+            <SQL>
+                select
+                /*+ first_rows(10)*/
+                CDC.iden_provenienza value,
+                CDC.codice CODICE_DECODIFICA,
+                CDC.descrizione DESCR,
+                cdc.iden
+                from  FX$CENTRI_DI_COSTO cdc
+                where codice_struttura IN (select CODICE_STRUTTURA from FX$CENTRI_DI_COSTO where (:iden = 0 or iden_provenienza = :iden))
+                and cdc.attivo = 'S'
+                and (cdc.abilita_ordinario='S' and (CDC.ABILITA_DAY_HOSPITAL='N' OR CDC.ABILITA_DAY_HOSPITAL is null))
+                and (cdc.DESCRIZIONE like '%' || :descr|| '%'  or cdc.codice_sezione like  '%' || :descr || '%' )
+                and CDC.TIPOLOGIA in (0,5)
+                AND NOT SUBSTR(cdc.codice_sezione,0,2) IN ('56','28','75','60')
+                order by cdc.descrizione asc
+            </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN_PROVENIENZA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="CATEGORIA_CAUSA_ESTERNA">
+            <SQL>
+                SELECT iden value, descrizione descr
+                FROM ADT$TIPI where attivo = 'S'
+                and (descrizione like '%'|| :descr ||'%' or codice_decodifica like '%'|| :descr || '%')
+                and tipo='CATEGORIA_CAUSA_ESTERNA' {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="FARMACI">
+            <SQL>
+                SELECT /*+first_rows(10)*/ IDEN codice_decodifica,IDEN value,DESCRIZIONE DESCR
+                FROM fx$farmaci where rownum &lt; 20 {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="NAZIONI">
+            <SQL>
+                SELECT /*+first_rows(10)*/ IDEN VALUE,CODICE_ISTAT,DESCRIZIONE DESCR
+                FROM NAZIONI
+                where DESCRIZIONE like :descr and attivo = 'S'
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+
+    <!--***********************************************FILTRI_PS*****************************************************-->
+    <QUERY_GROUP id="FILTRI_PS">
+        <QUERY id="Q_URGENZA_TRIAGE">
+            <SQL>
+                SELECT iden as value, DESCRIZIONE as descr
+                from ADT$TIPI
+                where tipo = 'ADT_ACC_RICOVERO_LIVELLO_URG' AND ASSIGNING_AUTHORITY_AREA = 'PS' AND ATTIVO='S'
+                order by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_UTENTI_PS">
+            <SQL>
+
+                SELECT  'TUTTI'  DESCR,  0  value
+                from dual
+                UNION
+                select DESCRIZIONE DESCR, IDEN value
+                from FX$PERSONALE
+                where iden = (select iden_per from FX$UTENTI_FENIX where username = :USERNAME)
+                order by value asc
+
+            </SQL>
+            <BINDS>
+                <BIND id="USERNAME" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+
+
+        </QUERY>
+
+        <QUERY id="Q_ESITI">
+            <SQL>
+                SELECT DESCRIZIONE descr, codice_decodifica value
+                from ADT$TIPI
+                where TIPO LIKE '%ESITO%'
+                and ATTIVO='S'
+                and ASSIGNING_AUTHORITY_AREA='PS'
+                order  by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_AREE">
+            <SQL>
+                select AR.DESCRIZIONE as descr, AR.IDEN as value
+                from fx$UTENTI_FENIX utente
+                inner JOIN fx$centri_di_costo_associati CDC_ASS ON (tabella_nome = 'PERSONALE' and tabella_iden = utente.iden_per)
+                inner join  (
+                select ADT$LISTA_ATTESA_CDC.* from  ADT$LISTA_ATTESA_ELENCO join  ADT$LISTA_ATTESA_CDC on ADT$LISTA_ATTESA_ELENCO.iden = ADT$LISTA_ATTESA_CDC.iden_lista where ASSIGNING_AUTHORITY_AREA = 'PS' and ADT$LISTA_ATTESA_CDC.attivo = 'S')
+                t on t.iden_cdc =CDC_ASS.IDEN_CDC
+                inner join aree ar on(ar.iden_cdc=CDC_ASS.IDEN_CDC)
+                where username = :USERNAME
+            </SQL>
+            <BINDS>
+                <BIND id="USERNAME" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+
+
+    </QUERY_GROUP>
+
+
+
+    <!--**************************************************PS*********************************************************-->
+    <QUERY_GROUP id="PS">
+
+        <QUERY id="Q_GET_PROFILO_SINTETICO">
+            <SQL>
+                select NOTE from adt$lista_attesa
+                where iden =(
+                select max(iden) from adt$lista_attesa
+                where iden_contatto = :idenContatto
+                and progressivo = 0
+                )
+            </SQL>
+        </QUERY>
+
+
+        <QUERY id="Q_SALVA_PROFILO_SINTETICO">
+            <SQL>
+                begin
+                    update  adt$lista_attesa
+                    set note = :note
+                    where iden =(
+                    select max(iden) from adt$lista_attesa
+                    where iden_contatto = :idenContatto
+                    and progressivo = 0
+                    );
+
+                    commit;
+                end;
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_IDEN_CONTATTO_MISSIONE">
+            <SQL>
+                begin
+                    update  CODICI_MISSIONE_BETA_80
+                    set IDEN_CONTATTO = :iden_contatto
+                    where iden = :iden
+
+                    commit;
+                end;
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_CHECK_ESAME_OBIETTIVO">
+            <SQL>
+                select count(*) as CONTO from PS_SCHEDE_XML
+                where iden_contatto = :iden_contatto
+                and scheda = 'ESAME_OBIETTIVO'
+                and ATTIVO = 'S'
+                and DELETED = 'N'
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_LOAD_MODULI">
+            <SQL>
+                select
+                CODICE,
+                N_COPIE,
+                N_COPIE_F,
+                COMPILABILE,
+                DA_INVIARE,
+                NOME_REPORT,
+                TIPO,
+                DESCRIZIONE,
+                GENERA_URL_PROMPT,
+                KEY_SCHEDA,
+                CANCELLABILE,
+                FNC_SCHEDA as FUNZIONE,
+                FNC_CANCELLA
+                from MODULI_PS
+                where
+                IDEN_CDC = :IDEN_CDC
+                and ATTIVO ='S'
+                and DELETED = 'N'
+                ORDER BY ORDINE ASC
+            </SQL>
+            <BINDS>
+
+                <BIND id="IDEN_CDC" value="#IDEN_CDC#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="Q_LOAD_TIPI_MODULI">
+            <SQL>
+                select
+                distinct
+                TIPI.descrizione AS DESCRIZIONE,
+                TIPI.codice_decodifica AS CODICE_DECODIFICA,
+                TIPI.ordine AS ORDINE
+                from adt$tipi tipi
+                inner join moduli_ps moduli on (TIPI.CODICE_DECODIFICA = MODULI.TIPO)
+                where TIPI.tipo = 'TIPO_MODULO'
+                and MODULI.IDEN_CDC = :IDEN_CDC
+                and tipi.attivo = 'S'
+                and moduli.deleted = 'N'
+                and moduli.attivo = 'S'
+                order by TIPI.ordine
+            </SQL>
+            <BINDS>
+
+                <BIND id="IDEN_CDC" value="#IDEN_CDC#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="INSERISCI_EVENTO_INVIO_MODULO">
+            <SQL>
+                declare
+                    v_IDEN_DOCUMENTO pls_integer;
+                    P_TIPO_DOCUMENTO varchar2(4000);
+                    P_IDEN_SCHEDA PLS_INTEGER := :IDEN_SCHEDA;
+
+                begin
+
+                    SELECT SCHEDA, b.iden INTO P_TIPO_DOCUMENTO,v_IDEN_DOCUMENTO
+                    FROM PS_SCHEDE_XML  a
+                    join ADT.DOCUMENTI_VERSIONE b on b.tabella_iden = a.iden and b.tabella = 'PRONTO_SOCCORSO.PS_SCHEDE_XML'
+                    WHERE a.IDEN = P_IDEN_SCHEDA;
+
+                    fx$INSERISCI_EVENTO(pIden => v_IDEN_DOCUMENTO, pNome => 'ADT.DOCUMENTI_VERSIONE', pTipo => '01', pDescrizione => 'DOCUMENTO DA INVIARE', pDatiAggiuntivi1 => P_TIPO_DOCUMENTO, pDatiAggiuntivi2 => null);
+
+                    exception when others then
+                    FX$LOGGER.error('PS.INSERISCI_EVENTO_INVIO_MODULO', 'ERROR -> '||dbms_utility.format_error_backtrace||' - '||SQLERRM , 'PS');
+
+                end;
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_AREE_INS_OBI">
+            <SQL>
+                select valore
+                from FX$CONFIG_WEB$PARAMETRI
+                where NOME = 'AREE_INS_OBI'
+                and attivo = 'S'
+                and sito = 'PS'
+            </SQL>
+        </QUERY>
+
+
+        <QUERY id="Q_CUSTODIA">
+            <SQL>select /*+first_rows(10)*/ 'A' VALUE, 'lblConsenso' DESCR from dual </SQL>
+        </QUERY>
+
+
+        <QUERY id="Q_UTENTE_CUSTODIA">
+            <SQL>
+                select
+                ute_ins,
+                stato
+                from ps_schede_xml
+                where scheda = 'CUSTODIA'
+                and iden_contatto = :iden_contatto
+                and ATTIVO = 'S'
+                and DELETED = 'N'
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_SESSO">
+            <SQL>select /*+first_rows(10)*/ 'M' VALUE, 'lblMaschio' DESCR from dual union all select /*+first_row(10)*/ 'F' VALUE, 'lblFemmina' DESCR from dual </SQL>
+        </QUERY>
+
+        <QUERY id="Q_EQUITALIA">
+            <SQL>
+                select
+                (PS_IMPORTI_ESENZIONI.GET_ESENZIONE(cont.iden)) as ESENTE,
+                (PS_IMPORTI_ESENZIONI.GET_IMPORTO_FLUSSO_ST(cont.iden)) as PREZZO_TOT,
+                (PS_IMPORTI_ESENZIONI.GET_IMPORTO_EQUITALIA(cont.iden)) as PREZZO_TOT_SOGLIA,
+                (PS_IMPORTI_ESENZIONI.GET_IMPORTO_DISTINTA_PAGAMENTO(cont.iden)) as PREZZO_DISTINTA,
+                (GET_DIAGNOSI_ESENTE(:diagnosi1)) as traumatismo1,
+                (GET_DIAGNOSI_ESENTE(:diagnosi2)) as traumatismo2,
+                (GET_DIAGNOSI_ESENTE(:diagnosi3)) as traumatismo3,
+                (GET_DIAGNOSI_ESENTE(:diagnosi4)) as traumatismo4,
+                (GET_DIAGNOSI_ESENTE(:diagnosi5)) as traumatismo5,
+                (SELECT GETVALUE(contenuto_xml,'h-UrgenzaPs') FROM PS_SCHEDE_XML WHERE iden_contatto = CONT.IDEN
+                AND SCHEDA='ESAME_OBIETTIVO' AND attivo='S' AND DELETED='N')AS URGENZA_MED
+                from adt$contatti cont
+                where cont.iden=:iden_contatto
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_GENERICA">
+            <SQL>
+                select
+                :template AS template,
+                iden_anagrafica
+                from adt$contatti where deleted='N' and ASSIGNING_AUTHORITY_AREA='PS' and iden=:iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">10</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_MODULI_STAMPA">
+            <SQL>
+                select
+                :template AS template,
+                iden_anagrafica,
+                (select iden from MMG$CERTIFICATI where iden_accesso =:iden_contatto and deleted = 'N') IDEN_CERTIFICATO
+                from adt$contatti where deleted='N' and ASSIGNING_AUTHORITY_AREA='PS' and iden=:iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">10</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+
+        <QUERY id="Q_ELENCO_ANAMNESI">
+            <SQL>
+                SELECT
+                TESTO
+                , IDEN_PER
+                , (select descrizione from FX$PERSONALE where iden = IDEN_PER) UTE_REGISTRAZIONE
+                , to_char(to_date(dataIns, 'yyyyMMddhh24:mi:ss'), 'HH24:MI dd/MM/yyyy') DATA_INS
+                , to_char(to_date(dataMod, 'yyyyMMddhh24:mi:ss'), 'HH24:MI dd/MM/yyyy') DATA_MOD
+                , dataIns DATE_INS_ISO
+                , dataMod DATE_MOD_ISO
+                , ESAME_OBIETTIVO.progressivo
+                , URGENZA
+                FROM
+                ps_schede_xml,
+                XMLTABLE('/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtEsameObiettivo_addendum"]'
+                PASSING contenuto_xml
+                COLUMNS
+                progressivo number PATH '@PROGRESSIVO',
+                IDEN_PER number PATH '@UTEINS',
+                dataIns varchar2(20) PATH '@DATAINS',
+                dataMod varchar2(20) PATH '@DATAMOD',
+                urgenza varchar2(40) PATH '@URGENZA',
+                testo varchar2(4000) PATH 'text()')
+                ESAME_OBIETTIVO
+                where
+                scheda = 'ESAME_OBIETTIVO' and iden_contatto=:IDEN_CONTATTO and attivo='S' and deleted = 'N'
+                order by
+                progressivo desc
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_CONTATTO" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">2</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_UBICAZIONE">
+            <SQL>
+                SELECT iden as value, codice_decodifica, descrizione as descr
+                from FX$VIEW_AREE AREE
+                where iden_cdc = :iden_cdc and attivo='S' and EXTRACTVALUE(AREE.EXTRA,'/METADATO/DATO[@KEY="REGIME"]') = 921
+            </SQL>
+            <BINDS>
+                <BIND id="iden_cdc" value="#IDEN_CDC_PS#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="ACCESSI">
+            <SQL>
+                SELECT CONTATTI.IDEN as iden_contatto,
+                CONTATTI.CODICE,
+                TO_CHAR(CONTATTI.DATA_INIZIO , 'dd/MM/yyyy')as DATA_INIZIO
+                FROM adt$contatti contatti
+                INNER JOIN FX$ANAGRAFICA anag
+                ON(anag.iden =CONTATTI.IDEN_ANAGRAFICA)
+                WHERE CONTATTI.ASSIGNING_AUTHORITY_AREA='PS'
+                AND CONTATTI.ASSIGNING_AUTHORITY ='FENIX'
+                AND anag.iden =:iden_anagrafica
+            </SQL>
+        </QUERY>
+        <QUERY id="CMB_GRUPPO_TIPI">
+            <SQL>select DISTINCT TIPO VALUE ,TIPO DESCR  from ADT$TIPI</SQL>
+        </QUERY>
+        <QUERY id="CMB_PRESIDIO_PROVENIENZA">
+            <SQL>
+                SELECT /*+first_rows(1)*/
+                DESCRIZIONE AS DESCR,
+                CODICE_DECODIFICA AS VALUE
+                FROM ADT$TIPI
+                where
+                tipo in ('STRUTTURE_CONVENZIONATE', 'STRUTTURE_RICOVERO_LIGURI')
+                and attivo='S'
+                order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="FRASI">
+            <SQL>
+                SELECT *
+                FROM ADT$FRASI_STD_REFERTAZIONE
+                WHERE gruppo like '%'||:gruppo and codice like '%'||:codice and upper(frase) like '%'||:descrizione
+                order by gruppo asc
+            </SQL>
+        </QUERY>
+        <QUERY id="FRASE_INS">
+            <SQL>SELECT * FROM ADT$FRASI_STD_REFERTAZIONE WHERE IDEN = :IDEN_FRASE</SQL>
+            <BINDS>
+                <BIND id="IDEN_FRASE" value="#IDEN_FRASE#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_AREE_PS">
+            <SQL>
+                select aree.iden as value, aree.descrizione as descr,
+                cdc.COD_CDC, cdc.IDEN iden_cdc, cdc.IDEN_PROVENIENZA
+                from aree
+                inner join FX$CENTRI_DI_COSTO CDC ON(cdc.iden=aree.iden_cdc and cdc.attivo='S')
+                inner join FX$WEB_CDC wcdc on(WCDC.REPARTO=cdc.cod_cdc )
+                where aree.attivo = 'S'
+                and cdc.CODICE_STRUTTURA = :codice_struttura
+                and cdc.SUB_CODICE_STRUTTURA = :sub_codice_struttura
+                and WCDC.WEBUSER=:username
+            </SQL>
+            <BINDS>
+                <BIND id="sub_codice_struttura" value="#SUB_CODICE_STRUTTURA#" type="V"></BIND>
+                <BIND id="codice_struttura" value="#CODICE_STRUTTURA_CDC_SEL#" type="N"></BIND>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_AREE_UTENTE">
+            <SQL>
+                select iden as value, iden_cdc, descrizione as descr from aree where iden_cdc in (
+                select iden_cdc from FX$CENTRI_DI_COSTO_ASSOCIATI where tabella_iden = :iden_per and tabella_nome = 'PERSONALE'
+                )
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_CAUSA_ESTERNA">
+            <SQL>
+                select IDEN value, descrizione descr from ADT$TIPI
+                where TIPO='CAUSA_ESTERNA' and ATTIVO='S'
+                and ASSIGNING_AUTHORITY_AREA='ADT' and parametri=:codCategoria
+                order by ordine asc
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_CDC_UTENTI">
+            <SQL>
+                select WEBCDC.REPARTO from FX$WEB_CDC webcdc where webcdc.webuser = :utente and WEBCDC.REPARTO=(select cod_cdc from fx$centri_di_costo where iden =:iden_cdc)
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_CHECK_MEDICO">
+            <SQL>SELECT /*+ first_rows(10)*/ 'MEDICO' AS DESCR, 'MEDICO' as VALUE from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_CHECK_MAGAZZINO">
+            <SQL>SELECT /*+ first_rows(10)*/ 'MAGAZZINO' AS DESCR, 'MAGAZZINO' as VALUE from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_CHECK_PROTOCOLLO">
+            <SQL>SELECT /*+ first_rows(10)*/ 'DA PROTOCOLLO' AS DESCR, 'PDP' as VALUE from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_CHECK_RICOVERO">
+            <SQL>
+                select iden, codice, to_char(data_inizio,'dd/MM/yyyy') data_inizio,  (select descrizione from fx$centri_di_costo where iden = (select iden_cdc from adt$contatti_giuridici where iden =  c.segmento_ultimo_giuridico))  cdc_ricovero from adt$contatti  c where IDEN_ANAGRAFICA = :iden_anagrafica and deleted = 'N' and ASSIGNING_AUTHORITY_AREA = 'PS' and stato = adt$codifiche.decodeStato('ADMITTED', 'PS')
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_COMBO_URGENZA">
+            <SQL>
+                SELECT /*+ first_rows(10)*/
+                DESCRIZIONE AS DESCR,
+                IDEN as VALUE,
+                (select REGEXP_SUBSTR (PARAMETRI, '\[class\:([a-zA-Z]*)\]', 1,1,NULL,1 ) from dual) AS CLASS
+                FROM ADT$TIPI WHERE attivo='S' and
+                TIPO='ADT_ACC_RICOVERO_LIVELLO_URG' AND ASSIGNING_AUTHORITY_AREA = 'PS' AND ATTIVO='S'
+                order by ordine desc
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_COMBO_URGENZA_TRIAGE">
+            <SQL>
+                SELECT /*+ first_rows(10)*/
+                DESCRIZIONE AS DESCR,
+                IDEN as VALUE,
+                (select REGEXP_SUBSTR (PARAMETRI, '\[class\:([a-zA-Z]*)\]', 1,1,NULL,1 ) from dual) AS CLASS
+                FROM ADT$TIPI
+                WHERE TIPO='ADT_ACC_RICOVERO_LIVELLO_URG'
+                and attivo='S' AND ASSIGNING_AUTHORITY_AREA = 'PS'
+                order by ordine desc
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_COMBO_URGENZA_FLUSSO">
+            <SQL>
+                SELECT /*+ first_rows(10)*/
+                DESCRIZIONE AS DESCR, IDEN as VALUE,
+                (select REGEXP_SUBSTR (PARAMETRI, '\[class\:([a-zA-Z]*)\]', 1,1,NULL,1 ) from dual) AS CLASS
+                FROM ADT$TIPI
+                WHERE (select REGEXP_INSTR (PARAMETRI, '\[(flusso:true)]\' ) from dual) &gt; 1
+                and attivo='S'
+                and TIPO='ADT_ACC_RICOVERO_LIVELLO_URG' AND ASSIGNING_AUTHORITY_AREA = 'PS' AND ATTIVO='S'
+                order by ordine desc
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_URGENZA_RICHIESTE">
+            <SQL>
+                SELECT /*+ first_rows(10)*/
+                DESCRIZIONE AS DESCR,
+                CODICE_DECODIFICA as VALUE,
+                IDEN,
+                (select REGEXP_SUBSTR (PARAMETRI, '\[class\:([a-zA-Z]*)\]', 1,1,NULL,1 ) from dual) AS CLASS
+                FROM ADT$TIPI
+                WHERE TIPO='URGENZA_RICHIESTE'
+                and attivo='S' AND ASSIGNING_AUTHORITY_AREA = 'PS'
+                order by ordine asc
+            </SQL>
+        </QUERY>
+
+
+        <QUERY id="Q_CMB_PRESIDI_TRASFERIMENTO">
+            <SQL>
+                select descrizione descr, codice_decodifica value
+                from adt$tipi
+                where tipo='ISTITUTI_STRUTTURE_RICOVERO_LIGURI' OR tipo='STRUTTURE_RICOVERO_LIGURI'
+                and ASSIGNING_AUTHORITY_AREA='PS'
+                and attivo='S'
+                order by ordine
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_CONTROL_RECORD">
+            <SQL>
+                SELECT
+                la.URGENZA,
+                la.IDEN iden_lista,
+                LA.IDEN_PRECEDENTE,
+                (select adt$codifiche.encodeTipo(CONT.STATO,'PS') from dual) as STATO,
+                la.PROGRESSIVO,
+                (select adt$codifiche.encodeTipo(la.STATO,'PS') from dual) as STATO_LISTA
+                FROM ADT$CONTATTI cont
+                inner join ADT$LISTA_ATTESA la ON(LA.IDEN_CONTATTO=cont.IDEN and la.deleted='N' and la.attivo='S' and la.ASSIGNING_AUTHORITY_AREA='PS')
+                WHERE CONT.ASSIGNING_AUTHORITY_AREA='PS' and cont.iden=:iden_contatto
+                and la.attivo='S'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_HAS_DOCUMENTO_FIRMATO">
+            <SQL>
+                SELECT COUNT(1) AS N_DOCUMENTI_FIRMATI FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = :iden_contatto AND SCHEDA = :scheda AND STATO = 'F' AND ATTIVO = 'S' and deleted = 'N'
+            </SQL>
+        </QUERY>
+        <QUERY id="VISUALIZZA_PDF_VERBALE">
+            <SQL>
+                SELECT
+                'application/pdf' as MIME_TYPE,
+                PDF as DOCUMENTO,
+                'documento_verbale_' || IDEN || '.pdf' as NOME_FILE
+                FROM
+                FX$TBL_DOCUMENTI DOCUMENTI
+                WHERE
+                TABELLA = 'PRONTO_SOCCORSO.PS_SCHEDE_XML' AND TABELLA_IDEN = (SELECT IDEN FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = :iden AND SCHEDA = 'VERBALE' AND STATO = 'F' AND ATTIVO = 'S' and deleted = 'N')
+            </SQL>
+        </QUERY>
+        <QUERY id="VISUALIZZA_PDF_SCHEDA">
+            <SQL>
+                SELECT
+                'application/pdf' as MIME_TYPE,
+                PDF as DOCUMENTO,
+                'documento_scheda_' || IDEN || '.pdf' as NOME_FILE
+                FROM
+                FX$TBL_DOCUMENTI DOCUMENTI
+                WHERE
+                TABELLA = 'PRONTO_SOCCORSO.PS_SCHEDE_XML' AND TABELLA_IDEN = :iden
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_ELENCO_PRESTAZIONI_PARAM_VIT">
+            <SQL>
+                SELECT
+                ADT$codifiche.encodetipo(STATO,'PS') STATO,
+                (select max(iden) from FX$NOMENCLATORE where CODICE_DECODIFICA = 'C00678600') as IDEN_STICK,
+                (select max(iden) from FX$NOMENCLATORE where CODICE_DECODIFICA = 'C00514500') as IDEN_SATURAZIONE,
+                (select max(iden) from FX$NOMENCLATORE where CODICE_DECODIFICA = '90007') as IDEN_PRESSIONE,
+                (select GETCDCRICHIESTA(:iden_contatto) from dual) IDEN_CDC
+                from adt$contatti where iden = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_EMPTY">
+            <SQL>SELECT null VALUE, null DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_LISTA_ATTESA">
+            <SQL>
+                select
+                LA.CDC cdc_iden,
+                CDC.COD_CDC cdc_cod_cdc,
+                CDC.STRUTTURA cdc_struttura,
+                LA.DATA_FINE,
+                LA.DATA_INSERIMENTO,
+                LA.DATA_MODIFICA,
+                LA.DATA_PRENOTAZIONE,
+                LA.DATA_RICHIESTA,
+                LA.DELETED,
+                LA.IDEN,
+                LA.IDEN_ANAGRAFICA,
+                LA.IDEN_CONTATTO,
+                LA.IDEN_LISTA,
+                LA.PROVENIENZA iden_provenienza,
+                LA.MEDICO_PROPONENTE,
+                LA.NOTE,
+                LA.NOTE_MODIFICA,
+                LA.STATO,
+                LA.ATTIVO,
+                LA.PROGRESSIVO,
+                LA.IDEN_PRECEDENTE,
+                (select ADT$codifiche.encodetipo(LA.STATO,'PS') from dual)AS STATO_DESCR,
+                LA.URGENZA,
+                (select ADT$codifiche.describeTipo(LA.URGENZA) from dual)AS URGENZA_DESCR,
+                LA.UTENTE_INSERIMENTO,
+                LA.UTENTE_MODIFICA
+                from ADT$LISTA_ATTESA LA
+                inner join FX$CENTRI_DI_COSTO CDC ON(CDC.iden=LA.CDC)
+                where LA.iden=:iden_lista
+                and ASSIGNING_AUTHORITY_AREA in ('PS','PREGRESSO')
+            </SQL>
+            <BINDS>
+                <BIND id="iden_lista" value="#IDEN_LISTA#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOCAZIONE">
+            <SQL>
+                SELECT CDC.IDEN,
+                CDC.COD_CDC,
+                CDC.CODICE COD_DEC_CDC,
+                CDC.DESCRIZIONE,
+                CDC.STRUTTURA,
+                CDC.SUB_CODICE_STRUTTURA,
+                CDC.CODICE_SEZIONE,
+                CDC.SUB_CODICE_SEZIONE,
+                CDC.CODICE_STS11,
+                CDC.ABILITA_TRIAGE,
+                CDC.SITO,
+                PROV.IDEN IDEN_PROVENIENZA,
+                PROV.CODICE_DECODIFICA COD_DEC_PROV,
+                PROV.TIPO_PROVENIENZA,
+                PROV.CODICE_CUP
+                FROM FX$CENTRI_DI_COSTO CDC
+                INNER JOIN FX$PROVENIENZE PROV ON(PROV.CODICE_DECODIFICA=CDC.codice)
+                WHERE CDC.IDEN = (select cdc_ultimo_giuridico from adt$contatti where iden=:iden_contatto)
+                AND TIPOLOGIA=8
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_LOAD_ANAMNESI_INF">
+            <SQL>
+                SELECT
+                (sysdate-con.data_fine)*24 as  ore_diff_chiusura,
+                con.utente_dimissione,
+                ADT$codifiche.encodetipo(con.stato,'PS') as stato_contatto,
+                REGEXP_REPLACE(GETVALUE((contenuto_xml) ,'txtAllergie'),'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''')     AS Allergie,
+                REGEXP_REPLACE(GETVALUE((contenuto_xml) ,'txtInterventoSubito'),'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS InterSubito,
+                REGEXP_REPLACE(GETVALUE((contenuto_xml) ,'txtTerInCorso'),'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS TerInCorso,
+                REGEXP_REPLACE(GETVALUE((contenuto_xml) ,'txtMalattie'),'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS Malattie,
+                REGEXP_REPLACE(GETVALUE((contenuto_xml) ,'txtUltimoPasto'),'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS UltimoPasto
+                FROM adt$contatti con
+                LEFT OUTER JOIN PS_SCHEDE_XML psxml on (con.iden = psxml.iden_contatto and psxml.scheda='ANAMNESI' and
+                psxml.ATTIVO='S' and psxml.DELETED='N')
+                WHERE con.iden = :iden_contatto
+
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_COD_COLORE">
+            <SQL>
+                SELECT
+                :template AS template,
+                la.iden iden_lista_attesa,
+                la.progressivo,
+                la.urgenza urgenza,
+                REGEXP_REPLACE(la.note,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''')   note,
+                (ADT$codifiche.encodetipo(LA.stato,'PS')) AS STATO_LISTA_ATTESA,
+                (ADT$codifiche.encodetipo(cont.stato,'PS')) AS STATO_CONTATTO,
+                ( EXTRACTVALUE(CONTASS.metadati,'/METADATI/DATO[@KEY="AREAPS"]/text()') ) AS AREAPS,
+                ( TO_NUMBER(EXTRACTVALUE(cont.METADATI,'/METADATI/DATO[@KEY="UBICAZIONE"]/text()')) ) AS UBICAZIONE,
+                ( EXTRACTVALUE(cont.metadati,'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@CODICE') ) AS STATO_PAZIENTE,
+                ( EXTRACTVALUE(cont.metadati,'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID') ) AS STATO_PAZIENTE_ID,
+                REGEXP_REPLACE( ( EXTRACTVALUE(la.metadati,'/METADATI/DATO[@KEY="NOTE_BRACCIALETTO"]/text()') ),'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''')  AS NOTE_BRACCIALETTO,
+                la.note_modifica as note_rivalutazione,
+                anag.sesso,
+                anag.data_nascita,
+                cdc.STRUTTURA
+                FROM adt$contatti cont
+                INNER JOIN adt$lista_attesa la ON(la.iden_contatto =cont.iden AND la.assigning_authority_area='PS' AND la.deleted ='N' AND la.ATTIVO='S')
+                INNER JOIN FX$ANAGRAFICA anag on (anag.iden=CONT.IDEN_ANAGRAFICA and anag.deleted='N')
+                inner join ADT$CONTATTI_ASSISTENZIALI CONTASS ON(CONT.SEGMENTO_ULTIMO_ASSISTENZIALE=contass.iden)
+                inner join ADT$CONTATTI_GIURIDICI cg on (cont.SEGMENTO_ULTIMO_GIURIDICO = cg.IDEN)
+                INNER JOIN FX$CENTRI_DI_COSTO cdc ON(cg.iden_cdc=cdc.iden AND CDC.ATTIVO='S')
+                WHERE cont.deleted ='N'
+                AND cont.iden = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="GET_NUMERO_PUBBLICA_SICUREZZA">
+            <SQL>
+                select SEQ_NUM_PUBBLICA_SICUREZZA.nextval from dual
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_DIARI">
+            <SQL>
+                SELECT
+                DIARI.IDEN ,IDEN_ANAG,DIARI.IDEN_CONTATTO,DIARI.NOTE,DIARI.UTE_INS,
+                decode(DIARI.DATA_MODIFICA, null, TO_CHAR(DIARI.DATA_INS, 'YYYYMMDD'),TO_CHAR(DIARI.DATA_MODIFICA, 'YYYYMMDD') ) DATA_MOD,
+                decode(DIARI.DATA_MODIFICA, null, TO_CHAR(DIARI.DATA_INS, 'HH24:MI'),TO_CHAR(DIARI.DATA_MODIFICA, 'HH24:MI') ) ORA_MOD,
+                ( EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') ) UTE_RIFERIMENTO,
+                (select getvalue(contenuto_xml, 'h-txtDataIngresso')  from ps_schede_xml where iden_contatto = :iden_contatto and scheda = 'INTERVISTA' and attivo = 'S' and deleted = 'N') data_ingresso,
+                (select getvalue(contenuto_xml, 'txtOraIngresso')   from ps_schede_xml where iden_contatto = :iden_contatto and scheda = 'INTERVISTA' and attivo = 'S' and deleted = 'N') ora_ingresso
+                from DIARI
+                left outer join adt$contatti contatti on (DIARI.IDEN_CONTATTO = CONTATTI.IDEN)
+                LEFT OUTER JOIN adt$contatti_assistenziali contass ON (contass.iden = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                where DIARI.iden_contatto=:iden_contatto
+                and DIARI.IDEN = :iden_diario
+                and DIARI.deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="iden_diario" value="#IDEN_DIARIO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="Q_RICERCA_RICOVERI_ADT">
+            <SQL>
+                SELECT
+                CONTATTI.IDEN AS IDEN_CONTATTO,
+                CONTATTI.CODICE AS NOSOLOGICO,
+                ADT$CODIFICHE.ENCODETIPO(CONTATTI.REGIME) AS REGIME,
+                ADT$CODIFICHE.DESCRIBETIPO(CONTATTI.REGIME) REGIME_DESCR,
+                TO_CHAR(CONTATTI.DATA_INIZIO,'DD/MM/YYYY') AS DATA_INIZIO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ACCETTAZIONE_GIURIDICO) AS REPARTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO) AS REPARTO_ULTIMO
+                FROM
+                ADT$CONTATTI CONTATTI
+                WHERE
+                IDEN_ANAGRAFICA = :iden_anag AND
+                CONTATTI.STATO = ADT$CODIFICHE.DECODETIPO('STATO','ADMITTED',NULL,'ADT') AND
+                ASSIGNING_AUTHORITY_AREA = 'ADT' AND DELETED = 'N'
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_RICERCA_RICOVERI_PS">
+            <SQL>
+                SELECT
+                CONTATTI.IDEN AS IDEN_CONTATTO,
+                CONTATTI.CODICE AS NOSOLOGICO,
+                ADT$CODIFICHE.ENCODETIPO(CONTATTI.REGIME) AS REGIME,
+                ADT$CODIFICHE.DESCRIBETIPO(CONTATTI.REGIME) REGIME_DESCR,
+                TO_CHAR(CONTATTI.DATA_INIZIO,'DD/MM/YYYY') AS DATA_INIZIO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ACCETTAZIONE_GIURIDICO) AS REPARTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO) AS REPARTO_ULTIMO
+                FROM
+                ADT$CONTATTI CONTATTI
+                WHERE
+                IDEN_ANAGRAFICA = :iden_anag AND
+                CONTATTI.STATO = ADT$CODIFICHE.DECODETIPO('STATO','ADMITTED',NULL,'PS') AND
+                ASSIGNING_AUTHORITY_AREA = 'PS' AND DELETED = 'N'
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_SCELTA_INF">
+            <SQL>
+                SELECT descrizione as descr ,iden as value FROM FX$CENTRI_DI_COSTO WHERE iden = :iden_cdc AND attivo = 'S'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_cdc" value="#IDEN_CDC_PS#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCELTA_MED">
+            <SQL>
+                SELECT descrizione as descr ,iden as value FROM FX$CENTRI_DI_COSTO WHERE iden = :iden_cdc AND attivo = 'S'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_cdc" value="#IDEN_CDC_PS#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_DIARI">
+            <SQL>
+                Select
+                null AS IDEN, null AS IDEN_ANAG, null AS IDEN_CONTATTO, null AS NOTE,
+                null AS UTE_INS, null AS DATA_MOD, null AS ORA_MOD,
+                (( EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') )) UTE_RIFERIMENTO,
+                (select getvalue(contenuto_xml, 'h-txtDataIngresso')  from ps_schede_xml where iden_contatto = :iden_contatto and scheda = 'INTERVISTA' and attivo = 'S' and deleted = 'N') data_ingresso,
+                (select getvalue(contenuto_xml, 'txtOraIngresso')   from ps_schede_xml where iden_contatto = :iden_contatto and scheda = 'INTERVISTA' and attivo = 'S' and deleted = 'N') ora_ingresso
+                FROM adt$contatti contatti
+                LEFT OUTER JOIN adt$contatti_assistenziali contass ON (contass.iden = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                WHERE contatti.iden  = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="Q_LOAD_ESAME_OBIETTIVO">
+            <SQL>
+                SELECT
+                (sysdate-con.data_fine)*24 as  ore_diff_chiusura,
+                con.utente_dimissione,
+                (ADT$codifiche.encodetipo(LA.stato,'PS')) AS STATO_LISTA_ATTESA,
+                (ADT$codifiche.encodetipo(con.stato,'PS')) AS STATO_CONTATTO,
+                GETVALUE((psxml.contenuto_xml) ,'h-UrgenzaPs') AS URGENZA_ESAME,
+                GETVALUE((psxml.contenuto_xml) ,'txtEsameObiettivo') AS NOTE,
+                GETVALUE((psxml.contenuto_xml) ,'Allergie') AS ALLERGIE,
+                la.urgenza URGENZA_LISTA,
+                (select ADT$CODIFICHE.ENCODETIPO(contgiu.regime,'PS')from DUAL) AS REGIME,
+                tpl.template,
+                anag.sesso,
+                anag.data_nascita,
+                ((EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) UTE_RIFERIMENTO
+                FROM
+                (SELECT :iden_contatto AS iden_contatto, :template AS template FROM dual ) tpl
+                LEFT OUTER JOIN adt$contatti con ON (tpl.iden_contatto = con.iden)
+                INNER JOIN FX$ANAGRAFICA anag on (anag.iden=CON.IDEN_ANAGRAFICA and anag.deleted='N')
+                INNER JOIN adt$lista_attesa la ON(la.iden_contatto = con.iden AND la.assigning_authority_area='PS' and la.deleted='N' and la.attivo='S')
+                LEFT OUTER JOIN ps_schede_xml psxml ON(con.iden = psxml.iden_contatto AND psxml.scheda ='ESAME_OBIETTIVO' AND psxml.attivo ='S' AND psxml.deleted='N')
+                LEFT OUTER JOIN adt$contatti_assistenziali contass ON (contass.iden = con.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                LEFT OUTER JOIN adt$contatti_giuridici contgiu ON (contgiu.iden = con.SEGMENTO_ULTIMO_GIURIDICO)
+                WHERE tpl.iden_CONTATTO = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_INAIL_E">
+            <SQL>
+                SELECT
+                null as ESITO,
+                null as ESITO_OBI,
+                null as STRUTTURA_PAZIENTE,
+                null as RES_NUMERO_CIVICO,
+                null as DOM_INDIRIZZO,
+                null as RES_INDIRIZZO,
+                null as DOM_NUMERO_CIVICO,
+                null as ICD_9_1,
+                null as ICD_9_2,
+                null as ICD_9_3,
+                null as ICD_9_4,
+                null as ICD_9_5,
+                cont.codice as CODICE_CONTATTO,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtProgr') PROGRESSIVO,
+                GETVALUE(psxinail.CONTENUTO_XML,'iden_per') IDEN_PER,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtInfortunato') INFORTUNATO,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtCodFiscale') CODICE_FISCALE,
+                GETVALUE(psxinail.CONTENUTO_XML,'cmbSettoreLav') SETTORE_LAVORATIVO,
+                GETVALUE(psxinail.CONTENUTO_XML,'taDescrCauseInf') CAUSE_INFORTUNIO,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-txtDataEvento') DATA_EVENTO,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-txtComuneEv') COMUNE_EVENTO_VAL,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtComuneEv') COMUNE_EVENTO_DESCR,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-txtDataAbb') DATA_ABBANDONO,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtOraAbb') ORA_ABBANDONO,
+                GETVALUE(psxinail.CONTENUTO_XML,'taPostumiMala') POSTUMI,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtCodMedico') CODICE_MEDICO,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-radPrognosi') TIPO_PROGNOSI,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-radPericoloV') PERICOLO_VITA,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-radInvalidPerma') INVALIDITA_PERMANENTE,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-radRicaduta') RICADUTA,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtDataProg') DATA_INIZIO_PROGNOSI,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtProgGiorni') GIORNI_PROGNOSI,
+                GETVALUE(psxinail.CONTENUTO_XML,'hRiservata') RISERVATA,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtDataFino') DATA_FINE_PROGNOSI,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-radRicovero') RICOVERTATO,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-radTipologia') TIPOLOGIA,
+                GETVALUE(psxinail.CONTENUTO_XML,'taRicovero') REPARTO_RICOVERO,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-txtLuogoRil') COMUNE_RILASCIO_VAL,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtLuogoRil') COMUNE_RILASCIO_DESCR,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-txtDataRila') DATA_RILASCIO,
+                GETVALUE(psxinail.CONTENUTO_XML,'taEsamiSpec') ESAMI_CURE,
+                GETVALUE(psxinail.CONTENUTO_XML,'taEvOsservazioni') OSSERVAZIONI,
+                GETVALUE(psxinail.CONTENUTO_XML,'taRefertiAcc') ACCERTAMENTI,
+                GETVALUE(psxinail.CONTENUTO_XML,'taEsameObi') VALUTAZIONE_MEDICA,
+                GETVALUE(psxinail.CONTENUTO_XML,'taDiagnosi') DIAGNOSI,
+                GETVALUE(psxinail.CONTENUTO_XML,'taOssMedico') PRESCRIZIONI,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtCivico') NUMERO_CIVICO,
+                GETVALUE(psxinail.CONTENUTO_XML,'txtIndirizzo') INDIRIZZO,
+                GETVALUE(psxinail.CONTENUTO_XML,'h-radPostumiMala') POSTUMI_SI_NO,
+                (ADT$CODIFICHE.ENCODETIPO(cont.STATO,'PS')) as stato_contatto,
+                psxinail.IDEN,
+                psxinail.stato STATO_SCHEDA
+                FROM adt$contatti cont
+                LEFT OUTER JOIN PS_SCHEDE_XML psxinail ON (psxinail.IDEN_CONTATTO = cont.iden AND psxinail.scheda = 'INAIL' AND psxinail.attivo = 'S' AND psxinail.deleted = 'N')
+                WHERE cont.iden = :iden_contatto and cont.assigning_authority_area='PS'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_INAIL_I">
+            <SQL>
+                SELECT
+                null as IDEN_PER,
+                null as ACCERTAMENTI,
+                null as CAUSE_INFORTUNIO,
+                null as  COMUNE_RILASCIO_VAL,
+                null as COMUNE_RILASCIO_DESCR,
+                null as DATA_RILASCIO,
+                null as ESAMI_CURE,
+                null as INVALIDITA_PERMANENTE,
+                null as ORA_ABBANDONO,
+                null as OSSERVAZIONI,
+                null as PERICOLO_VITA,
+                null as POSTUMI,
+                null as PROGRESSIVO,
+                null as RICADUTA,
+                null as RICOVERTATO,
+                null as SETTORE_LAVORATIVO,
+                null as TIPO_PROGNOSI,
+                null as  DATA_INIZIO_PROGNOSI,
+                null as DATA_FINE_PROGNOSI,
+                null as POSTUMI_SI_NO,
+                null as NUMERO_CIVICO,
+                null as INDIRIZZO,
+                null as TIPOLOGIA,
+                null STATO_SCHEDA,
+                (ANAG.COGNOME ||' '|| ANAG.NOME) AS INFORTUNATO,
+                ANAG.CODICE_FISCALE,
+                ANAG.RES_NUMERO_CIVICO,
+                ANAG.DOM_NUMERO_CIVICO,
+                ANAG.DOM_INDIRIZZO,
+                ANAG.RES_INDIRIZZO,
+                cont.codice as CODICE_CONTATTO,
+                (ADT$CODIFICHE.ENCODETIPO(cont.STATO,'PS')) as stato_contatto,
+                (select struttura from fx$centri_di_costo where iden = cont.cdc_ultimo_giuridico) as STRUTTURA_PAZIENTE,
+                (extractvalue(psxeo.CONTENUTO_XML , '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtEsameObiettivo_addendum"]' )) AS  VALUTAZIONE_MEDICA,
+                GETVALUE(psxi.CONTENUTO_XML,'h-txtDataEvento')  DATA_EVENTO,
+                GETVALUE(psxi.CONTENUTO_XML,'h-txtComuneEv') COMUNE_EVENTO_VAL,
+                GETVALUE(psxi.CONTENUTO_XML,'txtComuneEv') COMUNE_EVENTO_DESCR,
+                GETVALUE(psxi.CONTENUTO_XML,'h-txtDataEvento') as DATA_ABBANDONO,
+                GETVALUE(psxv.CONTENUTO_XML,'taDiagnosiICD9') DIAGNOSI,
+                GETVALUE(psxv.CONTENUTO_XML,'txtDiagnosiICD91') ICD_9_1,
+                GETVALUE(psxv.CONTENUTO_XML,'txtDiagnosiICD92') ICD_9_2,
+                GETVALUE(psxv.CONTENUTO_XML,'txtDiagnosiICD93') ICD_9_3,
+                GETVALUE(psxv.CONTENUTO_XML,'txtDiagnosiICD94') ICD_9_4,
+                GETVALUE(psxv.CONTENUTO_XML,'txtDiagnosiICD95') ICD_9_5,
+                GETVALUE(psxv.CONTENUTO_XML,'txtrepRicovero') REPARTO_RICOVERO,
+                GETVALUE(psxv.CONTENUTO_XML,'taPrognosi') PRESCRIZIONI,
+                GETVALUE(psxv.CONTENUTO_XML,'hEsito') ESITO,
+                GETVALUE((psxv.contenuto_xml),'h-radOBI') ESITO_OBI,
+                GETVALUE(psxv.CONTENUTO_XML,'txtDayPrognosi') GIORNI_PROGNOSI,
+                GETVALUE(psxv.CONTENUTO_XML,'h-radPrognosi') RISERVATA,
+                (select codice_fiscale from fx$personale where iden=(select iden_per from fx$utenti where username =:USERNAME)) as CODICE_MEDICO
+                FROM adt$contatti cont
+                INNER JOIN FX$ANAGRAFICA anag ON ANAG.IDEN = cont.iden_anagrafica
+                LEFT OUTER JOIN PS_SCHEDE_XML psxi ON (psxi.IDEN_CONTATTO = cont.iden AND psxi.scheda = 'INTERVISTA' AND psxi.attivo = 'S' AND psxi.deleted = 'N')
+                LEFT OUTER JOIN PS_SCHEDE_XML psxeo ON (psxeo.IDEN_CONTATTO = cont.iden AND psxeo.scheda ='ESAME_OBIETTIVO' AND psxeo.attivo = 'S' AND psxeo.deleted = 'N')
+                LEFT OUTER JOIN PS_SCHEDE_XML psxv ON (psxv.IDEN_CONTATTO = cont.iden AND psxv.scheda = 'VERBALE' AND psxv.attivo = 'S' AND psxv.deleted = 'N')
+                INNER JOIN FX$ANAGRAFICA ANAG ON (ANAG.IDEN = CONT.IDEN_ANAGRAFICA)
+                WHERE cont.iden = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="USERNAME" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_SEGNALA_DECESSO_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'h-radSegnalazione') SEGNALAZIONE,
+                psx.STATO STATO_SCHEDA,
+                psx.IDEN
+                from ps_schede_xml psx
+                where scheda = 'MODULO_SEGNALAZIONE_DECESSO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+        <QUERY id="Q_LOAD_INPS_I">
+            <SQL>
+                SELECT
+                    null IDEN,
+                    null NOMINATIVO,
+                    null IND_REPE,
+                    null COMUNE_REPE,
+                    null IDEN_COMUNE_REPE,
+                    null CAP_REPE,
+                    null CODICE_FISCALE,
+                    null INDIRIZZO,
+                    null CIVICO,
+                    null COMUNE,
+                    null IDEN_COMUNE,
+                    null CAP,
+                    null PROVINCIA,
+                    null RUOLO,
+                    null TIPO_VISITA,
+                    null TIPO_CERTIFICATO,
+                    null AGEVOLAZIONE,
+                    null DATA_RILASCIO,
+                    null DATA_RILASCIO_ISO,
+                    null DATA_MALATTIA,
+                    null DATA_MALATTIA_ISO,
+                    null GIORNATA_LAVORATIVA,
+                    null DATA_TERMINE_PROGNOSI,
+                    decode(getvalue(psxInt.contenuto_xml, 'cmbProbPrinc'),'10','S','N') TRAUMA,
+                    getvalue(psxVer.contenuto_xml, 'taDiagnosiICD9') DIAGNOSI_DESCRITTIVA,
+                    getvalue(psxVer.contenuto_xml, 'txtDayPrognosi') as giorni_prognosi,
+                    getvalue(psxVer.contenuto_xml, 'txtDiagnosiICD91') as DESCR_DIAGNOSI_ICD9,
+                    getvalue(psxVer.contenuto_xml, 'h-txtDiagnosiICD91') as IDEN_DIAGNOSI_ICD9
+                FROM ps_schede_xml psxVer
+                join ps_Schede_xml psxInt on psxVer.iden_contatto = psxInt.iden_contatto and psxInt.scheda = 'INTERVISTA' and psxInt.deleted = 'N' and psxInt.attivo ='S'
+                WHERE
+                    psxVer.scheda = 'VERBALE'
+                    and psxVer.attivo = 'S'
+                    and psxVer.deleted = 'N'
+                    and psxVer.iden_contatto = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_SEGNALA_DECESSO_I">
+            <SQL>
+                select
+                null as SEGNALAZIONE,
+                null as STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_SEGNALAZIONE_DECESSO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+        <QUERY id="Q_LOAD_TRASPORTO_SANITARIO_EMERGENZA_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'txtRecapito') RECAPITO,
+                GETVALUE(psx.CONTENUTO_XML,'txtTrasportoDi') TRASPORTO_DI,
+                GETVALUE(psx.CONTENUTO_XML,'txtReparto') REPARTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtOspedale') OSPEDALE,
+                GETVALUE(psx.CONTENUTO_XML,'taDiagnosi') DIAGNOSI,
+                psx.STATO STATO_SCHEDA,
+                psx.IDEN
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_SANITARIO_EMERGENZA'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+        <QUERY id="Q_LOAD_TRASPORTO_SANITARIO_EMERGENZA_I">
+            <SQL>
+                select
+                null  RECAPITO,
+                null  TRASPORTO_DI,
+                null  REPARTO,
+                null  OSPEDALE,
+                null  DIAGNOSI,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_SANITARIO_EMERGENZA'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_SEGNALA_GIUNTOCADAVERE_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'h-radSegnalazione') SEGNALAZIONE,
+                psx.STATO STATO_SCHEDA,
+                psx.IDEN
+                from ps_schede_xml psx
+                where scheda = 'MODULO_SEGNALAZIONE_GIUNTOCADAVERE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+        <QUERY id="Q_LOAD_SEGNALA_GIUNTOCADAVERE_I">
+            <SQL>
+                select
+                null as SEGNALAZIONE,
+                null as STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_SEGNALAZIONE_GIUNTOCADAVERE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+
+        <QUERY id="Q_LOAD_CONSTATAZIONE_DECESSO_I">
+            <SQL>
+                select
+                null CAUSA_DECESSO,
+                null MEDICO,
+                null DATA_NECROSCOPO,
+                null ORA_NECROSCOPO,
+                null DATA_COMPILAZIONE,
+                null MEDICO_24,
+                null ORA_NECROSCOPO_24,
+                null DATA_COMPILAZIONE_24,
+                null STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_CONSTATAZIONE_DECESSO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+        <QUERY id="Q_LOAD_CONSTATAZIONE_DECESSO_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'taCausaDecesso') CAUSA_DECESSO,
+                GETVALUE(psx.CONTENUTO_XML,'txtMedico') MEDICO,
+                GETVALUE(psx.CONTENUTO_XML,'txtDataNecroscopo') DATA_NECROSCOPO,
+                GETVALUE(psx.CONTENUTO_XML,'txtOraNecroscopo') ORA_NECROSCOPO,
+                GETVALUE(psx.CONTENUTO_XML,'txtDataCompilazione') DATA_COMPILAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'txtMedico24') MEDICO_24,
+                GETVALUE(psx.CONTENUTO_XML,'txtOraNecroscopo24') ORA_NECROSCOPO_24,
+                GETVALUE(psx.CONTENUTO_XML,'txtDataCompilazione24') DATA_COMPILAZIONE_24,
+                psx.IDEN,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_CONSTATAZIONE_DECESSO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+
+        <QUERY id="Q_LOAD_DENUNCIA_MORSO_ANIMALE_E">
+        <SQL>
+            select
+            GETVALUE(psx.CONTENUTO_XML,'taLesioni') LESIONI,
+            GETVALUE(psx.CONTENUTO_XML,'txtGiorniPrognosi') GIORNI_PROGNOSI,
+            GETVALUE(psx.CONTENUTO_XML,'txtProvocatoDa') PROVOCATO_DA,
+            GETVALUE(psx.CONTENUTO_XML,'txtDataAvvenimento') DATA_AVVENIMENTO,
+            GETVALUE(psx.CONTENUTO_XML,'txtLuogoAvvenimento') LUOGO_AVVENIMENTO,
+            GETVALUE(psx.CONTENUTO_XML,'taCaratteristicheAnimale') CARATTERISTICHE,
+            GETVALUE(psx.CONTENUTO_XML,'txtProprietario') PROPRIETARIO,
+            GETVALUE(psx.CONTENUTO_XML,'txtResidenzaProprietario') RESIDENZA_PROPRIETARIO,
+            GETVALUE(psx.CONTENUTO_XML,'h-chkCure') CURE,
+            psx.stato STATO_SCHEDA,
+            psx.IDEN
+            from ps_schede_xml psx
+            where scheda = 'MODULO_DENUNCIA_MORSO_ANIMALE'
+            and iden_contatto = :iden_contatto
+            and attivo = 'S'
+            and deleted = 'N'
+        </SQL>
+        <BINDS>
+            <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+        </BINDS>
+
+    </QUERY>
+
+        <QUERY id="Q_LOAD_DENUNCIA_MORSO_ANIMALE_I">
+            <SQL>
+                select
+                decode(getValue(contenuto_XML, 'taDiagnosiICD9' ), null, getValue(contenuto_XML, 'txtDiagnosiICD91' ), getValue(contenuto_XML, 'taDiagnosiICD9' ) ) LESIONI,
+                decode(getValue(contenuto_XML, 'h-radPrognosi' ),1,'RISERVATA' ,getValue(contenuto_XML, 'txtDayPrognosi' )) GIORNI_PROGNOSI,
+                null PROVOCATO_DA,
+                null DATA_AVVENIMENTO,
+                null LUOGO_AVVENIMENTO,
+                null CARATTERISTICHE,
+                null PROPRIETARIO,
+                null RESIDENZA_PROPRIETARIO,
+                null CURE,
+                null STATO_SCHEDA
+                from ps_Schede_xml where
+                scheda = 'VERBALE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_CONSTATAZIONE_GIUNTOCADAVERE_E">
+            <SQL>
+                select
+
+                GETVALUE(psx.CONTENUTO_XML,'txtAltro') ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'h-radConstatazioneGiunto') CONSTATAZIONE,
+                psx.STATO STATO_SCHEDA,
+                psx.IDEN
+                from ps_schede_xml psx
+                where scheda = 'MODULO_CONSTATAZIONE_GIUNTOCADAVERE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_CONSTATAZIONE_GIUNTOCADAVERE_I">
+            <SQL>
+                select
+
+                null ALTRO,
+                null CONSTATAZIONE,
+                null STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_CONSTATAZIONE_GIUNTOCADAVERE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_RELAZIONE_ESTERNA_CADAVERE_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'txtDataIspezione') DATA_ISPEZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'txtOraIspezione') ORA_ISPEZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'h-radSegni') SEGNI,
+                GETVALUE(psx.CONTENUTO_XML,'h-radMezzo') MEZZO_ARRIVO,
+                GETVALUE(psx.CONTENUTO_XML,'txtOraGiuntoCadavere') ORA_ARRIVO,
+                GETVALUE(psx.CONTENUTO_XML,'txtProvenienza') PROVENIENZA,
+                GETVALUE(psx.CONTENUTO_XML,'txtSpecificaProvenienza') SPECIFICA_PROVENIENZA,
+                GETVALUE(psx.CONTENUTO_XML,'txtSpecificare') SPECIFICA_MEZZO,
+                psx.STATO STATO_SCHEDA,
+                psx.IDEN
+                from ps_schede_xml psx
+                where scheda = 'MODULO_RELAZIONE_ESTERNA_CADAVERE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_RELAZIONE_ESTERNA_CADAVERE_I">
+            <SQL>
+                select
+                null DATA_ISPEZIONE,
+                null ORA_ISPEZIONE,
+                null SEGNI,
+                null MEZZO_ARRIVO,
+                null ORA_ARRIVO,
+                null PROVENIENZA,
+                null SPECIFICA_PROVENIENZA,
+                null SPECIFICA_MEZZO,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_RELAZIONE_ESTERNA_CADAVERE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+        <QUERY id="Q_LOAD_TRASPORTO_GRATIS_AMBULANZA_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'txtSpecifica') SPECIFICA,
+                GETVALUE(psx.CONTENUTO_XML,'h-radMotivo') MOTIVO,
+                GETVALUE(psx.CONTENUTO_XML,'taMotivo') MOTIVO_NECESSARIO,
+                psx.STATO STATO_SCHEDA,
+                psx.iden
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_GRATIS_AMBULANZA'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_TRASPORTO_GRATIS_AMBULANZA_I">
+            <SQL>
+                select
+                null SPECIFICA,
+                null MOTIVO,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_GRATIS_AMBULANZA'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+        <QUERY id="Q_LOAD_MALATTIE_INFETTIVE_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'txtProfessione') PROFESSIONE,
+                GETVALUE(psx.CONTENUTO_XML,'txtFrequenzaCollettivita') FREQUENZA_COLLETTIVITA,
+                GETVALUE(psx.CONTENUTO_XML,'h-radMalattia') MALATTIA,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtDataInizio') DATA_INIZIO,
+                GETVALUE(psx.CONTENUTO_XML,'taAccertamenti') ACCERTAMENTI,
+                GETVALUE(psx.CONTENUTO_XML,'taOsservazioni') OSSERVAZIONI,
+                psx.IDEN,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_MALATTIE_INFETTIVE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_MALATTIE_INFETTIVE_I">
+            <SQL>
+                select
+                null PROFESSIONE,
+                null FREQUENZA_COLLETTIVITA,
+                null MALATTIA,
+                null NOME,
+                null ACCERTAMENTI,
+                null OSSERVAZIONI,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_MALATTIE_INFETTIVE'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+
+        <QUERY id="Q_LOAD_PROPOSTA_TSO_E">
+            <SQL>
+                select
+
+                GETVALUE(psx.CONTENUTO_XML,'txtEnteOspedaliero') ENTE,
+                GETVALUE(psx.CONTENUTO_XML,'taCondizioniCliniche') CONDIZIONI_CLINICHE,
+                psx.STATO STATO_SCHEDA,
+                psx.IDEN
+                from ps_schede_xml psx
+                where scheda = 'MODULO_PROPOSTA_TSO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_PROPOSTA_TSO_I">
+            <SQL>
+                select
+
+                null ENTE,
+                null CONDIZIONI_CLINICHE,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_PROPOSTA_TSO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_INCIDENTE_INTRAOSPEDALIERO_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'h-txtDataEvento') DATA_EVENTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtOraEvento') ORA_EVENTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtTurno') TURNO,
+                GETVALUE(psx.CONTENUTO_XML,'txtNomeCompilatore') NOME,
+                GETVALUE(psx.CONTENUTO_XML,'txtCognomeCompilatore') COGNOME,
+                GETVALUE(psx.CONTENUTO_XML,'h-radLuogoEvento') LUOGO_EVENTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtLuogoAltro') LUOGO_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'txtSedeEvento') SEDE_EVENTO,
+                GETVALUE(psx.CONTENUTO_XML,'h-radPresenza') PRESENZA,
+                GETVALUE(psx.CONTENUTO_XML,'txtPresenzaAltro') PRESENZA_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'h-radModalita') MODALITA,
+                GETVALUE(psx.CONTENUTO_XML,'txtModalitaAltro') MODALITA_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'h-radMotivo') MOTIVO,
+                GETVALUE(psx.CONTENUTO_XML,'txtMotivoAltro') MOTIVO_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'taFacente') FACENTE,
+                GETVALUE(psx.CONTENUTO_XML,'h-radCalzatura') CALZATURA,
+                GETVALUE(psx.CONTENUTO_XML,'txtAltroCalzatura') CALZATURA_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtDataCompilazione') DATA_COMPILAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'taBreveDescrEvento') AS BREVE_DESCR_EVENTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtTipoLesione') AS TIPO_LESIONE,
+                GETVALUE(psx.CONTENUTO_XML,'txtSedeLesione') AS SEDE_LESIONE,
+                GETVALUE(psx.CONTENUTO_XML,'txtAccRX') AS ACCERTAMENTO_RX,
+                GETVALUE(psx.CONTENUTO_XML,'txtAccTAC') AS ACCERTAMENTO_TAC,
+                GETVALUE(psx.CONTENUTO_XML,'txtAccAltro') AS ACCERTAMENTO_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'h-chkTerapieInAtto') AS TERAPIE_IN_ATTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtPrognosiGiorniPrima') AS GIORNI_PROGNOSI_PRIMA,
+                GETVALUE(psx.CONTENUTO_XML,'txtRefertiRX') AS REFERTI_RX,
+                GETVALUE(psx.CONTENUTO_XML,'txtRefertiTAC') AS REFERTI_TAC,
+                GETVALUE(psx.CONTENUTO_XML,'txtRefertiAltro') AS REFERTI_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'txtPrognosiGiorniDopo') AS GIORNI_PROGNOSI_DOPO,
+                psx.STATO STATO_SCHEDA,
+                psx.IDEN
+                from ps_schede_xml psx
+                where scheda = 'MODULO_INCIDENTE_INTRAOSPEDALIERO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_INCIDENTE_INTRAOSPEDALIERO_I">
+            <SQL>
+                select
+                null as DATA_EVENTO,
+                null as ORA_EVENTO,
+                null as TURNO,
+                null as NOME,
+                null as COGNOME,
+                null as LUOGO_EVENTO,
+                null as LUOGO_ALTRO,
+                null as SEDE_EVENTO,
+                null as PRESENZA,
+                null as PRESENZA_ALTRO,
+                null as MODALITA,
+                null as MODALITA_ALTRO,
+                null as MOTIVO,
+                null as MOTIVO_ALTRO,
+                null as FACENTE,
+                null as CALZATURA,
+                null as CALZATURA_ALTRO,
+                null as DATA_COMPILAZIONE,
+                null AS BREVE_DESCR_EVENTO,
+                null AS TIPO_LESIONE,
+                null AS SEDE_LESIONE,
+                null AS ACCERTAMENTO_RX,
+                null AS ACCERTAMENTO_TAC,
+                null AS ACCERTAMENTO_ALTRO,
+                null AS TERAPIE_IN_ATTO,
+                null AS GIORNI_PROGNOSI_PRIMA,
+                null as REFERTI_RX,
+                null as REFERTI_TAC,
+                null as REFERTI_ALTRO,
+                null as GIORNI_PROGNOSI_DOPO,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_INCIDENTE_INTRAOSPEDALIERO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+
+        <QUERY id="Q_LOAD_POSIZIONAMENTO_CVC_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'hTermine') TERMINE,
+                GETVALUE(psx.CONTENUTO_XML,'hCol1') COL_1,
+                GETVALUE(psx.CONTENUTO_XML,'hCol2') COL_2,
+                GETVALUE(psx.CONTENUTO_XML,'hCol3') COL_3,
+                GETVALUE(psx.CONTENUTO_XML,'h-radScelta') SCELTA,
+                GETVALUE(psx.CONTENUTO_XML,'txtIndicazioni') INDICAZIONI,
+                GETVALUE(psx.CONTENUTO_XML,'txtDiagnosi') DIAGNOSI,
+                GETVALUE(psx.CONTENUTO_XML,'txtNotizie') NOTIZIE,
+                GETVALUE(psx.CONTENUTO_XML,'h-radTerapiaProgrammata') TERAPIA_PROGRAMMATA,
+                GETVALUE(psx.CONTENUTO_XML,'txtAllergieNote') ALLERGIE_NOTE,
+                GETVALUE(psx.CONTENUTO_XML,'txtLatoPreferibile') LATO_PREFERIBILE,
+                GETVALUE(psx.CONTENUTO_XML,'txtTerapieDaSospendere') TERAPIE,
+                GETVALUE(psx.CONTENUTO_XML,'h-radUrgente') URGENTE,
+                GETVALUE(psx.CONTENUTO_XML,'txtMotivo') MOTIVO,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtData') DATA,
+                GETVALUE(psx.CONTENUTO_XML,'h-radCompilato') COMPILATO,
+                psx.IDEN,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_RICHIESTA_POSIZIONAMENTO_CVC'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_POSIZIONAMENTO_CVC_I">
+            <SQL>
+                select
+                null TERMINE,
+                null COL_1,
+                null COL_2,
+                null COL_3,
+                null SCELTA,
+                null INDICAZIONI,
+                null DIAGNOSI,
+                null NOTIZIE,
+                null TERAPIA_PROGRAMMATA,
+                null ALLERGIE_NOTE,
+                null LATO_PREFERIBILE,
+                null TERAPIE,
+                null URGENTE,
+                null MOTIVO,
+                null DATA,
+                null COMPILATO,
+
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_RICHIESTA_POSIZIONAMENTO_CVC'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+
+
+
+        <QUERY id="Q_LOAD_TRASPORTO_URG_AMBULANZA_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'txtReparto') REPARTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtRepartoProv') REPARTO_PROV,
+                GETVALUE(psx.CONTENUTO_XML,'txtOspedaleProv') OSPEDALE_PROV,
+                GETVALUE(psx.CONTENUTO_XML,'txtOspedale') OSPEDALE,
+                GETVALUE(psx.CONTENUTO_XML,'txtMedico') MEDICO,
+                GETVALUE(psx.CONTENUTO_XML,'taDiagnosi') DIAGNOSI,
+                GETVALUE(psx.CONTENUTO_XML,'taGlasgow') GLASGOW,
+                GETVALUE(psx.CONTENUTO_XML,'taProtesi') PROTESI,
+                GETVALUE(psx.CONTENUTO_XML,'taSedato') SEDATO,
+                GETVALUE(psx.CONTENUTO_XML,'taCurarizzato') CURARIZZATO,
+                GETVALUE(psx.CONTENUTO_XML,'taSaturazione') SATURAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'taFreqCardiaca') FREQ_CARDIACA,
+                GETVALUE(psx.CONTENUTO_XML,'taFreqResp') FREQ_RESP,
+                GETVALUE(psx.CONTENUTO_XML,'taPressArteriosa') PRESSIONE_ARTERIOSA,
+                GETVALUE(psx.CONTENUTO_XML,'hVentilazioneSpontanea') VENTILAZIONE_SPONTANEA,
+                GETVALUE(psx.CONTENUTO_XML,'hVentilazioneMeccanica') VENTILAIONE_MECCANICA,
+                GETVALUE(psx.CONTENUTO_XML,'hPerfusione') PERFUSIONE,
+                GETVALUE(psx.CONTENUTO_XML,'taPerfusioneCampo') PERFUSIONE_QTA,
+                GETVALUE(psx.CONTENUTO_XML,'hFarmaciInCorso') FARMACI_IN_CORSO,
+                GETVALUE(psx.CONTENUTO_XML,'hEmoderivatiInCorso') EMO_IN_CORSO,
+                GETVALUE(psx.CONTENUTO_XML,'hAccVenosoPeriferico') ACC_VENOSO_PERIFERICO,
+                GETVALUE(psx.CONTENUTO_XML,'hAccVenosoCentrale') ACC_VENOSO_CENTRALE,
+                GETVALUE(psx.CONTENUTO_XML,'hDrenaggioToracico') DRENAGGIO_TORACICO,
+                GETVALUE(psx.CONTENUTO_XML,'hImmobilizzazione') IMMOBILIZZAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'hDocumentazioneAllegata') DOCUMENTAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'hDocumentazioneAltro') DOCUMENTAZIONE_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'taNote') NOTE,
+                GETVALUE(psx.CONTENUTO_XML,'taFarmaci') FARMACI,
+                GETVALUE(psx.CONTENUTO_XML,'taEmoderivati') EMODERIVATI,
+                psx.IDEN,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_URG_AMBULANZA'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_TRASPORTO_URG_AMBULANZA_I">
+            <SQL>
+                select
+                null REPARTO,
+                null REPARTO_PROV,
+                null OSPEDALE_PROV,
+                null OSPEDALE,
+                null MEDICO,
+                null DIAGNOSI,
+                null GLASGOW,
+                null PROTESI,
+                null SEDATO,
+                null CURARIZZATO,
+                null SATURAZIONE,
+                null FREQ_CARDIACA,
+                null FREQ_RESP,
+                null PRESSIONE_ARTERIOSA,
+                null VENTILAZIONE_SPONTANEA,
+                null VENTILAIONE_MECCANICA,
+                null PERFUSIONE,
+                null PERFUSIONE_QTA,
+                null FARMACI_IN_CORSO,
+                null EMO_IN_CORSO,
+                null ACC_VENOSO_PERIFERICO,
+                null ACC_VENOSO_CENTRALE,
+                null DRENAGGIO_TORACICO,
+                null IMMOBILIZZAZIONE,
+                null DOCUMENTAZIONE,
+                null DOCUMENTAZIONE_ALTRO,
+                null NOTE,
+                null FARMACI,
+                null EMODERIVATI,
+
+
+
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_URG_AMBULANZA'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+
+
+        <QUERY id="Q_LOAD_TRASPORTO_URG_ELICOTTERO_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'txtReparto') REPARTO,
+                GETVALUE(psx.CONTENUTO_XML,'txtOspedale') OSPEDALE,
+                GETVALUE(psx.CONTENUTO_XML,'txtMedico') MEDICO,
+                GETVALUE(psx.CONTENUTO_XML,'taDiagnosi') DIAGNOSI,
+                GETVALUE(psx.CONTENUTO_XML,'taGlasgow') GLASGOW,
+                GETVALUE(psx.CONTENUTO_XML,'taProtesi') PROTESI,
+                GETVALUE(psx.CONTENUTO_XML,'taSedato') SEDATO,
+                GETVALUE(psx.CONTENUTO_XML,'taCurarizzato') CURARIZZATO,
+                GETVALUE(psx.CONTENUTO_XML,'taSaturazione') SATURAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'taFreqCardiaca') FREQ_CARDIACA,
+                GETVALUE(psx.CONTENUTO_XML,'taFreqResp') FREQ_RESP,
+                GETVALUE(psx.CONTENUTO_XML,'taPressArteriosa') PRESSIONE_ARTERIOSA,
+                GETVALUE(psx.CONTENUTO_XML,'hVentilazioneSpontanea') VENTILAZIONE_SPONTANEA,
+                GETVALUE(psx.CONTENUTO_XML,'hVentilazioneMeccanica') VENTILAIONE_MECCANICA,
+                GETVALUE(psx.CONTENUTO_XML,'hPerfusione') PERFUSIONE,
+                GETVALUE(psx.CONTENUTO_XML,'taPerfusioneCampo') PERFUSIONE_QTA,
+                GETVALUE(psx.CONTENUTO_XML,'hFarmaciInCorso') FARMACI_IN_CORSO,
+                GETVALUE(psx.CONTENUTO_XML,'hEmoderivatiInCorso') EMO_IN_CORSO,
+                GETVALUE(psx.CONTENUTO_XML,'hAccVenosoPeriferico') ACC_VENOSO_PERIFERICO,
+                GETVALUE(psx.CONTENUTO_XML,'hAccVenosoCentrale') ACC_VENOSO_CENTRALE,
+                GETVALUE(psx.CONTENUTO_XML,'hDrenaggioToracico') DRENAGGIO_TORACICO,
+                GETVALUE(psx.CONTENUTO_XML,'hImmobilizzazione') IMMOBILIZZAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'hDocumentazioneAllegata') DOCUMENTAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'hDocumentazioneAltro') DOCUMENTAZIONE_ALTRO,
+                GETVALUE(psx.CONTENUTO_XML,'taNote') NOTE,
+                psx.IDEN,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_URG_ELICOTTERO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_TRASPORTO_URG_ELICOTTERO_I">
+            <SQL>
+                select
+                null REPARTO,
+                null OSPEDALE,
+                null MEDICO,
+                null DIAGNOSI,
+                null GLASGOW,
+                null PROTESI,
+                null SEDATO,
+                null CURARIZZATO,
+                null SATURAZIONE,
+                null FREQ_CARDIACA,
+                null FREQ_RESP,
+                null PRESSIONE_ARTERIOSA,
+                null VENTILAZIONE_SPONTANEA,
+                null VENTILAIONE_MECCANICA,
+                null PERFUSIONE,
+                null PERFUSIONE_QTA,
+                null FARMACI_IN_CORSO,
+                null EMO_IN_CORSO,
+                null ACC_VENOSO_PERIFERICO,
+                null ACC_VENOSO_CENTRALE,
+                null DRENAGGIO_TORACICO,
+                null IMMOBILIZZAZIONE,
+                null DOCUMENTAZIONE,
+                null DOCUMENTAZIONE_ALTRO,
+                null NOTE,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_TRASPORTO_URG_ELICOTTERO'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+        <QUERY id="Q_LOAD_ADR_E">
+            <SQL>
+                select
+                GETVALUE(psx.CONTENUTO_XML,'taDescrizioneRelazione') DESCRIZIONE_RELAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'h-radGravita') GRAVITA,
+                GETVALUE(psx.CONTENUTO_XML,'taEsamiLaboRilevanti') ESAMI_LABO_RILEVANTI,
+                GETVALUE(psx.CONTENUTO_XML,'h-radEsito') ESITO,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtDataDecesso') DATA_DECESSO,
+                GETVALUE(psx.CONTENUTO_XML,'h-radDecesso') MOTIVO_DECESSO,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtDataRisoluzione') DATA_RISOLUZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'taAzioniIntraprese') AZIONI_INTRAPRESE,
+                GETVALUE(psx.CONTENUTO_XML,'txtFarmacoA') FARMACO_A,
+                GETVALUE(psx.CONTENUTO_XML,'txtLottoA') LOTTO_A,
+                GETVALUE(psx.CONTENUTO_XML,'txtDosaggioA') DOSAGGIO_A,
+                GETVALUE(psx.CONTENUTO_XML,'txtViaSommA') VIAO_SOMM_A,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtInUsoDalA') IN_USO_DA_A,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtInUsoAlA') IN_USO_AL_A,
+                GETVALUE(psx.CONTENUTO_XML,'txtFarmacoB') FARMACO_B,
+                GETVALUE(psx.CONTENUTO_XML,'txtLottoB') LOTTO_B,
+                GETVALUE(psx.CONTENUTO_XML,'txtDosaggioB') DOSAGGIO_B,
+                GETVALUE(psx.CONTENUTO_XML,'txtViaSommB') VIA_SOMM_B,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtInUsoDalB') IN_USO_DA_B,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtInUsoAlB') IN_USO_AL_B,
+                GETVALUE(psx.CONTENUTO_XML,'txtFarmacoC') FARMACO_C,
+                GETVALUE(psx.CONTENUTO_XML,'txtLottoC') LOTTO_C,
+                GETVALUE(psx.CONTENUTO_XML,'txtDosaggioC') DOSAGGIO_C,
+                GETVALUE(psx.CONTENUTO_XML,'txtViaSommC') VIA_SOMM_C,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtInUsoDalC') IN_USO_DA_C,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtInUsoAlC') IN_USO_AL_C,
+                GETVALUE(psx.CONTENUTO_XML,'h-radSospesoA') SOSPESO_A,
+                GETVALUE(psx.CONTENUTO_XML,'h-radSospesoB') SOSPESO_B,
+                GETVALUE(psx.CONTENUTO_XML,'h-radSospesoC') SOSPESO_C,
+                GETVALUE(psx.CONTENUTO_XML,'h-radReazioneA') REAZIONE_A,
+                GETVALUE(psx.CONTENUTO_XML,'h-radReazioneB') REAZIONE_B,
+                GETVALUE(psx.CONTENUTO_XML,'h-radReazioneC') REAZIONE_C,
+                GETVALUE(psx.CONTENUTO_XML,'h-radRipresoA') RIPRESO_A,
+                GETVALUE(psx.CONTENUTO_XML,'h-radRipresoB') RIPRESO_B,
+                GETVALUE(psx.CONTENUTO_XML,'h-radRipresoC') RIPRESO_C,
+                GETVALUE(psx.CONTENUTO_XML,'h-radRicomparsiA') RICOMPARSI_A,
+                GETVALUE(psx.CONTENUTO_XML,'h-radRicomparsiB') RICOMPARSI_B,
+                GETVALUE(psx.CONTENUTO_XML,'h-radRicomparsiC') RICOMPARSI_C,
+                GETVALUE(psx.CONTENUTO_XML,'txtIndicazioniA') INDICAZIONI_A,
+                GETVALUE(psx.CONTENUTO_XML,'txtIndicazioniB') INDICAZIONI_B,
+                GETVALUE(psx.CONTENUTO_XML,'txtIndicazioniC') INDICAZIONI_C,
+                GETVALUE(psx.CONTENUTO_XML,'taFarmacoConcomitante') FARMACO_CONCOMIT,
+                GETVALUE(psx.CONTENUTO_XML,'taUsoConcomitante') USO_CONCOMIT,
+                GETVALUE(psx.CONTENUTO_XML,'taCondizioniConcomitanti') CONDIZIONI_CONCOMIT,
+                GETVALUE(psx.CONTENUTO_XML,'h-radQualifica') QUALIFICA,
+                GETVALUE(psx.CONTENUTO_XML,'txtNome') NOME,
+                GETVALUE(psx.CONTENUTO_XML,'txtCognome') COGNOME,
+                GETVALUE(psx.CONTENUTO_XML,'txtIndirizzo') INDIRIZZO,
+                GETVALUE(psx.CONTENUTO_XML,'txtTelefono') TELEFONO,
+                GETVALUE(psx.CONTENUTO_XML,'txtFax') FAX,
+                GETVALUE(psx.CONTENUTO_XML,'txtEmail') EMAIL,
+                GETVALUE(psx.CONTENUTO_XML,'txtCodiceASL') CODICE_ASL,
+                GETVALUE(psx.CONTENUTO_XML,'h-txtDataCompilazione') DATA_COMPILAZIONE,
+
+                GETVALUE(psx.CONTENUTO_XML,'h-txtDataInsReazione') DATA_INS_REAZIONE,
+                GETVALUE(psx.CONTENUTO_XML,'txtOrigineEtnica') ORIGINE_ETNICA,
+                psx.IDEN,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_ADR'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+        <QUERY id="Q_LOAD_ADR_I">
+            <SQL>
+                select
+                null DESCRIZIONE_RELAZIONE,
+                null GRAVITA,
+                null ESAMI_LABO_RILEVANTI,
+                null ESITO,
+                null DATA_DECESSO,
+                null MOTIVO_DECESSO,
+                null DATA_RISOLUZIONE,
+                null AZIONI_INTRAPRESE,
+                null FARMACO_A,
+                null LOTTO_A,
+                null DOSAGGIO_A,
+                null VIAO_SOMM_A,
+                null IN_USO_DA_A,
+                null IN_USO_AL_A,
+                null FARMACO_B,
+                null LOTTO_B,
+                null DOSAGGIO_B,
+                null VIA_SOMM_B,
+                null IN_USO_DA_B,
+                null IN_USO_AL_B,
+                null FARMACO_C,
+                null LOTTO_C,
+                null DOSAGGIO_C,
+                null VIA_SOMM_C,
+                null IN_USO_DA_C,
+                null IN_USO_AL_C,
+                null SOSPESO_A,
+                null SOSPESO_B,
+                null SOSPESO_C,
+                null REAZIONE_A,
+                null REAZIONE_B,
+                null REAZIONE_C,
+                null RIPRESO_A,
+                null RIPRESO_B,
+                null RIPRESO_C,
+                null RICOMPARSI_A,
+                null RICOMPARSI_B,
+                null RICOMPARSI_C,
+                null INDICAZIONI_A,
+                null INDICAZIONI_B,
+                null INDICAZIONI_C,
+                null FARMACO_CONCOMIT,
+                null USO_CONCOMIT,
+                null CONDIZIONI_CONCOMIT,
+                null QUALIFICA,
+                null NOME,
+                null COGNOME,
+                null INDIRIZZO,
+                null TELEFONO,
+                null FAX,
+                null EMAIL,
+                null CODICE_ASL,
+                null DATA_COMPILAZIONE,
+                null DATA_INS_REAZIONE,
+                null ORIGINE_ETNICA,
+                psx.STATO STATO_SCHEDA
+                from ps_schede_xml psx
+                where scheda = 'MODULO_ADR'
+                and iden_contatto = :iden_contatto
+                and attivo = 'S'
+                and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+
+        </QUERY>
+
+
+
+        <QUERY id="Q_LOAD_INS_RICHIESTE">
+            <SQL>
+                SELECT
+                :template AS template,
+                anag.iden as iden_anag,
+                anag.nome,
+                anag.cognome,
+                anag.data_nascita,
+                anag.codice_fiscale,
+                anag.sesso,
+                con.codice,
+                con.data_inizio,
+                TO_CHAR(con.data_inizio, 'YYYYMMDDHH24mi') as data_apertura_cartella,
+                ADT$codifiche.encodetipo(con.stato,'PS') as stato_contatto,
+                CG.iden_cdc,
+                CDC.struttura,
+                CDC.descrizione,
+                CDC.COD_CDC,
+                CDC.codice COD_DEC,
+                GETVALUE((contenuto_xml), 'h-chkCatena') AS catena,
+                GETVALUE((contenuto_xml), 'cmbProbPrinc') AS cmb_problema,
+                GETDESCR((contenuto_xml), 'cmbProbPrinc') AS descr_problema,
+                (select extractvalue(metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') from adt$contatti_assistenziali where iden=con.SEGMENTO_ULTIMO_ASSISTENZIALE) AS UTENTE_RESPONSABILE,
+                (EXTRACTVALUE(con.METADATI,'/METADATI/DATO[@KEY="UBICAZIONE"]/text()')) AS UBICAZIONE,
+                (EXTRACTVALUE(con.METADATI,'/METADATI/DATO[@KEY="ESAMI_FORENSI"]/text()')) AS ESAMI_FORENSI
+                FROM adt$contatti con
+                INNER JOIN FX$ANAGRAFICA anag ON(anag.iden=con.iden_anagrafica and CON.DELETED='N')
+                INNER JOIN ADT$CONTATTI_GIURIDICI cg ON(CG.IDEN=CON.SEGMENTO_ULTIMO_GIURIDICO)
+                INNER JOIN FX$CENTRI_DI_COSTO cdc ON(cg.iden_cdc=cdc.iden AND CDC.ATTIVO='S')
+                LEFT OUTER JOIN PS_SCHEDE_XML psxml ON (con.iden = psxml.iden_contatto AND psxml.scheda='INTERVISTA' AND psxml.ATTIVO='S' AND psxml.deleted='N')
+                WHERE con.iden =:iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_INS_TERAPIA">
+            <SQL>
+                SELECT
+                (ADT$codifiche.encodetipo(LA.stato,'PS')) AS STATO_LISTA_ATTESA,
+                (ADT$codifiche.encodetipo(cont.stato,'PS')) AS STATO_CONTATTO,
+                (cont.cdc_ultimo_giuridico) as iden_cdc,
+                (EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) UTE_RIFERIMENTO
+                FROM adt$contatti cont
+                INNER JOIN adt$lista_attesa la ON(la.iden_contatto =cont.iden AND la.assigning_authority_area='PS' and la.deleted ='N' and la.attivo='S')
+                LEFT OUTER JOIN adt$contatti_assistenziali contass ON (contass.iden = cont.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                WHERE cont.deleted ='N'
+                AND cont.assigning_authority_area='PS'
+                AND cont.iden = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_INTERVISTA">
+            <SQL>
+                SELECT
+                (sysdate-cont.data_fine)*24 as  ore_diff_chiusura,
+                cont.utente_dimissione,
+                ADT$codifiche.encodetipo(cont.stato,'PS') as stato_contatto,
+                GETVALUE((psxml.contenuto_xml) ,'h-txtDataIngresso') AS data_ingresso,
+                GETVALUE((psxml.contenuto_xml) ,'h-txtDataEvento') AS data_evento,
+                TO_CHAR(TO_DATE(GETVALUE((psxml.contenuto_xml) ,'txtOraIngresso') , 'HH24:MI') , 'HH24:MI') AS ora_ingresso,
+                TO_CHAR(TO_DATE(GETVALUE((psxml.contenuto_xml) ,'txtOraEvento') , 'HH24:MI') , 'HH24:MI') AS ora_evento,
+                GETVALUE((psxml.contenuto_xml) ,'txtComuneEv') AS comune_evento_descr,
+                GETVALUE((psxml.contenuto_xml) ,'h-txtComuneEv') AS comune_evento_val,
+                GETVALUE((psxml.contenuto_xml) ,'txtAccompagnatore') AS accompagnatore,
+                GETVALUE((psxml.contenuto_xml) ,'txtAnno') AS Anno,
+                GETVALUE((psxml.contenuto_xml) ,'txtProgressivoMissione') AS ProgressivoMissione,
+                GETVALUE((psxml.contenuto_xml) ,'txtCodiceMissione') AS CodiceMissione,
+                GETVALUE((psxml.contenuto_xml) ,'taDescrLocEvento') AS locEvento,
+                GETVALUE((psxml.contenuto_xml) ,'taDichiarazione') AS dichiarazione,
+                GETVALUE((psxml.contenuto_xml), 'h-chkIntAutoritaGiu') AS autoritaGiu,
+                GETVALUE((psxml.contenuto_xml), 'cmbMotivoIngresso') AS cmb_motivo,
+                GETVALUE((psxml.contenuto_xml), 'cmbAutorita') AS cmb_autorita,
+                GETVALUE((psxml.contenuto_xml), 'cmbMezzoIncidente') AS cmb_mezzo_inc,
+                GETVALUE((psxml.contenuto_xml), 'cmbMezzoArrivo') AS cmb_mezzo_arrivo,
+                GETVALUE((psxml.contenuto_xml), 'cmbPresidio') AS cmb_presidio,
+                GETVALUE((psxml.contenuto_xml), 'cmbModArrivo') AS cmb_mod_arrivo,
+                GETVALUE((psxml.contenuto_xml), 'cmbProbPrinc') AS cmb_problema,
+                GETVALUE((psxml.contenuto_xml), 'cmbTriageAcc') AS cmb_triace_accompa,
+                GETVALUE((psxml.contenuto_xml) , 'h-chkCatena') AS CATENA,
+                GETVALUE((psxml.contenuto_xml), 'cmbCodIdentificativo') AS cmb_cod_identificativo,
+                GETVALUE((psxml.contenuto_xml) , 'cmbOnere') AS cmb_onere,
+                GETVALUE((psxml.contenuto_xml), 'cmbSubOnere') AS cmb_sub_onere,
+                GETVALUE((psxml.contenuto_xml) , 'h-chkAltraCentrale') AS ALTRACENTRALE,
+                (SELECT CODICE_DECODIFICA FROM ADT$TIPI WHERE TIPO = 'MODALITA_ACCESSO_TRIAGE' AND PARAMETRI ='118_CENTR_OPERATIVA' AND ATTIVO = 'S') COD_DEC_118,
+                :template AS template
+                FROM ADT$CONTATTI cont
+                LEFT OUTER JOIN PS_SCHEDE_XML psxml ON (psxml.iden_contatto = cont.iden
+                AND psxml.scheda ='INTERVISTA'
+                AND psxml.ATTIVO ='S'
+                AND psxml.DELETED = 'N')
+                WHERE cont.iden = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_PASSAGGIO_INF">
+            <SQL>
+                SELECT
+                (ADT$codifiche.encodetipo(LA.stato,'PS')) AS STATO_LISTA_ATTESA,
+                (ADT$codifiche.encodetipo(cont.stato,'PS')) AS STATO_CONTATTO,
+                (extractvalue(contass.METADATI,'//DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) as UTENTE_RIFERIMENTO,
+                (cont.cdc_ultimo_giuridico) as iden_cdc,
+                CONTGIU.IDEN_PROVENIENZA
+                FROM adt$contatti cont
+                inner join ADT$CONTATTI_ASSISTENZIALI contass on(CONT.SEGMENTO_ULTIMO_ASSISTENZIALE=contass.iden)
+                inner join ADT$CONTATTI_GIURIDICI contgiu on(CONT.SEGMENTO_ULTIMO_GIURIDICO=contgiu.iden)
+                inner JOIN adt$lista_attesa la ON(la.iden_contatto =cont.iden AND la.assigning_authority_area='PS' and la.deleted ='N' and la.attivo='S')
+                WHERE cont.deleted ='N'
+                AND cont.assigning_authority_area='PS'
+                AND cont.iden = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_RICHIESTE">
+            <SQL>
+                SELECT CONT.CODICE codice_contatto,
+                ANAG.NOME, ANAG.COGNOME,
+                GETVALUE((contenuto_xml), 'h-chkCatena') AS catena
+                from adt$contatti cont
+                inner join FX$ANAGRAFICA anag on(anag.iden=CONT.IDEN_ANAGRAFICA and ANAG.DELETED='N')
+                LEFT OUTER JOIN PS_SCHEDE_XML psxml ON (cont.iden = psxml.iden_contatto AND psxml.scheda='INTERVISTA' AND psxml.ATTIVO='S' and psxml.deleted = 'N')
+                where cont.iden=:iden_contatto and CONT.DELETED='N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_TRASFERIMENTO">
+            <SQL>
+                SELECT
+                (ADT$codifiche.encodetipo(LA.stato,'PS')) AS STATO_LISTA_ATTESA,
+                (ADT$codifiche.encodetipo(cont.stato,'PS')) AS STATO_CONTATTO,
+                (extractvalue(contass.METADATI,'//DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) as UTENTE_RIFERIMENTO,
+                (cont.cdc_ultimo_giuridico) as iden_cdc,
+                CONTGIU.IDEN_PROVENIENZA
+                FROM adt$contatti cont
+                inner join ADT$CONTATTI_ASSISTENZIALI contass on(CONT.SEGMENTO_ULTIMO_ASSISTENZIALE=contass.iden)
+                inner join ADT$CONTATTI_GIURIDICI contgiu on(CONT.SEGMENTO_ULTIMO_GIURIDICO=contgiu.iden)
+                inner join adt$lista_attesa la ON(la.iden_contatto =cont.iden AND la.assigning_authority_area='PS' and la.deleted ='N' la.attivo='S')
+                WHERE cont.deleted ='N'
+                AND cont.assigning_authority_area='PS'
+                AND cont.iden = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_VERBALE_I">
+            <SQL>
+                SELECT
+                :template AS template,
+                NULL  AS ACC_INF,
+                NULL  AS ACC_INF_VAL,
+                NULL  AS ACC_MEDICO,
+                NULL  AS ACC_MEDICO_VAL,
+                NULL  AS CAT_CAUSA_ESTERNA,
+                NULL  AS CAT_CAUSA_ESTERNA_VAL,
+                NULL  AS CAUSA_ESTERNA_DESCR,
+                NULL  AS CAUSA_ESTERNA_VAL,
+                NULL  AS COMUNE_DEC,
+                NULL  AS COMUNE_DEC_VAL,
+                NULL  AS DATA_DECESSO,
+                NULL  AS DATA_DIMI,
+                NULL  AS DATA_RICOVERO,
+                NULL  AS DATA_TRASF,
+                NULL  AS DESTINAZIONE,
+                NULL  AS DIAGNOSI1,
+                NULL  AS DIAGNOSI1_VAL,
+                NULL  AS DIAGNOSI2,
+                NULL  AS DIAGNOSI2_VAL,
+                NULL  AS DIAGNOSI3,
+                NULL  AS DIAGNOSI3_VAL,
+                NULL  AS DIAGNOSI4,
+                NULL  AS DIAGNOSI4_VAL,
+                NULL  AS DIAGNOSI5,
+                NULL  AS DIAGNOSI5_VAL,
+                NULL  AS ESITO_PRECEDENTE,
+                NULL  AS ESITO_IDEN,
+                NULL  AS GIORNI_PROGNOSI,
+                NULL  AS GIUNTO_CADAVERE,
+                NULL  AS IDEN_SCHEDA_VERBALE,
+                NULL  AS MEDICO_REF,
+                NULL  AS MEDICO_REF_VAL,
+                NULL  AS MEZZO_TRASP,
+                NULL  AS MOTIVO_TRASF,
+                NULL  AS NUMERO_PUBBLICA_SICUREZZA,
+                NULL  AS NUM_REFERTO,
+                NULL  AS MANTIENI_OBI,
+                NULL  AS OBI,
+                NULL  AS ONERE,
+                NULL  AS ORA_DECESSO,
+                NULL  AS ORA_RICOVERO,
+                NULL  AS ORA_TRASF,
+                NULL  AS PROGNOSI_RIS,
+                NULL  AS REFERTO_AUT,
+                NULL  AS REP_ASSISTENZA,
+                NULL  AS REP_ASSISTENZA_VAL,
+                NULL  AS REP_RICOVERO,
+                NULL  AS REP_RICOVERO_VAL,
+                NULL  AS RISCONTRO_AUT,
+                NULL  AS SUB_ONERE,
+                NULL  AS TESTO_DECESSO,
+                NULL  AS TESTO_DIAGNOSI,
+                NULL  AS TESTO_PROGNOSI,
+                NULL  AS TESTO_TRASF,
+                NULL  AS TIPO_RICO,
+                NULL  AS URGENZA,
+                NULL  AS NOTE_BRACCIALETTO_RICOVERO,
+                NULL  AS stato_scheda_verbale,
+                NULL  AS ESITO,
+                NULL  AS EPICRISI,
+                NULL  AS ORE_DIFF_CHIUSURA,
+                NULL  AS IDEN_RICOVERO,
+                (SELECT REGEXP_SUBSTR(PARAMETRI, '\[traumatismo\:(\w*)\]', 1,1,NULL,1 ) FROM adt$tipi
+                WHERE tipo ='CAUSA_ACCESSO_TRIAGE' AND attivo='S'
+                AND CODICE_DECODIFICA =(GETVALUE((psxmlinter.contenuto_xml) , 'cmbMotivoIngresso'))) AS CAUSA_TRAUMAT,
+                GETVALUE((psxmlinter.contenuto_xml) ,'h-chkCatena')       AS CATENA,
+                GETVALUE((psxmlinter.contenuto_xml) ,'cmbOnere')          AS ONERE_INGRESSO,
+                GETVALUE((psxmlinter.contenuto_xml) ,'cmbSubOnere')       AS SUB_ONERE_INGRESSO,
+                GETVALUE((psxmlinter.contenuto_xml) ,'cmbProbPrinc')      AS PROBL_PRINCIPALE,
+                GETVALUE((psxmlinter.contenuto_xml) ,'txtComuneEv')       AS COMUNE_EVENTO,
+                GETVALUE((psxmlinter.contenuto_xml) ,'h-txtComuneEv')     AS COMUNE_EVENTO_VAL,
+                GETVALUE((psxmlinter.contenuto_xml) ,'cmbMotivoIngresso') AS MOTIVO_INGRESSO,
+                DECODE( GETVALUE((psxmlinter.contenuto_xml), 'h-chkIntAutoritaGiu') ,NULL ,'N', 'S') AS AUTORITA_GIUDIZIARIA,
+                (select data_morte from fx$anagrafica where iden = cont.iden_anagrafica) AS DATA_MORTE,
+                cdc.iden_provenienza             AS IDEN_PROVENIENZA,
+                cdc.cod_cdc                      AS COD_CDC,
+                cdc.iden                         AS IDEN_CDC,
+                (select GETVALUE((contenuto_xml) ,'h-UrgenzaPs') from ps_schede_xml where iden_CONTATTO=cont.iden
+                and SCHEDA='ESAME_OBIETTIVO' AND attivo ='S' AND deleted ='N' and rownum=1) AS URGENZA_ESAME,
+                TO_CHAR((select DATA_INIZIO from adt$contatti_giuridici where iden=cont.segmento_ultimo_giuridico
+                and regime=(ADT$CODIFICHE.decodetipo('ADT_REGIME_CONTATTO','OBI',NULL,'PS'))),'DD-MON-YYYY HH24:MI') AS DATA_INIZIO_OBI
+                FROM ADT$CONTATTI CONT
+                INNER JOIN fx$centri_di_costo cdc ON (cdc.iden=cont.cdc_ultimo_giuridico)
+                INNER JOIN ps_schede_xml psxmlinter
+                ON (Cont.iden=psxmlinter.IDEN_CONTATTO AND psxmlinter.SCHEDA='INTERVISTA' AND psxmlinter.attivo='S' AND psxmlinter.deleted='N')
+                WHERE cont.assigning_authority_area='PS'
+                AND Cont.IDEN =:iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_LOAD_VERBALE_E">
+            <SQL>
+                SELECT
+                :template AS template,
+                null AS CATENA,
+                null AS COMUNE_EVENTO,
+                null AS COMUNE_EVENTO_VAL,
+                null AS DATA_INIZIO_OBI,
+                null AS AUTORITA_GIUDIZIARIA,
+                null AS MOTIVO_INGRESSO,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtDiagnosiICD91') AS DIAGNOSI1,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDiagnosiICD91') AS DIAGNOSI1_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtDiagnosiICD92') AS DIAGNOSI2,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDiagnosiICD92') AS DIAGNOSI2_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtDiagnosiICD93') AS DIAGNOSI3,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDiagnosiICD93') AS DIAGNOSI3_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtDiagnosiICD94') AS DIAGNOSI4,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDiagnosiICD94') AS DIAGNOSI4_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtDiagnosiICD95') AS DIAGNOSI5,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDiagnosiICD95') AS DIAGNOSI5_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtMedicoRef') AS MEDICO_REF,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtMedicoRef') AS MEDICO_REF_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtComuneDec') AS COMUNE_DEC,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtComuneDec') AS COMUNE_DEC_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtAccMedico') AS ACC_MEDICO,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtAccInfermiere') AS ACC_INF,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtAccMedico') AS ACC_MEDICO_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtAccInfermiere') AS ACC_INF_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-UrgenzaPs') AS URGENZA,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtDayPrognosi') AS GIORNI_PROGNOSI,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-radPrognosi') AS PROGNOSI_RIS,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDataDim') AS DATA_DIMI,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-radGiuntoCadavere') AS GIUNTO_CADAVERE,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDataDecesso') AS DATA_DECESSO,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtOraDecesso') AS ORA_DECESSO,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-radRiscontro') AS RISCONTRO_AUT,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-radReferto') AS REFERTO_AUT,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtNumReferto') AS NUM_REFERTO,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDataTrasferimento') AS DATA_TRASF,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtOraTrasferimento') AS ORA_TRASF,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtDataRicovero') AS DATA_RICOVERO,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtOraRicovero') AS ORA_RICOVERO,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbTrasferimento') AS DESTINAZIONE,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbMezzoTrasporto') AS MEZZO_TRASP,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbMotivoTrasf') AS MOTIVO_TRASF,
+                GETVALUE((psxmlver.contenuto_xml) ,'taDiagnosiICD9') AS TESTO_DIAGNOSI,
+                GETVALUE((psxmlver.contenuto_xml) ,'taPrognosi') AS TESTO_PROGNOSI,
+                GETVALUE((psxmlver.contenuto_xml) ,'taDecesso') AS TESTO_DECESSO,
+                GETVALUE((psxmlver.contenuto_xml) ,'taTrasferimento') AS TESTO_TRASF,
+                GETVALUE((psxmlver.contenuto_xml) ,'taEpicrisi') AS EPICRISI,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-radOBI') AS OBI,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-radMantieniOBI') AS MANTIENI_OBI,
+                GETVALUE((psxmlver.contenuto_xml) ,'hEsito') AS ESITO_PRECEDENTE,
+                GETVALUE((psxmlver.contenuto_xml), 'taNumeroPubblicaSicurezza') NUMERO_PUBBLICA_SICUREZZA,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtrepRicovero') AS XML_REP_RICOVERO,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtrepAssistenza') AS XML_REP_ASSISTENZA,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtrepRicovero') AS XML_REP_RICOVERO_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtrepAssistenza') AS XML_REP_ASSISTENZA_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'txtCategoriaCausaEsterna') AS XML_CAT_CAUSA_ESTERNA,
+                GETVALUE((psxmlver.contenuto_xml) ,'h-txtCategoriaCausaEsterna') AS XML_CAT_CAUSA_ESTERNA_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbTipoRico') AS XML_TIPO_RICO,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbTraumatismo') AS XML_CAUSA_TRAUMAT,
+                GETDESCR((psxmlver.contenuto_xml) ,'cmbCausaEsterna') AS XML_CAUSA_ESTERNA_DESCR,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbCausaEsterna') AS XML_CAUSA_ESTERNA_VAL,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbOnere') AS XML_ONERE,
+                GETVALUE((psxmlver.contenuto_xml) ,'cmbSubOnere') AS XML_SUB_ONERE,
+                GETVALUE((psxmlver.contenuto_xml), 'taNoteBraccialettoRicovero') AS XML_NOTE_BRACCIALETTO_RICOVERO,
+                psxmlver.iden iden_scheda_verbale,
+                psxmlver.stato stato_scheda_verbale,
+                (GETVALUE((psxmlver.contenuto_xml) ,'hEsito')) AS ESITO,
+                CONT.TIPO_DIMISSIONE AS ESITO_IDEN,
+                (select data_morte from fx$anagrafica where iden = cont.iden_anagrafica) AS DATA_MORTE,
+                (GETVALUE(psxint.contenuto_xml ,'cmbOnere')) AS ONERE_INGRESSO,
+                (GETVALUE(psxint.contenuto_xml ,'cmbSubOnere')) AS SUB_ONERE_INGRESSO,
+                (GETVALUE(psxint.contenuto_xml ,'cmbProbPrinc')) AS  PROBL_PRINCIPALE,
+                cdc.iden as iden_cdc,
+                cdc.cod_cdc as cod_cdc,
+                cdc.iden_provenienza as iden_provenienza,
+                (select GETVALUE((contenuto_xml) ,'h-UrgenzaPs') from ps_schede_xml where iden_CONTATTO=cont.iden and SCHEDA='ESAME_OBIETTIVO' AND attivo ='S' AND deleted ='N' and rownum=1) AS URGENZA_ESAME,
+                TO_CHAR((select DATA_INIZIO from adt$contatti_giuridici where iden=cont.segmento_ultimo_giuridico and regime=(ADT$CODIFICHE.decodetipo('ADT_REGIME_CONTATTO','OBI',NULL,'PS'))),'DD-MON-YYYY HH24:MI') AS DATA_INIZIO_OBI,
+                (sysdate-cont.data_fine)*24 AS ore_diff_chiusura,
+                (select codice_decodifica from adt$tipi where iden = contadt.tipo)  AS TIPO_RICO,
+                (select descrizione from fx$provenienze where iden = (select IDEN_PROVENIENZA from adt$contatti_giuridici where iden_contatto=contadt.iden and deleted='N' and progressivo=0)) AS REP_RICOVERO,
+                (select descrizione from fx$provenienze where iden = (select IDEN_PROVENIENZA from adt$contatti_assistenziali where iden_contatto=contadt.iden and deleted='N' and progressivo=0)) AS REP_ASSISTENZA,
+                (select IDEN_PROVENIENZA from adt$contatti_giuridici where iden_contatto=contadt.iden and deleted='N' and progressivo=0) AS REP_RICOVERO_VAL,
+                (select IDEN_PROVENIENZA from adt$contatti_assistenziali where iden_contatto=contadt.iden and deleted='N' and progressivo=0) AS REP_ASSISTENZA_VAL,
+                (EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="ADT_ACC_RICOVERO_ONERE"]/@CODICE')) AS ONERE,
+                (EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="ADT_ACC_RICOVERO_SUB_ONERE"]/@CODICE')) AS SUB_ONERE,
+                (select descrizione from adt$tipi where iden =(EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="CATEGORIA_CAUSA_ESTERNA"]/@ID'))) AS CAT_CAUSA_ESTERNA,
+                (EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="CATEGORIA_CAUSA_ESTERNA"]/@ID')) AS CAT_CAUSA_ESTERNA_VAL,
+                (EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="TRAUMATISMI"]/@CODICE')) AS CAUSA_TRAUMAT,
+                (select descrizione from adt$tipi where iden =(EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="CAUSA_ESTERNA"]/@ID'))) AS CAUSA_ESTERNA_DESCR,
+                (EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="CAUSA_ESTERNA"]/@ID')) AS CAUSA_ESTERNA_VAL,
+                (EXTRACTVALUE(contadt.metadati,'/METADATI/DATO[@KEY="NOTE_BRACCIALETTO_RICOVERO"]/text()')) AS NOTE_BRACCIALETTO_RICOVERO,
+                contadt.iden AS IDEN_RICOVERO
+                FROM ADT$CONTATTI CONT
+                left outer join adt$contatti contadt on (contadt.iden_parent=CONT.IDEN and contadt.ASSIGNING_AUTHORITY_AREA = 'ADT' and contadt.deleted='N')
+                INNER JOIN fx$centri_di_costo cdc on (cdc.iden=cont.cdc_ultimo_giuridico)
+                INNER JOIN ps_schede_xml psxmlver ON (Cont.iden=psxmlver.IDEN_CONTATTO AND psxmlver.SCHEDA='VERBALE' AND psxmlver.attivo ='S' AND psxmlver.deleted='N')
+                INNER JOIN ps_schede_xml psxint ON (Cont.iden=psxint.IDEN_CONTATTO AND psxint.SCHEDA='INTERVISTA' AND psxint.attivo ='S' AND psxint.deleted='N')
+                WHERE Cont.IDEN = :iden_contatto and cont.assigning_authority_area='PS'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="Q_PERSONALE_MEDICO">
+            <SQL>
+                SELECT IDEN as value, DESCRIZIONE as descr
+                from fx$personale where TIPO_PERSONALE='M'
+                and attivo='S' and ROWNUM &lt; 11
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_PROGRESSIVO_MISSIONE">
+            <SQL>
+                select
+                count(1) CONTO
+                from
+                codici_missione_beta_80
+                where
+                codice_missione = :codice_missione and
+                iden_contatto &lt;&gt; :iden_contatto
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_PS_CONTATTO_SCONOSCIUTO">
+            <SQL>
+                SELECT 'ASSISTITO'|| seq_nome_assistito.nextval NOME,
+                'SCONOSCIUTO' COGNOME ,
+                'ONESYSPS' || TO_CHAR( lpad((SEQ_CODICE_FISCALE.NEXTVAL),8,'0')) CODICE_FISCALE
+                from dual
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_PROVENIENZE_PS">
+            <SQL>
+                SELECT
+                cdc.IDEN_PROVENIENZA value, cdc.descrizione descr,
+                cdc.COD_CDC, cdc.IDEN iden_cdc, aree.iden iden_area
+                from fx$centri_di_costo cdc
+                inner join aree aree on (AREE.IDEN_CDC=CDC.IDEN and aree.attivo='S')
+                where cdc.attivo='S'
+                and cdc.tipologia=8
+                and cdc.CODICE_STRUTTURA = :codice_struttura
+                and cdc.SUB_CODICE_STRUTTURA = :sub_codice_struttura
+            </SQL>
+            <BINDS>
+                <BIND id="sub_codice_struttura" value="#SUB_CODICE_STRUTTURA#" type="V"></BIND>
+                <BIND id="codice_struttura" value="#CODICE_STRUTTURA_CDC_SEL#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_RAD_FILTRO_FARMACI">
+            <SQL>
+                SELECT
+                'Piu utilizzati' AS DESCR , '0' AS VALUE
+                from DUAL union all
+                select
+                'Nome farmaco' AS DESCR , '1' AS VALUE
+                from DUAL union all
+                select
+                'Principio attivo' AS DESCR , '3' AS VALUE
+                from DUAL union all
+                select
+                'Codice farmaco' AS DESCR , '2' AS VALUE from dual
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_ROWS_LOCK">
+            <SQL>
+                select * from VIEW_ROWS_LOCK where iden_contatto = :iden_contatto
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">2</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_CHECK_MEDICO_RESP">
+            <SQL>
+                select EXTRACTVALUE(metadati, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') iden_per from adt$contatti_assistenziali where iden = (select segmento_ultimo_assistenziale from adt$contatti where iden = :IDEN_CONTATTO)
+            </SQL>
+            <BIND id="iden_contatto" value="iden_contatto" type="N"></BIND>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_ANAGRAFICA">
+            <SQL>
+                SELECT
+                anag.*,
+                comnasc.descrizione comune_nascita,
+                comnasc.iden_comune iden_comune_nascita,
+                comnasc.codice_comune cod_com_nascita,
+                comnasc.codice_regione cod_reg_nascita,
+                comnasc.codice_usl usl_nascita,
+                comres.descrizione comune_residenza,
+                comres.codice_comune cod_com_residenza,
+                comres.codice_regione cod_reg_residenza,
+                comres.codice_usl usl_residenza,
+                comdom.descrizione comune_domicilio,
+                comdom.codice_comune cod_com_domicilio,
+                comdom.codice_regione cod_reg_domicilio,
+                comdom.codice_usl usl_domicilio,
+                ANAG.DATA_MORTE AS DATA_MORTE,
+                ANAG.DOM_USL AS ASL_DOMICILIO,
+                ANAG.USL_RES AS ASL_RESIDENZA, ANAG.USL_ASSISTENZA AS ASL_ASSISTENZA, ANAG.ASS_COD_REGIONE,
+                (SELECT ASL_DESCR FROM fx$TAB_ASL WHERE AZD_CODICE =  ANAG.USL_ASSISTENZA AND REG_CODICE = ANAG.ASS_COD_REGIONE) AS ASL_ASSISTENZA_DESCR,
+                (SELECT AZD_CODICE FROM fx$TAB_ASL WHERE AZD_CODICE = ANAG.USL_ASSISTENZA AND REG_CODICE = ANAG.ASS_COD_REGIONE) AS ASL_ASSISTENZA_COD,
+                (SELECT ASL_DESCR FROM fx$TAB_ASL WHERE AZD_CODICE =  ANAG.DOM_USL AND REG_CODICE = comdom.codice_regione) AS ASL_DOMICILIO_DESCR,
+                (SELECT ASL_DESCR FROM fx$TAB_ASL WHERE AZD_CODICE =  ANAG.USL_RES AND REG_CODICE =  comres.codice_regione) AS ASL_RESIDENZA_DESCR,
+                (SELECT AZD_CODICE FROM fx$TAB_ASL WHERE AZD_CODICE = ANAG.USL_RES AND REG_CODICE =  comres.codice_regione) AS ASL_RESIDENZA_COD,
+                (SELECT DESCRIZIONE FROM FX$personale WHERE iden=anag.iden_medico_base and attivo='S' and tipo_personale='M') MEDICO_BASE,
+                (SELECT descrizione FROM adt$tipi WHERE iden=anag.iden_stato_civile AND tipo='STATO_CIVILE' and attivo='S') STATO_CIVILE,
+                (SELECT descrizione FROM adt$tipi WHERE iden =anag.IDEN_LIVELLO_ISTRUZIONE ) DESCR_ISTRUZIONE,
+                (SELECT descr FROM FX$TAB_PRF WHERE iden=anag.IDEN_PROFESSIONE and attivo='S') PROFESSIONE,
+                (SELECT descr FROM FX$NAZIONI WHERE iden=anag.iden_nazione and attivo='S' and deleted='N') NAZIONE,
+                CEA.ID9 AS COD_STP,
+                CEA.ID11 AS COD_ENI,
+                CEA.ID13 AS COD_GIU,
+                CEA.ID4 RICONOSCIUTO,
+                decode((select ID9 from  fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(id10,'yyyyMMdd')&gt;=trunc(sysdate)  ), null,'N','S') STP,
+                (select ID10 from fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(id10,'yyyyMMdd') &gt;=trunc(sysdate)  )DATA_SCADENZA_STP,
+                decode((select ID13 from  fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(id14,'yyyyMMdd')&gt;=trunc(sysdate)  ), null,'N','S') GIU,
+                (select ID14 from fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(ID14,'yyyyMMdd') &gt;=trunc(sysdate)  )DATA_SCADENZA_GIU,
+                (select decode(ID11,null,'N','S') from  fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(ID12,'yyyyMMdd') &gt;=trunc(sysdate) ) ENI,
+                (select ID12 from fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(id12,'yyyyMMdd') &gt;=trunc(sysdate)  )DATA_SCADENZA_ENI
+                FROM FX$ANAGRAFICA anag
+                left outer join fx$comuni COMNASC on(ANAG.IDEN_COMUNE_NASCITA=COMNASC.IDEN_COMUNE)
+                left outer join fx$comuni COMRES on(ANAG.IDEN_COMUNE_RESIDENZA=COMRES.IDEN_COMUNE)
+                left outer join fx$comuni COMDOM on(ANAG.IDEN_COMUNE_DOMICILIO=COMDOM.IDEN_COMUNE)
+                left outer join FX$COD_EST_ANAG CEA on (CEA.IDEN_ANAG=anag.iden )
+                WHERE anag.iden = :iden_anagrafica
+                and anag.deleted='N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_anagrafica" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_ANAGRAFICA_CONSOLE">
+            <SQL>
+                select
+                (select descrizione from adt$tipi where iden = extractvalue(metadati, '//DATO[@KEY="ADT_ACC_RICOVERO_TITOLO_STUDIO"]/@ID')) DESCR_ISTRUZIONE,
+                extractvalue(metadati, '//DATO[@KEY="ADT_ACC_RICOVERO_TITOLO_STUDIO"]/@ID') IDEN_LIVELLO_ISTRUZIONE,
+                (select descrizione from adt$tipi where iden = extractvalue(metadati, '//DATO[@KEY="STATO_CIVILE"]/@ID')) STATO_CIVILE,
+                extractvalue(metadati, '//DATO[@KEY="STATO_CIVILE"]/@ID') IDEN_STATO_CIVILE,
+                extractvalue(metadati, '//DATO[@KEY="ANAG_COMUNE_NASC"]') IDEN_COMUNE_NASCITA,
+                (select descrizione from fx$comuni where iden_comune = extractvalue(metadati, '//DATO[@KEY="ANAG_COMUNE_NASC"]')) COMUNE_NASCITA,
+                (select codice_regione from fx$comuni where IDEN_COMUNE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]') ),
+                (
+                SELECT ASL_DESCR FROM fx$TAB_ASL WHERE
+                AZD_CODICE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_ASL"]')
+                AND REG_CODICE =
+                (select codice_regione from fx$comuni where IDEN_COMUNE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]') )
+                )
+                AS ASL_RESIDENZA_DESCR,
+                extractvalue(metadati, '//DATO[@KEY="ANAG_RES_ASL"]') ASL_RESIDENZA,
+                extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]') IDEN_COMUNE_RESIDENZA,
+                (SELECT DESCRIZIONE FROM FX$COMUNI WHERE IDEN_COMUNE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]'))COMUNE_RESIDENZA,
+                (select C.CODICE_COMUNE from fx$comuni c where iden_comune = extractvalue(metadati, '//DATO[@KEY="ANAG_COMUNE_NASC"]')) as COD_COM_NASCITA
+                ,null as RES_TELEFONO
+                ,null as TESSERA_DATA_SCAD
+                ,null as TESSERA_SANITARIA
+                ,null as COD_REG_DOMICILIO
+                ,null as DOM_TELEFONO
+                ,null as DOM_PROVINCIA
+                ,null as DOM_CAP
+                ,null as DOM_NUMERO_CIVICO
+                ,null as DOM_INDIRIZZO
+                ,null as COMUNE_DOMICILIO
+                ,null as IDEN_COMUNE_DOMICILIO
+                ,null as ASL_DOMICILIO_DESCR
+                ,null as ASL_DOMICILIO
+                ,null as RES_CAP
+                ,null as RES_NUMERO_CIVICO
+                ,null as RES_INDIRIZZO
+                ,null as EMAIL
+                ,null as RES_CELLULARE
+                ,null as PROFESSIONE
+                ,null as IDEN_PROFESSIONE
+                ,null as MEDICO_BASE
+                ,null as IDEN_MEDICO_BASE
+                ,null as CITTADINANZA
+                ,null as NAZIONE
+                ,null as IDEN_NAZIONE
+                ,null as COD_REG_NASCITA
+                ,null as RICONOSCIUTO
+                ,null as READONLY
+                ,null as CODICE_FISCALE
+                ,null as SESSO
+                ,null as DATA_MORTE
+                ,null as DATA_NASCITA
+                ,null as NOME
+                ,null as COGNOME
+                ,  extractvalue(metadati, '//DATO[@KEY="ANAG_RES_PROV"]')  as RES_PROVINCIA
+                ,  extractvalue(metadati, '//DATO[@KEY="ANAG_RES_REGIONE"]')  as COD_REG_RESIDENZA
+                ,decode(extractvalue(metadati, '//DATO[@KEY="ENI"]'), '' ,'N','S') ENI
+                ,decode(extractvalue(metadati, '//DATO[@KEY="STP"]'), '' ,'N','S') STP
+                , extractvalue(metadati, '//DATO[@KEY="ENI"]') as COD_ENI
+                ,extractvalue(metadati, '//DATO[@KEY="STP"]') as COD_STP
+                ,extractvalue(metadati, '//DATO[@KEY="SCADENZA_ENI"]') DATA_SCADENZA_ENI
+                ,extractvalue(metadati, '//DATO[@KEY="SCADENZA_STP"]') DATA_SCADENZA_STP
+                ,decode(extractvalue(metadati, '//DATO[@KEY="GIUBILEO"]'), '' ,'N','S') GIU
+                , extractvalue(metadati, '//DATO[@KEY="GIUBILEO"]') COD_GIU
+                , extractvalue(metadati, '//DATO[@KEY="SCADENZA_GIUBILEO"]') DATA_SCADENZA_GIU
+                from adt$contatti where iden = :IDEN_CONTATTO
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_CONTATTO" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_DATI_ANAGRAFICA_CONTATTO">
+            <SQL>
+                SELECT
+                anag.iden,
+                anag.iden_comune_nascita,
+                anag.cognome,
+                anag.nome,
+                anag.sesso,
+                ANAG.CODICE_FISCALE,
+                ANAG.DATA_NASCITA,
+                ANAG.RES_INDIRIZZO,
+                ANAG.RES_COD_REGIONE,
+                ANAG.RES_NUMERO_CIVICO,
+                ANAG.RES_CAP,
+                ANAG.RES_TELEFONO,
+                ANAG.RES_PROVINCIA,
+                ANAG.IDEN_COMUNE_RESIDENZA,
+                ANAG.IDEN_STATO_CIVILE,
+                ANAG.TESSERA_SANITARIA,
+                ANAG.TESSERA_DATA_SCAD,
+                ANAG.RES_TELEFONO,
+                ANAG.CITTADINANZA,
+                ANAG.IDEN_LIVELLO_ISTRUZIONE,
+                ANAG.USL_RES AS ASL_RESIDENZA,
+                comdom.descrizione comune_domicilio,
+                comdom.codice_comune cod_com_domicilio,
+                comdom.codice_regione cod_reg_domicilio,
+                comdom.codice_usl usl_domicilio,
+                decode((select ID9 from  fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(id10,'yyyyMMdd')&gt;=trunc(sysdate)  ), null,'N','S') AS COD_STP,
+                (select ID10 from fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(id10,'yyyyMMdd') &gt;=trunc(sysdate)) AS DATA_SCADENZA_STP,
+                (select decode(ID11,null,'N','S') from  fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(ID12,'yyyyMMdd') &gt;=trunc(sysdate)) AS COD_ENI,
+                (select ID12 from fx$cod_est_anag where iden_anag = :iden_anagrafica and  to_date(id12,'yyyyMMdd') &gt;=trunc(sysdate)) AS DATA_SCADENZA_ENI
+                FROM
+                FX$ANAGRAFICA anag
+                LEFT OUTER JOIN FX$COMUNI COMDOM on(ANAG.IDEN_COMUNE_DOMICILIO = COMDOM.IDEN_COMUNE)
+                WHERE anag.iden = :iden_anagrafica
+                and anag.deleted='N'
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_CDC">
+            <SQL>select /*+first_rows(1)*/ * from FX$CENTRI_DI_COSTO where IDEN = :id_cdc</SQL>
+            <BINDS>
+                <BIND id="id_cdc" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_TIPO">
+            <SQL>select /*+first_row(1)*/ * from ADT$TIPI where IDEN = :id_tipo</SQL>
+            <BINDS>
+                <BIND id="id_tipo" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_GET_USERNAME">
+            <SQL>
+                select username from fx$UTENTI_FENIX where iden_per = :iden_per
+            </SQL>
+            <BINDS>
+                <BIND id="iden_per" value="iden_per" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="RAD_STRUTTURA_CDC">
+            <SQL>
+                select distinct(struttura) as descr , struttura as value
+                from FX$CENTRI_DI_COSTO
+                where STRUTTURA is not null  and CODICE_STRUTTURA is not null
+                and sito='ASL2' and attivo = 'S'
+            </SQL>
+        </QUERY>
+        <QUERY id="R_TIPO_PERSONALE">
+            <SQL>
+                SELECT 'A' VALUE, 'lblAmministrativo' DESCR FROM dual
+                UNION ALL
+                SELECT 'I' VALUE,  'lblInfermiere' DESCR FROM dual
+                UNION ALL
+                SELECT 'M' VALUE, 'lblDottore' DESCR FROM dual
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_TIPOLOGIA_CDC">
+            <SQL>
+                select DISTINCT(TIPOLOGIA) as VALUE, TIPOLOGIA as DESCR
+                from FX$CENTRI_DI_COSTO
+                where TIPOLOGIA is not null
+                and SITO='ASL2'
+                order by TIPOLOGIA asc
+            </SQL>
+        </QUERY>
+        <QUERY id="CHK_CONTATTO_ADMITTED">
+            <SQL>
+                select count(iden) from ADT$CONTATTI CONT
+                where CONT.iden_anagrafica = :iden_anagrafica
+                and CONT.deleted = 'N'
+                and cont.stato = ADT$CODIFICHE.DECODETIPO('STATO','ADMITTED',null,'PS')
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_PS_POTESTA">
+            <SQL>
+                SELECT
+                (SELECT EXTRACTVALUE(cont.metadati, '/METADATI/DATO[@KEY="GENITORE"]') FROM DUAL) GENITORE,
+                (SELECT EXTRACTVALUE(cont.metadati, '/METADATI/DATO[@KEY="IDEN_GENITORE"]') FROM DUAL) IDEN_GENITORE
+                from ADT$CONTATTI cont where cont.iden = :iden_contatto
+            </SQL>
+        </QUERY>
+
+    </QUERY_GROUP>
+
+    <!--***********************************************CONTATTO******************************************************-->
+    <QUERY_GROUP id="CONTATTO">
+        <QUERY id="Q_DATI_CONSULENZA_PRONTO">
+            <SQL>select
+                c.IDEN_ANAGRAFICA
+                , c.iden IDEN_CONTATTO
+                , giu.IDEN_PROVENIENZA
+                , giu.IDEN_CDC
+                , a.CODICE_FISCALE
+                , la.iden IDEN_LISTA
+                from
+                adt$contatti c
+                join adt$contatti_giuridici giu on giu.iden = c.SEGMENTO_ULTIMO_GIURIDICO
+                join fx$anagrafica a on a.iden = c.iden_anagrafica
+                join adt$lista_attesa la on la.iden_contatto = c.iden and la.attivo='S'
+                where
+                codice = :nosologico
+                and c.iden_anagrafica = :iden_anagrafica
+                and c.deleted='N'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_DATI_CDC_PRONTO_SOCCORSO">
+            <SQL>
+                SELECT
+                CDC.DESCRIZIONE AS DESCR,
+                CDC.iden AS VALUE,
+                CDC.COD_CDC,
+                CDC.STRUTTURA,
+                CDC.CODICE_STRUTTURA,
+                CDC.IDEN_PROVENIENZA,
+                CDC.CODICE CDC_COD_DEC,
+                CDC.SITO,
+                CDC.SUB_CODICE_SEZIONE,
+                CDC.SUB_CODICE_STRUTTURA,
+                CDC.CODICE_STS11
+                FROM FX$CENTRI_DI_COSTO_ASSOCIATI cdc_ass
+                JOIN FX$CENTRI_DI_COSTO CDC ON (CDC_ASS.IDEN_CDC=CDC.IDEN AND CDC.ATTIVO='S')
+                WHERE
+                CDC.COD_CDC = :cod_cdc
+                AND CDC_ASS.TABELLA_IDEN = :iden_per
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_CDC_PRONTO_SOCCORSO">
+            <SQL>
+                SELECT
+                CDC.DESCRIZIONE AS DESCR,
+                CDC.iden AS VALUE,
+                CDC.COD_CDC,
+                CDC.STRUTTURA,
+                CDC.CODICE_STRUTTURA,
+                CDC.IDEN_PROVENIENZA,
+                CDC.CODICE CDC_COD_DEC,
+                CDC.SITO,
+                CDC.SUB_CODICE_SEZIONE,
+                CDC.SUB_CODICE_STRUTTURA,
+                CDC.CODICE_STS11
+                FROM FX$CENTRI_DI_COSTO_ASSOCIATI cdc_ass
+                JOIN FX$CENTRI_DI_COSTO CDC ON (CDC_ASS.IDEN_CDC=CDC.IDEN AND CDC.ATTIVO='S')
+                WHERE tabella_nome = 'PERSONALE'
+                AND CDC.TIPOLOGIA = 8
+                AND CDC_ASS.TABELLA_IDEN = :iden_per
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_CDC_MODULI">
+            <SQL>
+                select
+                CODICE,
+                N_COPIE,
+                N_COPIE_F,
+                DA_INVIARE,
+                NOME_REPORT,
+                TIPO,
+                DESCRIZIONE,
+                GENERA_URL_PROMPT,
+                KEY_SCHEDA
+                from MODULI_PS
+                where
+                IDEN_CDC = :IDEN_CDC
+                and ATTIVO ='S'
+                and DELETED = 'N'
+                ORDER BY ORDINE ASC
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_STATO_ATTIVITA">
+            <SQL>
+                select getSteps(cont.iden, cont.codice) STATO_ATTIVITA
+                from ADT$CONTATTI cont
+                where iden = :iden_contatto
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_PS_CONTATTO">
+            <SQL>
+                SELECT
+                anag.cognome,
+                anag.nome,
+                anag.res_indirizzo ,
+                anag.res_telefono,
+                anag.cognome||' '|| anag.nome ||' '|| to_char(to_date(anag.data_nascita,'yyyymmdd'), 'DD/MM/YYYY')   paziente,
+                anag.sesso,
+                anag.codice_fiscale,
+                anag.data_nascita,
+                anag.iden_comune_nascita comuneNascitaAssistito,
+                anag.iden_comune_residenza comuneResidenzaAssistito,
+                cont.codice,
+                to_char(cont.data_fine,'YYYYMMDD') data_dimissione,
+                to_char(cont.data_fine,'hh24:mi') ora_dimissione,
+                to_char(to_date(anag.data_nascita,'yyyyMMdd'),'ddMMyyyy') DATA_NASCITA_CONV,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_residenza) DESCRCOMUNERESIDENZAASSISTITO,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_nascita) DESCRCOMUNENASCITAASSISTITO,
+                (EXTRACTVALUE(cont.metadati,'/METADATI/DATO[@KEY="ESAMI_FORENSI"]')) AS ESAMI_FORENSI,
+                (select CODICE1 from ADT$CONTATTI_CODICI_ESTERNI where IDEN_CONTATTO=cont.IDEN) AS CON_COD_EST_COD1,
+                (ADT$CODIFICHE.encodeTipo(cont.STATO , 'PS'))as stato_contatto,
+                (select getvalue(contenuto_xml, 'h-txtDataIngresso') || replace(getvalue(contenuto_xml, 'txtOraIngresso'),':','') from PS_SCHEDE_XML where scheda = 'INTERVISTA'  and iden_contatto = :iden_contatto and attivo ='S' and deleted = 'N') DATA_INGRESSO,
+                (select getvalue(contenuto_xml, 'cmbProbPrinc') from PS_SCHEDE_XML where scheda = 'INTERVISTA'  and iden_contatto = :iden_contatto and attivo ='S' and deleted = 'N') PROB_PRINCIPALE,
+                (select codice from FX$PA_ANUTE_TOT where username = UPPER(:username) and rownum = 1) codiceStrutturaRichiedente,
+                (select password from FX$PA_ANUTE_TOT  where username = UPPER(:username)  and rownum = 1) psw_wrepaeu,
+                (select ADT$codifiche.describeTipo(urgenza) from ADT$LISTA_ATTESA where IDEN_CONTATTO = cont.iden AND deleted='N' and ATTIVO='S') AS URGENZA_LISTA_ATTESA,
+                (select GETDESCR((contenuto_xml) ,'h-UrgenzaPs') from  ps_schede_xml where iden_contatto = :iden_contatto AND SCHEDA ='ESAME_OBIETTIVO' AND attivo ='S' AND deleted ='N') as URGENZA_ESAME_OBIETTIVO,
+                ( getdescr(psxverb.CONTENUTO_XML, 'h-UrgenzaPs') ) AS URGENZA_VERBALE,
+                ( getvalue(psxverb.CONTENUTO_XML, 'taDiagnosiICD9') ) AS DIAGNOSI_TESTUALE_VERBALE,
+                ( getvalue(psxverb.CONTENUTO_XML, 'hEsito') ) AS ESITO,
+                (select ID1 from FX$COD_EST_ANAG where IDEN_ANAG = anag.iden) AS COD_EST_ANAG_ID1,
+                (select ID4 from FX$COD_EST_ANAG where IDEN_ANAG = anag.iden) AS COD_EST_ANAG_ID4,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN=(select extractvalue(metadati,'/METADATI/DATO[@KEY="UTENTE_COMPLETAMENTO"]/text()') from adt$Lista_attesa where iden_contatto = cont.iden and progressivo = 0 and deleted='N' and rownum=1)) INF_INSERIMENTO_TRIAGE,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN=(SELECT decode(EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'),null,EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_INFERMIERE"]'), EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) FROM DUAL)) UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN=(EXTRACTVALUE(contass.metadati,'/METADATI/DATO[@KEY="INFERMIERE_PRESENTE"]'))) INFERMIERE_PRESENTE,
+                ( EXTRACTVALUE(cont.metadati, '/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@CODICE')) AS STATO_PAZIENTE,
+                ( EXTRACTVALUE(cont.metadati, '/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID') ) AS STATO_PAZIENTE_ID,
+                ( EXTRACTVALUE(cont.metadati, '/METADATI/DATO[@KEY="GENITORE"]')) AS GENITORE,
+                ( EXTRACTVALUE(cont.metadati, '/METADATI/DATO[@KEY="IDEN_GENITORE"]')) AS IDEN_GENITORE,
+                GEST_PS_SCHEDE_XML_TEST.FNC_GET_JSON_STATO_PAGINA(:iden_contatto) JSON_STATO_PAGINA,
+                getSteps(cont.iden, cont.codice) STATO_ATTIVITA,
+                (PS_IMPORTI_ESENZIONI.GET_ESENZIONE(:iden_contatto))ESENZIONE,
+                decode(extractvalue(cont.PRIVACY_EVENTO,'/consenso/condidentiality-code'),'V','S', 'N') PRIVACY_EVENTO,
+                decode((EXTRACTVALUE(cont.metadati, '/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@CODICE')) , 'SEDIA', 'Seduto','PIEDI','Seduto', 'LETTO','Seduto', 'BARELLA' ,'Barellato') SATO_PAZIENTE_DECODED
+                FROM adt$contatti cont
+                INNER JOIN fx$anagrafica anag ON (anag.iden = cont.iden_anagrafica)
+                INNER JOIN adt$contatti_assistenziali contass ON (contass.iden = cont.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                LEFT OUTER JOIN PS_SCHEDE_XML psxverb ON (cont.iden = psxverb.iden_contatto AND psxverb.SCHEDA ='VERBALE' AND psxverb.attivo ='S' AND psxverb.deleted ='N' and rownum = 1)
+                WHERE cont.iden  = :iden_contatto
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+
+
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_STATO_PAGINA_MODULI">
+            <SQL>
+                select GEST_PS_SCHEDE_XML_TEST.FNC_GET_JSON_STATO_PAGINA(:iden_contatto) JSON_STATO_PAGINA
+                from dual
+            </SQL>
+        </QUERY>
+        <QUERY id="VISUALIZZA_PDF_VERBALE_PS_FROM_IDEN">
+            <SQL>
+                select * from VIEW_DOCUMENTI_VERBALE WHERE IDEN_CONTATTO = :iden
+            </SQL>
+        </QUERY>
+        <QUERY id="VISUALIZZA_PDF_VERBALE_PS_FROM_NUM_PRATICA">
+            <SQL>
+                select * from VIEW_DOCUMENTI_VERBALE where iden_contatto = (SELECT IDEN FROM ADT$CONTATTI WHERE CODICE = :codice )
+            </SQL>
+        </QUERY>
+
+
+    </QUERY_GROUP>
+
+    <!--**************************************************SDJ********************************************************-->
+    <QUERY_GROUP id="SDJ">
+
+        <QUERY id="Q_FILL_SELECT">
+            <SQL>
+                SELECT /*+first_rows(10)*/
+                DESCRIZIONE AS DESCR,
+                CODICE_DECODIFICA AS VALUE,
+                IDEN AS ID
+                FROM ADT$TIPI
+                WHERE {1=1} order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT_COD_DEC">
+            <SQL>
+                SELECT /*+first_rows(1)*/
+                DESCRIZIONE AS DESCR,
+                CODICE_DECODIFICA VALUE
+                FROM ADT$TIPI
+                WHERE {1=1} and attivo ='S' order by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT_ID">
+            <SQL>
+                SELECT /*+first_rows(1)*/
+                DESCRIZIONE AS DESCR,
+                IDEN AS VALUE
+                FROM ADT$TIPI
+                WHERE {1=1} and attivo ='S'  order by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT_ID_FIRST_NULL">
+            <SQL>
+                SELECT /*+first_rows(1)*/ null DESCR, null VALUE
+                FROM DUAL UNION ALL
+                SELECT * FROM (SELECT DESCRIZIONE AS DESCR, IDEN AS
+                VALUE FROM ADT$TIPI WHERE {1=1} and attivo = 'S' order by ordine)
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT_PARAM">
+            <SQL>
+                SELECT /*+first_rows(1)*/
+                DESCRIZIONE AS DESCR,
+                CODICE_DECODIFICA AS VALUE,
+                PARAMETRI
+                FROM ADT$TIPI
+                WHERE {1=1} and attivo ='S'  order by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="R_SI_NO">
+            <SQL>
+                SELECT /*+first_rows(10)*/ 'S' VALUE, 'lblSi' DESCR
+                from dual
+                union all select /*+first_rows(10)*/ 'N' VALUE, 'lblNo' DESCR from
+                dual
+            </SQL>
+        </QUERY>
+        <QUERY id="R_SI_NO_CUSTODIA">
+            <SQL>
+                SELECT /*+first_rows(10)*/ 'S' VALUE, 'Si' DESCR
+                from dual
+                union all select /*+first_rows(10)*/ 'N' VALUE, 'No' DESCR from
+                dual
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_STATO_UTENTE">
+            <SQL>
+                select 'S' VALUE, 'lblAttivi' DESCR from dual
+                union all
+                select 'N' VALUE, 'lblNonAttivi' DESCR from dual
+            </SQL>
+        </QUERY>
+        <QUERY id="C_RICORDA">
+            <SQL>select /*+first_row(10)*/ 'S' VALUE, 'lblRicorda' DESCR from
+                    dual
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+</QUERIES>

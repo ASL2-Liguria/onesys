@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WK_DOCUMENTI_RICHIESTA</ID>
+    <ID-QUERY connection="REGISTRY">WORKLIST.WK_DOCUMENTI_RICHIESTA</ID-QUERY>
+    <TITLE>"Worklist Documenti"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+    	<MENU>
+            <ID>MENU_WK_DOCUMENTI</ID>
+        </MENU>
+    	<ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>IDEN_RICHIESTA</COL>
+                        <DB>IDEN_RICHIESTA</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN RICHIESTA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>URI</COL>
+                        <DB>URI</DB>
+                    </ID>
+                    <DESCRIPTOR>"URI"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_CREAZIONE</COL>
+                        <DB>DATA_CREAZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA CREAZIONE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PRESTASSOCIATE</COL>
+                        <DB>PRESTASSOCIATE</DB>
+                    </ID>
+                    <DESCRIPTOR>"PRESTAZIONI"</DESCRIPTOR>
+                    <PROCESS></PROCESS>
+                    <WIDTH>300px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>AUTORE</COL>
+                        <DB>AUTORE</DB>
+                    </ID>
+                    <DESCRIPTOR>"AUTORE"</DESCRIPTOR>
+                    <PROCESS></PROCESS>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>                
+            </LIST>
+            <SORT>
+
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

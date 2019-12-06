@@ -1,0 +1,30 @@
+/* DATI ANAGRAFICI */
+#txtCognome,#txtNome,#txtSesso,#txtDataNasc,#txtCodFisc{
+	font-weight: bold;
+	color: blue;
+}
+#idAssistito legend,#idDatiAccessoDh legend{
+	font-weight: bold;
+}
+#lblNome,#lblCognome{
+	width: 50px;
+}
+
+#lblSesso{
+	width: 40px;
+}
+#txtSesso{
+	width: 25px;
+}
+#txtCodFisc{
+	width: 140px;
+}
+#txtCognome,#txtNome{
+	width: 200px;
+}
+#lblCodiceFiscale,#lblDataNascita{
+	width: 100px;
+}
+#txtNumNosologico{
+	width:100px;
+}

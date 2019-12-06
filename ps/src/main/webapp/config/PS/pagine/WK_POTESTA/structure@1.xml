@@ -1,0 +1,47 @@
+<PAGINA key_id="WK_POTESTA">
+    <HEADER_REFERTAZIONE key_id="WK_POTESTA" valore="DEFAULT,SCHEDA,WK_POTESTA#DEFAULT,WK_POTESTA" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati" evento="START_END">
+        <TABULAZIONE.INIT key_id="WkPotesta" valore="WK_POTESTA#WkPotesta#butInserisci" evento="START">
+
+                <TABELLA.INIT key_id="tablePz" valore="" evento="START">
+                    <TR.INIT key_id="riga0" valore="" evento="START">
+                    </TR.INIT>
+                    <TR.INIT key_id="riga1" valore="" evento="START">
+                        <TD_LABEL_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale#txtCodiceFiscale#codicefiscale##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <FILTRO_DATA key_id="dateData" valore="lblData#dateData##readonly_element: false, format: 'd/m/Y', view: 'month'##S#data_nascita##N" evento="START">
+                        </FILTRO_DATA>
+
+                    </TR.INIT>
+                    <TR.INIT key_id="riga1.5" valore="" evento="START">
+                            </TR.INIT>
+                    <TR.INIT key_id="riga2" valore="" evento="START">
+                        <TD.INIT key_id="td0" valore="6" evento="START">
+                        </TD.INIT>
+                        <TD.INIT key_id="Reset_Campi" valore="" evento="START">
+                            <BUTTON key_id="Reset_Campi" valore="lblResetCampi" evento="START">
+                            </BUTTON>
+                        </TD.INIT>
+                        <TD.INIT key_id="td3" valore="1" evento="START">
+                            <BUTTON key_id="butApplica" valore="butApplica" evento="START">
+                            </BUTTON>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+                <TABELLA.INIT key_id="tableAnag" valore="" evento="START">
+                    <TR.INIT key_id="rigaAnag1" valore="" evento="START">
+                        <TD.INIT key_id="tdAnag" valore="" evento="START">
+                            <DIV key_id="divWk" valore="divWk" evento="START">
+                            </DIV>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

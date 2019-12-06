@@ -1,0 +1,214 @@
+<ROWSET>
+    <ROW>
+        <fldFunzioni>Funzioni</fldFunzioni>
+        <butIngrandisci>Ingrandisci</butIngrandisci>
+        <butDiminuisci>Diminuisci</butDiminuisci>
+        <butPagPrec>Pag. Precedente</butPagPrec>
+        <butPagSucc>Pag. Successiva</butPagSucc>
+        <butPagPrima>Prima Pagina</butPagPrima>
+        <butPagUltima>Ultima Pagina</butPagUltima>
+        <butRuotaOrario>Ruota Orario</butRuotaOrario>
+        <butRuotaAnti>Ruota Antiorario</butRuotaAnti>
+        <butChiudi>Chiudi</butChiudi>
+        <fldFunzioniStampa>Funzioni Stampa</fldFunzioniStampa>
+        <fldInfoDocumento>Info Documento</fldInfoDocumento>
+        <butStampa>Stampa</butStampa>
+        <butStampaSu>Stampa Su</butStampaSu>
+        <lblPin>Pin</lblPin>
+        <butFirma>Firma</butFirma>
+        <fldFunzioniFirma>Funzioni Firma</fldFunzioniFirma>
+        <butValida>Valida</butValida>
+        <butValidaEsci>Valida e Torna Worklist</butValidaEsci>
+        <butValidaStampaEsci>Valida, Stampa  e Torna Worklist</butValidaStampaEsci>
+        <fldFunzioniValida>Funzioni Validazione</fldFunzioniValida>
+        <fldFunzioniRitornaWk>Funzioni Chiudi E Torna</fldFunzioniRitornaWk>
+        <butChiudiReturnWorklist>Chiudi e Torna Worklist</butChiudiReturnWorklist>
+        <lblPassword>Psw</lblPassword>
+        <h5NomeHostTit>Hostname:</h5NomeHostTit>
+        <h5UsernameTit>Username:</h5UsernameTit>
+        <h5DebugTit>Debug:</h5DebugTit>
+        <lblGoWkSysAdmin>Vai alla worklist System Admin</lblGoWkSysAdmin>
+        <lblNewRichMod>Sono presenti nuove richieste modifica</lblNewRichMod>
+        <mWorklist>Worklist</mWorklist>
+        <mListeAttesa>Liste Attesa</mListeAttesa>
+        <mConfig>Config</mConfig>
+        <mListaAttesa>Lista attesa</mListaAttesa>
+        <mTabelle>Tabelle</mTabelle>
+        <mCDC>Centri Di Costo</mCDC>
+        <mComuni>Comuni</mComuni>
+        <mNomenclatore>Nomenclatore</mNomenclatore>
+        <mOneri>Oneri</mOneri>
+        <mPatologie>Patologie</mPatologie>
+        <mPersonale>Personale</mPersonale>
+        <mProfessioni>Professioni</mProfessioni>
+        <mProvenienze>Provenienze</mProvenienze>
+        <mSale>Sale</mSale>
+        <mRefertiStandard>Referti Standard</mRefertiStandard>
+        <mStatiEsame>Stati Esame</mStatiEsame>
+        <mStatiPaziente>Stati Paziente</mStatiPaziente>
+        <mTicket>Ticket</mTicket>
+        <mTipi>Tipi</mTipi>
+        <mAgenda>Agenda</mAgenda>
+        <mAgendaFasceOrarie>Agenda Fasce Orarie</mAgendaFasceOrarie>
+        <mUtilita>Utilità</mUtilita>
+        <mGestioneCampi>Gestione Campi</mGestioneCampi>
+        <mProspettoDegenti>Prospetto Degenti</mProspettoDegenti>
+        <mGestioneMenuPref>Gestione Menu Preferiti</mGestioneMenuPref>
+        <mGestionePc>Gestione PC</mGestionePc>
+        <mGestioneUtenti>Gestione Utenti</mGestioneUtenti>
+        <mPentaho>STATISTICHE</mPentaho>
+        <mGestioneParamProc>Parametri Globali</mGestioneParamProc>
+        <mRicercaTestoRef>Ricerca Testo Referto</mRicercaTestoRef>
+        <mRiconciliaEsami>Riconcilia / Sposta Esami</mRiconciliaEsami>
+        <mRipristinoEsamiCanc>Ripristino Esami Cancellati</mRipristinoEsamiCanc>
+        <mPannelloAmministratore>Pannello Amministratore</mPannelloAmministratore>
+        <mRicercaPaziente>Ricerca Paziente</mRicercaPaziente>
+        <mCognomeNomeData>Cognome Nome Data</mCognomeNomeData>
+        <mPannelloAmministratoreIntegrazioni>Pannello Integrazioni</mPannelloAmministratoreIntegrazioni>
+        <mCodiceFiscale>Codice Fiscale</mCodiceFiscale>
+        <mPannelloAmministratorePrimario>Pannello Primario</mPannelloAmministratorePrimario>
+        <mNumeroArchivio>Numero Archivio</mNumeroArchivio>
+        <mPannelloAmministratoreNotifiche>Pannello Notifiche</mPannelloAmministratoreNotifiche>
+        <wkSystemAdmin>Worklist System Admin</wkSystemAdmin>
+        <mNoso>N° Nosologico</mNoso>
+        <mPatientId>Patient Id</mPatientId>
+        <mMasterizzatori>Masterizzatori</mMasterizzatori>
+        <mStatoMaster>Stato Masterizzatori</mStatoMaster>
+        <mFiltriMaster>Filtri Masterizzazioni</mFiltriMaster>
+        <mMedNuc>Medicina Nucleare</mMedNuc>
+        <mMedNucWk>Worklist Principale</mMedNucWk>
+        <mMedNucMagazzino>Magazzino</mMedNucMagazzino>
+        <mMedNucPrepRadio>Controllo Qualità</mMedNucPrepRadio>
+        <mMedNucGestBidoni>Gestione Bidoni</mMedNucGestBidoni>
+        <tTest>Test</tTest>
+        <tTestJack>Test Jack</tTestJack>
+        <tWorklist>Worklist</tWorklist>
+        <tSchedaEsame>Scheda esame ins</tSchedaEsame>
+        <wkSystemAdmin>Worklist System Admin</wkSystemAdmin>
+        <mSchedaPermissioni>Scheda Permissioni</mSchedaPermissioni>
+        <mSceltaEsame>Scelta Esame</mSceltaEsame>
+        <mSchedaEsame>Scheda Esame</mSchedaEsame>
+        <mAnteprima>Anteprima</mAnteprima>
+        <mStampa>Stampa</mStampa>
+        <mFirma>Firma</mFirma>
+        <mValida>Valida</mValida>
+        <mMarcos>Test</mMarcos>
+        <mSchedaCdc>Scheda Centro di Costo</mSchedaCdc>
+        <mSchedaComune>Scheda Comune</mSchedaComune>
+        <mSchedaPersonale>Scheda Personale</mSchedaPersonale>
+        <mSchedaOnere>Scheda Onere</mSchedaOnere>
+        <mSchedaPatologie>Scheda Patologia</mSchedaPatologie>
+        <mSchedaNomenclatore>Scheda Nomenclatore</mSchedaNomenclatore>
+        <mSchedaTicket>Scheda Ticket</mSchedaTicket>
+        <mSchedaSala>Scheda Sala</mSchedaSala>
+        <mSchedaProfessione>Scheda Professione</mSchedaProfessione>
+        <mSchedaStatoPaz>Scheda Stato Paziente</mSchedaStatoPaz>
+        <mSchedaProvenienza>Scheda Provenienza</mSchedaProvenienza>
+        <mSchedaUtente>Scheda Utente</mSchedaUtente>
+        <mSchedaTipo>Scheda Tipo</mSchedaTipo>
+        <mSchedaPC>Scheda PC</mSchedaPC>
+        <mSchedaStatoEsa>Scheda Stato Esame</mSchedaStatoEsa>
+        <mSchedaParametri>Scheda Parametri</mSchedaParametri>
+        <mSchedaTestRef>Test Ref Std</mSchedaTestRef>
+        <mConsoleRegistrazione>ConsoleRegistrazione</mConsoleRegistrazione>
+        <TestAlessio>Test Alessio</TestAlessio>
+        <mWkDocumentiAllegati>Worklist Documenti</mWkDocumentiAllegati>
+        <mSchedaDocumentiAllegati>Scheda documenti allegati</mSchedaDocumentiAllegati>
+        <mPrenotazione>Prenotazione</mPrenotazione>
+        <mConsultaPrenotazione>Consulta prenotazione</mConsultaPrenotazione>
+        <mPrenotazioneEsame>Prenotazione Esame</mPrenotazioneEsame>
+        <mScreening>Screening</mScreening>
+        <mScreeningPrimoLivello>Screening Primo Livello</mScreeningPrimoLivello>
+        <mMagazzino>Gestione Magazzino</mMagazzino>
+        <mMagazzinoArt>Articoli</mMagazzinoArt>
+        <mElencoMagazzini>Magazzini</mElencoMagazzini>
+        <mGestioneGruppi>Gestione Gruppi Utenti</mGestioneGruppi>
+        <mPoolManager>Pool Manager</mPoolManager>
+        <mAdt>ADT</mAdt>
+        <mAdtRicercaPazienti>Ricerca Pazienti</mAdtRicercaPazienti>
+        <mAdtGestlistaAttesa>Gestione liste attesa</mAdtGestlistaAttesa>
+        <mAdtRicercaContatti>Ricerca Contatti</mAdtRicercaContatti>
+        <mAdtAccettazioneRicovero>Accettazione Ricovero</mAdtAccettazioneRicovero>
+        <mAdtDimissioneSdo>Dimissione e SDO</mAdtDimissioneSdo>
+        <mDsa>DSA</mDsa>
+        <mArchivioCartelle>ARCHIVIO</mArchivioCartelle>
+        <mPAC>INTERVENTI CHIRURGICI AMBULATORIALI</mPAC>
+        <mGestDsa>Gestione DSA</mGestDsa>
+        <mTarMed>TarMed</mTarMed>
+        <mControdeduzioni>Flusso Controdeduzioni</mControdeduzioni>
+        <mTabellaContestazioni>Tabella Contestazioni</mTabellaContestazioni>
+        <mUploadFiles>Gestione files contestazioni</mUploadFiles>
+        <linkCambiaLogin>Cambia Login</linkCambiaLogin>
+        <linkLockWk>Blocca Workstation</linkLockWk>
+        <linkCdc>CDC</linkCdc>
+        <linkClose>Chiudi</linkClose>
+        <linkInfo>Info</linkInfo>
+        <ttmWorklist>Worklist Principale</ttmWorklist>
+        <ttmConfig>Menu di Configurazione</ttmConfig>
+        <ttmTabelle>Tabelle di Configurazione</ttmTabelle>
+        <ttmCDC>Centri Di Costo</ttmCDC>
+        <ttmComuni>Comuni</ttmComuni>
+        <ttmNomenclatore>Esami</ttmNomenclatore>
+        <ttmOneri>Oneri</ttmOneri>
+        <ttmPatologie>Patologie</ttmPatologie>
+        <ttmPersonale>Personale</ttmPersonale>
+        <ttmProfessioni>Professioni</ttmProfessioni>
+        <ttmProvenienze>Provenienze</ttmProvenienze>
+        <ttmSale>Sale</ttmSale>
+        <ttmRefertiStandard>Referti Standard</ttmRefertiStandard>
+        <ttmStatiEsame>Stati Paziente</ttmStatiEsame>
+        <ttmStatiPaziente>Stati Paziente</ttmStatiPaziente>
+        <ttmTicket>Fasce Orarie</ttmTicket>
+        <ttmTipi>Personale</ttmTipi>
+        <ttmAgenda>Agenda</ttmAgenda>
+        <ttmAgendaFasceOrarie>Agenda Fasce Orarie</ttmAgendaFasceOrarie>
+        <ttmRicercaPaziente>Ricerca Paziente</ttmRicercaPaziente>
+        <ttmCognomeNomeData>Cognome Nome Data</ttmCognomeNomeData>
+        <ttmCodiceFiscale>Codice Fiscale</ttmCodiceFiscale>
+        <ttwkSystemAdmin>Worklist System Admin</ttwkSystemAdmin>
+        <ttmNumeroArchivio>Numero Archivio</ttmNumeroArchivio>
+        <ttmNoso>N° Nosologico</ttmNoso>
+        <ttmMasterizzatori>Gestione Masterizzazioni</ttmMasterizzatori>
+        <ttmStatoMaster>Stato Masterizzatori</ttmStatoMaster>
+        <ttmFiltriMaster>Filtri Masterizzazioni</ttmFiltriMaster>
+        <ttmMedNuc>Medicina Nucleare</ttmMedNuc>
+        <ttmMedNucWk>Worklist Principale</ttmMedNucWk>
+        <ttmMedNucMagazzino>Magazzino</ttmMedNucMagazzino>
+        <ttmMedNucPrepRadio>Controllo Qualita</ttmMedNucPrepRadio>
+        <ttmMedNucGestBidoni>Gestione Bidoni</ttmMedNucGestBidoni>
+        <tttTestJack>Test Jack</tttTestJack>
+        <tttWorklist>Worklist Principale</tttWorklist>
+        <tttSchedaEsame>Scheda esame inserimento</tttSchedaEsame>
+        <ttwkSystemAdmin>Worklist System Admin</ttwkSystemAdmin>
+        <ttmPrenotazione>Prenotazione</ttmPrenotazione>
+        <ttmConsultaPrenotazione>Consulta prenotazione</ttmConsultaPrenotazione>
+        <ttmPrenotazioneEsame>PrenotazioneEsame</ttmPrenotazioneEsame>
+        <ttmScreening>Screening</ttmScreening>
+        <ttmScreeningPrimoLivello>Screening Primo Livello</ttmScreeningPrimoLivello>
+        <ttmMagazzino>Magazzino</ttmMagazzino>
+        <ttmMagazzinoArt>Atricoli</ttmMagazzinoArt>
+        <ttmElencoMagazzini>Magazzini</ttmElencoMagazzini>
+        <mMedicinaNucleare>Medicina nucleare</mMedicinaNucleare>
+        <ttmMedicinaNucleare>Medicina nucleare</ttmMedicinaNucleare>
+        <ttmFlussiSDO>Generazione Flussi</ttmFlussiSDO>
+        <mFlussiSDO>Generazione Flussi</mFlussiSDO>
+        <ttmArchivioCartelle>Archivio Cartelle</ttmArchivioCartelle>
+        <mArchivioCartelle>Archivio Cartelle</mArchivioCartelle>
+        <ttmGenerazioneStatistiche>Generazione Statistiche</ttmGenerazioneStatistiche>
+        <mGenerazioneStatistiche>Generazione Statistiche</mGenerazioneStatistiche>
+        <ttmRichiesteCartelle>Richieste Cartelle</ttmRichiesteCartelle>
+        <mRichiesteCartelle>Richieste Cartelle</mRichiesteCartelle>
+        <mGestioneCartelle>Gestione Cartelle</mGestioneCartelle>
+        <ttmGestioneCartelle>Gestione Movimenti Cartelle</ttmGestioneCartelle>
+        <ttmAdt>Menu di Gestione ADT</ttmAdt>
+        <ttmDsa>Menu di Gestione Day Service Ambulatoriali</ttmDsa>
+        <ttmArchivioCartelle>Menu di Gestione archivio cartelle</ttmArchivioCartelle>
+        <ttmGestDsa>Gestione Day Service Ambulatoriali</ttmGestDsa>
+        <mPortineria>PORTINERIA</mPortineria>
+        <ttmPortineria>PORTINERIA</ttmPortineria>
+        <ttmControdeduzioni>Gestione files e flusso delle controdeduzioni</ttmControdeduzioni>
+        <ttmControdeduzioniTabella>Gestione tabella contestazioni</ttmControdeduzioniTabella>
+        <ttmControdeduzioniInput>Caricamento files delle contestazioni</ttmControdeduzioniInput>
+        <aaaaaaaa>aaa</aaaaaaaa>
+    </ROW>
+</ROWSET>

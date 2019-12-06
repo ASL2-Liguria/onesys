@@ -1,0 +1,46 @@
+<html><head>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/tutto_schermo.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/ShowHideLayer.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/scandb.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/jquery-1.6.2.min.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/Libreria/pageModal.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/GestioneRichieste/annullamento_richiesta.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/GestioneRichieste/worklist/worklistRichiesteGeneriche.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/jquery_fancybox.js' language='JavaScript'></script>
+<link href='std/css/jquery_fancybox.css' type='text/css' rel='stylesheet'>
+<title>Inserimento Motivazione Annullamento Richiesta</title><SCRIPT> 
+var arrayLabelName = new Array('label_titolo','annulla','inserisci','ins_motivazione');
+var arrayLabelValue = new Array('Motivo Annullamento Richiesta','Annulla','Inserisci','Prego, inserire la motivazione dell\'annullamento della richiesta');
+</SCRIPT>
+</head><body onLoad='javascript:fillLabels(arrayLabelName,arrayLabelValue);setInizio();' class='body'><form accept-charset='UNKNOWN' method='POST' name='dati' action='' enctype='application/x-www-form-urlencoded'><input name='iden_richiesta' type='hidden' value='5301'>
+</input>
+<input id='Hiden_MedPrescr' STATO_CAMPO='E' value='' name='Hiden_MedPrescr' type='hidden'>
+</input>
+<table cellpadding='0' cellspacing='0' class='classTabHeader'><tr>
+<td class='classTabHeaderSx'></td>
+<td class='classTabHeaderMiddle'><label id='label_titolo'></label></td>
+<td class='classTabHeaderDx'></td>
+</tr>
+</table>
+<table cols='2' class='classDataEntryTable'><tr align='center'><td colspan='2' class='classTdLabel'><textarea rows='10' name='motivo_annullamento' style="width:570px;" onBlur='javascript:this.value = this.value.toUpperCase();' maxlength='500'></textarea></td></tr>
+<tr align='center'>
+<TD class=classTdLabelLink_O STATO_CAMPO="O"><LABEL id=lblMedPrescr onclick=javascript:launch_scandb_link(this); name="lblMedPrescr" SCANDB_PROC="MEDICO_PROPONENTE" SCANDB_RIC="txtMedPrescr">Medico richiedente</LABEL></TD>
+<TD class=classTdField_O_O STATO_CAMPO="O" STATO_CAMPO_LABEL="lblMedPrescr"><INPUT id=txtMedPrescr class=text_class value="" size=50 name=txtMedPrescr STATO_CAMPO="O" STATO_CAMPO_LABEL="lblMedPrescr" length="50"> </INPUT></TD>
+</tr>
+</table>
+<table cellpadding='0' cellspacing='0' class='classTabHeader'><tr>
+<td class='classTabFooterSx'></td>
+<td class='classTabHeaderMiddle'>&nbsp;</td>
+<td class='classButtonHeader'><div class='pulsante'><a id='inserisci' href='javascript:inserisciMotivazione();'></a></div></td>
+<td class='classButtonHeader'><div class='pulsante'><a id='annulla' href='javascript:try{chiudi();}catch(e){self.close();}'></a></div></td>
+<td class='classTabFooterDx'></td>
+</tr>
+</table></form>
+</body></html>
+

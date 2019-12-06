@@ -1,0 +1,25 @@
+<DATI configurazione="
+begin
+    :stato_pagina := '#STATO_PAGINA#';
+    if ('#_STATO_PAGINA#'='E') then
+        :key_query := 'PS.FRASE_INS@PS';
+    else
+        :key_query := 'Q_EMPTY';
+    end if;
+    :where := null;
+    :campo_xml := null;
+end;
+">
+    <DATO key_id="txtGruppo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GRUPPO" db_descrizione="GRUPPO"
+          configurazione_multi_data="" />
+    <DATO key_id="txtCodice" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE" db_descrizione="CODICE"
+          configurazione_multi_data="" />
+    <DATO key_id="txtDescrBreve" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TITOLO" db_descrizione="TITOLO"
+          configurazione_multi_data="" />
+    <DATO key_id="taFrase" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FRASE" db_descrizione="FRASE"
+          configurazione_multi_data="" />
+</DATI>

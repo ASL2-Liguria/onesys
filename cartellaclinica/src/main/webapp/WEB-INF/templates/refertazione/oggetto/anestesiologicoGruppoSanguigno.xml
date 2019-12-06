@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblGruppoSanguigno" TYPE="label" TEXT="Gruppo Sanguigno"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="txtGruppoSanguigno" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="lblTestDiCoombs" TYPE="label" TEXT="Test di Coombs Indiretto"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="txtTestDiCoombs" TYPE="input" TYPEINPUT="text"/>
+    </CAMPI>
+</PAGINA>

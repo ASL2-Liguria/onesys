@@ -1,0 +1,30 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+    <DATO key_id="LISTA_ATTESA_STATO" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione=""
+        configurazione_multi_data="LISTA_ATTESA_FILTRI.Q_STATO@ADT"
+    />
+    <DATO key_id="LISTA_ATTESA_ELENCO" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="LISTA_ATTESA_FILTRI.Q_LISTE_ATTESA_UTENTE@ADT"
+    />
+    <DATO key_id="LISTA_ATTESA_MEDICO_PROPONENTE" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="" db_descrizione=""
+        configurazione_multi_data="LISTA_ATTESA_FILTRI.Q_MEDICO_PROPONENTE@ADT"
+    />
+    <DATO key_id="LISTA_ATTESA_PRIORITA" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="" db_descrizione=""
+        configurazione_multi_data="LISTA_ATTESA_FILTRI.Q_LIVELLO_PRIORITA@ADT"
+    />
+    <DATO key_id="LISTA_CHIAMATA_MEDICO_PROPONENTE" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="" db_descrizione=""
+        configurazione_multi_data="LISTA_CHIAMATA_FILTRI.Q_MEDICO_PROPONENTE@ADT"
+    />
+    <DATO key_id="LISTA_CHIAMATA_ELENCO" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione=""
+        configurazione_multi_data="LISTA_CHIAMATA_FILTRI.Q_LISTE_CHIAMATA_UTENTE@ADT"
+    />
+    <DATO key_id="LISTA_ATTESA_STATO_CONTATTO" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'TIPO = ''LISTA_ATTESA_FILTRO_STATO_CONTATTO'' and ASSIGNING_AUTHORITY_AREA = ''ADT'''; end;"
+    />
+</DATI>

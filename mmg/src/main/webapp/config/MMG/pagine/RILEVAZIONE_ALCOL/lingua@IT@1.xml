@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>MONITORAGGIO ALCOL</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<fldAlcol>Alcol</fldAlcol>
+		<fldNoteAlcol>Note Alcol</fldNoteAlcol>
+		
+		<lblAlcolSiNo>Alcol</lblAlcolSiNo>
+		
+		<tabInsAlcol>Monitoraggio Alcol</tabInsAlcol>
+		<tabAlcol>Alcol</tabAlcol>
+		
+    </ROW>
+</ROWSET>

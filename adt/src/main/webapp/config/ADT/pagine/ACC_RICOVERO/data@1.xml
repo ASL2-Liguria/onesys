@@ -1,0 +1,222 @@
+<DATI configurazione=
+			  "begin
+                    :stato_pagina :=  '#STATO_PAGINA#';
+                    if ('#STATO_PAGINA#'='I')
+                    then :key_query := 'ADT.Q_SCHEDA_ANAGRAFICA@ADT';
+                    elsif ('#STATO_PAGINA#'='E' or '#STATO_PAGINA#'='L' )
+                    THEN :key_query := 'TAB.Q_DATI_ANAGRAFICI_CONSOLE@ADT';
+                    end if;
+                    :where := null;
+                    :campo_xml := null;
+              end;">
+	<DATO key_id="radLateralita" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''LATERALITA'''; end;"
+	/>
+
+	<DATO key_id="cmbLivelloUrg" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="ADT.Q_FILL_COMBO_ADT_URG@ADT"
+    	/>
+    <DATO key_id="cmbTrauma" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''TRAUMATISMI'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+      	/>
+    <DATO key_id="cmbRegime" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := ' attivo=''S'' and TIPO=''ADT_REGIME_CONTATTO'' and assigning_authority_area=''ADT'' and parametri = ''RICOVERO'''; end;"
+        />
+    <DATO key_id="chkNeonato" configurazione_stato="begin :stato := 'L'; end;"
+      		db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := ' TIPO=''ADT_ACC_RICOVERO_NEONATO'''; end;"
+        />
+    <DATO key_id="chkAnonimato" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_ANONIMATO'''; end;"
+     	/>
+    <DATO key_id="chkAssDom" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_ASS_DOM'''; end;"
+        />
+    <DATO key_id="cmbTipoNeonato" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''ADT_ACC_RICOVERO_TIPO_NEONATO'''; end;"
+        />
+    <DATO key_id="radAssPostoLetto" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := ' tipo = ''ADT_ACC_RICOVERO_ASS_POSTO_LETTO'''; end;"
+        />
+    <DATO key_id="cmbRepartoRico" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_ALL@ADT"
+     	/>
+    <DATO key_id="cmbTipoRico" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="ADT.Q_TIPO_RICO@ADT"
+     	/>
+    <DATO key_id="cmbMotivoRico" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="ADT.Q_MOTIVO_RICO@ADT"
+      	/>
+    <DATO key_id="cmbProvenienza" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_PROVENIENZA'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+      	/>
+    <DATO key_id="cmbOnere" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+     	/>
+    <DATO key_id="cmbSubOnere" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_SUB_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+   		/>
+    <DATO key_id="cmbTicket" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_TICKET'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+      	/>
+    <DATO key_id="cmbTipoMedicoPresc" configurazione_stato="begin :stato := 'E'; end;"
+	      	db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_TIPO_MEDICO_PRESC'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+      	/>
+    <!-- TRASFERIMENTO -->
+    <DATO key_id="Q_IDEN_CONTATTO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data=""
+       	/>
+    <DATO key_id="radTrasfAmbulanza" configurazione_stato="begin :stato := 'E'; end;"
+          	db_valore="" db_descrizione=""
+          	configurazione_multi_data="SDJ.R_SI_NO"
+    	/>
+    <!--   DIMISSIONE -->
+    <DATO key_id="cmbTipoDimi" configurazione_stato="begin :stato := 'E'; end;"
+           	db_valore="" db_descrizione=""
+           	configurazione_multi_data="ADT.Q_TIPO_DIMI@ADT"
+    	/>
+   	<DATO key_id="cmbIstitutoTrasferimento" configurazione_stato="begin :stato := 'E'; end;"
+          	db_valore="" db_descrizione=""
+          	configurazione_multi_data="ADT.Q_ISTITUTO_TRASFERIMENTO@ADT"
+    	/>
+   	<DATO key_id="chkDimiProt" configurazione_stato="begin :stato := 'L'; end;"
+            db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''ADT_DIMI_PROT'''; end;"
+       	/>
+    <DATO key_id="chkDimi" configurazione_stato="begin :stato := 'L'; end;"
+          	db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''ADT_DIMI'''; end;"
+        />
+    <DATO key_id="cmbAssDomi" configurazione_stato="begin :stato := 'L'; end;"
+          	db_valore="" db_descrizione=""
+          	configurazione_multi_data="ADT.Q_SI_NO@ADT"
+    	/>
+    <DATO key_id="cmbRefAutop" configurazione_stato="begin :stato := 'L'; end;"
+          	db_valore="" db_descrizione=""
+          	configurazione_multi_data="ADT.Q_SI_NO@ADT"
+    	/>
+      <DATO key_id="chkSdoCompleta" configurazione_stato="begin :stato := 'L'; end;"
+            db_valore="" db_descrizione=""
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''ADT_CHK_SDO'''; end;"
+        />
+    <DATO key_id="cmbTraumatismiDimissione" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''TRAUMATISMI'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+      	/>
+    <DATO key_id="Sesso" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="R_SESSO"
+      	/>
+   	<DATO key_id="STP" configurazione_stato="begin :stato := 'E'; end;"
+        	db_valore="" db_descrizione=""
+        	configurazione_multi_data="R_SI_NO"
+        />
+	<DATO key_id="ENI" configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="" db_descrizione=""
+            configurazione_multi_data="R_SI_NO"
+		/>
+	<DATO key_id="CivRes" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="RES_NUMERO_CIVICO" db_descrizione="RES_NUMERO_CIVICO"
+		  configurazione_multi_data=""
+			/>
+
+
+	<DATO key_id="DESCR_ISTRUZIONE" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="LIVELLO_ISTRUZIONE_DESCR" db_descrizione="LIVELLO_ISTRUZIONE_DESCR"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="IDEN_LIVELLO_ISTRUZIONE" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="IDEN_LIVELLO_ISTRUZIONE" db_descrizione="IDEN_LIVELLO_ISTRUZIONE"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="STATO_CIVILE" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="STATO_CIVILE_DESCR" db_descrizione="STATO_CIVILE_DESCR"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="IDEN_STATO_CIVILE" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="IDEN_STATO_CIVILE" db_descrizione="IDEN_STATO_CIVILE"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="IDEN_COMUNE_NASCITA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="IDEN_COMUNE_NASCITA" db_descrizione="IDEN_COMUNE_NASCITA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="COMUNE_NASCITA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="COMUNE_NASCITA" db_descrizione="COMUNE_NASCITA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="ASL_RESIDENZA_DESCR" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="ASL_RESIDENZA_DESCR" db_descrizione="ASL_RESIDENZA_DESCR"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="ASL_RESIDENZA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="ASL_RESIDENZA" db_descrizione="ASL_RESIDENZA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="IDEN_COMUNE_RESIDENZA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="IDEN_COMUNE_RESIDENZA" db_descrizione="IDEN_COMUNE_RESIDENZA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="COMUNE_RESIDENZA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="COMUNE_RESIDENZA" db_descrizione="COMUNE_RESIDENZA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="COMUNE_RESIDENZA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="COMUNE_RESIDENZA" db_descrizione="COMUNE_RESIDENZA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="COD_COM_NASCITA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="COD_COM_NASCITA" db_descrizione="COD_COM_NASCITA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="RES_PROVINCIA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="RES_PROVINCIA" db_descrizione="RES_PROVINCIA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="COD_REG_RESIDENZA" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="CODICE_REGIONE_RESIDENZA" db_descrizione="CODICE_REGIONE_RESIDENZA"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="GIU" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="GIU" db_descrizione="GIU"
+		  configurazione_multi_data="R_SI_NO"
+			/>
+	<DATO key_id="COD_GIU" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="COD_GIU" db_descrizione="COD_GIU"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="PINAAC" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="ANAG_ID4" db_descrizione="ANAG_ID4"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="DATA_SCADENZA_GIU" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="DATA_SCADENZA_GIU" db_descrizione="DATA_SCADENZA_GIU"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="NAZIONE_DESCR" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="NAZIONE_DESCR" db_descrizione="NAZIONE_DESCR"
+		  configurazione_multi_data=""
+			/>
+	<DATO key_id="NAZIONE_COD" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="NAZIONE_COD" db_descrizione="NAZIONE_COD"
+		  configurazione_multi_data=""
+			/>
+
+</DATI>

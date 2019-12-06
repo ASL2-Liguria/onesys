@@ -1,0 +1,17 @@
+<root>
+	<statements_list>
+		<statement name="saveFiltroWk">				
+			<sql>
+			<![CDATA[
+                        declare
+                            pWebUser    varchar2(4000)  := ?;
+                            pTipo       pls_integer     := to_number(?);
+                            pValore     varchar2(4000)  := ?;
+                        begin
+                            SP_SAVE_FILTRO_WK(pWebUser,pTipo,pValore);
+                        end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

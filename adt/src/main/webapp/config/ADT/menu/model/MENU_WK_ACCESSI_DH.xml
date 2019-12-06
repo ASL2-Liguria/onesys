@@ -1,0 +1,124 @@
+<MENU>
+    <ID>MENU_WK_ACCESSI_DH</ID>
+    <TITLE>"Menu Accessi"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISICI_ACCESSO</ID>
+            <LINK><![CDATA[function(rec){
+                    top.NS_FENIX_TOP.apriPagina(
+                        {
+                            url:'page?KEY_LEGAME=ACCESSO_DH&_STATO_PAGINA=I&IDEN_ANAG='+_JSON_CONTATTO.anagrafica.id +'&IDEN_CONTATTO='+ _JSON_CONTATTO.id +'&IDEN_CONTATTO_GIURIDICO='+_JSON_CONTATTO.contattiGiuridici[0].id+'&NUM_NOSOLOGICO='+_JSON_CONTATTO.codice.codice+'&_STATO_PAGINA=I',
+                            id:'InsAccessoDh',
+                            fullscreen:true
+                        }
+                    )}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){var _ret = false; if(rec.length > 0 && rec[0].IS_ODS === "N" && $("#KEY_LEGAME").val() == "ACC_RICOVERO"){ _ret = true; } for (var i = 0; i < _JSON_CONTATTO.contattiAssistenziali.length; i++){ if (_JSON_CONTATTO.contattiAssistenziali[i].stato.codice == "ADMITTED"){ _ret = false; }} return _ret; }]]>
+            </WHERE>
+            <OUTPUT>"Inserimento Accesso DH"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>MODIFICA_ACCESSO</ID>
+            <LINK><![CDATA[function(rec){
+                if($("#KEY_LEGAME").val() == "ACC_RICOVERO"){
+                    top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACCESSO_DH&_STATO_PAGINA=E&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA +'&IDEN_CONTATTO='+ rec[0].IDEN_CONTATTO+'&IDEN_CONTATTO_GIURIDICO='+rec[0].IDEN_CONTATTO_GIURIDICO+'&NUM_NOSOLOGICO='+rec[0].CODICE+'&IDEN_CONTATTO_ASSISTENZIALE='+rec[0].IDEN_CONTATTO_ASSISTENZIALE+'&_STATO_PAGINA=E',id:'ModAccessoDh',fullscreen:true});
+                }
+                else{
+
+                    top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACCESSO_DH&_STATO_PAGINA=E&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA +'&IDEN_CONTATTO='+ rec[0].IDEN_CONTATTO+'&IDEN_CONTATTO_GIURIDICO='+rec[0].IDEN_CONTATTO_GIURIDICO+'&NUM_NOSOLOGICO='+rec[0].CODICE+'&IDEN_CONTATTO_ASSISTENZIALE='+rec[0].IDEN_CONTATTO_ASSISTENZIALE+'&_STATO_PAGINA=E',id:'ModAccessoDh',fullscreen:true});
+                    NS_FENIX_SCHEDA.chiudi();
+                }
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+
+                if( $("#KEY_LEGAME").val() == "ACC_RICOVERO" ){
+                    if(rec.length > 0 && rec[0].IS_ODS === "N"){return true;}
+                    else {return false;}
+                }
+                else{
+                    if(rec.length > 0 && rec[0].IS_ODS === "N" && $("#IDEN_CONTATTO_ASSISTENZIALE").val() != rec[0].IDEN_CONTATTO_ASSISTENZIALE){return true;}
+                    else{return false;}
+                }
+            }]]></WHERE>
+            <OUTPUT>"Modifica Accesso DH"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CHIUDI_ACCESSO</ID>
+            <LINK><![CDATA[function(rec){
+
+                if($("#KEY_LEGAME").val() == "ACC_RICOVERO" || $("#KEY_LEGAME").val() == "RIEPILOGO_ACCESSI_DH"){
+                    NS_ACCESSI_DH.chiudiAccessoDH(rec[0]);
+                }
+                else{
+                    parent.frames['iScheda-1'].NS_ACCESSI_DH.chiudiAccessoDH(rec[0]);
+                    NS_FENIX_SCHEDA.chiudi();
+                }
+
+
+
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+
+                if($("#KEY_LEGAME").val() == "ACC_RICOVERO"){
+                    if(rec.length > 0 && rec[0].IS_ODS === "N" && rec[0].STATO_ACCESSO_CODICE !== "DISCHARGED"){ return true; } else { return false; }
+                }
+                else{
+                    if(rec.length > 0 && rec[0].IS_ODS === "N" && rec[0].STATO_ACCESSO_CODICE !== "DISCHARGED" && $("#IDEN_CONTATTO_ASSISTENZIALE").val() != rec[0].IDEN_CONTATTO_ASSISTENZIALE){ return true; } else { return false; }
+                }
+
+
+
+            }]]></WHERE>
+            <OUTPUT>"Chiudi Accesso DH"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>CANCELLA_ACCESSO</ID>
+            <LINK><![CDATA[function(rec){
+
+                if($("#KEY_LEGAME").val() == "ACC_RICOVERO"){
+                      NS_ACCESSI_DH.CancAccessoDh(rec[0]);
+                }
+                else{
+                    parent.frames['iScheda-1'].NS_ACCESSI_DH.CancAccessoDh(rec[0]);
+                    NS_FENIX_SCHEDA.chiudi();
+                }
+
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/Bidone.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return (rec.length > 0 &&  rec[0].IS_ODS === "N" && rec[0].DATA_INIZIO_ISO != _JSON_CONTATTO.contattiAssistenziali[0].dataInizio);}]]></WHERE>
+            <OUTPUT>"Cancellazione Accesso DH"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>TRASFERISCI_ODS</ID>
+            <LINK><![CDATA[function(rec){
+                    top.NS_FENIX_TOP.apriPagina(
+                        {
+                            url:'page?KEY_LEGAME=TRASFERIMENTO_ODS&_STATO_PAGINA=I&IDEN_CONTATTO=' + _JSON_CONTATTO.id + '&_STATO_PAGINA=I',
+                            id:'TrasferimentoODS',
+                            fullscreen:true
+                        }
+                    )}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if(rec.length > 0 && rec[0].IS_ODS === "S"){ return true; } else { return false; }}]]></WHERE>
+            <OUTPUT>"Trasferimento ODS"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+
+    </LIST>
+</MENU>

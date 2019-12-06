@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>SCREENING</lblTitolo>
+        
+        <tabLista>Elenco Screening</tabLista>
+        <tabInserimento>Inserimento Screening</tabInserimento>
+        
+        <fldwk>Lista Screening Eseguiti</fldwk>
+        <fldInserimento>Inserimento</fldInserimento>
+        
+        <lblDataScreening>Data Screening</lblDataScreening>
+		<lblTipoScreening>Tipo Screening</lblTipoScreening>
+		<lblEsitoScreening>Esito Screening</lblEsitoScreening>
+		
+		<butInserisci>Inserisci</butInserisci>
+		<butChiudi>Chiudi</butChiudi>
+		
+    </ROW>
+</ROWSET>

@@ -1,0 +1,14 @@
+<INCLUDE>
+    <CSS path="css/ADT/STATISTICHE/statistiche.css"/>
+    <CSS path="plugin/jqgrid/style/jqgrid.css"/>
+    <CSS path="plugin/jqgrid/style/jquery-ui-1.10.4.custom.min.css"/>
+    <CSS path="js/ADT/Statistiche/Tokenize/jquery.tokenize.css"/>
+
+    <JS path="plugin/jqgrid/conf/grid.locale-it.js"/>
+    <JS path="plugin/jqgrid/jquery.jqGrid.min.js"/>
+    <JS path="js/ADT/Statistiche/Statistica.js"/>
+    <JS path="js/ADT/Statistiche/Grid.js"/>
+    <JS path="js/ADT/Statistiche/Filter.js"/>
+    <JS path="js/ADT/Statistiche/Tokenize/jquery.tokenize.js"/>
+
+</INCLUDE>

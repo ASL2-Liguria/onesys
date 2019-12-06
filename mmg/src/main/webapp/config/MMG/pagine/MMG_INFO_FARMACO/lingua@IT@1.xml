@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>INFORMAZIONI FARMACO</lblTitolo>
+        <fld1>Informazioni sul Farmaco</fld1>
+		<lblNome>Nome</lblNome>
+		<lblClasse>Classe</lblClasse>
+		<lblPrincipio_Attivo>Principio Attivo</lblPrincipio_Attivo>
+		<lblPrezzo>Prezzo</lblPrezzo>
+		<lblConcedibile>Concedibile</lblConcedibile>
+		<lblConservazione>Conservazione</lblConservazione>
+		<lblTipo_Prodotto>Tipo Prodotto</lblTipo_Prodotto>
+		<lblForma>Forma</lblForma>
+		<lblVal_dopo_Apert>Validità dopo Apertura</lblVal_dopo_Apert>
+		<lblContenitore>Contenitore</lblContenitore>
+		<lblATC>ATC</lblATC>
+		<lblGruppo_Terapeutico>Gruppo Terapeutico</lblGruppo_Terapeutico>
+		<lblPrescrivibilita>Prescrivibilità</lblPrescrivibilita>
+		<lblPrescr_Max_Pezzi>Prescr. max Pezzi</lblPrescr_Max_Pezzi>
+		<lblCodice_Farmaco>Codice Farmaco</lblCodice_Farmaco>
+    </ROW>
+</ROWSET>

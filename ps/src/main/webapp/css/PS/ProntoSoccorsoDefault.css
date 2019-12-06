@@ -1,0 +1,220 @@
+body#refertazione {
+    background: #BBBBBB;
+    padding: 2px;
+}
+table.clsAlterna tbody tr td div {
+    cursor: default;
+}
+table.campi tbody tr td.oracontrol input{
+    padding: 0 5px;
+    width: 120px !important;
+    margin-right: 6px;
+}
+table.campi tr td.tdACList span:hover, table.campi tr td.clickToOggi:hover{
+    color: blueviolet;
+}
+
+.c-free {
+    width: 100%;
+}
+
+h5.fldHeader {
+    line-height: 26px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+div.acListDiv div.contentDiv{
+    height: 300px;
+}
+
+.CBcolorBlue {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2ECC71), color-stop(1, #20864b));
+    background: -moz-linear-gradient(top, #0066FF 5%, #0066FF 100%);
+    background: -webkit-linear-gradient(top, #0066FF 5%, #0066FF 100%);
+    background: -o-linear-gradient(top, #0066FF 5%, #0066FF 100%);
+    background: -ms-linear-gradient(top, #0066FF 5%, #0066FF 100%);
+    background: linear-gradient(to bottom, #0099FF 5%, #0099FF 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0099FF', endColorstr='#0099FF', GradientType=0);
+    background-color: #0066FF;
+    border: 1px solid #20864b;
+    color: #000;
+    text-align: center;
+}
+
+.CBcolorBlue.CBpulsSel {
+    background: #00CCFF;
+    filter: none;
+}
+
+.CBcolorGreen > span {
+    color: #fff;
+}
+
+.CBcolorMagenta {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2ECC71), color-stop(1, #20864b));
+    background: -moz-linear-gradient(top, #FF00CC 5%, #FF00CC 100%);
+    background: -webkit-linear-gradient(top, #FF00CC 5%, #FF00CC 100%);
+    background: -o-linear-gradient(top, #FF00CC 5%, #FF00CC 100%);
+    background: -ms-linear-gradient(top, #FF00CC 5%, #FF00CC 100%);
+    background: linear-gradient(to bottom, #FF3399 5%, #FF3399 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF33CC', endColorstr='#FF33CC', GradientType=0);
+    background-color: #FF00CC;
+    border: 1px solid #20864b;
+    color: #000;
+    text-align: center;
+}
+
+.CBcolorDefault {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f2f2f2), color-stop(1, #d9d9d9));
+    background: -moz-linear-gradient(top, #f2f2f2 5%, #d9d9d9 100%);
+    background: -webkit-linear-gradient(top, #f2f2f2 5%, #d9d9d9 100%);
+    background: linear-gradient(to bottom, #f2f2f2 5%, #d9d9d9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2F2F2', endColorstr='#D9D9D9', GradientType=0);
+    border: 1px solid #565656;
+    text-align: center
+}
+
+.CBcolorDefault.CBpulsSel, .CBcolorDefault.RBpulsSel {
+    background: #7d7d7d;
+    filter: none;
+}
+
+.CBcolorDefault.CBpulsSel > span {
+    color: #fff;
+}
+
+.CBcolorMagenta.CBpulsSel, .CBcolorMagenta.RBpulsSel {
+    background: #FF66CC;
+    filter: none;
+}
+
+.CBcolorMagenta > span {
+    color: #fff;
+}
+
+.CBcolorRed {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff1500), color-stop(1, #bf0a01));
+    background: -moz-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: -webkit-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: -o-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: -ms-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: linear-gradient(to bottom, #ff1500 5%, #bf0a01 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1500', endColorstr='#bf0a01', GradientType=0);
+    border: 1px solid #bf0a01;
+    color: #fff;
+    text-align: center;
+}
+
+.CBcolorRed.CBpulsSel, .CBcolorRed.RBpulsSel {
+    background: #ff1500;
+    filter: none;
+}
+
+.CBcolorRed > span {
+    color: #fff;
+}
+
+.CBcolorGreen {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2ECC71), color-stop(1, #20864b));
+    background: -moz-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: -webkit-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: -o-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: -ms-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: linear-gradient(to bottom, #2ECC71 5%, #20864b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2ECC71', endColorstr='#20864b', GradientType=0);
+    background-color: #27AE60;
+    border: 1px solid #20864b;
+    color: #000;
+    text-align: center;
+}
+
+.CBcolorGreen.CBpulsSel, .CBcolorGreen.RBpulsSel {
+    background: #27AE60;
+    filter: none;
+}
+
+.CBcolorGreen > span {
+    color: #fff;
+}
+
+.CBcolorYellow {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffec64), color-stop(1, #ffab23));
+    background: -moz-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background: -webkit-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background: -o-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background: -ms-linear-gradient(top, #ffec64 5%, #ffab23 100%);
+    background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23', GradientType=0);
+    background-color: #ffec64;
+    border: 1px solid #f59c00;
+    color: #000;
+    text-align: center;
+}
+
+.CBcolorYellow.CBpulsSel, .CBcolorYellow.RBpulsSel {
+    background: #ffce46;
+    filter: none;
+}
+
+.CBcolorBlack {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #222222), color-stop(1, #777777));
+    background: -moz-linear-gradient(top, #222222 5%, #777777 100%);
+    background: -webkit-linear-gradient(top, #222222 5%, #777777 100%);
+    background: -o-linear-gradient(top, #222222 5%, #777777 100%);
+    background: -ms-linear-gradient(top, #222222 5%, #777777 100%);
+    background: linear-gradient(to bottom, #222222 5%, #777777 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#222222', endColorstr='#777777', GradientType=0);
+    background-color: #222222;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF ;
+    text-align: center;
+}
+
+.CBcolorBlack.CBpulsSel, .CBcolorBlack.RBpulsSel {
+    background: #000000;
+    filter: none;
+}
+.CBcolorBlack > span {
+    color: #fff;
+}
+
+.colorGrey td{
+    background-color: #6a6a6a !important;
+}
+
+table.campi tr td.tdLbl {
+    font-size: 11px !important;
+}
+
+table.campi tr td.tdACList, table.campi tr td.tdLabelTags {
+    font-size: 11px !important;
+}
+.dialog-content-inner{
+    font-size: 16px;
+}
+
+
+#ptTimeSelectCntr{
+    display:none !important;
+}
+div.clsWk div.clsTR26 table tr {
+    height: auto !important;
+}
+div.clsWk div.clsWkScroll table tr td{
+    padding:5px !important;
+}
+.deleted {
+    text-decoration: line-through;
+}
+
+.red td, td.red{     background-color: #FA5858 !important;}
+.blue td, td.blue{    background-color: #58ACFA !important;}
+.yellow td, td.yellow{    background-color: #FFFB80 !important;}
+.white td, td.white{    background-color: #FFFFFF !important;}
+.green td, td.green{    background-color: #32CD32 !important;}
+.magenta td, td.magenta{     background-color: #FA58AC !important;}
+.nero td, td.nero {  background-color: #000000 !important; color:#FFFFFF !important;}
+.nero td:hover { color:#000000 !important;}
+.grigio td, td.grigio{      background-color: #999999 !important;}
+

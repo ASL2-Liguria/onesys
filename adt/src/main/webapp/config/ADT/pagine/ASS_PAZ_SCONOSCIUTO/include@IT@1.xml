@@ -1,0 +1,9 @@
+<INCLUDE>
+    <JS path="js/TimePicker/jquery.ptTimeSelect.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/Base/NS_FENIX_TAG_LIST.js"/>
+    <JS path="js/ADT/Anagrafica/Anagrafica.js"/> 
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/ASS_PAZ_SCONOSCIUTO/AssPazSconosciuto.js"/>
+</INCLUDE>

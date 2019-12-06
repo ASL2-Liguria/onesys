@@ -1,0 +1,324 @@
+<root>
+	<statements_list>
+	<statement name="infoSchedeXml">
+			<sql>
+			<![CDATA[
+			declare
+				pFunzione 	  varchar2(200) := ?;
+				pIdenVisita   pls_integer    := to_number(?);
+				pUteIns 	  varchar2(200) := '';
+				pUteMod 	  varchar2(200) := '';
+				pDataIns 	  varchar2(20) := '';
+				pDataMod 	  varchar2(20) := '';
+			
+			begin 
+			/*	begin
+				SELECT T_P.DESCR,to_char(CC.DATA_INS,'DD/MM/YYYY hh24:mi') INTO pUteIns,pDataIns FROM CC_SCHEDE_XML XML JOIN CC_SCHEDE_XML_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE=pFunzione AND XML.IDEN_VISITA=pIdenVisita AND CC.TIPO_INSERIMENTO='INSERIMENTO';	
+				exception when no_data_found then
+				pUteIns:=' ';
+				pDataIns:=' ';
+				end;
+				begin
+				SELECT DESCRIZIONE,DATA INTO pUteMod,pDataMod FROM (SELECT T_P.DESCR DESCRIZIONE,to_char(CC.DATA_INS,'DD/MM/YYYY hh24:mi') DATA FROM CC_SCHEDE_XML XML JOIN CC_SCHEDE_XML_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE=pFunzione AND XML.IDEN_VISITA=pIdenVisita AND CC.TIPO_INSERIMENTO='UPDATE' ORDER BY CC.DATA_INS DESC) WHERE ROWNUM=1;	
+				exception when no_data_found then
+				pUteMod:=' ';
+				pDataMod:=' ';
+				end;*/
+				
+			   begin
+			   		SELECT UTE_INS ,to_char(DATA_INS,'DD/MM/YYYY hh24:mi'),get_key_campo_value(contenuto,'USER_ID') ute_mod,to_char(DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') INTO pUteIns,pDataIns,pUteMod,pDataMod  FROM CC_SCHEDE_XML where FUNZIONE=pFunzione and IDEN_VISITA=pIdenVisita;      		
+			   	    select descr into pUteIns from radsql.tab_per where iden = to_number(pUteIns);
+			   	    select descr into pUteMod from radsql.tab_per where iden = to_number(pUteMod);
+			   	    if (pDataIns=pDataMod) then
+			   	    	pUteMod:=' ';
+			   	    	pDataMod:=' ';
+			   	    end if;
+			   	    exception when no_data_found then
+			   		pUteIns:=' ';
+					pDataIns:=' ';
+					pUteMod:=' ';
+					pDataMod:=' ';
+			   end;
+			   /*begin
+			        SELECT ute_mod,data_mod INTO pUteMod,pDataMod FROM (SELECT get_key_campo_value(contenuto,'USER_ID') ute_mod,to_char(DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') data_mod FROM CC_SCHEDE_XML_BCK WHERE FUNZIONE=pFunzione AND IDEN_VISITA=pIdenVisita AND TIPO_INSERIMENTO='UPDATE' ORDER BY DATA_ULTIMA_MODIFICA DESC) WHERE ROWNUM=1;
+			   		select descr into pUteMod from radsql.tab_per where iden = to_number(pUteMod);
+			   		exception when no_data_found then
+					pUteMod:=' ';
+					pDataMod:=' ';
+			   end;	*/		
+			
+			? := pUteIns;
+			? := pDataIns;
+			? := pUteMod;
+			? := pDataMod;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="infoSchedeXml.getSchedaByIden">
+			<sql>
+			<![CDATA[
+				declare
+					pFunzione 	  varchar2(200) := ?;
+					pIdenVisita   pls_integer   := to_number(?);
+					pIdenScheda   pls_integer   := to_number(?);
+					pUteIns 	  varchar2(200) := '';
+					pUteMod 	  varchar2(200) := '';
+					pDataIns 	  varchar2(20)  := '';
+					pDataMod 	  varchar2(20)  := '';
+				begin
+					begin
+						SELECT UTE_INS ,to_char(DATA_INS,'DD/MM/YYYY hh24:mi'),get_key_campo_value(contenuto,'USER_ID') ute_mod,to_char(DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') INTO pUteIns,pDataIns,pUteMod,pDataMod FROM CC_SCHEDE_XML where FUNZIONE=pFunzione and IDEN_VISITA=pIdenVisita and IDEN=pIdenScheda;      		
+						select descr into pUteIns from radsql.tab_per where iden = to_number(pUteIns);
+						select descr into pUteMod from radsql.tab_per where iden = to_number(pUteMod);
+						if (pDataIns=pDataMod) then
+							pUteMod:=' ';
+							pDataMod:=' ';
+						end if;
+					exception when no_data_found then
+						pUteIns:=' ';
+						pDataIns:=' ';
+						pUteMod:=' ';
+						pDataMod:=' ';
+					end;
+			  		? := pUteIns;
+        			? := pDataIns;
+        			? := pUteMod;
+        			? := pDataMod;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="infoBisogni">
+			<sql>
+			<![CDATA[
+			declare
+				pFunzione 	  varchar2(200) := ?;
+				pIdenVisita   pls_integer    := to_number(?);
+				pUteIns 	  varchar2(200) := '';
+				pUteMod 	  varchar2(200) := '';
+				pDataIns 	  varchar2(20) := '';
+				pDataMod 	  varchar2(20) := '';
+			
+			begin 
+				begin
+				SELECT T_P.DESCR,to_char(CC.DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') INTO pUteIns,pDataIns FROM CC_BISOGNI_RICOVERO XML JOIN CC_BISOGNI_RICOVERO_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE=pFunzione AND XML.IDEN_VISITA=pIdenVisita AND CC.TIPO_INSERIMENTO='INSERIMENTO';	
+				exception when no_data_found then
+				pUteIns:=' ';
+				pDataIns:=' ';
+				end;
+				begin
+			    SELECT DESCRIZIONE,DATA INTO pUteMod,pDataMod FROM (SELECT T_P.DESCR DESCRIZIONE,to_char(CC.DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') DATA FROM CC_BISOGNI_RICOVERO XML JOIN CC_BISOGNI_RICOVERO_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE=pFunzione AND XML.IDEN_VISITA=pIdenVisita AND CC.TIPO_INSERIMENTO='UPDATE' ORDER BY CC.DATA_ULTIMA_MODIFICA DESC) WHERE ROWNUM=1;	
+				exception when no_data_found then
+				pUteMod:=' ';
+				pDataMod:=' ';
+				end;
+			
+			
+			? := pUteIns;
+			? := pDataIns;
+			? := pUteMod;
+			? := pDataMod;
+			end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="infoBisogniSintesi">
+			<sql>
+			<![CDATA[
+			declare
+				pFunzione 	  varchar2(200) := ?;
+				pIdenVisita   pls_integer    := to_number(?);
+				pReparto  	  varchar2(200) := ?;
+				pIdenAnag 	  varchar2(200) := ?;
+				pUteIns 	  varchar2(200) := '';
+				pUteMod 	  varchar2(200) := '';
+				pDataIns 	  varchar2(20) := '';
+				pDataMod 	  varchar2(20) := '';
+				outKeyLegame  varchar2(100):='';
+				outSito		  varchar2(100):='';
+				outVersione	  varchar2(100):='';
+				outApriImport  varchar2(100):='';
+				pListaFunzioni varchar2(1000):='';
+			
+			begin 
+			
+				CC_GET_CONF_SCHEDA_XML(pFunzione,pReparto,pIdenVisita,pIdenAnag,outKeyLegame,outSito,outVersione,outApriImport);
+			
+				
+				SELECT WM_CONCAT(FUNZIONE) into pListaFunzioni FROM IMAGOWEB.CONFIG_SCHEDE_REPARTO WHERE FUNZIONE IN (
+				select KEY_FORM  from CONFIGURAZIONE_SCHEDE.HTML_PAGINA WHERE PAGINA=outKeyLegame) AND CODICE_REPARTO=pReparto;
+				
+				begin
+				SELECT DESCRIZIONE,DATA_MOD INTO pUteIns,pDataIns FROM (SELECT T_P.DESCR DESCRIZIONE,to_char(CC.DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') DATA_MOD  FROM CC_BISOGNI_RICOVERO XML JOIN CC_BISOGNI_RICOVERO_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE in (select column_value from table (split(pListaFunzioni))) AND XML.IDEN_VISITA=pIdenVisita AND CC.TIPO_INSERIMENTO='INSERIMENTO' ORDER BY CC.DATA_ULTIMA_MODIFICA ASC) WHERE ROWNUM=1;	
+				exception when no_data_found then
+				pUteIns:=' ';
+				pDataIns:=' ';
+				end;
+				begin
+			    SELECT DESCRIZIONE,DATA_MOD INTO pUteMod,pDataMod FROM (SELECT T_P.DESCR DESCRIZIONE,to_char(CC.DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') DATA_MOD FROM CC_BISOGNI_RICOVERO XML JOIN CC_BISOGNI_RICOVERO_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE in (select column_value from table (split(pListaFunzioni))) AND XML.IDEN_VISITA=pIdenVisita AND CC.TIPO_INSERIMENTO='UPDATE' ORDER BY CC.DATA_ULTIMA_MODIFICA DESC) WHERE ROWNUM=1;	
+				exception when no_data_found then
+				pUteMod:=' ';
+				pDataMod:=' ';
+				end;
+			
+			
+			
+			? := pUteIns;
+			? := pDataIns;
+			? := pUteMod;
+			? := pDataMod;
+			end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="infoBisogniFUTURIBILE">
+			<sql>
+			<![CDATA[
+	declare
+    pFunzione 	  varchar2(200) := ?;
+    pIdenVisita   pls_integer    :=to_number(?);
+    pReparto  	  varchar2(200) := ?;
+    
+    pUteIns 	  varchar2(200) := null;
+    pUteMod 	  varchar2(200) := null;
+    pDataIns 	  varchar2(20) := '';
+    pDataMod 	  varchar2(20) := '';
+    pDTins      date;
+    pDTmod      date;
+			
+begin 			
+      
+      for cur in (
+          SELECT
+            bisogni.ute_ins
+            ,bisogni.data_ins
+            ,get_key_campo_value(bisogni.contenuto,'USER_ID') ute_mod
+            ,bisogni.DATA_ULTIMA_MODIFICA data_mod
+          FROM
+            IMAGOWEB.config_schede_reparto CSR
+            JOIN CONFIGURAZIONE_SCHEDE.HTML_PAGINA FORM ON (form.pagina = csr.key_legame)
+            JOIN CC_BISOGNI_RICOVERO BISOGNI ON (bisogni.funzione = form.key_form)
+          WHERE
+            CSR.FUNZIONE = pFunzione
+            AND csr.codice_reparto = pReparto
+            AND BISOGNI.IDEN_VISITA =pIdenVisita
+      )
+      loop
+        
+        if(pUteIns is null or pDTIns > cur.data_ins) then
+          pUteIns := to_char(cur.ute_ins);
+          pDTins := cur.data_ins;          
+        end if;
+        
+        if(pUteMod is null or pDTmod < cur.data_mod) then
+          pUteMod := cur.ute_mod;
+          pDTmod := cur.data_mod;
+        end if;        
+        
+      end loop;
+       
+      pDataIns := to_char(pDTins,'dd/MM/yyyy hh24:mi'); 
+      pDataMod := to_char(pDTmod,'dd/MM/yyyy hh24:mi');
+		
+		select descr into pUteIns from radsql.tab_per where iden = to_number(pUteIns);
+		select descr into pUteMod from radsql.tab_per where iden = to_number(pUteMod);
+      ? := pUteIns;
+	  ? := pDataIns;
+	  ? := pUteMod;
+      ? := pDataMod;
+      
+end;
+			]]>
+			</sql>
+	</statement>
+	
+	
+<statement name="infoScale">
+			<sql>
+			<![CDATA[
+			declare
+				pFunzione 	  varchar2(200) := ?;
+				pIdenVisita   pls_integer    := to_number(?);
+				pUteIns 	  varchar2(200) := '';
+				pUteMod 	  varchar2(200) := '';
+				pDataIns 	  varchar2(20) := '';
+				pDataMod 	  varchar2(20) := '';
+			
+			begin 
+				begin
+				SELECT T_P.DESCR,to_char(CC.DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') INTO pUteIns,pDataIns FROM CC_SCALE XML JOIN CC_SCALE_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE=pFunzione AND XML.IDEN_VISITA=pIdenVisita AND TIPO_OPERAZIONE='INSERIMENTO';	
+				exception when no_data_found then
+				pUteIns:=' ';
+				pDataIns:=' ';
+				end;
+				begin
+				SELECT DESCRIZIONE,DATA_MOD INTO pUteMod,pDataMod FROM (SELECT T_P.DESCR DESCRIZIONE,to_char(CC.DATA_ULTIMA_MODIFICA,'DD/MM/YYYY hh24:mi') DATA_MOD FROM CC_SCALE XML JOIN CC_SCALE_BCK CC on CC.iden_originale = XML.iden INNER JOIN TAB_PER T_P ON (CC.UTE_INS=T_P.IDEN) WHERE XML.FUNZIONE=pFunzione AND XML.IDEN_VISITA=pIdenVisita AND TIPO_OPERAZIONE='UPDATE' ORDER BY CC.DATA_ULTIMA_MODIFICA DESC) WHERE ROWNUM=1;	
+				exception when no_data_found then
+				pUteMod:=' ';
+				pDataMod:=' ';
+				end;
+			
+			
+			? := pUteIns;
+			? := pDataIns;
+			? := pUteMod;
+			? := pDataMod;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="infoLettera">
+			<sql>
+			<![CDATA[
+			declare
+				pFunzione 	  varchar2(200) := ?;
+				pIdenVisita   pls_integer    := to_number(?);
+				pUteIns 	  varchar2(200) := '';
+				pUteMod 	  varchar2(200) := '';
+				pDataIns 	  varchar2(20) := '';
+				pDataMod 	  varchar2(20) := '';
+			
+			begin 
+				begin
+				SELECT 
+					tp.DESCR,
+					to_char(clv.DATA_INSERIMENTO,'dd/mm/yyyy hh24:mi') data_inserimento 
+				into 
+					pUteIns,
+					pDataIns 
+				from cc_lettera_versioni clv 
+				join tab_per tp on (clv.iden_ute_ins = tp.iden) 
+				where clv.iden_visita = pIdenVisita and clv.funzione = pFunzione and clv.stato in ('R','F') and clv.progressivo=0 ;	
+				exception when no_data_found then
+				pUteIns:=' ';
+				pDataIns:=' ';
+				end;
+				begin
+				SELECT 
+					tp.DESCR,
+					to_char(clv.DATA_INSERIMENTO,'dd/mm/yyyy hh24:mi') data_inserimento 
+				into 
+					pUteMod,
+					pDataMod 
+				from cc_lettera_versioni clv 
+				join tab_per tp on (clv.iden_ute_ins = tp.iden) 
+				where clv.iden_visita = pIdenVisita and clv.funzione = pFunzione and clv.stato in ('R','F') and clv.attivo='S';		
+				exception when no_data_found then
+				pUteMod:=' ';
+				pDataMod:=' ';
+				end;
+			
+			
+			? := pUteIns;
+			? := pDataIns;
+			? := pUteMod;
+			? := pDataMod;
+			end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

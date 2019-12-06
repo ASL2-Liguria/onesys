@@ -1,0 +1,224 @@
+<?xml version = "1.0"?>
+<!--
+	Mettere le query in ordine alfabetico!
+	ALFABETO : A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	-->
+<QUERIES>
+    <QUERY_GROUP id="DATI">
+		<QUERY id="CHECK_SEGNALAZIONE_DECESSO">
+			<SQL>select COUNT(1) as CONTO from CC_LETTERA_VERSIONI where IDEN_VISITA = :idenVisita and funzione='SEGNALAZIONE_DECESSO' and attivo='S' and deleted='N'</SQL>
+		</QUERY>
+		<QUERY id="CHECKEXISTANAG">
+			<SQL>select COUNT(1) HASCODFISC from anag where COD_FISC = :COD_FISC</SQL>
+		</QUERY>
+        <QUERY id="CHECKDATICARTELLA">
+				<SQL>select  sum(checkdatiaccesso(np.iden)) NUM  from NOSOLOGICI_PAZIENTE np where np.NUM_NOSOLOGICO= :NOSOLOGICO and deleted = 'N'</SQL>
+        </QUERY>
+        <QUERY id="CHECKDATIACCESSO">
+            <SQL>select checkdatiaccesso(:IDEN) num from DUAL</SQL>
+        </QUERY>
+        <QUERY id="CMB_CDC_NOT_SEL">
+            <SQL>select COD_CDC value, descr from centri_di_costo where COD_CDC not in (select reparto from imagoweb.web_cdc where webuser = :username) and attivo = 'S' and codice_struttura is not null and (abilita_ambulatoriale='S' or abilita_day_hospital='S' or abilita_ordinario = 'S' OR ARCHIVIO_CARTELLE = 'S' OR ABILITA_VPO = 'S')  and attivo = 'S' order by descr asc</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_CDC_SEL">
+            <SQL>select COD_CDC value, descr from centri_di_costo where COD_CDC in (select reparto from imagoweb.web_cdc where webuser = :username) and attivo = 'S' order by descr</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_PERSONALE">
+            <SQL>select iden value, descr from tab_per</SQL>
+        </QUERY>
+        <QUERY id="MEDICO_INFERMIERE">
+            <SQL>select /*+first_rows(10)*/ 'A' VALUE, 'lblamministrativo' DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="DATA_LETTERA_DIMISSIONE">
+            <SQL>
+                select
+                to_char(to_date(extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="DATA_FINE_RICOVERO"]'),'dd/MM/yyyy'),'yyyymmdd') data_fine_ricovero,
+                extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="DATA_FINE_RICOVERO"]') DATA_FINE_RIC_CONV
+                from NOSOLOGICI_PAZIENTE np
+                join CC_LETTERA_VERSIONI clv on (clv.iden_visita = np.iden)
+                where np.NUM_NOSOLOGICO = :NOSOLOGICO
+                and np.accesso=0
+                and clv.attivo='S' and clv.deleted='N' and clv.funzione in ('LETTERA_STANDARD','LETTERA_DIMISSIONI_DH')
+            </SQL>
+            <BINDS>
+                <BIND id="NOSOLOGICO" value="NOSOLOGICO" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+		<QUERY id="Q_DIAGNOSI_LETTERA_DIMISSIONE">
+            <SQL>
+	            SELECT TESTO_PIANO
+				FROM CC_LETTERA_SEZIONE
+				WHERE ID_ELEMENTO = 'idDiagnosiDimissione'
+					AND IDEN_VERSIONE =
+					(
+  						SELECT IDEN FROM CC_LETTERA_VERSIONI
+  						WHERE
+	  						IDEN_VISITA =
+	  						(
+	    						SELECT IDEN FROM NOSOLOGICI_PAZIENTE WHERE NUM_NOSOLOGICO = :NOSOLOGICO AND ACCESSO = 0  AND DELETED = 'N'
+	  						) AND
+	  						FUNZIONE IN ('LETTERA_STANDARD','LETTERA_DIMISSIONI_DH') AND ATTIVO = 'S'
+					)
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_DATA_FINE_LETTERA_DIMISSIONE">
+            <SQL>
+	            SELECT TO_CHAR(TO_DATE(EXTRACTVALUE(CONTENUTO,'//CAMPO[@KEY_CAMPO="DATA_FINE_RICOVERO"]'),'dd/MM/yyyy'),'yyyyMMdd') AS DATA_FINE
+				FROM CC_LETTERA_VERSIONI
+				WHERE
+				  	ATTIVO = 'S'
+				  	AND
+				  		IDEN_VISITA =
+					  	(
+					    	SELECT IDEN FROM NOSOLOGICI_PAZIENTE WHERE NUM_NOSOLOGICO = :NOSOLOGICO AND ACCESSO = 0 AND DELETED = 'N'
+					  	) AND
+	  					FUNZIONE IN ('LETTERA_STANDARD','LETTERA_DIMISSIONI_DH')
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_CODICI_ICD">
+            <SQL>
+                SELECT col01 CODICE, COL02 DESCRIZIONE, COL03 TIPO, COL04 DATA, COL05 AS COMP_SESSO, COL06 COMP_ETA, COL09 AS DS, COL08 AS DS_PEDIATRICO, COL09 AS SALA_OPE from table(GETINTERVENTIDIAGNOSI_FULL(:NOSOLOGICO))
+            </SQL>
+        </QUERY>
+
+    </QUERY_GROUP>
+    <QUERY_GROUP id="WORKLIST">
+        <QUERY id="GESTIONE_UTENTI">
+            <SQL>SELECT iden, webuser username , tipo, (select descr from tab_per where iden = iden_per) DESCR_PER, lingua,attivo FROM IMAGOWEB.WEB
+            where webuser like :user and attivo in (:attivo)
+            </SQL>
+        </QUERY>
+        <QUERY id="WK_RICHIESTE_DSA">
+        	<SQL><![CDATA[
+        		SELECT
+					  np.num_nosologico codice ,
+					  np.iden_anag iden_anagrafica ,
+					  anag.cogn  || ' '  || anag.nome  || ' '  || SUBSTR(ANAG.DATA,7)  ||'/'  || SUBSTR(ANAG.DATA,5,2)  ||'/'  || SUBSTR(ANAG.DATA,0,4) ASSISTITO ,
+					  cdc.descr reparto,
+					  cdcDest.descr cdc_descr_destinatario,
+					  SUBSTR(tr.data_richiesta,7)  || '/'  || SUBSTR(tr.data_richiesta,5,2)  || '/'  || SUBSTR(tr.data_richiesta,0,4) data_richiesta ,
+					  tr.ora_richiesta,
+					  SUBSTR(tr.data_proposta,7)  || '/'  || SUBSTR(tr.data_proposta,5,2)  || '/'  || SUBSTR(tr.data_proposta,0,4) data_proposta ,
+					  tr.ora_proposta,
+					  tr.iden ,
+					  tr.stato_richiesta ,
+					  tr.cdc cdc_destinatario,
+					  tr.metodica,
+					  tr.tipologia_richiesta,
+					  tr.id_richiesta, tr.id_richiesta_2,
+					  tr.prelievo_effettuato
+					  /*(SELECT wm_concat(tab_esa.descr)  FROM tab_esa tab_esa  INNER JOIN infoweb.dettaglio_richieste dett  ON (dett.iden_tab_esa=tab_esa.iden)  WHERE iden_testata   =tr.iden  ) prestazioni*/
+					FROM
+					  nosologici_paziente np
+					  INNER JOIN infoweb.testata_richieste tr ON (np.iden=tr.iden_visita)
+					  INNER JOIN anag ON (tr.iden_anag=anag.iden)
+					  INNER JOIN centri_di_costo cdc ON (np.cod_cdc=cdc.cod_cdc)
+					  INNER JOIN centri_di_costo cdcDest ON (tr.cdc =cdcDest.cod_cdc)
+					WHERE
+					  np.num_nosologico = :numNoso and stato_richiesta<>'X'
+					  {#ORDER#}
+        	]]></SQL>
+        </QUERY>
+        <QUERY id="WK_PRESTAZIONI_CDCDEST_DSA">
+        	<SQL>select acc.iden,to_char(rrt.data_ricetta,'YYYYMMDD') data_ric,rrt.tipo_ricetta,rrt.categoria_ricetta,rrt.classe_priorita,rrt.numero_poligrafo,rrt.stato,rrt.stampato,
+						rrprest.descrizione prestazione, rrprest.codice_ises,rrprest.lateralita,rrt.iden iden_ricetta,rrt.cod_esenzione,rrt.quesito,rrprest.codice,
+						ADT_GETREPARTODESTINATARIO_NEW(rrt.classe_priorita, rrprest.codice, :idenprov) cdc_destinatario,
+						dett.data_esecuzione
+						from mmg.mmg_accertamenti_dettaglio dett
+						inner join mmg.mmg_accertamenti acc on (dett.iden=acc.iden)
+						inner join mmg.rr_ricetta_rossa_testata rrt on (dett.iden_ricetta=rrt.iden)
+						inner join rr_prestazioni rrprest on (rrprest.codice || '@' || rrprest.dm_codice=acc.codice_accertamento)
+						where acc.sito='ADT_DSA' and acc.iden_accesso=:idenContatto and acc.deleted='N' and dett.data_esecuzione is null
+        	</SQL>
+        </QUERY>
+        <QUERY id="WK_RICETTE_DSA">
+        	<SQL>select distinct rrt.iden,rrt.data_ricetta,to_char(rrt.data_ricetta,'DD/MM/YYYY') data_ric,rrt.tipo_ricetta,rrt.categoria_ricetta,rrt.classe_priorita,rrt.numero_poligrafo,rrt.stato,rrt.stampato,
+						to_char((SELECT wm_concat( rrprest.descrizione )
+						FROM mmg.rr_RICETTA_ROSSA_DETTAGLIO Dett
+						inner join RR_PRESTAZIONI rrprest on (dett.cod_prescrizione=rrprest.codice || '@' || rrprest.dm_codice)
+						WHERE Dett.Iden_Testata = rrt.Iden
+						)) prestazioni,
+						to_char((SELECT wm_concat( rrprest.codice_ises )
+						FROM mmg.rr_RICETTA_ROSSA_DETTAGLIO Dett
+						inner join RR_PRESTAZIONI rrprest on (dett.cod_prescrizione=rrprest.codice || '@' || rrprest.dm_codice)
+						WHERE Dett.Iden_Testata = rrt.Iden
+						)) cod_ises_prestazioni,
+						to_char((SELECT wm_concat( trim(rrprest.branca) )
+						FROM mmg.rr_RICETTA_ROSSA_DETTAGLIO Dett
+						inner join RR_PRESTAZIONI rrprest on (dett.cod_prescrizione=rrprest.codice || '@' || rrprest.dm_codice)
+						WHERE Dett.Iden_Testata = rrt.Iden
+						)) branca_prestazioni,
+						to_char((SELECT wm_concat(nvl(rrprest.lateralita,'x'))
+						FROM mmg.rr_RICETTA_ROSSA_DETTAGLIO Dett
+						inner join RR_PRESTAZIONI rrprest on (dett.cod_prescrizione=rrprest.codice || '@' || rrprest.dm_codice)
+						WHERE Dett.Iden_Testata = rrt.Iden
+						)) lateralita,
+						rrt.quesito
+						from mmg.rr_RICETTA_ROSSA_TESTATA rrt
+						inner join mmg.MMG_ACCERTAMENTI_dettaglio accd on (accd.iden_ricetta=rrt.iden)
+            			inner join mmg.mmg_accertamenti acc on (acc.iden=accd.iden)
+						where acc.iden_accesso=:idenContatto and rrt.tipo_ricetta='P' and acc.deleted='N' and not rrt.stato='D'
+						{#ORDER#}
+        	</SQL>
+        </QUERY>
+        <QUERY id="WK_PRESTAZIONI_DSA">
+        	<SQL>
+				SELECT
+					ACC.IDEN IDEN_ACCERTAMENTO,TO_CHAR(ACC.DATA_INS,'DD/MM/YYYY') DATA_INS,
+					/*vdsa.dsa_progressivo*/ null PROGRESSIVO,
+					prr.codice || '@' || prr.dm_codice CODICE_PRESTAZIONE,
+					prr.codice CODICE_REGIONALE,
+					prr.descrizione prestazione,
+					prr.dm_codice codice_ministeriale,
+					to_number(prr.codice_ises) codice_ises,
+					prr.lateralita,
+					prr.branca,
+					'1' QUANTITA, COD_ESENZIONE,
+					substr(accd.data_esecuzione,7,2) ||'/'||substr(accd.data_esecuzione,5,2)||'/'||substr(accd.data_esecuzione,1,4) DATA_ESECUZ,
+					'' esenzione,
+					prr.dm_codice,
+					(select distinct id_nota from rr_prestazioni_note where dm_codice = prr.dm_codice) as id_nota,
+					NULL AS GENETICA, /*(select genetica from rr_prestazioni_note where dm_codice = prr.dm_codice and tipo_nota = 'CON') as genetica*/
+					GEST_CONTINUITY.GETXML('
+						select "@iden", "@id_nota", "@tipo_nota", split("opzioni",''|'') opzioni from (
+							select
+								note.iden "@iden"
+								,note.id_nota "@id_nota"
+								,note.tipo_nota "@tipo_nota"
+								,(select LISTAGG(id_dett ||''@''||descrizione,''|'') WITHIN GROUP (ORDER BY id_nota) from rr_prestazioni_note_opt where tipo_nota = note.tipo_nota and id_nota = (select distinct id_nota from rr_prestazioni_note where dm_codice = :codiceMinisteriale) GROUP BY id_nota) "opzioni"
+							from rr_prestazioni_note note
+							where note.dm_codice= :codiceMinisteriale and note.attivo=''S''
+							order by note.tipo_nota
+						)'
+						,ARRAY_VALUE('codiceMinisteriale')
+						,ARRAY_VALUE(prr.dm_codice)
+					) as XML_CONDIZIONI_INDICAZIONI
+				FROM
+					rr_prestazioni prr
+					/*mv_sia_dsa_tipologie_prest vdsa
+					inner join rr_prestazioni prr on vdsa.pre_pre=to_number(prr.codice_ises)*/
+					left join mmg.MMG_ACCERTAMENTI acc on (iden_accesso = :idenContatto and codice_accertamento=prr.codice || '@' || prr.dm_codice and acc.deleted='N' and sito='ADT_DSA')
+					left join mmg.mmg_accertamenti_dettaglio accd on (acc.iden=accd.iden)
+				where
+					prr.attivo='S' and dsa_progressivo= :codTipologiaDSA
+				{#ORDER#}
+        	</SQL>
+        </QUERY>
+		<QUERY id="AC_PATOLOGIE">
+			<SQL>
+				SELECT CODICE VALUE, CODICE, CODICE || ' - ' || DESCRIZIONE DESCR from MMG.VIEW_RR_GENETICA_PATOLOGIE WHERE ATTIVO = 'S' AND UPPER(DESCRIZIONE) LIKE UPPER(:descr) || '%' AND COLONNA IN (SELECT COLUMN_VALUE FROM TABLE (split(:genetica)))
+			</SQL>
+		</QUERY>
+        <QUERY id="WK_ESAMI_INFO_DIALOG">
+        	<SQL>SELECT tab_esa.descr  FROM tab_esa  INNER JOIN infoweb.dettaglio_richieste dett  ON (dett.iden_tab_esa=tab_esa.iden)  WHERE iden_testata =:iden_richiesta
+        	</SQL>
+        </QUERY>
+    </QUERY_GROUP>
+
+</QUERIES>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PRESTAZIONE>
+    <COD_PREST/>
+    <QUANTITA>1</QUANTITA>
+    <IMP_NOS/>
+    <ID_ESAME_DICOM/>
+    <DATA_APP/>
+    <ORA_APP/>
+    <OPERATORE_ESECUTORE>
+        <CODICE/>
+        <TIPO/>
+        <DESCRIZIONE>
+            <TITOLO/>
+            <NOME/>
+            <COGNOME/>
+        </DESCRIZIONE>
+    </OPERATORE_ESECUTORE>
+    <RICETTA>
+        <TIPOLOGIA/>
+        <DATA/>
+    </RICETTA>
+    <COD_AREA/>
+    <COD_SALA/>
+    <COD_MAC/>
+</PRESTAZIONE>

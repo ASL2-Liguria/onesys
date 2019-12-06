@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+	<ROW>
+		<lblTitolo>Dimissione e SDO</lblTitolo>
+        <lblDescrDRG>Descrizione</lblDescrDRG>
+		<tabDimissione>Dimissione</tabDimissione>
+		<idAssistito>Dati assistito</idAssistito>
+		<idDatiRicovero>Dati ricovero</idDatiRicovero>
+		<idDegenza>Dati degenza</idDegenza>
+		<lblCartella>N. Cartella</lblCartella>
+		<lblAnno>Anno</lblAnno>
+		<lblDataRico>Data ricovero</lblDataRico>
+		<lblOraRico>Ora ricovero</lblOraRico>
+		<lblRepartoAcc>Reparto di accettazione</lblRepartoAcc>
+        <butFinder>Calcola Drg</butFinder>
+        <butFirma>Firma</butFirma>
+        <butFinderInterface>Apri interfaccia DRG</butFinderInterface>
+        <butCalcoloDrgTariffa>Calcolo Drg e tariffa</butCalcoloDrgTariffa>
+        <butStampa>Stampa Sdo</butStampa>
+        <lblImportoDRG>Importo Drg</lblImportoDRG>
+        <lblImportoDRGFuoriSoglia>Importo fuori soglia</lblImportoDRGFuoriSoglia>
+        <butStampaDecesso>Stampa Modulo</butStampaDecesso>
+        <butDiagnosiFromCartella>Importa Diagnosi</butDiagnosiFromCartella>
+        <lblCodDRG>Codice DRG</lblCodDRG>
+		<lblRepartoDeg>Reparto di degenza</lblRepartoDeg>
+		<lblRepartoAss>Reparto di assistenza</lblRepartoAss>
+		<lblDataUltimoMov>Data ultimo movimento</lblDataUltimoMov>
+		<lblOraUltimoMov>Ora ultimo movimento</lblOraUltimoMov>
+		<idDimissione>DIMISSIONE</idDimissione>
+		<lblDataDimi>Data dimissione</lblDataDimi>
+		<lblOraDimi>Ora dimissione</lblOraDimi>
+		<lblTipoDimi>Tipo dimissione</lblTipoDimi>
+		<lblMedicoDimi>Medico dimettente</lblMedicoDimi>
+		<idDatiAusiliari>Dati ausiliari</idDatiAusiliari>
+		<traumatismiDimissione>Traumatismi e Intossicazioni</traumatismiDimissione>
+        <lblTraumatismiDimissione>Traumatismi o intossicazioni</lblTraumatismiDimissione>
+        <butImportaTraumatismi>Importa</butImportaTraumatismi>
+        <lblCategoriaCausaEsternaDimissione>Categoria causa esterna</lblCategoriaCausaEsternaDimissione>
+        <lblCausaEsternaDimissione>Causa Esterna</lblCausaEsternaDimissione>
+		<lblGgPermesso>Giorni di permesso</lblGgPermesso>
+		<lblAssDomi>Necessita di assistenza domiciliare</lblAssDomi>
+        <lblRefAutop>Riscontro autoptico</lblRefAutop>
+        <TabSDO>SDO</TabSDO>
+		<idDegenzaDimi>Dati degenza</idDegenzaDimi>
+		<idPatologie>Dati dimissione</idPatologie>
+		<lblPatologiaPrimaria>Patologia Primaria</lblPatologiaPrimaria>
+        <lblMedicoDimissione>Medico Dimissione</lblMedicoDimissione>
+        <lblMedicoCompilatore>Medico Compilatore</lblMedicoCompilatore>
+        <lblDiagnosiDimissione>Diagnosi Testuale</lblDiagnosiDimissione>
+        <lblRepDimissione>Reparto Dimissione</lblRepDimissione>
+        <fldDiagnosi>Diagnosi</fldDiagnosi>
+        <lblDiagnosiIcd90>Diagnosi Principale</lblDiagnosiIcd90>
+        <lblDiagnosiIcd91>Diagnosi</lblDiagnosiIcd91>
+        <lblDiagnosiIcd92>Diagnosi</lblDiagnosiIcd92>
+        <lblDiagnosiIcd93>Diagnosi</lblDiagnosiIcd93>
+        <lblDiagnosiIcd94>Diagnosi</lblDiagnosiIcd94>
+        <lblDiagnosiIcd95>Diagnosi</lblDiagnosiIcd95>
+        <lblDiagnosiIcd96>Diagnosi</lblDiagnosiIcd96>
+        <fldInterventi>Interventi</fldInterventi>
+        <lblInterventiIcd90>Intervento Principale</lblInterventiIcd90>
+        <lblInterventiIcd91>Intervento</lblInterventiIcd91>
+        <lblInterventiIcd92>Intervento</lblInterventiIcd92>
+        <lblInterventiIcd93>Intervento</lblInterventiIcd93>
+        <lblInterventiIcd94>Intervento</lblInterventiIcd94>
+        <lblInterventiIcd95>Intervento</lblInterventiIcd95>
+        <lblInterventiIcd96>Intervento</lblInterventiIcd96>
+        <lblDimiDecesso>Dimissione per decesso</lblDimiDecesso>
+        <lblDataInterventiICD90>Data Intervento</lblDataInterventiICD90>
+        <lblDataInterventiICD91>Data Intervento</lblDataInterventiICD91>
+        <lblDataInterventiICD92>Data Intervento</lblDataInterventiICD92>
+        <lblDataInterventiICD93>Data Intervento</lblDataInterventiICD93>
+        <lblDataInterventiICD94>Data Intervento</lblDataInterventiICD94>
+        <lblDataInterventiICD95>Data Intervento</lblDataInterventiICD95>
+        <lblDataInterventiICD96>Data Intervento</lblDataInterventiICD96>
+        <lblDataInterventiICD97>Data Intervento</lblDataInterventiICD97>
+        <lblDataInterventiICD98>Data Intervento</lblDataInterventiICD98>
+        <butDiagnosi0UP>&#x25B2;</butDiagnosi0UP>
+        <butDiagnosi0DOWN>&#x25BC;</butDiagnosi0DOWN>
+        <butDiagnosi1UP>&#x25B2;</butDiagnosi1UP>
+        <butDiagnosi1DOWN>&#x25BC;</butDiagnosi1DOWN>
+        <butDiagnosi2UP>&#x25B2;</butDiagnosi2UP>
+        <butDiagnosi2DOWN>&#x25BC;</butDiagnosi2DOWN>
+        <butDiagnosi3UP>&#x25B2;</butDiagnosi3UP>
+        <butDiagnosi3DOWN>&#x25BC;</butDiagnosi3DOWN>
+        <butDiagnosi4UP>&#x25B2;</butDiagnosi4UP>
+        <butDiagnosi4DOWN>&#x25BC;</butDiagnosi4DOWN>
+        <butDiagnosi5UP>&#x25B2;</butDiagnosi5UP>
+        <butDiagnosi5DOWN>&#x25BC;</butDiagnosi5DOWN>
+        <butDiagnosi6UP>&#x25B2;</butDiagnosi6UP>
+        <butDiagnosi6DOWN>&#x25BC;</butDiagnosi6DOWN>
+        <butIntervento0UP>&#x25B2;</butIntervento0UP>
+        <butIntervento0DOWN>&#x25BC;</butIntervento0DOWN>
+        <butIntervento1UP>&#x25B2;</butIntervento1UP>
+        <butIntervento1DOWN>&#x25BC;</butIntervento1DOWN>
+        <butIntervento2UP>&#x25B2;</butIntervento2UP>
+        <butIntervento2DOWN>&#x25BC;</butIntervento2DOWN>
+        <butIntervento3UP>&#x25B2;</butIntervento3UP>
+        <butIntervento3DOWN>&#x25BC;</butIntervento3DOWN>
+        <butIntervento4UP>&#x25B2;</butIntervento4UP>
+        <butIntervento4DOWN>&#x25BC;</butIntervento4DOWN>
+        <butIntervento5UP>&#x25B2;</butIntervento5UP>
+        <butIntervento5DOWN>&#x25BC;</butIntervento5DOWN>
+        <butIntervento6UP>&#x25B2;</butIntervento6UP>
+        <butIntervento6DOWN>&#x25BC;</butIntervento6DOWN>
+        <fieldsetFinder>Gestione Finder</fieldsetFinder>
+        <lblNumAccessiDh>N. accessi DH</lblNumAccessiDh>
+        <btnDiagnosi>Importa</btnDiagnosi>
+        <btnInterventi>Importa</btnInterventi>
+    </ROW>
+</ROWSET>

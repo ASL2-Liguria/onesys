@@ -1,0 +1,122 @@
+<PAGINA key_id="TAB_HOME_ADT">
+    <HEADER_WK key_id="TAB_HOME_ADT" valore="DEFAULT,WK,TAB_HOME_ADT#DEFAULT,TAB_HOME_ADT" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+      <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroPazienti" valore="filtroPazienti#WK_RICERCA_ANAGRAFICA" evento="START">
+            <TABELLA.INIT key_id="tablePz" valore="" evento="START">
+                <TR.INIT key_id="rigaPz1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNome#nome##N" evento="START">
+                    </FILTRO_TEXT>
+                    <TD.INIT key_id="tdRicercaSensibile" valore="" evento="START">
+                    	<DIV_CHECK key_id="chkRicercaSensibile" valore="chkRicercaSensibile#chkRicercaSensibile#N#{width:150, ctrl:false}##RICERCA_SENSIBILE" evento="START">
+                    	</DIV_CHECK>
+                    </TD.INIT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaPz2" valore="" evento="START">
+                	<FILTRO_DATA key_id="dateData" valore="lblData#dateData##readonly_element: false, format: 'd/m/Y', view: 'month'##S#data##N" evento="START">
+                    </FILTRO_DATA>
+                    <FILTRO_TEXT key_id="CodFisc" valore="lblCodiceFiscale#txtCodFisc#codice_fiscale##N" evento="START">
+					</FILTRO_TEXT>
+					<TD.INIT key_id="Reset_Campi" valore="" evento="START">
+                    <BUTTON key_id="Reset_Campi" valore="lblResetCampi" evento="START"></BUTTON>
+                    </TD.INIT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRicoverati" valore="filtroRicoverati#" evento="START">
+            <TABELLA.INIT key_id="tableCont" valore="" evento="START">
+                <TR.INIT key_id="rigaCont1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognomeCont#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNomeCont#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_RADIO key_id="radFiltroWk" valore="lblFiltroWk#radFiltroWk#radFiltroWk#{width:100}#N#scope_cdc#WK_RIC_CONTATTI_TIPO#V#" evento="START">
+                    </FILTRO_RADIO>
+                </TR.INIT>
+                <TR.INIT key_id="rigaCont2" valore="" evento="START">
+                    <FILTRO_TAG key_id="Regime_Ricovero" valore="lblRegRic#titRegRicovero#REGIMER#tagRegRico_REFRESH#txtRegRic#{width:'230px'}#N##CONTATTI_FILTRO_REGIME_RICOVERO#N" evento="START">
+                    </FILTRO_TAG>
+                    <FILTRO_TAG key_id="Tipologia_Ricovero" valore="lblTipRico#titTipoRicovero#TIPOR#tagTipoRicov#txtTipRico#{width:'230px'}#N##CONTATTI_FILTRO_TIPO_RICOVERO#N#N" evento="START">
+                    </FILTRO_TAG>
+                    <FILTRO_TAG key_id="Reparto" valore="lblRep#titRep#REPG#tag#txt#{width:'230px'}#N##CONTATTI_FILTRO_REPARTO#N#N" evento="START">
+                    </FILTRO_TAG>
+                </TR.INIT>
+                <TR.INIT key_id="rigaCont3" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Cartella" valore="lblCartella#txtCartellaCont#cartella##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TAG key_id="Stato" valore="lblStatoContatto#titStatoContatto#STATOCONT#tagStatoContatto#txtStatoContatto#{width:'230px'}#N##CONTATTI_FILTRO_STATO#N#N" evento="START">
+                    </FILTRO_TAG>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroWkDimessi" valore="filtroWkDimessi#WK_DIMESSI" evento="START">
+            <TABELLA.INIT key_id="tableAccessiDimessi" valore="" evento="START">
+                <TR.INIT key_id="rigaAccessiDimessi1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeAGD" valore="lblCognomeAGD#txtCognomeAGD#cognome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeAGD" valore="lblNomeAGD#txtNomeAGD#nome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="CartellaAGD" valore="lblCartellaAGD#txtCartellaAGD#cartella##N" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaAccessiGiuridici2" valore="" evento="START">
+                    <FILTRO_TAG key_id="RegimeAGD" valore="lblRegimeAGD#titRegimeAGD#REGIME_A_G_D#tagRegimeAGD_REFRESH#txtRegimeAGD#{width:'230px'}#N##ACCESSI_GIURIDICI_REGIME_DIMESSI#N" evento="START"></FILTRO_TAG>
+                    <FILTRO_TAG key_id="TipoAGD" valore="lblTipoAG#titTipoAGD#TIPO_A_G_D#tagTipoAGD#txtTipoAG#{width:'230px'}#N##ACCESSI_GIURIDICI_TIPO_DIMESSI#N#N" evento="START"></FILTRO_TAG>
+                    <FILTRO_TAG key_id="RepartoAGD" valore="lblRepartoAGD#titRepartoAGD#REPARTO_A_G_D#tagRepartoAGD#txtrepartoAGD#{width:'230px'}#N##ACCESSI_GIURIDICI_REPARTO_DIMESSI#N#N" evento="START"></FILTRO_TAG>
+                </TR.INIT>
+                <TR.INIT key_id="rigaAccessiGiuridici4" valore="" evento="START">
+                    <FILTRO_DATA key_id ="daDataAGD" valore ="lblDaDataAGD#txtDaDataAGD#DaDataAGD###lblDaDataAGD#da_data#ACCESSI_GIURIDICI_DA_DATA_DIMESSI#N" evento="START"></FILTRO_DATA>
+                    <FILTRO_DATA key_id ="aDataAGD" valore ="lblADataAGD#txtADataAGD#ADataAGD###lblADataAGD#a_data#ACCESSI_GIURIDICI_A_DATA_DIMESSI#N" evento="START"></FILTRO_DATA>
+                    <TD.INIT key_id="ResetCampiWKDimessi" valore="" evento="START">
+                        <BUTTON key_id="ResetCampiWKDimessi" valore="lblResetCampiCampiWKDimessi" evento="START"></BUTTON>
+                    </TD.INIT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroTrasferimenti" valore="filtroTrasferimenti#WK_TRASFERIMENTI" evento="START">
+            <TABELLA.INIT key_id="tableTrasferimentiGiuridici" valore="" evento="START">
+                <TR.INIT key_id="rigaTrasferimentiGiuridici1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeTA" valore="lblCognomeTA#txtCognomeTA#cognome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeTA" valore="lblNomeTA#txtNomeTA#nome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_COMBO key_id="RepartoTA" valore="lblRepartoTA#cmbRepartoTA#REPARTO_T_G#N##TRASFERIMENTI_GIURIDICI_REPARTO#N#S" evento="START"></FILTRO_COMBO>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroDimissioniSDO" valore="filtroDimissioniSDO#WK_DIMESSI_SDO" evento="START">
+        <TABELLA.INIT key_id="tableContattiSdo" valore="" evento="START">
+            <TR.INIT key_id="rigaContattiSdo1" valore="" evento="START">
+                <FILTRO_TEXT key_id="CognomeContattiSdo" valore="lblCognome#txtCognomeContattiSdo#cognome##T" evento="START"></FILTRO_TEXT>
+                <FILTRO_TEXT key_id="NomeContattiSdo" valore="lblNome#txtNomeContattiSdo#nome##T" evento="START"></FILTRO_TEXT>
+                <FILTRO_TEXT key_id="CartellaSdo" valore="lblCartella#txtCartellaSdo#cartella##N" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+            <TR.INIT key_id="rigaContattiSdo2" valore ="" evento ="START">
+            	<FILTRO_TAG key_id="RepartoSdo" valore="lblRepSdo#titRepSdo#REP_SDO#tagRepSdo#txt#{width:'230px'}#N##SDO_FILTRO_REPARTO#N" evento="START"></FILTRO_TAG>
+                <FILTRO_DATA key_id ="daData" valore ="lblDataInizioListaContattiSdo#txtDataInizioListaContattiSdo#DataInizioListaContattiSdo###lblDataInizioListaContattiSdo#da_data#LISTA_CONTATTI_SDO_DATA_INI#N" evento="START"></FILTRO_DATA>
+                <FILTRO_DATA key_id ="AData" valore ="lblDataFineListaContattiSdo#txtDataFineListaContattiSdo#DataFineListaContattiSdo###lblDataFineListaContattiSdo#a_data#LISTA_CONTATTI_SDO_DATA_FINE#N" evento="START"></FILTRO_DATA>
+            </TR.INIT>
+            <TR.INIT key_id="rigaContattiSdo3" valore ="" evento ="START">
+                <FILTRO_TAG key_id="StatoSdo" valore="lblStatoSdo#titStatoSdo#STATO_SDO#tagStatoSdo#txtStatoSdo#{width:'230px'}#V##SDO_STATO#V" evento="START"></FILTRO_TAG>
+                <FILTRO_TAG key_id="StatoCartella" valore="lblStatoCartella#titStatoCartella#STATO_CARTELLA#tagStatoCartella#txtStatoCartella#{width:'230px'}#N##CARTELLA_STATO#N" evento="START"></FILTRO_TAG>
+                <TD.INIT key_id="ResetCampiWKDimessiSDO" valore="" evento="START">
+                    <BUTTON key_id="ResetCampiWKDimessiSDO" valore="lblResetCampiCampiWKDimessiSDO" evento="START"></BUTTON>
+                </TD.INIT>
+            </TR.INIT>
+        </TABELLA.INIT>
+    </TABULAZIONE.CREA_TAB_FILTRO>
+    <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroAccettazioneTrasferimenti" valore="filtroAccettazioneTrasferimenti#WK_ACCETTAZIONE_TRASFERIMENTI_ASSISTENZIALI" evento="START">
+        <TABELLA.INIT key_id="tableTrasf" valore="" evento="START">
+            <TR.INIT key_id="rigaTrasf1" valore="" evento="START">
+                <FILTRO_TAG key_id="RepartoGiuridico" valore="lblRepGiu#titRepGiu#REPG#tagRepGiu#txt#{width:'230px'}#N##TRASFERIMENTI_FILTRO_REPARTO_ASSISTENZIALE#N" evento="START"></FILTRO_TAG>
+            </TR.INIT>
+        </TABELLA.INIT>
+    </TABULAZIONE.CREA_TAB_FILTRO>
+    <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRicoveriSovrapposti" valore="filtroRicoveriSovrapposti#WK_DIMESSI" evento="START">
+        <TABELLA.INIT key_id="tableRicoveriSovrapposti" valore="" evento="START">
+            <TR.INIT key_id="tableRicoveriSovrappostiRiga1" valore="" evento="START">
+                <FILTRO_TAG key_id="RicoveriSovrappostiReparto" valore="lblRicoveriSovrappostiReparto#titRicoveriSovrappostiReparto#REPARTO_A_G_S#tagRicoveriSovrappostiReparto#txtRicoveriSovrappostiReparto#{width:'350px'}#N##RICOVERI_SOVRAPPOSTI_FILTRO_REAPARTO_DIMESSI#N#N" evento="START"></FILTRO_TAG>
+                <FILTRO_DATA key_id ="txtRicoveriSovrappostiDaData" valore ="lblDataInizioRicoveriSovrapposti#txtDataInizioRicoveriSovrapposti#DataInizioListaContattiSdo###lblDataInizioRicoveriSovrapposti#da_data##N" evento="START"></FILTRO_DATA>
+                <FILTRO_DATA key_id ="txtRicoveriSovrappostiAData" valore ="lblDataFineRicoveriSovrapposti#txtDataFineRicoveriSovrapposti#DataFineListaContattiSdo###lblDataFineRicoveriSovrapposti#a_data##N" evento="START"></FILTRO_DATA>
+            </TR.INIT>
+        </TABELLA.INIT>
+    </TABULAZIONE.CREA_TAB_FILTRO>
+</TABULAZIONE.FILTRI>
+</PAGINA>

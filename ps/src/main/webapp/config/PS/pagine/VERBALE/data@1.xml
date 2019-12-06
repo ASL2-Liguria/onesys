@@ -1,0 +1,252 @@
+<DATI configurazione="
+ declare
+		vstato  varchar2(5);
+		vkey    varchar2(4000);
+		vwhere  varchar2(4000);
+		vcampo  varchar2(4000);
+	begin
+	    vstato := '#STATO_PAGINA#';
+
+	        if vstato='E' then
+	            vkey := 'PS.Q_LOAD_VERBALE_E@PS';
+	        else
+	            vkey := 'PS.Q_LOAD_VERBALE_I@PS';
+	        end if;
+
+	        vwhere := null;
+	        vcampo := null;
+
+	    :stato_pagina := vstato;
+	    :key_query := vkey;
+	    :where := vwhere;
+	    :campo_xml := vcampo;
+
+    end;"
+        >
+    <!-- ESITO-->
+    <DATO key_id="hEsito" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESITO" db_descrizione="ESITO" configurazione_multi_data="" />
+    <DATO key_id="hEsitoIden" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESITO_IDEN" db_descrizione="ESITO_IDEN" configurazione_multi_data="" />
+
+    <!-- Campi nascosti Caricamento informazioni esterne alla pagina -->
+    <DATO key_id="hUrgenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione="" configurazione_multi_data="PS.Q_COMBO_URGENZA_FLUSSO@PS" />
+    <DATO key_id="hUrgenzaEsame" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="URGENZA_ESAME" db_descrizione="URGENZA_ESAME" configurazione_multi_data="" />
+    <DATO key_id="hUrgenzaVerbale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="URGENZA" db_descrizione="URGENZA" configurazione_multi_data="" />
+    <DATO key_id="hIdenRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="iden_ricovero" db_descrizione="iden_ricovero" configurazione_multi_data="" />
+    <DATO key_id="hIdenSchedaVerbale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="iden_scheda_verbale" db_descrizione="iden_scheda_verbale" configurazione_multi_data="" />
+    <DATO key_id="hStatoVerbale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="stato_scheda_verbale" db_descrizione="stato_scheda_verbale" configurazione_multi_data="" />
+    <DATO key_id="hCausaEsternaDescr" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAUSA_ESTERNA_DESCR" db_descrizione="CAUSA_ESTERNA_DESCR" configurazione_multi_data="" />
+    <DATO key_id="hCausaEsternaVal" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAUSA_ESTERNA_VAL" db_descrizione="CAUSA_ESTERNA_VAL" configurazione_multi_data="" />
+    <DATO key_id="hOraDiffChiusura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ore_diff_chiusura" db_descrizione="ore_diff_chiusura" configurazione_multi_data="" />
+    <DATO key_id="hOnereIngresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ONERE_INGRESSO" db_descrizione="ONERE_INGRESSO" configurazione_multi_data="" />
+    <DATO key_id="hSubOnereIngresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SUB_ONERE_INGRESSO" db_descrizione="SUB_ONERE_INGRESSO" configurazione_multi_data="" />
+    <DATO key_id="hMotivoIngresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MOTIVO_INGRESSO" db_descrizione="MOTIVO_INGRESSO" configurazione_multi_data="" />
+    <DATO key_id="txtDataInizioOBI" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_INIZIO_OBI" db_descrizione="DATA_INIZIO_OBI" configurazione_multi_data="" />
+    <DATO key_id="hDataMorte" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_MORTE" db_descrizione="DATA_MORTE" configurazione_multi_data="" />
+
+    <!-- Dati usati come Bind per gli auto complete -->
+    <DATO key_id="iden_provenienza" configurazione_stato="begin :stato := 'E'; end;"
+             db_valore="iden_provenienza" db_descrizione="iden_provenienza" configurazione_multi_data="" />
+    <DATO key_id="iden_cdc" configurazione_stato="begin :stato := 'E'; end;"
+             db_valore="iden_cdc" db_descrizione="iden_cdc" configurazione_multi_data="" />
+    <DATO key_id="cod_cdc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cod_cdc" db_descrizione="cod_cdc" configurazione_multi_data="" />
+
+    <!-- Dat presi dalla scheda DATI AMMINISTRATIVI-->
+    <DATO key_id="hCatena" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CATENA" db_descrizione="CATENA" configurazione_multi_data="" />
+    <DATO key_id="hComuneEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_EVENTO" db_descrizione="COMUNE_EVENTO" configurazione_multi_data="" />
+    <DATO key_id="hComuneEventoVal" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_EVENTO_VAL" db_descrizione="COMUNE_EVENTO_VAL" configurazione_multi_data="" />
+    <DATO key_id="hProblemaPrinc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROBL_PRINCIPALE" db_descrizione="PROBL_PRINCIPALE" configurazione_multi_data="" />
+    <DATO key_id="AUTORITA_GIUDIZIARIA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="AUTORITA_GIUDIZIARIA" db_descrizione="AUTORITA_GIUDIZIARIA" configurazione_multi_data="" />
+
+    <!-- AutoComplete -->
+    <DATO key_id="txtDiagnosiICD91" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI1" db_descrizione="DIAGNOSI1" configurazione_multi_data="" />
+    <DATO key_id="h-txtDiagnosiICD91" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI1_VAL" db_descrizione="DIAGNOSI1_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtDiagnosiICD92" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI2" db_descrizione="DIAGNOSI2" configurazione_multi_data="" />
+    <DATO key_id="h-txtDiagnosiICD92" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI2_VAL" db_descrizione="DIAGNOSI2_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtDiagnosiICD93" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI3" db_descrizione="DIAGNOSI3" configurazione_multi_data="" />
+    <DATO key_id="h-txtDiagnosiICD93" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI3_VAL" db_descrizione="DIAGNOSI3_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtDiagnosiICD94" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI4" db_descrizione="DIAGNOSI4" configurazione_multi_data="" />
+    <DATO key_id="h-txtDiagnosiICD94" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI4_VAL" db_descrizione="DIAGNOSI4_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtDiagnosiICD95" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI5" db_descrizione="DIAGNOSI5" configurazione_multi_data="" />
+    <DATO key_id="h-txtDiagnosiICD95" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI5_VAL" db_descrizione="DIAGNOSI5_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtMedicoRef" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEDICO_REF" db_descrizione="MEDICO_REF" configurazione_multi_data="" />
+    <DATO key_id="h-txtMedicoRef" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEDICO_REF_VAL" db_descrizione="MEDICO_REF_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtComuneDec" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_DEC" db_descrizione="COMUNE_DEC" configurazione_multi_data="" />
+    <DATO key_id="h-txtComuneDec" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_DEC_VAL" db_descrizione="COMUNE_DEC_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtAccMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACC_MEDICO" db_descrizione="ACC_MEDICO" configurazione_multi_data="" />
+    <DATO key_id="h-txtAccMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACC_MEDICO_VAL" db_descrizione="ACC_MEDICO_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtAccInfermiere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACC_INF" db_descrizione="ACC_INF" configurazione_multi_data="" />
+    <DATO key_id="h-txtAccInfermiere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACC_INF_VAL" db_descrizione="ACC_INF_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtrepRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REP_RICOVERO" db_descrizione="REP_RICOVERO" configurazione_multi_data="" />
+    <DATO key_id="txtrepAssistenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REP_ASSISTENZA" db_descrizione="REP_ASSISTENZA" configurazione_multi_data="" />
+    <DATO key_id="h-txtrepRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REP_RICOVERO_VAL" db_descrizione="REP_RICOVERO_VAL" configurazione_multi_data="" />
+    <DATO key_id="h-txtrepAssistenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REP_ASSISTENZA_VAL" db_descrizione="REP_ASSISTENZA_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtCategoriaCausaEsterna" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAT_CAUSA_ESTERNA" db_descrizione="CAT_CAUSA_ESTERNA" configurazione_multi_data="" />
+    <DATO key_id="h-txtCategoriaCausaEsterna" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAT_CAUSA_ESTERNA_VAL" db_descrizione="CAT_CAUSA_ESTERNA_VAL" configurazione_multi_data="" />
+
+    <!-- Data e Ora -->
+    <DATO key_id="h-txtDataDim" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_DIMI" db_descrizione="DATA_DIMI" configurazione_multi_data="" />
+    <DATO key_id="h-txtDataDecesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_DECESSO" db_descrizione="DATA_DECESSO" configurazione_multi_data="" />
+    <DATO key_id="txtOraDecesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_DECESSO" db_descrizione="ORA_DECESSO" configurazione_multi_data="" />
+    <DATO key_id="h-txtDataTrasferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_TRASF" db_descrizione="DATA_TRASF" configurazione_multi_data="" />
+    <DATO key_id="txtOraTrasferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_TRASF" db_descrizione="ORA_TRASF" configurazione_multi_data="" />
+    <DATO key_id="h-txtDataRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_RICOVERO" db_descrizione="DATA_RICOVERO" configurazione_multi_data="" />
+    <DATO key_id="txtOraRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_RICOVERO" db_descrizione="ORA_RICOVERO" configurazione_multi_data="" />
+
+    <!-- Testuali -->
+    <DATO key_id="txtDayPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIORNI_PROGNOSI" db_descrizione="GIORNI_PROGNOSI" configurazione_multi_data="" />
+    <DATO key_id="txtNumReferto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NUM_REFERTO" db_descrizione="NUM_REFERTO" configurazione_multi_data="" />
+    <DATO key_id="taDiagnosiICD9" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TESTO_DIAGNOSI" db_descrizione="TESTO_DIAGNOSI" configurazione_multi_data="" />
+    <DATO key_id="taPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TESTO_PROGNOSI" db_descrizione="TESTO_PROGNOSI" configurazione_multi_data="" />
+    <DATO key_id="taDecesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TESTO_DECESSO" db_descrizione="TESTO_DECESSO" configurazione_multi_data="" />
+    <DATO key_id="taTrasferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TESTO_TRASF" db_descrizione="TESTO_TRASF" configurazione_multi_data="" />
+    <DATO key_id="taEpicrisi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="EPICRISI" db_descrizione="EPICRISI" configurazione_multi_data="" />
+    <DATO key_id="taNumeroPubblicaSicurezza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NUMERO_PUBBLICA_SICUREZZA" db_descrizione="NUMERO_PUBBLICA_SICUREZZA" configurazione_multi_data="" />
+    <DATO key_id="taNoteBraccialettoRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTE_BRACCIALETTO_RICOVERO" db_descrizione="NOTE_BRACCIALETTO_RICOVERO" configurazione_multi_data="" />
+
+    <!-- Combo MultiData -->
+    <DATO key_id="cmbTrasferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DESTINAZIONE" db_descrizione="DESTINAZIONE"
+          configurazione_multi_data="PS.Q_CMB_PRESIDI_TRASFERIMENTO@PS" />
+    <DATO key_id="cmbMezzoTrasporto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEZZO_TRASP" db_descrizione="MEZZO_TRASP"
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''TRASPORTO_TRASFERIMENTO'''; end;" />
+    <DATO key_id="cmbMotivoTrasf" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MOTIVO_TRASF" db_descrizione="MOTIVO_TRASF"
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''MOTIVO_TRASFERIMENTO_DA_PS'''; 	end;" />
+    <DATO key_id="cmbTipoRico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TIPO_RICO" db_descrizione="TIPO_RICO"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''ADT_ACC_RICOVERO_TIPO'' AND ASSIGNING_AUTHORITY_AREA = ''PS'' AND PARAMETRI=''PS'' '; end;" />
+    <DATO key_id="cmbOnere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ONERE" db_descrizione="ONERE"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''ADT_ACC_RICOVERO_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' ';	end;" />
+    <DATO key_id="cmbSubOnere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SUB_ONERE" db_descrizione="SUB_ONERE"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''ADT_ACC_RICOVERO_SUB_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' ';	end;" />
+    <DATO key_id="cmbTraumatismo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAUSA_TRAUMAT" db_descrizione="CAUSA_TRAUMAT"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''TRAUMATISMI'' ';  end;" />
+
+    <!-- Radio -->
+    <DATO key_id="radGiuntoCadavere" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="h-radGiuntoCadavere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIUNTO_CADAVERE" db_descrizione="GIUNTO_CADAVERE" configurazione_multi_data="" />
+	<DATO key_id="radRiscontro" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="h-radRiscontro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RISCONTRO_AUT" db_descrizione="RISCONTRO_AUT" configurazione_multi_data="" />
+	<DATO key_id="radReferto" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="h-radReferto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REFERTO_AUT" db_descrizione="REFERTO_AUT" configurazione_multi_data="" />
+	<DATO key_id="radPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''TIPO_PROGNOSI'' AND ASSIGNING_AUTHORITY_AREA = ''PS'''; end;" />
+    <DATO key_id="h-radPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROGNOSI_RIS" db_descrizione="PROGNOSI_RIS" configurazione_multi_data="" />
+	<DATO key_id="radOBI" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''ADT_DIMISSIONE_TIPO'' AND ASSIGNING_AUTHORITY_AREA = ''PS'' AND PARAMETRI = ''ESITO_OBI'' ';  end;" />
+    <DATO key_id="h-radOBI" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="OBI" db_descrizione="OBI" configurazione_multi_data="" />
+    <DATO key_id="radMantieniOBI" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="h-radMantieniOBI" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MANTIENI_OBI" db_descrizione="MANTIENI_OBI" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="radSceltaEsito" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo=''ADT_DIMISSIONE_TIPO'' and ASSIGNING_AUTHORITY_AREA=''PS'' and ATTIVO=''S'' AND ADT$HASTAGVALUE(PARAMETRI, ''S'', ''esito'') > 0 AND ADT$HASTAGVALUE(PARAMETRI, ''PS'', ''tipo_esito'') > 0 '; end;" />
+    <DATO key_id="h-radSceltaEsito" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESITO" db_descrizione="ESITO" configurazione_multi_data="" />
+
+    <!-- dati di ricovero caricati dal XML -->
+    <DATO key_id="XMLtxtrepRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_REP_RICOVERO" db_descrizione="XML_REP_RICOVERO" configurazione_multi_data="" />
+    <DATO key_id="XMLtxtrepAssistenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_REP_ASSISTENZA" db_descrizione="XML_REP_ASSISTENZA" configurazione_multi_data="" />
+    <DATO key_id="XMLhtxtrepRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_REP_RICOVERO_VAL" db_descrizione="XML_REP_RICOVERO_VAL" configurazione_multi_data="" />
+    <DATO key_id="XMLhtxtrepAssistenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_REP_ASSISTENZA_VAL" db_descrizione="XML_REP_ASSISTENZA_VAL" configurazione_multi_data="" />
+    <DATO key_id="XMLtxtCategoriaCausaEsterna" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_CAT_CAUSA_ESTERNA" db_descrizione="XML_CAT_CAUSA_ESTERNA" configurazione_multi_data="" />
+    <DATO key_id="XMLhtxtCategoriaCausaEsterna" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_CAT_CAUSA_ESTERNA_VAL" db_descrizione="XML_CAT_CAUSA_ESTERNA_VAL" configurazione_multi_data="" />
+    <DATO key_id="XMLcmbTipoRico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_TIPO_RICO" db_descrizione="XML_TIPO_RICO" configurazione_multi_data="" />
+    <DATO key_id="XMLcmbTraumatismo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_CAUSA_TRAUMAT" db_descrizione="XML_CAUSA_TRAUMAT" configurazione_multi_data="" />
+    <DATO key_id="XMLcmbCausaEsternaDescr" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_CAUSA_ESTERNA_DESCR" db_descrizione="XML_CAUSA_ESTERNA_DESCR" configurazione_multi_data="" />
+    <DATO key_id="XMLcmbCausaEsternaVal" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_CAUSA_ESTERNA_VAL" db_descrizione="XML_CAUSA_ESTERNA_VAL" configurazione_multi_data="" />
+    <DATO key_id="XMLcmbOnere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_ONERE" db_descrizione="XML_ONERE" configurazione_multi_data="" />
+    <DATO key_id="XMLcmbSubOnere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_SUB_ONERE" db_descrizione="XML_SUB_ONERE" configurazione_multi_data="" />
+    <DATO key_id="XMLtaNoteBraccialettoRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="XML_NOTE_BRACCIALETTO_RICOVERO" db_descrizione="XML_NOTE_BRACCIALETTO_RICOVERO" configurazione_multi_data="" />
+
+
+</DATI>
+

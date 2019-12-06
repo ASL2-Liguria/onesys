@@ -1,0 +1,32 @@
+<PAGINA key_id="TAB_HOME_PAC">
+    <HEADER_WK key_id="TAB_HOME_PAC" valore="DEFAULT,WK,TAB_HOME_PAC#DEFAULT,TAB_HOME_PAC" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroPACAperti" valore="filtroPACAperti#WK_PAC_APERTI" evento="START">
+            <TABELLA.INIT key_id="tablePACAperti" valore="" evento="START">
+                <TR.INIT key_id="rigaPACAperti1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="cognomePACAperti" valore="lblCognomePACAperti#txtCognomePACAperti#cognome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="nomePACAperti" valore="lblNomePACAperti#txtNomePACAperti#nome##T" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaPACAperti2" valore="" evento="START">
+                    <FILTRO_TAG key_id="repartoPACAperti" valore="lblRepartoPACAperti#titRepartoPACAperti#PAC_APERTI_REPARTO#tagRepartoPACAperti#txtrepartoPACAperti#{width:'230px'}#N##PAC_APERTI_REPARTO#N#N" evento="START"></FILTRO_TAG>
+                    <FILTRO_TEXT key_id="cartellaPACAperti" valore="lblCartellaPACAperti#txtCartellaPACAperti#cartella##N" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+         <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroPACChiusi" valore="filtroPACChiusi#WK_PAC_CHIUSI" evento="START">
+            <TABELLA.INIT key_id="tableAccessiDimessi" valore="" evento="START">
+                <TR.INIT key_id="rigaPACChiusi1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="cognomePACChiusi" valore="lblCognomePACChiusi#txtCognomePACChiusi#cognome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="nomePACChiusi" valore="lblNomePACChiusi#txtNomePACChiusi#nome##T" evento="START"></FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="cartellaPACChiusi" valore="lblCartellaPACChiusi#txtCartellaPACChiusi#cartella##N" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaPACChiusi2" valore="" evento="START">
+                    <FILTRO_DATA key_id ="daDataPACCHiusi" valore ="lblDaDataPACChiusi#txtDaDataPACChiusi#PAC_CHIUSI_DA_DATA###lblDaDataPACChiusi#da_data#PAC_CHIUSI_DA_DATA#N" evento="START"></FILTRO_DATA>
+                    <FILTRO_DATA key_id ="aDataPACChiusi" valore ="lblADataPACChiusi#txtADataPACChiusi#PAC_CHIUSI_A_DATA###lblADataPACChiusi#a_data#PAC_CHIUSI_A_DATA#N" evento="START"></FILTRO_DATA>
+                    <FILTRO_TAG key_id="repartoPACChiusi" valore="lblRepartoPACChiusi#titRepartoPACChiusi#PAC_CHIUSI_REPARTO#tagRepartoPACChiusi#txtrepartoPACChiusi#{width:'230px'}#N##PAC_CHIUSI_REPARTO#N" evento="START"></FILTRO_TAG>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+	</TABULAZIONE.FILTRI>
+</PAGINA>

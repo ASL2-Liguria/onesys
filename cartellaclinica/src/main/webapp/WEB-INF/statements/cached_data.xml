@@ -1,0 +1,50 @@
+<root>
+	<statements_list>
+	
+		<statement name="getReparti">	
+			<sql>
+			<![CDATA[
+				select
+					cdc.IDEN,
+					cdc.COD_CDC,
+					cdc.STRUTTURA,
+					cdc.SITO,
+					cdc.DESCR,
+					cdc.COD_DEC,
+					tp.iden IDEN_PRO
+				from
+					centri_di_costo cdc
+					join tab_pro tp on tp.cod_dec = cdc.cod_dec
+			]]>
+			</sql>
+		</statement>
+		<statement name="getTipiRicovero">	
+			<sql>
+			<![CDATA[
+				select
+					ttr.iden,
+					ttr.cod_dec,
+					ttr.descr,
+					ttr.codice					
+				from
+					tab_tipo_ricovero ttr
+			]]>
+			</sql>
+		</statement>
+
+		<statement name="getModalitaDimissione">	
+			<sql>
+			<![CDATA[
+				select
+					tmd.iden,
+					tmd.cod_dec,
+					tmd.descr,
+					tmd.codice					
+				from
+					tab_mod_dimissione tmd
+			]]>
+			</sql>
+		</statement>		
+		
+	</statements_list>
+</root>

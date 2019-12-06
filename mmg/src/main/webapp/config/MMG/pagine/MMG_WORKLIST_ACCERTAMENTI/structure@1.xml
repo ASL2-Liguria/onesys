@@ -1,0 +1,31 @@
+<PAGINA key_id="MMG_WORKLIST_ACCERTAMENTI">
+	<HEADER_PAGE key_id="MMG_WORKLIST_ACCERTAMENTI"
+		valore="DEFAULT_MMG,SCHEDA,MMG_WORKLIST_ACCERTAMENTI#DEFAULT_MMG,MMG_WORKLIST_ACCERTAMENTI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_WORKLIST_ACCERTAMENTI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="MMGWorkAcc#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabLista" valore="tabLista" evento="START">
+				<FIELDSET_TABLE key_id="fld1" valore="fld1" evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD.INIT key_id="TD" valore="TD" evento="START">
+						</TD.INIT>
+						<TD_LABEL key_id="lblRicerca" valore="lblRicerca" evento="START_END">
+						</TD_LABEL>
+						<TD_TEXT key_id="Ricerca" valore="Ricerca###RICERCA"
+							evento="START">
+						</TD_TEXT>
+						<TD_BUTTON key_id="but_Cerca" valore="but_Cerca" evento="START_END">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="WkAcc" valore="WkAcc" evento="START">
+				</DIV.WORKLIST>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

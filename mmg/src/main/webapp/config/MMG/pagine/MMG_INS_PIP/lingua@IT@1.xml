@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>PPIP</lblTitolo>
+		<fldInsPip>Scelta</fldInsPip>
+		<fldWkPip>Lista PPIP</fldWkPip>
+		<lblPip>Prestazione</lblPip>
+		<lblDataPip>Data</lblDataPip>
+		<lblDescrizione>Note</lblDescrizione>
+		
+		<lblPip_PLS>Prestazione_PLS</lblPip_PLS>
+		
+		<tabElencoPip>Elenco PPIP</tabElencoPip>
+		<tabInsPip>Inserimento PPIP</tabInsPip>
+		
+		<phPPIP>Inserisci la descrizione della PPIP ...</phPPIP>
+    </ROW>
+</ROWSET>

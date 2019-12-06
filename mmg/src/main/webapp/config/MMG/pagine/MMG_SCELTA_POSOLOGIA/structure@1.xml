@@ -1,0 +1,76 @@
+<PAGINA key_id="MMG_SCELTA_POSOLOGIA">
+	<HEADER_PAGE key_id="MMG_SCELTA_POSOLOGIA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_SCELTA_POSOLOGIA#DEFAULT_MMG,MMG_SCELTA_POSOLOGIA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#MMG_POSOLOGIA#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabSceltaPosologia"
+			valore="sceltaPosologia#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="SceltaPosologia"
+				valore="SceltaPosologia" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="rigaRicerca" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Ricerca" valore="lblRicerca##txtRicerca"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_BUTTON key_id="butRicerca" valore="butRicerca"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldImpostati" valore="fldImpostati" evento="START">
+					<DIV.WORKLIST key_id="worklist" valore="divWk" evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="CreazionePosologia"
+				valore="CreazionePosologia" evento="START">
+				<FIELDSET_TABLE key_id="fldQuantita" valore="fldQuantita"
+					evento="START">
+					<!-- <TR.INIT key_id="rigaImposta" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Misura"
+							valore="lblMisura##Misura#cmbMisura#N#MISURA" evento="START">
+						</TD_LABEL_COMBO>
+					</TR.INIT> -->
+					<TR.INIT key_id="rigaImposta1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="QuantitaMisura" valore="lblQuantitaMisura##txtQuantitaMisura###QTA" evento="START_END"></TD_LABEL_TEXT>
+						<TD_RADIO key_id="Pastiglia" valore="Pastiglia#radQuantitaPastiglia#{width:50}#N#QTA_PASTIGLIA" evento="START"></TD_RADIO>
+						<TD_COMBO key_id="Misura" valore="Misura#cmbMisura#N#MISURA" evento="START"></TD_COMBO>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldFrequenza" valore="fldFrequenza"
+					evento="START">
+					<TR.INIT key_id="rigaImposta2" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Quantita" valore="lblQuantita##txtQuantita###QTA_GIORNALIERA" evento="START_END"></TD_LABEL_TEXT>
+						<!-- <TD_RADIO key_id="VoltePeriodiche"
+							valore="VoltePeriodiche#radVolte#{width:120}#N#VOLTE_TEMPO" evento="START">
+						</TD_RADIO> -->
+						<TD_COMBO key_id="VoltePeriodiche" valore="VoltePeriodiche#radVolte#N#VOLTE_TEMPO" evento="START"></TD_COMBO>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldPosologia" valore="fldPosologia"
+					evento="START">
+					<!-- <TR.INIT key_id="rigaImposta3" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="VoltePeriodiche"
+							valore="lblVolte##VoltePeriodiche#radVolte#{width:120}#N#VOLTE_TEMPO"
+							evento="START">
+						</TD_LABEL_RADIO>
+					</TR.INIT> -->
+					<TR.INIT key_id="rigaImposta4" valore="" evento="START">
+						<!-- <TD_TEXT key_id="Note" valore="txtNote###DESCRIZIONE" evento="START"></TD_TEXT>-->
+						<TD_LABEL_TEXT key_id="Note" valore="lblNote##txtNote###DESCRIZIONE" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="rigaImposta5" valore="" evento="START">
+						<TD_LABEL key_id="posologiaCompleta" valore="lblposologiaCompleta#" evento="START"></TD_LABEL>
+					</TR.INIT>
+					<TR.INIT key_id="rigaImposta6" valore="" evento="START">
+						<TD_BUTTON key_id="butInserisci" valore="butInserisci" evento="START"></TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

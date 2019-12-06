@@ -1,0 +1,12 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_APPUNTI'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="Titolo" configurazione_stato="begin :stato := 'E'; end;" db_valore="TITOLO" db_descrizione="TITOLO" configurazione_multi_data="" />
+	
+	<DATO key_id="Testo" configurazione_stato="begin :stato := 'E'; end;" db_valore="TESTO" db_descrizione="TESTO" configurazione_multi_data="" />
+	
+	<DATO key_id="Tipologia" configurazione_stato="begin :stato := 'E'; end;" db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="CMB_TIPOLOGIA_APPUNTI" />
+	
+	<DATO key_id="FiltroTipologia" configurazione_stato="begin :stato := 'E'; end;" db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="CMB_TIPOLOGIA_APPUNTI" />
+	
+</DATI>
+

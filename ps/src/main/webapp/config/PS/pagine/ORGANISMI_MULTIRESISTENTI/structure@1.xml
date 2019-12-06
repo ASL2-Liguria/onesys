@@ -1,0 +1,18 @@
+<PAGINA key_id="ORGANISMI_MULTIRESISTENTI">
+    <HEADER_REFERTAZIONE key_id="ORGANISMI_MULTIRESISTENTI" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,ORGANISMI_MULTIRESISTENTI#DEFAULT,ORGANISMI_MULTIRESISTENTI" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="divTab" valore="ORGANISMI_MULTIRESISTENTI#lblTitolo#butSalva,butChiudi" evento="START">
+            <ROW key_id="rowOrganismi" valore="rowOrganismi" evento="START">
+                <COLUMN_FREE key_id="colOrganismi" valore="colOrganismi" evento="START">
+                    <FIELD_HEADER_TABLE key_id="fldOrganismi" valore="fldOrganismi" evento="START">
+                        <TR_TD_LABEL_DATA key_id="txtDataPositivita" valore="lblDataPositivita##txtDataPositivita#DataPositivita#startWithToday:true,readonly_element: false, format: 'd/m/Y'###" evento="START">
+                        </TR_TD_LABEL_DATA>
+                        <TR_TD_LABEL_COMBO key_id="cmbOrganismi" valore="lblOrganismi##cmbOrganismi#cmbOrganismi#N#SALVA#S#" evento="START">
+                        </TR_TD_LABEL_COMBO>
+                    </FIELD_HEADER_TABLE>
+                </COLUMN_FREE>
+            </ROW>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

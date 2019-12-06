@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblSceltaDisposizione" TYPE="label" TEXT="Già a disposizione:"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="radSceltaDisposizione" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="0" TEXT="SI"/>
+            <OPTIONVAL VALUE="1" TEXT="NO"/>
+        </CAMPO>
+    </CAMPI>
+</PAGINA>

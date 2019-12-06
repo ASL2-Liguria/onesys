@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/Base/NS_FENIX_FILTRI.js"/>
+    <JS path="js/ADT/GestioneUtenti/GestioneUtenti.js"/>
+</INCLUDE>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <timestamp key="data_oggi" datePattern="yyyy-MM-dd"/>
+
+    <appender name="FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>userid</key>
+            <defaultValue>fenix-web-mmg</defaultValue>
+        </discriminator>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <sift>
+            <!--<appender name="FILE-${userid_userpc}" class="ch.qos.logback.core.FileAppender">
+            <file>${path_web}logs/${userid_userpc}_${data_oggi}.log</file>
+             <appender name="FILE-${userid}" class="ch.qos.logback.core.rolling.RollingFileAppender"> -->
+            <appender name="mmg" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                    <!-- <fileNamePattern>${path_web}logs/${userid}/%d.log</fileNamePattern> -->
+                    <fileNamePattern>${catalina.home}/logs/mmg.%d{yyyy-MM-dd__HH}.log.zip</fileNamePattern>
+                </rollingPolicy>
+                <append>true</append>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>%-5level - %date{dd/MM/yyyy HH:mm:ss.SSS} | classe -&gt; %logger{96} | user -&gt; ${userid}\n\t message -&gt; %msg%n</pattern>
+                </layout>
+            </appender>
+        </sift>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level - %date{dd/MM/yyyy HH:mm:ss.SSS} | classe -&gt; %logger{96}\n\t message -&gt; %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="WARN">
+		<appender-ref ref="FILE"/>
+    </root>
+	<root level="ERROR">
+        <appender-ref ref="CONSOLE"/>
+	</root>
+</configuration>

@@ -1,0 +1,111 @@
+<ROWSET>
+    <ROW>
+    	
+    	<lblTitolo>Worklist di ricerca assistito</lblTitolo>
+    	
+    	<lblTabDatiAssistito>Dati anagrafici e esenzioni del paziente</lblTabDatiAssistito>
+		<lblTabWorklistAssistiti>Worklist di ricerca assistito</lblTabWorklistAssistiti>
+		<lblTabAssistito>Problemi, Diari, Farmaci e Accertamenti relativi al paziente</lblTabAssistito>
+		<lblTabFarmaci>Prescrizione dei farmaci</lblTabFarmaci>
+    	<lblTabProblemi>Worklist dei problemi</lblTabProblemi>
+    	<lblTabEsenzioni>Worklist delle esenzioni</lblTabEsenzioni>
+    	<lblTabAccertamenti>Worklist degli accertamenti</lblTabAccertamenti>
+    	<lblTabUltimiAggiornamenti>Gestione dei dati e delle pagine offline</lblTabUltimiAggiornamenti>
+    	
+    	<tabWorklistAssistiti>Ricerca assistito</tabWorklistAssistiti>
+    	
+    		<fldWorklistAssistiti>Worklist assistiti</fldWorklistAssistiti>
+    			
+    			<lblCognome>Cognome</lblCognome>
+    			<lblNome>Nome</lblNome>
+				<lblDataDiNascita>Data di nascita</lblDataDiNascita>
+    		
+    	<tabDatiAssistito>Anagrafica ed esenzioni</tabDatiAssistito>	
+    		
+    	<tabRiepilogoAssistito>Riepilogo dati assistito</tabRiepilogoAssistito>
+    		
+    		<fldDatiAnagrafici>Dati anagrafici</fldDatiAnagrafici>
+    			
+    			<lblCognomeAssistito>Cognome</lblCognomeAssistito>
+    			<lblNomeAssistito>Nome</lblNomeAssistito>
+    			<lblDataDiNascitaAssistito>Data di nascita</lblDataDiNascitaAssistito>
+    			<lblLuogoNascitaAssistito>Luogo di nascita</lblLuogoNascitaAssistito>
+    			<lblCodiceFiscaleAssistito>Cod. fiscale</lblCodiceFiscaleAssistito>
+    			<lblResidenzaAssistito>Residenza</lblResidenzaAssistito>
+    			<lblDomicilioAssistito>Domicilio</lblDomicilioAssistito>
+    			
+    			<fldEsenzioniAssistito>Esenzioni dell'assistito</fldEsenzioniAssistito>
+    			
+    			<fldProblemiAssistito>Riepilogo Problemi</fldProblemiAssistito>
+    			
+    			<fldDiarioAssistito>Diario clinico</fldDiarioAssistito>
+    			
+    			<fldRicetteAccertamentiAssistito>Accertamenti</fldRicetteAccertamentiAssistito>
+    			
+    			<fldRicetteFarmaciAssistito>Farmaci</fldRicetteFarmaciAssistito>
+    			
+    			<fldPrescrizioni>Prescrizioni</fldPrescrizioni>
+
+    	
+    	<lblPaziente>Paziente</lblPaziente>	
+    	<lblCodiceFarmaco>Codice farmaco</lblCodiceFarmaco>	
+    	<lblDescrizioneFarmaco>Descrizione</lblDescrizioneFarmaco>
+    	<lblPrincipioAttivo>Principio attivo</lblPrincipioAttivo>
+    	<lblCodice>Codice</lblCodice>	
+    	<lblDescrizione>Descrizione</lblDescrizione>
+    	<lblTipoEsenzione>Tipo esenzione</lblTipoEsenzione>
+    	<lblPaz>Paziente: </lblPaz>
+    	<lblCodFisc>C.F.:</lblCodFisc>
+    	<lblEsenzioni>Esenz.: </lblEsenzioni>
+    	<lblAttenzione>Attenzione!</lblAttenzione>
+    	<lblInsCampo>Inserire un minimo di #LUNGHEZZA# caratteri per il campo</lblInsCampo>
+    	<lblNoPatient>Nessun paziente selezionato</lblNoPatient>
+    	<lblDialogMedPrescr>Segliere il medico prescrittore dalla lista</lblDialogMedPrescr>
+    	<lblTitleMedPrescr>Scelta Medico Precrittore</lblTitleMedPrescr>
+    	<lblSalva>Salva</lblSalva>
+    	
+    	<lblPiuDiUnaRicetta>La prescrizione verrà effettuata su più di una ricetta</lblPiuDiUnaRicetta>
+    	<lblMsgFarmaci>E' possibile inserire un massimo di due farmaci per ricetta</lblMsgFarmaci>
+    	<lblMsgAccertamenti>E' possibile inserire un massimo di otto esami/prestazioni per ricetta</lblMsgAccertamenti>
+    	<lblNoEsenzioni>Nessuna esenzione presente per questo paziente</lblNoEsenzioni>
+    	<lblNoProblemi>Nessun problema presente per questo paziente</lblNoProblemi>
+    	<lblNoDiario>Nessun diario presente per questo paziente</lblNoDiario>
+    	<lblNoRicettaFarmaci>Nessuna ricetta di farmaci presente per questo paziente</lblNoRicettaFarmaci>
+    	<lblNoRicettaAccertamenti>Nessuna ricetta di accertamenti presente per questo paziente</lblNoRicettaAccertamenti>
+    		
+    	<butApplicaAssistito>Ricerca</butApplicaAssistito>
+    	<butSoloMieiAssistiti>Solo miei assistiti</butSoloMieiAssistiti>	
+    	<butPrescrizioneFarmaci>Prescrivi farmaci</butPrescrizioneFarmaci>
+    	<butPrescrizioneAccertamenti>Prescrivi accertamenti</butPrescrizioneAccertamenti>
+    	<butAccertamenti>Accertamenti</butAccertamenti>
+    	<butFarmaci>Farmaci</butFarmaci>
+    	<butMedPrescr>Medico Prescrittore</butMedPrescr>
+    	
+    	<lblCancellaRicettaOK>Elemento cancellato</lblCancellaRicettaOK>
+    	<lblCancellaRicettaKO>Impossibile cancellare questa prescrizione mentre offline</lblCancellaRicettaKO>
+    	
+    	<tabUltimiAggiornamenti>Gestione e sincronizzazione</tabUltimiAggiornamenti>
+    		<fldUtilita>Gestione</fldUtilita>
+    		<fldUltimiAggiornamenti>Stato della sincronizzazione dei dati con la base dati online</fldUltimiAggiornamenti> 	
+	    	<butReimporta>Reimporta dati</butReimporta>
+	    	<butAggiorna>Controlla aggiornamenti</butAggiorna>
+	    	<lblUltimiAggiornamentiReimporta>Gli archivi selezionati verranno svuotati e reimportati. L'operazione potrebbe durare diversi minuti a seconda della velocit&amp;agrave; della rete e i dati disponibili offline saranno incompleti fino alla fine dell'importazione. Procedere?</lblUltimiAggiornamentiReimporta>
+	    	
+	    	<butCreaShortcut>Crea un collegamento</butCreaShortcut>
+	    	<butCreaShortcutDescrizione>Per l'accesso alla modalità offline quando non disponibile la modalità online, è necessario effettuare (la prima volta) una di queste operazioni:&lt;br/&gt;
+	    		&lt;ul&gt;
+	    			&lt;li&gt;Aggiungere la pagina ai &lt;strong&gt;preferiti/segnalibri&lt;/strong&gt; del browser premendo &lt;strong&gt;CTRL+D&lt;/strong&gt;. Vi si potrà riaccedere aprendo il browser e selezionando il collegamento salvato dai relativi preferiti/segnalibri.&lt;/li&gt;
+	    			&lt;li class="dontShowIE"&gt;Su &lt;strong&gt;Chrome&lt;/strong&gt;, cliccare sull'icona del menu in alto a destra (tre linee parallele orizzontali), scegliere &lt;strong&gt;Strumenti - Crea scorciatoie applicazione&lt;/strong&gt;, e lasciare selezionato &lt;strong&gt;Desktop&lt;/strong&gt;. Potrebbe essere necessario ripetere questa operazione in concomitanza degli aggiornamenti dell'applicazione online per recepire le migliorie della modalità offline.&lt;/li&gt;
+	    			&lt;li class="dontShowIE"&gt;Cliccare sul pulsante &lt;strong&gt;Crea un collegamento&lt;/strong&gt; e salvare il file sul desktop. Verificare che i documenti &lt;strong&gt;.html&lt;/strong&gt; vengano aperti con lo stesso browser che si utilizza abitualmente per l'applicazione online.&lt;/li&gt;
+	    			&lt;li&gt;Se è visibile la barra degli indirizzi in alto, cliccare (tenendo premuto) l'icona alla sua sinistra, trascinarla sul desktop, quindi rilasciare il tasto del mouse. Verificare che il browser predefinito sia lo stesso browser che si utilizza abitualmente per l'applicazione online.&lt;/li&gt;
+	    			&lt;li class="dontShowChrome"&gt;Su Internet Explorer, è possibile salvare un collegamento nel &lt;strong&gt;menu principale di windows&lt;/strong&gt; cliccando sull'icona del menu in alto a destra (un ingranaggio) e poi &lt;strong&gt;Aggiungi il sito al menu Start&lt;/strong&gt; (schermata delle App su Windows 8).&lt;/li&gt;
+	    		&lt;/ul&gt;
+	    	</butCreaShortcutDescrizione>
+	    	<butRicaricaPagine>Sincronizza pagine (SPERIMENTALE)</butRicaricaPagine>
+	    	<butRicaricaPagineDescrizione>Svuota cache e Application Cache del browser e riscarica le pagine offline. Attualmente funzionante solo su Internet Explorer</butRicaricaPagineDescrizione>
+	    	<lblRicaricaPagine>Usare questa funzione solo se consigliato dall'assistenza. Procedere?</lblRicaricaPagine>
+	    	<lblRicaricaPagineError>Impossibile sincronizzare, server non raggiungibile</lblRicaricaPagineError>
+	    	<butEventiDaElaborareInvia>Invia dati al server</butEventiDaElaborareInvia>
+	    	<divEventiDaElaborareDescr>Elementi da inviare: &lt;span id='eventiDaElaborare'&gt;&lt;/span&gt; &lt;span id='eventiScarica'&gt;&lt;/span&gt; - Ultimo invio: &lt;span id='eventiAggiornamento'&gt;&lt;/span&gt;</divEventiDaElaborareDescr>
+    </ROW>
+</ROWSET>

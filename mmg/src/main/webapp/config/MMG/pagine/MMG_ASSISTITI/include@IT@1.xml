@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Assistiti/MMG_Assistiti.css" />
+	<JS path="js/MMG/Assistiti/MMG_Assistiti.js" />
+</INCLUDE>

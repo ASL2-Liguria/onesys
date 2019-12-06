@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Inserimento/Modifica accesso DH</lblTitolo>
+    	<tabAccessoDh>Gestione accesso DH</tabAccessoDh>
+    	<idAssistito>Dati assistito</idAssistito>
+    	<idDatiAccesso>Dati accesso DH</idDatiAccesso>
+    	<lblDataAccesso>Data</lblDataAccesso>
+    	<lblOraInizio>Ora inizio</lblOraInizio>
+    	<lblOraFine>Ora fine</lblOraFine>
+    	<lblNumNosologico>Numero nosologico</lblNumNosologico>
+    	<lblRepDestinazione>Reparto giuridico</lblRepDestinazione>
+    	<lblRepAss>Reparto Assistenziale</lblRepAss>
+        <butChiudiAccesso>Chiudi Accesso</butChiudiAccesso>
+        <tableWkAccessiDH>Precedenti Accessi DH</tableWkAccessiDH>
+    </ROW>
+</ROWSET>

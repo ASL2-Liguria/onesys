@@ -1,0 +1,32 @@
+<PAGINA key_id="OSCURAMENTI_PAZIENTE">
+
+	<HEADER_PAGE key_id="OSCURAMENTI_PAZIENTE" valore="DEFAULT_MMG,SCHEDA,OSCURAMENTI_PAZIENTE#DEFAULT_MMG,OSCURAMENTI_PAZIENTE" evento="START_END"></HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_OSCURAMENTI_PAZIENTE#MMG_DATI#OSCURAMENTI_PAZIENTE#IDEN#IDEN" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="OscuramentiPaziente#lblTitolo#butSalva,butChiudi" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabOscuramenti" valore="tabOscuramenti" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldSetOscuramenti" valore="fldSetOscuramenti" evento="START">
+					
+					<TR_TD_AUTOCOMPLETE key_id="MedOscurato"
+						valore="lblMedOscurato#acMedOscurato#MedOscurato#txtMedOscurato#AC_MEDICO#IDEN_MED_OSCURATO"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_RADIO key_id="GruppoOscurato" 
+						valore="lblGruppoOscurato##GruppoOscurato#radGruppoOscurato#{width: 100,idxDefault:1}#S#GRUPPO_OSCURATO" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+					<DIV.WORKLIST key_id="ElencoWork" valore="ElencoWork"
+						evento="START_END">
+					</DIV.WORKLIST>
+			
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

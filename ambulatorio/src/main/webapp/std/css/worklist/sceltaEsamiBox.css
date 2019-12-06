@@ -1,0 +1,26 @@
+#sceltaEsamiBox{
+	background-color:#000;
+	filter:alpha(opacity=98);
+	-moz-opacity: 0.98;
+	opacity: 0.98;
+	display:block;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	visibility:hidden;
+	z-index:51;
+	border:2px 2px 2px 2px;
+	border-color:blue;
+}
+
+
+.testoSceltaEsamiBox{
+	top:10%;
+	left:30%; 
+	color:white; 
+	position:relative;
+	font-size:20px;
+	
+}

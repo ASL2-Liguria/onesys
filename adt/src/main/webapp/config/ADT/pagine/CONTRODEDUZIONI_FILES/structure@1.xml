@@ -1,0 +1,45 @@
+<PAGINA key_id="CONTRODEDUZIONI_FILES">
+    <HEADER_PAGE key_id="CONTRODEDUZIONI_FILES" valore="DEFAULT,SCHEDA,CONTRODEDUZIONI_FILES#DEFAULT,CONTRODEDUZIONI_FILES" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG##" evento="START_END">
+    <TABULAZIONE.INIT key_id="tabber" valore="CONTRODEDUZIONI_FILES#lblTitolo#butChiudi" evento="START">
+		<TABULAZIONE.CREA_TAB key_id="tabControdeduzioni" valore="tabControdeduzioni" evento="START">
+				<FIELDSET_TABLE key_id="fieldsetUploadFile" valore="fieldsetUploadFile" evento="START">
+				<TR_TD_LABEL_FILE key_id="txtFileRegione" valore="lblFileRegione##txtFileRegione" evento="START">
+						<TD.INIT key_id="tdUpLoad" valore="" evento="START">
+						<BUTTON key_id="butUpLoad" valore="butUpLoad" evento="START"></BUTTON>
+						</TD.INIT>
+					</TR_TD_LABEL_FILE>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fieldsetGeneraFile" valore="fieldsetGeneraFile" evento="START">
+					<TR.INIT key_id="rigaFlusso0" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtAnno" valore="lblAnno##txtAnno#####w50px#" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtRegione" valore="lblRegione##txtRegione#####w50px#N" evento="START"></TD_LABEL_TEXT>
+						<TD.INIT key_id="tdGenera" valore="" evento="START">
+						<BUTTON key_id="butGenera" valore="butGenera" evento="START"></BUTTON>
+						</TD.INIT>
+                 </TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fieldsetOutputControdeduzioni" valore="fieldsetOutputControdeduzioni" evento="START">
+	                    <TR.INIT key_id="rigaFlusso1" valore="" evento="START">
+                    	<TD_LABEL key_id="lblFileAnagrafico" valore="lblFileAnagrafico#" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdControdeduzioni1" valore="1" evento="START">
+							<INPUT.TEXT key_id="txtFileAnagrafico" valore="txtFileAnagrafico####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileAnagrafico" valore="btnShowFileAnagrafico#" evento="START"></BUTTON>
+						</TD.INIT>
+						<TD_LABEL key_id="lblFileClinico" valore="lblFileClinico#" evento="START"></TD_LABEL>
+						<TD.INIT key_id="tdControdeduzioni2" valore="2" evento="START">
+							<INPUT.TEXT key_id="txtFileClinico" valore="txtFileClinico####S#N" evento="START"></INPUT.TEXT>
+							<BUTTON key_id="btnShowFileClinico" valore="btnShowFileClinico#" evento="START"></BUTTON>
+						</TD.INIT>
+                	</TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fieldsetOutputFile" valore="fieldsetOutputFile" evento="START">
+                    <TR.INIT key_id="rigaOut1" valore="" evento="START">
+                    	<IFRAME key_id="iOutputFile" valore="iOutputFile" evento="START"></IFRAME>
+                	</TR.INIT>
+                </FIELDSET_TABLE>
+		</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+		</FORM>
+	</PAGINA>

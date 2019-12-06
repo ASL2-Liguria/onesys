@@ -1,0 +1,31 @@
+.triangolo {
+    position: relative;
+    left: 92%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 18px 18px;
+    border-color: transparent transparent #C0C0C0 transparent;
+}
+
+.tabledialog{
+    border: solid 1px black;
+    margin: auto;
+    width: 100%;
+}
+.tabledialog tr td, .infoDati td{
+    padding: 5px;
+    border: solid 1px #000000;
+    text-align: center;
+}
+.tabledialog tr th, .infoTitolo td{
+    width: 70px;
+    height: 20px;
+    border: solid 1px #000000;
+    font-weight: 900;
+    text-align: center;
+    padding: 5px;
+}
+
+div.clsWk div.clsWkScroll table tr.trSpuntato td div{font-style: italic;}
+div.clsWk div.clsWkScroll table tr.trSpuntato{border: solid #000000 2px;}

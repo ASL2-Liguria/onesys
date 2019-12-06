@@ -1,0 +1,22 @@
+<root>
+	<statements_list>
+		<!-- metodo per avere il parametro filtrando SOLO per utente e cdc = [ALL] -->
+		<statement name="getParamPerUtente">				
+			<sql>
+			<![CDATA[
+				select UTENTE, PARAMETRO, VALORE_PARAMETRO from PARAMETRI_UTENTE where (UTENTE = ? Or Utente ='[ALL]')  and PARAMETRO = ? and CDC ='[ALL]' and ATTIVO ='S' order by utente desc
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		<!-- metodo per avere il parametro filtrando per utente e per un cdc -->
+		<statement name="getParamPerUtente_Cdc">				
+			<sql>
+			<![CDATA[
+				select UTENTE, PARAMETRO, VALORE_PARAMETRO from PARAMETRI_UTENTE where (UTENTE = ? Or Utente ='[ALL]') and PARAMETRO = ? and CDC = ? and ATTIVO ='S' order by utente desc
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>		
+	</statements_list>
+</root>

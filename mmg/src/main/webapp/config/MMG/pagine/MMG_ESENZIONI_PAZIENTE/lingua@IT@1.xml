@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>LISTA ESENZIONI</lblTitolo>
+        <tabEsenzioni>Esenzioni</tabEsenzioni>
+        <fldEsenzioni>Lista esenzioni</fldEsenzioni>
+        <tabEsenzioniScadute>Esenzioni Scadute</tabEsenzioniScadute>
+        <fldEsenzioniScadute>Lista esenzioni scadute</fldEsenzioniScadute>
+        
+    </ROW>
+</ROWSET>

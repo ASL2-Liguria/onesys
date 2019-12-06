@@ -1,0 +1,108 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'CONTATTO.Q_PS_CONTATTO@PS'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="Paziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PAZIENTE" db_descrizione="PAZIENTE" configurazione_multi_data="" />
+	
+	<DATO key_id="hDataNascita" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_NASCITA" db_descrizione="DATA_NASCITA" configurazione_multi_data="" />
+		
+	<DATO key_id="Sesso" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="SESSO" db_descrizione="SESSO" configurazione_multi_data="" />
+
+	<DATO key_id="numeroPratica" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="CODICE" db_descrizione="CODICE" configurazione_multi_data="" />
+
+	<DATO key_id="statoAttivita" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="STATO_ATTIVITA" db_descrizione="STATO_ATTIVITA" configurazione_multi_data="" />
+				
+	<DATO key_id="hNumeroPratica" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="CODICE" db_descrizione="CODICE" configurazione_multi_data="" />
+
+    <DATO key_id="hContCodEstCod1" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CON_COD_EST_COD1" db_descrizione="CON_COD_EST_COD1" configurazione_multi_data="" />
+
+    <DATO key_id="statoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_CONTATTO" db_descrizione="STATO_CONTATTO" configurazione_multi_data="" />
+
+    <DATO key_id="infermiereTriage" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INF_INSERIMENTO_TRIAGE" db_descrizione="INF_INSERIMENTO_TRIAGE" configurazione_multi_data="" />
+
+    <DATO key_id="utenteRiferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTE_RIFERIMENTO" db_descrizione="UTE_RIFERIMENTO" configurazione_multi_data="" />
+
+    <DATO key_id="infResponsabile" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INFERMIERE_PRESENTE" db_descrizione="INFERMIERE_PRESENTE" configurazione_multi_data="" />
+
+    <DATO key_id="UrgenzaListaAttesa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="URGENZA_LISTA_ATTESA" db_descrizione="URGENZA_LISTA_ATTESA" configurazione_multi_data="" />
+
+    <DATO key_id="UrgenzaEsameObiettivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="URGENZA_ESAME_OBIETTIVO" db_descrizione="URGENZA_ESAME_OBIETTIVO" configurazione_multi_data="" />
+
+    <DATO key_id="UrgenzaVerbale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="URGENZA_VERBALE" db_descrizione="URGENZA_VERBALE" configurazione_multi_data="" />
+
+    <DATO key_id="hCodEstAnagId1" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_EST_ANAG_ID1" db_descrizione="COD_EST_ANAG_ID1" configurazione_multi_data="" />
+
+    <DATO key_id="hEsamiForensi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESAMI_FORENSI" db_descrizione="ESAMI_FORENSI" configurazione_multi_data="" />
+
+    <DATO key_id="COGNOME" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COGNOME" db_descrizione="COGNOME" configurazione_multi_data="" />
+    <DATO key_id="NOME" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOME" db_descrizione="NOME" configurazione_multi_data="" />
+    <DATO key_id="NOME" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOME" db_descrizione="NOME" configurazione_multi_data="" />
+    <DATO key_id="CODICESTRUTTURARICHIEDENTE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICESTRUTTURARICHIEDENTE" db_descrizione="CODICESTRUTTURARICHIEDENTE" configurazione_multi_data="" />
+    <DATO key_id="COMUNENASCITAASSISTITO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNENASCITAASSISTITO" db_descrizione="COMUNENASCITAASSISTITO" configurazione_multi_data="" />
+    <DATO key_id="COMUNERESIDENZAASSISTITO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNERESIDENZAASSISTITO" db_descrizione="COMUNERESIDENZAASSISTITO" configurazione_multi_data="" />
+    <DATO key_id="RES_INDIRIZZO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RES_INDIRIZZO" db_descrizione="RES_INDIRIZZO" configurazione_multi_data="" />
+    <DATO key_id="RES_TELEFONO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RES_TELEFONO" db_descrizione="RES_TELEFONO" configurazione_multi_data="" />
+    <DATO key_id="DATA_DIMISSIONE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_DIMISSIONE" db_descrizione="DATA_DIMISSIONE" configurazione_multi_data="" />
+    <DATO key_id="ORA_DIMISSIONE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_DIMISSIONE" db_descrizione="ORA_DIMISSIONE" configurazione_multi_data="" />
+    <DATO key_id="DIAGNOSI_TESTUALE_VERBALE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI_TESTUALE_VERBALE" db_descrizione="DIAGNOSI_TESTUALE_VERBALE" configurazione_multi_data="" />
+    <DATO key_id="CODICE_FISCALE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_FISCALE" db_descrizione="CODICE_FISCALE" configurazione_multi_data="" />
+    <DATO key_id="STATO_PAZIENTE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_PAZIENTE" db_descrizione="STATO_PAZIENTE" configurazione_multi_data="" />
+    <DATO key_id="DESCRCOMUNERESIDENZAASSISTITO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DESCRCOMUNERESIDENZAASSISTITO" db_descrizione="DESCRCOMUNERESIDENZAASSISTITO" configurazione_multi_data="" />
+    <DATO key_id="DATA_NASCITA_CONV" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_NASCITA_CONV" db_descrizione="DATA_NASCITA_CONV" configurazione_multi_data="" />
+    <DATO key_id="SATO_PAZIENTE_DECODED" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SATO_PAZIENTE_DECODED" db_descrizione="SATO_PAZIENTE_DECODED" configurazione_multi_data="" />
+    <DATO key_id="PSW_WREPAEU" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PSW_WREPAEU" db_descrizione="PSW_WREPAEU" configurazione_multi_data="" />
+    <DATO key_id="DESCRCOMUNENASCITAASSISTITO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DESCRCOMUNENASCITAASSISTITO" db_descrizione="DESCRCOMUNENASCITAASSISTITO" configurazione_multi_data="" />
+    <DATO key_id="ESENZIONE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESENZIONE" db_descrizione="ESENZIONE" configurazione_multi_data="" />
+    <DATO key_id="cmbStatoPaziente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_PAZIENTE_ID" db_descrizione="STATO_PAZIENTE"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_ID_FIRST_NULL@PS'; :where := 'tipo = ''STATO_PAZIENTE'''; end;" />
+    <DATO key_id="H_STATO_PAGINA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="JSON_STATO_PAGINA" db_descrizione="JSON_STATO_PAGINA" configurazione_multi_data="" />
+    <DATO key_id="DATA_INGRESSO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_INGRESSO" db_descrizione="DATA_INGRESSO" configurazione_multi_data="" />
+    <DATO key_id="PROBLEMA_PRINCIPALE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROB_PRINCIPALE" db_descrizione="PROB_PRINCIPALE" configurazione_multi_data="" />
+    <DATO key_id="PRIVACY_EVENTO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PRIVACY_EVENTO" db_descrizione="PRIVACY_EVENTO" configurazione_multi_data="" />
+    <DATO key_id="TUTORE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GENITORE" db_descrizione="GENITORE" configurazione_multi_data="" />
+    <DATO key_id="ESITO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESITO" db_descrizione="ESITO" configurazione_multi_data="" />
+    <DATO key_id="COD_EST_ANAG_ID1" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_EST_ANAG_ID1" db_descrizione="COD_EST_ANAG_ID1" configurazione_multi_data="" />
+
+
+</DATI>

@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/MedicinaIniziativa/RiepilogoMedIniz.js" />
+	<CSS path="css/MMG/MedicinaIniziativa/RiepilogoMedIniz.css" />
+</INCLUDE>

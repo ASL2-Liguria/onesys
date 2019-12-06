@@ -1,0 +1,504 @@
+<root>
+	<statements_list>
+		<statement name="allettamento.retrieveGruppiCdcUtente">
+			<sql>
+			<![CDATA[
+				select 
+					/*+ FIRST_ROWS(10) */ 
+					g.iden,
+					g.descrizione
+				from
+					gruppi g
+					join gruppi_membri gm on (gm.iden_gruppo = g.iden)
+					join centri_di_costo cdc on (gm.iden_membro = cdc.iden)
+				where 
+					g.tipo = 'STANZA_GRUPPO_CDC' and
+					cdc.cod_cdc=? 
+				--	and rownum=1	
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.retrieveCdcFiltriUtente">
+			<sql>
+			<![CDATA[
+				SELECT 
+				  cod_cdc
+				FROM RADSQL.CENTRI_DI_COSTO
+				WHERE COD_CDC IN
+				  ( SELECT 
+				      trim(COLUMN_VALUE)
+				    FROM TABLE
+				    (split
+				      (
+				        ( SELECT REPLACE(lastvaluechar, '''','') VALORE
+				            FROM radsql.filtri
+				          WHERE 
+				            tipo = 2 AND user_name=?
+				        )
+				      )
+				    )
+				  )	
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.retrieveElencoStanze">
+			<sql>
+			<![CDATA[
+				select
+					cs.iden_gruppo,
+					cs.iden iden_stanza,
+					cs.tipo_stanza,
+					cs.cod_dec,
+					cs.descrizione,
+					(select count(*) from cc_letti cl where cl.attivo = 'S' and cl.iden_stanza = cs.iden and cl.iden_visita is null) n_letti_liberi,
+					(select count(*) from cc_letti cl where cl.attivo = 'S' and cl.iden_stanza = cs.iden and cl.iden_visita is not null) n_letti_occupati,
+					case   						
+					when (select count(*) from cc_letti cl where cl.attivo = 'S' and cl.iden_stanza = cs.iden) - 
+  						(select count(*) from cc_letti cl where cl.attivo = 'S' and cl.iden_stanza = cs.iden and cl.iden_visita is not null)=0 then 'piena'
+					when (select count(*) from cc_letti cl where cl.attivo = 'S' and cl.iden_stanza = cs.iden ) - 
+  						(select count(*) from cc_letti cl where cl.attivo = 'S' and cl.iden_stanza = cs.iden and cl.iden_visita is not null)>0 and
+  						(select count(*) from cc_letti cl where cl.attivo = 'S' and cl.iden_stanza = cs.iden and cl.iden_visita is not null)>0
+          			then 'occupata'
+          			else 'libera' 
+					end occupazione
+				from 
+					cc_stanze cs
+				where 
+					cs.attivo = 'S' and 
+					cs.iden_gruppo=to_number(?)
+				order by cs.descrizione asc
+			]]>
+			</sql>
+		</statement>
+				<statement name="allettamento.retrieveDettaglioStanza">
+			<sql>
+			<![CDATA[
+				select
+					g.descrizione descrizione_gruppo,
+					cs.descrizione descrizione_stanza
+				from 
+					cc_stanze cs
+					join gruppi g on (g.iden = cs.iden_gruppo)
+				where 
+					cs.attivo = 'S' and 
+					cs.iden = ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.retrieveElencoLetti">
+			<sql>
+			<![CDATA[
+				select
+					cl.iden_gruppo,
+					cl.iden iden_letto,
+					cl.descrizione,
+					case cl.occupato
+					  when 'N' then 'libero'
+					  else 'occupato'
+					end occupazione,
+					np.num_nosologico,
+					an.cogn||' '||an.nome||' '||radsql.datetimeconverter(an.data,'YYYYMMDD','DD/MM/YYYY') descrizione_paziente,
+					case
+					  when np.cod_cdc is null then g.descrizione
+					  else cdc_allettato.descr
+					end descrizione_cdc_allettamento,
+					an.sesso,
+					(select tipo_stanza from cc_stanze where iden = cl.iden_stanza) tipologiaLetto
+				from 
+					cc_letti cl
+					left outer join nosologici_paziente np on (cl.iden_visita = np.iden)
+					left outer join anag an on (an.iden = np.iden_anag)
+					left outer join centri_di_costo cdc_allettato on (np.cod_cdc = cdc_allettato.cod_cdc)
+					join gruppi g on (g.iden = cl.iden_gruppo)  
+				where 
+					cl.attivo = 'S' and 
+					cl.iden_gruppo=to_number(?) and 
+					cl.iden_stanza=to_number(?)
+				order by cl.descrizione asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.formRicerca.fillOptionRepartoDegenza">
+			<sql>
+			<![CDATA[
+				select 
+					/*+ FIRST_ROWS(10) */ 
+					cdc.descr descrizione_reparto,
+					cdc.iden iden_cdc,
+					cdc.cod_cdc
+				from
+					gruppi g
+					join gruppi_membri gm on (gm.iden_gruppo = g.iden)
+					join centri_di_costo cdc on (gm.iden_membro = cdc.iden)
+				where 
+					g.iden = ?
+				order by cdc.cod_cdc desc
+			]]>
+			</sql>
+		</statement>		
+		<statement name="allettamento.wk_pazienti_allettati">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					cce_pazienti_allettati
+				where 
+					cogn like '' || ? || '%' and 
+					nome like '' || ? || '%' and
+					(? is null or data= ?) and
+					cod_fisc like '%' || ? || '%' and
+					cod_cdc_reparto_degenza= ? 
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.wk_pazienti_da_allettare">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					cce_pazienti_da_allettare
+				where 
+					cogn like '' || ? || '%' and 
+					nome like '' || ? || '%' and
+					(? is null or data= ?) and
+					cod_fisc like '' || ? || '%' and
+					cod_cdc_reparto_degenza= ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.wk_pazienti_da_allettare_al_caricamento">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					cce_pazienti_da_allettare
+				where
+					cod_cdc_reparto_degenza= ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.wk_pazienti_allettati_al_caricamento">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					cce_pazienti_allettati
+				where
+					cod_cdc_reparto_degenza= ?
+				/*order by cogn asc*/
+			]]>
+			</sql>
+		</statement>		
+        <statement name="allettamento.alletta_paziente_in_letto">
+            <sql>
+            <![CDATA[
+				declare
+					vIdenVisita pls_integer := to_number(?);
+					vIdenLetto pls_integer  := to_number(?);
+					videnStanza pls_integer ;	
+					vCount pls_integer;		
+					vOut varchar2(4000):=' ';		
+				begin
+				    select count(1) into vCount from cc_letti where iden_visita=vIdenVisita;
+				    if (vCount>0) then
+				     vOut:='Attenzione, paziente già allettato';
+				    else
+						update cc_letti 
+						set 
+							iden_visita=vIdenVisita,
+							occupato = 'S' 
+						where iden = vIdenLetto;
+						select iden_stanza into videnStanza from cc_letti where iden = vIdenLetto;
+						
+						update nosologici_paziente 
+						set 
+							letto  = to_char(vIdenLetto), 
+							stanza = to_char(videnStanza)
+						where iden = vIdenVisita;	
+					end if;
+				?:=vOut;			
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="allettamento.rimuovi_paziente_da_letto">
+            <sql>
+            <![CDATA[
+				declare
+					vIdenLetto  pls_integer := to_number(?);
+					vIdenVisita pls_integer ;					
+				begin
+					select iden_visita into vIdenVisita from cc_letti where iden = vIdenLetto;
+					update cc_letti 
+					set 
+						iden_visita='',
+						occupato = 'N' 
+					where iden = vIdenLetto;
+					
+					update nosologici_paziente 
+					set 
+						letto  = null, 
+						stanza = null
+					where iden = vIdenVisita;	
+										
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="allettamento.infoPaziente">
+            <sql>
+            <![CDATA[
+				select 
+					an.cogn,
+					an.nome,
+					radsql.datetimeconverter(an.data, 'yyyymmdd', 'dd/mm/yyyy') data_nascita,
+					an.cod_fisc,
+					np.num_nosologico, 
+					radsql.datetimeconverter(np.data_ricovero, 'yyyymmdd', 'dd/mm/yyyy')data_entrata,
+					(select radsql.cc_extractprovenienza(np.iden) from dual) Provenienza,
+					CASE 
+						WHEN (np.iden IS NOT NULL) THEN radsql.CC_GET_SITUAZIONE_PAZIENTE(np.iden) 
+						ELSE null 
+					END Situazione_paziente
+				from nosologici_paziente np
+				inner join anag an on (np.iden_anag=an.iden)
+				where 
+					np.iden=? and 
+					np.accesso=0 and 
+					np.dimesso='N' and 
+					np.deleted='N'
+			]]>
+            </sql>
+        </statement>
+		<statement name="allettamento.wk_pazienti_allettati_in_stanza">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					cce_pazienti_allettati
+				where 
+					iden_stanza = ?
+        		order by descr_letto asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="allettamento.retrieveLettiLiberi">
+			<sql>
+			<![CDATA[
+				select 
+					iden,DESCRIZIONE 
+				from 
+					cc_letti
+				where 
+					iden_stanza = ?
+					and iden_visita is null
+					and attivo = 'S'
+				order by descrizione asc
+			]]>
+			</sql>
+		</statement>	
+		<statement name="gestioneStanze.getDatiStanza">
+			<sql>
+			<![CDATA[
+				select
+					cs.descrizione descr_stanza,
+	         	 	cs.cod_dec cod_stanza,
+	         	 	cs.attivo,
+	         	 	cs.iden_gruppo,
+	         	 	cs.tipo_stanza
+				 from 
+				 	radsql.cc_stanze cs
+				 where  
+					cs.iden = ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="gestioneStanze.getDatiLetto">
+			<sql>
+			<![CDATA[
+				select
+					descrizione descr_letto,
+	         	 	note,
+	         	 	attivo
+				 from 
+				 	radsql.cc_letti
+				 where  
+					iden = ?
+			]]>
+			</sql>
+		</statement>		
+		<statement name="gestioneStanze.salvaStanza">
+			<sql>
+			<![CDATA[
+				declare
+					vIden	 pls_integer    := ?;
+					vNome    varchar2(4000) := ?;
+					vCodice  varchar2(4000) := ?;
+					vTipo    varchar2(4000) := ?;
+					vGruppo  varchar2(4000) := ?;	
+					vAttivo  varchar2(4000) := ?;
+					vCount  	 pls_integer;
+					vGruppoOld	 pls_integer;	
+					vOut varchar2(4000):=' ';		
+				begin
+				
+					--controllo esistenza descrizione
+					  select count(1) into vCount from cc_stanze where descrizione=vNome and iden_gruppo=vGruppo and iden<>vIden;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, nome stanza già esistente';
+					    goto FINE;
+					  end if;
+					--controllo esistenza codice
+					select count(1) into vCount from cc_stanze where cod_dec=vCodice and iden_gruppo=vGruppo and iden<>vIden;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, codice stanza già esistente';
+					    goto FINE;
+					  end if;
+				
+					--nuovo inserimento
+				    if (vIden=0) then
+					  insert into cc_stanze(descrizione,attivo,cod_dec,tipo_stanza,iden_gruppo) values(vNome,vAttivo,vCodice,vTipo,vGruppo);					  
+					  goto FINE;
+					end if;
+					
+					--solo in modifica
+				
+					if(vAttivo='N') then
+					 select count(1) into vCount from cc_letti where iden_stanza=vIden and occupato='S';
+					  if(vCount>0) then
+					   vOut:='Impossibile disattivare la stanza se tutti i letti non sono liberi';
+					   goto FINE;
+					  end if;
+					end if;
+					
+						select iden_gruppo into vGruppoOld from cc_stanze where iden=vIden;
+						 if(vGruppoOld<>vGruppo) then
+						  select count(1) into vCount from cc_letti where iden_stanza=vIden and occupato='S';
+						  if(vCount>0) then
+						   	vOut:='Impossibile modificare il gruppo alla stanza se tutti i letti non sono liberi';
+						   	goto FINE;
+						   else
+						    update cc_letti set iden_gruppo=vGruppo where iden_stanza=vIden;
+						  end if;					 
+						 end if;
+					 update cc_stanze set descrizione=vNome,attivo=vAttivo,cod_dec=vCodice,tipo_stanza=vTipo,iden_gruppo=vGruppo  where iden=vIden;
+					
+					<<FINE>> null;
+				? := vOut;						
+				end;				
+			]]>
+			</sql>
+		</statement>	
+		<statement name="gestioneStanze.salvaLetto">
+			<sql>
+			<![CDATA[
+				declare
+					vIden	 pls_integer    := ?;
+					vNome    varchar2(4000) := ?;
+					vNote  varchar2(4000) := ?;
+					vAttivo  varchar2(4000) := ?;
+					vIdenStanza	 pls_integer := ?;
+					vGruppo		 pls_integer := ?;
+					vCount  	 pls_integer;
+					vOut varchar2(4000):=' ';		
+				begin
+				
+					--controllo esistenza descrizione
+					  select count(1) into vCount from cc_letti where descrizione=vNome and iden_stanza=vIdenStanza and iden<>vIden;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, nome letto già esistente';
+					    goto FINE;
+					  end if;
+					
+					--nuovo inserimento
+				    if (vIden=0) then
+					  insert into cc_letti(descrizione,attivo,note,iden_stanza,iden_gruppo) values(vNome,vAttivo,vNote,vIdenStanza,vGruppo);					  
+					  goto FINE;
+					end if;
+					
+					--solo in modifica
+				
+					if(vAttivo='N') then
+					 select count(1) into vCount from cc_letti where iden=vIden and occupato='S';
+					  if(vCount>0) then
+					   vOut:='Impossibile disattivare un letto occupato';
+					   goto FINE;
+					  end if;
+					end if;
+					
+					 update cc_letti set descrizione=vNome,attivo=vAttivo,note=vNote where iden=vIden;
+					
+					<<FINE>> null;
+				? := vOut;						
+				end;				
+			]]>
+			</sql>
+		</statement>
+		<statement name="gestioneStanze.getDatiGruppo">
+			<sql>
+			<![CDATA[
+				select
+					descrizione descr
+				 from 
+				 	radsql.gruppi
+				 where  
+					iden = ?
+			]]>
+			</sql>
+		</statement>	
+		<statement name="gestioneStanze.eliminaGruppo">
+			<sql>
+			<![CDATA[
+			declare
+			  vIden	 pls_integer    := ?;
+			  vCount	 pls_integer;
+			  begin
+			   select count(*) into vCount from cc_stanze where iden_gruppo=? and attivo='S';
+			   if(vCount>0) then
+			    vOut:='Impossibile eliminare il gruppo. Sono presenti stanze associate attive';
+			    goto FINE
+			   end if;
+			   delete gruppi where iden=vIden; 
+			  <<FINE>> null;
+				? := vOut;	
+			  end;				
+			]]>
+			</sql>
+		</statement>
+		<statement name="gestioneStanze.salvaGruppo">
+			<sql>
+			<![CDATA[
+				declare					
+					vIden	 pls_integer    := ?;
+					vNome    varchar2(4000) := ?;
+					vReparti varchar2(4000) := ?;
+					vUser    pls_integer	:= ?;
+					vArray ARRAY_VALUE := split2array(vReparti);
+					pIdenCdc pls_integer;
+				begin
+					--inserimento
+					if (vIden=0) then
+						insert into radsql.gruppi(codice,tipo,descrizione,ute_ins) values(vReparti,'STANZA_GRUPPO_CDC',vNome,vUser) returning iden into vIden;
+					--modifica
+					else
+					 update radsql.gruppi set codice=vReparti where iden=vIden;
+					end if;	
+					
+					delete radsql.gruppi_membri where iden_gruppo=vIden;
+					for idx in vArray.first..vArray.last
+                    loop
+                        select iden into pIdenCdc from radsql.centri_di_costo where cod_cdc=vArray(idx);
+                        Insert into radsql.gruppi_membri (IDEN_MEMBRO,TABELLA_MEMBRO,IDEN_GRUPPO,VALIDITA_INIZIO,UTE_INS) 
+                        values (pIdenCdc,'CENTRI_DI_COSTO',vIden,sysdate,vUser);
+                    end loop;     
+				end;			
+			]]>
+			</sql>
+		</statement>	
+	</statements_list>
+</root>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>2</minChars>
+		<onSelect type="js">
+			  <![CDATA[function(data){alert("Hai selezionato: " + data.ACCERTAMENTO);}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>300</width>
+		<zIndex>9999</zIndex>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_ACCERTAMENTI_EFFETTUATI</storedQuery>
+		<maxResults>40</maxResults>
+		<datasource>MMG_DATI</datasource>
+	</AJAX> 
+	<LIST>
+	    <title>Accertamenti</title>
+	    <id_wk>AC_ACCERTAMENTI_EFFETTUATI</id_wk>
+	    <onSelect type="js">
+			<!-- <![CDATA[function(data){alert("Hai selezionato: " + data.ACCERTAMENTO);}]]> -->
+		</onSelect>
+	</LIST>
+
+</AUTOCOMPLETE>	 
+    
+    
+    <!-- NON FUNZIONA -->

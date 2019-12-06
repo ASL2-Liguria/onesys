@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.ADT_ESENZIONI_PATOLOGIA</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <onSelect type="js">
+            <![CDATA[function(ret){var opt = document.createElement("Option"); opt.value=ret.TIPO_ESE + '@' + ret.CODICE; opt.text=ret.CODICE+' - '+ret.DESCR; NS_GESTIONE_DSA.riportaEsenzioneSelezionata(opt)}]]>
+        </onSelect>
+        <title>Esenzioni Patologie complete e parziali</title>
+        <id_wk>ADT_ESENZIONI_PATOLOGIA</id_wk>
+    </LIST>
+</AUTOCOMPLETE>

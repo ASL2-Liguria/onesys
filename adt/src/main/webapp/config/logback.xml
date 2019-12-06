@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <timestamp key="data_oggi" datePattern="yyyy-MM-dd"/>
+
+    <appender name="FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
+        <discriminator>
+            <key>userid</key>
+            <defaultValue>fenix</defaultValue>
+        </discriminator>
+        <sift>
+            <appender name="FILE-${userid}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+                <file>${path_web}../../logs/${context_name}/${userid}/${data_oggi}.log</file>
+                <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                    <fileNamePattern>${path_web}../../logs/${context_name}/${userid}/%d{yyyy-MM}.log.gz</fileNamePattern>
+                    <maxHistory>31</maxHistory>
+                    <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                        <maxFileSize>5MB</maxFileSize>
+                    </timeBasedFileNamingAndTriggeringPolicy>
+                </rollingPolicy>
+                <layout class="ch.qos.logback.classic.PatternLayout">
+                    <pattern>%-5level - %date{dd/MM/yyyy HH:mm:ss.SSS} %logger{96} - %msg%n</pattern>
+                </layout>
+            </appender>
+        </sift>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%-5level - %date{dd/MM/yyyy HH:mm:ss.SSS} %logger{96} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ESTRATTORE" class="ch.qos.logback.core.FileAppender">
+        <file>${path_web}../../logs/${context_name}/estrazioni.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%-5level - %date{dd/MM/yyyy HH:mm:ss.SSS} [thread: %thread] \n\t classe -&gt; %logger{96} \n\t message -&gt; %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+   <root level="WARN">
+        <!-- Togliere il log su console per evitare catalina.out giganteschi se non necessaari -->
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="it.elco.servlet.estrazioni.Query" level="DEBUG" additivity="false">
+        <appender-ref ref="ESTRATTORE" />
+    </logger>
+
+    <logger name="it.elco.fenix.adt.servlets" level="TRACE" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="it.elco.adt" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="it.elco.anagrafica" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="it.elco.contatti" level="DEBUG" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+</configuration>

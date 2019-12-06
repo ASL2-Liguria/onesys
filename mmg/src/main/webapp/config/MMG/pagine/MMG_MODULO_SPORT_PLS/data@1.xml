@@ -1,0 +1,16 @@
+<DATI
+	configurazione="begin 
+   if '#IDEN#' is null then
+		   :stato_pagina := 'R'; 
+		   :key_query := 'LOAD_SCHEDA_XML_LAST'; 
+		   :where := null; 
+		   :campo_xml := 'CONTENUTO'; 
+   else
+		   :stato_pagina := 'M'; 
+		   :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; 
+		   :where := null; 
+		   :campo_xml := 'CONTENUTO'; 
+   end if;
+end;">
+
+</DATI>

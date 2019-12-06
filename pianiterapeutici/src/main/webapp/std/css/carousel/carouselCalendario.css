@@ -1,0 +1,91 @@
+.stepcarousel{
+	position: relative; /*leave this value alone*/
+	overflow: scroll; /*leave this value alone*/
+	width: 90%; /*Width of Carousel Viewer itself*/
+	height: 45px; /*Height should enough to fit largest content's height*/
+	left:20px;
+}
+
+.stepcarousel .belt{
+position: absolute; /*leave this value alone*/
+left: 0;
+top: 0;
+}
+
+.stepcarousel .panel{
+	float: left; /*leave this value alone*/
+	overflow: hidden; /*clip content that go outside dimensions of holding panel DIV*/
+	margin: 2px; /*margin around each panel*/
+	width: 60px; /*Width of each panel holding each content. If removed, widths should be individually defined on each content DIV then. */
+	height: 45px;
+}
+#N1{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorni.png);
+}
+#N2{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorni.png);
+}
+#N3{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorni.png);
+}
+#N4{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorni.png);
+}
+#N5{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorni.png);
+}
+#N6{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorni.png);
+}
+#N7{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniDomenica.png);
+}
+#S1{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniConfermato.png);
+}
+#S2{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniConfermato.png);
+}
+#S3{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniConfermato.png);
+}
+#S4{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniConfermato.png);
+}
+#S5{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniConfermato.png);
+}
+#S6{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniConfermato.png);
+}
+#S7{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniDomenicaConfermato.png);
+}
+#selectedN{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniSelezionato.png);
+}
+#selectedS{
+	background:url(../../../imagexPix/wallpaper/CalendarGiorniSelezionatoConfermato.png);
+}
+.stepcarousel .panel #giorno{
+	text-align:center;
+	cursor:pointer;
+	font-weight:bold;
+	font-size:14px;
+	padding-top:1px;
+	color:#666;
+}
+.stepcarousel .panel #mese{
+	text-align:center;
+	cursor:pointer;
+	font-weight:bold;
+	font-size:10.5px;
+	color:#666;
+}
+.stepcarousel .panel #anno{
+	text-align:center;
+	cursor:pointer;
+	font-size:11px;
+	font-weight:bold;
+	color:#FFF;
+}

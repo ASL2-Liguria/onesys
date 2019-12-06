@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Scheda contestazione</lblTitolo>
+    	<tabControdeduzioniScheda>Dati Contestazione</tabControdeduzioniScheda>
+    	<butApriSdo>Apri Sdo</butApriSdo>
+    	<idDatiGenerali>Dati generali</idDatiGenerali>
+    	<lblRegioneAdd>Regione addebitante</lblRegioneAdd>
+    	<lblOspInviante>Osp. Inviante</lblOspInviante>
+    	<lblCodiceIstituto>Codice Istituto</lblCodiceIstituto>
+    	<lblNumeroScheda>Numero Scheda</lblNumeroScheda>
+    	<lblNumeroSchedaMadre>Numero Scheda Madre</lblNumeroSchedaMadre>
+    	<idErrori>Errori rilevati</idErrori>
+    	<lblErroriAnag>Errori anagrafici</lblErroriAnag>
+    	<lblErroriRes>Errori residenza</lblErroriRes>
+    	<lblErroriPrest>Errori prestazione</lblErroriPrest>
+    	<lblErroriRico>Errori ricovero</lblErroriRico>
+    	<lblErroriChiaveRec>Errori chiave record</lblErroriChiaveRec>
+    	<lblErroriImporto>Errori importo</lblErroriImporto>
+    	<lblErroriDataPrest>Errori data prestazione</lblErroriDataPrest>
+    	<lblErroriOnere>Errori onere</lblErroriOnere>
+    	<lblPosContabile>Posizione contabile</lblPosContabile>
+    	<idAssistito>Dati anagrafici</idAssistito>
+    	<lblSesso>Sesso</lblSesso>
+    	<lblStatoCivile>Stato civile</lblStatoCivile>
+    	<lblComuneResidenza>Comune residenza</lblComuneResidenza>
+    	<lblAslRes>Asl residenza</lblAslRes>
+    	<lblCittadinanza>Cittadinanza</lblCittadinanza>
+    	<lblRegIniAdd>Regione iniziale addebito</lblRegIniAdd>
+    	<lblRegNuovaAdd>Nuova regione addebito</lblRegNuovaAdd>
+    	<idSogei>Dati residenza Fonte SOGEI</idSogei>
+    	<lblRegioneRes_Asl>Regione residenza Fonte ASL</lblRegioneRes_Asl>
+    	<lblAslRes_Asl>Asl residenza Fonte ASL</lblAslRes_Asl>
+    	<lblRegioneRes>Regione residenza</lblRegioneRes>
+    	<idRicovero>Dati ricovero</idRicovero>
+    	<lblRegime>Regime</lblRegime>
+    	<lblDataRicovero>Data</lblDataRicovero>
+    	<lblProvenienza>Provenienza</lblProvenienza>
+    	<lblTipoRico>Tipo ricovero Ordinario</lblTipoRico>
+    	<lblMotivoDh>Motivo ricovero DH</lblMotivoDh>
+    	<lblOnere>Onere</lblOnere>
+    	<lblPesoNasc>Peso nascita (gr)</lblPesoNasc>
+    	<idPren>Dati prenotazione ricovero</idPren>
+    	<lblDataPren>Data Prenotazione Ricovero</lblDataPren>
+    	<lblDataDimi>Data</lblDataDimi>
+    	<lblRepAmmi>Reparto ammissione</lblRepAmmi>
+    	<idDimissione>Dati Dimissione</idDimissione>   
+    	<lblTrauma>Traumatismi</lblTrauma> 	
+    	<lblModDimi>Modalità dimissione</lblModDimi>
+    	<lblRepDimi>Reparto dimissione</lblRepDimi>
+    	<lblAutopsia>Riscontro autoptico</lblAutopsia>
+    	<lblGgDh>N. giorni Dh</lblGgDh>
+    	<lblDRG>DRG</lblDRG>
+    	<lblImportoDRG>Importo DRG</lblImportoDRG>
+    	<lblDRGRegRic>DRG regione ricevente</lblDRGRegRic>
+    	<lblImportoDRGRegRic>Importo DRG regione ricevente</lblImportoDRGRegRic>
+    	<idDiagnosi>Diagnosi SDO</idDiagnosi>
+    	<lblDiagnosi0>Diagnosi Principale</lblDiagnosi0>
+    	<lblDiagnosi1>Diagnosi Concomitante 1</lblDiagnosi1>
+    	<lblDiagnosi2>Diagnosi Concomitante 2</lblDiagnosi2>
+    	<lblDiagnosi3>Diagnosi Concomitante 3</lblDiagnosi3>
+    	<lblDiagnosi4>Diagnosi Concomitante 4</lblDiagnosi4>
+    	<lblDiagnosi5>Diagnosi Concomitante 5</lblDiagnosi5>
+    	<idInterventi>Interventi SDO</idInterventi>
+    	<lblIntervento0>Intervento Principale</lblIntervento0>
+    	<lblIntervento1>Altro Intervento 1</lblIntervento1>
+    	<lblIntervento2>Altro Intervento 2</lblIntervento2>
+    	<lblIntervento3>Altro Intervento 3</lblIntervento3>
+    	<lblIntervento4>Altro Intervento 4</lblIntervento4>
+    	<lblIntervento5>Altro Intervento 5</lblIntervento5>
+    	<lblDataInt0>Data intervento principale</lblDataInt0>
+    </ROW>
+ </ROWSET>

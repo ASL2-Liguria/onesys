@@ -1,0 +1,15 @@
+<PAGINA key_id="TAB_RR_ACCERTAMENTI">
+	<HEADER_PAGE key_id="TAB_RR_ACCERTAMENTI"
+		valore="DEFAULT_MMG,SCHEDA,TAB_RR_ACCERTAMENTI#DEFAULT_MMG,COMMON_RR,TAB_RR_ACCERTAMENTI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabulazione"
+			valore="tabulazione#lblTitolo#butPrescrLibera,butInserisci,butSalvaRicetta,butStampaRicetta"
+			evento="START_END">
+			<RICETTA_ROSSA_ACCERTAMENTI key_id="RicettaRossaAccertamenti"
+				valore="ACCERTAMENTI" evento="START">
+			</RICETTA_ROSSA_ACCERTAMENTI>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

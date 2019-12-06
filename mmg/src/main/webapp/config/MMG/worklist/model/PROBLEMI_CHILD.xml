@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>PROBLEMI_CHILD</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.PROBLEMI_CHILD</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_PROBLEMI_CARTELLA</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+                <DBLCLICK>function(rec){WK_PROBLEMI.modificaProblema(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){WK_PROBLEMI.modificaProblema(rec);}</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+        
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+					<ID>
+						<COL>INFO</COL>
+					</ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                   	<!--  <PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setMenuProblemi( data ); }]]></PROCESS> -->
+                   	<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setSceltaProblema( data ); }]]></PROCESS>
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA</COL>
+						<DB>DATA</DB>
+					</ID>
+					<DESCRIPTOR>"Data"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+
+				<COLUMN>
+					<ID>
+						<COL>PROBLEMA_COMPLETO</COL>
+						<DB>PROBLEMA_COMPLETO</DB>
+					</ID>
+					<DESCRIPTOR>"Problema"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setDescrizioneProblema( data ); }]]></PROCESS>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+					<EVENTS>
+						<CLICK>
+                            <![CDATA[function(rec){alert('Apri Informazioni Acceso');}]]>
+						</CLICK>
+					</EVENTS>
+				</COLUMN>
+
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="ORDINAMENTO_PROBLEMA">ASC</COLUMN>
+				<COLUMN id="DATA_ISO">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,19 @@
+<PAGINA key_id="RIVALUTAZIONI_MEDICHE">
+    <HEADER_REFERTAZIONE key_id="RIVALUTAZIONI_MEDICHE" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,RIVALUTAZIONI_MEDICHE#DEFAULT,PS_RIVALUTAZIONI_MEDICHE" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="RivalutazioniMediche" valore="RIVALUTAZIONI_MEDICHE#lblTitolo#" evento="START">
+
+            <FIELDSET_TABLE key_id="fldPrimaValutazione" valore="fldPrimaValutazione" evento="START">
+                <DIV key_id="divWkPrimaValutazione" valore="divWkPrimaValutazione##" evento="START">
+                </DIV>
+            </FIELDSET_TABLE>
+
+            <FIELDSET_TABLE key_id="fldRivalutazioniMediche" valore="fldRivalutazioniMediche" evento="START">
+                <DIV key_id="divWkRivalutazioniMediche" valore="divWkRivalutazioniMediche##" evento="START">
+                </DIV>
+            </FIELDSET_TABLE>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

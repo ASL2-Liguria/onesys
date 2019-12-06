@@ -1,0 +1,46 @@
+<MENU>
+	<ID>MENU_ALTRE_STAMPE</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MAS.I</ID>
+			<LINK><![CDATA[function(rec){ NS_MENU_ALTRE_STAMPE.inserisciCertificato( rec, $('#N_SCHEDA').val() ); } ]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblInserisci</OUTPUT>
+			<CONCEALING>false</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO></INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MAS.M</ID>
+			<LINK><![CDATA[function(rec){ NS_MENU_ALTRE_STAMPE.modificaCertificato( rec, $('#N_SCHEDA').val() );  } ]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE>
+			<OUTPUT>traduzione.lblModifica</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO></INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MAS.D</ID>
+			<LINK><![CDATA[function(rec){ NS_MENU_ALTRE_STAMPE.eliminaCertificato( rec );  } ]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE>
+			<OUTPUT>traduzione.lblCancella</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO></INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MAS.S</ID>
+			<LINK><![CDATA[function(rec){ NS_MENU_ALTRE_STAMPE.stampaCertificato( rec );  } ]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE>
+			<OUTPUT>traduzione.lblStampa</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO></INFO>
+		</ITEM>
+	</LIST>
+</MENU>

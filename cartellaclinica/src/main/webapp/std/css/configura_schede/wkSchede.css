@@ -1,0 +1,231 @@
+@charset "utf-8";
+/* CSS Document */
+
+select {
+
+	font-size: 12px;
+	font-family: sans-serif;
+	
+}
+
+#titPopup{
+
+	background:#75BAFF;/*#2517e1;#1d63b4;*/
+	display:block;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	vertical-align:middle;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:5px;
+	border-top:2px solid #1d63b4;
+	text-align:center;
+
+}
+
+#titPopupCont{
+
+	background:#b41717;/*#1d63b4;*/
+	display:block;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	vertical-align:middle;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:5px;
+	border-top:2px solid #1d63b4;
+	text-align:center;
+
+}
+
+#titPopupRep{
+
+	background:#00A653; /*#1d63b4;*/
+	display:block;
+	width:100%;
+	height:25px;
+	line-height:25px;
+	vertical-align:middle;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:5px;
+	border-top:2px solid #1d63b4;
+	text-align:center;
+
+}
+
+#footPopup{
+
+	display:block;
+	height:20px;
+	line-height:19px;
+	color:#fff;
+	font-weight:bold;
+	padding-left:5px;
+	border-bottom:2px solid #1d63b4;
+
+}
+
+#footPopupCont{
+
+	display:block;
+	height:20px;
+	line-height:19px;
+	color:#fff;
+	font-weight:bold;
+	padding-left:5px;
+	border-bottom:2px solid #1d63b4;
+
+}
+
+#footPopupRep{
+
+	display:block;
+	height:20px;
+	line-height:19px;
+	color:#fff;
+	font-weight:bold;
+	padding-left:2px;
+	border-bottom:2px solid #1d63b4;
+
+}
+
+
+DIV.popupEsami {
+
+	background:#75BAFF;
+	z-index:7;
+	border: 3px #000033;
+	position:absolute;
+	text-align:center;
+	top:100px;
+	left:200px;
+	width:350px;
+	height:320px;
+	border-left:2px solid #1d63b4;
+	border-right:2px solid #1d63b4;
+
+}
+
+DIV.popupContenitori {
+
+	background:#b41717;
+	z-index:7;
+	border: 3px #000033;
+	position:absolute;
+	text-align:center;
+	top:100px;
+	left:200px;
+	width:350px;
+	height:320px;
+	border-left:2px solid #1d63b4;
+	border-right:2px solid #1d63b4;
+
+}
+
+DIV.popupReparti {
+
+	background:#00A653;
+	z-index:7;
+	border: 3px #000033;
+	position:absolute;
+	text-align:center;
+	top:100px;
+	left:200px;
+	width:350px;
+	height:320px;
+	border-left:2px solid #1d63b4;
+	border-right:2px solid #1d63b4;
+
+}
+
+.hide{
+
+	display:none;
+	
+}
+
+div#overlay
+{
+	z-index:98;
+	/*background: url(../../../imagexPix/Layout/overlay.png) ! important;*/
+	width:100%;
+	height:100%;
+	position:absolute;top:0;left:0;
+}
+
+div.bt{
+
+	width:30px;height:30px;cursor:pointer;float:left;
+	
+}
+
+div.wk_esa{
+
+	background:url(../../../imagexPix/contextMenu/infoEsami.png) 1px center no-repeat ;
+	
+}
+
+div.wk_cont{
+
+	background:url(../../../imagexPix/contextMenu/infoContenitori.png) 1px center no-repeat ;
+	
+}
+
+div.wk_rep{
+
+	background:url(../../../imagexPix/contextMenu/infoReparti.png) 1px center no-repeat ;
+	
+}
+
+table.classDataTable 
+{
+	
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+
+}
+/*
+table.classDataTable td
+{
+	border: 1px solid #83E2BC;
+}
+
+table.classDataTable th
+{
+	background-color:#E0FEFB;
+	border: 1px solid #83E2BC;
+}
+*/
+table.classDataTable td{
+	border: 1px solid #6AA8F2;
+}
+
+table.classDataTable th {
+	background-color:#C2FAFE;
+	border: 1px solid #6AA8F2;
+}
+
+div.classHeaderTabella
+{
+	white-space:nowrap;
+	font-size:12px;
+	color: #333333;
+	font-family: sans-serif;
+}
+
+div.classDatiTabella
+{
+	white-space:nowrap;
+}

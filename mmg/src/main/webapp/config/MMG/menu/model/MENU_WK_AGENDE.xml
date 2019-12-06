@@ -1,0 +1,26 @@
+<MENU>
+<ID>MENU_WK_AGENDE</ID>
+<TITLE>traduzione.lblMenu</TITLE>
+<LIST>
+    <ITEM>
+		<ID>MWA.I</ID>
+        <LINK><![CDATA[function(rec){ home.NS_MMG.apri( 'SCHEDA_AGENDA' ); } ]]></LINK>
+        <ICON_CLASS>inserisci-esame</ICON_CLASS>
+        <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+        <OUTPUT>traduzione.lblInserisci</OUTPUT>
+        <CONCEALING>false</CONCEALING>
+        <SEPARATOR>false</SEPARATOR>
+        <INFO></INFO>
+    </ITEM>
+    <ITEM>
+    	<ID>MWA.M</ID>
+        <LINK><![CDATA[function(rec){ home.NS_MMG.apri( 'SCHEDA_AGENDA&IDEN=' + rec[0]['IDEN'] ); } ]]></LINK>
+        <ICON_CLASS>modifica</ICON_CLASS>
+        <WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE>
+        <OUTPUT>traduzione.lblModifica</OUTPUT>
+        <CONCEALING>true</CONCEALING>
+        <SEPARATOR>false</SEPARATOR>
+        <INFO></INFO>
+    </ITEM>
+</LIST>
+</MENU>

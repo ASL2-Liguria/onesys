@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){/*NS_SCHEDA.cbkComune(data);*/}]]>
+        </onSelect>
+        <maxHeight>400</maxHeight>
+        <width>300</width>
+        <zIndex>9999</zIndex>
+        <deferRequestBy>200</deferRequestBy>
+        <storedQuery>AUTOCOMPLETE.NAZIONI</storedQuery>
+        <maxResults>40</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Nazioni</title>
+        <id_wk>NAZIONI</id_wk>
+        <onSelect type="js">
+            <![CDATA[function(data){/*NS_SCHEDA.cbkComune(data);*/}]]>
+        </onSelect>
+    </LIST>
+</AUTOCOMPLETE>

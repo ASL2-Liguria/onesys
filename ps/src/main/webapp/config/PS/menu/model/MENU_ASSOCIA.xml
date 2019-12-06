@@ -1,0 +1,21 @@
+<MENU>
+    <ID>MENU_ASSOCIA</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ASSOCIA</ID>
+            <LINK><![CDATA[function(rec){
+                if(rec[0].DATA_MORTE == null || rec[0].DATA_MORTE == "" ){
+                    home.NS_FENIX_PS.associa(rec[0].IDEN_ANAG, $('#IDEN_CONTATTO').val(), rec[0].COGNOME , $('#IDEN_RICOVERO').val(), $('#CODICE_RICOVERO').val(),$("#IDEN_CDC").val(), $("#IDEN_PROVENIENZA").val(), $("#IDEN_LISTA").val(), $("#STATO_CONTATTO").val(), $("#CHIUSO").val())
+                }
+                else{home.NOTIFICA.warning({message:"L'anagrafica selezionata è deceduta", title:"Attenzione"});}
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblAssociaPAZ</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Associazione del paziente sconosciuto"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

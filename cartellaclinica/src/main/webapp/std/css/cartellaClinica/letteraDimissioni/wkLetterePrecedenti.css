@@ -1,0 +1,16 @@
+
+body TABLE.classDataTable div{
+    white-space:normal;
+    width: 100%;
+    padding: 1%;
+}
+.classCopiaDati{
+    background-image: url(../../../../imagexPix/contextMenu/ico_copia.gif);
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    /*margin-right: 5px;
+    margin-top: 5px;*/
+    cursor: pointer;
+}
+

@@ -1,0 +1,51 @@
+<root>
+    <statements_list>
+        <statement name="WK_PROCEDURE_INSERITE">
+            <sql>
+                <![CDATA[
+                    SELECT wkpi.SEDE, wkpi.STADIAZIONE, wkpi.DATA_RILEVAZIONE, wkpi.UTENTE_INSERIMENTO, wkpi.DATA_INSERIMENTO, wkpi.IDEN_PROCEDURA
+                    FROM (
+                        SELECT tab.*, rank() over (partition BY tab.IDEN_PROCEDURA order by tab.IDEN) RANGO 
+                        FROM (
+                            SELECT
+                                /*+ FIRST_ROWS(100) */
+                                cps.IDEN,
+                                cpr.IDEN_VISITA,
+                                cps.IDEN_PROCEDURA,
+                                cps.inizio DATA_RILEVAZIONE,
+                                cps.FINE,
+                                cps.PROCEDURA,
+                                cps.SEDE,
+                                cps.stadio STADIAZIONE,
+                                cps.KEY_LEGAME,
+                                cps.INSORGENZA,
+                                to_char(cps.DATAINS, 'dd/MM/yyyy HH24:mm:ss') DATA_INSERIMENTO,
+                                cps.uteins UTENTE_INSERIMENTO
+                            FROM (
+                                SELECT
+                                    iden,
+                                    iden_procedura,
+                                    TO_CHAR(validita_inizio,'dd/mm/yyyy') INIZIO,
+                                    TO_CHAR(validita_fine,'dd/mm/yyyy') FINE,
+                                    extractvalue(xmltype(impostazioni), '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="PROCEDURA"]') PROCEDURA,
+                                    extractvalue(xmltype(impostazioni), '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hSede"]') SEDE,
+                                    extractvalue(xmltype(impostazioni), '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hStadio"]') STADIO,
+                                    extractvalue(xmltype(impostazioni), '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="KEY_LEGAME"]') KEY_LEGAME,
+                                    extractvalue(xmltype(impostazioni), '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radQuando"]') INSORGENZA,
+                                    data_ins DATAINS,
+                                    (SELECT tp.descr 
+                                    FROM tab_per tp 
+                                    WHERE iden = ute_ins) UTEINS
+                                FROM cc_procedure_scheda
+                                ) cps
+                            JOIN cc_procedure_ricovero cpr ON (cpr.IDEN = cps.IDEN_PROCEDURA)
+                            WHERE cpr.DELETED = 'N'
+                            ) tab
+                        WHERE iden_visita = TO_NUMBER(?) AND key_legame = ? AND insorgenza = ? 
+                        ) WKPI
+                    WHERE rango = 1
+		]]>
+            </sql>
+	</statement>
+    </statements_list>
+</root>

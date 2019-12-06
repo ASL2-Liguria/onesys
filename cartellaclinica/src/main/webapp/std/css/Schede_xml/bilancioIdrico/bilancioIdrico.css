@@ -1,0 +1,26 @@
+body { background:#daf5fe; margin:0px; padding:0px; cursor: default; font-family:Arial, calibri, sans-serif}
+
+.trIntestazioneWk th{
+	border:1px solid #09F;
+	border-bottom:2px solid #09F;
+	background-color:#D9F3FF;
+	color:#003;font-size:13px;
+	height:25px;
+}
+
+.trDatiWk td{
+	border:1px solid #09F;
+	background-color:#FFFFF0;
+	font-size:12px;
+	height:25px;
+}
+
+table {width: 100%;border-collapse: collapse;}
+input{width:30px;}
+td {border:solid 1px black; text-align: center;background:#daffff}
+td[stato=I] span{background: orange;}
+td[stato=E] span{background: #6b6; color:white;}
+td[stato=S] span{background: gray;}
+td[stato=K] span{background: red;}
+td[PRE=S] span {background: yellow;}
+td[POST=S] span {background: yellow;}

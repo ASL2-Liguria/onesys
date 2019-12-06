@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WK_PAC_APERTI</ID>
+    <ID-QUERY connection="ADT">WORKLIST.WK_PAC_APERTI</ID-QUERY>
+    <TITLE>"Worklist Ricoverati"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_WK_PAC_APERTI</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('','clsSel');}</CLICK>
+                <DBLCLICK><![CDATA[
+					function(rec){ 
+	                   	home.NS_FENIX_TOP.apriPagina(
+							{
+								url : 'page?KEY_LEGAME=GESTIONE_PAC&IDEN_ANAGRAFICA=' + rec.IDEN_ANAGRAFICA + '&IDEN_CONTATTO=' + rec.IDEN_CONTATTO + '&STATO_PAGINA=E',
+								id : 'NS_PAC_WK_ACCESSI',
+								fullscreen : true
+							}
+						);
+					}
+				]]>
+				</DBLCLICK>
+            </EVENTS>
+        </ROWS>
+        <!--<GROUP_ROWS>-->
+        <!--<GROUP_ROW>-->
+        <!--<ID_WORKLIST>DETTAGLIO_PAZIENTE_IN_WK</ID_WORKLIST>-->
+        <!--<FILTER>-->
+        <!--<![CDATA[function(rec){var w = $.managerWhere(); w.set('', new Array("iden_anagrafica","username"), new Array(rec.IDEN.toString(),$('#USERNAME').val())); return w;}]]>-->
+        <!--</FILTER>-->
+        <!--</GROUP_ROW>-->
+        <!--</GROUP_ROWS>-->
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO</COL>
+                        <DB>IDEN_CONTATTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN CONTATTO"</DESCRIPTOR>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ASSISTITO</COL>
+                        <DB>ASSISTITO</DB>
+                    </ID>
+                    <DESCRIPTOR>"ASSISTITO"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return NS_HOME_ADT.processDatiAssistito(data,td);}]]></PROCESS>
+                    <WIDTH>300px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>SESSO</COL>
+                        <DB>SESSO</DB>
+                    </ID>
+                    <DESCRIPTOR>"SESSO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INIZIO</COL>
+                        <DB>DATA_INIZIO</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA INIZIO"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>REGIME_RICOVERO_DESCRIZIONE</COL>
+                        <DB>REGIME_RICOVERO_DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"REGIME RICOVERO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>REGIME_RICOVERO_CODICE</COL>
+                        <DB>REGIME_RICOVERO_CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>"REGIME RICOVERO CODICE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>TIPO_RICOVERO_DESCRIZIONE</COL>
+                        <DB>TIPO_RICOVERO_DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"TIPO RICOVERO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>REPARTO_GIURIDICO</COL>
+                        <DB>REPARTO_GIURIDICO</DB>
+                    </ID>
+                    <DESCRIPTOR>"REPARTO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE</COL>
+                        <DB>CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>"NOSOLOGICO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

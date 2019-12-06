@@ -1,0 +1,31 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_RICARICA_VACCINO'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="Fornito" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_FORNITORE" db_descrizione="COD_FORNITORE" configurazione_multi_data="Q_FORNITURA_VACCINO" />
+	<DATO key_id="LuogoEsecuzione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="LUOGO_ESECUZIONE" db_descrizione="LUOGO_ESECUZIONE" configurazione_multi_data="Q_LUOGO_ESECUZIONE" />
+	<DATO key_id="ComboIn" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="LIST_CLASSI_RISCHIO" />
+	<DATO key_id="Vaccino" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_TIPO_VACCINO" />
+	<DATO key_id="cmbNumeroLotto" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NR_LOTTO" db_descrizione="NR_LOTTO" configurazione_multi_data="CARICA_LOTTO_VACCINO" />
+	<DATO key_id="DescrizioneFornitore" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DESCR_FORNITORE" db_descrizione="DESCR_FORNITORE" configurazione_multi_data="" />
+	<DATO key_id="DataVaccino" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA" db_descrizione="DATA" configurazione_multi_data="" />
+	<DATO key_id="tipoVaccino" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CODICE" db_descrizione="COD_VAC" configurazione_multi_data="" />
+	<DATO key_id="Adiuvato" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TIPO_VACCINO_ANTINFLUENZALE" db_descrizione="TIPO_VACCINO_ANTINFLUENZALE" configurazione_multi_data="R_VACCINO_ADIUVATO" />
+	<DATO key_id="ComboOut" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CLASSI" db_descrizione="CLASSI" configurazione_multi_data="" />
+	<DATO key_id="hIdenPPIP" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN_PPIP" db_descrizione="IDEN_PPIP" configurazione_multi_data="" />
+	<DATO key_id="DataScadenzaVaccino" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_SCADENZA" db_descrizione="DATA_SCADENZA" configurazione_multi_data="" />
+		<DATO key_id="InserisciPromemoria" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="INSERISCI_PROMEMORIA" />
+</DATI>
+

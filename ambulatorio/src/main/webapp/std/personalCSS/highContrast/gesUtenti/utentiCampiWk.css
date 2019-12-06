@@ -1,0 +1,51 @@
+
+html,body{margin: 0;padding:0}
+body{font-family: arial,sans-serif;
+font-size: 76%;
+text-align:center
+}
+
+div#box {
+	width:1000px; 
+	margin:0 auto;
+	text-align: left;
+	height:100%;
+}
+
+div#left{
+	float: left;
+	width: 330px;
+	width:340px;
+	width:330px;
+	padding: 1em 0 0 12px
+	background-color:#009966;
+	text-align:center;
+}
+div#content{
+	margin:0 340px 0 340px;
+	padding: 1em 12px;
+}
+
+div#right{
+	float: right; 
+	width: 330px;
+	width:340px;
+	width:330px;
+	padding: 1em 5px;
+	text-align:center;
+}
+
+
+.upInfo{ 
+	height:30px;
+}
+
+.downInfo{
+	height:240px;
+}
+
+.bottomInfo{
+	height:30px;
+	top:auto;
+	left:auto;	
+}

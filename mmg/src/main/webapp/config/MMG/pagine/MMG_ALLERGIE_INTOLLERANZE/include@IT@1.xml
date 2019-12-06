@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/MMG/Allergie/Allergie.js" />
+	<JS path="js/MMG/Allergie/AllergiePatSum.js" />
+	<CSS path="css/MMG/Allergie/MMG_Allergie.css" />
+</INCLUDE>

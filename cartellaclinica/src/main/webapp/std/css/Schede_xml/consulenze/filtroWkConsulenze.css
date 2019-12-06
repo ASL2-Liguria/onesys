@@ -1,0 +1,4 @@
+div.velonero {
+	filter:alpha(opacity=60);
+	background: gray url(../../../../imagexPix/loading.gif) center no-repeat;
+}

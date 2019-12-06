@@ -1,0 +1,9 @@
+<INCLUDE>
+    <JS path="config/ADT/validator/model/V_ADT_INS_ANAG.js" />
+    <JS path="config/ADT/validator/model/V_ADT_INS_ANAG_PRE_RICOVERO.js" />
+    <JS path="config/ADT/validator/model/V_ADT_INS_ANAG_SCONOSCIUTO.js" />
+    <JS path="js/ADT/SCHEDA_ANAGRAFICA/salvataggioAnagrafica.js"/>
+    <CSS path="css/ADT/SCHEDA_ANAGRAFICA/SchedaAnagrafica.css" />
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/SCHEDA_ANAGRAFICA/SchedaAnagrafica.js" />
+</INCLUDE>

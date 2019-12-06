@@ -1,0 +1,12 @@
+<INCLUDE>
+    <JS path="js/Base/LIB.js" />
+    <CSS path="css/mix.css" />
+    <CSS path="css/Login/login.css" />
+    <DWR path="dwr/engine.js" />
+    <DWR path="dwr/interface/toolKitDB.js" />
+    <DWR path="dwr/interface/toolKitWK.js" />
+    <CSS path="css/Login/loginIE7.css"  condizione="IE 7" />
+    <JS path="js/Login/loginIE7.js"  condizione="IE 7" />
+    <JS path="js/Login/login.js" />
+</INCLUDE>
+

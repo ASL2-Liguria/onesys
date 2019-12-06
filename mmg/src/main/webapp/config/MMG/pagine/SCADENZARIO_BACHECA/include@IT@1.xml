@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Bacheca/ScadenzarioBacheca.css" />
+	<JS path="js/MMG/Bacheca/ScadenzarioBacheca.js" />
+</INCLUDE>

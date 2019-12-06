@@ -1,0 +1,38 @@
+<root>
+    <statements_list>
+        <statement name="getFiltriRepartiUtenti">
+            <sql>
+                <![CDATA[
+                SELECT  
+                	replace(REPLACE(lastvaluechar, '''',''),', ',',') VALORE
+            	FROM 
+            		radsql.filtri
+          		WHERE 
+            		tipo = 2 
+            		AND user_name=?
+                ]]>
+            </sql>
+        </statement>
+         <statement name="getPositivitaGermi">
+            <sql>
+                <![CDATA[
+				 select idanalisi,positivita,to_char(data_positivita,'DD/MM/YYYY') data_positivita, positivita_pregressa, to_char(data_p_pregressa,'DD/MM/YYYY') data_p_pregressa from table(infoweb.verificaAllerteLabo(?))
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="getIdenProgrammaRiabilitativo">
+            <sql>
+                <![CDATA[
+				 SELECT IDEN_VISITA_REGISTRAZIONE, MAX(IDEN) IDEN_MAX FROM RADSQL.PROGRAMMA_RIABILITATIVO WHERE IDEN_VISITA_REGISTRAZIONE IN (select IDEN from radsql.nosologici_paziente where accesso=1 AND DELETED='N' AND DIMESSO='N' AND COD_CDC='RRF_PL') GROUP BY IDEN_VISITA_REGISTRAZIONE
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="getIdenProgrammaRiabilitativoSel">
+            <sql>
+                <![CDATA[
+				 SELECT IDEN_VISITA_REGISTRAZIONE, MAX(IDEN) IDEN_MAX FROM RADSQL.PROGRAMMA_RIABILITATIVO WHERE IDEN_VISITA_REGISTRAZIONE =? GROUP BY IDEN_VISITA_REGISTRAZIONE
+                ]]>
+            </sql>
+        </statement>        
+    </statements_list>	
+</root>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>3</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){ NS_DIMISSIONE_ICD.processDiagnosi(data)}]]>
+        </onSelect>
+        <deferRequestBy>1000</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.ADT_DIAGNOSI_ICD9_LIKE</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Diagnosi ICD9</title>
+        <auto_sensitive_search>true</auto_sensitive_search>
+        <id_wk>ADT_DIAGNOSI_ICD9</id_wk>
+    </LIST>
+</AUTOCOMPLETE>

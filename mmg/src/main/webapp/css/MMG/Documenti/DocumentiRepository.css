@@ -1,0 +1,4 @@
+body{width: 960px;}
+#butCerca, #butUltimi5 { float: right }
+#lblUltimi5 { font-weight: bold; color: red;}
+#ElencoWork {margin-right: 25px;}

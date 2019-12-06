@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/MMG/Patient_Summary/Vaccinazioni.css" />
+	<JS path="js/MMG/Patient_Summary/Vaccinazioni.js" />
+</INCLUDE>
+

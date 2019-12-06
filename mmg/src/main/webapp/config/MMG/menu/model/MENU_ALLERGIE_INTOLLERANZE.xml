@@ -1,0 +1,58 @@
+<MENU>
+	<id>MENU_ALLERGIE_INTOLLERANZE</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MAI.DEL.PS</ID>
+			<LINK><![CDATA[function(rec){WK_ALLERGIE_INTOLLERANZE.cancella(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'MOD');}]]></WHERE>
+			<OUTPUT>"Cancella"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>VUOTO.PS</ID>
+			<LINK><![CDATA[function(){}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'VIS');}]]></WHERE>
+			<OUTPUT>"Nessuna voce di menù disponibile"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MAI.DEL</ID>
+			<LINK><![CDATA[function(rec){WK_ALLERGIE_INTOLLERANZE.cancella(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY");}]]></WHERE>
+			<OUTPUT>"Cancella"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<!-- ITEM>
+			<ID>MAI.OSCURA</ID>
+			<LINK><![CDATA[function(rec){WK_ALLERGIE_INTOLLERANZE.oscura(rec, 'S');}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && rec[0].OSCURATO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MAI.DISOSCURA</ID>
+			<LINK><![CDATA[function(rec){WK_ALLERGIE_INTOLLERANZE.oscura(rec, 'N');}]]></LINK>
+			<ICON_CLASS>utente</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && rec[0].OSCURATO == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblDisoscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM-->
+	</LIST>
+</MENU>

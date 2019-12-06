@@ -1,0 +1,39 @@
+<MENU>
+    <ID>MENU_FRASI_STD</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISCI_FRASE</ID>
+            <LINK><![CDATA[function(rec){FRASI_STD.applica(rec[0].FRASE);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblInserisciFraseTextarea</OUTPUT>
+            <CONCEALING>N</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO>"inserisci frase nel testo sottostante"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_RIGA</ID>
+            <LINK><![CDATA[function(rec){FRASI_STD.inserisciDettaglio();}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblInserisciFrase</OUTPUT>
+            <CONCEALING>N</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO>"inserisci frase standard"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_RIGA</ID>
+            <LINK><![CDATA[function(rec){FRASI_STD.modificaDettaglio(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/azione.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0);}]]></WHERE>
+            <OUTPUT>traduzione.lblModificaFrase</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <ENABLE>S</ENABLE>
+            <SEPARATOR>N</SEPARATOR>
+            <INFO>"modifica frase standard"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

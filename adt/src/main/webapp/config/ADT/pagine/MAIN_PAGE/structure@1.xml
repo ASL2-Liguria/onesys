@@ -1,0 +1,151 @@
+<PAGINA key_id="MAIN_PAGE">
+	<TOP key_id="MAIN_PAGE" valore="MAIN_PAGE#MAIN_PAGE,DEFAULT,MENU#FeniX"
+		evento="START_END">
+	</TOP>
+	<DIV key_id="integration" valore="integration#hide" evento="START">
+		<DIV key_id="vocale" valore="vocale" evento="START">
+		</DIV>
+		<DIV key_id="pacs" valore="pacs" evento="START">
+		</DIV>
+	</DIV>
+	<DIV key_id="stampa" valore="stampa#invisible" evento="START">
+		<OBJECT key_id="AppStampa"
+			valore="AppStampa#application/x-java-applet#800px#800px#APPLET_GRUPPO"
+			evento="START">
+			<PARAM key_id="jnlp_href" valore="jnlp_href#AppStampa.jnlp" evento="START"></PARAM>
+			<SWITCHER key_id="AppStampa" evento="START" class_id=".jumpNoApplet"
+				valore="NO_APPLET"></SWITCHER>
+			<EMBED key_id="trasparenza" valore="transparent" evento="START">
+			</EMBED>
+			<PARAM_SESSION_ID key_id="session_id" valore="session_id"
+				evento="START">
+			</PARAM_SESSION_ID>
+		</OBJECT>
+		<DIV key_id="infoDocumento" valore="infoDocumento" evento="START">
+			<FIELDSET key_id="fldInfoDocumento" valore="fldInfoDocumento"
+				evento="START">
+				<SPAN key_id="numPagine" valore="numPagine" evento="START">
+				</SPAN>
+			</FIELDSET>
+		</DIV>
+		<DIV key_id="tastiFunzione" valore="tastiFunzione" evento="START">
+			<FIELDSET_TABLE key_id="fldFunzioniFirma" valore="fldFunzioniFirma"
+				evento="START">
+				<TR.INIT key_id="trpin" valore="" evento="START">
+					<TD.INIT key_id="tdpin" valore="1" evento="START">
+						<LABEL_PASSWORD key_id="pin" valore="lblPin#txtPin#"
+							evento="START">
+						</LABEL_PASSWORD>
+					</TD.INIT>
+				</TR.INIT>
+				<TR.INIT key_id="trButFirma" valore="" evento="START">
+					<TD.INIT key_id="tdButFirma" valore="2" evento="START">
+						<BUTTON key_id="butFirma" valore="butFirma" evento="START">
+						</BUTTON>
+					</TD.INIT>
+				</TR.INIT>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fldFunzioniValida" valore="fldFunzioniValida"
+				evento="START">
+				<TR.INIT key_id="trpassword" valore="" evento="START">
+					<TD.INIT key_id="tdpassword" valore="1" evento="START">
+						<LABEL_PASSWORD key_id="password" valore="lblPassword#txtPassword#"
+							evento="START">
+						</LABEL_PASSWORD>
+					</TD.INIT>
+				</TR.INIT>
+				<TR.INIT key_id="trButValida" valore="" evento="START">
+					<TD.INIT key_id="tdButValida" valore="2" evento="START">
+						<BUTTON key_id="butValida" valore="butValida" evento="START">
+						</BUTTON>
+					</TD.INIT>
+				</TR.INIT>
+				<TR.INIT key_id="trButValidaEsci" valore="" evento="START">
+					<TD.INIT key_id="tdButValidaEsci" valore="3" evento="START">
+						<BUTTON key_id="butValidaEsci" valore="butValidaEsci"
+							evento="START">
+						</BUTTON>
+					</TD.INIT>
+				</TR.INIT>
+				<TR.INIT key_id="trButValidaStampaEsci" valore="" evento="START">
+					<TD.INIT key_id="tdButValidaStampaEsci" valore="3" evento="START">
+						<BUTTON key_id="butValidaStampaEsci" valore="butValidaStampaEsci"
+							evento="START">
+						</BUTTON>
+					</TD.INIT>
+				</TR.INIT>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fldFunzioni" valore="fldFunzioni"
+				evento="START">
+				<TR_TD_BUTTON key_id="butIngrandisci" valore="butIngrandisci"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butDiminuisci" valore="butDiminuisci"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagPrec" valore="butPagPrec"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagSucc" valore="butPagSucc"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagPrima" valore="butPagPrima"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butPagUltima" valore="butPagUltima"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butRuotaOrario" valore="butRuotaOrario"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butRuotaAnti" valore="butRuotaAnti"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butChiudi" valore="butChiudi"
+					evento="START">
+				</TR_TD_BUTTON>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fldFunzioniStampa" valore="fldFunzioniStampa"
+				evento="START">
+				<TR_TD_BUTTON key_id="butStampa" valore="butStampa"
+					evento="START">
+				</TR_TD_BUTTON>
+				<TR_TD_BUTTON key_id="butStampaSu" valore="butStampaSu"
+					evento="START">
+				</TR_TD_BUTTON>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fldFunzioniRitornaWk" valore="fldFunzioniRitornaWk"
+				evento="START">
+				<TR_TD_BUTTON key_id="butChiudiReturnWorklist" valore="butChiudiReturnWorklist"
+					evento="START">
+				</TR_TD_BUTTON>
+			</FIELDSET_TABLE>
+		</DIV>
+	</DIV>
+	<DIV key_id="menuBar" valore="menuBar#sfLight" evento="START">
+		<MENU key_id="slidemenu" valore="PRINCIPALE" evento="START">
+		</MENU>
+		<MINI_MENU key_id="miniMenu" valore="" evento="START">
+		</MINI_MENU>
+	</DIV>
+	<DIV key_id="content" valore="content" evento="START">
+		<IFRAME key_id="iContent" valore="iContent" evento="START">
+		</IFRAME>
+	</DIV>
+	<STATUS_BAR key_id="statusBar" valore="statusBar" evento="START">
+		<DIV key_id="statSx" valore="statSx" evento="START">
+			<STATUS_BAR_H5 key_id="h5NomeHost" valore="h5NomeHostTit#h5NomeHostVal"
+				evento="START">
+			</STATUS_BAR_H5>
+			<STATUS_BAR_H5 key_id="h5Username" valore="h5UsernameTit#h5UsernameVal"
+				evento="START">
+			</STATUS_BAR_H5>
+			<STATUS_BAR_H5 key_id="h5Debug" valore="h5DebugTit#h5DebugVal"
+				evento="START">
+			</STATUS_BAR_H5>
+		</DIV>
+		<DIV key_id="statDx" valore="statDx" evento="START">
+		</DIV>
+	</STATUS_BAR>
+</PAGINA>
+

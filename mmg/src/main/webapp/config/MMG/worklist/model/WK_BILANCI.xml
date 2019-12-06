@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_BILANCI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.WK_BILANCI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_WK_BILANCI</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+				<COLUMN>
+					<ID>
+						<COL>DATA_INS</COL>
+						<DB>DATA_INS</DB>
+					</ID>
+					<DESCRIPTOR>"Data Visita"</DESCRIPTOR>
+					<!-- <PROCESS type="java">.processData</PROCESS> -->
+					<WIDTH>140px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCR_UTE_INS</COL>
+						<DB>DESCR_UTE_INS</DB>
+					</ID>
+					<DESCRIPTOR>"Medico"</DESCRIPTOR>           				
+					<WIDTH>140px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PAZIENTE</COL>
+						<DB>PAZIENTE</DB>
+					</ID>
+					<DESCRIPTOR>"Paziente"</DESCRIPTOR>           				
+					<WIDTH>160px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>SCHEDA</COL>
+						<DB>SCHEDA</DB>
+					</ID>
+					<DESCRIPTOR>"Bilancio di Salute"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="SCHEDA">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

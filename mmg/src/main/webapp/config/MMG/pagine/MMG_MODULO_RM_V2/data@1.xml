@@ -1,0 +1,90 @@
+<DATI
+	configurazione="begin 
+
+   if '#IDEN#' is null then
+	  
+		   :stato_pagina := 'X'; 
+		   :key_query := 'INDAGINE_QUESITO_DATI_RM'; 
+		   :where := null; 
+		   :campo_xml := null;
+   else
+		   :stato_pagina := 'K'; 
+		   :key_query := 'Q_RICARICA_MODULO_RM'; 
+		   :where := null; 
+		   :campo_xml := null; 
+   end if;
+
+end;">
+	<DATO key_id="Notizie_Clin" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOTIZIE_CLINICHE" db_descrizione="NOTIZIE_CLINICHE" configurazione_multi_data="" />
+	<DATO key_id="Indagine" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDAGINE" db_descrizione="INDAGINE" configurazione_multi_data="" />
+	<DATO key_id="Quesito" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="QUESITO" db_descrizione="QUESITO" configurazione_multi_data="" />
+	<DATO key_id="Collaborazione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COLLABORAZIONE" db_descrizione="COLLABORAZIONE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Collaborazione_bis" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COLLABORAZIONE_BIS" db_descrizione="COLLABORAZIONE_BIS" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_RM'' and TIPO_DATO=''Collaborazione_bis'''; end;" />
+	<DATO key_id="Peso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PESO" db_descrizione="PESO" configurazione_multi_data="" />
+	<DATO key_id="PaceMaker" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PACE_MAKER" db_descrizione="PACE_MAKER" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="DispoEleNR" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DISP_ELE_NR" db_descrizione="DISP_ELE_NR" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ClipVascolari" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CLIP_VASCOLARI" db_descrizione="CLIP_VASCOLARI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="FiltriStentSpirali" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="FILTRI_STENT_SPIRALI" db_descrizione="FILTRI_STENT_SPIRALI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Catetere" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CATETERE" db_descrizione="CATETERE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MedicazioniTransdermiche" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="MED_TRANSDERMICHE" db_descrizione="MED_TRANSDERMICHE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Protesi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROTESI" db_descrizione="PROTESI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="CorpiEstranei" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CORPI_ESTRANEI" db_descrizione="CORPI_ESTRANEI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ClipsMet" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CLIPS_MET" db_descrizione="CLIPS_MET" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="FiltriStentSpiraliNon" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="FILTRI_STENT_SPIRALI_NON" db_descrizione="FILTRI_STENT_SPIRALI_NON" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Shunt" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="SHUNT" db_descrizione="SHUNT" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ProtesiOrtMet" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROTESI_ORT_MET" db_descrizione="PROTESI_ORT_MET" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Espansori" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ESPANSORI" db_descrizione="ESPANSORI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Iud" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IUD" db_descrizione="IUD" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Tatuaggi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TATUAGGI" db_descrizione="IMPIATATUAGGINTI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MesiGravidanza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="MESI_GRAVIDANZA" db_descrizione="MESI_GRAVIDANZA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="DataUltimoMestruo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_ULTIMO_MESTRUO" db_descrizione="DATA_ULTIMO_MESTRUO" configurazione_multi_data="" />
+	<DATO key_id="RischioAllergico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RISCHIO_ALLERGICO" db_descrizione="RISCHIO_ALLERGICO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="txtSpecRischioAllergico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DETTAGLIO_RISCHIO_ALLERGICO" db_descrizione="DETTAGLIO_RISCHIO_ALLERGICO" configurazione_multi_data="" />
+	<DATO key_id="AllergieMetalli" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ALLERGIE_METALLI" db_descrizione="ALLERGIA_METALLI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="txtAllergieMetalli" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DETTAGLIO_ALLERGIE_METALLI" db_descrizione="DETTAGLIO_ALLERGIE_METALLI" configurazione_multi_data="" />
+	<DATO key_id="GraveInsufficienzaEpatica" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INS_EPATICA" db_descrizione="INS_EPATICA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="txtGraveInsufficienzaEpatica" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DETTAGLIO_INS_EPATICA" db_descrizione="DETTAGLIO_INS_EPATICA" configurazione_multi_data="" />
+	<DATO key_id="InsufficienzaRenale" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INSUFF_RENALE" db_descrizione="INSUFF_RENALE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="txtInsufficienzaRenale" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DETTAGLIO_INSUFF_RENALE" db_descrizione="DETTAGLIO_INSUFF_RENALE" configurazione_multi_data="" />
+	<DATO key_id="Creatininemia" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CREATININEMIA" db_descrizione="CREATININEMIA" configurazione_multi_data="" />
+	<DATO key_id="DataCreatininemia" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_CREATININEMIA" db_descrizione="DATA_CREATININEMIA" configurazione_multi_data="" />
+	<DATO key_id="Allergie_Mezzi_Contrasto" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ALLERGIE_MEZZI_CONTRASTO" db_descrizione="ALLERGIE_MEZZI_CONTRASTO" configurazione_multi_data="R_SI_NO_DATO_NON_NOTO" />
+	<DATO key_id="cmbProblemiPaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="CMB_PROBLEMI_MODULI" />
+	
+</DATI>
+

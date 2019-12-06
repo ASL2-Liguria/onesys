@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    
+    <ROW>
+        
+        <lblTitolo>Cronologia degli accessi</lblTitolo>
+        
+		<tabCronologiaAccessi>Cronologia degli accessi</tabCronologiaAccessi>
+		
+			<fldFiltri>Ricerca il paziente di cui vuoi visualizzare gli accessi</fldFiltri>
+		
+				<lblNome>Nome</lblNome>
+				<lblCognome>Cognome</lblCognome>
+				<lblCodiceFiscale>Codice Fiscale</lblCodiceFiscale>
+				<lblDaDataAccesso>Da data di accesso</lblDaDataAccesso>
+				<lblADataAccesso>A data di accesso</lblADataAccesso>
+			
+			
+		<butRegimeLP>LP (Libera Professione)</butRegimeLP>
+		<butRegimeAC>AC (Attività Convenzionata)</butRegimeAC>
+		<butRegimeSSN>SSN (Solo amministratori)</butRegimeSSN>
+		<butAnnulla>Annulla</butAnnulla>
+		<lblMsgRegimeApertura>L'Assistito risulta associato ad un altro medico. Scegliere con quale regime aprire la cartella dell'assistito:</lblMsgRegimeApertura>
+		<regimeApertura>Regime di apertura cartella</regimeApertura>	
+			
+    </ROW>
+    
+</ROWSET>

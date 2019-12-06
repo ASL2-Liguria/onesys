@@ -1,0 +1,6 @@
+#divBtn, #divContent, body#page {background: transparent; padding:0px; margin:0px;}
+#divBtn {border-bottom: 4px solid rgba(0,0,0,.6);}
+#divBtn span { background: #C3DCEC; margin-right:2px; padding: 3px 10px 3px 10px; display: inline-block; cursor:pointer; font-size: 12px;font-weight: bold; color: rgba(0,0,0,.8);; }
+#divBtn span.active { background: rgba(0,0,0,.6); color:#C3DCEC; }
+#iContent { height: 100%; width: 100%; }
+

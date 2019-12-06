@@ -1,0 +1,12 @@
+<INCLUDE>
+	<JS path="js/NS_APPLICATIONS.js" />
+	<JS path="js/ADT/GestioneDSA/InitGestioneDSA.js"/>
+	<JS path="js/ADT/Contatto/ContattoMethods.js"/>
+	<JS path="js/ADT/GestioneDSA/NSRegistraFirma.js"/>
+	<JS path="config/ADT/validator/model/V_ADT_GESTIONE_DSA.js"/>
+	<JS path="js/ADT/Contatto/Contatto.js"/>
+	<JS path="js/Base/worklist.js"/>
+	<CSS path="css/ADT/GestioneDSA/GestioneDSA.css"/>
+	<JS path="js/ADT/GestioneDSA/GestioneDSA.js"/>
+	<JS path="js/ADT/GestioneDSA/Richieste.js"/>
+</INCLUDE>

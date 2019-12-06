@@ -1,0 +1,42 @@
+<ROWSET>
+    <ROW>
+    	<filtroCartelle>Gestione movimenti cartelle</filtroCartelle>
+    	<lblArchivioReparto>Reparto</lblArchivioReparto>
+    	<lblStruttura>Struttura</lblStruttura>
+    	<lblAnno>Anno</lblAnno>
+      <lblADataA>A data richiesta</lblADataA>
+      <lblDataNasc>Data nascita</lblDataNasc>
+        <lblStatoCartellaRich>Stato richiesta</lblStatoCartellaRich>
+        <lblIdenRichiesta>Iden richiesta</lblIdenRichiesta>
+      <lblDaDataA>Da data richiesta</lblDaDataA>
+    	<lblTipoCartella>Tipo Cartella</lblTipoCartella>
+    	<lblStatoCartella>Stato Cartella</lblStatoCartella>
+    	<lblStatoCartellaGrouper>Stato Cartella</lblStatoCartellaGrouper>
+    	<lblArchivio>Archivio</lblArchivio>
+    	<lblDataArchiviazione>Data archiviazione</lblDataArchiviazione>
+    	<lblRep>Reparto</lblRep>
+    	<filtroGrouper>Drg e tariffazione</filtroGrouper>
+    	<lblRepGrouper>Reparto</lblRepGrouper>
+    	<lblStatoRichiesta>Stato richiesta Grouper</lblStatoRichiesta>
+    	<lblNCartella>N. Cartella</lblNCartella>
+    	<lblDaData>Da data</lblDaData>
+    	<lblAData>A data</lblAData>
+    	<lblDaDataGrouper>Da data stato</lblDaDataGrouper>
+    	<lblADataGrouper>A data stato</lblADataGrouper>
+    	<lblTesto>Testo per ajax</lblTesto>
+      <filtroRichiesteCartelle>Gestione richieste cartelle</filtroRichiesteCartelle>
+      <lblCampiMovimentiCartelle>Reset Campi</lblCampiMovimentiCartelle>
+      <lblResetCampi>Reset Campi</lblResetCampi>
+      <lblResetCampiGrouper>Reset Campi</lblResetCampiGrouper>
+      <lblReparto>Reparto</lblReparto>
+      <lblNCartella>N Cartella</lblNCartella>
+      <lblStruttura>Struttura</lblStruttura>
+      <lblQueryEstrazione>Nome</lblQueryEstrazione>
+      <filtroEstrazioneCartelle>Estrazioni</filtroEstrazioneCartelle>
+      <butApriEstrazione>Apri</butApriEstrazione>
+      <lblvuota1></lblvuota1>
+      <lblvuota2></lblvuota2>
+      <lblvuota3></lblvuota3>
+      <lblvuota4></lblvuota4>
+    </ROW>
+</ROWSET>

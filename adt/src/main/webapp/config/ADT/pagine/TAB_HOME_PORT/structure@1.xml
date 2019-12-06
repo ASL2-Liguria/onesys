@@ -1,0 +1,22 @@
+<PAGINA key_id="TAB_HOME_PORT">
+    <HEADER_WK key_id="TAB_HOME_PORT" valore="DEFAULT,WK,TAB_HOME_PORT#DEFAULT,TAB_HOME_ADT" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRicoverati" valore="filtroRicoverati#CONT" evento="START">
+            <TABELLA.INIT key_id="tableCont" valore="" evento="START">
+                <TR.INIT key_id="rigaCont1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaCont2" valore="" evento="START">
+                    <FILTRO_TEXT key_id="ComuneResidenza" valore="lblComuneResidenza#txtComuneResidenza#comune_residenza##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_DATA key_id ="DataNascita" valore ="lblDataNascita#txtDataNascita#datanascita###lblDataNascita#data_nascita##N" evento="START">
+                    </FILTRO_DATA>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+</TABULAZIONE.FILTRI>
+</PAGINA>

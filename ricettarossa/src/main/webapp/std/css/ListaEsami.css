@@ -1,0 +1,206 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* css per la tabella di dati, come ad esempio la worklist */
+
+
+table.TableProfilo
+{
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:left;
+	border: 1px solid #6AA8F2;
+	background-color:#FFC;	
+	border-collapse : collapse;
+	width:100%;	
+}
+
+div
+{
+	table-layout:fixed;
+	font: Arial;
+	font-size:12px;
+	text-align:left;
+	width:100%;
+	padding-bottom:1px;
+	padding-top:1px;
+	padding-left:1px;
+	padding-right:1px;
+}
+
+div table{
+	
+	font-size:12px;
+	border: 1px solid #729ECF;
+	background-image: 
+	url(file://///192.168.1.20/Projects/libs/whaleTest/imagexPix/provetteLabo/provettaEsamiMednucOpaca.png) bottom right;
+	width:100%;
+
+}
+
+div table td
+{
+	width:20%;
+	font-stretch:condensed;
+}
+
+div table th
+{
+	width:20%;
+	font-size: 12px;
+    font-weight:bold;
+	padding-left:28px;
+	text-align:left;
+	border-right: 1px #729ECF;
+	text-decoration:underline;
+	cursor: hand;
+
+}
+
+div.tappoblu79 table 
+{
+	background:#DEE0FA url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.tappomarrone03 table
+{
+	background:#F4EBDF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20marrone.png) left no-repeat;
+	
+}
+
+div.tappoverde05 table
+{
+	background-color:#D5FFEA;	
+	background:#D5FFEA url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20verde.png) left no-repeat;
+}
+
+div.tappoarancio99 table 
+{
+	background:#FFF0D9 url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20arancio.png) left no-repeat;
+}
+
+div.tappoviola99 table
+{
+	background:#F7E4FA url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20viola.png) left no-repeat;
+}
+
+
+div.tappogrigio99 table
+{
+	background:#E1E1E1 url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20grigia.png) left no-repeat;
+}
+
+div.tapporosso06 table
+{
+	background:#FFDFDF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20rossa.png) left no-repeat;
+}
+
+div.tappobluUrine table 
+{	
+	background:#D9E6FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.Urinetappoblu99 table
+{
+	background:#D2F0FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.feci99 table 
+{
+	background:#F3F1E2 url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20marrone.png) left no-repeat;
+}
+
+div.tappoviola04 table
+{
+	background:#FFE8FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20viola.png) left no-repeat;
+}
+
+div.provettaviola table 
+{
+	background:#FFC4FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20viola.png) left no-repeat;
+}
+
+div.Urinetappoblu13 table
+{
+	background:#CCF4FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.tappoceleste02 table
+{
+	background:#E1FFFF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20celeste.png) left no-repeat;
+}
+
+div.tappomarronechiaro99 table
+{
+	background:#DFCEBF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20marrone.png) left no-repeat;
+}
+
+div.Urinetappobianco08 table
+{
+	background:#FFF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20bianca.png) left no-repeat;
+}
+
+div.Urinetappoblu09 table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.Urinetappoblu10 table
+{ 
+	background:#E2ECFE url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.altriesamisiero table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.altriesamiurine table
+{ 
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.altriesamiliquidopleurico table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.altriesamiliquidoasc table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.altriesamiliquidoamn table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+div.altriesamiliquidosin table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.altriesamiliquidodialisi table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.altriesamiliquor table
+{
+	background:#E6F2FF url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provetta%20blu.png) left no-repeat;
+}
+
+div.esamiMedNuc table{
+	
+	font-size:12px;
+	border: 1px solid #729ECF;
+	background:#EEFAFB url(file:///C|/Eclipse_Progetti/Whale2/WebContent/imagexPix/provetteLabo/provettaEsamiMednucOpaca.png) bottom right ;
+	width:100%;
+
+}
+
+.nonUrgente {
+
+	color: #CCC;
+
+}

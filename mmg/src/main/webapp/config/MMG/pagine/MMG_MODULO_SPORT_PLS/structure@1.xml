@@ -1,0 +1,40 @@
+<PAGINA key_id="MMG_MODULO_SPORT_PLS">
+	<HEADER_PAGE key_id="MMG_MODULO_SPORT_PLS"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_SPORT_PLS#DEFAULT_MMG,MMG_MODULO_SPORT_PLS"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_SPORT_PLS#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="ModuloSportPLS#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabModulo" valore="tabModulo" evento="START">
+				<FIELDSET_TABLE key_id="fldQuestions" valore="fldQuestions" evento="START">
+					<TR_TD_LABEL key_id="lblSvenimenti" valore="lblSvenimenti" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtSvenimenti" valore="txtSvenimenti#SVENIMENTI" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblDistrubiTorace" valore="lblDistrubiTorace" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtDistrubiTorace" valore="txtDistrubiTorace#DISTURBI_TORACE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblBattitiIrregolari" valore="lblBattitiIrregolari" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtBattitiIrregolari" valore="txtBattitiIrregolari#BATTITI_IRREGOLARI" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblProblemaCuore" valore="lblProblemaCuore" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtProblemaCuore" valore="txtProblemaCuore#PROBLEMA_CUORE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblEsamiCuore" valore="lblEsamiCuore" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtEsamiCuore" valore="txtEsamiCuore#ESAMI_CUORE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblStordimento" valore="lblStordimento" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtStordimento" valore="txtStordimento#STORDIMENTO" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblConvulsioni" valore="lblConvulsioni" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtConvulsioni" valore="txtConvulsioni#CONVULSIONI" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblStanchezza" valore="lblStanchezza" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtStanchezza" valore="txtStanchezza#STANCHEZZA" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblParenteDeceduto" valore="lblParenteDeceduto" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtParenteDeceduto" valore="txtParenteDeceduto#PARENTE_DECEDUTO" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblFamCardio" valore="lblFamCardio" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtFamCardio" valore="txtFamCardio#FAM_CARDIOMIOPATIE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblFamCuore" valore="lblFamCuore" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtFamCuore" valore="txtFamCuore#FAM_CUORE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL key_id="lblFamSvenimenti" valore="lblFamSvenimenti" evento="START"></TR_TD_LABEL>
+					<TR_TD_TEXTAREA key_id="txtFamSvenimenti" valore="txtFamSvenimenti#FAM_SVENIMENTI" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

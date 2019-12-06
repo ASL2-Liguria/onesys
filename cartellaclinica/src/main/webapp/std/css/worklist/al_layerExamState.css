@@ -1,0 +1,9 @@
+div.livelloStato{
+	background-color:#FAFFD5;
+	border-top: Solid 1px #2E74B9;
+	border-left: Solid 1px #2E74B9;
+	border-right: Solid 1px #2E74B9;
+	border-bottom: Solid 1px #2E74B9;
+	padding: 5px 5px 5px 5px; 
+	width:150px;
+ }

@@ -1,0 +1,20 @@
+<PAGINA key_id="TERAPIA">
+    <HEADER_REFERTAZIONE key_id="TERAPIA" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,TERAPIA#DEFAULT,PS_LIST_TERAPIA" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati##PS###" evento="START_END">
+        <TABULAZIONE.INIT key_id="insTerapia" valore="TERAPIA#insTerapia#" evento="START">
+        <INPUT.HIDDEN key_id="hIdenAnag" valore="hIdenAnag###IDEN_ANAG" evento="START">
+		</INPUT.HIDDEN>
+		<INPUT.HIDDEN key_id="hIdenContatto" valore="hIdenContatto###IDEN_CONTATTO" evento="START">
+		</INPUT.HIDDEN>
+		<INPUT.HIDDEN key_id="hUteIns" valore="hUteIns###UTE_INS" evento="START">
+		</INPUT.HIDDEN>
+
+              	<FIELDSET_TABLE key_id="fldLista" valore="fldLista" evento="START">
+              		<DIV key_id="divWkFarmaci" valore="divWkFarmaci##" evento="START">
+              		</DIV>
+              	</FIELDSET_TABLE>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

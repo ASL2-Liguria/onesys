@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="inizioTrattamento" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="fineTrattamento" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="finoFineRicovero" TYPE="input" TYPEINPUT="checkbox"/>
+        <CAMPO KEY_CAMPO="finoRagObiettivi" TYPE="input" TYPEINPUT="checkbox"/>
+    </CAMPI>
+</PAGINA>

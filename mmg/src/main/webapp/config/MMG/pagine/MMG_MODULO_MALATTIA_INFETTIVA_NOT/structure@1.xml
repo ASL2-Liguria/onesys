@@ -1,0 +1,34 @@
+<PAGINA key_id="MMG_MODULO_MALATTIA_INFETTIVA_NOT">
+	<HEADER_PAGE key_id="MMG_MODULO_MALATTIA_INFETTIVA_NOT"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_MALATTIA_INFETTIVA_NOT#DEFAULT_MMG,MMG_MODULO_MALATTIA_INFETTIVA_NOT"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_MALATTIA_INFETTIVA_NOT#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabModuloMalattiaInfettivaNot"
+			valore="ModuloMalattiaInfettivaNot#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabModuloMalattiaInfettivaNot" valore="tabModuloMalattiaInfettivaNot" evento="START">
+				<FIELDSET_TABLE key_id="fldOsservazioni" valore="fldOsservazioni" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtComune" valore="lblComune##txtComune###COMUNE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtProfessione" valore="lblProfessione##txtProfessione###PROFESSIONE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtConiugata" valore="lblConiugata##txtConiugata###CONIUGATA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtULSS" valore="lblULSS##txtULSS###ULSS" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCodiceSSN" valore="lblCodiceSSN##txtCodiceSSN###CODICE_SSN" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDiagnosi" valore="lblDiagnosi##txtDiagnosi###DIAGNOSI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="radDiagnosi" valore="lblradDiagnosi##radDiagnosi#radDiagnosi#{width:'auto'}#N#RAD_DIAGNOSI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_DATA key_id="DataInizio" valore="lblDataInizio##txtDataInizio#DataInizio#direction:false, format: 'd/m/Y'#disabled:false##DATA_INIZIO" evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="txtFrqCollettivita" valore="lblFrqCollettivita##txtFrqCollettivita###FRQ_COLLETTIVITA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Vaccinazione" valore="lblVaccinazione##Vaccinazione#radVaccinazione#{width:'auto'}#S#VACCINAZIONE" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtAnnoVacc" valore="lblAnnoVacc##txtAnnoVacc###ANNO_VACCINAZIONE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtRicovero" valore="lblRicovero##txtRicovero###RICOVERO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXTAREA key_id="taMisProfilattiche" valore="lblMisProfilattiche#taMisProfilattiche#MISURE_PROFILATTICHE" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="taOsservazioni" valore="lblOsservazioni#taOsservazioni#OSSERVAZIONI" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

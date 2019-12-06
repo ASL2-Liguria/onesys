@@ -1,0 +1,35 @@
+<QUERIES>
+    <QUERY_GROUP id="WORKLIST">
+        <QUERY id="Q_WK_PC">
+            <SQL>
+                select pc.IP, pc.sito, pc.stampante_referto, pc.stampante_etichette from pc
+                where ip like '%'|| :PC || '%' and pc.attivo = 'S' and pc.sito = 'PS'
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">40</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+    </QUERY_GROUP>
+    <QUERY_GROUP id="DATI">
+        <QUERY id="Q_DATI_PC">
+            <SQL>
+                select
+                    (select :PC from dual ) as IP ,
+                    (SELECT VALORE  FROM PARAMETRI WHERE ID_GRUPPO = :PC AND NOME ='STAMPANTE_BRACCIALETTO' AND ATTIVO ='S' ) AS STAMPANTE_BRACCIALETTO,
+                    (SELECT VALORE  FROM PARAMETRI WHERE ID_GRUPPO = :PC AND NOME ='TRIAGE_DEFAULT' AND ATTIVO ='S' ) AS TRIAGE_DEFAULT,
+                    (SELECT VALORE  FROM PARAMETRI WHERE ID_GRUPPO = :PC AND NOME = 'STAMPANTE_CONFIGURAZIONE' AND ATTIVO ='S' ) AS STAMPANTE_CONFIGURAZIONE,
+                    (SELECT STAMPANTE_REFERTO  FROM pc WHERE ip = :PC AND ATTIVO ='S' and sito in ('PS', 'ALL') ) AS STAMPANTE_REFERTO,
+                    (SELECT STAMPANTE_ETICHETTE  FROM pc WHERE ip = :PC AND ATTIVO ='S' and sito in ('PS', 'ALL')) AS STAMPANTE_ETICHETTE
+                from dual
+            </SQL>
+            <BINDS>
+                <BIND id="PC" value="#PC#" type="V"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+    </QUERY_GROUP>
+</QUERIES>

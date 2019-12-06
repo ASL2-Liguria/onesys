@@ -1,0 +1,56 @@
+/**
+ * Foglio di stile in uso dalla scheda Wells Score.
+ * 
+ * @author	gianlucab
+ * @version	1.0
+ * @since	2016-04-22
+ */
+@charset "utf-8";
+
+td.classTdLabel, td.classTdLabelLink {
+	width: auto;
+}
+
+td.classTdField {
+	height:30px;
+}
+
+label.labelLink {
+	float:left;
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}
+
+.help {
+	background:url(../../../../imagexPix/interrogativo.png) no-repeat;
+	float:right;
+	margin-right:10px;
+	width:20px;height:20px;
+	cursor:pointer;
+}
+
+#divPopUpInfo table {
+	border: 1px solid;
+	width: 100%;
+}
+
+#divPopUpInfo table th {
+	text-align: left;
+	background-color: #eee;
+	padding: 5px;
+	font-size: 12px;
+	border: solid #000 1px;
+}
+
+#divPopUpInfo table td {
+	background-color: #fff;
+	padding: 5px;
+	font-size: 12px;
+	border: solid #000 1px;
+}
+
+#txtWellsTotale, #txtWellsPerc {
+	margin-left: 5px;
+}
+

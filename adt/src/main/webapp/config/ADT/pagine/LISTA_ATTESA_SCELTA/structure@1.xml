@@ -1,0 +1,17 @@
+<PAGINA key_id="LISTA_ATTESA_SCELTA">
+    <HEADER_PAGE key_id="LISTA_ATTESA_SCELTA" valore="DEFAULT,SCHEDA,LISTA_ATTESA_SCELTA#DEFAULT,LISTA_ATTESA_WRAPPER" evento="START_END"></HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="LISTA_ATTESA_SCELTA#lblTitole#" evento="START">
+                <FIELDSET_TABLE key_id="fldSceltaLista" valore="fldSceltaLista" evento="START">
+                    <TR_TD_LABEL_COMBO key_id="cmbLista" valore="lblLista##cmbLista#cmbLista#N#SALVA#S#" evento="START">
+	                    <TD.INIT key_id="td2" valore="1" evento="START">
+	                      	<BUTTON key_id="butApplica" valore="butApplica" evento="START"></BUTTON>
+	                      	<BUTTON key_id="butChiudi" valore="butChiudi" evento="START"></BUTTON>
+	                   	</TD.INIT>
+                    </TR_TD_LABEL_COMBO>
+                </FIELDSET_TABLE>
+                <IFRAME key_id ="iframeListaAttesa" valore ="iframeListaAttesa#iframeListaAttesa" evento="START"></IFRAME>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

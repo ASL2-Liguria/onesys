@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ANAM_ESA_OBIETTIVO_PRECEDENTI</ID>
+    <ID-QUERY connection="PS">WORKLIST.ANAM_ESA_OBIETTIVO_PRECEDENTI</ID-QUERY>
+    <TITLE>"Precedenti Esame obiettivo"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <!--<MENU>
+            <ID>MENU_ESA_OBIETT_PRECEDENTI</ID>
+        </MENU>-->
+        <ROWS>
+            <ALTERNATE_COLOR>N</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <MOUSEOVER>function(rec){$(this).find('div').tooltipster({
+                    content: rec.ESAME_OBIETTIVO,
+                    delay: 100
+                    })}</MOUSEOVER>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>NUMERO_PRATICA</COL>
+                        <DB>NUMERO_PRATICA</DB>
+                    </ID>
+                    <DESCRIPTOR>"Numero Pratica"</DESCRIPTOR>
+
+                    <WIDTH>100PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_</COL>
+                        <DB>DATA</DB>
+                    </ID>
+                    <DESCRIPTOR>"Data"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>80PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ORA</COL>
+                        <DB>ORA</DB>
+                    </ID>
+                    <DESCRIPTOR>"Ora"</DESCRIPTOR>
+                    <WIDTH>60PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTENTE</COL>
+                        <DB>UTENTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"Utente"</DESCRIPTOR>
+                    <WIDTH>150PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ESAME_OBIETTIVO</COL>
+                        <DB>ESAME_OBIETTIVO</DB>
+                    </ID>
+                    <DESCRIPTOR>"Valutazione Medica"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data,wk,td){NS_RIVALUTAZIONI_MEDICHE_PASSATE.setColorStorico(data,$(this),td);}]]></PROCESS>
+                    <WIDTH>150PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,71 @@
+<PAGINA key_id="MMG_ASSISTENZA_PROGR_V2">
+	<HEADER_PAGE key_id="MMG_ASSISTENZA_PROGR_V2"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ASSISTENZA_PROGR_V2#DEFAULT_MMG,MMG_ASSISTENZA_PROGR_V2"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_ASSISTENZA_PROGR_V2#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="MMGAssProgr#lblTitolo#butStampa,butSalva,butSalvaStampa,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabPartePrima"
+				valore="tabPartePrima" evento="START">
+				
+				
+				
+				<FIELDSET_TABLE key_id="fldDataScadenza" valore="fldDataScadenza" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataScadenza" valore="lblDataScadenza##txtDataScadenza#DataScadenza#startWithToday:false, format: 'd/m/Y', direction:true#disabled:false##DATA_SCADENZA" evento="START"></TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>	
+				
+				<FIELDSET_TABLE key_id="fld3" valore="fld3" evento="START">
+					<TR_TD_CHECK key_id="chkDiagnosi1" valore="Diagnosi1#chkDiagnosi1#N#{width:845,ctrl:false}##DIAGNOSI_1" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi2" valore="Diagnosi2#chkDiagnosi2#N#{width:845,ctrl:false}##DIAGNOSI_2" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi3" valore="Diagnosi3#chkDiagnosi3#N#{width:845,ctrl:false}##DIAGNOSI_3" evento="START"></TR_TD_CHECK>
+				</FIELDSET_TABLE>	
+				
+				<FIELDSET_TABLE key_id="fldSpec" valore="fldSpec" evento="START">
+					<TR_TD_CHECK key_id="chkDiagnosi4" valore="Diagnosi4#chkDiagnosi4#N#{width:845,ctrl:false}##DIAGNOSI_4" evento="START"></TR_TD_CHECK>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldAnamnesiPatologica" valore="fldAnamnesiPatologica" evento="START">
+					<TR_TD_TEXTAREA key_id="txtAnamnesi" valore="txtAnamnesi#ANAMNESI" evento="START"> </TR_TD_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="ProblemiPaziente" valore="lblProblemiPaziente##cmbProblemiPaziente#cmbProblemiPaziente#N#PROBLEMI_PAZIENTE" evento="START">
+						<TD_BUTTON key_id="butInserisciAnamnesi" valore="butInserisciAnamnesi" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				
+			
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabParteSeconda"
+				valore="tabParteSeconda" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldDiagnosiAttuale" valore="fldDiagnosiAttuale" evento="START">
+					<TR_TD_TEXTAREA key_id="txtDiagnosiAttuale" valore="txtDiagnosiAttuale#DIAGNOSI_ATTUALE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="DiagnosiPaziente" valore="lblDiagnosiPaziente##cmbDiagnosiPaziente#cmbDiagnosiPaziente#N#DIAGNOSI_PAZIENTE" evento="START">
+						<TD_BUTTON key_id="butInserisciDiagnosi" valore="butInserisciDiagnosi" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldTerapia" valore="fldTerapia" evento="START">
+					<TR_TD_TEXTAREA key_id="txtTerapia" valore="txtTerapia#TERAPIA" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="TerapiaPaziente" valore="lblTerapiaPaziente##cmbTerapiaPaziente#cmbTerapiaPaziente#N#TERAPIA_PAZIENTE" evento="START">
+						<TD_BUTTON key_id="butInserisciTerapia" valore="butInserisciTerapia" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldPrestazioni" valore="fldPrestazioni" evento="START">
+					<TR_TD_TEXTAREA key_id="txtPrestazioni" valore="txtPrestazioni#PRESTAZIONI" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldNote" valore="fldNote" evento="START">
+					<TR_TD_TEXTAREA key_id="txtNote" valore="txtNote#NOTE" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fld6" valore="fld6" evento="START">
+					<TR_TD_RADIO key_id="radAcc_Dom" valore="Acc_Dom#radAcc_Dom#{width:150}#N#ACC_DOM" evento="START_END"></TR_TD_RADIO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

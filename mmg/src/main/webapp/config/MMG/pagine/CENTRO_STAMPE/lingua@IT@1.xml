@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>Centro stampe</lblTitolo>
+		<tabStampe>Stampe</tabStampe>
+		<tabLetteraAccompagnamento>Lettera di accompagnamento</tabLetteraAccompagnamento>
+		<lblIntestazioneCartella>Foglio Intestazione Stampa Cartella</lblIntestazioneCartella>
+		
+		<fldOpzioniStampa>Lettera di accompagnamento</fldOpzioniStampa>
+		<fldSezioniStampabili>Sezioni stampabili</fldSezioniStampabili>
+		<fldPaziente>Anagrafica del paziente</fldPaziente>
+		
+		<lblStampaTesto>Stampa testo del campo sottostante</lblStampaTesto>
+		<lblTesto>Testo</lblTesto>
+		<lblDatiAnagrafici>Dati anagrafici</lblDatiAnagrafici>
+		
+		<lblSchedaAnagrafica>Scheda Anagrafica</lblSchedaAnagrafica>
+		<lblSADaData>Dal</lblSADaData>
+		<lblAData>al</lblAData>
+		
+		<lblPatientSummary>Patient Summary</lblPatientSummary>
+		<lblPatientSummaryDaData>Dal</lblPatientSummaryDaData>
+		<lblPatientSummaryAData>al</lblPatientSummaryAData>
+		
+		<lblPatientSummarySintesi>Riepilogo Paziente (Sintesi)</lblPatientSummarySintesi>
+		
+		<lblDiario>Diario</lblDiario>
+		<lblDiarioDaData>Dal</lblDiarioDaData>
+		<lblDiarioAData>al</lblDiarioAData>
+		
+		<lblVaccinazioni>Vaccinazioni</lblVaccinazioni>
+		<lblVaccinazioniDaData>Dal</lblVaccinazioniDaData>
+		<lblVaccinazioniAData>al</lblVaccinazioniAData>
+		
+		<lblRilevazioni>Rilevazioni</lblRilevazioni>
+		<lblRilevazioniDaData>Dal</lblRilevazioniDaData>
+		<lblRilevazioniAData>al</lblRilevazioniAData>
+		
+		<lblFarmaciPrescritti>Farmaci prescritti</lblFarmaciPrescritti>
+		<lblFarmaciPrescrittiDaData>Dal</lblFarmaciPrescrittiDaData>
+		<lblFarmaciPrescrittiAData>al</lblFarmaciPrescrittiAData>
+		
+		<lblAccertamentiPrescritti>Accertamenti prescritti</lblAccertamentiPrescritti>
+		<lblAccertamentiPrescrittiDaData>Dal</lblAccertamentiPrescrittiDaData>
+		<lblAccertamentiPrescrittiAData>al</lblAccertamentiPrescrittiAData>
+		
+		<lblVacciniAntinfluenzali>Vaccini antinfluenzali</lblVacciniAntinfluenzali>
+		<lblVacciniAntinfluenzaliDaData>Dal</lblVacciniAntinfluenzaliDaData>
+		<lblVacciniAntinfluenzaliAData>al</lblVacciniAntinfluenzaliAData>
+		
+		<lblPIP>P.P.I.P.</lblPIP>
+		<lblPIPDaData>Dal</lblPIPDaData>
+		<lblPIPAData>al</lblPIPAData>
+		
+		<lblProblemi>Problemi</lblProblemi>
+		<lblProblemiDaData>Dal</lblProblemiDaData>
+		<lblProblemiAData>al</lblProblemiAData>
+		
+		<lblTerapieCroniche>Terapie croniche</lblTerapieCroniche>
+		<lblTerapieCronicheDaData>Dal</lblTerapieCronicheDaData>
+		<lblTerapieCronicheAData>al</lblTerapieCronicheAData>
+		
+		<lblRiepilogoADI>Riepilogo ADI</lblRiepilogoADI>
+		<lblAdiDaData>Dal</lblAdiDaData>
+		<lblAdiAData>al</lblAdiAData>
+		
+		<lblRiepilogoADP>Riepilogo ADP</lblRiepilogoADP>
+		<lblAdpDaData>Dal</lblAdpDaData>
+		<lblAdpAData>al</lblAdpAData>
+		
+		<lblRiepilogoRP>Riepilogo RP</lblRiepilogoRP>		
+		<lblRPDaData>Dal</lblRPDaData>
+		<lblRPAData>al</lblRPAData>
+		
+		<lblStoricoVaccinazioni>Storico Vaccinaz. Antinfluenzali</lblStoricoVaccinazioni>		
+		<lblStoricoVaccinazioniDaData>Dal</lblStoricoVaccinazioniDaData>
+		<lblStoricoVaccinazioniAData>al</lblStoricoVaccinazioniAData>
+
+		<lblNoStampa>Non sono state selezionate sezioni da stampare</lblNoStampa>
+		<lblSesso>Sesso</lblSesso>
+		
+		<lblSi>Si</lblSi>
+		<lblNo>No</lblNo>
+		
+		<lblTipoVaccino>Tipo Vaccino antinfluenzale</lblTipoVaccino>
+		
+		<butStampa>Stampa</butStampa>
+		
+    </ROW>
+</ROWSET>

@@ -1,0 +1,83 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_UTENTI'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="tab" configurazione_stato="begin :stato := 'E'; end;" db_valore="TITOLO" db_descrizione="" configurazione_multi_data="Q_UTENTI" />
+
+	<DATO key_id="MostraNuovoAccesso" configurazione_stato="begin :stato := 'E'; end;" db_valore="MOSTRA_NUOVO_ACCESSO" db_descrizione="MOSTRA_NUOVO_ACCESSO" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="StampaPrincipioAttivo" configurazione_stato="begin :stato := 'E'; end;" db_valore="SHOW_FARMACO_ORIGINALE" db_descrizione="SHOW_FARMACO_ORIGINALE" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="AnteprimaStampa" configurazione_stato="begin :stato := 'E'; end;" db_valore="ANTEPRIMA_STAMPA_MODULI" db_descrizione="ANTEPRIMA_STAMPA_MODULI" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="StampaAutomatica" configurazione_stato="begin :stato := 'E'; end;" db_valore="SALVATAGGIO_RAPIDO_RR" db_descrizione="SALVATAGGIO_RAPIDO_RR" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="MedicoPrescrittoreCurante" configurazione_stato="begin :stato := 'E'; end;" db_valore="PRESCRITTORE_UGUALE_CURANTE" db_descrizione="PRESCRITTORE_UGUALE_CURANTE" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="Layout" configurazione_stato="begin :stato := 'E'; end;" db_valore="LAYOUT" db_descrizione="LAYOUT" configurazione_multi_data="RAD_LAYOUT" />
+
+	<DATO key_id="persistenzaPrivacy" configurazione_stato="begin :stato := 'E'; end;" db_valore="PRIVACY_PERSISTENZA_AVVISO" db_descrizione="PRIVACY_PERSISTENZA_AVVISO" configurazione_multi_data="" />
+	
+	<DATO key_id="MostraPassword" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="InvioRRSAL" configurazione_stato="begin :stato := 'E'; end;" db_valore="INVIO_RR_SAL" db_descrizione="INVIO_RR_SAL" configurazione_multi_data="R_SI_NO_MIDDLE" />
+	
+	<DATO key_id="avvisoEsenzioniAperte" configurazione_stato="begin :stato := 'E'; end;" db_valore="AVVISO_ESENZIONI_APERTE" db_descrizione="AVVISO_ESENZIONI_APERTE" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="avvisoPrescrNonCroniche" configurazione_stato="begin :stato := 'E'; end;" db_valore="AVVISO_PRESCR_NON_CRONICHE" db_descrizione="AVVISO_PRESCR_NON_CRONICHE" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="sinonimiAccertamenti" configurazione_stato="begin :stato := 'E'; end;" db_valore="SINONIMI_ACCERTAMENTI" db_descrizione="SINONIMI_ACCERTAMENTI" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="frequenzaAccertamenti" configurazione_stato="begin :stato := 'E'; end;" db_valore="FREQUENZA_ACCERTAMENTI" db_descrizione="FREQUENZA_ACCERTAMENTI" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="PosologiaRR" configurazione_stato="begin :stato := 'E'; end;" db_valore="POSOLOGIA_RR" db_descrizione="POSOLOGIA_RR" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="Offline" configurazione_stato="begin :stato := 'E'; end;" db_valore="OFFLINE_ATTIVO" db_descrizione="OFFLINE_ATTIVO" configurazione_multi_data="R_ATTIVA_OFFLINE" />
+	
+	<DATO key_id="AutoSyncOffline" configurazione_stato="begin :stato := 'E'; end;" db_valore="OFFLINE_AUTOSYNC" db_descrizione="OFFLINE_AUTOSYNC" configurazione_multi_data="R_ATTIVA_OFFLINE" />
+	
+	<DATO key_id="SincronizzaGruppoOffline" configurazione_stato="begin :stato := 'E'; end;" db_valore="OFFLINE_SINCRONIZZA_GRUPPO" db_descrizione="OFFLINE_SINCRONIZZA_GRUPPO" configurazione_multi_data="R_ATTIVA_OFFLINE" />
+	
+	<DATO key_id="SinonimiAccertamentiOffline" configurazione_stato="begin :stato := 'E'; end;" db_valore="OFFLINE_IMPORTA_SIN_ACC" db_descrizione="OFFLINE_IMPORTA_SIN_ACC" configurazione_multi_data="R_SI_NO" />
+
+	<DATO key_id="Nome" configurazione_stato="begin :stato := 'E'; end;" db_valore="NOME" db_descrizione="NOME" configurazione_multi_data="" />
+		
+	<DATO key_id="Cognome" configurazione_stato="begin :stato := 'E'; end;" db_valore="COGNOME" db_descrizione="COGNOME" configurazione_multi_data="" />
+		
+	<DATO key_id="CodiceFiscale" configurazione_stato="begin :stato := 'E'; end;" db_valore="CODICE_FISCALE" db_descrizione="CODICE_FISCALE" configurazione_multi_data="" />
+		
+	<DATO key_id="Indirizzo" configurazione_stato="begin :stato := 'E'; end;" db_valore="INDIRIZZO" db_descrizione="INDIRIZZO" configurazione_multi_data="" />
+		
+	<DATO key_id="IndirizzoSecondario" configurazione_stato="begin :stato := 'E'; end;" db_valore="INDIRIZZO2" db_descrizione="INDIRIZZO2" configurazione_multi_data="" />
+		
+	<DATO key_id="IndirizzoTerziario" configurazione_stato="begin :stato := 'E'; end;" db_valore="INDIRIZZO3" db_descrizione="INDIRIZZO3" configurazione_multi_data="" />
+		
+	<DATO key_id="Email" configurazione_stato="begin :stato := 'E'; end;" db_valore="EMAIL" db_descrizione="EMAIL" configurazione_multi_data="" />
+	
+	<DATO key_id="EmailPEC" configurazione_stato="begin :stato := 'E'; end;" db_valore="PEC" db_descrizione="PEC" configurazione_multi_data="" />
+
+	<DATO key_id="Fax" configurazione_stato="begin :stato := 'E'; end;" db_valore="FAX" db_descrizione="FAX" configurazione_multi_data="" />
+		
+	<DATO key_id="Telefono" configurazione_stato="begin :stato := 'E'; end;" db_valore="TELEFONO" db_descrizione="TELEFONO" configurazione_multi_data="" />
+		
+	<DATO key_id="Cellulare" configurazione_stato="begin :stato := 'E'; end;" db_valore="CELLULARE" db_descrizione="CELLULARE" configurazione_multi_data="" />
+
+	<DATO key_id="Username" configurazione_stato="begin :stato := 'E'; end;" db_valore="USERNAME_INPS" db_descrizione="USERNAME_INPS" configurazione_multi_data="" />
+		
+	<DATO key_id="Password" configurazione_stato="begin :stato := 'E'; end;" db_valore="PASSWORD_INPS" db_descrizione="PASSWORD_INPS" configurazione_multi_data="" />
+		
+	<DATO key_id="PIN" configurazione_stato="begin :stato := 'E'; end;" db_valore="PINCODE_INPS" db_descrizione="PINCODE_INPS" configurazione_multi_data="" />
+
+	<DATO key_id="TimbroRicettaRossa" configurazione_stato="begin :stato := 'E'; end;" db_valore="TIMBRO_RICETTA_ROSSA" db_descrizione="TIMBRO_RICETTA_ROSSA" configurazione_multi_data="" />
+		
+	<DATO key_id="TimbroRicettaBianca" configurazione_stato="begin :stato := 'E'; end;" db_valore="TIMBRO_RICETTA_BIANCA" db_descrizione="TIMBRO_RICETTA_BIANCA" configurazione_multi_data="" />
+	
+	<DATO key_id="TimbroCertificato" configurazione_stato="begin :stato := 'E'; end;" db_valore="TIMBRO_CERTIFICATO" db_descrizione="TIMBRO_CERTIFICATO" configurazione_multi_data="" />
+
+	<DATO key_id="chiediSettaggioProblema" configurazione_stato="begin :stato := 'E'; end;" db_valore="CHIEDI_SETTAGGIO_PROBLEMA" db_descrizione="CHIEDI_SETTAGGIO_PROBLEMA" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="descrizioneProblema" configurazione_stato="begin :stato := 'E'; end;" db_valore="DESCRIZIONE_PROBLEMA" db_descrizione="DESCRIZIONE_PROBLEMA" configurazione_multi_data="R_DESCRIZIONE_PROBLEMA" />
+	
+	<DATO key_id="posologiaDefault" configurazione_stato="begin :stato := 'E'; end;" db_valore="POSOLOGIA_DEFAULT" db_descrizione="POSOLOGIA_DEFAULT_DESCR" configurazione_multi_data="" />
+	
+	<DATO key_id="persistenzaAllergie" configurazione_stato="begin :stato := 'E'; end;" db_valore="ALLERGIE_PERSISTENZA_AVVISO" db_descrizione="ALLERGIE_PERSISTENZA_AVVISO" configurazione_multi_data="" />
+
+</DATI>

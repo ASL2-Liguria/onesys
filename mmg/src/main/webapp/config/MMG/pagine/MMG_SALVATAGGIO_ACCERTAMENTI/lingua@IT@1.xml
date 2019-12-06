@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>INFORMAZIONI RICETTA</lblTitolo>
+		<butInserisci>Diagnosi STD</butInserisci>
+		<butClose>Chiudi</butClose>
+		<butSalvataggio>Salva</butSalvataggio>
+		<butSalvaNoPrint>Salva ricette senza stampare</butSalvaNoPrint>
+		<tabSal>Salvataggio Ricetta</tabSal>
+		<fldDefault>Dati di default     (verranno utilizzati per tutti gli accertamenti che NON hanno associata un'urgenza o una diagnosi specifica)</fldDefault>
+		<fldRiepilogo>Riepilogo accertamenti</fldRiepilogo>
+		<lblUrgenza>Urgenza</lblUrgenza>
+		<lblDiagnosi>Diagnosi</lblDiagnosi>
+		<lblPOCI>Non applicare DM 9/12/2015</lblPOCI>
+		<accertamento>Accertamento</accertamento>
+		<diagnosi>Diagnosi  (con menu a tendina per situazioni cliniche RAO)</diagnosi>
+		<urgenza>Urgenza</urgenza>
+		<esenzione>Esenzione</esenzione>
+		<sedute>Sedute</sedute>
+		<notePrestazioni>Note</notePrestazioni>
+				
+		<fldAltro>Altro</fldAltro>
+		<lblSuggerita>Suggerita</lblSuggerita>
+		<lblSuggerito_da>Suggerita da</lblSuggerito_da>
+		<lblSuggerito_struttura>Struttura</lblSuggerito_struttura>
+		<lblRicovero>Ricovero</lblRicovero>
+		<lblAltro>Altro</lblAltro>
+		
+		<lblOk>Ok</lblOk>
+		<lblAnnulla>Annulla</lblAnnulla>
+		<lblDialogCancella>Cancellare le prescrizioni selezionate?</lblDialogCancella>
+		<lblForzaRicettaBianca>Forza su ricetta bianca</lblForzaRicettaBianca>
+		<lblDialogDelDiagnosi>Verranno cancellate tutte le diagnosi associate agli accertamenti che si stanno prescrivendo, lasciando solo quella di default. Continuare?</lblDialogDelDiagnosi>
+		<lblDelDiagnosi>Attenzione!</lblDelDiagnosi>
+		<butDelDiagnosi>Cancella tutte le diagnosi</butDelDiagnosi>
+                <lblInfoCircolare>Selezionando una delle tre scelte (Paz. cronico, Paz. invalido, Paz. oncologico) l'inserimento delle note legate agli accertamenti NON sarà più obbligatorio (Circolare nr.3012 del 25/03/2016 del Ministero della Salute)</lblInfoCircolare>
+		
+		<lblApplicaEsenzioni>Applica a tutte le prescrizioni</lblApplicaEsenzioni>
+		<lblCancellaEsenzioni>Cancella esenzioni alle prescrizioni selezionate</lblCancellaEsenzioni>
+		
+    </ROW>
+</ROWSET>

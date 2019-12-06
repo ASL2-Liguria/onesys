@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>DOCUMENTI_ALLEGATI</ID>
+    <ID-QUERY connection="ADT">ADT.DOCUMENTI_ALLEGATI</ID-QUERY>
+    <TITLE>"Worklist Segreteria"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <MENU>
+            <ID>DOCUMENTI_ALLEGATI</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA</COL>
+                        <DB>DATA</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.WKdocData</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ORA</COL>
+                        <DB>ORA</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.WKdocOra</DESCRIPTOR>
+                    <PROCESS></PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NOME_FILE</COL>
+                        <DB>NOME_FILE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.WKdocDescr</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){ return $("<a>").attr("href","javascript:NS_WK.apriDocumentoAllegato('"+ data.URL_DOCUMENTO +"','" + data.MIME_TYPE+ "','" + data.NOME_FILE + "')").html(data.NOME_FILE);}]]></PROCESS>
+                    <WIDTH>350px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>MIME_TYPE</COL>
+                        <DB>MIME_TYPE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.WkdocTipo</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN id="DATA">DESC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

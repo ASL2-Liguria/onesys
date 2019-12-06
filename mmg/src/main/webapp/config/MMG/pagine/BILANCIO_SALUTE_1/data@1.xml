@@ -1,0 +1,28 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_LAST'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+
+	<DATO key_id="FontanellaPosteriore" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="SuturaSaggitale" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Cute" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Ittero" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Angiomi" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Allattamento" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_ALLATTAMENTO" />
+	<DATO key_id="AR_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ACV_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Addome_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="OrganiIpocondriaci_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MonconeOmbelicale_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="PolsiFemorali_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Genitali_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Scheletro_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ManovraOrtolani_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RiflessoPupillare_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RiflessoMoro_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="TonoMuscolare_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RiflessoPrensione_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="SoluzioneValida_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ReagisceRumori_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="FissaSguardo_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="hIden" configurazione_stato="begin :stato := 'E'; end;" db_valore="IDEN" db_descrizione="IDEN" configurazione_multi_data="" />
+</DATI>
+

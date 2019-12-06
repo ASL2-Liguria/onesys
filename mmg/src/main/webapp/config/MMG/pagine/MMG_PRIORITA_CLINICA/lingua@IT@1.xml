@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	
+    	<tabPrioritaClinica>Priorità clinica</tabPrioritaClinica>
+        <lblTitolo>SCHEDA ACCESSO PRESTAZIONI SPECIALISTICHE AMBULATORIALI CON PRIORITA' CLINICA "U" E "B"</lblTitolo>
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        <butCerca>Inserisci Accertamento</butCerca>
+        <butInserisci>Inserisci</butInserisci>
+        
+        <fld1>Dati Anagrafici</fld1>
+		<lblFirst>Caro Collega</lblFirst>
+		<lblCognome>Cognome</lblCognome>	
+		<lblSec>Invio il mio assistito</lblSec>
+		<lblNome>Nome</lblNome>
+		<lblC_F>C.F.</lblC_F>
+		<fld2>Visita o Indagine Richiesta</fld2>
+		
+		<fld3>Modalità di Accesso</fld3>
+		<fld4>Priorità Clinica</fld4>
+		<fld5>Motivo della Priorità Clinica</fld5>
+		<fld6>Quadro clinico</fld6>
+		<fld7>Accertamenti eventualmente effettuati</fld7>
+		<fld8>Sospetto diagnostico</fld8>
+		
+		<lblAccertamenti>Accertamenti effettuati</lblAccertamenti>
+		<lblProblemiPaziente>Diagnosi effettuate per il paziente</lblProblemiPaziente>
+    </ROW>
+</ROWSET>

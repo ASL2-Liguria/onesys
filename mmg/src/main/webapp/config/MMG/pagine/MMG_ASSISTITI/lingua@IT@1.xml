@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabAssistiti>Assistiti</tabAssistiti>
+        <lblTitolo>Assistiti associati al medico corrente</lblTitolo>
+        <fldRicerca>Ricerca</fldRicerca>
+        <lblDataNascita>Data di nascita </lblDataNascita>
+		<lblCognome>Cognome </lblCognome>
+		<lblNome>Nome</lblNome>
+		<lblResidenza>Indirizzo</lblResidenza>
+		<lblDataScadenza>Scadenza assistenza entro il </lblDataScadenza>
+		<lblDataRevoca>Da Data (data revoca)</lblDataRevoca >
+		
+		<butCerca>Cerca</butCerca>
+		<butCercaRevocati>Cerca</butCercaRevocati>
+		<butStampa>Stampa</butStampa>
+		
+		<tabRevocati>Assistiti revocati</tabRevocati>
+		<fldRicercaRevocati>Ricerca un paziente revocato</fldRicercaRevocati>
+		
+    </ROW>
+</ROWSET>

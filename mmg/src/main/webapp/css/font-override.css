@@ -1,0 +1,49 @@
+
+
+/**********************************************************************
+	WEB FONTS
+**********************************************************************/
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../font/web-font/opensans-light-webfont.eot');
+    src: url('../font/web-font/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/web-font/opensans-light-webfont.woff') format('woff'),
+         url('../font/web-font/opensans-light-webfont.ttf') format('truetype'),
+         url('../font/web-font/opensans-light-webfont.svg#open_sanslight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans Italic';
+    src: url('../font/web-font/opensans-lightitalic-webfont.eot');
+    src: url('../font/web-font/opensans-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/web-font/opensans-lightitalic-webfont.woff') format('woff'),
+         url('../font/web-font/opensans-lightitalic-webfont.ttf') format('truetype'),
+         url('../font/web-font/opensans-lightitalic-webfont.svg#open_sanslight_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans Bold';
+    src: url('../font/web-font/opensans-semibold-webfont.eot');
+    src: url('../font/web-font/opensans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/web-font/opensans-semibold-webfont.woff') format('woff'),
+         url('../font/web-font/opensans-semibold-webfont.ttf') format('truetype'),
+         url('../font/web-font/opensans-semibold-webfont.svg#open_sanssemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+*, body { font-family: 'Open Sans Bold', 'Helvetica Neue', Helvetica, Arial, Verdana sans-serif; font-weight: 400; font-size: 12px; }
+
+
+/**********************************************************************
+	END WEB FONTS
+**********************************************************************/

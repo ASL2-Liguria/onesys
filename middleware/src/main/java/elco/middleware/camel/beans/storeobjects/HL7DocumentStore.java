@@ -1,0 +1,68 @@
+/* Copyright (c) 2018, EL.CO. SRL.  All rights reserved.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following
+ * disclaimer in the documentation and/or other materials provided
+ * with the distribution.
+ * THIS SOFTWARE IS PROVIDED FREE OF CHARGE AND ON AN "AS IS" BASIS,
+ * WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED INCLUDING
+ * WITHOUT LIMITATION THE WARRANTIES THAT IT IS FREE OF DEFECTS, MERCHANTABLE,
+ * FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK
+ * AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.
+ * SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL
+ * NECESSARY SERVICING, REPAIR, OR CORRECTION.
+ * IN NO EVENT SHALL ELCO SRL BE LIABLE TO YOU FOR DAMAGES, INCLUDING
+ * ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
+ * OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING, BUT NOT
+ * LIMITED TO, LOSS OF DATA, DATA BEING RENDERED INACCURATE, LOSS OF
+ * BUSINESS PROFITS, LOSS OF BUSINESS INFORMATION, BUSINESS INTERRUPTIONS,
+ * LOSS SUSTAINED BY YOU OR THIRD PARTIES, OR A FAILURE OF THE SOFTWARE
+ * TO OPERATE WITH ANY OTHER SOFTWARE) EVEN IF ELCO SRL HAS BEEN ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGES.
+ */
+package elco.middleware.camel.beans.storeobjects;
+
+import elco.middleware.camel.beans.HL7Document;
+
+/**
+ * @author Roberto Rizzo
+ */
+public final class HL7DocumentStore {
+
+	private HL7Document document = null;
+	private String sha1 = "";
+
+	private HL7DocumentStore(HL7Document document, String sha1) {
+		this.document = document;
+		this.sha1 = sha1;
+	}
+
+	/**
+	 * @param document
+	 *            HL7Document object
+	 * @param sha1
+	 *            SHA1
+	 * @return HL7DocumentStore
+	 */
+	public static HL7DocumentStore getStore(HL7Document document, String sha1) {
+		return new HL7DocumentStore(document, sha1);
+	}
+
+	/**
+	 * @return HL7Document object
+	 */
+	public HL7Document getDocument() {
+		return document;
+	}
+
+	/**
+	 * @return SHA1 of the original message used to construct the HL7Document object
+	 */
+	public String getSHA1() {
+		return sha1;
+	}
+}

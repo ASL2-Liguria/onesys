@@ -1,0 +1,38 @@
+<PAGINA key_id="RIASSOCIA_PAZIENTE">
+    <HEADER_PAGE key_id="RIASSOCIA_PAZIENTE" valore="DEFAULT,SCHEDA,RIASSOCIA_PAZIENTE#DEFAULT,TAB_HOME_PS" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="RiassociaPaziente" valore="RIASSOCIA_PAZIENTE#RiassociaPaziente#butInserisci,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="filtroAnagrafica" valore="filtroAnagrafica#" evento="START">
+                <TABELLA.INIT key_id="tablePz" valore="" evento="START">
+                    <TR.INIT key_id="rigaPz0" valore="" evento="START">
+                    </TR.INIT>
+                    <TR.INIT key_id="rigaPz1" valore="" evento="START">
+                        <TD_LABEL_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale#txtCodiceFiscale#codicefiscale##T" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR.INIT>
+                    <TR.INIT key_id="rigaPz2" valore="" evento="START">
+                        <TD.INIT key_id="td1" valore="5" evento="START">
+                        </TD.INIT>
+                        <TD.INIT key_id="td3" valore="1" evento="START">
+                            <BUTTON key_id="butApplica" valore="butApplica" evento="START">
+                            </BUTTON>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+                <TABELLA.INIT key_id="tableAnag" valore="" evento="START">
+                    <TR.INIT key_id="rigaAnag1" valore="" evento="START">
+                        <TD.INIT key_id="tdAnag" valore="" evento="START">
+                            <DIV key_id="divWkAnagrafica" valore="divWkAnagrafica" evento="START">
+                            </DIV>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

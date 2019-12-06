@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+span#imgEditing {
+	width:30px;
+	height:30px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+	background-image:url(../../../imagexPix/contextMenu/MnCntEdit.gif);
+}
+
+
+span#imgDeleting {
+	width:30px;
+	height:30px;
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+	background-image:url(../../../imagexPix/contextMenu/MnCntDel.gif);
+}
+
+#idTableProcedure{
+	border:2px;
+	background-color:#3CF;
+}

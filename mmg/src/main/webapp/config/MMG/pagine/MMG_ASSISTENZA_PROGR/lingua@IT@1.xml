@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>ASSISTENZA PROGRAMMATA DOMICILIARE AD ASSISTITI NON DEAMBULANTI</lblTitolo>
+        <butStampa>Stampa</butStampa>
+        <tabPartePrima>Valutazione</tabPartePrima>
+        <tabParteSeconda>Diagnosi</tabParteSeconda>
+        <fld1>Dati Anagrafici</fld1>
+		<lblNome>Nome</lblNome>
+		<lblCognome>Cognome</lblCognome>	
+		<lblIndirizzo>Indirizzo</lblIndirizzo>
+		<lblSesso>Sesso</lblSesso>
+		<lblData_Nascita>Data di Nascita</lblData_Nascita>
+		<lblC_F>Codice Fiscale</lblC_F>
+		<lblCasa_Riposo>Casa di Riposo</lblCasa_Riposo>
+		
+		<fld2>Valutazione dell'Autonomia e dello Stato di Salute del Soggetto</fld2>
+		<lblDettCasaRiposo>Specificare</lblDettCasaRiposo>
+		<lblDataCompilazione>Data Compilazione</lblDataCompilazione>
+		<lblCoerenza>1 - Coerenza</lblCoerenza>
+		<lblOrientamento>2 - Orientamento</lblOrientamento>
+		<lblInserimento_Soc>3 - Inserimento Sociale</lblInserimento_Soc>
+		<lblVista>4 - Vista</lblVista>
+		<lblUdito>5 - Udito</lblUdito>
+		<lblParola>6 - Parola</lblParola>
+		<lblIgiene>7 - Igiene</lblIgiene>
+		<lblMob_Interna>8 - Mobilità Interna</lblMob_Interna>
+		<lblAiuto_Deamb>9 - Aiuto alla Deambulazione</lblAiuto_Deamb>
+		<lblAbbigliamento>10 - Abbigliamento</lblAbbigliamento>
+		<lblTipo_Alim>11 - Tipo di Alimentazione</lblTipo_Alim>
+		<lblAiuto_Alim>12 - Aiuto alla Alimentazione</lblAiuto_Alim>
+		<lblContinenza>13 - Continenza</lblContinenza>
+		<lblMob_dal_Letto>14 - Mobilità dal Letto</lblMob_dal_Letto>
+		<lblIgiene_Posto_Letto>15 - Igiene Posto Letto</lblIgiene_Posto_Letto>
+		<lblDettaglio>Inutile??</lblDettaglio>
+		
+		<fld3>Diagnosi</fld3>
+		<lblImp_Log>Indicare il tipo di impedimento logistico:</lblImp_Log>
+		<fld4>Diagnosi Dettagliate</fld4>
+		<fld5>Richiesta Motivata in Caso di Accessi Settimanali</fld5>
+		<fld6>Proposte di Accessi Domiciliari</fld6>
+		<lblValoreTotale>Valore Totale</lblValoreTotale>
+			
+    </ROW>
+</ROWSET>

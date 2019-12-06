@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>STORIA_CONTATTO</ID>
+    <ID-QUERY connection="PS">WORKLIST.STORIA_CONTATTO</ID-QUERY>
+    <TITLE>traduzione.lblTitStoriaContatto</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>N</SELECT_COLUMNS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>N</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel', true);}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INIZIO</COL>
+                        <DB>DATA_INIZIO</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDataInizio</DESCRIPTOR>
+                    <WIDTH>80PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_FINE</COL>
+                        <DB>DATA_FINE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDataFine</DESCRIPTOR>
+                    <WIDTH>80PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>AREA</COL>
+                        <DB>AREA</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblArea</DESCRIPTOR>
+                    <WIDTH>120PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTENTE_RIFERIMENTO</COL>
+                        <DB>UTENTE_RIFERIMENTO</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblUtenteRiferimento</DESCRIPTOR>
+                    <WIDTH>180PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <!--<COLUMN id="DATA_INIZIO">DESC</COLUMN>-->
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

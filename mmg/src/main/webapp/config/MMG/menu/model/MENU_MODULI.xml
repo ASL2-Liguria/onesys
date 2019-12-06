@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<id>MENU_MODULI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MM.VM</ID>
+			<LINK><![CDATA[function(rec){WK_MODULI.apriModulo(rec);}]]></LINK>
+			<ICON_CLASS>letteradimissioni</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Visualizza Modulo"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MM.CM</ID>
+			<LINK><![CDATA[function(rec){WK_MODULI.cancellaModulo(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Cancella Modulo"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MM.SM</ID>
+			<LINK><![CDATA[function(rec){WK_MODULI.stampaModulo(rec);}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Stampa Modulo"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

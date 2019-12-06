@@ -1,0 +1,91 @@
+<root>
+	<statements_list>
+		<statement name="setStatoAggiuntivo">
+			<sql>
+<![CDATA[
+			declare
+				v_tmp number;
+				vValue varchar2(20) := ?;
+				nIdenEsame number := to_number(?);
+			begin
+				select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = nIdenEsame;
+				if(v_tmp > 0) then
+					update DETT_ESAMI set cod_stato_aggiuntivo = vValue where IDEN = nIdenEsame;
+				else
+					insert into DETT_ESAMI (IDEN, cod_stato_aggiuntivo) values (nIdenEsame,vValue);
+				end if;
+			end;
+]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="setStatoAggiuntivoDaConsPren">
+			<sql>
+			<![CDATA[
+			declare
+				v_tmp number;
+				vValue varchar2(20) := ?;
+				nIdenDett number := to_number(?);				
+				nIdenEsame number ;
+			begin
+				select iden_esame into nIdenEsame from DETTAGLIO_IMP_SALE where iden = nIdenDett;
+				if (nIdenEsame is not null) then
+					select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = nIdenEsame;
+					if(v_tmp > 0) then
+						update DETT_ESAMI set cod_stato_aggiuntivo = vValue where IDEN = nIdenEsame;
+					else
+						insert into DETT_ESAMI (IDEN, cod_stato_aggiuntivo) values (nIdenEsame,vValue);
+					end if;
+				end if;
+			end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="setEventoStatoAggiuntivo">
+			<sql>
+			<![CDATA[
+				declare
+					nIdenEsame varchar2(100) := ?;
+					vValue varchar2(20) := ?;
+					vText varchar2(4000) := ?;
+				begin
+					insert into tab_eventi_polaris (TIPO_EVENTO,DATI_EVENTO_1,DESCR_EVENTO) values (vValue,nIdenEsame,vText);
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="setEventoStatoAggiuntivoStessaAcc">
+			<sql>
+			<![CDATA[
+				declare
+					nNumPre number := to_number(?);
+					vValue varchar2(20) := ?;
+					vText varchar2(4000) := ?;
+				begin
+					insert into tab_eventi_polaris (TIPO_EVENTO,DATI_EVENTO_1,DESCR_EVENTO) select vValue, iden , vText from esami where num_pre = nNumPre;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+
+		
+		<statement name="isBeenExecuted">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+				SELECT eseguito, refertato FROM esami where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>				
+		
+		
+	</statements_list>
+</root>

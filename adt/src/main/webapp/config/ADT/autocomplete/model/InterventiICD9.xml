@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>3</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){ NS_DIMISSIONE_ICD.processIntervento(data); }]]>
+        </onSelect>
+        <deferRequestBy>1000</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.ADT_INTERVENTI_ICD9</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Interventi ICD9</title>
+        <id_wk>ADT_INTERVENTI_ICD9</id_wk>
+    </LIST>
+</AUTOCOMPLETE>

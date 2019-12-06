@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabModulo>Modulo Sport</tabModulo>
+    	
+        <lblTitolo>Questionario Sport</lblTitolo>
+        
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        
+        <lblSvenimenti>Svenuto o sul punto di svenire DURANTE o DOPO l'esercizio fisico?</lblSvenimenti>
+        <lblDistrubiTorace>Disturbi (dolori, crampi o senso di costrizione) al torace durante sforzo fisico?</lblDistrubiTorace>
+        <lblBattitiIrregolari>Avvertito battiti irregolari al cuore (tachicardia improvvisa o battiti extra o mancanza di battito) durante esercizio fisico?</lblBattitiIrregolari>
+        <lblProblemaCuore>In qualche visita precedente qualche dottore ti ha mai detto che potresti avere qualche problema al cuore? (Pressione alta, colesterolo alto, soffi al cuore, infezione al cuore, malattia di Kawasaki o altro? )</lblProblemaCuore>
+        <lblEsamiCuore>Qualche dottore ti ha mai prescritto esami per il cuore? (per es ECG di base e/o sotto sforzo, ecocardiogramma etc.?) Come sono risultati?</lblEsamiCuore>
+        <lblStordimento>Mai sentito stordito o avvertito respiro inaspettatamente corto durante esercizio (più dell'atteso per lo sforzo)?</lblStordimento>
+        <lblConvulsioni>Mai avuto convulsioni non spiegate dai medici?</lblConvulsioni>
+        <lblStanchezza>Ti senti molto più stanco e avverti respiro corto più facilmente dei tuoi amici durante l'esercizio fisico?</lblStanchezza>
+        <lblParenteDeceduto>C'è qualche parente (stretto o lontano) deceduto prima dei 50 anni per problemi cardiaci accertati oppure per morte improvvisa non spiegata (includendo annegamenti, incidenti d'auto inspiegati, SIDS)?</lblParenteDeceduto>
+        <lblFamCardio>Qualcuno in famiglia è affetto da: cardiomiopatia ipertrofica? Sindrome di Marfan? Cardiomiopatia Ventricolare Destra Aritmogena? Sindrome del QT lungo? Sindrome del QT corto? Sindrome di Brugada? Tachicardia Ventricolare Polimorfa Catecolaminergica?</lblFamCardio>
+        <lblFamCuore>Qualcuno nella tua famiglia ha avuto problemi di cuore, impianto di Pace Maker o Defibrillatore cardiaco?</lblFamCuore>
+        <lblFamSvenimenti>Qualcuno in famiglia ha avuto inspiegati svenimenti, non spiegate convulsioni oppure è stato sul punto di annegare?</lblFamSvenimenti>
+		
+    </ROW>
+</ROWSET>

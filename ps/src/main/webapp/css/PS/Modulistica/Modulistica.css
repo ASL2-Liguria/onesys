@@ -1,0 +1,27 @@
+.fldCampi{
+    padding: 2px 2px 5px !important;
+}
+.tdText{
+    width: 50px !important;
+}
+.tdCheck{
+    width: 150px !important;
+}
+.CheckBox{
+    width: 150px !important;
+}
+.tdLbl{
+    width:100px !important;
+}
+.tdModulo{
+    width: 300px !important;
+}
+.tdModulo div{
+    width: 300px !important;
+}
+.tdDataInvio{
+    width:150px !important;
+}
+.tdDataStampa{
+    width:150px !important;
+}

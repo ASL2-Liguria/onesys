@@ -1,0 +1,12 @@
+<PAGINA key_id="RIEPILOGO_WRAPPER">
+	<HEADER_PAGE key_id="RIEPILOGO_WRAPPER"
+		valore="DEFAULT_MMG,RIEPILOGO_WRAPPER" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<DIV key_id="divBtn" valore="divBtn" evento="START"></DIV>
+		<DIV key_id="divContent" valore="divContent" evento="START">
+			<IFRAME key_id="iContent" valore="iContent" evento="START"></IFRAME>
+		</DIV>
+	</FORM>
+</PAGINA>
+

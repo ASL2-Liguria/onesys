@@ -1,0 +1,283 @@
+/***************************************************************
+
+	GLOBALS
+
+***************************************************************/
+body#page, body#pageWk { background: #fff; padding: 0 10px; }
+
+/*iframe.iScheda { top: 0; }*/
+
+body#page.semi-transparent, body#pageWk.semi-transparent { background: rgba( 0,0,0,0.8 ); padding: 10px; }
+
+#divInfo { background: #ff0 /*#fd6 #F7CA18 */ url(../img/offline.png) no-repeat top left; font-size: 16px; text-align: center; padding: 10px 0 0 0; color: #3d3d3d; font-weight: 700; cursor: pointer; margin: 0 -10px 0 -10px; width: auto; min-width: 100%; position: relative;}
+#divInfo.alt { background-color: #3d3d3d; color: #fff;}
+#divInfo i { color: #3d3d3d; vertical-align: middle; }
+#divInfo > ul { position: absolute; z-index: 201; left: 0; text-align: center; right: 0;}
+#divInfo > ul.closed { display: none; }
+#divInfo > ul li { padding: 8px 5px; background: #3d3d3d; color: #fff; width: 300px; margin: 0 auto 0 auto;}
+#divInfo > ul li.clickable { color: #c3dcec; }
+#divInfo > ul li.clickable:hover { text-decoration: underline; }
+#divInfo > ul li:last-child { border-radius: 0 0 5px 5px; }
+
+#login_dialog label, #login_dialog select, #login_dialog input { margin: 10px 0 0 0; }
+
+#login_dialog label { display: block; padding-left: 0; }
+
+#login_dialog select { display: block; padding: 5px; width: 250px; }
+
+#login_dialog input { padding: 5px; border: 1px solid #CCCCCC; width: 250px; }
+
+#login_dialog #dialog-btn_Login { padding: 10px; float: left; }
+
+.fldClosed legend {
+	cursor:pointer;
+}
+
+.iconUpDown {
+	font-size: 14px; 
+	padding-left:5px; 
+	float:right;
+	cursor:pointer;
+}
+
+div.headerTabs .iconContainer { display: none; }
+
+input[type="text"] { max-width: 300px; }
+
+.contentTabs button { padding: 4px 10px; }
+
+.offline_button {
+	display: inline-block;
+	border: 1px solid #e8e8e8;
+	padding: 5px;
+	cursor: pointer;
+	margin-left:5px;
+	margin-right:5px;
+	background: #f2f2f2;
+	
+	color: #CCCCCC;
+}
+
+.offline_button_selected{
+	background: #e5e5e5;
+	border: 1px solid #CCCCCC;
+	font-weight: 700;
+	color: black !important;
+}
+
+.offline_warning {
+	color:red;
+}
+
+/***************************************************************
+
+	WORKLIST
+
+***************************************************************/
+div.clsWk div.clsWkScroll table tr td {
+	cursor: pointer;
+}
+
+.clsWkLdg.forced {
+	display: block !important;
+} 
+
+#divWorklistAssistiti .clsWk div.clsWkScroll table tr td {
+	cursor: pointer;
+	-webkit-user-select: none;        
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+#worklist, #selezionati { width: 49%; margin: 0; float: left; }
+
+#worklist { margin-right: 1%; min-height: 1px;}
+
+#selezionati { margin-left: 1%; }
+
+#butApplicaAssistito { float:right; margin-right: 10px; min-width: 100px; background: #26C281; color: #fff;}
+#butSoloMieiAssistiti { float:right; margin-right: 10px; min-width: 100px;}
+#butMedPrescr{
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+/***************************************************************
+
+	OTHERS
+
+***************************************************************/
+ul.data-list { border-bottom: 1px solid #e5e5e5; float: left; width: 100%; }
+ul.data-list li { background: #ffffff; border: 1px solid #e5e5e5; border-bottom: 0; padding: 10px; }
+ul.data-list li i { color: red; font-size: 14px;}
+ul.data-list strong { font-weight: 700; }
+
+#selezionati ul.data-list li { cursor: pointer; float: left; width: 100%; padding: 0 10px; min-height: 50px; line-height: 50px;}
+#selezionati ul.data-list li input { padding: 5px; margin: 8px 5px 0 0; width: 80px; border: 1px solid #CCCCCC; }
+#selezionati ul.data-list li input.descrizione {width: 20em; margin-left:5px; font-size: 11px;}
+#selezionati ul.data-list li input.numero {width: 3em;}
+#selezionati ul.data-list li input.posologia {width: 15em;}
+
+.tableList { border: 1px solid #CCCCCC; border-bottom: none; float: left; width: 100%; display:table;}
+.tableList tr{ height: 20px; width: 100%;  border-bottom: 1px solid #CCCCCC;}
+.tableList tr.intestazione:FIRST-CHILD td{ background-color: #e1e1e1;}
+
+.tableList td{ background: #fff; border-bottom: 1px solid #CCCCCC; padding: 10px; border-right: 1px solid #CCCCCC;}
+.tableList td strong { font-weight: 700; }
+
+.tableList .tdProblema {width: 75%;}
+.tableList .tdChiuso {width: 20%; text-align: center;}
+.tableList .tdData {width: 5%; text-align: center;}
+.tableList .tdEsenzione {width: 10%; text-align: center;}
+.tableList .tdAccertamento {width: 70%; }
+.tableList .tdPosologia {width: 20%; text-align: center;}
+.tableList .tdQta {width: 2%; text-align: center;}
+
+.tableList tr.nonattivo td {cursor: no-drop; color: #A8A8A8; }
+
+.selected {background: #fdf692 !important; color:black !important;}
+
+#tabAnteprimaRicetta { text-align: center; padding-top: 5px; }
+
+#fldPrescrizioni TD{ WIDTH:50%; text-align: center;  }
+
+#fldPrescrizioni button{ width:100%; float: none; height:30px; }
+
+.butSelected { background:#c3dcec; text-transform: uppercase; color: black !important;}
+
+#butPrescrizioneFarmaci, #butPrescrizioneAccertamenti, #butNuovaRicetta {
+	background: #26C281;
+	color: #fff;
+	margin: 5px 0;
+	float: right;
+}
+
+tr.ricettaCronica * {
+	background: #C5EDCD;
+}
+
+#fldRicetteAccertamentiAssistito, #fldRicetteFarmaciAssistito { padding-left: 30px;  padding-right: 30px;}
+
+div#radTipoRicetta_R{background-color: #FF5533;border:1px solid black;}
+div#radTipoRicetta_B{background-color: white;border:1px solid black;}
+
+#txtQuesito {
+	height: 3em;
+}
+
+/***************************************************************
+
+	ULTIMI AGGIORNAMENTI
+
+***************************************************************/
+div#divVersioneOffline {
+	float:right;
+	padding: 3px;
+}
+
+div.ultimiAggiornamentiLoading {
+	background: url('../../../img/loading.gif');
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	background-size: 16px;
+	margin-left: 6px;
+}
+
+#listaUltimiAggiornamenti button{
+	float:right;
+	margin-top: -4px;
+}
+
+.butReimporta, .butRicaricaPagine {
+	background: #e74c3c;
+	color: #fff;		
+}
+
+#tabUltimiAggiornamenti strong {
+	font-weight: bold;
+}
+
+#tabUltimiAggiornamenti #divCreaShortcut ul {
+	list-style: disc;
+	list-style-position: inside;
+}
+
+#tabUltimiAggiornamenti #fldUtilita * {
+	margin-bottom: 0.5em;
+}
+
+/**********************************
+ Autocomplete
+***********************************/
+.ui-autocomplete { position: absolute; cursor: default; background: white; }       
+.ui-autocomplete-loading { background: white; }
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/**********************************
+ Menu
+***********************************/
+.ui-menu {
+        list-style:none;
+        padding: 2px;
+        margin: 0;
+        display:block;
+}
+.ui-menu .ui-menu {
+        margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+        margin:0;
+        padding: 0;
+        width: 100%;
+}
+.ui-menu .ui-menu-item a {
+        text-decoration:none;
+        display:block;
+        padding:.2em .4em;
+        line-height:1.5;
+        zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+        margin: -1px;
+}
+
+#tabRiepilogoAssistito {
+	padding: 10px;
+}
+
+#tabRiepilogoAssistito fieldset {
+	margin: 0;
+	padding: 10px 5px;
+	float: left;
+	overflow: hidden;
+}
+
+ #fldProblemiAssistito, #fldDiarioAssistito {
+ 	width: 40%;	
+ }
+
+#fldRicetteFarmaciAssistito, #fldRicetteAccertamentiAssistito {
+	width: 60%;
+}
+
+#listaProblemiAssistito, #listaRicetteFarmaciAssistito, #listaDiarioAssistito, #listaRicetteAccertamentiAssistito {
+	float: left;
+	clear: both;
+	overflow-x: hidden;
+	overflow-y: auto;
+	width:100%;
+}
+
+#fldRicetteFarmaciAssistito.half-width, #fldRicetteAccertamentiAssistito.half-width {
+	width: 48%;
+	margin: 0 1%;
+}
+
+tr.selected td {
+	background: #fdf692 !important; 
+}

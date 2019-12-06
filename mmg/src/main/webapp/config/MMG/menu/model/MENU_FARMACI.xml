@@ -1,0 +1,39 @@
+<MENU>
+	<id>MENU_FARMACI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+	
+		<ITEM>
+			<ID>MF.VM</ID>
+			<LINK><![CDATA[function(rec){WK_FARMACI.apriFarma(rec);}]]></LINK>
+			<ICON_CLASS>letteradimissioni</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblVisMonografia</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MF.VIF</ID>
+			<LINK><![CDATA[function(rec){WK_FARMACI.apriSchedaFarmaco(rec);}]]></LINK>
+			<ICON_CLASS>refertazione-strutturata</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblVisInfo</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MF.VNC</ID>
+			<LINK><![CDATA[function(rec){WK_FARMACI.apriNoteCUF(rec);}]]></LINK>
+			<ICON_CLASS>avanti</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].NOTE_CUF != '' && rec[0].NOTE_CUF != null);}]]></WHERE>
+			<OUTPUT>traduzione.lblVisNoteCUF</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

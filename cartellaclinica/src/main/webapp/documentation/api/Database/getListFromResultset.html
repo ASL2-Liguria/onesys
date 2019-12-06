@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Laboratorio/getXmlDati</title> 
+        <style>
+            h1 {
+                background-color: #000000;
+                color: white;
+                padding: 0.2em;
+            }
+
+            h2 {
+                background-color: #444444;
+                color: white;
+                padding: 0.2em;
+            }
+
+            h3 {
+                background-color: #888888;
+                color: white;
+                padding: 0.2em;
+            }
+
+            h4 {
+                background-color: #CCCCCC;
+                color: white;
+                padding: 0.2em;
+            } 
+            
+            pre{
+                font-size: 11px;
+            }
+            
+            ul li{
+                margin: 6px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <h1>Database/getListFromResultset</h1>
+        
+        <h2>Indice</h2>
+        
+        <ol>
+            <li><a href="#Descrizione">Descrizione</a></li>
+            
+            <li><a href="#Invocazione">Invocazione</a></li>            
+            <li>
+                <ol>
+                    <li><a href="#Autenticazione">Autenticazione</a></li>
+                    <li><a href="#Chiamata">URL di chiamata</a></li>
+                    <li><a href="#Parametri">Parametri di chiamata</a></li>
+                </ol>
+            </li>
+            
+            <li><a href="#Output">Output</a></li>
+            
+        </ol>
+        
+        <h2 id="Descrizione">Descrizione</h2>        
+        <p>Servizio che fornisce i risultati di una determinata stored query</p>
+        
+        <h2 id="Invocazione">Invocazione</h2>        
+ 
+        <h4 id="Autenticazione">Autenticazione</h4>
+        <p>L'autenticazione avviene attraverso la verifica di utente e password che vanno inseriti come header "Authentication" nell chiamata di invocazione in formato "&lt;utente&gt;:&lt;password&gt;"</p>              
+        
+        <h4 id="Chiamata">URL di chiamata</h4>  
+        <p>http://&lt;applicationserver&gt;:&lt;port&gt;/&lt;application&gt;/Action/Database/getListFromResultset/{"file_name":"&lt;valore1&gt;", "statement_name":"&lt;valore2&gt;", "parameters":["&lt;valore1&gt;", "&lt;valore1&gt;", ... , "&lt;valore n&gt;"]}</p>
+     
+        <h4 id="Parametri">Parametri di chiamata</h4>        
+        <table border="1" width="100%">
+
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Obbligatorietà</th>
+                <th>Descrizione</th>
+            </tr>
+
+            <tr>
+                <td>file_name</td>
+                <td>String</td>
+                <td>SI</td>
+                <td>Percorso relativo del file xml contenente la stored query</td>
+            </tr>
+
+            <tr>
+                <td>statement_name</td>
+                <td>String</td>
+                <td>SI</td>
+                <td>Identificativo della stored query all'interno del file indicato</td>
+            </tr>            
+
+            <tr>
+                <td>parameters</td>
+                <td>Array&lt;String&gt;</td>
+                <td>dipendente dalla stored query invocata</td>
+                <td>Elenco ordinato dei parametri necessaric all'esecuzione della stored query</td>
+            </tr>                      
+
+        </table>  
+        
+        <h2 id="Output">Output</h2>        
+        <p>L'output si presenta in formato JSON e rispetta la seguente struttura:</p>        
+        <pre>
+{
+    "success":&lt;boolean&gt;,  //indica la corretta esecuzione del servizio
+    "message":&lt;string&gt;, //eventuale messaggio di errore
+    "records":[
+            {
+                "&lt;campo 1": &lt;valore 1&gt;,
+                "&lt;campo 2": &lt;valore 2&gt;,
+                ...
+                ...
+                "&lt;campo n": &lt;valore n&gt;
+            }, 
+           {
+                "&lt;campo 1": &lt;valore 1&gt;,
+                "&lt;campo 2": &lt;valore 2&gt;,
+                ...
+                ...
+                "&lt;campo n": &lt;valore n&gt;
+            },
+
+            ...
+            ...
+            ...
+
+           {
+                "&lt;campo 1": &lt;valore 1&gt;,
+                "&lt;campo 2": &lt;valore 2&gt;,
+                ...
+                ...
+                "&lt;campo n": &lt;valore n&gt;
+            },
+        ]
+}            
+        </pre>
+                
+    </body>
+</html>

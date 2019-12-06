@@ -1,0 +1,19 @@
+
+#configurazione_selezionata {
+	clear: left;
+	width: 90%;
+}
+
+
+
+.button{
+	float:left;
+	width: 100px;
+	margin:2px;
+ 	height: 25px;
+ 	border: solid black;		
+}
+
+.istruzioni{
+	clear:both;	
+}

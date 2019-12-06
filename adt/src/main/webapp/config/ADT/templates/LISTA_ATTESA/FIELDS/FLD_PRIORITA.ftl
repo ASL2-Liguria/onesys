@@ -1,0 +1,1 @@
+<@lib.divCheckColor idCheck="cmbUrgenza" option=dati_salvati.cmbUrgenza.getMatrixData()></@lib.divCheckColor>

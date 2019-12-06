@@ -1,0 +1,19 @@
+
+body{
+	padding:5px;
+	background:#b9e0ff;
+	}
+
+fieldset{
+	margin:10px;
+	border:2px solid #fff;
+	padding:2px;
+	}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:12px;
+		}
+	fieldset label{ /*contiene i dettagli inerenti alle label che si trovano all'interno del fieldset ovvero i td creati come label*/
+		font-size:12px;
+		cursor:pointer;
+		}

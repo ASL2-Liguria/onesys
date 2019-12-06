@@ -1,0 +1,328 @@
+<root>
+	<statements_list>
+		<statement name="getRichiesteStr">
+			<sql>
+			<![CDATA[
+			SELECT DATA_ORA "DATA E ORA",stato,destinatario,DESCRIZIONE_ESAME "DESCRIZIONE ESAME",Tipologia 
+			from (
+			SELECT
+  			/*+first_rows(10)*/
+  			CASE
+	       WHEN TR.DATA_REFERTAZIONE IS NULL
+	       THEN
+	          CASE
+	          WHEN DATA_ESECUZIONE IS NOT NULL
+	          	THEN SUBSTR(TR.DATA_ESECUZIONE, 7, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 5, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 1, 4)
+	          	|| ' '
+	          	|| TR.ora_esecuzione
+	    	  ELSE SUBSTR(TR.DATA_RICHIESTA, 7, 2)
+	     	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 5, 2)
+	    	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 1, 4)
+	     	    || ' '
+	     	    || TR.ora_richiesta
+	      	  END
+	  		ELSE SUBSTR(TR.DATA_REFERTAZIONE, 7, 2)
+	     	 || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 5, 2)
+	         || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 1, 4)
+	      	 || ' '
+	     	 || TR.ora_refertazione
+	        END DATA_ORA,
+  			TR.stato_richiesta STATO,
+ 			radsql.centri_di_costo.descr DESTINATARIO,
+  			TE.descr DESCRIZIONE_ESAME,
+			(SELECT TC.descrizione
+  			FROM RADSQL.tab_codifiche TC
+  			WHERE 
+            tipo_scheda = 'VIEW_RICHIESTE_WORKLIST'AND 
+            tipo_dato     ='SERVIZIO_DESTINATARIO' AND TC.CODICE_REPARTO=(SELECT SITO FROM V_GLOBALI)
+  			AND codice        = (SELECT INFOWEB.VAR_GET_SERVIZIO_DESTINATARIO(tr.cdc,TR.tipologia_richiesta,tr.metodica) from dual))
+  			 TIPOLOGIA
+			FROM infoweb.TESTATA_RICHIESTE TR,
+  			infoweb.dettaglio_richieste DR,
+  			radsql.TAB_ESA TE,
+  			RADSQL.centri_di_costo
+			WHERE TR.iden       =DR.iden_testata
+			AND DR.iden_tab_esa =TE.iden
+			AND TR.iden_visita IN
+  			(SELECT iden
+  			FROM nosologici_paziente
+  			WHERE num_nosologico = :nosologico
+  			)
+			AND TR.stato_richiesta <>'X'
+			AND TR.cdc = radsql.centri_di_costo.cod_cdc
+			AND (tr.tipologia_richiesta NOT IN (0,3,6,7,8) or tr.tipologia_richiesta is null)
+			)
+			order by to_date(DATA_ORA,'DD/MM/YYYY hh24:mi')
+			]]>
+			</sql>
+		</statement>
+		<statement name="getRichiesteLabo">
+			<sql>
+			<![CDATA[
+			select info,DATA_ORA "DATA E ORA",stato,destinatario from (
+			SELECT
+  			/*+first_rows(10)*/
+ 			'<IMG id="infoRicLabo" title="Info richiesta" idenRic='||TR.IDEN||' src="imagexPix/GestioneRichieste/btinfo.gif" height="20" style="margin-left:10px;cursor:pointer;"></IMG>' INFO,
+			CASE
+	       WHEN TR.DATA_REFERTAZIONE IS NULL
+	       THEN
+	          CASE
+	          WHEN DATA_ESECUZIONE IS NOT NULL
+	          	THEN SUBSTR(TR.DATA_ESECUZIONE, 7, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 5, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 1, 4)
+	          	|| ' '
+	          	|| TR.ora_esecuzione
+	    	  ELSE SUBSTR(TR.DATA_RICHIESTA, 7, 2)
+	     	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 5, 2)
+	    	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 1, 4)
+	     	    || ' '
+	     	    || TR.ora_richiesta
+	      	  END
+	  		ELSE SUBSTR(TR.DATA_REFERTAZIONE, 7, 2)
+	     	 || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 5, 2)
+	         || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 1, 4)
+	      	 || ' '
+	     	 || TR.ora_refertazione
+	        END DATA_ORA,
+  			TR.stato_richiesta STATO,
+ 			radsql.centri_di_costo.descr DESTINATARIO
+			FROM infoweb.TESTATA_RICHIESTE TR,
+  			RADSQL.centri_di_costo
+			WHERE  TR.iden_visita IN
+  			(SELECT iden
+  			FROM nosologici_paziente
+  			WHERE num_nosologico = :nosologico
+  			)
+			AND TR.cdc = radsql.centri_di_costo.cod_cdc
+			AND tr.tipologia_richiesta  IN (0,3,6,7,8)
+			AND tr.stato_richiesta           IN ('E','R','P') 
+			)
+			order by to_date(DATA_ORA,'DD/MM/YYYY hh24:mi')
+			]]>
+			</sql>
+		</statement>
+		<statement name="checkDatiPs">
+			<sql>
+			<![CDATA[
+			declare
+			vNumNosologico 	  varchar2(32000) :=?;
+			vIdenAnag		  pls_integer;
+			vIdenAnagRis      pls_integer;
+			vDataIngresso 	  varchar2(32000) 		 := '';
+			vDataChiusura 	  varchar2(32000) 		 := '';
+			
+			begin
+			
+			begin
+			select iden_anag,dea_data_ingresso,dea_data_chiusura into vIdenAnag,vDataIngresso,vDataChiusura  from nosologici_paziente where accesso='0' and num_nosologico=vNumNosologico; 
+			exception when no_data_found then
+			vIdenAnag:='';
+			vDataIngresso:='';
+			vDataChiusura:='';
+			end;
+
+			vIdenAnagRis:=get_iden_anag_ris(vIdenAnag);			
+
+			
+			? := vIdenAnagRis;
+			? := vDataIngresso;
+			? := vDataChiusura;
+			end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getIdenRefertiPs">
+		<pool>elcoPool_polaris</pool>
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+		   	declare
+                vIdRemoto         varchar2(4000)        :=?;  
+                vDataMin		  varchar2(32000)		:=?;
+                vIdenAnag	 	  pls_integer;
+                vReferti	 	  varchar2(32000);
+			
+			begin
+			
+				begin
+				select iden_anag into vIdenAnag from cod_Est_anag where id1 = vIdRemoto;
+				select 
+                    string_agg(iden_referti) 
+                into vReferti 
+                from (  select 
+                            distinct (iden_ref) iden_referti 
+                        from 
+                            esami 
+                        where iden_anag=vIdenAnag  
+                        and dat_esa>=vDataMin 
+                        and iden_ref is not null); 
+				exception when no_data_found then
+				vReferti:='';
+				end;
+
+			
+			? := vReferti;
+			end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getRichiestePs">
+		<pool>elcoPool_polaris</pool>
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+		    select Substr(dat_esa, 7, 2) || '/'  || Substr(dat_esa, 5, 2)  || '/'  || Substr(dat_esa, 1, 4)  || ' '  || ora_esa Data_Ora,case when firmato='S' then 'R' else 'E' end stato,cdc.descr cdc_descr,t.descr t_descr,'ESAMI STRUMENTALI (PS)' 
+			from esami e join tab_esa t on (e.iden_esa=t.iden) join centri_di_costo cdc on (e.reparto=cdc.cod_cdc) join referti r on (r.iden=e.iden_ref)
+			where iden_anag=? and int_est='P' and eseguito='1' and dat_esa>=? and dat_esa<=?
+			order by dat_esa
+			]]>
+			</sql>
+		</statement>
+		<statement name="getRichiesteProsecStr">
+			<sql>
+			<![CDATA[
+			SELECT DATA_ORA "DATA E ORA",stato,destinatario,DESCRIZIONE_ESAME "DESCRIZIONE ESAME",Tipologia 
+			from (
+			SELECT
+  			/*+first_rows(10)*/
+  			CASE
+	       WHEN TR.DATA_REFERTAZIONE IS NULL
+	       THEN
+	          CASE
+	          WHEN DATA_ESECUZIONE IS NOT NULL
+	          	THEN SUBSTR(TR.DATA_ESECUZIONE, 7, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 5, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 1, 4)
+	          	|| ' '
+	          	|| TR.ora_esecuzione
+	    	  ELSE SUBSTR(TR.DATA_RICHIESTA, 7, 2)
+	     	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 5, 2)
+	    	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 1, 4)
+	     	    || ' '
+	     	    || TR.ora_richiesta
+	      	  END
+	  		ELSE SUBSTR(TR.DATA_REFERTAZIONE, 7, 2)
+	     	 || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 5, 2)
+	         || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 1, 4)
+	      	 || ' '
+	     	 || TR.ora_refertazione
+	        END DATA_ORA,
+  			TR.stato_richiesta STATO,
+ 			radsql.centri_di_costo.descr DESTINATARIO,
+  			TE.descr DESCRIZIONE_ESAME,
+  			(SELECT TC.descrizione
+  			FROM RADSQL.tab_codifiche TC
+  			WHERE 
+       		 tipo_scheda = 'VIEW_RICHIESTE_WORKLIST'AND 
+       		 tipo_dato     ='SERVIZIO_DESTINATARIO' AND TC.CODICE_REPARTO=(SELECT SITO FROM V_GLOBALI)
+  			AND codice        = (SELECT INFOWEB.VAR_GET_SERVIZIO_DESTINATARIO(tr.cdc,TR.tipologia_richiesta,tr.metodica) from dual))
+  			 TIPOLOGIA
+  			 FROM  
+			  infoweb.TESTATA_RICHIESTE TR,
+			  infoweb.dettaglio_richieste DR,
+			  radsql.TAB_ESA TE,RADSQL.centri_di_costo
+			  WHERE  TR.iden = DR.iden_testata AND
+			  DR.iden_tab_esa =TE.iden AND
+			  TR.iden_visita IN (SELECT iden From RADSQL.nosologici_paziente Where num_nosologico =:nosologico )
+			  AND TR.cdc = radsql.centri_di_costo.cod_cdc
+			  and TR.stato_richiesta <>'X'
+			  AND(tr.tipologia_richiesta NOT IN (0,3,6,7,8) or tr.tipologia_richiesta is null)
+			  And Tr.Data_Esecuzione > ( Select DATA_FINE_RICOVERO From RADSQL.nosologici_paziente Where iden =:iden_visita)
+			  )
+			order by to_date(DATA_ORA,'DD/MM/YYYY hh24:mi')
+			]]>
+			</sql>
+		</statement>
+		<statement name="getRichiesteProsecLabo">
+			<sql>
+			<![CDATA[
+			select info,DATA_ORA "Data e ora",stato,destinatario from (
+			SELECT
+  			/*+first_rows(10)*/
+ 			'<IMG id="infoRicLabo" title="Info richiesta" idenRic='||TR.IDEN||' src="imagexPix/GestioneRichieste/btinfo.gif" height="20" style="margin-left:10px;cursor:pointer;"></IMG>' INFO,
+			CASE
+	       WHEN TR.DATA_REFERTAZIONE IS NULL
+	       THEN
+	          CASE
+	          WHEN DATA_ESECUZIONE IS NOT NULL
+	          	THEN SUBSTR(TR.DATA_ESECUZIONE, 7, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 5, 2)
+	          	|| '/'
+	          	|| SUBSTR(TR.DATA_ESECUZIONE, 1, 4)
+	          	|| ' '
+	          	|| TR.ora_esecuzione
+	    	  ELSE SUBSTR(TR.DATA_RICHIESTA, 7, 2)
+	     	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 5, 2)
+	    	    || '/'
+	    	    || SUBSTR(TR.DATA_RICHIESTA, 1, 4)
+	     	    || ' '
+	     	    || TR.ora_richiesta
+	      	  END
+	  		ELSE SUBSTR(TR.DATA_REFERTAZIONE, 7, 2)
+	     	 || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 5, 2)
+	         || '/'
+	         || SUBSTR(TR.DATA_REFERTAZIONE, 1, 4)
+	      	 || ' '
+	     	 || TR.ora_refertazione
+	        END DATA_ORA,
+  			TR.stato_richiesta STATO,
+ 			radsql.centri_di_costo.descr DESTINATARIO
+			FROM infoweb.TESTATA_RICHIESTE TR,
+  			RADSQL.centri_di_costo
+			WHERE  TR.iden_visita IN
+  			(SELECT iden
+  			FROM nosologici_paziente
+  			WHERE num_nosologico = :nosologico
+  			)
+			AND TR.cdc = radsql.centri_di_costo.cod_cdc
+			  AND tr.tipologia_richiesta       IN (0,3,6,7,8)
+			  AND tr.stato_richiesta           IN ('E','R','P')
+			  And Tr.Data_Esecuzione > ( Select DATA_FINE_RICOVERO From RADSQL.nosologici_paziente Where iden =:iden_visita)			   
+			)
+			order by to_date(DATA_ORA,'DD/MM/YYYY hh24:mi')
+			]]>
+			</sql>
+			</statement>
+			<statement name="getInfoRichiesteLabo">
+			<sql>
+			<![CDATA[
+			SELECT /*+first_rows(10)*/ 
+			  TE.descr "ESAME"
+			  FROM  
+			  infoweb.TESTATA_RICHIESTE TR,
+			  infoweb.dettaglio_richieste DR,
+			  radsql.TAB_ESA TE
+			  WHERE  TR.iden = DR.iden_testata AND
+			  DR.iden_tab_esa =TE.iden 
+			  and tr.iden=:iden_testata
+			  order by TE.descr
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>
+

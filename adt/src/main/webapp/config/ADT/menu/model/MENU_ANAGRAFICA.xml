@@ -1,0 +1,133 @@
+<MENU>
+    <ID>MENU_ANAGRAFICA</ID>
+    <TITLE>traduzione.menuAnagrafica</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ANAG_INSERISCI</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                var cognome = escape($.trim($('#txtCognome').val().toUpperCase()));
+                var nome = escape($.trim($('#txtNome').val().toUpperCase()));
+                var data = $.trim($('#h-txtDataNasc').val());
+                var url = 'page?KEY_LEGAME=SCHEDA_ANAGRAFICA&IDEN_ANAG=';
+                url += cognome ? '&COGNOME=' + cognome : '';
+                url += nome ? '&NOME=' + nome : '';
+                url += data ? '&DATA=' + data : '';
+                home.NS_FENIX_TOP.apriPagina({url:url,id:'Scheda',fullscreen:true});
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.menuAnagraficaInserisci</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>N</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ANAG_MODIFICA</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=SCHEDA_ANAGRAFICA&IDEN_ANAG='+rec[0].IDEN,id:'Scheda',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return NS_MENU_ANAGRAFICA.whereModificaAnagrafica(rec);}]]></WHERE>
+            <OUTPUT>traduzione.menuAnagraficaModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ANAG_CANCELLA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.cancellaAnagrafica(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return NS_MENU_ANAGRAFICA.whereCancellaAnagrafica(rec);}]]></WHERE>
+            <OUTPUT>traduzione.menuAnagraficaCancella</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>S</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ANAG_INSERISCI_ESAME</ID>
+            <LINK><![CDATA[function(rec){
+                          NS_MENU_ANAGRAFICA.InserisciEsame(rec);
+                    }]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>traduzione.lblInserisciEsame</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+                <ID>ANAG_REMOTA_INSERISCI_ESAME</ID>
+                <LINK><![CDATA[function(rec){
+                           NS_MENU_ANAGRAFICA.ElaboraRemoto(rec,function(r){ NS_MENU_ANAGRAFICA.InserisciEsame(r)});
+                    }]]></LINK>
+                <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+                <WHERE><![CDATA[function(rec){return (rec.length != 0 && NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+                <OUTPUT>traduzione.lblInserisciEsame</OUTPUT>
+                <CONCEALING>true</CONCEALING>
+                <SEPARATOR>false</SEPARATOR>
+                <INFO></INFO>
+                <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ANAG_PRENOTA_ESAME</ID>
+            <LINK><![CDATA[function(rec){
+                          NS_MENU_ANAGRAFICA.PrenotaEsame(rec);
+                    }]]></LINK>
+            <URL_IMAGE>./img/CMenu/prenotazione.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>traduzione.lblPrenota</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>N</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANAG_REMOTA_PRENOTA_ESAME</ID>
+            <LINK><![CDATA[function(rec){
+                           NS_MENU_ANAGRAFICA.ElaboraRemoto(rec,function(r){ NS_MENU_ANAGRAFICA.InserisciEsame(r)});
+                    }]]></LINK>
+            <URL_IMAGE>./img/CMenu/prenotazione.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>traduzione.lblPrenota</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>N</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANAG_MASTERIZZA_STORICO</ID>
+            <LINK><![CDATA[function(rec){
+                        NS_MENU_MASTERIZZAZIONI.masterizzaScelta(rec,true);
+                    }]]></LINK>
+            <URL_IMAGE>./img/CMenu/masterizza_cd.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0);}]]></WHERE>
+            <OUTPUT>traduzione.lblMastStoricoEsami</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANAG_SOLE</ID>
+            <LINK><![CDATA[function(rec){
+                    var paziente=""
+                    if(rec.length != 0)
+                    {
+                         paziente="&IDEN_ANAGRAFICA=" + rec[0].IDEN_ANAGRAFICA + "&CODICE_FISCALE=" + rec[0].CODICE_FISCALE;
+                    }
+
+                        home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=SCHEDA_RICERCA_SOLE'+paziente,id:'SchedaEsamePage',fullscreen:true});
+                    }]]></LINK>
+            <URL_IMAGE>./img/CMenu/prenotazione.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true}]]></WHERE>
+            <OUTPUT>"Ricerca Prenotazione sole"</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>N</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

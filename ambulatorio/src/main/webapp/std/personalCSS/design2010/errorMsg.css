@@ -1,0 +1,44 @@
+/* css per la tabella di dati, come ad esempio la worklist */
+
+body {
+	background:#e0e0e0;
+	margin:0;
+	padding:0;
+}
+
+table.classErrorTable {
+	table-layout:fixed;
+	font-size: 12px;
+	border: 1px solid #999;
+	background:#efefef;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+table.classErrorTable td{
+	border: 1px solid #999;
+}
+
+table.classErrorTable th {
+	background-color:#C2FAFE;
+	border: 1px solid #999;
+}
+
+
+
+
+table.classErrorTable TR.titolo{
+	background:#999;
+	color:yellow;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+}
+
+table.classErrorTable  TR.information{
+	text-align:center;
+	font-size:12px;
+	font-style:italic;
+
+}

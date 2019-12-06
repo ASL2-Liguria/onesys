@@ -1,0 +1,149 @@
+
+<PAGINA key_id="MMG_CERTIFICATO_MALATTIA">
+	<HEADER_PAGE key_id="MMG_CERTIFICATO_MALATTIA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_CERTIFICATO_MALATTIA#DEFAULT_MMG,MMG_CERTIFICATO_MALATTIA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_CERTIFICATO_MALATTIA#MMG_DATI#MMG_CERTIFICATI#IDEN#IDEN##VCERT"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabCertificato"
+			valore="Certificato#lblTitolo#butElencoCertificati,butAnteprima,butRipulisci,butSalva,butChiudi,butAnnulla"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabLogin" valore="tabLogin" evento="START">
+				<FIELDSET_TABLE key_id="fldLogin" valore="fldLogin"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Username"
+						valore="lblUsername##txtUsername###USERNAME_MEDICO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR.INIT key_id="TR" valore="TR" evento="START">
+						<TD_LABEL_PASSWORD key_id="Pin" valore="lblPin##txtPin###PIN"
+							evento="START"></TD_LABEL_PASSWORD>
+						<!-- <TD_RADIO key_id="RicordaPin" valore="RicordaPin#RicordaPin#{width:150}#S#RICORDA_PIN" 
+							evento="START"></TD_RADIO> -->
+						<TD_CHECK key_id="RicordaPin"
+							valore="RicordaPin#RicordaPin#S#{width:150,ctrl:false}##RICORDA_PIN"
+							evento="START"></TD_CHECK>
+					</TR.INIT>
+					<TR.INIT key_id="TR2" valore="TR2" evento="START">
+						<TD_LABEL_PASSWORD key_id="Pwd" valore="lblPwd##txtPwd###PWD"
+							evento="START"></TD_LABEL_PASSWORD>
+						<!-- <TD_RADIO key_id="RicordaPwd" valore="RicordaPin#RicordaPwd#{width:150}#S#RICORDA_PWD" 
+							evento="START"></TD_RADIO> -->
+						<TD_CHECK key_id="RicordaPwd"
+							valore="RicordaPwd#RicordaPwd#S#{width:150,ctrl:false}##RICORDA_PWD"
+							evento="START"></TD_CHECK>
+					</TR.INIT>
+					<TR.INIT key_id="riga" valore="" evento="START">
+						<TD.INIT key_id="tdVuoto" valore="2" evento="START"></TD.INIT>
+						<TD_BUTTON key_id="butReset" valore="butReset" evento="START"></TD_BUTTON>
+					</TR.INIT>
+					<TR.INIT key_id="riga2" valore="" evento="START">
+						<TD.INIT key_id="tdVuoto2" valore="2" evento="START"></TD.INIT>
+						<TD_BUTTON key_id="butLogin" valore="butLogin" evento="START"></TD_BUTTON>
+					</TR.INIT>
+					<TR_TD_LABEL key_id="ErroreLogin" valore="lblErroreLogin"
+						evento="START"></TR_TD_LABEL>
+					<INPUT.HIDDEN key_id="hdiff" valore="hdiff###" evento="START"></INPUT.HIDDEN>
+					<INPUT.HIDDEN key_id="CodiceRegione" valore="hCodReg###COD_REGIONE"
+						evento="START"></INPUT.HIDDEN>
+					<INPUT.HIDDEN key_id="CodiceAsl" valore="hCodAsl###COD_ASL"
+						evento="START"></INPUT.HIDDEN>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldLoginINPS" valore="fldLoginINPS"
+					evento="START">
+					<TR_TD_LINK key_id="lblProgTess" valore="lblProgTess#lblProgTess"
+						evento="START"></TR_TD_LINK>
+					<TR_TD_LINK key_id="lblLogin" valore="lblLogin#lblLogin"
+						evento="START"></TR_TD_LINK>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabDatiCertificato" valore="tabDatiCertificato" evento="START">
+				<FIELDSET_TABLE key_id="fldCertificato" valore="fldCertificato"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="Ruolo"
+						valore="lblRuolo##Ruolo#radRuolo#{width:150,idxDefault:0}#N#RUOLO"
+						evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_DATA key_id="DataRilascio"
+						valore="lblDataRilascio##txtDataRilascio#DataRilascio#direction:true,format: 'd/m/Y',startWithToday:true,readonly:true#disabled:false##DATA_RILASCIO"
+						evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_DATA key_id="DataMalattia"
+						valore="lblDataMalattia##txtDataMalattia#DataMalattia#direction:[false,1],format: 'd/m/Y',startWithToday:true#disabled:false##DATA_INIZIO"
+						evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_DATA key_id="DataFine"
+						valore="lblDataFine##txtDataFine#DataFine#direction:[true,90],format: 'd/m/Y',startWithToday:false#disabled:false##DATA_FINE"
+						evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_RADIO key_id="TipoVisita"
+						valore="lblTipoVisita##TipoVisita#radTipoVisita#{width:150}#N#TIPO_VISITA"
+						evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="TipoCertificato"
+						valore="lblTipoCertificato##TipoCertificato#radTipoCertificato#{width:150}#N#TIPO_CERTIFICATO"
+						evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_AUTOCOMPLETE key_id="CodDiagnosi"
+						valore="lblCodDiagnosi#acCodDiagnosi#CodDiagnosi#txtCodDiagnosi#AC_CODICE_PROBLEMA#CODICE_ICD9"
+						evento="START"></TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Diagnosi"
+						valore="lblDiagnosi#acDiagnosi#Diagnosi#txtDiagnosi#AC_PROBLEMA#DESCR_ICD9"
+						evento="START"></TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXTAREA key_id="NoteDiagnosi"
+						valore="lblNoteDiagnosi#txtNoteDiagnosi#NOTE#2" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_RADIO key_id="GiornataLavorata"
+						valore="lblGiornataLavorata##GiornataLavorata#radGiornataLavorata#{width:150}#S#GIORNATA_LAVORATA"
+						evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Trauma"
+						valore="lblTrauma##Trauma#radTrauma#{width:150}#S#TRAUMA" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Agevolazione"
+						valore="lblAgevolazione##Agevolazione#radAgevolazione#{width:150}#N#AGEVOLAZIONE"
+						evento="START"></TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabLavoratore" valore="tabLavoratore" evento="START">
+				<FIELDSET_TABLE key_id="fldLavoratore" valore="fldLavoratore"
+					evento="START">
+					<INPUT.HIDDEN key_id="NomePaziente" valore="hNomePaziente###NOME_ASSISTITO"
+						evento="START"></INPUT.HIDDEN>
+					<INPUT.HIDDEN key_id="StatoPagina"
+						valore="hStatoPagina###STATO_PAGINA_PROVA" evento="START"></INPUT.HIDDEN>
+					<INPUT.HIDDEN key_id="Iden" valore="hIden###IDEN_CERTIFICATO"
+						evento="START"></INPUT.HIDDEN>
+					<TR_TD_LABEL_TEXT key_id="txtCodFisc"
+						valore="lblCodFisc##txtCodFisc###COD_FISC" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldResidenza" valore="fldResidenza"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtIndirizzo"
+						valore="lblIndirizzo##txtIndirizzo###INDIRIZZO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCivico"
+						valore="lblCivico##txtCivico###CIVICO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_AUTOCOMPLETE key_id="Comune"
+						valore="lblComune#acComune#Comune#txtComune#AC_COMUNI#COMUNE"
+						evento="START"></TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="txtCAP" valore="lblCAP##txtCAP###CAP"
+						evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtProvincia"
+						valore="lblProvincia##txtProvincia###PROVINCIA" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldReperibilita" valore="fldReperibilita"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtNome"
+						valore="lblNome##txtNome###NOME_REPE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtIndirizzoRepe"
+						valore="lblIndirizzoRepe##txtIndirizzoRepe###INDIRIZZO_REPE"
+						evento="START"></TR_TD_LABEL_TEXT>
+					<!-- <TR_TD_LABEL_TEXT key_id="txtCivicoRepe" valore="lblCivicoRepe##txtCivicoRepe###CIVICO_REPE" 
+						evento="START"></TR_TD_LABEL_TEXT> -->
+					<TR_TD_AUTOCOMPLETE key_id="ComuneRepe"
+						valore="lblComuneRepe#acComuneRepe#ComuneRepe#txtComuneRepe#AC_COMUNI_REPE#COMUNE_REPE"
+						evento="START"></TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="txtCAPRepe"
+						valore="lblCAPRepe##txtCAPRepe###CAP_REPE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtProvinciaRepe"
+						valore="lblProvinciaRepe##txtProvinciaRepe###PROVINCIA_REPE"
+						evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_BUTTON key_id="butResetRepe" valore="butResetRepe##2"
+						evento="START"></TR_TD_BUTTON>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

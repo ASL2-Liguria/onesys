@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>PROFESSIONI</ID>
+	<ID-QUERY connection="MMG_DATI">AUTOCOMPLETE.AC_PROFESSIONI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGTH>26px</HEIGTH>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>CODICE_DECODIFICA</COL>
+						<DB>CODICE_DECODIFICA</DB>
+					</ID>
+                    <DESCRIPTOR>"Codice Decodifica"</DESCRIPTOR>
+                    PROCESS/>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVEABLE>S</MOVEABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+                    <DESCRIPTOR>"Descrizione"</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVEABLE>S</MOVEABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			<!--<COLUMN>
+					<ID>
+						<COL>EXTRA</COL>
+						<DB>EXTRA</DB>
+					</ID>
+                    <DESCRIPTOR>Extra</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>320px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVEABLE>S</MOVEABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>-->
+			</LIST>
+			<SORT>
+				<!-- <COLUMN id="PAZIENTE">ASC</COLUMN>
+                <COLUMN id="CODICE_FISCALE">DESC</COLUMN> -->
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

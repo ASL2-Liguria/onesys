@@ -1,0 +1,42 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'RICARICA_NUOVO_ACCESSO'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Fumo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Alcol" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Accesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_TIPOLOGIA_ACCESSO" db_descrizione="COD_TIPOLOGIA_ACCESSO" configurazione_multi_data="R_ACCESSO" />
+	<DATO key_id="TipoProblema" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_TIPO_PROBLEMA" />
+	<DATO key_id="Regime" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_REGIME_ACCESSO" db_descrizione="COD_REGIME_ACCESSO" configurazione_multi_data="R_REGIME_ACCESSO" />
+	<DATO key_id="Note" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOTE" db_descrizione="NOTE" configurazione_multi_data="" />
+	<DATO key_id="DataAccesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_INS" db_descrizione="DATA_INS" configurazione_multi_data="" />
+	<DATO key_id="IdenIcd" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN_ICD" db_descrizione="IDEN_ICD" configurazione_multi_data="" />
+	<DATO key_id="txtIndirizzoAccesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDIRIZZO_ACCESSO" db_descrizione="INDIRIZZO_ACCESSO" configurazione_multi_data="" />
+	<DATO key_id="txtOperatoreAccesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="OPERATORE_ACCESSO" db_descrizione="OPERATORE_ACCESSO" configurazione_multi_data="" />
+</DATI>
+
+<!-- configurazione="begin 
+   if '#IDEN#' is not null then
+
+   :stato_pagina := 'M'; 
+   :key_query := 'RICARICA_NUOVO_ACCESSO'; 
+   :where := null; 
+   :campo_xml := null; 
+
+   else
+   
+   :stato_pagina := 'I'; 
+   :key_query := 'Q_EMPTY'; 
+   :where := null; 
+   :campo_xml := null; 
+   
+   end if;
+
+end;"> -->

@@ -1,0 +1,96 @@
+.pulsante {
+	width:160px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/bar/btLightCyan_mim.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	display:block;
+}
+
+.pulsante A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsante A:hover {
+	background-image:url(../../../../imagexPix/bar/btCyan_mim.jpg);
+	background-repeat:repeat-x;
+	color: black;
+}
+
+
+.pulsanteDis {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}
+
+
+
+
+
+.pulsanteSmall {
+	width:30px;
+	height:10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/bar/btLightCyan_mim.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	display:inline;
+}
+
+.pulsanteSmall A{
+	height:10px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsanteSmall A:hover {
+	background-image:url(../../../../imagexPix/bar/btCyan_mim.jpg);
+	background-repeat:repeat-x;
+	color: black;
+}
+
+
+.pulsanteVisibilita {
+	width:100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/bar/btLightCyan_50_mim.jpg);
+	background-repeat:repeat;
+	text-align: center;
+	line-height:40px;
+}
+
+.pulsanteVisibilita A{
+	width:100%;
+	height:50px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:inline-table;
+}
+
+.pulsanteVisibilita A:hover {
+	background-image:url(../../../../imagexPix/bar/btCyan_50_mim.jpg);
+	background-repeat:repeat;
+	color: black;
+}
+

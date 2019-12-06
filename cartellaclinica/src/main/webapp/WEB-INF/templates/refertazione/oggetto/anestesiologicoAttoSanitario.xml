@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblAnestesiologico" TYPE="label"
+            TEXT="Atto sanitario proposto: procedura anestesiologica per" CLASS="titleLabel"/>
+    </CAMPI>
+</PAGINA>

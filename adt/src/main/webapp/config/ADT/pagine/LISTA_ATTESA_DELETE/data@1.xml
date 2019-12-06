@@ -1,0 +1,14 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'LISTA_ATTESA_PAGINA.Q_ESITI_POSIZIONE@ADT'; :where := null; :campo_xml := null; end;">
+    <DATO key_id="IDEN_CONTATTO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_CONTATTO" db_descrizione="IDEN_CONTATTO"
+          configurazione_multi_data="" 
+    /> 
+    <DATO key_id="STATO_LISTA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_LISTA" db_descrizione="STATO_LISTA"
+          configurazione_multi_data="" 
+    /> 
+    <DATO key_id="N_RICOVERI" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="N_RICOVERI" db_descrizione="N_RICOVERI"
+          configurazione_multi_data="" 
+    /> 
+</DATI>

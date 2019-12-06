@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>CARATTERISTICHE PRESCRIZIONE ACCERTAMENTO</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<tabCrono></tabCrono>
+	
+		<fldPeriodica>Controllo Periodico</fldPeriodica>
+		<fldTemporanea>Temporaneità</fldTemporanea>
+		<fldNote>Nota</fldNote>
+	
+		<lblDaData>Da Data</lblDaData>
+		<lblAData>A Data</lblAData>
+		<lblDataPartenza>Data Inizio Periodicità</lblDataPartenza>
+		<lblggPeriodo>Controllo ogni (giorni) </lblggPeriodo>	
+		<lblAreaNote>Note</lblAreaNote>
+		<lblBlocco>Blocco prescrizione</lblBlocco>
+		<lblNotePrescrizione>Nota</lblNotePrescrizione>
+		
+    </ROW>
+</ROWSET>

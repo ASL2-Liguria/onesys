@@ -1,0 +1,30 @@
+<PAGINA key_id="MMG_ESENZIONI_PAZIENTE">
+	<HEADER_PAGE key_id="MMG_ESENZIONI_PAZIENTE"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ESENZIONI_PAZIENTE#DEFAULT_MMG,MMG_ESENZIONI_PAZIENTE" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="Esenzioni#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabEsenzioni" valore="tabEsenzioni" evento="START">
+				<FIELDSET key_id="fldEsenzioni" valore="fldEsenzioni"
+					evento="START">
+					<DIV key_id="wkEsenzioni" valore="wkEsenzioni" evento="START">
+					</DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabEsenzioniScadute" valore="tabEsenzioniScadute" evento="START">
+
+				<FIELDSET key_id="fldEsenzioniScadute" valore="fldEsenzioniScadute"
+					evento="START">
+
+					<DIV key_id="wkEsenzioniScadute" valore="wkEsenzioniScadute"
+						evento="START">
+					</DIV>
+
+				</FIELDSET>
+
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

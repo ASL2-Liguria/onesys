@@ -1,0 +1,218 @@
+body{background:#FFC;}
+
+/*	MENU	*/
+
+div#divAnag{
+	width:65%; 
+	/*margin:0,0,0,0;*/
+	height:25px;
+	line-height:25px;
+	color:#fff;
+/*	padding-left:10px; */
+	background: #008040;
+	text-align:center;
+	float:left;
+	}		
+		
+	div#divMenu{
+	width:35%;
+	/*margin:0,0,0,0;*/
+	height:25px;
+	line-height:25px;
+	color:#fff;
+/*	padding-left:10px; */
+	background: #008040;
+	text-align:center;
+	float:left;
+	}		
+	
+
+
+
+
+
+
+
+
+
+
+
+ul#nav{
+	height:25px;
+	line-height:25px;
+	background:#47A247;
+	text-align:right;
+	}
+	ul#nav li, a{
+		color:#fff;
+		font-size:14px;
+		text-decoration:none;
+		}
+		ul#nav a:hover{	color:#00FF18;	}
+	ul#nav li{
+		display:inline;
+		margin:0 15px;
+	
+		}
+		
+/*filtri	*/
+ul#testFiltro{
+	height:25px;
+	line-height:25px;
+	background:#47A547;
+	text-align:center;
+	}
+	ul#testFiltro li, a{
+		color:#008040;;
+		font-size:15px;
+		text-decoration:none;
+		}
+	
+	ul#testFiltro li{
+		display:inline;
+		margin:0 15px;
+		}	
+		
+		
+ul#navExcel{
+height:25px;
+line-height:25px;
+background:#47A547;
+text-align:left;
+border-style:solid;
+border-width:1px;
+border-color:#008040;
+
+}
+ul#navExcel li, a{
+	color:#fff;
+	font-size:14px;
+	text-decoration:none;
+	}
+	ul#nav a:hover{	color:#00FF18;	}
+ul#navExcel li{
+	display:inline;
+/*	margin:0 15px;*/
+	}
+	
+ul#navChiudiDoc{
+	height:25px;
+	line-height:25px;
+	background:#47A547;
+	text-align:right;
+	}
+	ul#navChiudiDoc li, a{
+		color:#fff;
+		font-size:14px;
+		text-decoration:none;
+		}
+		ul#navChiudiDoc a:hover{	color:#00FF18;	}
+	ul#navChiudiDoc li{
+		display:inline;
+		margin:0 15px;
+		}			
+
+		
+/*	FINE MENU	*/
+
+/*	Primo DIV	*/
+div.riq{
+	width:99%;
+	margin:10px auto;
+	background:#fff;
+	border:1px solid #666;
+	height:300px;
+	overflow:auto;
+	}
+/*	h3{
+		background:url(img/sf-h.jpg) repeat-x;
+		height:25px;
+		line-height:25px;
+		color: #000;
+		padding-left:10px;
+		}
+	*/	
+		
+
+		
+/*		
+div#scroll{overflow:auto;height:275px;overflow-x:hidden;}
+tr{height:25px;}*/
+
+.even{background-color:#ffffff}
+
+.over{background-color:#FBFDA2}
+
+.click{background-color:#FFFF00}
+
+.even2{background: #eee;background-color:#6FF}
+
+
+table {
+  border: solid 1px #D5D5D5;
+  border-collapse: collapse;
+	width:100%; 
+}
+
+table td {
+	border:1px solid #D5D5D5;
+	font-size:12px;
+	padding:5px 5px; 
+}
+
+.imageAcr {
+	CURSOR: hand; COLOR: black; TEXT-DECORATION: underline; width:21px;height:21px;
+	background: url(../../../imagexPix/Visualizzatore/Acrobat.png) no-repeat;
+	display:block; float:left; padding:0px 0px 0px 3px;
+}
+
+.imagePacs {
+	CURSOR: hand; COLOR: black; TEXT-DECORATION: underline; width:21px;height:21px;
+	background: url(../../../imagexPix/Visualizzatore/logo_ve_studySync.png) no-repeat;
+	display:block; float:left; padding:0px 0px 0px 5px;
+}
+
+
+.imageLab {
+	CURSOR: hand; COLOR: black; TEXT-DECORATION: underline; width:23px;height:23px;
+	background: url(../../../imagexPix/Visualizzatore/Tabella.png) no-repeat;
+	display:block; 
+}
+
+.imageGraf {
+	CURSOR: hand; COLOR: black; TEXT-DECORATION: underline; width:23px;height:26px;
+	background: url(../../../imagexPix/button/mostra_grafico.gif) no-repeat;
+	display:block; 
+}
+
+
+.BLUE {
+	COLOR: BLUE; 
+	FONT-WEIGHT:BOLD;
+}
+.RED {
+	COLOR: RED; 
+	FONT-WEIGHT:BOLD;
+}
+
+
+
+table th {
+	background:#47A547;color:#fff;
+	font-size:13.5px;
+	height:25px;line-height:25px;
+	font-weight:bold;
+	padding:0px 5px;
+	text-align:left;
+	
+}
+
+thead, th{text-align:left;}
+
+div#divNull{
+	line-height:25px;
+	margin:0,0,0,0;
+	color:black;
+	background: #F90;
+	text-align:center;  
+	}	

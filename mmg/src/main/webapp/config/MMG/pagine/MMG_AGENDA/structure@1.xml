@@ -1,0 +1,11 @@
+<PAGINA key_id="MMG_AGENDA">
+	<HEADER_CUSTOM key_id="MMG_AGENDA"
+		valore="DEFAULT_MMG,MMG_AGENDA#DEFAULT_MMG,MMG_AGENDA##pageScheduler" evento="START_END">
+	</HEADER_CUSTOM>
+	<FORM key_id="f" valore="f" evento="START_END">
+		<SCHEDULER key_id="sScheduler"
+			valore="scheduler#hScheduler#sScheduler#butAggiorna,butChiudi"
+			evento="START">
+		</SCHEDULER>
+	</FORM>
+</PAGINA>

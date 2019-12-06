@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Inserisci Richieste / Prestazioni</lblTitolo>
+    		<fldDati>Servizi Erogatori</fldDati>
+    			<fldProfiliMulti>Profili Multidisciplinari</fldProfiliMulti>
+    		<fldHeaderWk>Lista prestazioni</fldHeaderWk>    		
+	    		<butCerca>Cerca</butCerca>
+		    	<butCancellaTesto>Cancella</butCancellaTesto>
+		    	<lblFiltroText>Filtro</lblFiltroText>		    	
+		    		<lblRepartoConsulenze>Seleziona Reparto Consulenze</lblRepartoConsulenze>
+	    		<lblStrutturaCons>Scegli struttura</lblStrutturaCons>
+	    		<lblPreferitiCons>Reparti preferiti</lblPreferitiCons>	    			
+	    		<lblProfili>Profili preimpostati</lblProfili>	    	  	
+		    	<lblFiltri>Filtri preimpostati</lblFiltri>			    	    	    	
+	    	<fldWkSelezionati>Prestazioni Suggerite</fldWkSelezionati>
+	    		<lblcmbRichSel>Selezionati</lblcmbRichSel>
+	    		<butPulisciCombo>Cancella</butPulisciCombo>
+	    		<butSeleziona>Seleziona</butSeleziona>    	
+	    	<fldAltriDati>Prestazioni Da Inviare</fldAltriDati>
+	    		<lbltaQuesito>Quesito</lbltaQuesito>
+	    		<lbltaQuadro>Quadro</lbltaQuadro>
+	    		<lbltaNote>Note</lbltaNote>
+            <fldFiltriProfili>Preferiti</fldFiltriProfili>
+	    	<butInvia>Invia</butInvia>
+    </ROW>
+</ROWSET>

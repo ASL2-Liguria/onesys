@@ -1,0 +1,26 @@
+<MENU>
+    <ID>MENU_WK_DSA_CHIUSI</ID>
+    <TITLE>"Menu Dsa chiusi"</TITLE>
+    <LIST>
+    	<ITEM>
+            <ID>CHIUSURA_DSA</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=GESTIONE_DSA&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONT='+rec[0].IDEN_CONTATTO+'&STATO_PAGINA=E&CHIUSURA_DSA=S',id:'ChiusuraDSA',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/chiudi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Chiusura DSA"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_DSA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_DSA.annullaDSA(rec[0].IDEN_CONTATTO,rec[0].CODICE);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annullamento DSA"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>        
+    </LIST>
+ </MENU>

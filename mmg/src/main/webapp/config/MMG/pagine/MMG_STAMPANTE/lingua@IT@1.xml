@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+        <!--  <lblTitolo>STAMPANTI</lblTitolo>-->
+        <butStampa>Stampa</butStampa>
+        <butStampa_di_Prova>Stampa di prova</butStampa_di_Prova>
+        <butStampa_di_Prova_RB>Stampa di prova Ricetta Bianca</butStampa_di_Prova_RB>
+        <butStampaProvaDema>Stampa di prova Dematerializzata</butStampaProvaDema>
+        <but_CancellaImpostazioniUtente>Cancella configurazione</but_CancellaImpostazioniUtente>
+        <but_Impost_Predef_RR>Predefinite: ricetta rossa</but_Impost_Predef_RR>
+        <but_Impost_Predef_RR_A4>Predefinite: A4 (consigliato)</but_Impost_Predef_RR_A4>
+        <but_Impost_Predef_RR_A4_LS>Predefinite: A4 90°</but_Impost_Predef_RR_A4_LS>
+        <but_Impost_Predef_RB>Predefinite: 149x219</but_Impost_Predef_RB>
+        <but_Impost_Predef_RB_LS>Predefinite: 149x219 90°</but_Impost_Predef_RB_LS>
+        <but_Impost_Predef_RB_A5>Predefinite: A5</but_Impost_Predef_RB_A5>
+        <but_Impost_Predef_RB_A5_LS>Predefinite: A5 90°</but_Impost_Predef_RB_A5_LS>
+        <but_Impost_JOLLY_RR>Predefinite: TODO</but_Impost_JOLLY_RR>
+        <but_Impost_JOLLY_Dema>Predefinite: TODO</but_Impost_JOLLY_Dema>
+		<butImpostPredefDema>Predefinite: A5</butImpostPredefDema>
+		<butImpostPredefDemaA4>Predefinite: A4 (consigliato)</butImpostPredefDemaA4>
+        <butImpostPredefDemaRB>Predefinite: 149x219</butImpostPredefDemaRB>
+        <but_ConfigurazioniStampa>Aggiungi</but_ConfigurazioniStampa>
+        
+        <tabMainPrinter>Configurazione generale</tabMainPrinter>
+        <tabRR_Printer>Stampante per Ricette Rosse</tabRR_Printer>
+        <tabRB_Printer>Stampante per Ricette Bianche</tabRB_Printer>
+        <tabDemaPrinter>Stampante per Ricette Dematerializzate</tabDemaPrinter>
+
+		<fld0>Configurazioni</fld0>
+        <fldMainPrinter>Stampante predefinita</fldMainPrinter>
+		<fldRicettaRossa>Stampante per Ricetta Rossa</fldRicettaRossa>
+		<fldRicettaRossaPrinter>Dimensioni di stampa</fldRicettaRossaPrinter>
+		<fldRB>Stampante per Ricetta Bianca</fldRB>
+		<fldRBPrinter>Impostazioni di stampa per ricetta bianca su foglio bianco</fldRBPrinter>
+		<fldDema>Impostazioni di stampa per ricetta dematerializzata</fldDema>
+		<fldDemaPrinter></fldDemaPrinter>
+		
+		<lblImpostaUtente>Modifica configurazione</lblImpostaUtente>
+		<lblAvviso_Conferma_Stampa>Avviso tipo di stampa</lblAvviso_Conferma_Stampa>
+		<lblAvvisoDema>Avviso nel caso di ripiego su Ricetta Rossa</lblAvvisoDema>
+		<lblPrinter>Stampante</lblPrinter>
+		<lblDescrizione_PC>Descrizione PC</lblDescrizione_PC>
+		<lblConfigStampa>Aggiungi configurazione</lblConfigStampa>
+		
+		<lblAltezza>Altezza (mm)</lblAltezza>
+		<lblLarghezza>Larghezza (mm)</lblLarghezza>
+		<lblMarTop>Margine alto (mm)</lblMarTop>
+		<lblMarRight>Margine destro (mm)</lblMarRight>
+		<lblMarBottom>Margine basso (mm)</lblMarBottom>
+		<lblMarLeft>Margine sinistro (mm)</lblMarLeft>
+		<lblAllineamento>Rotazione foglio</lblAllineamento>
+		<butPageScaleRR>Scala</butPageScaleRR>
+		<butPageScaleRB>Scala</butPageScaleRB>
+		<butPageScaleDema>Scala</butPageScaleDema>
+		
+		<lblSceltaStampanteRB>Stampa della ricetta bianca</lblSceltaStampanteRB>
+		
+    </ROW>
+</ROWSET>

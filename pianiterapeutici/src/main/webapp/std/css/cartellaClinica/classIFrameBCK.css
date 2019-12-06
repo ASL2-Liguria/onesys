@@ -1,0 +1,118 @@
+html {height:100%;overflow: hidden}
+
+body{height:100%;overflow:hidden;}
+
+iframe.classIFPaziente
+{
+	width:99.9%;
+	height:50px;
+	clear:both;
+	display:block;
+	overflow:no;
+}
+iframe.classIFParametri
+{
+	float:left;
+	width:29%;
+	height:120px;
+	border:1px solid #0000FF;
+	border-left-width:0px;	
+	display:none;
+	margin-bottom:2px;
+}
+
+iframe.classIFAllergie
+{
+	float:left;
+	width:70%;
+	height:120px;
+	border:1px solid #0000FF;
+	display:none;
+	margin-bottom:2px;
+}
+iframe.classIFBisogni
+{
+	float:left;
+	width:29%;
+	height:80px;
+	border:1px solid #0000FF;
+	border-bottom-width:0px;	
+	border-left-width:0px;	
+	display:none;	
+}
+
+iframe.classIFProblemi
+{
+	float:left;
+	width:70%;
+	height:80px;
+	border:1px solid #0000FF;
+	border-bottom-width:0px;	
+	display:none;	
+}
+iframe.classIFWork
+{
+	width:99.9%;
+	height:100%;
+}
+div#header{
+	color: #FFF;
+	height:25px;
+	background:url(../../../imagexPix/tabheader/top_tabella.gif) repeat-x;
+	width:99.9%;
+	padding:2px;
+/*	clear:both;*/
+	overflow:hidden;
+	text-align:center;
+	margin-top:3px;
+}
+div#header span{
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	COLOR: #0000ff;
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: bold;
+}
+
+.pulsanteBarraHeader A{
+	width:120px;	
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:21px;
+	padding-left:2px;
+	padding-right:2px;
+	margin-left:3px;
+	float:right;
+	background:url(../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	text-align:center;
+	font-weight:bold;
+	displaY:block;
+	
+}
+
+.pulsanteBarraHeader A:hover {
+	background:url(../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color: yellow;
+	font-weight:bold;
+
+}
+div#tabAvvertenze{width:100%;display:block;clear:both;}
+div.avvertenza{float:left;width:9%;margin:2px 2px;padding:2px 2px;border:1px solid;cursor:hand;font-size:10px;text-align:center;}
+
+.avvertenzaRossa{background:#FBB19F;text-transform:uppercase;font-weight:bold;}
+.avvertenzaGialla{background:#FFE9A4;}
+.avvertenzaVerde{background:#E3FFCE;}
+
+.livello{padding:5px 5px;border:1px solid #3CF;cursor:hand;margin:3px 3px;background:url(../../../imagexPix/bar/btCyan.jpg) repeat-x;}
+.livello_over{background:url(../../../imagexPix/bar/btLightCyan.jpg) repeat-x;}
+
+.livello0{padding:5px 5px;border:1px solid #3CF;cursor:hand;margin:3px 3px;background:url(../../../imagexPix/bar/btCyan.jpg) repeat-x;}
+.livello0_over{background:url(../../../imagexPix/bar/btLightCyan.jpg) repeat-x;}
+
+.livello1{padding:5px 5px;border:1px solid #3CF;cursor:hand;margin:3px 3px;background:url(../../../imagexPix/bar/btGreen.jpg) repeat-x;}
+.livello1_over{background:url(../../../imagexPix/bar/btLightGreen.jpg) repeat-x;}
+
+.livello2{padding:5px 5px;border:1px solid #3CF;cursor:hand;margin:3px 3px;background:url(../../../imagexPix/bar/btYellow.jpg) repeat-x;}
+.livello2_over{background:url(../../../imagexPix/bar/btLightYellow.jpg) repeat-x;}
+
+.livello3{padding:5px 5px;border:1px solid #3CF;cursor:hand;margin:3px 3px;background:url(../../../imagexPix/bar/btRed.jpg) repeat-x;}
+.livello3_over{background:url(../../../imagexPix/bar/btLightRed.jpg) repeat-x;}

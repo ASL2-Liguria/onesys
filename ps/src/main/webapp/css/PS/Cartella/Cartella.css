@@ -1,0 +1,122 @@
+div.RIQ{
+	cursor: pointer;
+}
+#tHeader{
+    text-shadow:none
+}
+div.infoDialogHeaderPopup{
+    font-weight: 600;
+}
+.acList .contentDiv{
+    height:300px;
+}
+#statoPaziente{
+    display: block;
+}
+.textCenter{
+    text-align: center;
+    padding:3px
+}
+.textLeft{
+    text-align: left;
+    padding:3px;
+    font-weight: 600;
+
+}
+#statoPaziente{
+    font-weight: 600;
+}
+#Paziente span , #utenteRiferimento span, #numeroPratica span{
+    text-decoration: underline;
+    cursor : pointer;
+}
+#tHeader.ROSSO{
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ff1500), color-stop(1, #bf0a01));
+    background: -moz-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: -webkit-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: -o-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: -ms-linear-gradient(top, #ff1500 5%, #bf0a01 100%);
+    background: linear-gradient(to bottom, #ff1500 5%, #bf0a01 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1500', endColorstr='#bf0a01', GradientType=0);
+    border: 1px solid #bf0a01;
+    text-align: center;
+}
+#tHeader.VERDE {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2ECC71), color-stop(1, #20864b));
+    background: -moz-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: -webkit-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: -o-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: -ms-linear-gradient(top, #2ECC71 5%, #20864b 100%);
+    background: linear-gradient(to bottom, #2ECC71 5%, #20864b 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2ECC71', endColorstr='#20864b', GradientType=0);
+    background-color: #27AE60;
+    border: 1px solid #20864b;
+    text-align: center;
+}
+#tHeader.GIALLO {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #FFEC1C), color-stop(1, #EEBE0A));
+    background: -moz-linear-gradient(top, #FFEC1C 5%, #EEBE0A 100%);
+    background: -webkit-linear-gradient(top, #FFEC1C 5%, #EEBE0A 100%);
+    background: -o-linear-gradient(top, #FFEC1C 5%, #EEBE0A 100%);
+    background: -ms-linear-gradient(top, #FFEC1C 5%, #EEBE0A 100%);
+    background: linear-gradient(to bottom, #FFEC1C 5%, #EEBE0A 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEC1C', endColorstr='#EEBE0A', GradientType=0);
+    background-color: #FFEC1C;
+    border: 1px solid #EEBE0A;
+    text-align: center;
+}
+.GIALLO span, .GIALLO strong, .GIALLO label{
+    color: #8b5c2e;
+}
+#tHeader.BIANCO {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f2f2f2), color-stop(1, #d9d9d9));
+    background: -moz-linear-gradient(top, #ffffff 5%, #CCCCCC 100%);
+    background: -webkit-linear-gradient(top, #ffffff 5%, #CCCCCC 100%);
+    background: linear-gradient(to bottom, #ffffff 5%, #CCCCCC 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F2F2F2', endColorstr='#D9D9D9', GradientType=0);
+    border: 1px solid #565656;
+    text-align: center
+}
+.BIANCO span, .BIANCO strong, .BIANCO label{
+    color: #000000;
+}
+#tHeader.AZZURRO {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #21A8DD), color-stop(1, #117BCB));
+    background: -moz-linear-gradient(top, #21A8DD 5%, #117BCB 100%);
+    background: -webkit-linear-gradient(top, #21A8DD 5%, #117BCB 100%);
+    background: -o-linear-gradient(top, #21A8DD 5%, #117BCB 100%);
+    background: -ms-linear-gradient(top, #21A8DD 5%, #117BCB 100%);
+    background: linear-gradient(to bottom, #21A8DD 5%, #117BCB 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#21A8DD', endColorstr='#117BCB', GradientType=0);
+    background-color: #117BCB;
+    border: 1px solid #117BCB;
+    text-align: center;
+}
+#tHeader.MAGENTA {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #B90A77), color-stop(1, #8c085a));
+    background: -moz-linear-gradient(top, #B90A77 5%, #8c085a 100%);
+    background: -webkit-linear-gradient(top, #B90A77 5%, #8c085a 100%);
+    background: -o-linear-gradient(top, #B90A77 5%, #8c085a 100%);
+    background: -ms-linear-gradient(top, #B90A77 5%, #8c085a 100%);
+    background: linear-gradient(to bottom, #B90A77 5%, #8c085a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#B90A77', endColorstr='#8c085a', GradientType=0);
+    background-color: #8c085a;
+    border: 1px solid #8c085a;
+    text-align: center;
+}
+.tabledialog tr th, .infoTitolo td{
+    width: 70px;
+    height: 20px;
+    border: solid 1px #000000;
+    font-weight: 900;
+    text-align: center;
+    padding: 5px;
+}
+.tabledialog tr td, .infoDati td{
+    padding: 5px;
+    border: solid 1px #000000;
+    text-align: center;
+}
+.Illumina {
+    color:yellow
+}

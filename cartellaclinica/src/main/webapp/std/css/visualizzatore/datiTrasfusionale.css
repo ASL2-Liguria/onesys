@@ -1,0 +1,397 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+
+	border: 0;
+	font-size: 99%;
+	font-family: Arial;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+
+
+
+ body{
+ /*background:#FFC;*/
+ 
+ BACKGROUND-IMAGE: url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-RIGHT: 0px;
+
+
+ 
+ } 
+ 
+ 
+ div#divMenu{
+	width:35%; 
+	height:30px;
+	text-align:center;
+	float:left;
+	background:#06F;
+	}		
+		
+	div#divOption{
+	width:65%;
+	height:30px;
+	text-align:left;
+	background:#06F;
+	float:left;
+	}	
+	
+.divOptionAgg{
+	width:150px;
+	height:30px;
+	float:left;
+	}	
+	
+	.divOptionSelect{
+	width:250px;
+	height:30px;
+	float:left;
+	}	
+	
+
+ .thLabel LABEL{
+	/*	height:20px;*/
+	width:400px;
+/*	color:#333;*/
+	background:#06F;
+	margin-left:200px;
+	border-right:none;
+
+	line-height:21px;
+	padding-left:2px;
+	padding-right:2px;
+	margin-top:4px;
+	margin-left:3px; 	
+	
+	}
+ .thSelect SELECT{
+/*	height:17px;*/
+	width:100px;
+/*	background:#06F;*/
+	border-right:none;
+	border-left:none; 
+	padding-left:2px;
+	padding-right:2px;
+	margin-top:4px;
+	margin-left:3px; 
+ }
+
+
+
+
+.pulsanteLabWhale A{
+	width:100px;	
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:21px;
+	padding-left:2px;
+	padding-right:2px;
+	margin-top:4px;
+	margin-left:3px; 
+	float:left;
+	background:url(../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	text-align:center;
+	font-weight:bold;
+	font-size:12px;
+/*	display:block;*/
+	
+}
+
+.pulsanteLabWhale A:hover {
+	background:url(../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color: yellow;
+	font-weight:bold;
+}
+
+.pulsanteLabWhaleAgg A{
+	width:90px;	
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:21px; 
+	padding-left:2px;
+	padding-right:2px;
+	margin-top:4px;
+	margin-left:3px;
+	float:left; 
+	background:url(../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	text-align:center;
+	font-weight:bold;
+	font-size:12px;
+/*	display:inline;*/
+	
+}
+
+.pulsanteLabWhaleAgg A:hover {
+	background:url(../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color: yellow;
+	font-weight:bold;
+}
+
+
+
+.rigaGruppo {
+	/*background: #008040;*/
+	background: #04F;
+	color:#fff; 
+	font-size:14px;
+}
+
+.tdGruppo {
+	width:300px;
+	text-align:left;
+	color:white;
+}
+
+.tdInt{
+color:white;
+background:#358DF9;
+
+}
+
+.tdIntAltriRep{
+color:white;
+/*background:RED;*/
+background:#358DF9;
+
+}
+
+.triangoloNote{
+border-top: 11px solid red;
+border-left: 11px solid #358DF9;
+	}
+
+
+
+table {
+  /*border: solid 1px #000;*/
+  border-collapse: collapse;
+/*	width:100%; */
+}
+
+table td {
+	border:1px solid #CCC;
+	font-size:12px;
+	padding:2px 2px;
+    width:100px;	
+	color:black;
+	text-align:center;
+}
+
+
+
+table th {
+    border:1px solid #CCC; 
+	background:#358DF9;color:#fff;
+	font-size:13.5px;
+	font-weight:bold;
+	padding:2px 2px;
+/*	width:80px; */
+/*	height:70px; */
+/*	color:black; */
+	text-align:center; 
+	
+}
+
+   div#divMain{
+	/*width:1300px;*/	
+	overflow-x:hidden;
+	overflow-y:hidden; 
+	}		
+
+
+
+div#divBloc{
+	width:390px;
+	margin:0,0,0,0;
+	border: solid 1px #CCC;
+	height:27px; 
+	line-height:20px;
+	color:#fff;
+/*	padding-left:10px; */
+	background: #358DF9;
+/*	text-align:center; */
+	float:left;
+	}		
+	
+	div#divInt{
+	/*width:45%;*/
+	margin:0,0,0,0;
+	border: solid 1px #CCC;
+/*	height:30px; 
+	line-height:25px; */
+	color:#fff;
+/*	padding-left:10px; */
+	background: #69BDFC;
+	float:left;
+	 overflow-x:hidden;
+	overflow-y:hidden;
+	position:relative;
+	}		
+	
+	div#divLeft{
+	width:390px;
+	margin:0,0,0,0;
+	border: solid 1px #CCC;
+	/*height:700px;*/
+	line-height:18px;
+	color:#fff;
+/*	padding-left:10px; */
+	background: white; 
+	float:left;
+	overflow-x:hidden;
+	overflow-y:hidden; 
+	}		
+	
+	div#divDati{
+	line-height:18px;
+	border: solid 1px #CCC;
+/*	text-align:center; */ 
+	/*width:46%;*/
+	/*height:717px;*/
+	background:white;
+	margin:0,0,0,0;
+	color:#fff;
+    overflow-x:scroll;
+	overflow-y:scroll;    
+	float:left;	
+	}	
+	
+	table#tabellaBloc{
+/*	width:500px;*/
+border: solid 1px #358DF9;
+	margin:0,0,0,0;
+/*	overflow-x:scroll;*/	
+	}		
+	
+	table#tabellaInt{
+
+   border: solid 1px #A0A0A4;
+	
+	}		
+
+	table#tabellaInt{
+/*	width:500px;*/
+/*border: solid 1px #000;*/
+	margin:0,0,0,0;
+/*	overflow-x:scroll;*/	
+	}		
+	
+	table#datiTable{
+/*	width:500px;*/ 
+border: solid 1px #A0A0A4;
+	margin:0,0,0,0;
+overflow-x:scroll;
+	overflow-y:scroll; 	
+	}		
+
+
+
+	div#divNull{
+	line-height:25px;
+	margin:0,0,0,0;
+	color:black;
+	background: #F90;
+	text-align:center;
+   
+	}	
+
+
+
+.colDati{
+background:white;
+/*border-left:0;*/
+padding:2px;
+}
+
+
+.colGrafInt{
+width:30px;
+}
+
+
+.colEsameInt{
+width:210px;
+background:#358DG9;
+}
+
+
+.colGraf{
+background:white;
+width:30px;
+}
+
+
+.colEsame{
+background:white;
+width:300px; 
+}
+
+.colUnMis{
+/*border-right:0;*/
+}
+
+
+.colValMinInt{
+width:50px;
+}
+
+.colValMaxInt{
+width:50x;
+}
+
+.colUnMisInt{
+width:50px;
+/*border-right:0;*/
+}
+
+
+.colValMin{
+background:white;
+width:50px;
+}
+
+.colValMax{
+background:white;
+width:50px;
+}
+
+.colUnMis{
+background:white;
+width:50px;
+}
+
+.classTitle{
+text-decoration:underline;
+}
+.link{
+	text-decoration:underline;
+	cursor:hand;
+}
+
+/* per intestazione*/
+div.header{width:100%;height:25px;display:block;background:url(../../../imagexPix/bar/MenuImgV.png) repeat-x;}
+div.header div.btn{float:right;display:block;width:25px;height:25px;cursor:hand;}
+div.header div.btn:hover{background-color:#FF0;}
+div.chiudi{background:url(../../../imagexPix/button/cross.png);}
+
+div.intestazione{color:#fff;height:25px;line-height:25px;position:absolute;width:80%;top:3px;left:10%;text-align:center;font: bold 14px Verdana;}
+
+
+
+
+
+

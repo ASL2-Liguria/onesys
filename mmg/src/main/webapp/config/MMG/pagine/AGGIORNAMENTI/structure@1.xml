@@ -1,0 +1,56 @@
+<PAGINA key_id="AGGIORNAMENTI">
+	
+	<HEADER_PAGE key_id="AGGIORNAMENTI" valore="DEFAULT_MMG,SCHEDA,AGGIORNAMENTI#DEFAULT_MMG,AGGIORNAMENTI" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_AGGIORNAMENTI_UNISYS#MMG_DATI##IDEN#IDEN" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="Aggiornamenti#lblTitolo#butSalva,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabAggiornamenti" valore="tabAggiornamenti" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldAggiornamenti" valore="fldAggiornamenti" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="TitoloAggiornamento" valore="lblTitoloAggiornamento##txtTitoloAggiornamento###TITOLO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_DATA key_id="DataAggiornamento" valore="lblDataAggiornamento##txtDataAggiornamento#DataAggiornamento#startWithToday:true, format: 'd/m/Y'###DATA" evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_TEXT key_id="Progetto" valore="lblProgetto##txtProgetto###FUNZIONE" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<INPUT.HIDDEN key_id="hTesto" valore="hTesto###TESTO"
+						evento="START">
+					</INPUT.HIDDEN>
+					
+					<TD_LABEL_RADIO key_id="cancellaAggiornamento"
+						valore="lblCancellaAggiornamento##cancellaAggiornamento#radCancellaAggiornamento#{width:100,idxDefault:1}#S#CANCELLA_AGGIORNAMENTO"
+						evento="START">
+					</TD_LABEL_RADIO>
+						
+				</FIELDSET_TABLE>
+						
+				<FIELDSET_TABLE key_id="fldTesto" valore="fldTesto" evento="START">
+					<TR_TD_TEXTAREA key_id="testo" valore="testo" evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+						
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabWorklist" valore="tabWorklist" evento="START">
+				
+				<FIELDSET key_id="fldWorklist" valore="fldWorklist" evento="START">
+					
+					<DIV key_id="divWk" valore="divWk" evento="START">
+					</DIV>
+					
+				</FIELDSET>		
+							
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>

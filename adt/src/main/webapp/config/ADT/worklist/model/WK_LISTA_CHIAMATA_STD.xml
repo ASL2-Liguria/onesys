@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WK_LISTA_CHIAMATA_STD</ID>
+    <ID-QUERY connection="ADT">LISTA_CHIAMATA_WK.LISTA_CHIAMATA_STD</ID-QUERY>
+    <TITLE>"LISTA CHIAMATA"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_LISTA_CHIAMATA</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>ASSISTITO</COL>
+                        <DB>ASSISTITO</DB>
+                    </ID>
+                    <DESCRIPTOR>"ASSISTITO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <!--<PROCESS type="javascript"><![CDATA[function(data, wk){return WORKLIST.processColPaziente(data,wk);}]]></PROCESS>-->
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>SESSO</COL>
+                        <DB>SESSO</DB>
+                    </ID>
+                    <DESCRIPTOR>"SESSO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESTINAZIONE</COL>
+                        <DB>DESTINAZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DESTINAZIONE"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return home.NS_HOME_ADT.processSetDestinazioneListaAttesa(data, td);}]]></PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ETA</COL>
+                        <DB>ETA</DB>
+                    </ID>
+                    <DESCRIPTOR>"ETA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>APRICARTELLAPAZIENTE</COL>
+                    </ID>
+                    <DESCRIPTOR></DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){return NS_HOME_LISTA_ATTESA.processApriCartella(data,wk);}]]></PROCESS>
+                    <WIDTH>40px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_PRENOTAZIONE_CHAR</COL>
+                        <DB>DATA_PRENOTAZIONE_CHAR</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA PRENOTAZIONE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <!--<PROCESS type="java">.processData</PROCESS>-->
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PRIORITA_DESCRIZIONE</COL>
+                        <DB>PRIORITA_DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"PRIORITA'"</DESCRIPTOR>
+                    <PROCESS/>
+                    <!--<PROCESS type="java">.processData</PROCESS>-->
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CDC_DESCRIZIONE</COL>
+                        <DB>CDC_DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"REPARTO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_FISCALE</COL>
+                        <DB>CODICE_FISCALE</DB>
+                    </ID>
+                    <DESCRIPTOR>"CODICE FISCALE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NOME_LISTA_ATTESA</COL>
+                        <DB>NOME_LISTA_ATTESA</DB>
+                    </ID>
+                    <DESCRIPTOR>"NOME LISTA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <!--<PROCESS type="javascript"><![CDATA[function(data, wk){return WORKLIST.processColPaziente(data,wk);}]]></PROCESS>-->
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>MEDICO_PROPONENTE_DESCRIZIONE</COL>
+                        <DB>MEDICO_PROPONENTE_DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"MEDICO_PROPONENTE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <!--<PROCESS type="javascript"><![CDATA[function(data, wk){return WORKLIST.processColPaziente(data,wk);}]]></PROCESS>-->
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PERIODO_PREVISTO</COL>
+                        <DB>PERIODO_PREVISTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"PERIODO PREVISTO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <!--<PROCESS type="javascript"><![CDATA[function(data, wk){return WORKLIST.processColPaziente(data,wk);}]]></PROCESS>-->
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <!--<COLUMN id="NOME">ASC</COLUMN>-->
+                <!--<COLUMN id="CODICE_FISCALE">DESC</COLUMN>-->
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

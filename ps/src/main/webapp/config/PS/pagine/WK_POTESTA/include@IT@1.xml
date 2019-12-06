@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/PS/Potesta/Potesta.js" />
+    <JS path="js/PS/Potesta/SetPotesta.js"/>
+</INCLUDE>

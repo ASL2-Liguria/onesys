@@ -1,0 +1,1375 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<inet:Report xmlns:inet="http://www.inetsoftware.de" major_version="8" minor_version="0" major_xml_version="8" minor_xml_version="2" count="3" id="0">
+    <Datasource>
+      <DataSourceConfiguration name="WhaleReportTest">
+        <property name="alterSession" value="false"/>
+        <property name="aliasToken" value=""/>
+        <property name="initSQL" value=""/>
+        <property name="escapeEverything" value="false"/>
+        <property name="host" value="192.168.1.31"/>
+        <property name="url" value="jdbc:inetora"/>
+        <property name="service" value=""/>
+        <property name="databaseClassName" value=""/>
+        <property name="loginTimeout" value=""/>
+        <property name="logonMode" value="normal"/>
+        <property name="supportsOrderBy" value="true"/>
+        <property name="dedicated" value="false"/>
+        <property name="supportsSQL92" value="false"/>
+        <property name="port9" value="1521"/>
+        <property name="port8" value="1521"/>
+        <property name="port7" value="1521"/>
+        <property name="port10" value="1521"/>
+        <property name="port6" value="1521"/>
+        <property name="port5" value="1521"/>
+        <property name="port4" value="1521"/>
+        <property name="port3" value="1521"/>
+        <property name="host9" value=""/>
+        <property name="port2" value="1521"/>
+        <property name="host8" value=""/>
+        <property name="port1" value="1521"/>
+        <property name="host7" value=""/>
+        <property name="host6" value=""/>
+        <property name="sid" value="cartecli"/>
+        <property name="validationQuery" value=""/>
+        <property name="host5" value=""/>
+        <property name="host4" value=""/>
+        <property name="host3" value=""/>
+        <property name="host2" value=""/>
+        <property name="host1" value=""/>
+        <property name="driverLibrary" value=""/>
+        <property name="driverClassName" value="com.inet.ora.OraDriver"/>
+        <property name="user" value="radsql"/>
+        <property name="supportsWhere" value="true"/>
+        <property name="catalog" value=""/>
+        <property name="host10" value=""/>
+        <property name="failover" value="false"/>
+        <property name="password" value="00B4D9B4BE1EA888FF0E8B01A901A2C781BCD1C3AC19B89BFA5A888B9D1F417B16"/>
+        <property name="identifierQuoteString" value=""/>
+        <property name="port" value="1521"/>
+        <property name="quotesLowerCase" value="false"/>
+        <property name="opencursors" value="300"/>
+        <property name="queryTimeout" value=""/>
+        <property name="loadbalance" value="false"/>
+        <property name="caseSensitive" value="false"/>
+        <property name="supportsParenthesesForJoin" value="true"/>
+        <property name="savePassword" value="true"/>
+      </DataSourceConfiguration>
+      <Tablesource alias="Query" databaseIdentifier="Query">
+        <Column name="IDEN_TESTATA" type="6" />
+        <Column name="PAZ_NOME" type="11" />
+        <Column name="PAZ_DATA_NASCITA" type="11" />
+        <Column name="PAZ_COMUNE_RESIDENZA" type="11" />
+        <Column name="CODICE_ASL_RESIDENZA" type="11" />
+        <Column name="PAZ_SESSO" type="11" />
+        <Column name="CODICE_REGIONE_RESIDENZA" type="11" />
+        <Column name="DATA_PIANO" type="11" />
+        <Column name="DATA_SCADENZA_PIANO" type="11" />
+        <Column name="PAZ_COGNOME" type="11" />
+        <Column name="PAZ_INDIR" type="11" />
+        <Column name="PAZ_COD_FISC" type="11" />
+        <Column name="DIAGNOSI" type="11" />
+        <Column name="DURATA_TRATTAMENTO" type="11" />
+        <Column name="PRESCR_NOME" type="11" />
+        <Column name="PRESCR_COGNOME" type="11" />
+        <Column name="PRESCR_COD_FISC" type="11" />
+        <Column name="REPARTO" type="11" />
+        <Column name="FARMACI_TERAPIE" type="11" />
+        <Column name="NOTA_AIFA" type="11" />
+        <Column name="POSOLOGIA_DURATA" type="11" />
+        <Column name="POSOLOGIA_UNITA" type="11" />
+        <Column name="POSOLOGIA_PERIODO" type="11" />
+        <Column name="SITO" type="11" />
+        <Column name="DESCRIZIONE_CDC" type="11" />
+        <Column name="DESCRIZIONE_PROV" type="11" />
+        <Column name="FARMACO" type="11" />
+        <Column name="CONFEZIONE" type="11" />
+        <Column name="PRINCIPIO_ATTIVO" type="11" />
+        <Column name="DATA_INIZIO_PIANO" type="11" />
+        <Column name="DESCRIZIONE_ASL" type="11" />
+        <Column name="PAZ_ASL_RES" type="11" />
+        <Column name="POSOLOGIA_ORARIA" type="11" />
+        <Column name="INDICAZIONE_LIG" type="11" />
+        <Sql>
+          <![CDATA[select
+   vpt.iden_testata
+   ,vpt.paz_nome
+   ,vpt.paz_cognome
+   ,vpt.paz_data_nascita
+   ,vpt.indicazione_lig
+   ,vpt.paz_cod_fisc
+   ,vpt.paz_indir
+   ,vpt.paz_comune_residenza
+   ,(select xxx_cusl 
+from radsql.comuni 
+where xxx_ccom = vpt.paz_comune_residenza) codice_asl_residenza
+   ,(select xxx_crgn 
+from radsql.comuni 
+where xxx_ccom = vpt.paz_comune_residenza) codice_regione_residenza
+   ,vpt.farmaci_terapie
+   ,vpt.paz_sesso
+   ,(select descrizione 
+from radsql.tab_codifiche 
+where codice = vpt.paz_asl_res) descrizione_asl
+   ,vpt.posologia_oraria
+   ,vpt.paz_asl_res
+   ,vpt.posologia_durata
+   ,vpt.posologia_unita
+   ,vpt.posologia_periodo
+   ,vpt.farmaco
+   ,vpt.confezione
+   ,vpt.principio_attivo
+   ,vpt.diagnosi
+   ,vpt.data_piano
+   ,vpt.nota_aifa
+   ,datetimeconverter(vpt.data_scadenza_piano,'yyyymmdd','dd/MM/yyyy') data_scadenza_piano
+   ,datetimeconverter(vpt.data_piano,'yyyymmdd','dd/MM/yyyy') data_scadenza_piano
+   ,datetimeconverter(vpt.data_piano,'yyyymmdd','dd/MM/yyyy') data_inizio_piano
+   ,vpt.durata_trattamento
+   ,(select cdc.descr 
+from RADSQL.centri_di_costo cdc 
+where cdc.cod_cdc = vpt.reparto ) reparto
+   ,vpt.prescr_nome
+   ,vpt.prescr_cognome
+   ,vpt.prescr_cod_fisc
+   ,vpt.sito
+   ,vpt.descrizione_cdc
+   ,vpt.descrizione_prov
+from RADSQL.view_pt_rep vpt
+where iden_testata = {?pIdenTestata}]]>
+        </Sql>
+      </Tablesource>
+    </Datasource>
+  <Database>
+    <QueryChanges mask="0" count="2">
+      <Attribute name="queryChange" value="null"/>
+      <Attribute name="queryChange" value="null"/>
+    </QueryChanges>
+  </Database>
+  <FormulaFields>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="Regione"/>
+      <Attribute name="shortName" value="Regione"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[stringvar regione;
+select   {query.codice_regione_residenza}   
+case '001':   "Piemonte"
+case '002':   "Valle d'Aosta"
+case '003':   "Lombardia"
+case '004':   "Trentino-Alto Adige"
+case '005':   "Veneto"
+case '006':   "Friuli-Venezia Giulia"
+case '007':   "Liguria"
+case '008':   "Emilia-Romagna"
+case '009':   "Toscana"
+case '010':   "Umbria"
+case '011':   "Marche"
+case '012':   "Lazio"
+case '013':   "Abruzzo"
+case '014':   "Molise"
+case '015':   "Campania"
+case '016':   "Puglia"
+case '017':   "Basilicata"
+case '018':   "Calabria"
+case '019':   "Sicilia"
+case '070':   'Liguria'
+case '020':   "Sardegna"
+ default: ""]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="NomeCognome"/>
+      <Attribute name="shortName" value="NomeCognome"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[{Query.PAZ_NOME} + '  ' +  {Query.PAZ_COGNOME}]]>
+    </Field>
+    <Field type="FormulaField" valueType="6">
+      <Attribute name="name" value="Età"/>
+      <Attribute name="shortName" value="Età"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[stringVar AnnoNascita :=  left({Query.PAZ_DATA_NASCITA},4);
+stringVar MeseNascita :=  mid({Query.PAZ_DATA_NASCITA},5,2);
+stringVar GiornoNascita :=  right({Query.PAZ_DATA_NASCITA},2);
+
+/*converto le date in numeri*/
+
+numbervar AnnoNascitaNumber := cdbl(AnnoNascita);
+numbervar MeseNascitaNumber := cdbl(MeseNascita);
+numbervar GiornoNascitaNumber := cdbl(GiornoNascita);
+numberVar MeseGiornoNascitaNumber := cdbl(MeseNascita+GiornoNascita);
+
+/*splitto la PAZ_DATA_NASCITA odierna*/
+stringvar AnnoStringa :=cstr(year(currentdate),0);
+stringvar MeseStringa :=cstr(Month(currentdate),0);
+stringvar GiornoStringa :=cstr(day(currentdate),0);
+      /* converto la PAZ_DATA_NASCITA adoerna in number*/
+
+numbervar AnnoAttualeNumber := cdbl(AnnoStringa);
+numbervar MeseAttualeNumber:= cdbl(MeseStringa);
+numbervar GiornoAttualeNumber:= cdbl(GiornoStringa);
+
+numbervar MeseGiornoAttualeNumber := cdbl(MeseStringa+GiornoStringa);
+
+/*determino il risultato Standard*/
+numbervar eta;
+
+if (MeseGiornoAttualeNumber > MeseGiornoNascitaNumber ) then
+
+eta := (AnnoAttualeNumber - AnnoNascitaNumber);
+
+else
+
+eta :=  (AnnoAttualeNumber - AnnoNascitaNumber) - 1;]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="NomeCognomeMedico"/>
+      <Attribute name="shortName" value="NomeCognomeMedico"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[{Query.PRESCR_NOME} + '  '+ {Query.PRESCR_COGNOME}]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="farmaci_terapie"/>
+      <Attribute name="shortName" value="farmaci_terapie"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[stringVar array farmaci_terapie="";
+numbervar i;
+Stringvar ret:="";
+
+if isnull({Query.farmaci_terapie}) then(
+""
+)
+else (
+farmaci_terapie := Split({Query.farmaci_terapie},",");
+
+ret:="<table style='width:100%;font-size:12px'>";
+for i :=1 to Count (farmaci_terapie) step 1 do(
+
+ret:=ret+"<tr><td>"+farmaci_terapie[i]+"</td></tr>";
+
+);
+ret:=ret+"</table>";
+)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="posologia"/>
+      <Attribute name="shortName" value="posologia"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[stringvar ret;
+
+ret := "<table style='width:100%;font-size:14'>";
+ret := ret +   "<tr><td><b>Unita</b></td><td><b>Perido</b></td><td><b>Durata</b></td><td><b>Posologia</b></td></tr>";
+ret := ret +   "<td>"+ ({Query.POSOLOGIA_UNITA}) +"</td>";
+ret := ret +  "<td>"+ {Query.POSOLOGIA_PERIODO} +"</td>";
+ret := ret +  "<td>"+ {Query.POSOLOGIA_DURATA} +"</td>";
+ret := ret +  "<td>" +"</td>";
+ret := ret +  "</tr></table>";
+ret]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="posologia_periodo"/>
+      <Attribute name="shortName" value="posologia_durata"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[if({Query.POSOLOGIA_PERIODO} = 'D')then 'DIE'
+else if({Query.POSOLOGIA_PERIODO} = 'S')then 'SETTIMANA'
+else if({Query.POSOLOGIA_PERIODO} = 'G')then 'GIORNI ALTERNI'
+else if({Query.POSOLOGIA_PERIODO} = 'Q')then 'QUINDICINALE'
+else if({Query.POSOLOGIA_PERIODO} = 'A')then 'A DOMANDA']]>
+    </Field>
+  </FormulaFields>
+  <PromptFields>
+    <Field type="PromptVarField" valueType="6">
+      <Attribute name="name" value="pIdenTestata"/>
+      <Attribute name="allow_multiple_values" value="false"/>
+      <Attribute name="discrete_or_range" value="0"/>
+      <Attribute name="allow editing" value="true"/>
+      <Attribute name="description_only" value="false"/>
+      <Attribute name="edit mask" value=""/>
+      <Attribute name="prompt_text" value="pIdenTestata"/>
+      <Attribute name="use_range" value="false"/>
+    </Field>
+  </PromptFields>
+  <SQLFields>
+  </SQLFields>
+  <SummaryFields>
+  </SummaryFields>
+  <SortFields>
+  </SortFields>
+  <GroupNameFields count="0">
+  </GroupNameFields>
+  <ReportProperties>
+    <Attribute name="page width" value="12240"/>
+    <Attribute name="page height" value="15840"/>
+    <Attribute name="page orientation" value="1"/>
+    <Attribute name="page margin left" value="283"/>
+    <Attribute name="page margin right" value="283"/>
+    <Attribute name="page margin top" value="720"/>
+    <Attribute name="page margin bottom" value="720"/>
+    <Attribute name="report title" value="Report1"/>
+    <Attribute name="report last saved" value="19 Jul 2012 13:42:07 GMT"/>
+    <Attribute name="report created" value="23 Dec 2011 08:17:39 GMT"/>
+    <Attribute name="mailing label type 1" value=""/>
+    <Attribute name="mailing label type 2" value=""/>
+    <Attribute name="format with multiple columns" value="false"/>
+    <Attribute name="mailing label width" value="0"/>
+    <Attribute name="mailing label height" value="0"/>
+    <Attribute name="mailing label distance vertical" value="0"/>
+    <Attribute name="mailing label distance horizontal" value="0"/>
+    <Attribute name="across then down" value="false"/>
+    <Attribute name="format groups with multiple columns" value="false"/>
+    <Attribute name="distinct" value="false"/>
+    <Attribute name="show suppressed nodes" value="true"/>
+    <Attribute name="ignore filtering" value="false"/>
+    <Attribute name="ignore sorting" value="false"/>
+    <Attribute name="convert date time" value="0"/>
+    <Attribute name="suppress if no rows" value="false"/>
+    <Attribute name="convert null values to default" value="false"/>
+    <Attribute name="hide PageFooter inside ReportHeader" value="false"/>
+    <Attribute name="form print" value="false"/>
+    <Attribute name="printing enabled" value="true"/>
+    <Attribute name="clipboard enabled" value="true"/>
+    <Attribute name="export enabled" value="true"/>
+    <Attribute name="group tree visible" value="true"/>
+  </ReportProperties>
+  <AreaPair type="PageAreaPair" id="0">
+    <Area type="PageHeader" count="1">
+      <Section type="PageHeader" count="2" width="11674" height="750" id="0">
+        <Element type="Box" x2_position="11674" y2_position="240" x_position="0" y_position="450" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+              <LineProperties>
+                <Attribute name="id" value="1"/>
+              </LineProperties>
+          </BoxProperties>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="450" width="3600" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[Piano Terapeutico]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+    <Area type="PageFooter" count="1">
+      <Section type="PageFooter" count="0" width="11674" height="240" id="1">
+      </Section>
+    </Area>
+  </AreaPair>
+  <AreaPair type="ReportAreaPair" id="0">
+    <Area type="ReportHeader" count="3">
+      <Section type="ReportHeader" count="27" width="11674" height="4950" id="2">
+        <Element type="Text" count="1" x_position="150" y_position="3900" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Medico Curante :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="3450" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[ASL di residenza :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="3000" width="900" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Indirizzo :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="2100" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Nome e Cognome :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="1650" width="3900" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[Generalità dell'Assistito]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="4650" width="3900" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[Diagnosi]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Box" x2_position="11674" y2_position="4350" x_position="0" y_position="1500" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+          </BoxProperties>
+        </Element>
+        <Element type="Box" x2_position="11674" y2_position="90" x_position="0" y_position="4500" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+              <LineProperties>
+                <Attribute name="id" value="0"/>
+              </LineProperties>
+          </BoxProperties>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="2100" width="8100" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="FormulaField" refname="@NomeCognome"/>
+        </Element>
+        <Element type="FieldElement" x_position="6450" y_position="3450" width="3150" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="FormulaField" refname="@Regione"/>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="2550" width="450" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Età:]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="1950" y_position="2550" width="750" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Sesso]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Box" x2_position="3900" y2_position="2850" x_position="3600" y_position="2550" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+          </BoxProperties>
+        </Element>
+        <Element type="Box" x2_position="4800" y2_position="2850" x_position="4500" y_position="2550" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+          </BoxProperties>
+        </Element>
+        <Element type="Text" count="1" x_position="3150" y_position="2550" width="300" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[M]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="4050" y_position="2550" width="300" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[F]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="4500" y_position="2550" width="300" height="450">
+          <CommonProperties>
+            <PropertyFormula valueType="8" propertyType="suppress">
+              <Attribute name="name" value="suppress"/>
+              <Attribute name="basic syntax" value="false"/>
+              <![CDATA[{Query.PAZ_SESSO} ='M']]>
+            </PropertyFormula>
+          </CommonProperties>
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+              <PropertyFormula valueType="8" propertyType="suppress">
+                <Attribute name="name" value="suppress"/>
+                <Attribute name="basic syntax" value="false"/>
+                <![CDATA[{Query.PAZ_SESSO} ='M']]>
+              </PropertyFormula>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+              </FontProperties>
+            <![CDATA[X]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="3600" y_position="2550" width="300" height="450">
+          <CommonProperties>
+            <Attribute name="suppress" value="true"/>
+            <PropertyFormula valueType="8" propertyType="suppress">
+              <Attribute name="name" value="suppress"/>
+              <Attribute name="basic syntax" value="false"/>
+              <![CDATA[{Query.PAZ_SESSO} ='F']]>
+            </PropertyFormula>
+          </CommonProperties>
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="suppress" value="true"/>
+              <Attribute name="horizontal align" value="2"/>
+              <PropertyFormula valueType="8" propertyType="suppress">
+                <Attribute name="name" value="suppress"/>
+                <Attribute name="basic syntax" value="false"/>
+                <![CDATA[{Query.PAZ_SESSO} ='F']]>
+              </PropertyFormula>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+              </FontProperties>
+            <![CDATA[X]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="5550" y_position="2550" width="1350" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Codice Fiscale]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="FieldElement" x_position="7200" y_position="2550" width="2850" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PAZ_COD_FISC"/>
+        </Element>
+        <Element type="FieldElement" x_position="1200" y_position="3000" width="7350" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PAZ_INDIR"/>
+        </Element>
+        <Element type="FieldElement" x_position="750" y_position="2550" width="750" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="3"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <NumberProperties>
+            <Attribute name="n decimal places" value="0"/>
+            <Attribute name="rounding type" value="11"/>
+            <Attribute name="thousand separators symbol" value="."/>
+            <Attribute name="decimal separators symbol" value=","/>
+            <Attribute name="currency symbol" value="€"/>
+          </NumberProperties>
+          <Reference name="field" type="FormulaField" refname="@Età"/>
+        </Element>
+        <Element type="Text" count="1" x_position="5400" y_position="3450" width="900" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Regione :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Picture" x_position="300" y_position="150" width="2820" height="1035">
+          <PictureProperties>
+            <PropertyFormula valueType="11" propertyType="image location">
+              <Attribute name="name" value="image location"/>
+              <Attribute name="basic syntax" value="false"/>
+              <![CDATA['http://10.106.128.177:8082/whale/imagexPix/logoReport/'+ {query.sito} +'/logoASL2.gif']]>
+            </PropertyFormula>
+            <Attribute name="id" value="3"/>
+          </PictureProperties>
+        </Element>
+        <Element type="Text" count="1" x_position="3450" y_position="450" width="5700" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[PIANO TERAPEUTICO]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="3450" y_position="1050" width="4350" height="300">
+          <Element type="Paragraph" count="3">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Struttura : ]]>
+            </Element>
+            <Element type="FieldPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+              <Reference name="field" type="DatabaseField" refname="Query.DESCRIZIONE_CDC"/>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="3450" width="3300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.DESCRIZIONE_ASL"/>
+        </Element>
+      </Section>
+      <Section type="ReportHeader" count="1" width="11674" height="450" id="3">
+        <SectionProperties>
+          <PropertyFormula valueType="8" propertyType="suppress">
+            <Attribute name="name" value="suppress"/>
+            <Attribute name="basic syntax" value="false"/>
+            <![CDATA[isnull( {Query.DIAGNOSI} )]]>
+          </PropertyFormula>
+        </SectionProperties>
+        <Element type="FieldElement" x_position="150" y_position="150" width="11400" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.DIAGNOSI"/>
+        </Element>
+      </Section>
+      <Section type="ReportHeader" count="1" width="11674" height="600" id="4">
+        <SectionProperties>
+          <PropertyFormula valueType="8" propertyType="suppress">
+            <Attribute name="name" value="suppress"/>
+            <Attribute name="basic syntax" value="false"/>
+            <![CDATA[not isnull({Query.DIAGNOSI} ) or ({Query.DIAGNOSI} ) = '']]>
+          </PropertyFormula>
+        </SectionProperties>
+        <Element type="Text" count="1" x_position="150" y_position="150" width="11400" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Conforme alle disposizioni AIFA per prescrizione a carico del SSN, specificare :]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+    <Area type="ReportFooter" count="3">
+      <Section type="ReportFooter" count="5" width="11674" height="2250" id="5">
+        <Element type="FieldElement" x_position="7950" y_position="1350" width="3600" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="FormulaField" refname="@NomeCognomeMedico"/>
+        </Element>
+        <Element type="FieldElement" x_position="7950" y_position="1800" width="3600" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PRESCR_COD_FISC"/>
+        </Element>
+        <Element type="FieldElement" x_position="300" y_position="300" width="4200" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.REPARTO"/>
+        </Element>
+        <Element type="FieldElement" x_position="8850" y_position="900" width="1200" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <DateProperties>
+            <Attribute name="date windows default type" value="2"/>
+            <Attribute name="date order" value="1"/>
+            <Attribute name="year type" value="1"/>
+            <Attribute name="date first separator" value="/"/>
+            <Attribute name="date second separator" value="/"/>
+          </DateProperties>
+          <Reference name="field" type="SpecialVarField" id="0"/>
+        </Element>
+        <Element type="Text" count="1" x_position="7950" y_position="900" width="750" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Data,]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+      <Section type="ReportFooter" count="1" width="11674" height="750" id="6">
+        <Element type="Text" count="1" x_position="450" y_position="150" width="11100" height="450">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+            <![CDATA['"Documento firmato digitalmente ai sensi delle norme vigenti: D.P.R. n. 513 del 10/11/1997, D.C.P.M. del 08/02/1999, D.P.R. n. 445 del 08/12/2000, D.L.G. del 23/01/2002."']]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+      <Section type="ReportFooter" count="1" width="11674" height="450" id="7">
+        <SectionProperties>
+          <Attribute name="suppress" value="true"/>
+          <Attribute name="print at bottom of page" value="true"/>
+          <PropertyFormula valueType="8" propertyType="suppress">
+            <Attribute name="name" value="suppress"/>
+            <Attribute name="basic syntax" value="false"/>
+            <![CDATA[isnull({Query.NOTA_AIFA})]]>
+          </PropertyFormula>
+        </SectionProperties>
+        <Element type="Text" count="1" x_position="150" y_position="150" width="11400" height="300">
+          <Element type="Paragraph" count="3">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+            <![CDATA[(*): indicare il numero della Nota AIFA di pertinenza, ovvero ]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[solo nel caso in cui non sia prevista una nota AIFA specifica]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+  </AreaPair>
+  <AreaPair type="DetailArea" id="1">
+    <Area type="Detail" count="5">
+      <Section type="Detail" count="5" width="11674" height="900" id="8">
+        <Element type="FieldElement" x_position="1950" y_position="150" width="9600" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PRINCIPIO_ATTIVO"/>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="600" width="4950" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.FARMACO"/>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="150" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Principio Attivo : ]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="600" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Farmaco : ]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="7050" y_position="600" width="4500" height="300">
+          <CommonProperties>
+            <PropertyFormula valueType="8" propertyType="suppress">
+              <Attribute name="name" value="suppress"/>
+              <Attribute name="basic syntax" value="false"/>
+              <![CDATA[isnull({Query.NOTA_AIFA})]]>
+            </PropertyFormula>
+          </CommonProperties>
+          <Element type="Paragraph" count="4">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+              <PropertyFormula valueType="8" propertyType="suppress">
+                <Attribute name="name" value="suppress"/>
+                <Attribute name="basic syntax" value="false"/>
+                <![CDATA[isnull({Query.NOTA_AIFA})]]>
+              </PropertyFormula>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Nota AIFA n(*)  ]]>
+            </Element>
+            <Element type="FieldPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+              <Reference name="field" type="DatabaseField" refname="Query.NOTA_AIFA"/>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[    ]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+      <Section type="Detail" count="4" width="11674" height="1050" id="9">
+        <Element type="Text" count="1" x_position="150" y_position="600" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Unità : ]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="150" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Confezione : ]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="150" width="9600" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.CONFEZIONE"/>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="600" width="9600" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.POSOLOGIA_UNITA"/>
+        </Element>
+      </Section>
+      <Section type="Detail" count="3" width="11674" height="450" id="10">
+        <SectionProperties>
+          <PropertyFormula valueType="8" propertyType="suppress">
+            <Attribute name="name" value="suppress"/>
+            <Attribute name="basic syntax" value="false"/>
+            <![CDATA[isnull({Query.POSOLOGIA_ORARIA}) and isnull( {@posologia_periodo} )]]>
+          </PropertyFormula>
+        </SectionProperties>
+        <Element type="FieldElement" x_position="4500" y_position="0" width="7050" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.POSOLOGIA_ORARIA"/>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="0" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Posologia :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="0" width="2400" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@posologia_periodo"/>
+        </Element>
+      </Section>
+      <Section type="Detail" count="8" width="11674" height="1800" id="11">
+        <Element type="FieldElement" x_position="1950" y_position="450" width="4500" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.DATA_INIZIO_PIANO"/>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="450" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Data Attivazione : :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="900" width="1650" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Data Scadenza :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="900" width="2400" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.DATA_SCADENZA_PIANO"/>
+        </Element>
+        <Element type="FieldElement" x_position="2550" y_position="1350" width="9000" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="200"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.INDICAZIONE_LIG"/>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="1350" width="2250" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Indicazione Terapeutica :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="0" width="2250" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Durata del trattamento :]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="2550" y_position="0" width="3450" height="300">
+          <Element type="Paragraph" count="4">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="FieldPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+              <Reference name="field" type="DatabaseField" refname="Query.DURATA_TRATTAMENTO"/>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[  ]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[gg]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+      <Section type="Detail" count="9" width="11674" height="900" id="12">
+        <SectionProperties>
+          <Attribute name="suppress" value="true"/>
+        </SectionProperties>
+        <Element type="Text" count="1" x_position="9600" y_position="150" width="300" height="450">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+              </FontProperties>
+            <![CDATA[X]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="5850" y_position="150" width="300" height="450">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+              </FontProperties>
+            <![CDATA[X]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="2100" y_position="150" width="300" height="450">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="240"/>
+              </FontProperties>
+            <![CDATA[X]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Box" x2_position="9900" y2_position="450" x_position="9600" y_position="150" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+          </BoxProperties>
+        </Element>
+        <Element type="Text" count="1" x_position="6900" y_position="150" width="2550" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Cambio posologia/trattamento]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Box" x2_position="6150" y2_position="450" x_position="5850" y_position="150" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+          </BoxProperties>
+        </Element>
+        <Element type="Text" count="1" x_position="2850" y_position="150" width="2700" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[prosecuzione della cura]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Box" x2_position="2400" y2_position="450" x_position="2100" y_position="150" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+          </BoxProperties>
+        </Element>
+        <Element type="Text" count="1" x_position="150" y_position="150" width="1800" height="300">
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="200"/>
+              </FontProperties>
+            <![CDATA[Prima prescrizione ]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+  </AreaPair>
+<Image count="740" name="embedding 3">
+<![CDATA[
+71 73 70 56 57 97 -68 0 69 0 -111 0 0 0 0 0 -1 -1 -1 -1 -1 -1 0 0 0 33 -7 4 1 0 0 2 0 
+44 0 0 0 0 -68 0 69 0 0 2 -1 -108 -113 -87 -53 -19 15 -93 -100 -76 -38 -117 -77 -34 -68 -5 15 -122 -30 72 -106 
+-26 -119 -90 -22 -54 -74 -18 11 -57 -14 76 -41 -10 -115 -25 -6 -50 -9 126 6 0 -4 34 -63 71 -16 40 76 20 -121 -98 37 
+-77 -31 92 32 -111 -54 -28 115 19 -67 34 -88 -116 -24 113 107 -43 98 -78 98 1 87 26 54 87 -53 -64 116 -9 12 -11 -58 
+-55 -110 -23 -37 -24 102 -41 -13 -32 41 -35 -20 103 -112 -27 -9 69 -15 -11 87 120 -89 103 -15 39 -104 8 -25 -72 20 120 112 
+6 -119 23 -119 -42 -40 -72 24 55 -105 -39 -89 0 71 -105 -120 103 -123 72 10 -58 89 -95 -55 7 72 121 106 122 -70 -105 -22 
+25 -38 -86 -118 -42 -87 -24 -86 -53 -5 89 10 90 75 -117 75 -60 -121 26 -68 -23 -108 124 27 73 8 60 76 124 -7 -5 -69 
+-116 -39 -5 70 120 92 21 -74 25 -3 -118 93 91 -19 40 -68 -69 38 61 -18 125 110 -37 -53 26 123 61 -67 -83 -34 -99 -34 
+62 -83 13 24 107 -52 44 -18 -5 -19 -97 -2 46 94 -80 87 110 68 -111 -71 103 13 28 -66 -127 -3 0 -38 114 -42 108 -46 
+-74 64 -125 -78 -19 99 -26 43 -37 68 59 -1 14 -15 73 -116 -72 -116 -53 -63 -113 10 29 60 -30 -40 -121 100 71 8 -13 2 
+-2 51 -47 114 -27 -120 123 49 101 -54 60 -122 -48 -90 78 -112 40 119 -6 -52 -44 -13 -89 -48 -95 68 -117 26 61 -118 52 -87 
+-46 -91 76 -101 -6 -56 89 66 36 70 26 53 -71 81 -75 -72 -126 10 -44 26 49 79 -58 -80 104 105 -90 -105 -87 51 -70 42 
+35 43 34 -20 -62 19 53 113 -76 -123 -106 -75 -37 86 44 104 -35 -42 -123 -85 98 46 54 125 120 61 74 -46 103 -107 18 -108 
+45 47 -101 17 -2 -89 -106 91 30 -75 116 -17 18 12 -22 10 34 79 116 -113 -91 22 -10 39 -39 -17 33 -59 -102 71 22 -42 
+8 -30 -19 99 -126 27 73 -61 29 91 72 -94 44 -65 19 43 -89 -52 -105 -26 44 67 -67 -77 24 -115 84 92 -111 51 52 -100 
+94 115 121 20 8 -4 119 112 -39 9 77 119 16 -35 -48 -72 -74 -79 -26 -42 62 -68 -116 -114 119 73 -25 -64 -119 39 47 -82 
+65 52 -65 -43 -108 41 -41 -21 78 11 21 66 -26 37 -119 -113 119 92 -82 -10 46 -18 13 -1 -34 -78 110 78 -4 123 -35 -21 
+-35 117 -50 -100 -35 -15 118 -66 -97 -109 -28 -75 -124 31 94 69 38 -47 -25 91 70 -2 -127 69 -37 51 19 -20 87 -114 -128 -32 
+53 -73 -102 124 3 -10 -123 -104 125 -56 -115 113 -41 121 -48 -11 -29 -32 117 9 -115 -30 94 112 -51 121 -24 -100 117 23 -38 118 
+17 -123 -67 -83 -45 -97 113 -43 45 -106 15 -117 -49 -71 -72 -101 125 30 38 -56 18 77 -88 -51 -8 96 119 29 82 -57 26 118 
+39 21 116 27 110 68 -46 119 -42 -111 105 -39 -95 18 88 35 -42 -8 36 86 -88 125 -76 28 -126 -87 96 53 -52 -108 65 -118 
+5 -38 67 -112 -79 -9 -29 100 -19 -111 -92 35 69 -70 -31 103 -32 70 56 98 104 -42 85 46 -87 87 12 7 39 -46 -45 -54 
+-100 78 -23 80 37 122 119 -10 96 -27 -98 0 117 -23 103 -96 -126 14 74 104 -95 -122 30 -118 104 -94 -118 46 -54 104 3 5 
+0 0 59 
+]]>
+</Image>
+</inet:Report>

@@ -1,0 +1,5 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'SDJ.Q_EMPTY@ADT'; :where := null; :campo_xml := null; end;">
+    <DATO key_id="cmbLivelloUrg" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="VALUE" db_descrizione="DESCR"
+          configurazione_multi_data="ADT.Q_FILL_COMBO_ADT_URG_IDEN@ADT" />
+</DATI>

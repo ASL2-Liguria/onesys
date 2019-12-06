@@ -1,0 +1,236 @@
+/* style dei link dei tab NON selezionati */
+
+#div_idTabInfoRefertoInWorklist{
+ float:left;
+ width:600px;
+}
+
+#div_idTabInfoReferto{
+ float:left;
+ width:500px;
+}
+
+#div_idTabPrecedenti{
+ float:left;
+ width:280px;
+}
+
+
+#topRightTabulator{
+	height:25px;
+	float:right;
+	position:absolute;
+	top:0px;
+	right:16px;
+    width: 80px;
+    vertical-align: middle;
+    text-align: center;
+	cursor:pointer;
+}
+
+#topRightTabulator.toMaximize{
+    background-image:url(../../../imagexPix/tabulator/tabUp.png);	
+}
+
+#topRightTabulator.toMinimize{
+    background-image:url(../../../imagexPix/tabulator/tabDown.png);	
+}
+
+
+
+
+.classTabMiddle A{
+	TEXT-DECORATION: none;
+	color: white;
+}
+
+.classTabMiddle A:hover {
+	color:blue;
+	text-decoration:none;
+}
+
+table.classTabulator {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+/* info per tabulatore selezionato */
+table.classTabulator td.classTabSxSelected {
+	background-image:url(../../../imagexPix/tabulator/tabSx.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator td.classTabMiddleSelected {
+	background-image:url(../../../imagexPix/tabulator/top_tabella.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator td.classTabMiddleSelected A{
+	color:yellow;
+	text-decoration:none;
+}
+
+
+
+table.classTabulator td.classTabDxSelected {
+	background-image:url(../../../imagexPix/tabulator/tabDx.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+div.tabulatorError{
+	display:block;
+	background-color:#508AFF;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	color:white;
+}
+
+
+/* ************** */
+/* info per tabulatore NON selezionato */
+table.classTabulator td.classTabSx {
+	background-image:url(../../../imagexPix/tabulator/tabSx_selelected.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator td.classTabMiddle {
+	background-image:url(../../../imagexPix/tabulator/top_tabella_selelected.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	color:#FFFF00;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator td.classTabDx {
+background-image:url(../../../imagexPix/tabulator/tabDx_selelected.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+
+
+table.classTabulator td.classButtonHeader {
+background-image:url(../../../imagexPix/tabulator/top_tabella.gif);
+width:100px; 
+}
+/* ***************************** */
+
+table.classTabulator_blink {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+
+table.classTabulator_blink td.classTabSx {
+	background-image:url(../../../imagexPix/tabulator/tabSx_blink.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator_blink td.classTabMiddle {
+	background-image:url(../../../imagexPix/tabulator/top_tabella_blink.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	color:#FFFF00;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator_blink td.classTabDx {
+background-image:url(../../../imagexPix/tabulator/tabDx_blink.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+
+
+table.classTabulator_blink td.classButtonHeader {
+background-image:url(../../../imagexPix/tabulator/top_tabella_blink.gif);
+width:100px; 
+}
+
+#lblInfoFiltroRicRem.infoFiltroRemoto{
+	color:yellow;
+	font-size:12px;	
+	font-family: Arial, Helvetica, sans-serif;	
+}
+
+OPTION.precedenti_on{
+	background-color:red;
+	font-size:12px;	
+	font-weight: bold;	
+	font-family: Arial, Helvetica, sans-serif;		
+	color:black;
+}
+
+
+SPAN.resetDaData{
+	width:20px;
+	height:20px;
+	background-image:url(../../../imagexPix/button/mini/btReset.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	margin-left:5px;
+} 
+
+	/* background-image:url(../../../imagexPix/button/mini/btRefresh.png); */
+	/* 	cursor:pointer; */
+SPAN.refreshDatiRisRemoti{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+
+	margin-left:5px;
+} 
+
+
+#imgDaData{
+	cursor:pointer;
+}
+
+
+.caseFormIncomplete{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/form_incompleto.png);
+	display:block;
+}
+
+.caseFormComplete{ 
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/form_compilato.png);
+	display:block;
+}
+
+
+#field_TESTO_HTML.spanBoxReferto{
+	width:95%;
+	height:120px;
+	overflow:scroll;
+	border:thin;
+	border-color:#000;
+}

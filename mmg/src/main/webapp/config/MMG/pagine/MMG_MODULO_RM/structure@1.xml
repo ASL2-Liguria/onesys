@@ -1,0 +1,175 @@
+<PAGINA key_id="MMG_MODULO_RM">
+	<HEADER_PAGE key_id="MMG_MODULO_RM"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_RM#DEFAULT_MMG,MMG_MODULO_RM"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_RM#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ModuloRM#lblTitolo#butStampaInformativa,butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabDati" valore="tabDati" evento="START">
+				<FIELDSET_TABLE key_id="fld0" valore="fld0" evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Collaborazione" valore="lblCollaborazione##Collaborazione#radCollaborazione#{width:150}#S#COLLABORAZIONE" evento="START"></TD_LABEL_RADIO>
+						<TD_RADIO key_id="Collaborazione_bis" valore="Collaborazione_bis#radCollaborazione_bis#{width:150}#N#COLLABORAZIONE_BIS" evento="START"></TD_RADIO>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXT key_id="Peso" valore="lblPeso##txtPeso##lettura#PESO" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNotizie_Clin" valore="fldNotizie_Clin" evento="START">
+					<TR_TD_TEXTAREA key_id="Notizie_Clin" valore="Notizie_Clin#NOTIZIE_CLINICHE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="ProblemiPaziente" valore="lblProblemiPaziente##cmbProblemiPaziente#cmbProblemiPaziente#N#PROBLEMI_PAZIENTE" evento="START">
+						<TD_BUTTON key_id="butInserisci" valore="butInserisci" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldIndagine" valore="fldIndagine" evento="START">
+					<TR_TD_TEXTAREA key_id="Indagine" valore="txtAcc_Eff#INDAGINE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TR_TD_BUTTON>
+					<!-- <TR.INIT key_id="riga0" valore="" evento="START">
+						<TD.INIT key_id="tidi0" valore="2#tdTextarea" evento="START">
+							<TEXTAREA key_id="Indagine" valore="txtAcc_Eff#INDAGINE" evento="START"></TEXTAREA>
+						</TD.INIT>
+					</TR.INIT>
+					<TR.INIT key_id="riga1" valore="" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TD_BUTTON>
+						<TD_TEXT key_id="Accertamenti" valore="Accertamenti##lettura#ACCERTAMENTI" evento="START"></TD_TEXT>
+					</TR.INIT> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldQuesito" valore="fldQuesito" evento="START">
+					<TR_TD_TEXTAREA key_id="Quesito" valore="Quesito#QUESITO" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabQuestionario_I" valore="tabQuestionario_I" evento="START">
+				<FIELDSET_TABLE key_id="fldEsameRM" valore="fldEsameRM" evento="START">
+					<TR_TD_LABEL_RADIO key_id="EsameRM" valore="lblEsameRM##EsameRM#EsameRM#{width:150}#S#ESAME_RM" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="Dove" valore="lblDove##Dove##lettura#DOVE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Parte_Corpo" valore="lblParte_Corpo##Parte_Corpo##lettura#PARTE_CORPO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Quando" valore="lblQuando##Quando##lettura#QUANDO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Perche" valore="lblPerche##Perche##lettura#PERCHE" evento="START"></TR_TD_LABEL_TEXT>
+					<!-- <TR.INIT key_id="TR01" valore="TR01" evento="START"> <TD_LABEL_TEXT 
+						key_id="Dove" valore="lblDove##Dove##lettura#DOVE" evento="START"> </TD_LABEL_TEXT> 
+						<TD_LABEL_TEXT key_id="Parte_Corpo" valore="lblParte_Corpo##Parte_Corpo##lettura#PARTE_CORPO" 
+						evento="START"> </TD_LABEL_TEXT> </TR.INIT> <TR.INIT key_id="TR02" valore="TR02" 
+						evento="START"> <TD_LABEL_TEXT key_id="Quando" valore="lblQuando##Quando##lettura#QUANDO" 
+						evento="START"> </TD_LABEL_TEXT> <TD_LABEL_TEXT key_id="Perche" valore="lblPerche##Perche##lettura#PERCHE" 
+						evento="START"> </TD_LABEL_TEXT> </TR.INIT> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldOperazioni" valore="fldOperazioni" evento="START">
+					<TR.INIT key_id="t0" valore="t0" evento="START">
+						<TD_LABEL_RADIO key_id="Cuore" valore="lblCuore##Cuore#radCuore#{width:150}#S#CUORE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Cuore" valore="Dett_Cuore##lettura#DETTAGLIO_CUORE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t1" valore="t1" evento="START">
+						<TD_LABEL_RADIO key_id="Cervello" valore="lblCervello##Cervello#radCervello#{width:150}#S#CERVELLO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Cervello" valore="Dett_Cervello##lettura#DETTAGLIO_CERVELLO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t2" valore="t2" evento="START">
+						<TD_LABEL_RADIO key_id="Occhio_Orecchio" valore="lblOcchio_Orecchio##Occhio_Orecchio#radOcchio_Orecchio#{width:150}#S#OCCHIO_ORECCHIO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Occhio_Orecchio" valore="Dett_Occhio_Orecchio##lettura#DETTAGLIO_OCCHIO_ORECCHIO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t3" valore="t3" evento="START">
+						<TD_LABEL_RADIO key_id="Colonna" valore="lblColonna##Colonna#radColonna#{width:150}#S#COLONNA" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Colonna" valore="Dett_Colonna##lettura#DETTAGLIO_COLONNA" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t4" valore="t4" evento="START">
+						<TD_LABEL_RADIO key_id="Vasi" valore="lblVasi##Vasi#radVasi#{width:150}#S#VASI" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Vasi" valore="Dett_Vasi##lettura#DETTAGLIO_VASI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t5" valore="t5" evento="START">
+						<TD_LABEL_RADIO key_id="Addome" valore="lblAddome##Addome#radAddome#{width:150}#S#ADDOME" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Addome" valore="Dett_Addome##lettura#DETTAGLIO_ADDOME" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t6" valore="t6" evento="START">
+						<TD_LABEL_RADIO key_id="Torace" valore="lblTorace##Torace#radTorace#{width:150}#S#TORACE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Torace" valore="Dett_Torace##lettura#DETTAGLIO_TORACE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t7" valore="t7" evento="START">
+						<TD_LABEL_RADIO key_id="Arti" valore="lblArti##Arti#radArti#{width:150}#S#ARTI" evento="START"> </TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Arti" valore="Dett_Arti##lettura#DETTAGLIO_ARTI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="t8" valore="t8" evento="START">
+						<TD_LABEL_RADIO key_id="Altri_Interventi" valore="lblAltri_Interventi##Altri_Interventi#radAltri_Interventi#{width:150}#S#ALTRI_INTERVENTI" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Altri_Interventi" valore="Dett_Altri_Interventi##lettura#DETTAGLIO_ALTRI_INTERVENTI" evento="START"></TD_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldCorpi_Metallici" valore="fldCorpi_Metallici" evento="START">
+					<TR_TD_LABEL_RADIO key_id="Corpi_Metallici" valore="lblCorpi_Metallici##Corpi_Metallici#Corpi_Metallici#{width:150}#S#CORPI_METALLICI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="t9" valore="t9" evento="START">
+						<TD_CHECK key_id="Dett_Corpi_Metallici" valore="Dett_Corpi_Metallici#Dett_Corpi_Metallici#N#{width:500,ctrl:false}##DETT_CORPI_METALLICI" evento="START"></TD_CHECK>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabQuestionario_II" valore="tabQuestionario_II" evento="START">
+				<FIELDSET_TABLE key_id="fldPortatore" valore="fldPortatore" evento="START">
+					<TR.INIT key_id="tr0" valore="tr0" evento="START">
+						<TD_LABEL_RADIO key_id="Pace_Maker" valore="lblPace_Maker##Pace_Maker#radPace_Maker#{width:150}#S#PACE_MAKER" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Pace_Maker" valore="Dett_Pace_Maker##lettura#DETTAGLIO_PACE_MAKER" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr1" valore="tr1" evento="START">
+						<TD_LABEL_RADIO key_id="Valvole" valore="lblValvole##Valvole#radValvole#{width:150}#S#VALVOLE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Valvole" valore="Dett_Valvole##lettura#DETTAGLIO_VALVOLE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="tr2" evento="START">
+						<TD_LABEL_RADIO key_id="Distrattori" valore="lblDistrattori##Distrattori#radDistrattori#{width:150}#S#DISTRATTORI" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Distrattori" valore="Dett_Distrattori##lettura#DETTAGLIO_DISTRATTORI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="tr3" evento="START">
+						<TD_LABEL_RADIO key_id="Pompe_Infusione" valore="lblPompe_Infusione##Pompe_Infusione#radPompe_Infusione#{width:150}#S#POMPE_INFUSIONE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Pompe_Infusione" valore="Dett_Pompe_Infusione##lettura#DETTAGLIO_POMPE_INFUSIONE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr4" valore="tr4" evento="START">
+						<TD_LABEL_RADIO key_id="Neurostimolatori" valore="lblNeurostimolatori##Neurostimolatori#radNeurostimolatori#{width:150}#S#NEUROSTIMOLATORI" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Neurostimolatori" valore="Dett_Neurostimolatori##lettura#DETTAGLIO_NEUROSTIMOLATORI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr5" valore="tr5" evento="START">
+						<TD_LABEL_RADIO key_id="Derivazione" valore="lblDerivazione##Derivazione#radDerivazione#{width:150}#S#DERIVAZIONE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Derivazione" valore="Dett_Derivazione##lettura#DETTAGLIO_DERIVAZIONE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr6" valore="tr6" evento="START">
+						<TD_LABEL_RADIO key_id="Impianti" valore="lblImpianti##Impianti#radImpianti#{width:150}#S#IMPIANTI" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Impianti" valore="Dett_Impianti##lettura#DETTAGLIO_IMPIANTI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR_TD_LABEL_RADIO key_id="Tatuaggi_Piercing" valore="lblTatuaggi_Piercing##Tatuaggi_Piercing#Tatuaggi_Piercing#{width:150}#S#TATUAGGI_PIERCING" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Magneto_Compatibilita" valore="lblMagneto_Compatibilita##Magneto_Compatibilita#Magneto_Compatibilita#{width:150}#S#MAGNETO_COMPATIBILITA" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Claustrofobia" valore="lblClaustrofobia##Claustrofobia#Claustrofobia#{width:150}#S#CLAUSTROFOBIA" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Gravidanza" valore="lblGravidanza##Gravidanza#Gravidanza#{width:150}#S#GRAVIDANZA" evento="START"></TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldElementi" valore="fldElementi" evento="START">
+					<TR.INIT key_id="TR0" valore="TR0" evento="START">
+						<TD_LABEL_RADIO key_id="Allergie_Mezzi_Contrasto" valore="lblAllergie_Mezzi_Contrasto##Allergie_Mezzi_Contrasto#radAllergie_Mezzi_Contrasto#{width:150}#S#ALLERGIE_MEZZI_CONTRASTO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Allergie" valore="Dett_Allergie##lettura#DETTAGLIO_ALLERGIE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TR1" valore="TR1" evento="START">
+						<TD_LABEL_RADIO key_id="Allergie_Metalli" valore="lblAllergie_Metalli##Allergie_Metalli#radAllergie_Metalli#{width:150}#S#ALLERGIE_METALLI" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Allergie_Metalli" valore="Dett_Allergie_Metalli##lettura#DETTAGLIO_ALLERGIE_METALLI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TR2" valore="TR2" evento="START">
+						<TD_LABEL_RADIO key_id="Insuff_Renale" valore="lblInsuff_Renale##Insuff_Renale#radInsuff_Renale#{width:150}#S#INSUFF_RENALE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="Dett_Insuff_Renale" valore="Dett_Insuff_Renale##lettura#DETTAGLIO_INSUFF_RENALE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXT key_id="Creatininemia" valore="lblCreatininemia##Creatininemia###CREATININEMIA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Azotemia" valore="lblAzotemia##Azotemia###AZOTEMIA" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<!-- 
+					<TR.INIT key_id="TR3" valore="TR3" evento="START">
+						<TD.INIT key_id="TD0" valore="3#tdLbl" evento="START">
+							<LABEL key_id="lblCreatininemia" valore="lblCreatininemia#lblCreatininemia"
+								evento="START">
+							</LABEL>
+							<INPUT.TEXT key_id="Creatininemia" valore="Creatininemia###CREATININEMIA"
+								evento="START">
+							</INPUT.TEXT>
+							<LABEL key_id="lblAzotemia" valore="lblAzotemia#lblAzotemia"
+								evento="START">
+							</LABEL>
+							<INPUT.TEXT key_id="Azotemia" valore="Azotemia###AZOTEMIA"
+								evento="START">
+							</INPUT.TEXT>
+						</TD.INIT>
+					</TR.INIT>
+					 -->
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

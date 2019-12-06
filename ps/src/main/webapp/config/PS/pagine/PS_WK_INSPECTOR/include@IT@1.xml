@@ -1,0 +1,7 @@
+<INCLUDE>
+    <JS path="js/PS/TabHomePS/WhereMenuWk.js" />
+    <JS path="js/PS/TabHomePS/FunzioniMenu.js" />
+    <JS path="js/PS/PsInspector/PsInspector.js" />
+    <JS path="js/Base/jquery.plugin/jquery.tooltipster.js"/>
+    <CSS path="css/base/jquery.plugin/tooltipster.css"/>
+</INCLUDE>

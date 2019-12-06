@@ -1,0 +1,117 @@
+<ROWSET>
+    <ROW>
+        <filtroPazienti>Ricerca pazienti</filtroPazienti>
+        <filtroAccettazioneTrasferimenti>Accettazione Trasferimenti</filtroAccettazioneTrasferimenti>
+        <lblDataInizioListaContattiSdo>Da data</lblDataInizioListaContattiSdo>
+        <lblDataFineListaContattiSdo>A data</lblDataFineListaContattiSdo>
+        <lblData>Data di nascita</lblData>
+        <filtroRicoverati>Ricerca ricoverati</filtroRicoverati>
+        <lblStatoContatto>Stato</lblStatoContatto>
+        <lblRepGiu>Reparto</lblRepGiu>
+        <lblLista>Elenco liste</lblLista>
+        <filtroListaAttesa>Lista Attesa</filtroListaAttesa>
+        <lblCartella>Cartella</lblCartella>
+        <lblDaData>Da data</lblDaData>
+        <lblAData>A data</lblAData>
+        <lblDataNascita>Data Nascita</lblDataNascita>
+        <lblComuneResidenza>Comune residenza</lblComuneResidenza>
+        <lblcodFisc>Codice Fiscale</lblcodFisc>
+        <lblCDC>Centro di costo</lblCDC>
+        <filtroDimissioniSDO>Stato Ricoveri e SDO</filtroDimissioniSDO>
+        <lblStatoSdo>Stato SDO</lblStatoSdo>
+        <lblStatoCartella>Stato cartella</lblStatoCartella>
+        <filtroRichiesteDsa>Richieste DSA</filtroRichiesteDsa>
+        <lblStatoRichieste>Stato richiesta</lblStatoRichieste>
+        <lblUrgenzaFiltro>Urgenza</lblUrgenzaFiltro>
+        <lblTipoTrasf>Tipo trasferimento</lblTipoTrasf>
+        <lblDataInizioLista>Da data </lblDataInizioLista>
+        <lblDataFineLista>A data</lblDataFineLista>
+        <lblRepAss>Reparto assistenziale</lblRepAss>
+        <lblRegRic>Regime ricovero</lblRegRic>
+        <lblResetCampi>Reset Campi</lblResetCampi>
+        <lblResetCampiCampiWKDimessi>Reset Campi</lblResetCampiCampiWKDimessi>
+        <lblResetCampiCampiWKDimessiSDO>Reset Campi</lblResetCampiCampiWKDimessiSDO>
+        <lblTipRico>Tipologia ricovero</lblTipRico>
+        <lblCognome>Cognome</lblCognome>
+        <lblCognomeAGD>Cognome</lblCognomeAGD>
+        <lblNomeAGD>Nome</lblNomeAGD>
+        <lblCartellaAGD>Cartella</lblCartellaAGD>
+        <lblRegimeAGD>Regime</lblRegimeAGD>
+        <lblTipoAG>Tipo</lblTipoAG>
+        <lblRepartoAGD>Reparto</lblRepartoAGD>
+        <lblDaDataAGD>Da data</lblDaDataAGD>
+        <lblADataAGD>A data</lblADataAGD>
+        <lblNome>Nome</lblNome>
+        <titRepGiu>Reparto Giuridico</titRepGiu>
+        <titRegRicovero>Regime Ricovero</titRegRicovero>
+        <titTipoRicovero>Tipo Ricovero</titTipoRicovero>
+        <titRepartoAss>Reparto Assistenziale</titRepartoAss>
+        <lblFiltroWk>Tipo contatto</lblFiltroWk>
+        <lblRep>Reparto</lblRep>
+        <lblStatoLista>Stato</lblStatoLista>
+        <lblRepAssistenziale>Reparto assistenziale</lblRepAssistenziale>
+        <titRepGiu>Reparto</titRepGiu>
+        <lblRep>Reparto</lblRep>
+        <lblRepSdo>Reparto</lblRepSdo>
+        <lblRepGrouper>Reparto</lblRepGrouper>
+        <lblStruttura>Struttura</lblStruttura>
+        <lblDataInizioListaChiamata>Da data </lblDataInizioListaChiamata>
+        <lblDataFineListaChiamata>A data</lblDataFineListaChiamata>
+        <filtroListaChiamata>Lista di Chiamata</filtroListaChiamata>
+        <lblRepartoListaChiamata>Reparto</lblRepartoListaChiamata>
+        <lblListaChiamata>Elenco liste</lblListaChiamata>
+        <lblStatoListaChiamata>Stato</lblStatoListaChiamata>
+        <lblUrgenzaFiltroListaChiamata>Urgenza</lblUrgenzaFiltroListaChiamata>
+        <!-- Lista di Attesa -->
+        <lblListaAttesaCognome>Cognome</lblListaAttesaCognome>
+        <lblListaAttesaNome>Nome</lblListaAttesaNome>
+        <lblListaAttesaReparto>Reparto</lblListaAttesaReparto>
+        <lblListaAttesaPriorita>Priorità</lblListaAttesaPriorita>
+        <lblListaAttesaDataInizio>Data Inizio</lblListaAttesaDataInizio>
+        <lblListaAttesaDataFine>Data Fine</lblListaAttesaDataFine>
+        <lblListaAttesaID>Lista</lblListaAttesaID>
+        <lblListaAttesaStato>Stato</lblListaAttesaStato>
+        <lblListaAttesaMedicoProponente>Medico Proponente</lblListaAttesaMedicoProponente>
+        <!-- Lista di Chiamata -->
+        <lblListaChiamataMedicoProponente>Medico Proponente</lblListaChiamataMedicoProponente>
+        <filtroAccessiGiuridici>Accessi Giuridici</filtroAccessiGiuridici>
+        <filtroWkDimessi>Ricerca Dimessi</filtroWkDimessi>
+        <lblNomeAG>Nome</lblNomeAG>
+        <lblCognomeAG>Cognome</lblCognomeAG>
+        <lblRegimeAG>Regime</lblRegimeAG>
+        <lblTipoAG>Tipo</lblTipoAG>
+        <lblRepartoAG>Reparto</lblRepartoAG>
+        <lblCartellaAG>Cartella</lblCartellaAG>
+        <lblStatoAG>Stato</lblStatoAG>
+        <lblDaDataAG>Da Data</lblDaDataAG>
+        <lblADataAG>A Data</lblADataAG>
+        <filtroAccessiAssistenziali>Accessi Assistenziali</filtroAccessiAssistenziali>
+        <lblNomeAA>Nome</lblNomeAA>
+        <lblCognomeAA>Cognome</lblCognomeAA>
+        <lblRegimeAA>Regime</lblRegimeAA>
+        <lblTipoAA>Tipo</lblTipoAA>
+        <lblRepartoAA>Reparto</lblRepartoAA>
+        <lblCartellaAA>Cartella</lblCartellaAA>
+        <lblStatoAA>Stato</lblStatoAA>
+        <lblDaDataAA>Da Data</lblDaDataAA>
+        <lblADataAA>A Data</lblADataAA>
+        <filtroTrasferimenti>Trasferimenti</filtroTrasferimenti>
+        <lblNomeTA>Nome</lblNomeTA>
+        <lblCognomeTA>Cognome</lblCognomeTA>
+        <lblRegimeTA>Regime</lblRegimeTA>
+        <lblTipoTA>Tipo</lblTipoTA>
+        <lblRepartoTA>Reparto</lblRepartoTA>
+        <lblCartellaTA>Cartella</lblCartellaTA>
+        <lblStatoTA>Stato</lblStatoTA>
+        <lblDaDataTA>Da Data</lblDaDataTA>
+        <lblADataTA>A Data</lblADataTA>
+        <!-- TAB Ricoveri Sovrapposti -->
+        <filtroRicoveriSovrapposti>Ricoveri Sovrapposti</filtroRicoveriSovrapposti>
+        <lblRicoveriSovrappostiReparto>Reparto Giuridico</lblRicoveriSovrappostiReparto>
+        <lblDataInizioRicoveriSovrapposti>Da Data</lblDataInizioRicoveriSovrapposti>
+        <lblDataFineRicoveriSovrapposti>A Data</lblDataFineRicoveriSovrapposti>
+        <PROVA1></PROVA1>
+        <PROVA2></PROVA2>
+        <PROVA3></PROVA3>
+    </ROW>
+</ROWSET>

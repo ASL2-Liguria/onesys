@@ -1,0 +1,89 @@
+
+ul.pulsanteULCenter
+{
+	text-align:center;
+}
+
+ul.pulsanteULCenter li
+{
+	display:inline;
+	/*padding:2px;*/
+	width:140px;
+	background: url(../../../imagexPix/worklistFlex/sf-th.png) repeat-x;
+	border: 1px solid #1e60b8;
+	text-align:center;
+	margin:10px 0px -15px 3px; /*top right bottom left*/
+	WHITE-SPACE: nowrap;
+	OVERFLOW: hidden;
+	CURSOR: pointer;
+}
+
+ul.pulsanteULCenter li.pulsanteLISelezionato
+{
+	display:inline;
+	width:140px;
+	color: blue;
+	/*padding:2px;*/
+	background:url(../../../imagexPix/bar/btGreen.jpg) repeat-x;
+	border: 1px solid #1e60b8;
+	text-align:center;
+	margin:10px 0px -15px 3px; /*top right bottom left*/
+	CURSOR: pointer;
+}
+
+li.pulsanteLISelezionato A
+{
+	display:inline;
+	width:140px;
+	background:url(../../../imagexPix/bar/btGreen.jpg) repeat-x;
+	color: blue;
+	text-align:center;
+}
+
+/* Rule N°18 from std/css/button.css */
+UL.pulsanteULCenter LI A:hover {
+	background: url(../../../imagexPix/worklistFlex/sf-th_hover.png) repeat-x;
+	BACKGROUND-REPEAT: repeat-x;
+	COLOR: yellow;
+}
+
+/* Rule N°17 from std/css/button.css */
+UL.pulsanteULCenter LI A {
+	LINE-HEIGHT: 19px;
+	font-size: 11px;
+	padding: 2px;
+	DISPLAY: inline-block;
+	width:140px;
+	HEIGHT: 19px;
+	/*COLOR: blue;*/
+	color: white;
+	font-weight: bold;
+	TEXT-DECORATION: none;
+}
+
+UL.pulsanteULCenter li.pulsanteLISelezionato A
+{
+	display:inline;
+	width:140px;
+	background:url(../../../imagexPix/bar/btGreen.jpg) repeat-x;
+	color: blue;
+	text-align:center;
+}
+
+UL.pulsanteULCenter  li.pulsanteLISelezionato A:hover {
+	BACKGROUND-IMAGE: url(../../../imagexPix/bar/btGreen_hover.jpg);
+	BACKGROUND-REPEAT: repeat-x;
+	COLOR: #ffd800;
+}
+
+iframe#frameDiari {
+	height: '60%';
+}
+
+iframe#frameSecondario {
+	height: '30%';
+}
+
+div#groupFiltri {
+	display: none;
+}

@@ -1,0 +1,8 @@
+/* DIALOG */
+#dialog-mask {position:fixed; top:0; left:0; height:100%; width:100%; background:none; z-index:100}
+#dialog {position:fixed; width:525px; padding:0px; z-index:200; font-family:Verdana, Arial, Helvetica; font-size:14px; }
+#dialog-content {background:#ececec url(../../imagexPix/img/sfTable.png) top left repeat-x;display:block; padding:6px; color:#666666; font-size:13px; border:1px solid #4d4d4d; border-top:none;}
+#dialog-content-inner {padding:20px; margin-bottom:10px; text-align:center}
+#dialog-countDown {font-weight:800; font-size:16px; margin:5px;}
+#dialog-button-container {overflow:hidden}
+#dialog-button-container-float{float:right;}

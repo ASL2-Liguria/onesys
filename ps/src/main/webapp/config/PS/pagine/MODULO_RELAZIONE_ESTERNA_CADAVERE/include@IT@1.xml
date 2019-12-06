@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/PS/SchedeModulistica/ModuloRelazioneEsternaCadavere/ModuloRelazioneEsternaCadavere.css"/>
+    <JS path="js/PS/SchedeModulistica/ModulisticaFunzioniComuni.js"/>
+    <JS path="js/PS/SchedeModulistica/ModuloRelazioneEsternaCadavere/ModuloRelazioneEsternaCadavere.js"/>
+</INCLUDE>

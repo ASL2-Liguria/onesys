@@ -1,0 +1,30 @@
+html,body{
+	margin:0;
+	padding:5px;
+	font-family:Arial;
+	width:2000px;
+}
+div,p,li,td,th{
+	font-size:12px;
+	text-align:justify;
+	color:green;
+}
+table{
+	border-collapse:collapse;
+	border-spacing:0;
+}
+table td{
+	border:1px solid #999;
+	padding:2px 5px;
+}
+
+img{
+	margin:10px;
+	border:5px solid #ccc;
+}
+
+h1{
+	font-size:14px;
+	text-align:justify;
+	color:red;
+}

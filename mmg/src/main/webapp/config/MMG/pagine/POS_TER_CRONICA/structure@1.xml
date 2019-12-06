@@ -1,0 +1,29 @@
+<PAGINA key_id="POS_TER_CRONICA">
+	<HEADER_PAGE key_id="POS_TER_CRONICA"
+		valore="DEFAULT_MMG,SCHEDA,POS_TER_CRONICA#DEFAULT_MMG,POS_TER_CRONICA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#POS_TER_CRONICA#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="PosTerCron#lblTitolo#butStampa,butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabPosTerCron" valore="tabPosTerCron" evento="START">
+				<FIELDSET_TABLE key_id="fldIntestazione" valore="fldIntestazione" evento="START"></FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRangeDate" valore="fldRangeDate" evento="START">
+					<TD_LABEL_DATA key_id="DaData"
+						valore="lblDaData##txtDaData#DataInizio#startWithToday:true, direction:true, readonly_element: false, format: 'd/m/Y'#disabled:false#lblDaData#DATA_INIZIO"
+						evento="START">
+					</TD_LABEL_DATA>
+					<TD_LABEL_DATA key_id="AData"
+						valore="lblAData##txtAData#DataFine#startWithToday:false, direction:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false#lblAData#DATA_FINE"
+						evento="START">
+					</TD_LABEL_DATA>
+					<TD_BUTTON key_id="butImposta" valore="butImposta" evento="START"></TD_BUTTON>
+					<TD_BUTTON key_id="butPulisci" valore="butPulisci" evento="START"></TD_BUTTON>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldFarmaciFirst" valore="fldFarmaciFirst" evento="START"></FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldFarmaci" valore="fldFarmaci" evento="START"></FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

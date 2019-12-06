@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/MMG/RicettaRossa/sceltaFarmaci.js" />
+	<JS path="js/MMG/RicettaRossa/farmaci_common.js" />
+	<CSS path="css/MMG/RicettaRossa/sceltaFarmaci.css" />
+</INCLUDE>

@@ -1,0 +1,66 @@
+.stepcarousel_Exam{
+	position: relative; /*leave this value alone*/
+	overflow: scroll; /*leave this value alone*/
+	width: 90%; /*Width of Carousel Viewer itself*/
+	height: 25px; /*Height should enough to fit largest content's height*/
+	padding-left:10px;
+	padding-right:10px;
+	margin-left:5px;
+	
+}
+
+.stepcarousel_Exam .beltCarousel_Exam{
+	position: absolute; /*leave this value alone*/
+	left: 0;
+	top: 0;
+}
+
+.stepcarousel_Exam .panelCarousel_Exam{
+	float: left; /*leave this value alone*/
+	overflow: hidden; /*clip content that go outside dimensions of holding panel DIV*/
+	width: 170px; /*Width of each panel holding each content. If removed, widths should be individually defined on each content DIV then. */
+	padding-left:3px;
+	padding-right:3px;
+}
+
+/* css per elemento del carosello */
+.stepcarousel_Exam .panelCarousel_Exam SPAN.singleElemCarousel_Exam{
+
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A LABEL.labelSingleElemCarousel_Exam{
+	cursor:pointer;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	text-decoration:none;
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A:hover LABEL.labelSingleElemCarousel_Exam{
+	color:white;
+	background-color:#00F;
+}
+/* ********** */
+/* css per elemento del carosello SELEZIONATO*/
+.stepcarousel_Exam .panelCarousel_Exam A LABEL.labelSingleElemCarousel_ExamSelected{
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A:hover LABEL.labelSingleElemCarousel_ExamSelected{
+	color:white;
+	background-color:#00F;
+}
+
+/* ********** */
+
+
+
+SPAN.infoButtonExam{
+	top:-25px;
+	position:relative;
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/info.png);
+	background-repeat:no-repeat;
+	cursor:pointer;	
+}

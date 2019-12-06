@@ -1,0 +1,6 @@
+body{width:960px;}
+
+#but_BMI, #but_CircCranica, #but_DiaFontanella, #but_Pressione, #but_Temperatura, #but_Altro { height: 35px; width: 120px;}
+
+#fldRicerca table.campi { table-layout: fixed;}
+/*#fldRicerca table.campi td {width: 15%;}*/

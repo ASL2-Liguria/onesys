@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Vaccini/ReportVaccini.css" />
+	<JS path="js/MMG/Vaccini/ReportVaccini.js" />
+</INCLUDE>

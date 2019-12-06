@@ -1,0 +1,45 @@
+<root>
+    <statements_list>
+        <statement name="getDatiContattoTriagePs">
+        <pool>elcoPool_ps</pool>
+		<schema>pronto_soccorso</schema>
+            <sql>
+                <![CDATA[
+                        select
+                        c.iden iden_contatto,
+                        CG.IDEN_CDC,
+                        CG.IDEN_PROVENIENZA ,
+                        la.iden IDEN_LISTA,
+                        GEST_PS_SCHEDE_XML.FNC_GET_JSON_STATO_PAGINA(pCartella => ? ) JSON_STATO_PAGINA
+                    from adt$contatti c
+                    join adt$CONTATTI_ASSISTENZIALI ca on ca.iden= C.SEGMENTO_ULTIMO_ASSISTENZIALE
+                    join adt$CONTATTI_GIURIDICI cg on cg.iden= C.SEGMENTO_ULTIMO_GIURIDICO
+                    join adt$LISTA_ATTESA la on LA.IDEN_CONTATTO = c.iden
+                    where c.codice = ?
+					and c.iden_anagrafica = ? 
+					and c.deleted = 'N'
+					and la.attivo='S'
+			]]>
+            </sql>
+        </statement>
+        <statement name="getDatiContatto">
+        <pool>elcoPool_ps</pool>
+		<schema>pronto_soccorso</schema>
+            <sql>
+                <![CDATA[
+                        select
+                        c.iden iden_contatto,
+                        CG.IDEN_CDC,
+                        CG.IDEN_PROVENIENZA ,
+                        GEST_PS_SCHEDE_XML.FNC_GET_JSON_STATO_PAGINA(pCartella => ? ) JSON_STATO_PAGINA
+                    from adt$contatti c
+                    join adt$CONTATTI_ASSISTENZIALI ca on ca.iden= C.SEGMENTO_ULTIMO_ASSISTENZIALE
+                    join adt$CONTATTI_GIURIDICI cg on cg.iden= C.SEGMENTO_ULTIMO_GIURIDICO
+                    where c.codice = ?
+					and c.iden_anagrafica = ? 
+					and c.deleted = 'N'
+			]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

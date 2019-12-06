@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Bilancio di salute n.5 (10-12 mesi)</lblTitolo>
+        
+        <tabBilancioSalute>Bilancio di salute</tabBilancioSalute>
+        <tabSviluppoPsicomotorio>Sviluppo psicomotorio</tabSviluppoPsicomotorio>
+        <tabControlloStomatologico>Controllo stomatologico</tabControlloStomatologico>
+        
+        <fldDatiGenerali>Dati generali</fldDatiGenerali>
+        <fldDatiAuxometrici>Dati auxometrici</fldDatiAuxometrici>
+        <fldEsameClinico>Esame clinico</fldEsameClinico>
+        <fldSonno>Sonno</fldSonno>
+        <fldSviluppoPsicomotorio>Sviluppo psicomotorio</fldSviluppoPsicomotorio>
+        <!-- <fldDentizioneSuperioreSX>Dentizione superiore SX</fldDentizioneSuperioreSX>
+		<fldDentizioneSuperioreDX>Dentizione superiore DX</fldDentizioneSuperioreDX>
+		<fldDentizioneInferioreSX>Dentizione inferiore SX</fldDentizioneInferioreSX>
+		<fldDentizioneInferioreDX>Dentizione inferiore DX</fldDentizioneInferioreDX> -->
+		<fldDentizioneCompleta>Controllo Stomatologico</fldDentizioneCompleta>
+		<labelsupSX>Dentizione sinistra</labelsupSX>
+		<labelsupDX>Dentizione destra</labelsupDX>
+        <fldNote>Note</fldNote>
+        
+        <lblData>Data compilazione</lblData>
+        <lblEtaAnni>Anni</lblEtaAnni>
+        <lblEtaMesi>Mesi</lblEtaMesi>
+        <lblEtaGiorni>Giorni</lblEtaGiorni>
+        <lblRaccordoAnamnestico>Raccordo anamnestico</lblRaccordoAnamnestico>
+        <lblPeso>Peso (kg)</lblPeso>
+        <lblPesoCentile>...</lblPesoCentile>
+        <lblAltezza>Lunghezza (cm)</lblAltezza>
+        <lblAltezzaCentile>...</lblAltezzaCentile>
+        <lblBMI>BMI</lblBMI>
+        <lblCirconferenza_Cranica>Circ. cranica (cm)</lblCirconferenza_Cranica>
+        <lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+        <lblNoteSonno>Note</lblNoteSonno>
+        <lblAllattamento>Allattamento</lblAllattamento>
+        <lblDivezzamento>Divezzamento</lblDivezzamento>
+        <lblNoteAllattamento>Note</lblNoteAllattamento>
+        <lblNoteEsameClinico>Note</lblNoteEsameClinico>
+        
+        <lblInPiedi_Si_No>Sta in piedi con sostegno</lblInPiedi_Si_No>
+		<lblAfferra_Si_No>Afferra tra pollice e indice</lblAfferra_Si_No>
+		<lblConosceUsoOggetti_Si_No>Conosce l'uso degli oggetti</lblConosceUsoOggetti_Si_No>
+		<lblCamminaSostegno_Si_No>Cammina con sostegno</lblCamminaSostegno_Si_No>
+		<lblCamminaDaSolo_Si_No>Cammina da solo</lblCamminaDaSolo_Si_No>
+		<lblControlloPostulareMotorio>Controllo posturale e motorio</lblControlloPostulareMotorio>
+		<lblLinguaggio>Linguaggio</lblLinguaggio>
+		<lblNoteControlloStomatologico>Controllo stomatologico</lblNoteControlloStomatologico>
+		
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <butSalva>Salva</butSalva>
+        <butStampa>Salva e Stampa</butStampa>
+        <butChiudi>Chiudi</butChiudi>
+        <PD></PD>
+        
+    </ROW>
+</ROWSET>

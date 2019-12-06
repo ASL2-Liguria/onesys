@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Medico/elencoADP.css" />
+	<JS path="js/MMG/Medico/elencoADP.js" />
+</INCLUDE>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>PS_WK_LISTA_ATTESA_TRIAGE</ID>
+    <ID-QUERY connection="PS">WORKLIST.RIEPILOGO_TRIAGE</ID-QUERY>
+    <TITLE>traduzione.lblListaAttesaRiepilogo</TITLE>
+    <PAGER>N</PAGER>
+    <LIMIT_ROWS>100</LIMIT_ROWS>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <MOUSEOVER>function(rec){$(this).find('div').tooltipster({
+                    content: rec.NOTE,
+                    delay: 100
+                    })}</MOUSEOVER>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA</COL>
+                        <DB>DATA</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA ORA"</DESCRIPTOR>
+                    <WIDTH>110PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>URGENZA</COL>
+                        <DB>URGENZA</DB>
+                    </ID>
+                    <DESCRIPTOR>"URGENZA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>90px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTENTE</COL>
+                        <DB>UTENTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"UTENTE TRIAGE"</DESCRIPTOR>
+                    <WIDTH>150PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>TIPO_UTENTE</COL>
+                        <DB>TIPO_UTENTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"TIPO_UTENTE"</DESCRIPTOR>
+                    <WIDTH>100PX</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NOTE</COL>
+                        <DB>NOTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"NOTE TRIAGE"</DESCRIPTOR>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

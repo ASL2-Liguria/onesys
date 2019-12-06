@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>AC_ANAG_TITOLO</ID>
+	<ID-QUERY connection="POLARIS_DATI">AUTOCOMPLETE.AC_ANAG_TITOLO</ID-QUERY>
+	<TITLE>""</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+					<ID>
+						<COL>CODICE_DECODIFICA</COL>
+						<DB>CODICE_DECODIFICA</DB>
+					</ID>
+                    <DESCRIPTOR>"CODICE"</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVEABLE>S</MOVEABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCR</DB>
+					</ID>
+                    <DESCRIPTOR>"Titolo"</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVEABLE>S</MOVEABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

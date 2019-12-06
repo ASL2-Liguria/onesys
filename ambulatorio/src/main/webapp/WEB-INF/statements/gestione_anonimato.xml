@@ -1,0 +1,133 @@
+<root>
+	<statements_list>
+		<statement name="getInfoAnag">
+			<sql>
+			<![CDATA[
+				SELECT A.COGN,
+				  A.NOME,
+				  A.SESSO,
+				  SUBSTR(A.DATA, 7, 2)
+				  ||'/'
+				  ||SUBSTR(A.DATA, 5, 2)
+				  ||'/'
+				  ||SUBSTR(A.DATA, 1, 4) AS DATA_NASCITA,
+				  A.COD_FISC
+				FROM anag A
+				WHERE iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getCodiceAnonimo">
+			<sql>
+			<![CDATA[
+				SELECT GET_ANONIMATO (to_number(?),?) codice FROM dual
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getAllStrutture">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+				select cod_cdc, descr from centri_di_costo where cod_cdc in (select column_value from table (split(?))) order by descr
+			]]>
+			</sql>
+		</statement>		
+		
+		<statement name="createCodiceAnonimo">
+			<sql>
+			<![CDATA[
+
+				declare
+					vIdenAnag number := ?;
+					vStruttura varchar2(50) := ?;
+					vOut varchar2(4000 BYTE);
+				begin
+					insert into gestione_anonimato (ID1, COGNOME, NOME, STRUTTURA) values ((select ID1 from COD_EST_ANAG where IDEN_ANAG = vIdenAnag),(select ID4 from COD_EST_ANAG where IDEN_ANAG = vIdenAnag)||'_'||vStruttura,'ANONIMO',vStruttura);
+					commit;
+					select cognome into vOut from gestione_anonimato where id1 = (select ID1 from COD_EST_ANAG where IDEN_ANAG = vIdenAnag);
+					? := vOut;
+				end;				
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+	
+		<statement name="getAnonimo">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+				select a.iden, a.cogn,a.nome,a.data,a.COD_FISC from anag a, GESTIONE_ANONIMATO ga, cod_est_anag cea where ga.id1 = cea.ID1 and a.iden = cea.IDEN_ANAG and ga.cognome=? and ga.nome =?
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="isAnonimoByAnagCdc">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+--				select is_Anonimo_by_IdenAnag(?, ?) ESITO from dual
+				select count(cognome) esito from gestione_anonimato where id1=(select id1  from cod_est_anag where iden_anag = ?) and struttura =?
+			]]>
+			</sql>
+		</statement>
+		
+		
+		<statement name="isAnonimoByAnagMultiCdc">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+				select is_Anonimo_Per_Multi_Cdc(?, ?) ESITO from dual
+			]]>
+			</sql>
+		</statement>
+				
+		
+		
+		
+		<statement name="rimuoviAnonimo">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenAnag number := to_number(?);
+					pCdc varchar2(100) := ?;
+				begin
+					delete from GESTIONE_ANONIMATO where id1 = (select ID1 from COD_EST_ANAG where IDEN_ANAG = pIdenAnag) and struttura =pCdc;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="rimuoviAnonimoByIdenAnag">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenAnag number := to_number(?);
+				begin
+					delete from GESTIONE_ANONIMATO where id1 = (select ID1 from COD_EST_ANAG where IDEN_ANAG = pIdenAnag) ;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		
+
+		<!-- non viene creato il codice anonimo -->
+		<statement name="getCognome_Anonimo">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[				
+				select cognome from gestione_anonimato where id1=(select id1 from cod_est_anag where iden_anag = to_number(?)) and struttura =?
+			]]>
+			</sql>
+		</statement>				
+				
+	</statements_list>	
+
+	
+</root>

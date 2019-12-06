@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>STORICO_CONSENSO</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.STORICO_CONSENSO</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_STORICO_CONSENSO</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                 <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>DATA_ISO</COL>
+						<DB>DATA_ISO</DB>
+					</ID>
+					<DESCRIPTOR>"Data"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>ORA</COL>
+						<DB>ORA</DB>
+					</ID>
+					<DESCRIPTOR>"Ora"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>UTENTE_INSERIMENTO</COL>
+						<DB>UTENTE_INSERIMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Utente inserimento"</DESCRIPTOR>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="IDEN">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

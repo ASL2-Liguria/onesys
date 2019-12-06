@@ -1,0 +1,34 @@
+<ROWSET>
+    <ROW>
+        <h5NomeHostTit>Hostname:</h5NomeHostTit>
+        <h5VersionTit>Versione:</h5VersionTit>
+        <lblTitHeaderLogin>Autenticazione</lblTitHeaderLogin>
+        <h5IpTit>Ip:</h5IpTit>
+        <butLogin>Login</butLogin>
+        <!-- TODO: Da cancellare, usato per test -->
+        <butLoginRIS>RIS</butLoginRIS>
+        <butLoginPS>PS</butLoginPS>
+        <butLoginADT>ADT</butLoginADT>
+        <!-- -->
+
+        <butCambia>Cambio Pwd</butCambia>
+        <lblUsername>Utente</lblUsername>
+        <lblPassword>Password</lblPassword>
+        <cpUsername>Username:</cpUsername>
+        <cpOldPassword>Vecchia Password:</cpOldPassword>
+        <cpNewPassword>Nuova Password:</cpNewPassword>
+        <cpConfirmPassword>Conferma Password:</cpConfirmPassword>
+        <cpTitolo>Cambia Password</cpTitolo>
+        <cpCambia>Cambia</cpCambia>
+        <cpAnnulla>Annulla</cpAnnulla>
+        <errUsername>Compilare username</errUsername>
+        <errOldP>Compilare vecchia password</errOldP>
+        <errNewP>Compilare nuova password</errNewP>
+        <errConfirmP>Confermare nuova password</errConfirmP>
+        <errCorrisp>Le nuove password non corrispondono</errCorrisp>
+        <cpOk>Password cambiata correttamente</cpOk>
+        <alreadyAuthTitolo>Utente già autenticato</alreadyAuthTitolo>
+        <alreadyAuthContinua>Continua</alreadyAuthContinua>
+
+    </ROW>
+</ROWSET>

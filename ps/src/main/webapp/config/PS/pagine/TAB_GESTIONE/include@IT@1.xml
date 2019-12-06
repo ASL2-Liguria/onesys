@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="js/PS/TabHomePS/WhereMenuWk.js" />
+    <JS path="js/PS/TabHomePS/Lock.js" />
+    <JS path="js/PS/TabHomePS/FunzioniMenu.js" />
+    <JS path="js/PS/TabGestione/TabGestione.js" />
+</INCLUDE>

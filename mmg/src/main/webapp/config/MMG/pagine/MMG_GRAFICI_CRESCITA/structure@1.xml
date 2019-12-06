@@ -1,0 +1,36 @@
+<PAGINA key_id="MMG_GRAFICI_CRESCITA">
+	<HEADER_PAGE key_id="MMG_GRAFICI_CRESCITA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_GRAFICI_CRESCITA#DEFAULT_MMG,MMG_GRAFICI_CRESCITA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_SAVA_DATA#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabMain" valore="tabMain#lblTitolo#butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tab24Mesi" valore="tab24Mesi" evento="START">
+				<DIV key_id="divOuterPeso24Mesi" valore="divOuterPeso24Mesi" evento="START">
+					<DIV key_id="divPeso24Mesi" valore="divPeso24Mesi" evento="START"></DIV>
+				</DIV>
+				<DIV key_id="divOuterLunghezza24Mesi" valore="divOuterLunghezza24Mesi" evento="START">
+					<DIV key_id="divLunghezza24Mesi" valore="divLunghezza24Mesi" evento="START"></DIV>
+				</DIV>
+				<DIV key_id="divOuterBMI24Mesi" valore="divOuterBMI24Mesi" evento="START">
+					<DIV key_id="divBMI24Mesi" valore="divBMI24Mesi" evento="START"></DIV>
+				</DIV>
+				<DIV key_id="divOuterCirCran24Mesi" valore="divOuterCirCran24Mesi" evento="START">
+					<DIV key_id="divCirCran24Mesi" valore="divCirCran24Mesi" evento="START"></DIV>
+				</DIV>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tab19Anni" valore="tab19Anni" evento="START">
+				<DIV key_id="divOuterPeso19Anni" valore="divOuterPeso19Anni" evento="START">
+					<DIV key_id="divPeso19Anni" valore="divPeso19Anni" evento="START"></DIV>
+				</DIV>
+				<DIV key_id="divOuterAltezza19Anni" valore="divOuterAltezza19Anni" evento="START">
+					<DIV key_id="divAltezza19Anni" valore="divAltezza19Anni" evento="START"></DIV>
+				</DIV>
+				<DIV key_id="divOuterBMI19Anni" valore="divOuterBMI19Anni" evento="START">
+					<DIV key_id="divBMI19Anni" valore="divBMI19Anni" evento="START"></DIV>
+				</DIV>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

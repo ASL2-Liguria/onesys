@@ -1,0 +1,5 @@
+<INCLUDE>
+    <CSS path="css/PS/InsAllergie/InsAllergie.css" />
+    <JS path="config/PS/validator/model/V_ALLERGIE.js" />
+    <JS path="js/PS/InsAllergie/InsAllergie.js" />
+</INCLUDE>

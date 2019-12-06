@@ -1,0 +1,159 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#b9e0ff;padding-right:10px;}
+
+fieldset{
+	margin:10px;
+	border:4px solid #FFF;
+	padding:5px;
+	}
+	fieldset .TableProfilo, #ListaEsami{
+		background:#fff;
+		padding:5px;
+		}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+
+.opacity {
+
+	filter:alpha(opacity=20);
+	-moz-opacity: 0.2;
+	opacity: 0.2;
+
+}
+
+#divRicEsami {
+
+	background:#b9e0ff;
+	width:500px;
+	height:700px;
+	position:absolute;
+	left:70px;
+	top:50px;
+
+}
+
+#divEsamiTappo {
+
+	background:#b9e0ff;
+	width:500px;
+	height:700px;
+	position:absolute;
+	left:650px;
+	top:50px;
+
+}
+
+#divInsMat {
+
+	background:#b9e0ff;
+	width:250px;
+	height:100px;
+	position:absolute;
+	left:470px;
+	/*top:200px;*/
+	top:250px;
+	border:thick;
+	z-index:10;
+
+}
+
+#elencoEsami{
+
+	background:#CEF1FF;
+
+}
+
+
+.titolo {
+
+	height:30px;
+
+}
+
+.tappo{
+
+	background:#0DB322;
+	color:#FFFFFF;
+	width:100%;	
+	height:30px;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+
+}
+
+.InsMat{
+
+	background:#CC0000;
+	color:#FFFFFF;
+	width:100%;	
+	height:30px;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+
+}
+
+DIV.popupEsamiRiep{
+
+	background:#b9e0ff;
+	position:absolute;
+	text-align:center;
+	top:100px;
+	left:200px;
+	width:200px;
+	height:150px;
+	border-left:3px solid #016aff;
+	border-right:3px solid #016aff;
+	border-bottom:3px solid #016aff;
+	border-top:3px solid #016aff;
+	z-index:8;
+
+}
+
+#titPopupRiep{
+
+	/*background:#016aff;*/
+	BACKGROUND-IMAGE: url(../../../imagexPix/bar/titleMenuOption.jpg);
+	display:block;
+	width:100%;
+	height:20px;
+	line-height:20px;
+	vertical-align:middle;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:5px;
+	text-align:center;
+
+}
+
+.hide{
+
+	display:none;
+	
+}
+
+div#overlay
+{
+	z-index:98;
+	/*background: url(../../../imagexPix/Layout/overlay.png) ! important;*/
+	width:100%;
+	height:100%;
+	position:absolute;top:0;left:0;z-index:5;
+}
+
+.elenchiScelte{
+
+	background:#FFFFCC;
+
+}
+

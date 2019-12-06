@@ -1,0 +1,29 @@
+<PAGINA key_id="MMG_FAMILIARITA">
+	<HEADER_PAGE key_id="MMG_FAMILIARITA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_FAMILIARITA#DEFAULT_MMG,MMG_FAMILIARITA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#####" evento="START_END">
+	</FORM>
+	<FIELDSET key_id="fldFrom" valore="fldFrom" evento="START_END">
+		<TR_TD_LABEL_COMBO_LIST key_id="cmbParenti"
+			valore="lblcmbParenti##ComboListParenti#cmbParenti#N#PARENTI" evento="START_END">
+		</TR_TD_LABEL_COMBO_LIST>
+		<TR_TD_LABEL_COMBO_LIST key_id="cmbMalattie"
+			valore="lblcmbMalattie##ComboListMalattie#cmbMalattie#N#MALATTIE"
+			evento="START_END">
+		</TR_TD_LABEL_COMBO_LIST>
+	</FIELDSET>
+	<DIV key_id="divButton" valore="divButton" evento="START_END">
+	</DIV>
+	<FIELDSET key_id="fldTo" valore="fldTo" evento="START_END">
+		<TR_TD_LABEL_COMBO_LIST key_id="cmbFamiliarita"
+			valore="lblComboListFamiliarita##ComboListFamiliarita#cmbFamiliarita#N#FAMILIARITA"
+			evento="START_END">
+		</TR_TD_LABEL_COMBO_LIST>
+		<INPUT.HIDDEN key_id="hiddenFamiliaritaSave" valore="hiddenFamiliaritaSave"
+			evento="START_END">
+		</INPUT.HIDDEN>
+	</FIELDSET>
+</PAGINA>
+

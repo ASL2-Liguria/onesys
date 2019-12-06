@@ -1,0 +1,55 @@
+
+.HeaderButton{width:25px;height:25px;cursor:pointer;line-height:50px;margin:5px;}
+#refreshDati{background-image:url(../../../../imagexPix/Visualizzatore/ico_refresh.png);float:left;}
+
+div#divMenu{width:100%;height:35px;text-align:center;background:#358DF9;color: #fff;}
+div#divAvviso{background: #F90;color:black;text-align:center;margin:0;line-height:25px;}	
+.wrapSezioneMenu{float:left;height:25px;margin:5px;}
+#iframeAndamento{width:100%;overflow-y:hidden;overflow-x:scroll;}
+
+div#divMain{width:100%;overflow-y:hidden;overflow-x:hidden;}
+
+div#divLeft{
+	background:white;border-left: solid 1px #CCC;	
+	float:left;margin:0;overflow-y:hidden;overflow-x:hidden;
+}		
+
+div#divDati{
+	background:white;	position:absolute; left:480px;
+    float:left;margin:0;overflow-x:scroll;overflow-y:auto;
+}
+
+
+#tabLeft {
+   width:30%;
+}
+
+table {
+	border-collapse:separate;
+}
+
+table td {
+	padding:2px;
+ /* 	white-space: nowrap;*/
+}
+.classIntestazione {
+  color: #fff;
+  background: #358DF9;
+}
+.classSubIntestazione {
+  background:#e0ebeb;
+}
+.classDati {
+  background: #e5f9ff;
+   text-align: center;
+   vertical-align: middle;
+}
+.classVoci {
+  color: #fff;
+  background: #358DF9;
+}
+.classTotale {
+  background:#ffc000;
+  text-align: center;
+  vertical-align: middle;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabRiepilogoRilevazioni>Riepilogo rilevazioni</tabRiepilogoRilevazioni>
+        <lblTitolo>RIEPILOGO RILEVAZIONI INSERITE</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butGrafico>Grafici</butGrafico>
+		<butInserisci>Inserisci</butInserisci>
+		<butCerca>Cerca</butCerca>
+		<fldRicerca>Ricerca</fldRicerca>
+		<lblDaData>Dal</lblDaData>
+		<lblAData>Al</lblAData>
+		<lblTipoRilevazione>Tipo Rilevazione</lblTipoRilevazione>
+		<but_BMI>BMI</but_BMI>
+		<but_Cuore>Cardio</but_Cuore>
+		<but_Pressione>Pressione</but_Pressione>
+		<but_Temperatura>Temperatura</but_Temperatura>
+		<but_Alcol>Alcol</but_Alcol>
+		<but_Fumo>Fumo</but_Fumo>
+		<but_Altro>Altro</but_Altro>
+		<lableTipoRilevazione>Tipo Rilevazione</lableTipoRilevazione>
+    </ROW>
+</ROWSET>

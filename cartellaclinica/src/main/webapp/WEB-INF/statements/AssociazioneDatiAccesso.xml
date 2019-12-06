@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<statements_list>
+			<statement name="getRicovero">
+			<sql>
+			<![CDATA[
+    	select
+				radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero
+				,np.iden
+				,np.cod_cdc 
+				,ttr.descr
+			from nosologici_paziente np
+				join tab_tipo_ricovero ttr on ttr.iden=np.iden_tipo_ricovero
+			where np.iden = to_number(?) and deleted = 'N' order by np.data_ricovero
+			]]>
+			</sql>
+		</statement>
+			<statement name="getElencoRicoveri">
+			<sql>
+			<![CDATA[
+        	select
+				radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero
+				,np.iden
+				,np.cod_cdc 
+				,ttr.descr
+			from nosologici_paziente np
+				join tab_tipo_ricovero ttr on ttr.iden=np.iden_tipo_ricovero
+			where iden_anag = to_number(?) and deleted = 'N' order by np.data_ricovero
+			]]>
+			</sql>
+		</statement>
+		<statement name="getElencoAccessi">
+			<sql>
+			<![CDATA[
+       		 select
+				radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero
+				,np.iden
+				,np.cod_cdc 
+				,ttr.descr
+			from nosologici_paziente np
+			join tab_tipo_ricovero ttr on ttr.iden=np.iden_tipo_ricovero
+			where parent = to_number(?) and deleted = 'N' order by np.data_ricovero
+			]]>
+			</sql>
+		</statement>
+		<gruppo-funzionale-accessi name="RecuperaDatiAccessi">
+			<statement name="getLiLetteraAccesso" tabella-riferimento="CC_LETTERA_VERSIONI"
+				label="Lettere" funzione-riferimento="spostaLettera">
+				<sql>
+					<![CDATA[
+						select 
+							radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							lv.iden_visita,
+							lv.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(lv.iden_ute_ins) medico, 
+							to_char(lv.data_inserimento,'dd/MM/yyyy hh24:mi')data
+						from
+	 						radsql.cc_lettera_versioni lv 
+							join imagoweb.nosologici_paziente np on  np.iden= lv.iden_visita 
+						where np.parent = to_number(?) or np.iden= to_number(?) and lv.attivo = 'S'
+						order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiDiarioAccesso" tabella-riferimento="CC_DIARIO"
+				label="Diari" funzione-riferimento="spostaDiario">
+				<sql>
+					<![CDATA[
+        				select 
+        					radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							di.iden_visita,
+							di.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(di.ute_registrazione) medico, 
+							to_char(di.data_registrazione,'dd/MM/yyyy hh24:mi')data
+						from
+		 					radsql.cc_diario di 
+		 					join imagoweb.nosologici_paziente np on  np.iden= di.iden_visita 
+		 				where np.parent = to_number(?) or np.iden= to_number(?)
+						order by data
+					]]>
+				</sql>
+			</statement>
+			<statement name="getLiAppuntamentoAccesso" tabella-riferimento="CC_APPUNTAMENTI_RICOVERO"
+				label="Appuntamenti" funzione-riferimento="spostaAppuntamento">
+				<sql>
+					<![CDATA[
+        				select 
+        					radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							ar.iden_visita,
+							ar.iden,
+	 						np.parent,
+	 						null medico,
+							datetimeconverter(ar.data || ar.ora ,'yyyyMMdd','dd/MM/yyyy hh24:mi') data
+						from
+		 					radsql.CC_APPUNTAMENTI_RICOVERO ar 
+							join imagoweb.nosologici_paziente np on  np.iden= ar.iden_visita 
+						where np.parent = to_number(?) or np.iden= to_number(?)
+						order by data
+					]]>
+				</sql>
+			</statement>
+			<statement name="getLiSchedeXmlAnamnesiAccesso" tabella-riferimento="CC_SCHEDE_XML"
+				label="Anamnesi" funzione-riferimento="spostaSchedaXml">
+				<sql>
+					<![CDATA[
+							select 
+								radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+								sx.iden_visita,
+								sx.iden,
+	           					  sx.funzione,
+		 						np.parent,
+								radsql.core_api.decodeidenper(sx.ute_ins) medico, 
+								to_char(sx.data_ins,'dd/MM/yyyy hh24:mi')data
+							from
+	 							radsql.CC_SCHEDE_XML sx 
+								join imagoweb.nosologici_paziente np on  np.iden= sx.iden_visita 
+							where funzione = 'ANAMNESI' AND  (np.parent = to_number(?) or np.iden= to_number(?))
+							order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiSchedeXmlDatiGeneraliAccesso" tabella-riferimento="CC_SCHEDE_XML"
+				label="Dati generali" funzione-riferimento="spostaSchedaXml">
+				<sql>
+					<![CDATA[
+							select 
+								radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+								sx.iden_visita,
+								sx.iden,
+	           					   sx.funzione,
+		 						np.parent,
+								radsql.core_api.decodeidenper(sx.ute_ins) medico, 
+								to_char(sx.data_ins,'dd/MM/yyyy hh24:mi')data
+							from
+	 							radsql.CC_SCHEDE_XML sx 
+								join imagoweb.nosologici_paziente np on  np.iden= sx.iden_visita 
+							where funzione = 'DATI_GENERALI' AND  (np.parent = to_number(?) or np.iden= to_number(?))
+							order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiSchedeXmlEsameObbiettivoAccesso" tabella-riferimento="CC_SCHEDE_XML"
+				label="Esame obbiettivo" funzione-riferimento="spostaSchedaXml">
+				<sql>
+					<![CDATA[
+		           			select 
+		           				radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+								sx.iden_visita,
+								sx.iden,
+	           					   sx.funzione,
+		 						np.parent,
+								radsql.core_api.decodeidenper(sx.ute_ins) medico, 
+								to_char(sx.data_ins,'dd/MM/yyyy hh24:mi')data
+							from
+	 							radsql.CC_SCHEDE_XML sx 
+								join imagoweb.nosologici_paziente np on  np.iden= sx.iden_visita 
+							where funzione = 'ESAME_OBIETTIVO' AND  (np.parent = to_number(?) or np.iden= to_number(?))
+							order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiRichiesteAccesso" tabella-riferimento="TESTATA_RICHIESTA"
+				label="Richieste" funzione-riferimento="spostaRichiesta">
+				<sql>
+					<![CDATA[
+						select 
+							radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							tr.iden_visita,
+							tr.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(tr.ute_ins) medico, 
+							datetimeconverter(tr.data_richiesta || tr.ora_richiesta ,'yyyyMMdd','dd/MM/yyyy hh24:mi') data
+						from
+ 							INFOWEB.testata_richieste tr
+							join imagoweb.nosologici_paziente np on  np.iden= tr.iden_visita
+						where np.parent = to_number(?) or np.iden= to_number(?)
+						order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiRicoveroAccesso" tabella-riferimento="CC_BISOGNI_RICOVERO"
+				label="Bisogno ricovero" funzione-riferimento="spostaSchedaBisogno">
+				<sql>
+					<![CDATA[
+		         		select 
+		         			radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							BR.iden_visita,
+							BR.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(BR.ute_ins) medico, 
+							to_char(BR.data_ultima_modifica,'dd/MM/yyyy hh24:mi')data
+						from
+          					RADSQL.CC_BISOGNI_RICOVERO BR
+							join imagoweb.nosologici_paziente np on  np.iden= BR.iden_visita 
+						where np.parent = to_number(?) or np.iden= to_number(?)
+						order by data
+				]]>
+				</sql>
+			</statement>
+		</gruppo-funzionale-accessi>
+		<gruppo-funzionale-ricovero name="RecuperaDatiRicovero">
+			<statement name="getLiLetteraRicovero" tabella-riferimento="CC_LETTERA_VERSIONI"
+				label="Lettere" funzione-riferimento="spostaLettera">
+				<sql>
+					<![CDATA[
+						select 
+							radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							lv.iden_visita,
+							lv.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(lv.iden_ute_ins) medico, 
+							to_char(lv.data_inserimento,'dd/MM/yyyy hh24:mi')data
+						from
+	 						radsql.cc_lettera_versioni lv 
+							join imagoweb.nosologici_paziente np on  np.iden= lv.iden_visita 
+						where np.iden_anag = to_number(?) and lv.attivo = 'S'
+						order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiDiarioRicovero" tabella-riferimento="CC_DIARIO"
+				label="Diari" funzione-riferimento="spostaDiario">
+				<sql>
+					<![CDATA[
+        				select 
+        					radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							di.iden_visita,
+							di.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(di.ute_registrazione) medico, 
+							to_char(di.data_registrazione,'dd/MM/yyyy hh24:mi')data
+						from
+		 					radsql.cc_diario di 
+							join imagoweb.nosologici_paziente np on  np.iden= di.iden_visita 
+						where np.iden_anag = to_number(?)
+						order by data
+					]]>
+				</sql>
+			</statement>
+			<statement name="getLiAppuntamentoRicovero" tabella-riferimento="CC_APPUNTAMENTI_RICOVERO"
+				label="Appuntamenti" funzione-riferimento="spostaAppuntamento">
+				<sql>
+					<![CDATA[
+        				select 
+        					radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,	
+							ar.iden_visita,
+							ar.iden,
+	 						np.parent,
+	 						null medico,  
+							datetimeconverter(ar.data || ar.ora ,'yyyyMMdd','dd/MM/yyyy hh24:mi') data
+						from
+		 					radsql.CC_APPUNTAMENTI_RICOVERO ar 
+							join imagoweb.nosologici_paziente np on  np.iden= ar.iden_visita 
+						where np.iden_anag = to_number(?)
+						order by data
+					]]>
+				</sql>
+			</statement>
+			
+			<statement name="getLiSchedeXmlAnamnesiRicovero" tabella-riferimento="CC_SCHEDE_XML"
+				label="Anamnesi" funzione-riferimento="spostaSchedaXml">
+				<sql>
+					<![CDATA[
+						select 
+							radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							sx.iden_visita,
+							sx.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(sx.ute_ins) medico, 
+							to_char(sx.data_ins,'dd/MM/yyyy hh24:mi')data
+						from
+ 							radsql.CC_SCHEDE_XML sx 
+							join
+							imagoweb.nosologici_paziente np on  np.iden= sx.iden_visita 
+						where np.iden_anag = to_number(?) and funzione = 'ANAMNESI'
+						order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiSchedeXmlEsameObbiettivoRicovero" tabella-riferimento="CC_SCHEDE_XML"
+				label="Esame obbiettivo" funzione-riferimento="spostaSchedaXml">
+				<sql>
+					<![CDATA[
+						select 
+							radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							sx.iden_visita,
+							sx.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(sx.ute_ins) medico, 
+							to_char(sx.data_ins,'dd/MM/yyyy hh24:mi')data
+						from
+ 							radsql.CC_SCHEDE_XML sx 
+							join
+							imagoweb.nosologici_paziente np on  np.iden= sx.iden_visita 
+						where np.iden_anag = to_number(?) and FUNZIONE = 'ESAME_OBIETTIVO'
+						order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiSchedeXmlDatiGeneraliRicovero" tabella-riferimento="CC_SCHEDE_XML"
+				label="Dati generali " funzione-riferimento="spostaSchedaXml">
+				<sql>
+					<![CDATA[
+						select 
+							radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							sx.iden_visita,
+							sx.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(sx.ute_ins) medico, 
+							to_char(sx.data_ins,'dd/MM/yyyy hh24:mi')data
+						from
+ 							radsql.CC_SCHEDE_XML sx 
+							join
+							imagoweb.nosologici_paziente np on  np.iden= sx.iden_visita 
+						where np.iden_anag = to_number(?) and funzione = 'DATI_GENERALI'
+						order by data
+				]]>
+				</sql>
+			</statement>
+			
+			<statement name="getLiRichiesteRicovero" tabella-riferimento="TESTATA_RICHIESTA"
+				label="Richieste" funzione-riferimento="spostaRichiesta">
+				<sql>
+					<![CDATA[
+						select 
+						 	radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							tr.iden_visita,
+							tr.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(tr.ute_ins) medico, 
+							datetimeconverter(tr.data_richiesta || tr.ora_richiesta ,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') data
+						from
+ 							INFOWEB.testata_richieste tr
+							join imagoweb.nosologici_paziente np on  np.iden= tr.iden_visita
+						where np.iden_anag = to_number(?)
+						order by data
+				]]>
+				</sql>
+			</statement>
+			<statement name="getLiRicoveroRicovero" tabella-riferimento="CC_BISOGNI_RICOVERO"
+				label="Bisogno ricovero" funzione-riferimento="spostaSchedaBisogno">
+				<sql>
+					<![CDATA[
+		         		select 
+		         			radsql.datetimeconverter(np.data_ricovero, 'yyyyMMdd', 'dd/MM/yyyy')data_ricovero,
+							BR.iden_visita,
+							BR.iden,
+	 						np.parent,
+							radsql.core_api.decodeidenper(BR.ute_ins) medico, 
+							to_char(BR.data_ultima_modifica,'dd/MM/yyyy hh24:mi')data
+						from
+          					RADSQL.CC_BISOGNI_RICOVERO BR
+							join imagoweb.nosologici_paziente np on  np.iden= BR.iden_visita 
+						where np.iden_anag = to_number(?)
+						order by data
+				]]>
+				</sql>
+			</statement>
+		</gruppo-funzionale-ricovero>
+		
+		<gruppo-funzionale-sposta name="SpostaDatoAccesso">
+			<statement name="spostaLettera" tabella-riferimento="CC_LETTERA_VERSIONE">
+				<sql>
+					<![CDATA[
+						declare
+							pIdenLettera pls_integer:=to_number(?);
+							pIdenVisitaNew pls_integer:=to_number(?);
+							pIdenPer pls_integer:=to_number(?);
+							pUser varchar2(5000):=get_webuser;			
+						begin
+							gest_nosologici.spostaLettera(pIdenLettera, pIdenVisitaNew, pUser, pIdenPer);		
+						end;
+						]]>
+				</sql>
+			</statement>
+			<statement name="spostaDiario" tabella-riferimento="CC_DIARIO">
+				<sql>
+					<![CDATA[
+						declare
+							pIdenDiario pls_integer:=to_number(?);
+							pIdenDiarioNew pls_integer:=to_number(?);
+							pIdenPer pls_integer:=to_number(?);
+							pUser varchar2(5000):=get_webuser;			
+						begin
+							gest_nosologici.spostaDiario(pIdenDiario, pIdenDiarioNew, pUser, pIdenPer);
+						end;
+						]]>
+				</sql>
+			</statement>
+			<statement name="spostaAppuntamento" tabella-riferimento="CC_APPUNTAMENTI_RICOVERO">
+				<sql>
+					<![CDATA[
+						declare
+							pIdenAppuntamento pls_integer:=to_number(?);
+							pIdenAppuntamentoNew pls_integer:=to_number(?);
+							pIdenPer pls_integer:=to_number(?);
+							pUser varchar2(5000):=get_webuser;			
+						begin
+							gest_nosologici.spostaAppuntamento(pIdenAppuntamento, pIdenAppuntamentoNew, pUser, pIdenPer);
+						end;
+						]]>
+				</sql>
+			</statement>
+			<statement name="spostaSchedaXml" tabella-riferimento="CC_SCHEDE_XML">
+				<sql>
+					<![CDATA[
+						declare
+							pIdenScheda pls_integer:=to_number(?);
+							pIdenSchedaNew pls_integer:=to_number(?);
+							pIdenPer pls_integer:=to_number(?);
+							pUser varchar2(5000):=get_webuser;			
+						begin
+							gest_nosologici.spostaSchedaXml(pIdenScheda, pIdenSchedaNew, pUser, pIdenPer);
+						end;
+						]]>
+				</sql>
+			</statement>
+			<statement name="spostaRichiesta" tabella-riferimento="TESTATA_RICHIESTA">
+				<sql>
+					<![CDATA[
+						declare
+							pIdenRichiesta pls_integer:=to_number(?);
+							pIdenRichiestaNew pls_integer:=to_number(?);
+							pIdenPer pls_integer:=to_number(?);
+							pUser varchar2(5000):=get_webuser;			
+						begin
+							gest_nosologici.spostaRichiesta(pIdenRichiesta, pIdenRichiestaNew, pUser, pIdenPer);
+						end;
+						]]>
+				</sql>
+			</statement>
+			<statement name="spostaSchedaBisogno" tabella-riferimento="CC_BISOGNI_RICOVERO">
+				<sql>
+					<![CDATA[
+						declare
+							pIdenRicovero pls_integer:=to_number(?);
+							pIdenRicoveroNew pls_integer:=to_number(?);
+							pIdenPer pls_integer:=to_number(?);
+							pUser varchar2(5000):=get_webuser;			
+						begin
+							gest_nosologici.spostaSchedaBisogno(pIdenRicovero, pIdenRicoveroNew, pUser, pIdenPer);
+						end;
+						]]>
+				</sql>
+			</statement>
+		</gruppo-funzionale-sposta>
+	</statements_list>
+</root>

@@ -1,0 +1,8 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="ComboVaccinazioni" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_VACCINAZIONI" />
+	<DATO key_id="ComboVaccinazioniOut" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="Q_EMPTY" />
+</DATI>
+

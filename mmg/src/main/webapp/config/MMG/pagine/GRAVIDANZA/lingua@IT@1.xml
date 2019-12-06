@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<tabInserimentoGravidanza>Gravidanza</tabInserimentoGravidanza>
+		<tabListaGravidanze>Lista delle gravidanze</tabListaGravidanze>
+		<tabPrestazioniCollegate>Prestazioni collegate</tabPrestazioniCollegate>
+		
+		<lblTitolo>Inserimento e riepilogo delle gravidanze</lblTitolo>
+		
+		<fldGravidanza>Dati relativi alla gravidanza in corso</fldGravidanza>
+		<lblDataUltimoMestruo>Data ultimo mestruo</lblDataUltimoMestruo>        
+        <lblDataPresuntaParto>Data presunta parto</lblDataPresuntaParto>
+        <lblDataParto>Data effettiva parto</lblDataParto>
+        <lblGravidanzaARischio>Gravidanza a rischio</lblGravidanzaARischio>
+        <lblSettimanaGravidanza>Settimana di gravidanza</lblSettimanaGravidanza>
+        <lblEsenzioneGravidanza>Esenzione settimana corrente</lblEsenzioneGravidanza>
+        
+        <fldPrestazioniEsenzione>Dati relativi alla gravidanza in corso</fldPrestazioniEsenzione>
+        <fldPrestazioniCollegate>Prestazioni collegate alla gravidanza</fldPrestazioniCollegate>
+        
+        <lblPrestazione>Prestazione</lblPrestazione>
+        <lblCodEsenzione>Cod. Esenzione</lblCodEsenzione>
+        <lblEsenzioneRelativa>Esenzione relativa</lblEsenzioneRelativa>
+        
+        <lblNumeroGravidanza>N. gravidanza</lblNumeroGravidanza>
+        <lblNumeroFeti>N. feti</lblNumeroFeti>
+        <lblConclusa>Gravidanza conclusa</lblConclusa>
+        <lblUltimoMestruo>Ultimo mestruo</lblUltimoMestruo>
+        <lblPartoPrevisto>Parto previsto</lblPartoPrevisto>
+        <lblPartoEffettuato>Parto effettuato</lblPartoEffettuato>
+        <lblRischio>A rischio</lblRischio>
+        
+        <lblInserisci>Inserisci nuova gravidanza</lblInserisci>
+        <lblModifica>Modifica gravidanza</lblModifica>
+        <lblCancella>Cancella gravidanza</lblCancella>
+        <lblChiudiParto>Segnala chiusura parto</lblChiudiParto>
+        <lblConfirmCancella>Si desidera cancellare la gravidanza selezionata?</lblConfirmCancella>
+        
+        <lblErroreSesso>Attenzione! Per poter inserire una gravidanza, il paziente deve essere di sesso femminile</lblErroreSesso>
+        
+    </ROW>
+</ROWSET>

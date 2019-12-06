@@ -1,0 +1,12 @@
+<ROWSET>
+    <ROW>
+        <lblTitolo>Scheda Centro di Costo</lblTitolo>
+        <tabDatiCdc>Centri di Costo</tabDatiCdc>
+        <fldDatiCdc>Dati Centro di Costo</fldDatiCdc>
+        <lblCodiceCdc>Codice (Min. 3 Caratteri)</lblCodiceCdc>
+        <lblOrdineCdc>Ordine</lblOrdineCdc>
+        <lblStruttura>Struttura</lblStruttura>
+        <lblTipologia>Tipologia</lblTipologia>
+        <lblDescrizioneCdc>Descrizione</lblDescrizioneCdc>
+    </ROW>
+</ROWSET>

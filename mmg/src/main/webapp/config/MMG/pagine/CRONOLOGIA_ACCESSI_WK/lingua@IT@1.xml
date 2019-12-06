@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>CRONOLOGIA ACCESSI</lblTitolo>
+		<butApplica>Applica</butApplica>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<filtroWkAccessi>Accessi</filtroWkAccessi>
+		
+		<lblDaDataAccesso>Da data</lblDaDataAccesso>
+		<lblADataAccesso>A data</lblADataAccesso>
+		
+    </ROW>
+</ROWSET>

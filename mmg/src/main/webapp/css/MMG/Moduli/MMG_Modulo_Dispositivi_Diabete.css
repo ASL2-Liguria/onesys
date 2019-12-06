@@ -1,0 +1,14 @@
+body { width: 960px; }
+
+#fldTabella1 table.campi tr td.tdLbl { border: 1px solid #CCCCCC; text-align: center; }
+#fldTabella2 table.campi tr td.tdLbl { border: 1px solid #CCCCCC; text-align: center; }
+
+#lblHeader12, #lblHeader13, #lblHeader14 { font-weight: 700; }
+
+#lblStrisce { font-weight: 700; }
+
+#fldTabella1 td.tdTags input, td.tdText input { width: 100%; height: 100%; }
+
+.center { text-align: center;}
+
+#fldStrisce, #fldTabella2 { text-align: center;}

@@ -1,0 +1,47 @@
+<PAGINA key_id="ELENCO_CONSENSI_PRIVACY">
+	<HEADER_PAGE key_id="ELENCO_CONSENSI_PRIVACY"
+		valore="DEFAULT_MMG,SCHEDA,ELENCO_CONSENSI_PRIVACY#DEFAULT_MMG,ELENCO_CONSENSI_PRIVACY"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_DATA#MMG_DATI#ELENCO_CONSENSI_PRIVACY#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ElencoConsensi#lblTitolo#butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabElencoConsensi"
+				valore="tabElencoConsensi" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome"
+							valore="lblCognome##Cognome##lettura#COGNOME" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##Nome##lettura#NOME"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca#butCerca#5"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fldElenco" valore="fldElenco" evento="START">
+					<DIV key_id="divWk" valore="divWk" evento="START">
+					</DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

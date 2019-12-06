@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Configurazione Modalita Cartella</title>
+<script type='text/javascript' src='../../std/jscript/engine/jquery1_7.js' language='JavaScript'></script>
+<script type='text/javascript' src='../../std/jscript/configurazioniReparto/ModalitaCartella.js' language='JavaScript'></script>
+<script type='text/javascript' src='../../std/jscript/json/json2.js' language='JavaScript'></script>
+</head>
+<script>
+var DATI_DISPONIBILI = {
+	
+	FUNZIONI : [
+					'Default',
+					'ANAMNESI',
+					'BISOGNI_SINTESI',
+					'DATI_GENERALI',
+					'DATI_LABORATORIO',
+					'DIARIOINFERMIERE',
+					'DIARIOMEDICO',
+					'ESAME_OBIETTIVO',
+					'INSERIMENTO_PRENOTAZIONE',					
+					'INSERIMENTO_RICHIESTA',
+					'INSERIMENTO_RICHIESTA_PRENOTAZIONE',
+					'LETTERA_AL_CURANTE',
+					'LETTERA_DIMISSIONI',
+					'LETTERA_PRIMO_CICLO',
+					'LETTERA_TRASFERIMENTO',					
+					'MODIFICA_RICHIESTA',
+					'PIANO_TERAPEUTICO',
+					'PROBLEMI',
+					'RIEPILOGO_RICOVERO',
+					'RISCHIO_TROMBOTICO_FAMILIARE',
+					'SCALA_BRADEN',
+					'SCALA_CONLEY',
+					'WORKLIST_RICHIESTE'							
+				],
+	
+	CLASSNAME : ['Blue','Red'],
+	
+	APERTURA : [/*DATI_DISPONIBILI.FUNZIONI*/],
+	
+	AFTER_SAVE : {
+		
+		Default:[''],
+		
+		INSERIMENTO_RICHIESTA:['chiudiCartella','reloadWk','ShowRiepilogo','checkAppuntamentiReloadWk','checkAppuntamentiShowRiepilogo'],
+		INSERIMENTO_RICHIESTA_PRENOTAZIONE:[/*DATI_DISPONIBILI.AFTER_SAVE.INSERIMENTO_RICHIESTA*/],
+		
+		MODIFICA_RICHIESTA:[/*DATI_DISPONIBILI.AFTER_SAVE.INSERIMENTO_RICHIESTA*/]
+		
+	},
+	
+	INSERIMENTO : ['IDEN_VISITA','NUM_NOSOLOGICO'],
+	
+	FILTER : ['IDEN_ANAG','IDEN_VISITA','NUM_NOSOLOGICO','ANAG_REPARTO'],	
+	
+	FILTERS : [/*DATI_DISPONIBILI.FILTER*/],	
+	
+	LABELS:['lblFunzione','lblCartella','lblReparto','lblDataInizioRicovero','lblGiorniRicovero','lblDataFineRicovero','lblDataInizio','lblGiorni','lblDataFine'],		
+	
+	MENU:{
+		
+		statement:['getReparti','getRicoveri','getTrasferimenti','getAccessi']
+		
+	},	
+	
+	init:function(){
+		
+		DATI_DISPONIBILI.APERTURA = DATI_DISPONIBILI.APERTURA;
+		
+		DATI_DISPONIBILI.AFTER_SAVE.INSERIMENTO_RICHIESTA_PRENOTAZIONE = DATI_DISPONIBILI.AFTER_SAVE.INSERIMENTO_RICHIESTA;
+		DATI_DISPONIBILI.AFTER_SAVE.MODIFICA_RICHIESTA = DATI_DISPONIBILI.AFTER_SAVE.INSERIMENTO_RICHIESTA;
+				
+		DATI_DISPONIBILI.FILTERS = DATI_DISPONIBILI.FILTER;
+		
+	}
+	
+
+	
+}
+
+DATI_DISPONIBILI.init();
+
+</script>
+
+<style>
+
+	*{margin:0;padding:0;font-family:Arial, Helvetica, sans-serif;font-size:10px;}
+	
+	table{width:100%;}
+	
+	table th{
+		background:#CCC;
+		width:10%;
+		text-align:left;
+	}
+	
+	table td{
+		width:21%;
+	}
+	
+	table td , fieldset{
+		padding:5px;
+	}
+	
+	td fieldset:hover{
+		background:#F9FFD5;
+	}
+	
+	fieldset fieldset legend{
+		color:red;		
+	}
+	
+	fieldset fieldset fieldset legend{
+		color:green;		
+	}	
+	
+	ul{
+		list-style:none;
+	}		
+	
+	input , select {margin:0 5px 0 5px;}
+	
+	#FILTERS + td fieldset li{
+		display: inline;
+		padding-right:10px;
+	}
+	#FILTERS + td fieldset li fieldset{
+		width:20%;
+	}
+	
+	div.menu{
+		position:absolute;		
+		border:1px solid black;
+		background:#EEE;		
+	}
+	
+	div.menu div{
+		display:block;
+		width:100%;
+		height:16px;
+		line-height:16px;		
+		cursor:pointer;
+	}
+	
+	div.menu div:hover{
+		background:#AAA;
+	}
+</style>
+<body>
+	<input type="button" value="refresh" id="btnRefresh" />
+ 	<input type="button" value="registra" id="btnRegistra" />
+    <input type="button" value="script singolo" id="btnCreaScriptSingolo" />
+    <input type="button" value="script globale" id="btnCreaScript" />
+    <select id="cmbCodiceReparto"></select>
+	<select id="cmbModalitaCartella"></select>
+   
+    
+    <div id="divModalita">
+    	
+    	<table border="1">
+
+        	<tr>
+            	<th id="APERTURA"></th>
+                <td></td>
+                
+                <th id="MODIFICA"></th>
+                <td></td>
+
+
+            	<th id="STAMPA"></th>
+                <td></td>
+
+            </tr>
+            
+        	<tr>
+            
+            	<th id="CLASSNAME"></th>
+                <td></td>
+                            
+            	<th id="AFTER_SAVE"></th>
+                <td colspan="3"></td>
+                
+              
+            </tr>
+            
+        	<tr>
+            	<th id="FILTER"></th>
+                <td></td>
+                
+            	<th id="INSERIMENTO"></th>
+                <td colspan="3"></td>                  
+            </tr>
+            
+        	<tr>
+            	<th id="FILTERS"></th>
+                <td colspan="5"></td>
+            </tr>
+            
+        	<tr>
+            	<th id="LABELS"></th>
+                <td colspan="5"></td>
+            </tr> 
+            
+        	<tr>
+            	<th id="MENU"></th>
+                <td colspan="5"></td>
+            </tr>                      
+                                                                                                                        
+        </table>
+    </div>
+</body>
+</html>

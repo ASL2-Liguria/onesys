@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_PRESTAZIONI_ESENZIONI_ASSOCIATE</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.WK_PRESTAZIONI_ESENZIONI_ASSOCIATE</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <DBLCLICK>function(rec){WK_ESENZIONI.choose(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){WK_ESENZIONI.choose(rec);}</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>CODICE</COL>
+						<DB>CODICE</DB>
+					</ID>
+					<DESCRIPTOR>"Codice"</DESCRIPTOR>
+					<WIDTH>45px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>ESENZIONE</COL>
+						<DB>ESENZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Esenzione"</DESCRIPTOR>
+					<WIDTH>420px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DESCR_ESENZIONE">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/Base/NS_FENIX_WK.js" />
+	<JS path="js/Base/NS_FENIX_FILTRI.js" />
+	<JS path="js/Base/NS_FENIX_TAG_LIST.js" />
+</INCLUDE>

@@ -1,0 +1,53 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ListaRicoveri {
+	/*table-layout:fixed;*/
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	/*border: 1px solid #6AA8F2;*/
+	overflow:auto;
+	text-align:center;
+	border-collapse:collapse;
+
+}
+
+
+.ListaRicoveriDati {
+	text-align: center;
+	height:40px;
+	font-size:12px;
+	background-color:#FFFFF0;
+	border: 1px solid #6AA8F2;
+}
+
+.ListaRicoveriInt {
+	background-color:#BFF;
+	border: 1px solid #6AA8F2;
+	text-align: center;
+	height:20px;
+	font-weight:bold;
+	font-stretch:extra-expanded;
+}
+
+
+.titolo {
+	
+	BACKGROUND: url(../../../imagexPix/tabulator/selectedTab.png) repeat-x bottom;
+	color:white;
+	text-align:center;
+	font:Arial, Helvetica, sans-serif ;
+	font-size:16px;
+	font-weight:bold;
+	height:30px;
+	font-stretch:extra-expanded;
+	
+	
+}
+
+.spazio{
+	
+	height:10px;
+	BACKGROUND: url(../../imagexPix/wallpaper/pattern_sfondo.gif);
+	
+}

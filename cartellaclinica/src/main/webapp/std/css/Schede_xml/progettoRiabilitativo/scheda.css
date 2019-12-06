@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+
+td.classTdLabel label {
+	white-space: nowrap;
+}
+
+td.classTdField {
+	width: auto;
+	padding: 5px;
+}
+
+td.classTdLabelLink {
+	vertical-align: baseline;
+	width: auto;
+}
+
+#inValMedico, #inValInf, #inValFis, #inValLog, #txtFamiliare, #txtAltreFigure, #txtAusilio1, #txtAusilio2, #txtAusilio3 {
+	width: 100%;
+}

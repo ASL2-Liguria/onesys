@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="shortcut icon" href="favicon.ico">
+		<title>Scelta data</title>
+		<style>
+		table.ui-datepicker-calendar {border-collapse: separate;}
+		.ui-datepicker-calendar td {border: 1px solid transparent;}
+		.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
+			background: #743620 none; /* a color that fits the widget theme */
+			color: white; /* a color that is readeable with the color above */
+		}
+		label.clsInfoPazEsa{
+			font-size:12px;
+		}
+		label.clsEtiPazEsa{
+			color:black;
+			font-size:12px;
+			
+		}
+		</style>
+		<!-- loads jquery and jquery ui -->
+		<script type="text/javascript" src="std/jscript/jQueryUI/1.9.1/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>  
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/jquery.ui.datepicker.js"></script>        
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/jquery.ui.datepicker-it.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/jquery-ui.multidatespicker.js"></script>
+   		<link rel="stylesheet" type="text/css" href="std/jscript/jQueryUI/jquery.timeentry.css">        
+		<script type="text/javascript" src="std/jscript/jQueryUI/jquery.plugin.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/jquery.timeentry.js"></script>
+        
+		<link rel="stylesheet" type="text/css" href="std/jscript/jQueryUI/MultipleDatesPicker/css/mdp.css">        
+		<link rel="stylesheet" type="text/css" href="std/jscript/jQueryUI/MultipleDatesPicker/css/prettify.css">
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/prettify.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/lang-css.js"></script>  
+        <script type="text/javascript" src="std/jscript/jsHashtable.js"></script>
+		<script type="text/javascript" src="std/jscript/jsStringUtil.js"></script>          
+		<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">            
+		<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">                    
+		<link rel="stylesheet" type="text/css" href="std/css/button.css">                    
+        <script>
+		var params;
+		var sorgente;
+		var idenEsame;
+		function getParams() {
+			try{
+				var idx = document.URL.indexOf('?');
+				if (idx != -1) {
+					var tempParams =  new Hashtable();
+					var pairs = document.URL.substring(idx+1,document.URL.length).split('&');
+					for (var i=0; i<pairs.length; i++) {
+						nameVal = pairs[i].split('=');
+						tempParams.put(nameVal[0],nameVal[1]);
+					}
+					return tempParams;
+				}
+			}
+			catch(e){
+				alert("getParams - Error:  "+ e.description);
+			}
+		}		
+		
+		function setCallbackValue(){
+			try{
+				var strDate = "";
+				var strTime = "";
+				strDate = $("#altField").val();
+				strTime = $("#ora_erogazione").val();
+				if (strDate==""||typeof(strDate)=="undefined"){
+					alert("Prego selezionare una data valida");
+					return;
+				}
+				if (strTime=="" || strTime=="undefined"){
+					alert("Prego inserire un'ora valida.");
+					$("#ora_erogazione").focus();
+					return false;
+				}
+				strTime = strTime.replace(".",":");
+				parent.bolCallbackDataErogazione = true;
+				// modifica 4-12-15
+				// modifica 16-12-15
+				// viene già bloccato a priori la scelta della data				
+				eval ("parent." + params.get("callbackFunction") +"('" + params.get("idenEsame") +"','"+ strDate.dateToStringFormat() + "','"+ strTime +"', true)");
+				
+				//parent.doErogaEsameAfterChooseDate(strDate);
+				parent.jQuery.fancybox.close();
+
+			}
+			catch(e){
+				alert("setCallbackValue Error: "+ e.description);
+			}
+			return false;
+		}
+		
+		function chiudi(){
+			try{
+				parent.bolCallbackDataErogazione = false;
+				parent.jQuery.fancybox.close();	
+			}
+			catch(e){
+				alert("chiudi Error: "+ e.description);
+			}				
+		}
+		</script>
+</head>
+
+<body>
+<table cellpadding='0' cellspacing='0' class='classTabHeader' id="headDataErogazione"><tr>
+<td class='classTabHeaderSxUncut'></td>
+<td class='classTabHeaderMiddle'>EROGAZIONE - <label class="clsEtiPazEsa" id ="lblPaz">Paziente: </label><label id="lblInfoPaziente" class="clsInfoPazEsa"></label>&nbsp;<label class="clsEtiPazEsa" id ="lblEsa">Esame: </label><label id="lblInfoEsaCiclico"  class="clsInfoPazEsa"></label></td>
+<td class='classTabHeaderDxUncut'></td>
+</tr>
+</table>
+	<div id="full-year" class="box"></div>
+    <input type="hidden" id="altField">
+	<table  class='classDataEntryTable' width="100%" cellpadding="2" cellspacing="2"><tr><td class="classTdLabel" >Ora accettazione</td><td class="classTdField"><input type="text" size="8" value="" id="ora_erogazione"/></td></tr></table>    
+<table cellpadding='0' cellspacing='0' class='classTabHeader'><tr>
+<td class='classTabFooterSx'></td>
+<td class='classTabHeaderMiddle'>&nbsp;</td>
+<td class='classButtonHeader'><div id='idBtSave' class='pulsante'><a id='btSave' href='#;'>Eroga</a></div></td>
+<td class='classButtonHeader'><div id='idBtClose' class='pulsante'><a id='btClose' href='javascript:chiudi();'>Chiudi</a></div></td>
+<td class='classTabFooterDx'></td>
+</tr>
+</table>  
+    <script>
+	// calcolare il num.giorno precedenti in base alla data di accettazione!!
+	var numGiornoPrecedenti = 1;
+	var dataAccettazione = ""
+	
+	
+	Date.prototype.days=function(to){
+	  return  Math.abs(Math.floor( to.getTime() / (3600*24*1000)) -  Math.floor( this.getTime() / (3600*24*1000)))
+	}	
+	function parseDate(str) {
+		var mdy = str.split('/')
+		var myDate =  new Date(mdy[2], mdy[1]-1, mdy[0]);
+		return myDate;
+	}
+	
+	
+	$(function() {
+		$( "#btSave" ).click(function( event ) { 
+		  event.preventDefault();
+		  setCallbackValue();
+		});
+		params = getParams();
+		if (typeof(params)!="undefined"){
+			try{var rs = parent.top.executeQuery('worklist_main.xml','getInfoEsamePazienteByIdenEsame',[params.get("idenEsame").split("*")[0]]);}catch(e){alert("erron in getInfoEsamePazienteByIdenEsame");}
+			if (rs.next()){
+				dataAccettazione = rs.getString("dataesameiso");
+				$("#lblInfoPaziente").html(rs.getString("paziente"));				
+				if (params.get("idenEsame").split("*").length>1){
+					$("#lblInfoEsaCiclico").html("Multipli");
+				}
+				else{
+					$("#lblInfoEsaCiclico").html(rs.getString("ESA_DESCR"));
+				}
+			}
+		}
+		// ****************
+		$('#ora_erogazione').timeEntry({show24Hours: true,separator: '.',initialField: 0,noSeparatorEntry: true});
+		// ***********		
+		var oggi = new String("");
+	    oggi = oggi.getTodayDateFormat();
+		// calcolo giorni precedenti
+		// se differenza negativa (esame futuro)
+		// rendo erogazione possibile solo per oggi
+		numGiornoPrecedenti = parseDate(dataAccettazione.toItalianDateFormat()).days(parseDate(oggi));
+		if (isNaN(numGiornoPrecedenti) || (numGiornoPrecedenti<0) ){
+			numGiornoPrecedenti = 0;
+		}
+		
+		var today = new Date();
+		$('#full-year').multiDatesPicker({
+			maxPicks: 1,
+			numberOfMonths: [2,1],
+//			showCurrentAtPos: today.getMonth(),
+			stepMonths: 1,
+			altField: '#altField',
+//			minDate: -(numGiornoPrecedenti),
+			maxDate: 0		/*	,
+			addDates: [today]*/			
+		});			   		
+		$("#ora_erogazione").focus();
+   });
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+body {
+	margin: 0;
+	background-color:#E0E0E0;
+	font-size: 12px;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+
+.Titolo {
+	font-size: 14px;
+	color:#000;
+	background:#999;
+	width:100%;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	height:25px;
+	line-height:20px;
+}
+
+.StatoPrenotatoAccettato{
+	background:#33CCFF;
+}
+
+.StatoRefertoSospeso{
+	background:#FF3333;
+}
+
+.StatoInizioEsecuzione{
+	background:#F93;
+}
+
+/* usato per definire lo sfondo dei livelli di info*/
+.layerInfo{
+	background:url(../../../imagexPix/button/gradient/gradientKeyImage.jpg) repeat;
+	overflow:auto;
+}
+
+SPAN.spanTitle{
+	color:black;
+	font-weight:bold; 
+	font-size:14px; 
+	display:block; 
+	background:#FFC; 
+	width:100%; 
+	text-align:center;	
+}
+
+input.hasDatePick{float:left;}
+
+
+tr.oddRow{background:#fff;}
+tr.evenRow{background:#e6e6e6;}
+tr.col_over{background:#fff9c7;}
+tr.col_over{background:#fff0a9;}
+tr.desel{background:#FFFFF0;}
+tr.sel{background:#ffea00;}
+tr.sel td{background:#ffea00;}
+
+#framesetAssociaTarMed{border:0;}
+
+#form_pag_ric{
+	width:99.5%;
+	margin-top:5px;
+	}
+	
+SPAN.classSpanOmonimo {
+	BACKGROUND-COLOR: #ffc58a;
+	PADDING-LEFT: 5px;
+	WIDTH: 500px;
+	DISPLAY: block;
+	HEIGHT: 200px;
+	COLOR: black;
+	MARGIN-LEFT: -5px;
+	FONT-WEIGHT: bold;
+	line-height:30px;
+}

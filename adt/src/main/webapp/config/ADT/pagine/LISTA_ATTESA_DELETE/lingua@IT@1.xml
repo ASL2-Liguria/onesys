@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Scheda Rimozione da Lista Attesa</lblTitolo>
+        <lblMotivoDelete>Motivo</lblMotivoDelete>
+        <tableInfoDelete>Info</tableInfoDelete>
+        <lblData>Data</lblData>
+        <lblOra>Ora</lblOra>
+        <lblUtente>Utente</lblUtente>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>MEDICI</ID>
+    <ID-QUERY connection="MMG_DATI">WORKLIST.MEDICI</ID-QUERY>
+    <TITLE>traduzione.lblWorklist</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_WK_MEDICI</ID>
+        </MENU>
+        <GROUP_ROWS>
+            <GROUP_ROW>
+                <ID_WORKLIST>AGENDE_CONFIGURATE</ID_WORKLIST>
+                <FILTER>
+                    <![CDATA[function(rec){var w = $.managerWhere(); w.set( '', new Array("iden_erogante"), new Array( rec.IDEN_PER.toString() ) ); return w;}]]>
+                </FILTER>
+            </GROUP_ROW>
+        </GROUP_ROWS>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>APRI_AGENDE</COL>
+                    </ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){return $(this).openDetailRow(0, data, wk);}]]></PROCESS>
+                    <WIDTH>40px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>COD_DEC</COL>
+                        <DB>COD_DEC</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCodice</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCRIZIONE</COL>
+                        <DB>DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDescrizione</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>COD_CDC</COL>
+                        <DB>COD_CDC</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCodCdc</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCRIZIONE_CDC</COL>
+                        <DB>DESCRIZIONE_CDC</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDescrizioneCdc</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN id="DESCRIZIONE">ASC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

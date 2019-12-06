@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/ConsensoTrattamentoDati/storicoConsenso.css" />
+	<JS path="js/MMG/ConsensoTrattamentoDati/storicoConsenso.js" />
+</INCLUDE>

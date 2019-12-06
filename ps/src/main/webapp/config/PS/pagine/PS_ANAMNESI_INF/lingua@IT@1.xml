@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <fldAnamnesiInf>Anamnesi infermieristica</fldAnamnesiInf>
+        <lblTerInCorso>Terapie in corso</lblTerInCorso>
+        <lblMalattie>Malattie sofferte</lblMalattie>
+        <lblAllergie>Allergie</lblAllergie>
+        <lblUltimoPasto>Ultimo pasto assunto</lblUltimoPasto>
+        <lblInterventoSubito>Interventi chirurgici subiti</lblInterventoSubito>
+        <lblTitolo></lblTitolo>
+        <tableWkRiepilogo>Riepilogo Anamnesi Infermieristica</tableWkRiepilogo>
+        <tabRivalutazioni>Salvataggi Precedenti</tabRivalutazioni>
+        <tabPrecedenti>Anamnesi Accessi Passati</tabPrecedenti>
+        <tableWkPrecedenti>Worklist Accessi</tableWkPrecedenti>
+    </ROW>
+</ROWSET>

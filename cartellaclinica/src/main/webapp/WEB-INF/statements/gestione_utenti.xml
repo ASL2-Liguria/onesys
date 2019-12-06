@@ -1,0 +1,162 @@
+<root>
+	<statements_list>
+		<statement name="info">				
+			<sql>
+			<![CDATA[
+				select
+					tab_per.descr,
+					web.iden_per,
+					web.webuser,
+					tab_per.tipo,
+					to_char(web.data_ultimo_utilizzo, 'dd/mm/yyyy') data_ultimo_utilizzo,
+					to_char(web.data_inserimento_pw, 'dd/mm/yyyy') data_inserimento_pw,
+					web.livello,
+					abilita_context_menu,
+					infogruppoLDAP
+				from IMAGOWEB.WEB web
+				join TAB_PER tab_per
+				on web.iden_per = tab_per.iden
+				where web.IDEN=?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		<statement name="attributi">				
+			<sql>
+			<![CDATA[
+				select livello, attributo
+				from imagoweb.web left outer join imagoweb.attributi on VALORE_CAMPO_FILTRO=webuser
+				where webuser=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="descrizioni_cdc">				
+			<sql>
+			<![CDATA[
+				select descr, cod_cdc
+				from radsql.centri_di_costo
+				where cod_cdc in (
+					select reparto from imagoweb.web_cdc where webuser=?
+					union
+					select reparto from imagoweb.web_cdc_pianificati where webuser=? and deleted = 'N'
+				)
+			]]>
+			</sql>
+		</statement>
+		<statement name="cdc">
+			<sql>
+			<![CDATA[
+				-- Mostra i cdc senza scadenza e quelli pianificati (solo quelli attivi)
+				select * from (
+				(
+					select
+						'' data_inizio_abilitazione,
+						'' data_fine_abilitazione,
+						STRING_AGG(reparto) reparti
+					from imagoweb.web
+					join imagoweb.web_cdc on web.webuser = web_cdc.webuser
+					where web.iden=?
+					and web_cdc.reparto not in (
+						select distinct reparto from imagoweb.web_cdc_pianificati
+						join imagoweb.web on web.webuser = web_cdc_pianificati.webuser
+						where web.iden=?
+						and web_cdc_pianificati.deleted='N'
+					)
+				) UNION ALL (
+					-- NOTA: per comodità dell'utente, la data di fine abilitazione è considerata inclusa.
+	        		select to_char(data_inizio_abilitazione, 'dd/mm/yyyy') data_inizio_abilitazione, to_char(data_fine_abilitazione-1, 'dd/mm/yyyy') data_fine_abilitazione, case when reparti is not null then reparti else reparti_null end reparti
+					from (
+						select distinct
+							data_inizio_abilitazione,
+							data_fine_abilitazione, 
+							(SELECT STRING_AGG(web_cdc_pianificati1.reparto) from imagoweb.web web1 join imagoweb.web_cdc_pianificati web_cdc_pianificati1 on web1.webuser = web_cdc_pianificati1.webuser WHERE web1.iden = ? and web_cdc_pianificati1.deleted = 'N' and web_cdc_pianificati.data_fine_abilitazione=web_cdc_pianificati1.data_fine_abilitazione and web_cdc_pianificati.data_inizio_abilitazione=web_cdc_pianificati1.data_inizio_abilitazione) reparti,
+							(SELECT STRING_AGG(web_cdc_pianificati1.reparto) from imagoweb.web web1 join imagoweb.web_cdc_pianificati web_cdc_pianificati1 on web1.webuser = web_cdc_pianificati1.webuser WHERE web1.iden = ? and web_cdc_pianificati1.deleted = 'N' and web_cdc_pianificati1.data_fine_abilitazione is null and web_cdc_pianificati1.data_inizio_abilitazione is null) reparti_null
+					 	from imagoweb.web join imagoweb.web_cdc_pianificati
+						on web.webuser = web_cdc_pianificati.webuser
+						where web.iden=?
+						and web_cdc_pianificati.deleted = 'N'
+						order by data_fine_abilitazione asc, data_inizio_abilitazione asc 
+						)
+					)
+        		)
+				where (data_inizio_abilitazione is not null and data_fine_abilitazione is not null and reparti is not null or data_inizio_abilitazione is null and data_fine_abilitazione is null and reparti is not null)
+			]]>
+			</sql>
+		</statement>		
+		<statement name="webuser">				
+			<sql>
+			<![CDATA[
+				select attivo, iden
+				from imagoweb.web
+				where webuser=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="disattiva_webuser">
+		    <sql>
+		    <![CDATA[
+		    	begin
+		    		imagoweb.utenti.disattivaUtente(?);
+		    	end;
+		    ]]>
+		    </sql>
+		</statement>
+		<statement name="info_personale">				
+			<sql>
+			<![CDATA[
+				select
+					descr,
+					iden iden_per,
+					tipo
+				from radsql.tab_per
+				where cod_dec=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="personale">				
+			<sql>
+			<![CDATA[
+				select
+					cod_dec,
+					titolo,
+					nome,
+					cognome,
+					cod_fisc,
+					tipo tipo_utente,
+					tipo_med medico,
+					medico_reparto,
+					attivo
+				from radsql.tab_per
+				where iden=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="titoli_utente">				
+			<sql>
+			<![CDATA[
+				select
+					codice,
+					descrizione,
+					tipo_dato as tipo
+				from radsql.tab_codifiche
+				where tipo_scheda = 'INSERISCI_PERSONALE'
+				and attivo = 'S'
+				and tipo_dato in (
+					select codice
+					from radsql.tab_codifiche
+					where tipo_scheda = 'GESTIONE_UTENTI'
+					and tipo_dato = 'tipo_utente'
+					and attivo = 'S'
+				)
+			]]>
+			</sql>
+		</statement>
+		<statement name="us_conf_web">				
+			<sql>
+			<![CDATA[
+				select gruppo from imagoweb.us_conf_web where webuser=?			
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

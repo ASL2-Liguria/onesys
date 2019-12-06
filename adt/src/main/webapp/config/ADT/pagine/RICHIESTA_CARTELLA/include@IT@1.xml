@@ -1,0 +1,9 @@
+<INCLUDE>
+	<JS path="js/ADT/Anagrafica/Anagrafica.js"/>  
+    <JS path="js/ADT/RICHIESTA_CARTELLA/RichiestaCartella.js"/>
+    <JS path="js/TimePicker/jquery.ptTimeSelect.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="config/ADT/validator/model/V_ADT_RICHIESTA_CARTELLA.js"/>
+    <CSS path="css/ADT/datiAssistito.css"/>
+</INCLUDE>

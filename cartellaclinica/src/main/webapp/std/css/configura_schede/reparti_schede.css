@@ -1,0 +1,21 @@
+body{background:#b9e0ff;padding-right:10px;}
+
+
+
+fieldset{
+	margin:10px;
+	border:2px solid #fff;
+	padding:2px;
+	}
+	fieldset .TableProfilo, #ListaEsami{
+		background:#fff;
+		padding:5px;
+		}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}

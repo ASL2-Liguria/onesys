@@ -1,0 +1,176 @@
+<PAGINA key_id="MODULO_ADR">
+    <HEADER_PAGE key_id="MODULO_ADR" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,MODULO_ADR#DEFAULT,PS_MODULO_ADR" evento="START_END">
+    </HEADER_PAGE>
+        <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+            <TABULAZIONE.INIT key_id="MODULO_ADR" valore="MODULO_ADR#lblTitolo#butSalva,butFirma,butChiudi" evento="START">
+                <TABULAZIONE.CREA_TAB key_id="tabPrincipale" valore="tabPrincipale" evento="START">>
+                    <FIELDSET_TABLE key_id="fldDichiarazioneMorte" valore="fldDichiarazioneMorte" evento="START">
+                        <TR_TD_LABEL_TEXTAREA key_id="taDescrizioneRelazione" valore="lblDescrizioneRelazione#taDescrizioneRelazione#DESCRIZIONE_RELAZIONE#N#N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+                        <TR_TD_LABEL_RADIO key_id="radGravita" valore="lblGravita##radGravita#radGravita#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_TEXTAREA key_id="taEsamiLaboRilevanti" valore="lblEsamiLaboRilevanti#taEsamiLaboRilevanti#ESAMI_LABO_RILEVANTI#N#N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+                        <TR_TD_LABEL_RADIO key_id="radEsito" valore="lblEsito##radEsito#radEsito#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_DATA key_id="txtDataDecesso" valore="lblDataDecesso##txtDataDecesso#DataDecesso#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                        </TR_TD_LABEL_DATA>
+                        <TR_TD_LABEL_RADIO key_id="radDecesso" valore="lblDecesso##radDecesso#radDecesso#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_DATA key_id="txtDataRisoluzione" valore="lblDataRisoluzione##txtDataRisoluzione#DataRisoluzione#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                        </TR_TD_LABEL_DATA>
+                        <TR_TD_LABEL_TEXTAREA key_id="taAzioniIntraprese" valore="lblAzioniIntraprese#taAzioniIntraprese#AZIONI_INTRAPRESE#N#N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+                        <TR_TD_LABEL_TEXT key_id="txtOrigineEtnica" valore="lblOrigineEtnica#txtOrigineEtnica#txtOrigineEtnica##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_DATA key_id="txtDataInsReazione" valore="lblDataInsReazione##txtDataInsReazione#DataInsReazione#readonly_element: false, format: 'd/m/Y'##lblDataInsReazione#DATA_INS_REAZIONE" evento="START">
+                        </TR_TD_LABEL_DATA>
+                    </FIELDSET_TABLE>
+                </TABULAZIONE.CREA_TAB>
+
+                <TABULAZIONE.CREA_TAB key_id="tabInfoFarmaco" valore="tabInfoFarmaco" evento="START">
+                    <FIELDSET_TABLE key_id="fldFarmaciSospetti" valore="fldFarmaciSospetti" evento="START">
+                        <TR_TD_LABEL_TEXT key_id="txtFarmacoA" valore="lblFarmacoA#txtFarmacoA#txtFarmacoA##N#3" evento="START">
+                            <TD_LABEL_TEXT key_id="txtLottoA" valore="lblLottoA#txtLottoA#txtLottoA##N#3" evento="START"></TD_LABEL_TEXT>
+                            <TD_LABEL_TEXT key_id="txtDosaggioA" valore="lblDosaggioA#txtDosaggioA#txtDosaggioA##N#3" evento="START"></TD_LABEL_TEXT>
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtViaSommA" valore="lblViaSommA#txtViaSommA#txtViaSommA##N#3" evento="START">
+                            <TD_LABEL_DATA key_id="txtInUsoDalA" valore="lblInUsoDalA##txtInUsoDalA#InUsoDalA#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                            </TD_LABEL_DATA>
+                            <TD_LABEL_DATA key_id="txtInUsoAlA" valore="lblInUsoAlA##txtInUsoAlA#InUsoAlA#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                            </TD_LABEL_DATA>
+                        </TR_TD_LABEL_TEXT>
+
+                        <TR_TD_LABEL_TEXT key_id="txtFarmacoB" valore="lblFarmacoB#txtFarmacoB#txtFarmacoB##N#3" evento="START">
+                            <TD_LABEL_TEXT key_id="txtLottoB" valore="lblLottoB#txtLottoB#txtLottoB##N#3" evento="START"></TD_LABEL_TEXT>
+                            <TD_LABEL_TEXT key_id="txtDosaggioB" valore="lblDosaggioB#txtDosaggioB#txtDosaggioB##N#3" evento="START"></TD_LABEL_TEXT>
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtViaSommB" valore="lblViaSommB#txtViaSommB#txtViaSommB##N#3" evento="START">
+                            <TD_LABEL_DATA key_id="txtInUsoDalB" valore="lblInUsoDalB##txtInUsoDalB#InUsoDalB#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                            </TD_LABEL_DATA>
+                            <TD_LABEL_DATA key_id="txtInUsoAlB" valore="lblInUsoAlB##txtInUsoAlB#InUsoAlB#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                            </TD_LABEL_DATA>
+                        </TR_TD_LABEL_TEXT>
+
+                        <TR_TD_LABEL_TEXT key_id="txtFarmacoC" valore="lblFarmacoC#txtFarmacoC#txtFarmacoC##N#3" evento="START">
+                            <TD_LABEL_TEXT key_id="txtLottoC" valore="lblLottoC#txtLottoC#txtLottoC##N#3" evento="START"></TD_LABEL_TEXT>
+                            <TD_LABEL_TEXT key_id="txtDosaggioC" valore="lblDosaggioC#txtDosaggioC#txtDosaggioC##N#3" evento="START"></TD_LABEL_TEXT>
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtViaSommC" valore="lblViaSommC#txtViaSommC#txtViaSommC##N#3" evento="START">
+                            <TD_LABEL_DATA key_id="txtInUsoDalC" valore="lblInUsoDalC##txtInUsoDalC#InUsoDalC#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                            </TD_LABEL_DATA>
+                            <TD_LABEL_DATA key_id="txtInUsoAlC" valore="lblInUsoAlC##txtInUsoAlC#InUsoAlC#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                            </TD_LABEL_DATA>
+                        </TR_TD_LABEL_TEXT>
+
+
+
+
+                    </FIELDSET_TABLE>
+
+                    <FIELDSET_TABLE key_id="fldQuest" valore="fldQuest" evento="START">
+                        <TR_TD_LABEL key_id="txtSospeso" valore="lblSospeso" evento="START">
+                            <TD_LABEL_RADIO key_id="radSospesoA" valore="lblSospesoA##radSospesoA#radSospesoA#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radSospesoB" valore="lblSospesoB##radSospesoB#radSospesoB#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radSospesoC" valore="lblSospesoC##radSospesoC#radSospesoC#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+
+                        </TR_TD_LABEL>
+
+                        <TR_TD_LABEL key_id="txtReazione" valore="lblReazione" evento="START">
+                            <TD_LABEL_RADIO key_id="radReazioneA" valore="lblReazioneA##radReazioneA#radReazioneA#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radReazioneB" valore="lblReazioneB##radReazioneB#radReazioneB#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radReazioneC" valore="lblReazioneC##radReazioneC#radReazioneC#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+
+                        </TR_TD_LABEL>
+
+                        <TR_TD_LABEL key_id="txtRipreso" valore="lblRipreso" evento="START">
+                            <TD_LABEL_RADIO key_id="radRipresoA" valore="lblRipresoA##radRipresoA#radRipresoA#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radRipresoB" valore="lblRipresoB##radRipresoB#radRipresoB#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radRipresoC" valore="lblRipresoC##radRipresoC#radRipresoC#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+
+                        </TR_TD_LABEL>
+
+
+                        <TR_TD_LABEL key_id="txtRicomparsi" valore="lblRicomparsi" evento="START">
+                            <TD_LABEL_RADIO key_id="radRicomparsiA" valore="lblRicomparsiA##radRicomparsiA#radRicomparsiA#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radRicomparsiB" valore="lblRicomparsiB##radRicomparsiB#radRicomparsiB#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+                            <TD_LABEL_RADIO key_id="radRicomparsiC" valore="lblRicomparsiC##radRicomparsiC#radRicomparsiC#{width:30}#N#" evento="START">
+                            </TD_LABEL_RADIO>
+
+                        </TR_TD_LABEL>
+
+                    </FIELDSET_TABLE>
+
+                    <FIELDSET_TABLE key_id="fldIndicazioni" valore="fldIndicazioni" evento="START">
+                        <TR_TD_LABEL_TEXT key_id="txtIndicazioniA" valore="lblIndicazioniA#txtIndicazioniA#txtIndicazioniA##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtIndicazioniB" valore="lblIndicazioniB#txtIndicazioniB#txtIndicazioniB##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtIndicazioniC" valore="lblIndicazioniC#txtIndicazioniC#txtIndicazioniC##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+
+
+                    </FIELDSET_TABLE>
+
+                    <FIELDSET_TABLE key_id="fldAltro" valore="fldAltro" evento="START">
+                        <TR_TD_LABEL_TEXTAREA key_id="taFarmacoConcomitante" valore="lblFarmacoConcomitante#taFarmacoConcomitante#FARMACO_CONCOMITANTE#N#N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+                        <TR_TD_LABEL_TEXTAREA key_id="taUsoConcomitante" valore="lblUsoConcomitante#taUsoConcomitante#USO_CONCOMITANTE#N#N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+                        <TR_TD_LABEL_TEXTAREA key_id="taCondizioniConcomitanti" valore="lblCondizioniConcomitanti#taCondizioniConcomitanti#CONDIZIONI_CONCOMITANTI#N#N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+
+
+
+
+                    </FIELDSET_TABLE>
+                </TABULAZIONE.CREA_TAB>
+
+                <TABULAZIONE.CREA_TAB key_id="tabInfoSegnalatore" valore="tabInfoSegnalatore" evento="START">
+                    <FIELDSET_TABLE key_id="fldInfoSegnalatore" valore="fldInfoSegnalatore" evento="START">
+                        <TR_TD_LABEL_RADIO key_id="radQualifica" valore="lblQualifica##radQualifica#radQualifica#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+
+                        <TR_TD_LABEL_TEXT key_id="txtNome" valore="lblNome#txtNome#txtNome##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome#txtCognome#txtCognome##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtIndirizzo" valore="lblIndirizzo#txtIndirizzo#txtIndirizzo##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtTelefono" valore="lblTelefono#txtTelefono#txtTelefono##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtFax" valore="lblFax#txtFax#txtFax##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtEmail" valore="lblEmail#txtEmail#txtEmail##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtCodiceASL" valore="lblCodiceASL#txtCodiceASL#txtCodiceASL##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_DATA key_id="txtDataCompilazione" valore="lblDataCompilazione##txtDataCompilazione#DataCompilazione#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                        </TR_TD_LABEL_DATA>
+                    </FIELDSET_TABLE>
+
+                </TABULAZIONE.CREA_TAB>
+
+                <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hIDEN" valore="hIDEN" evento="START">
+                </INPUT.HIDDEN>
+
+
+
+            </TABULAZIONE.INIT>
+        </FORM>
+</PAGINA>

@@ -1,0 +1,159 @@
+.pulsante {
+	width:105px;
+	height:18px;
+	font-size: 12px;
+	background:url(../../../../imagexPix/bar/bw/pulsante105.png) no-repeat;
+	text-align: center;
+	line-height:18px;
+	float:right;
+	color:#000;
+	margin-top:1px;
+	margin-right:5px;
+}
+
+
+.pulsante A{
+	background:url(../../../../imagexPix/bar/bw/pulsante105.png) no-repeat;
+	text-decoration: none;
+	display:block;
+	color:black;
+}
+
+.pulsante A:hover {
+	background:url(../../../../imagexPix/bar/bw/pulsante105_hover.png) no-repeat;
+}
+
+
+.pulsanteDis {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}
+
+
+.pulsanteBig {
+	width:100%;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background:#eee;
+	text-align: center;
+	float:right;
+	line-height:18px;
+}
+
+.pulsanteBig A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: #666;
+	display:block;
+}
+
+.pulsanteBig A:hover {
+	background:#ccc;
+	color: #fff;
+}
+
+
+.pulsanteBigDis {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}
+
+
+
+
+#containerTools{
+	background-color:red;
+	width:90px;
+	height:21px;
+}
+
+#g1{
+	float:left;
+	width:21px;
+	height:21px;
+	background-color:#FFFF00;
+}
+#g2{
+	background-color:blue;
+	margin-left:0px;
+	position:absolute;
+	width:21px;
+	height:21px;
+}
+#g3{
+	position:absolute;
+	background-color:green;
+	width:21px;
+	height:21px;
+	margin-left:21px;
+}
+
+.addQta {
+	width:21px;
+	background-image:url(../../../../imagexPix/button/mini/btPlus.gif);
+	background-repeat:repeat-x;
+	float:right;
+}
+
+.addQta A{
+	height:21px;
+	display:block;
+}
+
+.addQta A:hover {
+	background-image:url(../../../../imagexPix/button/mini/btPlus_over.gif);
+	background-repeat:repeat-x;
+}
+
+.subQta {
+	width:21px;
+	background-image:url(../../../../imagexPix/button/mini/btMinus.gif);
+	background-repeat:repeat-x;
+	float:right;
+}
+
+.subQta A{
+	height:21px;
+	display:block;
+}
+
+.subQta A:hover {
+	background-image:url(../../../../imagexPix/button/mini/btMinus_over.gif);
+	background-repeat:repeat-x;
+}
+
+
+.delQta {
+	width:21px;
+	background-image:url(../../../../imagexPix/button/mini/closing.gif);
+	background-repeat:repeat-x;
+	float:right;
+}
+
+.delQta A{
+	height:21px;
+	display:block;
+}
+
+.delQta A:hover {
+	background-image:url(../../../../imagexPix/button/mini/closingOver.gif);
+	background-repeat:repeat-x;
+}

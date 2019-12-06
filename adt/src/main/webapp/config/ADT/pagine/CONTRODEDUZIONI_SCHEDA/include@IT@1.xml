@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/ADT/Controdeduzioni/ControdeduzioniScheda.js"/>
+    <CSS path="css/ADT/ControdeduzioniScheda/ControdeduzioniScheda.css"/>
+</INCLUDE>

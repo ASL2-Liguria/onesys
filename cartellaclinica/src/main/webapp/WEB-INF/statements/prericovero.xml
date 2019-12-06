@@ -1,0 +1,41 @@
+<root>
+    <statements_list>
+        <statement name="getIdenPrericovero">
+            <sql>
+                <![CDATA[
+                    DECLARE
+                        pIdenPro            PLS_INTEGER     := TO_NUMBER(?);
+                        pIdenAnag           PLS_INTEGER     := TO_NUMBER(?);
+                        pDataRicovero       VARCHAR2(8)     := ?;
+                        pIdenTipoRicovero   PLS_INTEGER     := TO_NUMBER(?);
+                        vIdenEvento         PLS_INTEGER;
+                        vReturn             VARCHAR2(4000)  := '';
+                    BEGIN
+                        BEGIN
+                            --RADSQL.GEST_LOGS.SET_LEVEL_DEBUG();
+                            
+                            SELECT IDEN INTO vIdenEvento
+                            FROM radsql.NOSOLOGICI_PAZIENTE 
+                            WHERE   IDEN_PRO = pIdenPro AND 
+                                    IDEN_ANAG = pIdenAnag AND 
+                                    DATA_RICOVERO = pDataRicovero AND 
+                                    IDEN_TIPO_RICOVERO = pIdenTipoRicovero AND 
+                                    DIMESSO = 'N' AND 
+                                    DELETED = 'N';                            
+                            
+                            vReturn := TO_CHAR(vIdenEvento);                            
+
+                            EXCEPTION
+                                WHEN NO_DATA_FOUND THEN 
+                                    vReturn := '0';
+                                WHEN OTHERS THEN 
+                                    vReturn := SQLERRM;
+                        END;
+                        
+                        ? := vReturn;
+                    END;
+                ]]>
+            </sql>
+        </statement>      
+    </statements_list>
+</root>

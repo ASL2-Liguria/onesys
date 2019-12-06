@@ -1,0 +1,204 @@
+body#page { padding: 0; background:transparent; }
+body#page div.headerTabs { border-top: 0; }
+
+div.headerTabs .icon-spin3 { display: none; }
+
+.ulTabs { display: none !important; }
+
+.footerTabs { margin-top: 0 !important; }
+	
+div.tabs { padding: 1px 0; border: 0; }
+div.clsWk div.clsWkScroll table tr td{white-space:normal;}
+
+.divRicetta, .divRicettaAcc { margin: 5px 10px; }
+
+.divRicetta i, .divRicettaAcc i  { font-size: 12px; cursor: pointer;}
+
+#divFineLista {text-align: center; width: 100%; font-weight: bold;}
+
+.iconSSN, .iconPT, .iconPS, .iconRipetibile { font-size: 11px !important; }
+
+#divCmbRes {
+	font-weight: bold;
+}
+
+#search-filter { width: 120px; display: inline-block; padding: 0 4px; font-size: 12px;}
+
+.MedIniz { font-weight: bold; color:#1A97FF; }
+
+/********* PARTE COMUNE ****************************************************************************************************/
+
+tr.intestazione { height:26px; text-align: center; background: #e1e1e1;}
+
+input[type='text'] { width: 90%; border: 1px solid #CCCCCC;; font-size: 10px;}
+.esenzTotale { border: 1px solid #58CC6F !important; }
+.esenzParziale { border: 1px solid #FFA852 !important; }
+
+#tableRisultati {  padding: 0; font-size: 11px; color:#444; margin: 0; border:0; width: 100%;}
+
+.TRselected 	{background: #fdf692;}
+.TRselected td	{background-color: #fdf692;}
+
+.TRdeleted 			{background:#CFBAC2;}
+.TRdeleted td		{background-color:#CFBAC2; color: #E3E3E3; }
+.TRdeleted td input	{background-color:#E3E3E3; color: #E3E3E3; }
+
+.RRDisattivo 								{cursor: no-drop; color: #A8A8A8; }
+.RRDisattivo td								{color: #A8A8A8; cursor: no-drop; }
+.RRDisattivo td:not(.classRisultato) input	{color: #A8A8A8; cursor: no-drop; }
+.RRDisattivo .tdAction						{color: #A8A8A8; cursor: no-drop; }
+
+
+/*tdAction iconcine ***************/
+
+.RRGreen{ background-color:#9FE3AC; font-weight:bold; border: 1px solid gray;}
+.RRYellow{	background-color:#FFE852;	font-weight:bold; border: 1px solid gray;}
+.RRRed{ background-color:#FC5C5C; font-weight:bold; color: #FFFFFF; border: 1px solid gray;}
+
+.RRIconRed{ color:#ED1405; font-weight:bold; }
+.RRIconYellow{ color:#F5C400; font-weight:bold; }
+.RRIconGreen{ color:#008620; font-weight:bold; }
+/*.RRCronica{ background:#9FE3AC; font-weight:bold; }*/
+
+.icon-lock {color:#CC0A0A;}
+
+
+/* PRESCRIZIONE LIBERA **************/
+
+.prescrLibera input[type=text]{
+	background: #E8FFF5;
+	border: 1px solid green;
+}
+
+
+/******* RICETTA FARMACI ***************************************************/
+
+.divRicetta {
+	background:  #f8f8f8;
+}
+
+.divRicetta .thRicetta { 
+	color: #333; width:100%;height:15px;
+	font-weight: bold;
+}
+
+.divRicetta #th_data, #th_farmaco{ cursor:pointer;}
+.divRicetta #th_sostituibilita{text-align:center;}
+
+.divRicetta .trRigaFarmaci{
+	height: 26px;
+	width: 100%;
+	border-bottom: 1px solid #e5e5e5;
+	cursor: pointer;
+	background: #f8f8f8;
+	text-align: center;
+	font-size: 11px;
+}
+
+.divRicetta .trRigaFarmaci input{
+	padding-left:5px;
+	font-size: 11px;
+}
+
+.divRicetta .RRCronica{ /*color:green;*/ background:#C5EDCD; font-weight:bold; }
+
+.divRicetta .intestazione { width: 100%; height: 26px; }
+.divRicetta .intestazione i.iselected{ color: yellow; }
+.divRicetta .tdAction { width: 20%; cursor:pointer; font-size:11px; text-align: left; padding-right: 3px;}
+.divRicetta .classData { width: 10%; /*font-size: 12px;*/ }
+.divRicetta .classFarmaco { width: 30%; text-align:left; }
+.divRicetta .classQuantita { width: 5%; }
+.divRicetta .classQuantita input{ padding-left: 0; text-align: center; }
+.divRicetta .classPosologia { width: 15%; }
+.divRicetta .classEsenzione { width: 5%; }
+.divRicetta .classEsenzione input{ padding-left: 0; text-align: center; }
+.divRicetta .classPA { width: 5%; text-align:center;}
+.divRicetta .classSost { width:10%; text-align: left;}
+.divRicetta .classSost select { float: right; width: 100%; border: 1px solid #F7BCAD;}
+.divRicetta .classSost select option{ background: #FFE4E0;}
+.divRicetta .classSost input[type=checkbox] {width: 100%; float:left;}
+
+.divRicetta .classFarmaco input{ width: 98%;}
+
+.divRicetta .icon-info-circled	{color:#274069;}
+
+tr.trRigaFarmaci:not([pt="S"]) i.iconPT {display:none;}
+tr.trRigaFarmaci[daStampare="N"] i.icon-doc {display:none;}
+tr.trRigaFarmaci[daStampare="D"] i.icon-doc {background: #0066ff;}
+tr.trRigaFarmaci[daStampare="S"][iden_ricetta]:not([iden_ricetta=""]) i.icon-doc {background: yellowgreen;}
+tr.trRigaFarmaci[mi="S"]  i.icon-cancel-1 {display:none;}
+tr.trRigaFarmaci[blocco="N"]  i.icon-lock {display:none;}
+tr.trRigaFarmaci:not([sito="MMG"])  {background: #c6e6f0; font-weight: bold;}
+
+tr.trRigaFarmaci[oscurato="N"] i.icon-minus-circled {display:none}
+
+tr.trRigaFarmaci[forzatura="R"] i.icon-cog-1 {border: 1px solid gray; background: #FC5C5C; color: white}
+tr.trRigaFarmaci[forzatura="B"] i.icon-cog-1 {border: 1px solid gray; background: #FFFFFF; color: #6977C9}
+
+/******* RICETTA ACCERTAMENTI ***********************************************/
+
+.divRicettaAcc{ 
+	background:  #f8f8f8; 
+}
+
+.divRicettaAcc .thRicetta {
+	color: #333; width:100%;height:26px;
+	font-weight: bold;
+}
+
+.divRicettaAcc #th_data, #th_accertamento{ cursor:pointer; }
+
+.divRicettaAcc .trRigaAccertamenti{
+	height: 26px;
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+	text-align:center;
+	font-size: 11px;
+}
+
+.divRicettaAcc .trRigaAccertamenti input {
+	padding-left:5px;
+	font-size: 11px;
+}
+
+.divRicettaAcc .RRCronica{ /*color:green;*/ background:#C5EDCD; font-weight:bold; }
+
+.divRicettaAcc .intestazione { width: 100%; height: 26px; }
+.divRicettaAcc .tdAction { width: 20%; cursor:pointer; font-size:11px; text-align: left; padding-right: 3px;}
+.divRicettaAcc .classData { width: 10%;  }
+.divRicettaAcc .classAccertamento { width: 40%; text-align:left; }
+.divRicettaAcc .classRisultato { width: 20%;  }
+.divRicettaAcc .classQuantita { width: 5%;  }
+.divRicettaAcc .classQuantita input{ padding-left: 0; text-align: center; }
+.divRicettaAcc .classEsenzione { width: 5%; }
+.divRicettaAcc .classEsenzione input{ padding-left: 0; text-align: center; }
+
+.divRicettaAcc .classAccertamento input{ width: 98%;}
+
+.divRicettaAcc .icon-info-circled	{color:#274069;}
+
+.dp_footer { display:none; }
+
+tr.trRigaAccertamenti[pat_summary="N"] i.iconPS {display:none}
+tr.trRigaAccertamenti[oscurato="N"] i.icon-minus-circled {display:none}
+
+tr.trRigaAccertamenti[forzatura="R"] i.icon-cog-1 {border: 1px solid gray; background: #FC5C5C; color: white}
+tr.trRigaAccertamenti[forzatura="B"] i.icon-cog-1 {border: 1px solid gray; background: #FFFFFF; color: #6977C9}
+tr.trRigaAccertamenti[importanza="1"]  {background: #C5EDCD; font-weight: bold;}
+tr.trRigaAccertamenti[mi="S"]  i.icon-cancel-1 {display:none;}
+tr.trRigaAccertamenti:not([sito="MMG"]) {background: #c6e6f0; font-weight: bold;}
+tr.trRigaAccertamenti[daStampare="N"] i.icon-doc {display:none;}
+tr.trRigaAccertamenti[daStampare="D"] i.icon-doc {background: #0066ff;}
+tr.trRigaAccertamenti[daStampare="S"][iden_ricetta]:not([iden_ricetta=""]) i.icon-doc {background: yellowgreen;}
+
+#btnStampaRapida { float: left; color:black; font-weight:bold; background: #FDFFDB; }
+
+#R_ROSSA, #R_DEM, #R_DEM_MANUALE { float: left; margin: 0 5px; }
+#R_ROSSA.selected { background-color: #e74c3c; color: #fff; }
+#R_DEM.selected { background-color: #0066ff; color: #fff; }
+#R_ROSSA.selected i, #R_DEM.selected i { color: #fff; font-size: 10px; }
+
+.icon-lamp { display: none !important; }
+.evidenziaNota { color:red; background: #ffff42; border: 1px solid white; }
+

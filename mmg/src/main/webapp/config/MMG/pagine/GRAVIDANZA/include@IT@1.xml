@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Gravidanza/Gravidanza.js" />
+	<CSS path="css/MMG/Gravidanza/Gravidanza.css" />
+</INCLUDE>

@@ -1,0 +1,97 @@
+body {
+	height: 100%;
+	width: 100%;
+}
+
+#Home {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: #000000;
+	background-image:url(../../imagexPix/bar/MenuImg.jpg);
+	height:29px;
+	line-height: 29px;
+	position: fixed;
+	*position: absolute; /*IE6, yeah*/
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	width: 100%;
+}
+
+#menuMain {
+	margin-right: 1em;
+}
+
+#infobar {
+}
+
+#menuBar {
+	position: fixed;
+	*position: absolute; /*IE6, yeah*/
+	top: 0;
+	right: 0;
+	height:29px;
+	line-height: 29px;
+	font-weight: bold;
+	text-align: right;
+}
+
+#menuBar > ul {
+	margin: 0;
+}
+
+#iframe_main {
+	position: fixed;
+	*position: absolute; /*IE6, yeah*/
+	top: 29px;
+	left: 0px;
+	bottom: 0px;
+	right: 0px;
+	width: 100%;
+	height: 96%;
+}
+
+#menuBar a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+
+#menuBar a:hover {
+	color: #000000;
+	background-color: #FFFF66;
+	text-decoration: none;
+}
+
+/*
+.menuBar img {
+	display: inline;
+}
+*/
+
+
+/*
+Ex Menu.css
+*/
+
+/**************************************
+menubar
+**************************************/
+
+ul.menuBar li {
+	display: inline;
+	border-right: 2px solid;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+ul.menuBar li img {
+	padding-right: 0.2em;
+	vertical-align: middle;
+}
+

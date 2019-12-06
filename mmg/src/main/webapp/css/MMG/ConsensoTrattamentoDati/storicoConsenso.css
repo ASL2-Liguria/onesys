@@ -1,0 +1,9 @@
+body {
+	width: 960px;
+}
+
+#butApplica{
+	float:right;
+	margin-right: 20px;
+	width: 70px;
+}

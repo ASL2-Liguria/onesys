@@ -1,0 +1,526 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="shortcut icon" href="favicon.ico">
+		<title>Scelta data</title>
+		<style>
+		
+		div#container{
+			width:780px; 
+			margin: auto;
+		}
+		
+		label.clsExamToRpt{
+			color:yellow;
+			font-weight:bold;
+		}
+		
+		table.ui-datepicker-calendar {border-collapse: separate;}
+		.ui-datepicker-calendar td {border: 1px solid transparent;}
+		.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
+			background: #743620 none; /* a color that fits the widget theme */
+			color: white; /* a color that is readeable with the color above */
+		}
+		label.clsInfoPazEsa{
+			font-size:12px; 
+		}
+		label.clsEtiPazEsa{
+			color:black;
+			font-size:12px;
+		}
+		/*
+		.ui-datepicker {
+			font-size: 15px !important;
+		}*/
+		
+.ui-datepicker {
+    padding: 0.1em 0.1em 0;
+    width: 11em;
+	font-size: 14px !important;
+}
+
+.ui-widget {
+    font-family: Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+
+.ui-datepicker th {
+    border: 0 none;
+    font-weight: normal;
+    padding: 0.2em 0.1em;
+    text-align: center;
+}
+
+.ui-datepicker th span {
+    font-size: 13px;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    padding: 0.1em;
+}
+
+.ui-datepicker td {
+    padding: 0.9px;
+}
+
+.ui-datepicker .ui-state-highlight {
+    height: 12px;
+    margin-bottom: 0;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, 
+.ui-widget-header .ui-state-default {
+    font-size: 10px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    line-height: 13px;
+}
+
+.ui-datepicker .ui-datepicker-title span {
+    font-size: 13px;
+}
+
+.ui-datepicker .ui-datepicker-prev span, 
+.ui-datepicker .ui-datepicker-next span {
+    margin-left: -8px;
+    margin-top: -8px;
+}
+
+.ui-datepicker .ui-datepicker-prev, 
+.ui-datepicker .ui-datepicker-next {
+    height: 15px;
+    top: 1px;
+    width: 15px;
+}
+
+.ui-datepicker-next-hover .ui-icon {
+    height: 16px;
+    width: 16px;
+}		
+		
+		
+		
+		
+		
+		</style>
+		<!-- loads jquery and jquery ui -->
+		<script type="text/javascript" src="std/jscript/jQueryUI/1.9.1/jquery-1.8.3.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>  
+		<script src="std/jscript/jQueryOloader/js/jquery.oLoader.min.js"></script>        
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/jquery.ui.datepicker.js"></script>        
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/jquery.ui.datepicker-it.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/jquery-ui.multidatespicker.js"></script>
+   		<link rel="stylesheet" type="text/css" href="std/jscript/jQueryUI/jquery.timeentry.css">        
+		<script type="text/javascript" src="std/jscript/jQueryUI/jquery.plugin.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/jquery.timeentry.js"></script>
+        
+		<link rel="stylesheet" type="text/css" href="std/jscript/jQueryUI/MultipleDatesPicker/css/mdp.css">        
+		<link rel="stylesheet" type="text/css" href="std/jscript/jQueryUI/MultipleDatesPicker/css/prettify.css">
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/prettify.js"></script>
+		<script type="text/javascript" src="std/jscript/jQueryUI/MultipleDatesPicker/js/lang-css.js"></script>  
+        <script type="text/javascript" src="std/jscript/jsHashtable.js"></script>
+		<script type="text/javascript" src="std/jscript/jsStringUtil.js"></script>   
+		<script type="text/javascript" src="std/jscript/json/json2.js"></script>                  
+		<script type="text/javascript" src="std/jscript/json/json_sans_eval.js"></script>                          
+		<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">            
+		<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">                    
+		<link rel="stylesheet" type="text/css" href="std/css/button.css">                    
+        <script>
+		var params;
+		var sorgente;
+		var idenEsame;
+	
+	// indica quante prestazioni sono già state elaborate per essere "ciclizzate"
+		var idxUltimaPrestazioneElaborate = 0;
+		// indica quante prestazioni sono già state elaborate per essere "ciclizzate"
+		var nPrestazioniTotali = 0;
+		// descrizione di tutti gli esami da ripetere
+		var descrTuttiEsami = "";
+		
+		var listaCicli = {"LISTA":[]};		
+		
+		var jsonInfoCallback = {};
+		var maxNumChar = 4000;	
+		
+		var nMaxSeduteSenzaImpegnativa = 1000;	
+		
+		function getParams() {
+			try{
+				var idx = document.URL.indexOf('?');
+				if (idx != -1) {
+					var tempParams =  new Hashtable();
+					var pairs = document.URL.substring(idx+1,document.URL.length).split('&');
+					for (var i=0; i<pairs.length; i++) {
+						nameVal = pairs[i].split('=');
+						tempParams.put(nameVal[0],nameVal[1]);
+					}
+					return tempParams;
+				}
+			}
+			catch(e){
+				alert("getParams - Error:  "+ e.description);
+			}
+		}	
+			
+	function showLoader(bolShow){ 
+		if (bolShow){
+			$("body").oLoader({
+			  wholeWindow: true, //makes the loader fit the window size
+			  lockOverflow: true, //disable scrollbar on body						  
+			  backgroundColor: '#000',
+			  fadeInTime: 1000,
+			  fadeLevel: 0.4,
+			  image: 'std/jscript/jQueryOloader/images/ownageLoader/loader4.gif',
+			  fadeOutTime: 1000,
+			  fadeLevel: 0.8
+			});
+		}
+		else{
+			 $("body").oLoader('hide');		
+		}
+	}		
+		
+		
+	function init(){
+						
+			var maxSeduteErogabiliDaDB =0;
+			try{
+		
+				$( "#btSave" ).click(function( event ) {
+				  event.preventDefault();
+				  setCallbackValue();
+				});
+		
+				// ****************
+				$('#ora_accettazione').timeEntry({show24Hours: true,separator: '.',initialField: 0,noSeparatorEntry: true});
+				// ***********
+				params = getParams();
+		
+				var strDescrEsame = "", strDescrPaziente="", strNote = "";
+				var rs; var rsImp;
+				if (typeof(params)!="undefined"){
+						nPrestazioniTotali = params.get("idenEsame").split("*").length;
+						// *********		
+						try{
+							if (params.get("sorgente") == "ricercaPazienti"){				
+								try{opener.top.home.chiudi_attesa();}catch(e){;}
+								/*window.resizeTo(610,650);
+								window.moveTo((screen.availWidth/2)-300,(screen.availHeight/2)-320);*/
+							}
+							rs = getHomeFrame().executeQuery('worklist_main.xml','getInfoEsamePazienteByIdenEsame',[params.get("idenEsame").replace(/\*/g,',')]);											
+		//					var oggetto = {"PAZIENTE":"","NOTE":"","IDEN_ESAME_SORGENTE":"","DESCR_ESAME":"","DATA_CICLO":""}
+							descrTuttiEsami = "";
+							var nSedute ;
+							while (rs.next()){
+								// *************
+								// ESCLUDO le prestazioni duplicate ? Da Valutare !!!!
+								// **************
+								// ATTENZIONE Il numero max di sedute NON deve essere direttamente quello del DB
+								// ma a questo SOTTRARRE numero prestazioni stessa impegnativa !!!
+								try{
+									nSedute = parseInt(rs.getString("NUM_SEDUTE"));
+									strDescrEsame = rs.getString("ESA_DESCR");
+								}
+								catch(e){
+									alert("Errore grave!!!");
+									nSedute = 1;
+								}
+								// controllo numero di sedute gia' fatte
+								// rs.getString("iden_esame");
+								// DEVO considerare anche INTERNO !!
+								// modifica 16-11-16
+								if ((rs.getString("int_est")=="I")||(rs.getString("impegnativa")=="")||(typeof(rs.getString("impegnativa"))=="undefined" )||(rs.getString("ciclica")!="S")){
+									// nessun controllo
+									nSedute = nMaxSeduteSenzaImpegnativa;
+								}
+								else{
+									// faccio i controlli per stessa impegantiva e tipo prestazione
+									rsImp = getHomeFrame().executeQuery('worklist_main.xml','getCountStessa_GruppoCiclo_Impegn',[rs.getString("impegnativa"),rs.getString("iden_esame")]);
+									if (rsImp.next()){
+										try{
+											// il maxSeduteErogabiliDaDB sarà il 
+											maxSeduteErogabiliDaDB = nSedute;
+											if (parseInt(rsImp.getString("NUM"))==0){
+												// considero quello di partenza
+												nSedute = nSedute - 1;
+											}
+											else{
+												nSedute = nSedute - parseInt(rsImp.getString("NUM"));
+											}
+										}catch(e){;}
+									}
+								}
+								/// ********
+								
+								if (parseInt(nSedute)<1){
+									alert("Si sono raggiunte il numero massimo di sedute ("+maxSeduteErogabiliDaDB+") per " + strDescrEsame +".\n Impegnativa: " + rs.getString("impegnativa"));
+									nPrestazioniTotali--;
+									// salto la prestazione
+								}
+								else{
+									listaCicli.LISTA.push ( {"PAZIENTE":rs.getString("paziente"),"NOTE": rs.getString("note"),"IDEN_ESAME_SORGENTE":rs.getString("iden_esame"),"DESCR_ESAME":rs.getString("ESA_DESCR"),"DATA_CICLO":"","NUM_SEDUTE":nSedute});
+									if (descrTuttiEsami!=""){
+										descrTuttiEsami += ", " +rs.getString("ESA_DESCR");
+									}
+									else{
+										descrTuttiEsami += rs.getString("ESA_DESCR");								
+									}
+								}
+								
+								
+							}
+							$("#myform")[0].reset();
+							$("#lblInfoTuttiEsaCiclici").html(descrTuttiEsami);
+						}
+						catch(e){
+							alert("Error info paziente: "  + e.description);
+						}
+				}
+	
+				if (nPrestazioniTotali>0){
+					processIdxExam();	
+				}
+				else{
+//					alert("Nessuna prestazione ripetibile: raggiunto numero massimo di sedute");
+					chiudi();
+				}
+				$("#note_accettazione").keyup(function(){
+				  $("#counterChar").text("max(" + (maxNumChar - $(this).val().length)+"/4000)");
+				  if ($(this).val().length>maxNumChar){ 
+					  $(this).val($(this).val().substr(0,maxNumChar-1));
+				  }
+				});					
+			}
+			catch(e){
+				alert("init - Error:  "+ e.description);
+			}		
+			finally{
+				showLoader(false);
+			}		
+		}
+		
+
+		function setCallbackValue(){
+			try{
+				var closeOnExit = false;			
+				var strDate = "";
+				strDate = $("#altField").val();
+				var strOra = "";
+				var strNote = "";
+				
+				try{
+					if  ((strDate=="")||(typeof(strDate)=="undefined")||(strDate=="undefined")){
+						alert("Prego selezionare una data valida.");
+						return false;
+					}				
+				
+					sorgente = params.get("sorgente");	
+					idenEsame = listaCicli.LISTA[idxUltimaPrestazioneElaborate].IDEN_ESAME_SORGENTE;
+					strOra = $("#ora_accettazione").val();
+					strNote = $("#note_accettazione").val();
+					if (strNote.length>=maxNumChar){
+						strNote = strNote.substr(0,maxNumChar-1);
+					}					
+				}
+				catch(e){
+					alert("Nessun parametro sorgente in ingresso");
+					sorgente = "worklist";
+				}
+				if (strOra=="" || strOra=="undefined"){
+					alert("Prego inserire un'ora valida.");
+					$("#ora_accettazione").focus();
+					return false;
+				}
+				strOra = strOra.replace(".",":");
+				jsonInfoCallback = {};
+				jsonInfoCallback.ora_accettazione = strOra;
+				jsonInfoCallback.note_accettazione = strNote;
+				// unifico chiamata a "generaEsamiCiclici"
+				// ***********************************
+				// ATTENZIONE: NON e' contemplato la chiamata a generaEsamiCiclici 
+				// quando provengo da prenotazione / rapporto
+				// in tal caso il numero di parametri è differente, non ho iden_esame
+				idxUltimaPrestazioneElaborate ++;
+//				alert("idxUltimaPrestazioneElaborate "+ idxUltimaPrestazioneElaborate + "  nPrestazioniTotali "+ nPrestazioniTotali);
+				if (idxUltimaPrestazioneElaborate>=nPrestazioniTotali){
+					closeOnExit = true;
+				}
+				
+				if (sorgente == "ricercaPazienti"){
+					opener.generaEsamiCiclici(strDate, idenEsame, JSON.stringify(jsonInfoCallback),closeOnExit);
+					//self.close();					
+				}
+				else if (sorgente=="prenRapporto"){
+					opener.generaEsamiCiclici(strDate, JSON.stringify(jsonInfoCallback),closeOnExit);
+				}
+				else{
+					parent.generaEsamiCiclici(strDate, idenEsame, JSON.stringify(jsonInfoCallback),closeOnExit);
+					//parent.jQuery.fancybox.close();
+				}
+				if (closeOnExit){
+					// finito
+					chiudi();
+				}
+				else{
+					// resetto solo le date
+					$('#full-year').multiDatesPicker('resetDates');
+					processIdxExam();
+				}
+				
+			}
+			catch(e){
+				alert("setCallbackValue Error: "+ e.description);
+			}
+			return false;
+		}
+		
+		function chiudi(){
+			try{
+				if (typeof(params)!="undefined"){
+					if (params.get("sorgente") == "ricercaPazienti"){
+						opener.gestioneAnagrafica('VIS_ESA');
+						self.close();
+					}
+					else if (params.get("sorgente") == "worklist"){
+						try{
+							parent.parent.worklistTopFrame.applica();
+						}
+						catch(e){
+							parent.jQuery.fancybox.close();	
+						}
+					}
+					else{
+						parent.jQuery.fancybox.close();	
+					}
+				}
+				else{
+					parent.jQuery.fancybox.close();	
+				}				
+			}
+			catch(e){
+				alert("setCallbackValue Error: "+ e.description);
+			}				
+		}
+		
+		// pulisce i valori di calndario e vari campi
+		function cleanForm(){
+			try{
+				$("#myform").reset();
+				$('#full-year').multiDatesPicker('resetDates');
+			}
+			catch(e){
+				alert("cleanForm Error: "+ e.description);
+			}			
+		}
+		
+		function processIdxExam(){
+			var myNote="";
+			var oggi = new String("");
+			oggi = oggi.getTodayDateFormat();
+			var today = new Date();	
+			var NUM_SEDUTE ;		
+			try{
+				if (idxUltimaPrestazioneElaborate>=nPrestazioniTotali){
+					// finito 
+					return;
+				}
+				else{
+					NUM_SEDUTE = listaCicli.LISTA[idxUltimaPrestazioneElaborate].NUM_SEDUTE;
+					$('#full-year').multiDatesPicker({
+						maxPicks: NUM_SEDUTE,
+						numberOfMonths: [2,3],
+			//			showCurrentAtPos: today.getMonth(),
+						stepMonths: 6,
+						altField: '#altField',
+						minDate: oggi
+					});					
+					// RESIZE calendario !!!
+/*					$("#full-year").css("width",800);
+					$("#full-year").children(":first").css("width",800);*/
+					// *************
+					// NON ho ancora finito
+					$("#lblInfoPaziente").html(listaCicli.LISTA[idxUltimaPrestazioneElaborate].PAZIENTE);
+							
+					$("#lblIdxExam").html("(" + (parseInt(idxUltimaPrestazioneElaborate)+1) + "/" + nPrestazioniTotali +")");
+					if (NUM_SEDUTE==nMaxSeduteSenzaImpegnativa){
+						$("#lblNSedute").html(listaCicli.LISTA[idxUltimaPrestazioneElaborate].DESCR_ESAME );					
+					}
+					else{
+						$("#lblNSedute").html(listaCicli.LISTA[idxUltimaPrestazioneElaborate].DESCR_ESAME+ "&nbsp;-&nbsp;Sedute max: " + NUM_SEDUTE);
+					}
+					myNote = listaCicli.LISTA[idxUltimaPrestazioneElaborate].NOTE;
+					if (myNote!="" && myNote!="undefined" && typeof(myNote)!="undefined"){
+						$("#note_accettazione").html(myNote);
+					}			
+					if (nPrestazioniTotali>1){
+						// notifico cosa si sta ciclando
+						alert("Esame che si sta ripetendo: " + listaCicli.LISTA[idxUltimaPrestazioneElaborate].DESCR_ESAME);
+					}
+							
+				}
+				
+			}
+			catch(e){
+				alert("processIdxExam Error: "+ e.description);
+			}			
+		}
+		
+		function getHomeFrame (){
+			try{
+				if (params.get("sorgente") == "ricercaPazienti"){	
+					return opener.top;
+				}
+				else{
+					return parent.top;
+				}
+			}
+			catch(e){
+				alert("getHomeFrame Error: "+ e.description);
+			}		
+		}
+		
+		</script>
+</head>
+
+<body>
+<div id='container'> 
+<table cellpadding='0' cellspacing='0' class='classTabHeader' id="intestazioneCiclicaAnnuale"><tr>
+<td class='classTabHeaderSxUncut'></td>
+<td class='classTabHeaderMiddle'><label class="clsEtiPazEsa" id ="lblPaz">Paziente: </label><label id="lblInfoPaziente" class="clsInfoPazEsa"></label></td>
+<td class='classTabHeaderDxUncut'></td>
+</tr>
+</table>
+<div style='display:block; height:35px; background-color:red;color:white; padding:5px 5px 5px 5px; text-align:center; vertical-align:middle; font-weight:bold; font-size:14px;' id='infoNSedute'><label class="clsEtiPazEsa" id="lblRipeti">Tutti gli esami da ripetere: </label><label id="lblInfoTuttiEsaCiclici"  class="clsInfoPazEsa"></label><br/><label class="clsEtiPazEsa">Ora ripeto</label>&nbsp;<label id="lblIdxExam" class="clsExamToRpt"></label>: <label id='lblNSedute' class="clsExamToRpt"></label></div>    
+<div id="full-year" class="box" ></div>
+    <input type="hidden" id="altField">
+    <form id='myform' style="margin:0 0 0 0;">
+    <table  class='classDataEntryTable' width="100%" cellpadding="2" cellspacing="2">
+    	<tr><td class="classTdLabel" >Ora accettazione</td><td class="classTdField"><input type="text" size="8" value="" id="ora_accettazione"/></td></tr>
+    	<tr><td class="classTdLabel" >Note<br>
+<label id='counterChar' style="color:blue; font-size:9px;"></label></td><td class="classTdField"><textarea name="note_accettazione"  cols="45"  rows="2" id="note_accettazione" obbligatorio='N'  formato='S'></textarea></td></tr>        
+        
+    </table>
+    </form>
+    </div>
+<table cellpadding='0' cellspacing='0' class='classTabHeader' id="footerCiclicaAnnuale"><tr>
+<td class='classTabHeaderSxUncut'></td>
+<td class='classTabHeaderMiddle'>&nbsp;</td>
+<td class='classButtonHeader'><div id='idBtSave' class='pulsante'><a id='btSave' href='#;'>Ok</a></div>
+</td>
+<td class='classButtonHeader'><div id='idBtClose' class='pulsante'><a id='btClose' href='javascript:chiudi();'>Chiudi</a></div>
+</td>
+<td class='classTabHeaderDxUncut'></td>
+</tr>
+</table>    
+<SCRIPT>
+	$(function(){
+	   showLoader(true);	
+	   setTimeout(function(){init();},500);
+	});
+</SCRIPT>
+</body>
+</html>

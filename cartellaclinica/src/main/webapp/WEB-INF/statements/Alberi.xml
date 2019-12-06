@@ -1,0 +1,45 @@
+<root>
+	<statements_list>
+		<statement name="queryRamo">				
+			<sql>
+			<![CDATA[
+				select 
+					t.iden,
+					t.codice,
+					t.descrizione
+					,iden_figlio REF
+					,getPathConfigAcr(t.iden,t.gruppo,'S','.','/') PATH
+					,t.IMG_INFO
+					,t.LINK_INFO
+				from 
+					config_acr t
+				where 
+					gruppo=?
+					and iden_padre = ?
+				order by
+					ordine
+			]]>
+			</sql>
+		</statement>
+		<statement name="queryRicerca">				
+			<sql>
+			<![CDATA[		
+				select * from
+				(	
+					select 
+						t.descrizione,
+						getPathConfigAcr(t.iden,t.gruppo,'S','.','<br/>') PATH_PLUS_SEQUENZA
+					from 
+						config_acr t
+					where 
+						gruppo=?
+						and upper(descrizione) like '%' || ? || '%'
+					order by
+						iden_padre,ordine
+					)
+				where PATH_PLUS_SEQUENZA is not null
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

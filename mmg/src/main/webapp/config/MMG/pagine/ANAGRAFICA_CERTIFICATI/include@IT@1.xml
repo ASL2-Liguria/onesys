@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/AnagraficaCertificati/AnagraficaCertificati.js" />
+	<CSS path="css/MMG/AnagraficaCertificati/AnagraficaCertificati.css" />
+</INCLUDE>

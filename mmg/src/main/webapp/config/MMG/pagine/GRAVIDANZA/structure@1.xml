@@ -1,0 +1,56 @@
+<PAGINA key_id="GRAVIDANZA">
+
+	<HEADER_PAGE key_id="GRAVIDANZA" valore="DEFAULT_MMG,SCHEDA,GRAVIDANZA#DEFAULT_MMG,GRAVIDANZA" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="Gravidanza#lblTitolo#butSalva,butChiudi" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabListaGravidanze" valore="tabListaGravidanze" evento="START">
+				
+				<DIV key_id="divListaGravidanze" valore="divListaGravidanze" evento="START"></DIV>
+			
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabInserimentoGravidanza" valore="tabInserimentoGravidanza" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldGravidanza" valore="fldGravidanza" evento="START">
+					
+					<TR_TD_LABEL_DATA key_id="DataUltimoMestruo" valore="lblDataUltimoMestruo##txtDataUltimoMestruo#DataUltimoMestruo#format: 'd/m/Y', direction:false###DATA_ULTIMO_MESTRUO" evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_DATA key_id="DataPresuntaParto" valore="lblDataPresuntaParto##txtDataPresuntaParto#DataPresuntaParto#format: 'd/m/Y'###DATA_PRESUNTA_PARTO" evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_DATA key_id="DataParto" valore="lblDataParto##txtDataParto#DataParto#format: 'd/m/Y', direction:false###DATA_PARTO" evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_TEXT key_id="SettimanaGravidanza" valore="lblSettimanaGravidanza##txtSettimanaGravidanza###SETTIMANA_GRAVIDANZA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabPrestazioniCollegate" valore="tabPrestazioniCollegate" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldPrestazioniCollegate" valore="fldPrestazioniCollegate" evento="START">
+				
+					<TR_TD_LABEL_COMBO key_id="EsenzioneGravidanza" valore="lblEsenzioneGravidanza##EsenzioneGravidanza#cmbEsenzioneGravidanza#N#ESENZIONE_GRAVIDANZA" evento="START">
+					</TR_TD_LABEL_COMBO>
+					
+					<TR_TD_LABEL_RADIO key_id="GravidanzaARischio" valore="lblGravidanzaARischio##GravidanzaARischio#radGravidanzaARischio#{width:150,idxDefault:1}#S#RISCHIO" evento="START">
+					</TR_TD_LABEL_RADIO>
+				
+				</FIELDSET_TABLE>
+				
+				<DIV key_id="divPrestazioni" valore="divPrestazioni" evento="START"></DIV>
+			
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>

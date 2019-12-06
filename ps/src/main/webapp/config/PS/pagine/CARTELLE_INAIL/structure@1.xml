@@ -1,0 +1,45 @@
+<PAGINA key_id="CARTELLE_INAIL">
+    <HEADER_WK key_id="CARTELLE_INAIL" valore="DEFAULT,WK,CARTELLE_INAIL#DEFAULT,CARTELLE_INAIL" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+
+        <INPUT.HIDDEN key_id="hIdenPs" valore="hIdenPs" evento="START">
+        </INPUT.HIDDEN>
+        <INPUT.HIDDEN key_id="hStruttura" valore="hStruttura" evento="START">
+        </INPUT.HIDDEN>
+        <INPUT.HIDDEN key_id="hIdenProvenienza" valore="hIdenProvenienza" evento="START">
+        </INPUT.HIDDEN>
+
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroCartelleInail" valore="filtroCartelleInail#PS_WK_CARTELLE_INAIL" evento="START">
+            <TABELLA.INIT key_id="tableChiusi" valore="" evento="START">
+                <TR.INIT key_id="rigaCartelleInail1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeCartelleInail" valore="lblCognome#txtCognomeCartelleInail#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeCartelleInail" valore="lblNome#txtNomeCartelleInail#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaCartelleInail2" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Anno" valore="lblAnno#txtAnno#anno##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Cartella" valore="lblCartella#txtCartella#cartella##N" evento="START">
+                    </FILTRO_TEXT>
+
+                </TR.INIT>
+                <TR.INIT key_id="rigaCartelleInail3" valore="" evento="START">
+                    <FILTRO_DATA key_id ="daData" valore ="lblDaDataCartelleInail#txtDaDataCartelleInail#DaDataCartelleInail#direction: false, format : 'd/m/Y'##lblDaDataCartelleInail#da_data#CARTELLE_INAIL_DA_DATA" evento="START">
+                    </FILTRO_DATA>
+                    <FILTRO_DATA key_id ="AData" valore ="lblADataCartelleInail#txtADataCartelleInail#DataADataCartelleInail#direction: false, format : 'd/m/Y'##lblADataCartelleInail#a_data#CARTELLE_INAIL_A_DATA" evento="START">
+                    </FILTRO_DATA>
+                    <TD.INIT key_id="Reset_Campi" valore="" evento="START">
+                        <BUTTON key_id="Reset_Campi" valore="lblResetCampiCartelleInail" evento="START">
+                        </BUTTON>
+                    </TD.INIT>
+                </TR.INIT>
+
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+
+
+    </TABULAZIONE.FILTRI>
+</PAGINA>

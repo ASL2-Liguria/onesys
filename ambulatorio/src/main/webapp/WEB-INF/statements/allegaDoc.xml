@@ -1,0 +1,49 @@
+<root>
+	<statements_list>
+		
+		<statement name="tagQuery">				
+			<sql>
+			<![CDATA[
+				select IDEN , DESCR from TAB_TAG_AMBU where webuser = ? and father_code = ? and upper(descr) like upper('%' || ? || '%') order by descr
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		<statement name="insertTag">				
+			<sql>
+			<![CDATA[
+				declare
+					pWebUser 	varchar2(5000) := ?;
+					pDescr		varchar2(5000) := ?;
+					pFather		varchar2(5000) := ?;
+					v_tmp number;
+				begin
+					select count(DESCR) into v_tmp from TAB_TAG_AMBU where Descr = pDescr;
+					if(v_tmp = 0) then
+						insert into TAB_TAG_AMBU (DESCR,WEBUSER, FATHER_CODE) values (pDescr,pWebUser,pFather);
+					end if;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		<statement name="getLastIdenDoc">
+			<sql>
+			<![CDATA[
+				select max(iden) iden from documenti_allegati where deleted ='S' and iden_anag = to_number(?) and web_user =?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getLastIdenDoc_whale">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>		
+			<sql>
+			<![CDATA[
+				select max(iden) iden from documenti_allegati where deleted ='S' and iden_anag = to_number(?) and web_user =?
+			]]>
+			</sql>
+		</statement>	
+	</statements_list>
+</root>

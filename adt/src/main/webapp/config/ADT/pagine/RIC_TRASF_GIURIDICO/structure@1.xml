@@ -1,0 +1,47 @@
+<PAGINA key_id="RIC_TRASF_GIURIDICO">
+    <HEADER_PAGE key_id="RIC_TRASF_GIURIDICO" valore="DEFAULT,SCHEDA,RIC_TRASF_GIURIDICO#DEFAULT,RIC_TRASF_GIURIDICO" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#TRASF_GIU#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="RIC_TRASF_GIURIDICO#lblTitolo#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabTrasferimento" valore="tabTrasferimento" evento="START">
+            	 <FIELDSET_TABLE key_id="DatiRicoveroAcc" valore="idDatiRicoveroAcc" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCartellaAcc" valore="lblCartellaAcc##txtCartellaAcc####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtDataRicoveroAcc" valore="lblDataRicoAcc##txtDataRicoveroAcc####S#w80px#N" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtOraRicoveroAcc" valore="lblOraRicoAcc##txtOraRicoveroAcc####S#w40px#N" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtRepartoAcc1" valore="lblRepartoAcc1##txtRepartoAcc1####S##N" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Degenza" valore="idDegenza" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtRepartoAttGiu" valore="lblRepartoAttGiu##txtRepartoAttGiu####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtRepartoAttAss" valore="lblRepartoAttAss##txtRepartoAttAss####S##N" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="datipaziente" valore="lbldatiPaziente" evento="START">
+                    <TR.INIT  key_id="rigaCont1" valore="" evento="START" >
+                        <TD_AUTOCOMPLETE key_id="repartoGiuridico" valore="lblRepDestinazione#acRepGiu#repartoGiuridico#repartoGiuridico#TrasferimentoRepartoGiuridico#" evento="START"></TD_AUTOCOMPLETE>
+                        <TD.INIT key_id="tdButtonRepartoAttuale" valore="" evento="START">
+                            <BUTTON key_id="butRepartoAttuale" valore="butRepartoAttuale" evento="START"></BUTTON>
+                        </TD.INIT>
+                        <TD_AUTOCOMPLETE key_id="repartoAssistenziale" valore="lblRepAss#acRepAss#repartoAssistenziale#repartoAssistenziale#TrasferimentoRepartoAssistenziale#" evento="START"></TD_AUTOCOMPLETE>
+                    </TR.INIT>
+                    <TR.INIT key_id="rigaCont2" valore="" evento="START" >>
+                        <TD_LABEL_DATA key_id="dateData" valore="lblData#maskData#dateData##startWithToday:true, readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_inizio" evento="START"></TD_LABEL_DATA>
+                    </TR.INIT>
+                    <TR.INIT key_id="rigaCont3" valore="" evento="START" >>
+                        <TD_LABEL_ORA key_id="txtOraInizio" valore="lbloraInizioRicovero##txtOraInizio#N" evento="START"></TD_LABEL_ORA>
+                    </TR.INIT>
+                    <TR.INIT  key_id="rigaCont4" valore="" evento="START" >
+                    	<TD_LABEL_RADIO key_id="radTrasfAmbulanza" valore="lblTrasfAmbulanza##radTrasfAmbulanza#radTrasfAmbulanza#{width:40}#S#SAVE" evento="START"></TD_LABEL_RADIO>
+					</TR.INIT>
+					<TR.INIT  key_id="rigaCont5" valore="" evento="START" >
+						<TD_LABEL_DATA key_id="txtDataPartenzaAmbulanza" valore="lblDataPartenzaAmbulanza#maskData#txtDataPartenzaAmbulanza##startWithToday:true, readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_inizio" evento="START"></TD_LABEL_DATA>
+						<TD_LABEL_ORA key_id="txtOraPartenzaAmbulanza" valore="lblOraPartenzaAmbulanza##txtOraPartenzaAmbulanza#N" evento="START"></TD_LABEL_ORA>
+					</TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="tableWkTrasferimenti" valore="tableWkTrasferimenti" evento="START">
+	            	<DIV key_id="divWkTrasferimenti" valore="divWkTrasferimenti" evento="START"></DIV>
+	            </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

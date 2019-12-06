@@ -1,0 +1,66 @@
+TABLE#oTable DIV.classCopia A {
+	height: 30px;
+	width: 30px;
+	background-position: top left;
+	background-image: url(../../../../imagexPix/contextMenu/ico_copia.gif);
+	background-repeat: no-repeat;
+
+}
+.classApriPrimoCiclo  {
+    background-image: url(../../../../imagexPix/button/farma_btn.png);
+    /*background-repeat: no-repeat;*/
+    height: 18px;
+    width: 18px;
+    margin-left: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.classApriCartella {
+    background-image: url(../../../../imagexPix/contextMenu/MnCntEdit.gif);
+    height: 25px;
+    width: 25px;
+    margin-left: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+TABLE#oTable TD {
+	height: auto;
+	min-width: 35px;
+}
+
+TABLE.classTabHeader TD.classTabHeaderSx,TABLE.classTabHeader TD.classTabHeaderMiddle,TABLE.classTabHeader TD.classTabHeaderDx
+	{
+	FONT-SIZE: 180;
+	BACKGROUND-IMAGE: none;
+	HEIGHT: 22px;
+	BORDER-BOTTOM-COLOR: white;
+	PADDING-TOP: 5px;
+	BORDER-TOP-COLOR: white;
+	DISPLAY: inline;
+	BACKGROUND: #95baff;
+	BORDER-RIGHT-COLOR: white;
+	FONT-FAMILY: Verdana;
+	PADDING-RIGHT: 0px;
+	BORDER-LEFT-COLOR: white;
+	PADDING-LEFT: 0px;
+	FONT: bold 12px/normal Verdana, sans-serif;
+	PADDING-BOTTOM: 0px;
+	MARGIN: auto;
+	COLOR: white;
+}
+
+body {
+	overflow-y: scroll;
+}
+
+
+
+.classApriRefertoAn {
+    background-image: url(../../../../imagexPix/contextMenu/MnCntEdit.gif);
+    height: 25px;
+    width: 25px;
+    margin-left: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+}

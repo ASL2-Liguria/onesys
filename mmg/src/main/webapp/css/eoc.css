@@ -1,0 +1,123 @@
+/*
+    INSERT INTO "CONFIG_WEB"."INCLUDE_FILES" (ORIGINE, LINGUA, PATH_FILE, ORDINE, ATTIVO, SITO, VERSIONE, TIPO) VALUES ('DEFAULT', 'IT', 'css/eoc.css', '666', 'S', 'ALL', '1', 'CSS');
+    UPDATE "SDJ"."HTML_STRUTTURA" SET ATTIVO = 'N' where iden in (4645,4644);
+
+
+body#page{background:rgba(0,22,44, 0.9)!important;padding:10px!important;}
+div.headerTabs{border:none!important;background-color:#e6f0fa!important;color:#039!important;}
+div.contentTabs, .contentDiv{border:none!important;}
+div.footerTabs{border:none!important;color:#039!important;background-color:#e6f0fa!important;}
+fieldset.fldCampi legend{color:#039!important}
+.exchangeList .excHeader p{color:#039!important}
+.searchContainer span{color:#039!important}
+button{color:#039!important;font-weight:bold!important;background:#e6f0fa!important;border:none!important;width:auto!important;text-shadow:none!important;filter:none!important;border:2px solid blue !important }
+button:hover{background:#e6f0fa;!important}button:active{background:#99ccff;!important}
+button:focus{border-color:blue!important}
+.tdLbl,.tdACList span, .tdLabelTags span{color:#039!important}
+ul.ulTabs li,.filtriButtons{background:#fff!important;border:#039!important;color:#039!important;filter:none!important;}
+ul.ulTabs li.tabActive{background:#e6f0fa!important;border:none!important;color:#039!important}
+
+#fldMetodica{border:0!important;background:none!important;}
+.listFrom option:nth-child(2n+0){background:#e6f0fa!important}
+
+.CBpuls{margin:3px 4px 1px 0!important}
+.CBcolorDefault{background:#e6f0fa!important;border:none!important}
+.CBcolorDefault>span{color:#039!important}
+.CBcolorDefault.CBpulsSel{background:#9cf!important;filter:none!important;border:#039!important;color:#039!important}
+.CBcolorDefault.CBpulsSel > span{color:#fff!important;}
+
+.RBpuls{background:#e6f0fa!important;border:none!important}
+.RBpulsSel{background:#9cf!important;filter:none!important;border:#039!important;color:#039!important}
+
+.hSx,.hDx,.hC{background:#e6f0fa!important;border:none!important;color:#039!important}
+
+
+div.clsWk div.clsWkLdg{background: url(../img/loading.gif) no-repeat center rgba(0,22,44, 0.9) !important;}
+div.clsWk div.clsWkHdFix{background:#e6f0fa!important;border:#039!important;filter:none!important;}
+div.clsWk div.clsWkHdFix table thead tr th{color:#039!important;border-left:1px dotted #999;filter:none!important;}
+div.clsWk div.clsWkFt{background:#e6f0fa!important;border:#039!important;color:#039!important;}
+div.clsWk{border:none!important}
+div.clsWk a {color:#039!important}
+div.clsWk div.clsWkScroll table tr.clsSel td {background: #ddfad2 !important;}
+div.clsWk div.clsWkScroll table tr.clsDetail > td {background: #ddfad2 !important;}
+div.clsWk td > div{color:#039;}
+
+div.clsWk div.clsWkScroll table tr td {
+    border-left: 1px solid #999;
+    border-bottom: 1px solid #999;
+}
+
+div.clsWk div.clsWkFt div.clsWkFtBT div.clsWkFtPrev
+{
+    background: url(../img/arrow-left-mini_2.png)!important;
+}
+
+
+div.clsWk div.clsWkFt div.clsWkFtBT div.clsWkFtNext
+{
+    background: url(../img/arrow-rigth-mini_2.png)!important;
+}
+
+button.Zebra_DatePicker_Icon_Inside {
+    margin: 4px !important;
+    float: left !important;
+    margin-left: -25px !important;
+}
+button.Zebra_DatePicker_Icon {
+    filter: none !important;
+    width: 16px !important;
+    height: 16px !important;
+    background: url('../img/datepicker/calendar.png') no-repeat left top !important;
+    text-indent: -9000px !important;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+}
+
+
+#SchedaEsame #li-tabInfoGenerali,#SchedaEsame #li-tabOperatori,#SchedaEsame #li-tabDatiLaboratorio,#SchedaEsame #li-tabDatiPrincipali {
+    display: none !important;
+}
+#SchedaEsame #tabDatiPrincipali,#SchedaEsame #tabOperatori,#SchedaEsame #tabInfoGenerali,#SchedaEsame #tabDatiLaboratorio{
+    display: block !important;
+}
+#fldDatiGenerali{
+    width: 100%!important;
+}
+
+
+table.tabLabo tr th{
+    background:#e6f0fa!important;
+}
+
+table.tabLabo tr td{
+    color:#039!important;
+}
+
+
+#radFilterType{
+      display:none;
+}
+
+.exchangeList div.buttons {
+    width: 350px !important;
+}
+#ComboIn{
+    height: 250px;
+}
+#tabInfoRefDett #li-tabCodiciEsterni ,#tabInfoRefDett #li-tabOperatori  {
+display: none !important;
+}
+.rMeto{
+    background: #039!important;
+}
+.rDescr
+{
+   background: #e6f0fa!important;
+}
+#hCDC
+{
+    background: #e6f0fa!important;
+}
+ */

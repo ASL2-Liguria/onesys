@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+	<ROW>
+
+		<tabConfigurazioneUtenti>Utente</tabConfigurazioneUtenti>
+		<tabLista>Lista Utenti</tabLista>
+		
+		<lblTitolo>Pagina di configurazione dell'utente</lblTitolo>
+		<lblUsername>Username</lblUsername>
+		<lblPassword>Password</lblPassword>
+		<lblMostraPassword>Mostra Password</lblMostraPassword>
+		<lblDematerializzataFarmaci>Dematerializzata Farmaci</lblDematerializzataFarmaci>
+		<lblDematerializzataPrestazioni>Dematerializzata Prestazioni</lblDematerializzataPrestazioni>
+		<lblTipologiaUtente>Tipologia</lblTipologiaUtente>
+		<lblPersonale>Personale</lblPersonale>
+		<lblAmministratore>Utente amministratore</lblAmministratore>
+		<lblRicerca>Ricerca Utente</lblRicerca>
+		
+		<lblConfirmCancella>Si vuole procedere con la disattivazione dell'utente </lblConfirmCancella>
+		
+		<fldRicercaUtente>Ricerca</fldRicercaUtente>
+		<fldLista>Lista</fldLista>
+		<fldUtente>Utente</fldUtente>
+		<fldAttributiUtente>Attributi</fldAttributiUtente>
+		<fldTipologiaUtente>Tipologia Utente</fldTipologiaUtente>
+		<fldGruppi>Gruppi utente</fldGruppi>
+		
+		<butResetPwd>Reset Pwd</butResetPwd>
+		<butCerca>Cerca</butCerca>
+		<butInserisci>Inserisci Utente</butInserisci>
+				
+	</ROW>
+</ROWSET>

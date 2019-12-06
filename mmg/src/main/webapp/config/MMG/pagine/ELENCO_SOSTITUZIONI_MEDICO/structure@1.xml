@@ -1,0 +1,19 @@
+<PAGINA key_id="ELENCO_SOSTITUZIONI_MEDICO">
+	<HEADER_PAGE key_id="ELENCO_SOSTITUZIONI_MEDICO"
+		valore="DEFAULT_MMG,SCHEDA,ELENCO_SOSTITUZIONI_MEDICO#DEFAULT_MMG,ELENCO_SOSTITUZIONI_MEDICO"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_SAVA_DATA#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabMain"
+			valore="tabMain#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabElenco" valore="tabElenco" evento="START">
+				<FIELDSET key_id="fldElenco" valore="fldElenco" evento="START">
+					<DIV key_id="divWk" valore="divWk" evento="START">
+					</DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

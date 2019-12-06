@@ -1,0 +1,363 @@
+.bianco{
+	background-color:'white';
+}
+
+.verde{
+	background-color:'green';
+}
+
+.giallo{
+	background-color: 'yellow';
+}
+
+.rosso{
+	background-color: '#FF0000';/*red*/
+}
+
+.light_yellow{
+	background-color: #FFFFF0;
+}
+
+
+
+/* ****************** MEDICINA NUCLEARE **************************** */
+.preparato{
+	background-color:#FFFFA8;
+}
+.somministrato{
+	background-color:#FF8080;
+}
+
+
+/* ****************** SCREENING **************************** */
+.screening_no{
+	background-color:#FFFFCC;
+}
+
+.screening_tecnico{
+	background-color:#DFF0FD;
+}
+
+.screening_primo_radiologo{
+	/*background-color:#9AC6FC;*/
+	background-color:'yellow';
+}
+
+.screening_non_negativo{
+	/*background-color:#50A4F8;*/
+	background-color:'red';
+}
+
+.screening_approfondimenti{
+	background-color:#0C84E7;
+}
+
+.screening_negativo{
+	/*background-color:#0743B1;*/
+	background-color:'green';
+}
+
+.screening_discordante{
+	background-color:#FF0000;
+}
+
+
+/* ************* diagnosi incomplete ******************* */
+
+SPAN.icoCompDiagnosiCompilata{
+	background-image:url(../../imagexPix/button/compDiagnOK.png);
+	display:block;
+	width:32px;
+	height:32px;
+}
+
+SPAN.icoCompDiagnosiNonCompilata{
+	background-image:url(../../imagexPix/button/compDiagnKO.png);
+	display:block;
+	width:32px;
+	height:32px;
+}
+
+TD.diagnCompilata{
+	background-color:#00FF00;
+}
+
+.placeHolderCompDiagnosi{
+	background-color:#FF3333;
+	cursor:pointer;
+}
+
+SPAN.placeHolderCreaLettera{
+	background-image:url(../../imagexPix/contextMenu/iconaLettera.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;
+}
+
+SPAN.placeHolderVersPrec{
+	background-image:url(../../imagexPix/contextMenu/buttonRepository.gif);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;
+}
+
+/* ************* classi cicliche ******************* */
+
+SPAN.ciclica{
+	background:#CFFEA0;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+SPAN.fineCiclica{
+	background:#FFA87D;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:10px; 
+	padding-bottom:10px;
+}
+
+
+SPAN.ultimoEsaCiclico{
+	background-image:url(../../imagexPix/contextMenu/lastEsaCiclo_anim.gif);
+	display:inline-block;
+	width:6px;
+	height:23px;	
+	margin-left:2px;
+}
+
+/* ******** classi per cardiologia */
+
+SPAN.cardioEsaLungo{
+	background-image:url(../../imagexPix/contextMenu/orologio2.png);
+	display:inline-block;
+	width:23px;
+	height:23px;	
+	margin-left:2px;
+	margin-top:2px;
+}
+
+SPAN.prenCancellata{
+	background-image:url(../../imagexPix/contextMenu/prenCancellata.png);
+	display:block;
+	width:32px;
+	height:32px;	
+}
+
+/* classi per privacy */
+
+
+SPAN.pcyPaz_assente{
+	background-image:url(../../imagexPix/contextMenu/pcyPaz_assente.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;
+}
+SPAN.pcyPaz_ok{
+	background-image:url(../../imagexPix/contextMenu/pcyPaz_OK.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;	
+}
+
+SPAN.pcyPaz_ko{
+	background-image:url(../../imagexPix/contextMenu/pcyPaz_KO.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;	
+}
+
+
+SPAN.pcyEsa_assente{
+	background-image:url(../../imagexPix/contextMenu/pcyEsa_assente.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;	
+}
+SPAN.pcyEsa_ok{
+	background-image:url(../../imagexPix/contextMenu/pcyEsa_OK.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;	
+}
+
+SPAN.pcyEsa_ko{
+	background-image:url(../../imagexPix/contextMenu/pcyEsa_KO.png);
+	display:block;
+	width:32px;
+	height:32px;
+	cursor:pointer;	
+}
+
+/* ***************************************** */
+SPAN.pcyPok_Eko{
+	background-image:url(../../imagexPix/contextMenu/pcyPok_Eko.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+SPAN.pcyPok_Eok{
+	background-image:url(../../imagexPix/contextMenu/pcyPok_Eok.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+
+SPAN.pcyPko_Eok{
+	background-image:url(../../imagexPix/contextMenu/pcyPko_Eok.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+SPAN.pcyPok_Eko{
+	background-image:url(../../imagexPix/contextMenu/pcyPok_Eko.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+SPAN.pcyPok_Enull{
+	background-image:url(../../imagexPix/contextMenu/pcyPok_Enull.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+
+SPAN.pcyPko_Enull{
+	background-image:url(../../imagexPix/contextMenu/pcyPko_Enull.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+SPAN.pcyPnull_Eok{
+	background-image:url(../../imagexPix/contextMenu/pcyPnull_Eok.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+SPAN.pcyPnull_Eko{
+	background-image:url(../../imagexPix/contextMenu/pcyPnull_Eko.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+
+SPAN.pcyPnull_Enull{
+	background-image:url(../../imagexPix/contextMenu/pcyPnull_Enull.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+
+SPAN.pcyPko_Eko{
+	background-image:url(../../imagexPix/contextMenu/pcyPko_Eko.png);
+	display:block;
+	width:64px;
+	height:32px;	
+}
+
+
+/* ********************************* */
+/* *** classe certificato SOLE ********* */
+/* ********************************* */
+DIV.certNoFerrara{background-color: yellow !important;}
+DIV.certGeneric{background-color: green !important;}
+
+
+
+LABEL.lblNewRefStd{
+	display:block;
+	font-weight:bold;
+}
+textarea.txtAreaRefStd{border: 1px solid #09F;    width: 95%;}
+
+/* ********************************* */
+/* *** stampa foglio prospetto ***** */
+/* ********************************* */
+SPAN.stampaProspetto{
+background-image:url(../../imagexPix/contextMenu/btFoglioProspetto2.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;
+}
+
+/* ********************************* */
+/* *** medicina di iniziativa   **** */
+/* ********************************* */
+SPAN.anagIniziativa{
+	background-image:url(../../imagexPix/contextMenu/btMedIniz.png);
+	display:inline-block;
+	width:25px;
+	height:25px;	
+	margin-left:2px;
+}
+
+SPAN.anagIniziativaNewMsg{
+	background-image:url(../../imagexPix/contextMenu/btMedInizNewMsg.png);
+	display:inline-block;
+	width:25px;
+	height:25px;	
+	margin-left:2px;
+}
+
+/* ********************************* */
+/* *** ricetta dema e non   	**** */
+/* ********************************* */
+SPAN.demaGenerata{
+	background-image:url(../../imagexPix/contextMenu/ricettaDema.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;	
+}
+
+SPAN.rrGenerata_daConfermare{
+	background-image:url(../../imagexPix/contextMenu/ricettaInConferma.png);
+	display:block;
+	width:32px;
+	height:32px;	
+	cursor:pointer;
+}
+
+/* ********************************* */
+/* *** Anonimato **** */
+/* ********************************* */
+SPAN.pazAnonimo{
+	background-image:url(../../imagexPix/contextMenu/btAnonym.png);
+	display:inline-block;
+	width:25px;
+	height:25px;	
+	margin-left:2px;
+}
+/* ********************************* */
+/* *** morto **** */
+/* ********************************* */
+SPAN.pazMorto{
+	background-image:url(../../imagexPix/contextMenu/btDead.png);
+	display:inline-block;
+	width:25px;
+	height:25px;	
+	margin-left:2px;
+	cursor:default;
+}
+
+/* ************************* */
+/* *** diagnosi inserita **** */
+SPAN.diagnosiICD9{
+	background-image:url(../../imagexPix/contextMenu/icd9_25p.png);
+	display:inline-block;
+	width:25px;
+	height:25px;	
+	margin-left:2px;
+	cursor:default;
+}
+/* ********************************* */

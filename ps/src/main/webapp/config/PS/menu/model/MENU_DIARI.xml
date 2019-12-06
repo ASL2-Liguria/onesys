@@ -1,0 +1,68 @@
+<MENU>
+    <ID>MENU_DIARI</ID>
+    <TITLE>traduzione.Menu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISCI_DIARI</ID>
+            <LINK><![CDATA[
+                    function(rec){home.NS_FENIX_TOP.apriPagina({
+                        url:'page?KEY_LEGAME=INS_DIARI&STATO=I'+
+                        '&IDEN_CONTATTO=' + rec[0].IDEN_CONTATTO + '&IDEN_PROVENIENZA=' + rec[0].IDEN_PROVENIENZA , fullscreen:true, id:'insDiario'});
+                        }
+                    ]]></LINK>
+            <URL_IMAGE>img/CMenu/apri_datawharehouse.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return top.name == 'schedaRicovero'}]]></WHERE>
+            <OUTPUT>traduzione.lblInserisci</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Inserisci Diari Whale"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_DIARI_WHALE</ID>
+            <LINK><![CDATA[
+                 function(rec){home.NS_FENIX_TOP.apriPagina({
+                            url:'page?KEY_LEGAME=INS_DIARI&STATO=E'+
+                            '&IDEN_CONTATTO=' + rec[0].IDEN_CONTATTO + '&IDEN_PROVENIENZA=' + rec[0].IDEN_PROVENIENZA + '&IDEN_DIARIO=' +rec[0].IDEN + "&IDEN_PER=" + $("#IDEN_PER").val(), fullscreen:true, id:'insDiario'
+                            });
+                        }
+                ]]></LINK>
+            <URL_IMAGE>img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return top.name == 'schedaRicovero'}]]></WHERE>
+            <OUTPUT>traduzione.lblModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Modifica Diari Whale"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_DIARI</ID>
+            <LINK><![CDATA[function(rec){home.PANEL.NS_REFERTO.apriModificaDiari(rec[0].IDEN);}]]></LINK>
+            <URL_IMAGE>img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+            if(top.name != 'schedaRicovero' && $("#READONLY").val()!=='S' && home.baseUser.TIPO_PERSONALE === "M" && rec[0].IDEN_UTE_INS == home.baseUser.IDEN_PER){
+                return true;
+            }else{
+                return false;
+            }}]]></WHERE>
+            <OUTPUT>traduzione.lblModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Modifica Diari"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>DELETE_DIARI</ID>
+            <LINK><![CDATA[function(rec){NS_DIARI.eliminaDiario(rec[0].IDEN)}]]></LINK>
+            <URL_IMAGE>img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+                if($("#READONLY").val()!=='S' && home.baseUser.TIPO_PERSONALE === "M" && rec[0].IDEN_UTE_INS == home.baseUser.IDEN_PER){
+                    return true;
+                }
+                else{
+                    return false;
+            }}]]></WHERE>
+            <OUTPUT>traduzione.lblElimina</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Cancella Diari"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

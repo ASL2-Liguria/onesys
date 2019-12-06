@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>FARMACI</ID>
+    <ID-QUERY connection="WHALE">CCE.WK_FARMACI</ID-QUERY>
+    <TITLE>"Worklist Farmaci"</TITLE>
+    <PAGER>S</PAGER>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+                <DBLCLICK><![CDATA[function(rec){NS_TERAPIA.addComboList(rec)}]]></DBLCLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN</COL>
+                        <DB>IDEN</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>80px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>N</MOVEABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+
+                <COLUMN>
+                    <ID>
+                        <COL>ADDFARMACO</COL>
+                    </ID>
+                    <DESCRIPTOR></DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){return NS_TERAPIA.addFarmaco(data);}]]></PROCESS>
+                    <WIDTH>40px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE</COL>
+                        <DB>CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>"CODICE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCRIZIONE</COL>
+                        <DB>DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DESCRIZIONE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>230px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PRINCIPIO_ATTIVO</COL>
+                        <DB>PRINCIPIO_ATTIVO</DB>
+                    </ID>
+                    <DESCRIPTOR>"PRINCIPIO ATTIVO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN id="DESCRIZIONE">ASC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

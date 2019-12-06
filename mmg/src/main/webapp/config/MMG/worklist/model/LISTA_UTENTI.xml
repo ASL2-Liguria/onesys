@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>LISTA_UTENTI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.LISTA_UTENTI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+	
+		<MENU>
+			<ID>MENU_LISTA_UTENTI</ID>
+		</MENU>
+		
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+                <DBLCLICK>function(rec){NS_LISTA_UTENTI.apri(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){NS_LISTA_UTENTI.apri(rec);}</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>INFO</COL>
+						<DB>INFO</DB>
+					</ID>
+					<DESCRIPTOR>" "</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setListaUtenti( data ); }]]></PROCESS> 			
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>USERNAME</COL>
+						<DB>USERNAME</DB>
+					</ID>
+					<DESCRIPTOR>"Utente"</DESCRIPTOR>           				
+					<WIDTH>350px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PERSONALE</COL>
+						<DB>PERSONALE</DB>
+					</ID>
+					<DESCRIPTOR>"Personale"</DESCRIPTOR>           				
+					<WIDTH>350px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>AMMINISTRATORE</COL>
+						<DB>AMMINISTRATORE</DB>
+					</ID>
+					<DESCRIPTOR>"Amministratore"</DESCRIPTOR>           				
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="USERNAME">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

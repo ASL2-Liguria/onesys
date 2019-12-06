@@ -1,0 +1,46 @@
+<PAGINA key_id="CRONOLOGIA_ACCESSI_ESTERNA">
+	
+	<HEADER_PAGE key_id="CRONOLOGIA_ACCESSI_ESTERNA" valore="DEFAULT_MMG,SCHEDA,CRONOLOGIA_ACCESSI_ESTERNA#DEFAULT_MMG,CRONOLOGIA_ACCESSI_ESTERNA" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="CronologiaAccessi#lblTitolo#butStampa,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabCronologiaAccessi" valore="tabCronologiaAccessi" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldFiltri" valore="fldFiltri" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale##txtCodiceFiscale" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_DATA key_id="DaDataAccesso" valore="lblDaDataAccesso##txtDaDataAccesso#DaDataAccesso#startWithToday:true, format: 'd/m/Y'" evento="START">
+					</TR_TD_LABEL_DATA>
+						
+					<TR_TD_LABEL_DATA key_id="ADataAccesso" valore="lblADataAccesso##txtADataAccesso#ADataAccesso#startWithToday:true, format: 'd/m/Y'" evento="START">
+					</TR_TD_LABEL_DATA>	
+						
+					<TR.INIT key_id="tr1" valore="tr1" evento="START">
+					
+						<TD_BUTTON key_id="butApplica" valore="butApplica##2" evento="START"></TD_BUTTON>
+					
+					</TR.INIT>	
+						
+				</FIELDSET_TABLE>
+				
+				<DIV key_id="divWk" valore="divWk" evento="START">
+				</DIV>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>

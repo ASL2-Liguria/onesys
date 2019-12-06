@@ -1,0 +1,143 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_INCIDENTE_INTRAOSPEDALIERO_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_INCIDENTE_INTRAOSPEDALIERO_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+    <!-- Caricamento Dati -->
+
+    <DATO key_id="DataEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_EVENTO" db_descrizione="DATA_EVENTO"/>
+
+    <DATO key_id="txtOraEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_EVENTO" db_descrizione="ORA_EVENTO"/>
+
+    <DATO key_id="txtTurno" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TURNO" db_descrizione="TURNO"/>
+
+    <DATO key_id="txtNomeCompilatore" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOME" db_descrizione="NOME"/>
+
+    <DATO key_id="txtCognomeCompilatore" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COGNOME" db_descrizione="COGNOME"/>
+
+    <DATO key_id="txtLuogoAltro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LUOGO_ALTRO" db_descrizione="LUOGO_ALTRO"/>
+
+    <DATO key_id="txtModalitaAltro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MODALITA_ALTRO" db_descrizione="MODALITA_ALTRO"/>
+
+    <DATO key_id="txtMotivoAltro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MOTIVO_ALTRO" db_descrizione="MOTIVO_ALTRO"/>
+
+    <DATO key_id="taFacente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FACENTE" db_descrizione="FACENTE"/>
+
+    <DATO key_id="txtAltroCalzatura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CALZATURA_ALTRO" db_descrizione="CALZATURA_ALTRO"/>
+
+    <DATO key_id="DataCompilazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_COMPILAZIONE" db_descrizione="DATA_COMPILAZIONE"/>
+
+    <DATO key_id="txtSedeEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SEDE_EVENTO" db_descrizione="SEDE_EVENTO"/>
+
+    <DATO key_id="txtPresenzaAltro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PRESENZA_ALTRO" db_descrizione="PRESENZA_ALTRO"/>
+
+    <DATO key_id="taBreveDescrEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="BREVE_DESCR_EVENTO" db_descrizione="BREVE_DESCR_EVENTO"/>
+    <DATO key_id="txtTipoLesione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TIPO_LESIONE" db_descrizione="TIPO_LESIONE"/>
+    <DATO key_id="txtSedeLesione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SEDE_LESIONE" db_descrizione="SEDE_LESIONE"/>
+    <DATO key_id="txtAccRX" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACCERTAMENTO_RX" db_descrizione="ACCERTAMENTO_RX"/>
+    <DATO key_id="txtAccTAC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACCERTAMENTO_TAC" db_descrizione="ACCERTAMENTO_TAC"/>
+    <DATO key_id="txtAccAltro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACCERTAMENTO_ALTRO" db_descrizione="ACCERTAMENTO_ALTRO"/>
+    <DATO key_id="txtPrognosiGiorniPrima" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIORNI_PROGNOSI_PRIMA" db_descrizione="GIORNI_PROGNOSI_PRIMA"/>
+
+    <DATO key_id="txtRefertiRX" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REFERTI_RX" db_descrizione="REFERTI_RX"/>
+    <DATO key_id="txtRefertiTAC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REFERTI_TAC" db_descrizione="REFERTI_TAC"/>
+    <DATO key_id="txtRefertiAltro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REFERTI_ALTRO" db_descrizione="REFERTI_ALTRO"/>
+    <DATO key_id="txtPrognosiGiorniDopo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIORNI_PROGNOSI_DOPO" db_descrizione="GIORNI_PROGNOSI_DOPO"/>
+
+    <!-- Query multidata -->
+    <DATO key_id="radLuogoEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''INCIDENTE_INTRAOSPEDALIERO_EVENTO'''; end;" />
+
+    <DATO key_id="radPresenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''INCIDENTE_INTRAOSPEDALIERO_PRESENTE'''; end;" />
+
+    <DATO key_id="radModalita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''INCIDENTE_INTRAOSPEDALIERO_MODALITA'''; end;" />
+
+    <DATO key_id="radMotivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''INCIDENTE_INTRAOSPEDALIERO_MOTIVO'''; end;" />
+
+    <DATO key_id="radCalzatura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''INCIDENTE_INTRAOSPEDALIERO_CALZATURA'''; end;" />
+
+
+    <DATO key_id="chkTerapieInAtto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''INCIDENTE_INTRAOSPEDALIERO_TERAPIE'''; end;" />
+
+
+    <DATO key_id="h-radLuogoEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LUOGO_EVENTO" db_descrizione="LUOGO_EVENTO"/>
+
+    <DATO key_id="h-radPresenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PRESENZA" db_descrizione="PRESENZA"/>
+
+    <DATO key_id="h-radModalita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MODALITA" db_descrizione="MODALITA"/>
+
+    <DATO key_id="h-radMotivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MOTIVO" db_descrizione="MOTIVO"/>
+
+    <DATO key_id="h-radCalzatura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CALZATURA" db_descrizione="CALZATURA"/>
+
+    <DATO key_id="h-chkTerapieInAtto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TERAPIE_IN_ATTO" db_descrizione="TERAPIE_IN_ATTO"/>
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+</DATI>

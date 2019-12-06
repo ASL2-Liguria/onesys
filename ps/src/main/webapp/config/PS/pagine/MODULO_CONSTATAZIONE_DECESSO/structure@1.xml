@@ -1,0 +1,43 @@
+<PAGINA key_id="MODULO_CONSTATAZIONE_DECESSO">
+    <HEADER_PAGE key_id="MODULO_CONSTATAZIONE_DECESSO" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,MODULO_CONSTATAZIONE_DECESSO#DEFAULT,PS_MODULO_CONSTATAZIONE_DECESSO" evento="START_END">
+    </HEADER_PAGE>
+        <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+            <TABULAZIONE.INIT key_id="MODULO_CONSTATAZIONE_DECESSO" valore="MODULO_CONSTATAZIONE_DECESSO#lblTitolo#butSalva,butFirma,butChiudi" evento="START">
+
+                <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hIDEN" valore="hIDEN" evento="START">
+                </INPUT.HIDDEN>
+
+                <FIELDSET_TABLE key_id="fldDichiarazioneMorte" valore="fldDichiarazioneMorte" evento="START">
+                    <TR_TD_LABEL_TEXTAREA key_id="taCausaDecesso" valore="lblCausaDecesso#taCausaDecesso#CAUSA_DECESSO#N#N#3" evento="START">
+                    </TR_TD_LABEL_TEXTAREA>
+                </FIELDSET_TABLE>
+
+                <!--
+                <FIELDSET_TABLE key_id="fldCertificatoNecroscopico" valore="fldCertificatoNecroscopico" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="txtMedico" valore="lblMedico#txtMedico#txtMedico#N#N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="txtDataNecroscopo" valore="lblDataNecroscopo##txtDataNecroscopo#DataNecroscopo#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_NECROSCOPO" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_ORA key_id="txtOraNecroscopo" valore="lblOraNecroscopo##txtOraNecroscopo##N" evento="START">
+                    </TR_TD_LABEL_ORA>
+                    <TR_TD_LABEL_DATA key_id="txtDataCompilazione" valore="lblDataCompilazione##txtDataCompilazione#DataCompilazione#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo#DATA_COMPILAZIONE" evento="START">
+                    </TR_TD_LABEL_DATA>
+                </FIELDSET_TABLE>
+
+                <FIELDSET_TABLE key_id="fldCertificatoNecroscopico24" valore="fldCertificatoNecroscopico24" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="txtMedico24" valore="lblMedico24#txtMedico24#txtMedico24#N#N#3" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_ORA key_id="txtOraNecroscopo24" valore="lblOraNecroscopo24##txtOraNecroscopo24##" evento="START">
+                    </TR_TD_LABEL_ORA>
+                    <TR_TD_LABEL_DATA key_id="txtDataCompilazione24" valore="lblDataNecroscopo24##txtDataNecroscopo24#DataNecroscopo24#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo24#DATA_NECROSCOPO_24" evento="START">
+                    </TR_TD_LABEL_DATA>
+                </FIELDSET_TABLE>
+
+                -->
+            </TABULAZIONE.INIT>
+        </FORM>
+</PAGINA>

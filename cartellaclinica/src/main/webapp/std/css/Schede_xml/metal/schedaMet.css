@@ -1,0 +1,38 @@
+@charset "iso-8859-1";
+/* CSS Document */
+
+#lblAggiungi, #lblRimuovi {
+	white-space: nowrap;
+}
+
+#inValMedico, #inValInf {
+	text-transform: uppercase;
+}
+
+#hRepartoAppoggioDescr {
+	width: 100%;
+}
+
+div#divMotivo td {
+	white-space: normal;
+}
+
+div#divMotivo td p {
+	margin-top: 0.6em;
+	margin-bottom: 0em;
+	padding-left: 0.6em;
+}
+
+table.classDataEntryTable td {
+	vertical-align: top;
+}
+
+.btPlus {
+	background: url(../../../../imagexPix/button/mini/btPlusSquareGreen.png) no-repeat center;
+	cursor: pointer;
+}
+
+.btMinus {
+	background: url(../../../../imagexPix/button/mini/btMinusSquareGreen.png) no-repeat center;
+	cursor: pointer;
+}

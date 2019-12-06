@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TEST_EXT">
+        <OBJ classe_id="PATH::div{.extTest}">
+            <PROC id="printBanane"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

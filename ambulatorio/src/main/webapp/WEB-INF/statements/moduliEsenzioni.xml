@@ -1,0 +1,260 @@
+<root>
+	<statements_list>
+		<statement name="getICD9byIden">
+			<sql>
+			<![CDATA[
+					SELECT iden, codice cod_dec, descrizione, categoria FROM cc_icd  where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getDiagnosiICD9ByDescr">
+			<sql>
+			<![CDATA[
+					  SELECT iden, codice cod_dec, descrizione, categoria FROM cc_icd  WHERE tipo ='DIAGNOSI'  AND CATEGORIA='ICD9'  AND attivo   ='S' and descrizione Like Upper(? || '%')
+			]]>
+			</sql>
+			<schema>RADSQL</schema>			
+		</statement>	
+		
+		<statement name="getDiagnosiICD9ByCod">
+			<sql>
+			<![CDATA[
+					  SELECT iden, codice cod_dec, descrizione, categoria FROM cc_icd  WHERE tipo ='DIAGNOSI'  AND CATEGORIA='ICD9'  AND attivo   ='S' and codice Like Upper(? || '%')
+			]]>
+			</sql>
+			<schema>RADSQL</schema>			
+		</statement>		
+		
+		<statement name="getInfoPaz">
+			<sql>
+			<![CDATA[
+					  SELECT * from VIEW_DETTAGLIO_ANAG where IDEN = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>			
+		</statement>
+		
+		<statement name="getInfoPazOLD">
+			<sql>
+			<![CDATA[
+				select A.IDEN,
+					A.COGN,
+					A.NOME,
+					A.SESSO,
+					SUBSTR(A.DATA, 7, 2)
+					||'/'
+					||SUBSTR(A.DATA, 5, 2)
+					||'/'
+					||SUBSTR(A.DATA, 1, 4) AS DATA_NASCITA,
+					A.COD_FISC,
+				
+					A.IDEN_NAZIONE,
+					A.COD_NAZIONE,
+					A.IDEN_NASC,
+					A.COM_NASC,
+					CN.COD_COM,
+					CN.COMUNE AS COMUNE_NASC,
+					A.IDEN_RES,
+					A.COM_RES,
+					CR.COMUNE AS COMUNE_RES,
+					A.IDEN_DOM,
+					A.DOM_COMUNE,
+					CD.COMUNE AS COMUNE_DOM,
+					A.ID_PAZ_DICOM,
+					A.DATA,
+					A.TESSERA_SANITARIA,
+					A.INDIR,
+					A.NUM_CIVICO,
+					A.CAP,
+					A.TEL,
+					A.CELL,
+					A.PROV,
+					A.CUSL,
+					A.CREG,
+					CASE
+					  WHEN A.DATA_MORTE IS NOT NULL
+					  THEN SUBSTR(A.DATA_MORTE, 7, 2)
+						||'/'
+						||SUBSTR(A.DATA_MORTE, 5, 2)
+						||'/'
+						||SUBSTR(A.DATA_MORTE, 1, 4)
+					  ELSE A.DATA_MORTE
+					END AS DATA_MORTE,
+					A.DOM_CAP,
+					A.DOM_PROV,
+					A.DOM_INDIR,
+					A.DOM_PRESSO,
+					A.DOM_CIVICO,
+					A.DOM_TEL,
+					A.EMAIL,
+					A.IDEN_MED_BASE,
+					CASE
+					  WHEN A.DATA_SCAD_TESSERA IS NOT NULL
+					  THEN SUBSTR(A.DATA_SCAD_TESSERA, 7, 2)
+						||'/'
+						||SUBSTR(A.DATA_SCAD_TESSERA, 5, 2)
+						||'/'
+						||SUBSTR(A.DATA_SCAD_TESSERA, 1, 4)
+					  ELSE A.DATA_SCAD_TESSERA
+					END AS DATA_SCAD_TESSERA,
+					A.DOM_CUSL,
+					A.DOM_CREG,
+					A.PESO,
+					A.ALTEZZA,
+					A.ANAMNESI,
+					A.NOTE,
+					A.ID_CARD_UTE,
+					A.ID_CARD,
+					ID_STRU_EMANANTE,
+					IDEN_BENEFICIARIO,
+					A.MDC,
+					A.Trat_Dati_Data,
+					A.Madrelingua,
+					CASE
+					  WHEN (A.COM_RES  IS NOT NULL
+					  AND A.DOM_COMUNE IS NULL)
+					  THEN A.INDIR
+						|| ' , '
+						|| A.NUM_CIVICO
+						|| ' - '
+						|| A.CAP
+						|| ' '
+						|| CR.COMUNE
+						|| ' ('
+						|| A.PROV
+						||')'
+					  WHEN (A.COM_RES  IS NULL
+					  AND A.DOM_COMUNE IS NOT NULL)
+					  THEN A.DOM_INDIR
+						|| ' , '
+						|| A.DOM_CIVICO
+						|| ' - '
+						|| A.DOM_CAP
+						|| ' '
+						|| CD.COMUNE
+						|| ' ('
+						|| A.DOM_PROV
+						||')'
+					  WHEN (A.COM_RES  = A.DOM_COMUNE
+					  AND A.INDIR      = A.DOM_INDIR
+					  AND A.NUM_CIVICO = A.DOM_CIVICO)
+					  THEN A.INDIR
+						|| ' , '
+						|| A.NUM_CIVICO
+						|| ' - '
+						|| A.CAP
+						|| ' '
+						|| CR.COMUNE
+						|| ' ('
+						|| A.PROV
+						||')'
+					  WHEN (A.COM_RES  <> A.DOM_COMUNE
+					  AND A.INDIR      <> A.DOM_INDIR
+					  AND A.NUM_CIVICO <> A.DOM_CIVICO)
+					  THEN 'Residenza: '
+						|| A.INDIR
+						|| ' , '
+						|| A.NUM_CIVICO
+						|| ' - '
+						|| A.CAP
+						|| ' '
+						|| CR.COMUNE
+						|| ' ('
+						|| A.PROV
+						||')'
+						|| '<BR/>Domicilio: '
+						|| A.DOM_INDIR
+						|| ' , '
+						|| A.DOM_CIVICO
+						|| ' - '
+						|| A.DOM_CAP
+						|| ' '
+						|| CD.COMUNE
+						|| ' ('
+						|| A.DOM_PROV
+						||')'
+					  ELSE A.DOM_INDIR
+						|| ' , '
+						|| A.DOM_CIVICO
+						|| ' - '
+						|| A.DOM_CAP
+						|| ' '
+						|| CD.COMUNE
+						|| ' ('
+						|| A.DOM_PROV
+						||')'
+					END INDIRIZZO_PAZIENTE,
+					CASE
+					  WHEN (A.COM_RES  IS NOT NULL
+					  AND A.DOM_COMUNE IS NULL)
+					  THEN 'Tel.'
+						|| A.TEL
+						|| ' , Cell:'
+						|| A.CELL
+					  WHEN (A.COM_RES  IS NULL
+					  AND A.DOM_COMUNE IS NOT NULL)
+					  THEN 'Tel.'
+						|| A.DOM_TEL
+					  WHEN (A.COM_RES  = A.DOM_COMUNE
+					  AND A.INDIR      = A.DOM_INDIR
+					  AND A.NUM_CIVICO = A.DOM_CIVICO)
+					  THEN 'Tel.'
+						|| A.TEL
+						|| ' Cell:'
+						|| A.CELL
+					END REC_TEL_PAZIENTE
+				FROM "RADSQL"."ANAG" A
+				  LEFT OUTER JOIN "RADSQL"."COMUNI" CR
+				  ON A.IDEN_RES = CR.IDEN
+				  LEFT OUTER JOIN "RADSQL"."COMUNI" CN
+				  ON A.IDEN_NASC = CN.IDEN
+				  Left Outer Join "RADSQL"."COMUNI" Cd
+				  On A.Iden_Dom = Cd.Iden
+				  where A.IDEN = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="saveRichEsenzione">				
+			<sql>
+			<![CDATA[
+				declare					
+					pIdenAnag number := ?;
+					pLob clob := ?;
+					pConsenso varchar2(1) := ?;
+					pIdenMed number := ?;
+					pHtml varchar2(4000) := ?;
+					pTxt varchar2(4000) := ?;					
+				begin
+					insert into 
+					MODULI_ESENZIONE_PAZ (IDEN_ANAG, ESENZIONI,CONSENSO,IDEN_MED, ESENZIONI_HTML, ESENZIONI_TXT)
+					values (pIdenAnag,pLob,pConsenso,pIdenMed, pHtml, pTxt);
+				end;		
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+
+		<statement name="writeMailEvent">				
+			<sql>
+			<![CDATA[
+				declare					
+					pCorpo varchar2(4000) := ?;
+					pOggetto varchar2(1000) := ?;						
+					pTargetTO varchar2(1000) := ?;
+					pDescr varchar2(1000) := ?;
+				begin
+					insert into 
+					MAIL (CORPO, OGGETTO,A,DESCR, DATA_SPEDIZIONE)
+					values (pCorpo,pOggetto,pTargetTO,pDescr,sysdate);
+				end;		
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+	</statements_list>
+</root>		

@@ -1,0 +1,156 @@
+html, body {
+	font-weight: bold;
+	height: 100%;
+/*	overflow: scroll; hidden */
+	}
+
+div#tableContainer{
+/*	width: 100%;
+	height: 95%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin-bottom: 10px;*/
+}
+table {
+	table-layout: auto;
+	white-space: nowrap;
+	width: 100%;
+}
+
+
+tr:hover td {
+	background: #FCFDC6;
+}
+
+th {
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: 000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+table tr.selected {
+	background-color: yellow;
+}
+
+div.tableButton {
+	margin: 1px;
+	border: 1px solid #95BAFF;
+	color: #95BAFF;
+	width: 15px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+
+
+table#tabWkTerapieLettera td.canc {
+	background-position: center;
+	background-image: url(../../imagexPix/button/canc.png);
+	background-repeat: no-repeat;
+}
+table#tabWkTerapieLettera select.selCategoria {
+	width: 100%;
+}
+table#tabWkTerapieLettera div.button {
+	cursor: pointer;
+}
+table#tabWkTerapieLettera div#addCategoria input {
+	width: 100px;
+	float: left;
+}
+table#tabWkTerapieLettera div#addCategoria div {
+	float: left;
+}
+
+table#tabWkTerapieLettera td[checked="S"] {
+	background-position: center;
+	background-image: url(../../imagexPix/schedaAnag/spuntaradio2.gif);
+	background-repeat: no-repeat;
+}
+
+table#tabWkTerapieLettera td[checked="N"] {
+	background-position: center;
+	background-image:
+		url(../../imagexPix/schedaAnag/nospuntaradio.gif);
+	background-repeat: no-repeat;
+}
+
+table#tabWkTerapieLettera td.button {
+	background-position: right;
+	background-image: url(../../imagexPix/button/plus.png);
+	background-repeat: no-repeat;
+	height: 50px;
+	border-right-color: white;
+}
+
+table#tabWkTerapieLettera td.link {
+	FONT: italic 14px Verdana sans-serif;
+	border-left-color: white;
+	text-decoration: underline;
+}
+
+table#tabWkTerapieLettera td.linkTer {
+	font-weight: bold;
+	color: blue;
+	text-decoration: underline;
+}
+
+table#tabWkTerapieLettera td.NoSpunta {
+	background-position: center;
+	background-image: url(../../imagexPix/button/notavailable.png);
+	background-repeat: no-repeat;
+}
+
+table#tabWkTerapieLettera td.ultime {
+	background-position: right;
+	/*background-image: url(../../imagexPix/bacheca/bacheca_icona.png);*/
+	background-image: url(../../imagexPix/contextMenu/orario.gif);
+	background-repeat: no-repeat;
+	padding-right: 35px;
+}
+
+#tabWkTerapieLettera {
+	width: 100%;
+	}
+	
+table#tabWkTerapieLettera tr.gruppoTerapia td {
+	background-color: #95BAFF;
+	color: white;
+	FONT: bold 10px Verdana, sans-serif;
+	text-align: center;
+	}
+table#tabWkTerapieLettera tr.gruppoTerapia td.canc {
+	background-position: center;
+	background-image: url(../../imagexPix/button/minus.png);
+	background-repeat: no-repeat;
+	}
+
+table#tabWkTerapieLettera td[stato_ter=A] {
+	background-color: #FFDDFF;
+	}
+	
+html body {
+/*	padding: 30px;*/
+	}
+	
+span.btn {
+	cursor: pointer;
+	text-decoration: none;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-color: #CCFFEE;
+	padding: 8px 8px 8px 30px;
+	border: 1px solid #6aa8f2;
+	margin: 0px 0px 5px 5px;
+	float: right;
+	height: 15px;
+	}
+#btnProntuario{ background-image: url(../../imagexPix/button/inserisci_terapia.gif);}
+#btnReload{	background-image: url(../../imagexPix/button/refresh.png);}
+#btnLetterePre{	background-image: url(../../imagexPix/contextMenu/archivio.png);}
+#btnCancel{	background-image: url(../../imagexPix/button/cross.png);}
+#btnGeneraTerapie{	background-image: url(../../imagexPix/button/mini/Ok.gif);}
+

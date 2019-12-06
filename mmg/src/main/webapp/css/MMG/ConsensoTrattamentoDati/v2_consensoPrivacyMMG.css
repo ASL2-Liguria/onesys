@@ -1,0 +1,65 @@
+body {
+	width: 960px;
+}
+
+#fldDataCertificato{
+	width:45%;
+	float:left;
+}
+
+#fldMedicoTitolare{
+	width:45%;
+	float:right;
+}
+
+#fldDatiDichiarante{
+	width:100%;
+}
+
+#fldIntestazione {
+	background: white;
+	border: 1px solid blue;
+}
+
+#lblDetailInfo1, #lblDetailInfo2, #lblDetailInfo3 {
+	text-align: left;
+	font-weight: lighter;
+}
+
+#lblInformativa1, #lblInformativa2, #lblInformativa3, #lblInformativa {
+	padding:10px;
+	text-align: left;
+	font-weight: bolder;
+}
+
+.lblConsenso {
+	text-align: center !important; 
+}
+
+#fldConsensoDati, #fldConsensoDatiSensibili, #fldTrattamentoDatiSostituto, #fldConsensoComunicazione{
+	border-top:3px solid grey;
+}
+
+#butMedicoTitolare{
+	height: 50px;
+	width:300px;
+	margin-left:50px;
+}
+
+#fldMedicoTitolare{
+	border: 2px solid #fff0c1;
+	background: #fff3cf;
+}
+
+#fldMedicoTitolare legend{
+	
+	background: #F5F5F5;
+	border: 1px solid #fff0c1;
+	padding:5px;
+	padding-right:10px;
+}
+
+.butVersPrec{
+	
+	background: #F39C12;
+}

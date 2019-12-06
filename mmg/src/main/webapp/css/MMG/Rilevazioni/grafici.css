@@ -1,0 +1,23 @@
+#divOuterPeso24Mesi,#divOuterLunghezza24Mesi,#divOuterBMI24Mesi,#divOuterCirCran24Mesi {
+	height:500px;
+	width:49%; /*32*/
+	float:left;
+}
+#divOuterAltezza19Anni,#divOuterPeso19Anni,#divOuterBMI19Anni {
+	height:750px;
+	width:49%;
+	float:left;
+}
+
+#divPeso24Mesi,#divLunghezza24Mesi,#divBMI24Mesi,#divCirCran24Mesi,#divAltezza19Anni,#divPeso19Anni,#divBMI19Anni {
+	height:90%;
+}
+
+.icon-resize-full-1,.icon-resize-small-1 {
+	margin-left:30px;
+	margin-top:10px;
+}
+
+.icon-resize-small-1 {
+	display:none;
+}

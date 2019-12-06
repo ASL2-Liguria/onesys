@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabModulo>Modulo Dispositivi per Diabetici</tabModulo>
+    	
+        <lblTitolo>Richiesta dispositivi medici per autocontrollo diabete mellito</lblTitolo>
+        
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        
+        <fldStrisce>DA COMPILARE A CURA DELLO SPECIALISTA DIABETOLOGO (*) / MMG</fldStrisce>
+        <!-- <fldTabella1>DA COMPILARE A CURA DELLO SPECIALISTA DIABETOLOGO(*)/MMG</fldTabella1> -->
+        <fldTabella2>DA COMPILARE A CURA DELLO SPECIALISTA DIABETOLOGO</fldTabella2>
+        
+        <lblData>Data compilazione del modulo</lblData>
+        <lblDataTesserino>Data rilascio tesserino per diabetici</lblDataTesserino>
+        <lblStrisce>Strisce reattive per la valutazione della glicemia, indicare la tipologia di strisce in funzione delle caratteristiche del paziente:</lblStrisce>
+        <lbltxtDettGlucometro>Glucometro (specificare)</lbltxtDettGlucometro>
+        <lbltxtDettRischio>Rischio (specificare)</lbltxtDettRischio>
+        
+        <lblHeader12>Strisce Chetonuria Glicosuria a mese</lblHeader12>
+        <lblHeader13>Strisce Glicemia a mese</lblHeader13>
+        <lblHeader14>Lancette Pungidito a mese</lblHeader14>
+        <lblHeader15>Aghi penna/Siringhe a mese</lblHeader15>
+		
+		<lblHeader22>Quantità utile (*)</lblHeader22>
+		<lblHeader23>Quantità max</lblHeader23>
+		<lblHeader24>Quantità utile (*)</lblHeader24>
+		<lblHeader25>Quantità max</lblHeader25>
+		<lblHeader26>Quantità utile (*)</lblHeader26>
+		<lblHeader27>Quantità max</lblHeader27>
+		<lblHeader28>Quantità utile (*)</lblHeader28>
+		
+		<lbltxtInsulinoMax1>Diabete insulino-trattato</lbltxtInsulinoMax1>
+		<lbltxtInsulinoMax2>28</lbltxtInsulinoMax2>
+		<lbltxtInsulinoMax3>43</lbltxtInsulinoMax3>
+		<lbltxtInsulinoMax4>43</lbltxtInsulinoMax4>
+		
+		<lbltxtInsulinoMax5>Diabete in terapia con Secretagoghi</lbltxtInsulinoMax5>
+		<lbltxtInsulinoMax6>28 per glicosuria</lbltxtInsulinoMax6>
+		<lbltxtInsulinoMax7>8</lbltxtInsulinoMax7>
+		<lbltxtInsulinoMax8>8</lbltxtInsulinoMax8>
+		
+		<lbltxtInsulinoMax9>Diabete in terapia con insulinosensibilizzanti</lbltxtInsulinoMax9>
+		<lbltxtInsulinoMax10>4</lbltxtInsulinoMax10>
+		<lbltxtInsulinoMax11>4</lbltxtInsulinoMax11>
+		
+		<lbltxtMax12Mesi1>Durata prescrizione mesi (max 12 mesi) :</lbltxtMax12Mesi1>
+		
+		
+		<lblHeader212>Strisce Chetonuria Glicosuria a mese</lblHeader212>
+		<lblHeader213>Strisce Glicemia a mese</lblHeader213>
+		<lblHeader214>Lancette Pungidito a mese</lblHeader214>
+		<lblHeader215>Aghi penna a mese</lblHeader215>
+		<lblHeader222>Quantità utile</lblHeader222>
+		<lblHeader223>Quantità utile</lblHeader223>
+		<lblHeader224>Quantità utile</lblHeader224>
+		<lblHeader225>Quantità utile</lblHeader225>
+		<lbltxtDiabete232>Diabete in terapia con Analoghi GLP1 (Incretine)</lbltxtDiabete232>
+		<lbltxtDiabete242>Diabete in gravidanza</lbltxtDiabete242>
+		<lbltxtMax12Mesi2>Durata prescrizione mesi (max 12 mesi) :</lbltxtMax12Mesi2>
+		
+		<lblDialogDataDiff1>La data di compilazione all'interno del modulo</lblDialogDataDiff1>
+		<lblDialogDataDiff2>non corrisponde alla data odierna </lblDialogDataDiff2>
+		<lblDialogDataDiff3>Proseguire ugualmente con il salvataggio?</lblDialogDataDiff3>
+    </ROW>
+</ROWSET>

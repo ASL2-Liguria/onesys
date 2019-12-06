@@ -1,0 +1,21 @@
+<MENU>
+    <ID>MENU_PS_LISTA_RICHIESTE</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ELIMINA_RICHIESTA</ID>
+            <LINK><![CDATA[function(rec){RICHIESTE.eliminaRichiesta(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+            if( (typeof rec[0].STATO_RICHIESTA !== undefined) && (rec[0].IDEN_MEDICO_INVIANTE == home.baseUser.IDEN_PER || rec[0].IDEN_OPERATORE_INS == home.baseUser.IDEN_PER) && (rec[0].STATO_RICHIESTA == 'I' || rec[0].STATO_RICHIESTA == 'P' || rec[0].STATO_RICHIESTA == 'A') && ($("#READONLY").val()!=='S') ){
+                return true;
+            }else{
+                return false;
+            }}]]></WHERE>
+            <OUTPUT>"Elimina Richiesta"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Cancella Richiesta"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

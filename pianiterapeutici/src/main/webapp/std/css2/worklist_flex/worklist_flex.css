@@ -1,0 +1,360 @@
+@charset "UTF-8";
+
+body
+{
+	/*overflow:hidden;*/
+	background: url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+}
+
+div.clsWorklist
+{
+	position:relative;
+	display:block;
+	overflow-x:scroll;
+/*	height:100%;*/
+}
+
+div.clsWorklist table
+{
+	table-layout:fixed;
+}
+
+/*	Header fisso	*/
+div.clsWorklist div.clsHeaderFixed
+{
+	position:absolute;
+	z-index:98;
+	width:100%;
+	background:url(../../../imagexPix/worklistFlex/sf-th.png) repeat-x;
+}
+
+/*	Header fisso, stili testo	*/
+div.clsWorklist div.clsHeaderFixed th
+{
+	color:#fff;
+	font-size:12px;
+	padding:0 3px;
+	height:25px;
+	line-height:25px;
+}
+
+div.clsWorklist div.clsHeaderFixed table
+{
+	z-index:99;
+}
+
+div.clsWorklist div.clsTableScroll
+{
+	position:relative;
+	overflow-y:scroll;
+	top:26px;
+	z-index:98;
+}
+
+/*	Footer fisso	*/
+div.clsWorklist div.clsFooterFixed
+{
+	margin-top:26px;
+	z-index:98;
+	width:100%;
+	background:url(../../../imagexPix/worklistFlex/sf-th.png) repeat-x;
+}
+
+
+div.clsWorklist div.clsFooterFixed tr
+{
+	height:25px;
+}
+
+div.clsWorklist div.clsFooterFixed th
+{
+	color:#fff;
+	height:25px;
+	line-height:25px;
+	border:none;
+	font-size:12px;
+	cursor:default;
+}
+
+div.clsWorklist div.clsFooterFixed th.clsButton
+{
+	background-repeat:no-repeat;
+	background-position:center;
+	cursor:pointer;
+}
+
+div.clsWorklist div.clsFooterFixed th.clsButtonOver
+{
+	cursor:pointer;
+}
+
+div.clsWorklist div.clsFooterFixed th.clsPreview
+{
+	background-image:url(../../../imagexPix/worklistFlex/arrow-left-mini.png);
+}
+
+div.clsWorklist div.clsFooterFixed th.clsNext
+{
+	background-image:url(../../../imagexPix/worklistFlex/arrow-rigth-mini.png);
+}
+
+div.clsWorklist div.clsFooterFixed th.clsInfo
+{
+	text-align:center;
+}
+
+div.clsWorklist div.clsFooterFixed
+{
+	height:25px;
+}
+
+div.clsWorklist table tr
+{
+	height:26px;
+}
+/*
+div.clsWorklist div.clsTableScroll table tr
+{
+	height:52px;
+}
+*/
+div.clsWorklist table tr td
+{
+	border-left:1px solid #1e60b8;
+	border-bottom:1px solid #1e60b8;
+	white-space:nowrap;
+	overflow:hidden;
+	text-align:left;
+	height:26px;
+	line-height:26px;
+	padding:0 3px;
+	font-size:14px;
+	color:#000;
+	/*	Sfondo celle pari	*/
+	background:#fff;
+}
+
+div.clsWorklist table tr td a
+{
+	color:#06F;
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+ div.clsWorklist table tr.colorDelete td{
+	background:#CCC;
+	}
+
+div.clsWorklist table tr.clsOdd td
+{
+	/*	Sfondo celle dispari	*/
+	background:#f0fafb;
+}
+
+/*	Colore righe HOVER	*/
+div.clsWorklist table tr.clsOver td
+{
+	background:#fbfaa3;
+}
+
+/* Caso di righe selezionate */
+div.clsWorklist table tr.sel td
+{
+	background:yellow;
+}
+
+div.clsWorklist table tr.clsOdd sel td
+{
+	background:yellow;
+}
+
+div.clsWorklist table tr.clsOver sel td
+{
+	background:yellow;
+}
+
+div.clsWorklist table tr th
+{
+	white-space: nowrap;
+	border:1px solid #1e60b8;
+	overflow:hidden;
+	cursor:pointer;
+}
+
+div.clsWorklist table tr th div
+{
+	display:block;
+}
+
+div.clsWorklist table tr th.clsOrder_asc
+{
+	background-image:url(../../../imagexPix/worklistFlex/arrow_up.gif);
+	background-repeat:no-repeat;
+	background-position:bottom center;
+}
+
+div.clsWorklist table tr th.clsOrder_desc
+{
+	background-image:url(../../../imagexPix/worklistFlex/arrow_down.gif);
+	background-repeat:no-repeat;
+	background-position:top center;
+}
+
+div.clsWorklist table tr th.clsOverMove
+{
+	border-left:5px solid yellow;
+}
+
+div.clsWorklist div.clsWaitLoading
+{
+	position:absolute;
+	z-index:100;
+	background:black;
+	width:100%;
+	background-image:url(../../../imagexPix/loading.gif);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+
+div.clsWorklist div.clsWorklistResize
+{
+	position:relative;
+	z-index:99;
+}
+
+div.clsWorklist div.clsWorklistResize div
+{
+	position:absolute;
+	left:0px;
+	width:6px;
+	background:none;
+	cursor:e-resize;
+}
+
+div.clsWorklist div.clsWorklistResize div.cls_resize
+{
+	border:1px dashed;
+	width:1px;
+}
+
+div.clsWorklist div.clsWorklistResize div.cls_move
+{
+	position:absolute;
+	display:table-cell;
+	text-align:center;
+	background:url(../../../imagexPix/worklistFlex/sf-th.png) repeat-x;
+	color:#fff;
+	font-size:12px;
+	font-weight:bold;
+	height:25px;
+	line-height:25px;
+	cursor:move;
+	overflow:hidden;
+	top:0;
+}
+
+div.clsWorklist table tr td div
+{
+	display:block;
+	padding:0 3px;
+	margin:0 0px;
+	white-space:nowrap;
+}
+
+/* Colori per lo stato dell'esame */
+div.clsWorklist table tr td div.StatoPrenotatoAccettato
+{
+	background-color:#33CCFF;
+	
+}
+
+div.clsWorklist table tr td div.StatoInizioEsecuzione
+{
+	background-color:#F93;
+}
+
+div.clsWorklist table tr td div.StatoRefertoSospeso
+{
+	background-color:#FF3333;
+}
+
+/* Colori dell'urgenza */
+div.clsWorklist table tr td div.bianco
+{
+	background-color:'white';
+}
+
+div.clsWorklist table tr td div.verde
+{
+	background-color:'green';
+}
+
+div.clsWorklist table tr td div.giallo
+{
+	background-color: 'yellow';
+}
+
+div.clsWorklist table tr td div.rosso
+{
+	background-color: #FF0000;
+}
+
+/* Colori per lo screening */
+div.clsWorklist table tr td div.screening_no
+{
+	background-color:#FFFFCC;
+}
+
+div.clsWorklist table tr td div.screening_tecnico
+{
+	background-color:#DFF0FD;
+}
+
+div.clsWorklist table tr td div.screening_primo_radiologo
+{
+	background-color:'yellow';
+}
+
+div.clsWorklist table tr td div.screening_non_negativo
+{
+	background-color:'red';
+}
+
+div.clsWorklist table tr td div.screening_approfondimenti
+{
+	background-color:#0C84E7;
+}
+
+div.clsWorklist table tr td div.screening_negativo
+{
+	background-color:'green';
+}
+
+div.clsWorklist table tr td div.screening_discordante
+{
+	background-color:#FF0000;
+}
+
+/* Progetto Sole */
+div.clsWorklist table tr td div.classProgettoSole
+{
+	background-image:url(../../../imagexPix/button/icon/ico_sole.gif);
+	color:#FFFFFF;
+	padding-top:3px;
+}
+
+div.clsWorklist table tr td div.classProgettoSole A
+{
+	TEXT-DECORATION: none;
+}
+
+div.clsWorklist table tr td div.classProgettoSole A:hover
+{
+	color:red;
+}
+
+	
+div.clsWorklist table tr.colorDelete sel td
+{
+	background:yellow;
+}

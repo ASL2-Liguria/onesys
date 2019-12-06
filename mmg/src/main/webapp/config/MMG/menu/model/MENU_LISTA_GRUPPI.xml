@@ -1,0 +1,40 @@
+<MENU>
+	<id>MENU_LISTA_GRUPPI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MF.MG</ID>
+			<LINK><![CDATA[function(rec){NS_LISTA_GRUPPI.modifica(rec);}]]></LINK>
+			<ICON_CLASS>anteprima</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Modifica"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+	<LIST>
+		<ITEM>
+			<ID>MF.CG</ID>
+			<LINK><![CDATA[function(rec){NS_LISTA_GRUPPI.cancella(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Cancella"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+	<LIST>
+		<ITEM>
+			<ID>MF.IG</ID>
+			<LINK><![CDATA[function(rec){NS_LISTA_GRUPPI.inserisci(rec);}]]></LINK>
+			<ICON_CLASS>apri-datawharehouse</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Inserisci Nuovo"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

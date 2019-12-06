@@ -1,0 +1,132 @@
+<MENU>
+    <ID>MENU_PS_LISTA_ATTESA</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>APRI_CARTELLA_READONLY</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_GESTIONE_ESITO.apriCartellaReadOnly(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/anteprima.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GESTIONE_ESITO.APRI_CARTELLA_READONLY(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuConsultaCartella</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Apre la cartella"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>APRI_CARTELLA</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_GESTIONE_ESITO.apriCartella(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/anteprima.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GESTIONE_ESITO.MANUTENZIONE_CARTELLA(rec);}]]></WHERE>
+            <OUTPUT>"Manutenzione cartella"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Apre la cartella"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>DETTAGLIO_ANAG</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_GESTIONE_ESITO.apriSchedaAnagrafica(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PAZIENTE_CONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuDettaglioAnag</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Funzione di modifica anagrafica"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ASS_PAZ_SCONOSCIUTO</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_GESTIONE_ESITO.associaPazienteSconosciuto(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_nomi_utenti_orari_modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_GESTIONE_ESITO.ASS_PAZ_SCONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuAssociaPaz</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Associa pazienti sconosciuti"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>RIASSOCIA_PAZIENTE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_GESTIONE_ESITO.riassociaPazienteSconosciuto(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_nomi_utenti_orari_modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_GESTIONE_ESITO.RIASSOCIA_PAZIENTE(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuRiassociaPaz</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Riassocia paziente"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>INVIA_CARTELLA</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_GESTIONE_ESITO.setCartellaCompletaEInviata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/lettera_dimissioni.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GESTIONE_ESITO.INVIA_CARTELLA(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblInviaCartella</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Invia cartella"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>STAMPA_TRIAGE</ID>
+            <LINK><![CDATA[
+                function(rec){NS_STAMPE_PS.stampaTriage(rec[0].IDEN_CONTATTO, "N");
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblStampaTriage</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Triage"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_VERBALE</ID>
+            <LINK><![CDATA[
+                function(rec){FNC_MENU_GESTIONE_ESITO.stampaVerbale(rec);
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblStampaVerbale</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Verbale"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>STAMPA_DIARIO_OBI</ID>
+            <LINK><![CDATA[
+                function(rec){NS_STAMPE_PS.stampaDiarioOBI(rec[0].IDEN_CONTATTO, "N");
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblStampaDiarioOBI</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Diario OBI"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>APRI_MODULISTICA</ID>
+            <LINK><![CDATA[
+                 function(rec){FNC_MENU_GESTIONE_ESITO.apriModulistica(rec);}
+             ]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.CHECK_LENGTH(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblApriModuli</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Triage"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ELIMINA_DIMISSIONE</ID>
+            <LINK><![CDATA[function(rec){
+                    FNC_MENU_GESTIONE_ESITO.controlloDeceduto(rec);
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_GESTIONE_ESITO.ELIMINA_DIMISSIONE(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblEliminaDimissione</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Elimina l'esito del PS"</INFO>
+        </ITEM>
+
+    </LIST>
+</MENU>

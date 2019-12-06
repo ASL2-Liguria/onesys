@@ -1,0 +1,281 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_ADR_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_ADR_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+    <!-- Caricamento Dati -->
+    <DATO key_id="taDescrizioneRelazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DESCRIZIONE_RELAZIONE" db_descrizione="DESCRIZIONE_RELAZIONE"  />
+
+
+
+    <DATO key_id="taEsamiLaboRilevanti" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESAMI_LABO_RILEVANTI" db_descrizione="ESAMI_LABO_RILEVANTI"  />
+
+    <DATO key_id="DataDecesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_DECESSO" db_descrizione="DATA_DECESSO"  />
+
+    <DATO key_id="DataRisoluzione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_RISOLUZIONE" db_descrizione="DATA_RISOLUZIONE"  />
+
+    <DATO key_id="taAzioniIntraprese" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="AZIONI_INTRAPRESE" db_descrizione="AZIONI_INTRAPRESE"  />
+
+    <DATO key_id="txtFarmacoA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FARMACO_A" db_descrizione="FARMACO_A"  />
+
+    <DATO key_id="txtLottoA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LOTTO_A" db_descrizione="LOTTO_A"  />
+
+    <DATO key_id="txtDosaggioA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DOSAGGIO_A" db_descrizione="DOSAGGIO_A"  />
+
+    <DATO key_id="txtViaSommA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="VIAO_SOMM_A" db_descrizione="VIAO_SOMM_A"  />
+
+    <DATO key_id="InUsoDalA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IN_USO_DA_A" db_descrizione="IN_USO_DA_A"  />
+
+    <DATO key_id="InUsoAlA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IN_USO_AL_A" db_descrizione="IN_USO_AL_A"  />
+
+    <DATO key_id="txtFarmacoB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FARMACO_B" db_descrizione="FARMACO_B"  />
+
+    <DATO key_id="txtLottoB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LOTTO_B" db_descrizione="LOTTO_B"  />
+
+    <DATO key_id="txtDosaggioB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DOSAGGIO_B" db_descrizione="DOSAGGIO_B"  />
+
+    <DATO key_id="txtViaSommB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="VIA_SOMM_B" db_descrizione="VIA_SOMM_B"  />
+
+    <DATO key_id="InUsoDalB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IN_USO_DA_B" db_descrizione="IN_USO_DA_B"  />
+
+    <DATO key_id="InUsoAlB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IN_USO_AL_B" db_descrizione="IN_USO_AL_B"  />
+
+    <DATO key_id="txtFarmacoC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FARMACO_C" db_descrizione="FARMACO_C"  />
+
+    <DATO key_id="txtLottoC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LOTTO_C" db_descrizione="LOTTO_C"  />
+
+    <DATO key_id="txtDosaggioC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DOSAGGIO_C" db_descrizione="DOSAGGIO_C"  />
+
+    <DATO key_id="txtViaSommC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="VIA_SOMM_C" db_descrizione="VIA_SOMM_C"  />
+
+    <DATO key_id="InUsoDalC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IN_USO_DA_C" db_descrizione="IN_USO_DA_C"  />
+
+    <DATO key_id="InUsoAlC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IN_USO_AL_C" db_descrizione="IN_USO_AL_C"  />
+
+    <DATO key_id="txtIndicazioniA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INDICAZIONI_A" db_descrizione="DATA_COMPILAZIONE_24"  />
+
+    <DATO key_id="txtIndicazioniB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INDICAZIONI_B" db_descrizione="DATA_COMPILAZIONE_24"  />
+
+    <DATO key_id="txtIndicazioniC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INDICAZIONI_C" db_descrizione="DATA_COMPILAZIONE_24"  />
+
+    <DATO key_id="taFarmacoConcomitante" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FARMACO_CONCOMIT" db_descrizione="FARMACO_CONCOMIT"  />
+
+    <DATO key_id="taUsoConcomitante" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="USO_CONCOMIT" db_descrizione="USO_CONCOMIT"  />
+
+    <DATO key_id="taCondizioniConcomitanti" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CONDIZIONI_CONCOMIT" db_descrizione="CONDIZIONI_CONCOMIT"  />
+
+    <DATO key_id="txtNome" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOME" db_descrizione="NOME"  />
+
+    <DATO key_id="txtCognome" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COGNOME" db_descrizione="COGNOME"  />
+
+    <DATO key_id="txtIndirizzo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INDIRIZZO" db_descrizione="INDIRIZZO"  />
+
+    <DATO key_id="txtTelefono" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TELEFONO" db_descrizione="TELEFONO"  />
+
+    <DATO key_id="txtFax" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FAX" db_descrizione="FAX"  />
+
+    <DATO key_id="txtEmail" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="EMAIL" db_descrizione="EMAIL"  />
+
+    <DATO key_id="txtCodiceASL" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_ASL" db_descrizione="CODICE_ASL"  />
+
+    <DATO key_id="txtOrigineEtnica" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORIGINE_ETNICA" db_descrizione="ORIGINE_ETNICA"  />
+
+    <DATO key_id="DataCompilazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_COMPILAZIONE" db_descrizione="DATA_COMPILAZIONE"  />
+
+    <DATO key_id="DataInsReazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_INS_REAZIONE" db_descrizione="DATA_INS_REAZIONE"  />
+
+    <!-- Query multidata -->
+
+    <DATO key_id="radGravita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''MODULO_ADR_GRAVITA'' and attivo = ''S'''; end;" />
+
+    <DATO key_id="radEsito" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''MODULO_ADR_ESITO'' and attivo = ''S'''; end;" />
+
+    <DATO key_id="radQualifica" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''MODULO_ADR_QUALIFICA'' and attivo = ''S'''; end;" />
+
+
+    <DATO key_id="radDecesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''MODULO_ADR_DECESSO'' and attivo = ''S'''; end;" />
+
+    <DATO key_id="radSospesoA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radSospesoB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radSospesoC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radReazioneA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radReazioneB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radReazioneC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radRipresoA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radRipresoB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radRipresoC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radRicomparsiA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radRicomparsiB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radRicomparsiC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+
+
+
+
+
+
+
+
+
+
+    <DATO key_id="h-radGravita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GRAVITA" db_descrizione="GRAVITA"/>
+
+    <DATO key_id="h-radEsito" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESITO" db_descrizione="ESITO"/>
+
+    <DATO key_id="h-radQualifica" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="QUALIFICA" db_descrizione="QUALIFICA"/>
+
+
+    <DATO key_id="h-radDecesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MOTIVO_DECESSO" db_descrizione="MOTIVO_DECESSO"/>
+
+    <DATO key_id="h-radSospesoA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SOSPESO_A" db_descrizione="SOSPESO_A"/>
+
+    <DATO key_id="h-radSospesoB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SOSPESO_B" db_descrizione="SOSPESO_B"/>
+
+    <DATO key_id="h-radSospesoC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SOSPESO_C" db_descrizione="SOSPESO_C"/>
+
+    <DATO key_id="h-radReazioneA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REAZIONE_A" db_descrizione="REAZIONE_A"/>
+
+    <DATO key_id="h-radReazioneB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REAZIONE_B" db_descrizione="REAZIONE_B"/>
+
+    <DATO key_id="h-radReazioneC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REAZIONE_C" db_descrizione="REAZIONE_C" />
+
+    <DATO key_id="h-radRipresoA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RIPRESO_A" db_descrizione="RIPRESO_A"/>
+
+    <DATO key_id="h-radRipresoB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RIPRESO_B" db_descrizione="RIPRESO_B"/>
+
+    <DATO key_id="h-radRipresoC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RIPRESO_C" db_descrizione="RIPRESO_C"/>
+
+    <DATO key_id="h-radRicomparsiA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RICOMPARSI_A" db_descrizione="RIPRESO_A"/>
+
+    <DATO key_id="h-radRicomparsiB" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RICOMPARSI_B" db_descrizione="RIPRESO_B"/>
+
+    <DATO key_id="h-radRicomparsiC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RICOMPARSI_C" db_descrizione="RIPRESO_C"/>
+
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+
+</DATI>

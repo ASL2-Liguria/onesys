@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+	<ROW>
+
+		<tabParametri>Parametri</tabParametri>
+		<tabOffline>Offline</tabOffline>
+		<tabUtenti>Utente</tabUtenti>
+		<tabDatiINPS>Dati INPS</tabDatiINPS>
+		<tabTimbri>Timbri medico</tabTimbri>
+		
+		<fldUtente>Dati relativi all'utente corrente</fldUtente>
+		<fldParametri>Parametri configurabili per l'utente corrente</fldParametri>
+		<fldINPS>Credenziali portale INPS</fldINPS>
+		<fldTimbri>Timbri personalizzati</fldTimbri>
+		<fldOffline>OFFLINE: parametri configurabili</fldOffline>
+		
+		<fldOpzioniStampa>Stampa</fldOpzioniStampa>
+		<fldOpzioniCartellaAssistito>Cartella assistito</fldOpzioniCartellaAssistito>
+		<fldOpzioniPrescrizione>Prescrizione</fldOpzioniPrescrizione>
+		
+		<lblCognome>Cognome</lblCognome>
+		<lblNome>Nome</lblNome>
+		<lblCodiceFiscale>Cod. fiscale</lblCodiceFiscale>
+		<lblIndirizzo>Indirizzo primario</lblIndirizzo>
+		<lblIndirizzoSecondario>Indirizzo secondario</lblIndirizzoSecondario>
+		<lblIndirizzoTerziario>Indirizzo terziario</lblIndirizzoTerziario>
+		<lblTelefono>Telefono</lblTelefono>
+		<lblCellulare>Cellulare</lblCellulare>
+		<lblFax>Fax</lblFax>
+		<lblEmail>E-mail</lblEmail>
+		<lblEmailPEC>E-mail PEC</lblEmailPEC>
+		
+		<lblMostraNuovoAccesso>Mostra nuovo accesso</lblMostraNuovoAccesso>
+		<lblStampaPrincipioAttivo>Stampa solo principio attivo</lblStampaPrincipioAttivo>
+		<lblAnteprimaStampa>Anteprima di stampa</lblAnteprimaStampa>
+		<lblStampaAutomatica>Stampa automatica ricetta</lblStampaAutomatica>
+		<lblMedicoPrescrittoreCurante>Prescrittore uguale al curante</lblMedicoPrescrittoreCurante>
+		<lblConfermaStampa>Conferma di stampa</lblConfermaStampa>
+		<lblLayout>Layout del riepilogo</lblLayout>
+		<lblPersistenzaPrivacy>Persistenza avviso privacy (secondi)</lblPersistenzaPrivacy>
+        <lblPersistenzaAllergie>Persistenza avviso Allergie/Intolleranze (secondi)</lblPersistenzaAllergie>
+        <lblPosologiaDefault>Posologia di default</lblPosologiaDefault>
+		<lblMiddleOption>Sì Demat./No rosse</lblMiddleOption>
+		<lblInvioRRSAL>Invio automatico ricette al SAR (Servizio di Accoglienza Regionale)</lblInvioRRSAL>
+		<lblInvioRRSALInfoAMM>Le ricette rosse saranno stampabili ma verranno inviate al SAR solo dopo la conferma del medico; le ricette dematerializzate saranno stampabili solo dopo la conferma del medico</lblInvioRRSALInfoAMM>
+		<lblInvioRRSALInfoMed>Inibizione dell'invio immediato al SAR per le ricette prescritte a mio nome da parte di utenti amministrativi. L'invio richiede conferma manuale da parte del medico</lblInvioRRSALInfoMed>
+		<lblAvvisoEsenzioniAperte>Avviso Esenzioni Aperte in prescrizione(es: 048)</lblAvvisoEsenzioniAperte>
+		<lblAvvisoPrescrNonCroniche>Conferma in caso di prescrizione di terapie non croniche (solo personale amministrativo)</lblAvvisoPrescrNonCroniche>
+		<lblSinonimiAccertamenti>Presenza dei sinonimi degli accertamenti</lblSinonimiAccertamenti>
+		<lblFrequenzaAccertamenti>Ricerca accertamenti ordinata per frequenza prescrizione</lblFrequenzaAccertamenti>
+		<lblPosologiaRR>Posologia nelle Ricette Rosse </lblPosologiaRR>
+		
+		<lblChiediSettaggioProblema>Chiedi conferma per settaggio problema corrente</lblChiediSettaggioProblema>
+		<lblDescrizioneProblema>Mostra problema come</lblDescrizioneProblema>
+		
+		<lblOffline>Abilita versione offline</lblOffline>
+		<lblChiediPasswordOffline>Chiedi password</lblChiediPasswordOffline>
+		<lblAutoSyncOffline>Sincronizzazione automatica dei dati tra versione online e offline</lblAutoSyncOffline>
+		<lblSincronizzaGruppoOffline>Sincronizza assistiti del gruppo di appartenenza</lblSincronizzaGruppoOffline>
+		<lblSinonimiAccertamentiOffline>Includi sinonimi per gli accertamenti</lblSinonimiAccertamentiOffline>
+		
+		<lblUsername>Username</lblUsername>
+		<lblPassword>Password</lblPassword>
+		<lblMostraPassword>Mostra password</lblMostraPassword>
+		<lblPIN>Pincode</lblPIN>
+				
+		<lblTimbroRicettaRossa>Timbro stampato sulla ricetta rossa</lblTimbroRicettaRossa>		
+		<lblTimbroRicettaBianca>Timbro stampato come intestazione della ricetta bianca e dei certificati</lblTimbroRicettaBianca>				
+		<lblTimbroCertificato>Timbro stampato nei campi di firma, ad esempio in fondo ai moduli o ai certificati</lblTimbroCertificato>		
+				
+		<lblCodiceProblema>Codice ICD9 + Problema</lblCodiceProblema>
+		<lblProblemaCodice>Problema + Codice ICD9</lblProblemaCodice>	
+		
+		<lblOffAttivo>Attivo sempre</lblOffAttivo>
+		<lblOffNotAttivo>Non Attivo</lblOffNotAttivo>	
+        <lblAttPC>Attivo su questo PC</lblAttPC>
+        <lblNotAttPC>Non attivo su questo PC</lblNotAttPC>
+        
+        <lblInfoOffline>Se attivo, su questo PC sarà sempre accessibile (dal collegamento creato) la modalità offline anche in caso di mancanza di rete.</lblInfoOffline>
+        <lblSyncOffline>Se attivo, verrà effettuato un tentativo di sincronizzazione dei dati offline ad ogni login (operazione che potrebbe rallentare il programma per qualche minuto al primo accesso della giornata). Se disattivo, la sincronizzazione andrà effettuata manualmente all'occorrenza.</lblSyncOffline>
+        <lblSyncGruppoOffline>Sincronizzazione dei dati solo degli assistiti propri o di tutti gli associati.</lblSyncGruppoOffline>
+        <lblSyncSinonimiOffline>Rendere disponibili o meno nella prescrizione accertamenti anche i sinonimi. Se attivo, la sincronizzazione degli accertamenti richiederà molto più tempo.</lblSyncSinonimiOffline>
+        <lblInfoPersistenzaPrivacy>Inserire il numero di secondi di persistenza (da 1 a 30) dell'avviso dedicato alla privacy all'apertura della cartella</lblInfoPersistenzaPrivacy>
+        <lblBlurPersistenza>Il numero dei secondi deve essere compreso tra 1 e 30</lblBlurPersistenza>
+        <lblInfoPersistenzaAllergie>Inserire il numero di secondi di persistenza (da 1 a 30) dell'avviso dedicato alle allergie/intolleranze all'apertura della cartella</lblInfoPersistenzaAllergie>
+        <lblBlurPersistenzaAllergie>Il numero dei secondi deve essere compreso tra 1 e 30</lblBlurPersistenzaAllergie>
+        <lblInfoPosologiaDefault>La posologia che verrà utilizzata per il calcolo della rimanenza nei farmaci, nel caso non sia stata specificata durante la prescrizione</lblInfoPosologiaDefault>
+				
+	</ROW>
+</ROWSET>

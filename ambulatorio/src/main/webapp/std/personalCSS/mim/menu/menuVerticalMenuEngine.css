@@ -1,0 +1,122 @@
+
+/*css del menu*/
+/* layer del menu totale */
+
+div#layMenuContainer{
+	float:left;
+	width:150px;
+	display:none;
+	background-color:#FFFFFF;
+	margin-top:1px;
+	background-image:url(../../../../imagexPix/wallpaper/pattern_sfondo_mim.gif);
+	background-repeat:repeat;
+}
+
+div#nav{width:150px;background: #FFFFFF;background-image:url(../../../../imagexPix/wallpaper/pattern_sfondo_mim.gif);
+    border: 0px solid white; font: 11px Arial, Helvetica, sans-serif;margin-left:0px; height:18px;} 
+/* definizione delle voci di primo livello senza sottomenu */	
+div#nav h3{font-size: 100%; font-weight:bold;margin: 0;padding: 4px 5px; border-top: 1px solid #FFF;color: white;background-color: #7BA5E7; background-image:url(../../../../imagexPix/bar/MenuImg_mim.jpg)}
+/* impostazioni del primo option: menù */
+
+/* ************** */
+
+div#nav ul,div#nav li{margin: 0;padding: 0;list-style-type: none;}
+div#nav li{margin: 0 0 1px 0;}
+/* definizione di tutti i link nel livello NAV */
+div#nav a{display: block;padding-left: 5px;height: 26px;border-top: 1px solid #FFF;color: white;text-decoration: none;font-weight: bold;} 
+	/* definizione di tutti i link nel livello NAV su evento OVER*/
+div#nav a:hover{color: #FF0000;background-color: #0099FF;}
+div#nav ul a{background-image:url(../../../../imagexPix/bar/MenuImg_mim.jpg);font-size: 100%;margin: 0;padding: 4px 5px;border-top: 1px solid #FFF;color: white; height: 26px;}
+div#nav ul a:hover{color:white;height:26px; background-image:url(../../../../imagexPix/bar/MenuImgOver_mim.jpg)}
+/* definizione link per i menu di secondo livello */ 
+div#nav ul ul a{color: white; background-color: #AECDFF;font-weight: bold;background-image:url(../../../../imagexPix/bar/subMenuImg_mim.jpg); padding-left:3px}
+
+/* definizione link per i menu di secondo livello per evento OVER */
+div#nav ul ul {margin-left:40px}
+div#nav ul ul a:hover{
+	color:black;
+	background-image:url(../../../../imagexPix/bar/subMenuImgOver_mim.jpg);
+} 
+
+
+#container{
+	width:150px;
+	background: #DDE4FF;
+}
+legend{font:Arial,sans-serif;color:white;}
+fieldset{border: 0px solid;background-image:url(../../../../imagexPix/bar/MenuImg_mim.jpg)}
+#attributo{display:block; background-image:url(../../../../imagexPix/bar/btLightCyan_mim.jpg); color:black; padding-left:2px}
+#valore{display:block; background-color:#E3D8F1; color:black; padding-left:4px}
+
+#layBM{
+	float:left;
+	width:20;
+	display:block;
+	height:100%;
+	background-image:url(../../../../imagexPix/wallpaper/linguetta_mim.gif);
+	background-position:top;
+	background-repeat:no-repeat;
+	cursor:pointer;
+	
+}
+
+.classTitoloInfo{
+	background-image:url(../../../../imagexPix/bar/MenuImg_mim.jpg);
+	background-repeat:repeat-x;
+	height:25px;
+	background-color:#E3D8F1;		
+}
+
+/* style layer logSyncPacs */
+
+#divLogSyncPacs{
+	width:120px;
+	height:auto;
+	display:none;
+}
+
+.styleTxtLogSyncPacs{
+	font-size:12px;
+}
+
+/* style layer loggedUser */
+#divContainerLoggedUser{
+	width:100%;
+	height:auto;
+	display:none;
+}
+
+#divContainerLoggedUser .classUserInfoTable{
+	background-color:#5F63B8;
+	color: white;
+	width:100%;
+}
+
+#divContainerLoggedUser .classUserInfo{
+	background-color:#5F63B8;
+	color:white;
+	font-family:"Times New Roman", Times, serif;
+	font-size:12px;
+}
+
+#divContainerLoggedUser .classUserValue{
+	background-color:#5F63B8;
+	color:white;
+	font-family:"Times New Roman", Times, serif;
+	font-size:12px;	
+}
+
+
+
+/* ************ */
+
+
+SELECT .userToDisconnect{
+	font-size:8px;
+	background-color:#FF0033
+}
+
+SELECT .userConnected{
+	font-size:8px;
+	background-color:#33FF33;
+}

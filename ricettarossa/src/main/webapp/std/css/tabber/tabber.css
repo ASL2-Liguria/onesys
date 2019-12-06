@@ -1,0 +1,124 @@
+/* $Id: example.css,v 1.5 2006/03/27 02:44:36 pat Exp $ */
+
+/*--------------------------------------------------
+  Regola richiesta per nascondere il contenuto non
+  attivo delle tab.
+  --------------------------------------------------*/
+.tabberlive .tabbertabhide {
+ display:none;
+}
+
+
+/*--------------------------------------------------
+  Classe .tabber = prima che l'interfaccia sia creata
+  Classe .tabberlive = dopo che l'interfaccia è stata creata
+  --------------------------------------------------*/
+.tabber {
+}
+.tabberlive {
+ margin-top:2px;
+}
+
+/*--------------------------------------------------
+  ul.tabbernav = la lista di navigazione delle tab
+  li.tabbernav = il list item con la tab attiva
+  --------------------------------------------------*/
+ul.tabbernav
+{
+ margin:0;
+ padding: 1px 0;
+ border-bottom: 1px solid #B0CFF7;
+ font: bold 12px Verdana, sans-serif;
+}
+
+ul.tabbernav li
+{
+ list-style: none;
+ margin: 0;
+ display: inline;
+ 
+ line-height:18px;
+}
+
+ul.tabbernav li a
+{
+ padding: 3px 0.5em;
+ margin-left: 3px;
+ border: 1px solid #B0CFF7;
+ border-bottom: none;
+ background:url(../../../imagexPix/tabulator/normalTab.png) repeat-x white;
+ text-decoration: none;
+
+ display:inline;
+ height:18px;
+}
+
+ul.tabbernav li a:link { color: black; }
+ul.tabbernav li a:visited { color: black; }
+
+ul.tabbernav li a:hover
+{
+ color: #000;
+ border-color: blue;
+ background:url(../../../imagexPix/tabulator/hoverTab.png) repeat-x white;  
+}
+
+/* tabulatore attivo */
+ul.tabbernav li.tabberactive a
+{
+ background-color: blue;
+ background-image:url(../../../imagexPix/tabulator/selectedTab.png);
+ background-repeat:repeat-x; 
+ border-bottom: 1px solid #BCE6FA;
+ color:white;
+}
+
+/* over del tabulatore attivo */
+ul.tabbernav li.tabberactive a:hover
+{
+ border-bottom: none;
+}
+
+/*--------------------------------------------------
+  Classe .tabbertab = il contenuto delle tab
+  --------------------------------------------------*/
+.tabberlive .tabbertab {
+ padding:5px;
+ border:1px solid #B0CFF7;
+ border-top:0;
+ background-color:#BCE6FA;
+
+ /* If you don't want the tab size changing whenever a tab is changed
+    you can set a fixed height */
+
+ /* height:200px; */
+
+ /* If you set a fix height set overflow to auto and you will get a
+    scrollbar when necessary */
+
+ /* overflow:auto; */
+}
+
+/* If desired, hide the heading since a heading is provided by the tab */
+.tabberlive .tabbertab h2 {
+ display:none;
+}
+.tabberlive .tabbertab h3 {
+ display:none;
+}
+
+/* Example of using an ID to set different styles for the tabs on the page */
+.tabberlive#idTabAnamnesi {
+}
+.tabberlive#idTabEsaObiet {
+}
+.tabberlive#tab2 .tabbertab {
+ height:200px;
+ overflow:auto;
+}
+ul.tabbernav li a label
+{font-size:18px;color:#E4E4E4;font-size:14px;}
+ul.tabbernav label:hover
+{background:#E4E4E4;color:#4259FF}
+
+

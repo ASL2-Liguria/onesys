@@ -1,0 +1,6 @@
+<INCLUDE>
+	<JS path="js/Base/tinymce4/tinymce.min.js" />
+	<JS path="js/MMG/Stampe/AltreStampe.js" />
+	<CSS path="css/MMG/Stampe/AltreStampe.css" />
+</INCLUDE>
+

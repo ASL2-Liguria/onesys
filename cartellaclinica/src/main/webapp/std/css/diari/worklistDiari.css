@@ -1,0 +1,41 @@
+
+body{
+width:100%;
+}
+
+body TABLE.classDataTable div{
+ white-space:normal;
+}
+
+.imgReferto{
+
+	height:35px;
+	width:35px;
+	cursor:pointer;
+	background:url(../../../imagexPix/contextMenu/anteprima.gif) 1px center ;
+}
+
+.imgRefertoOpaco{
+/*
+	height:35px;
+	width:35px;
+	cursor:pointer;
+	background:url(../../../imagexPix/contextMenu/anteprimaOpaco.gif) 1px center;
+*/
+}
+
+.gray{
+	background-color:#CCC;
+}
+
+.rosa{
+	background-color:#F7D0F7;
+}
+
+.giallo{
+	background-color:#F2FA96;
+}
+
+.celeste{
+	background-color:#96EDFA;
+}

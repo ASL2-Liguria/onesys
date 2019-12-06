@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/PS/Diari/Diari.js" />
+    <CSS path="css/PS/Diari/Diari.css" />
+</INCLUDE>

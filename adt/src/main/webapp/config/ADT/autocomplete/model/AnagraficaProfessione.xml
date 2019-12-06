@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>1</minChars>
+		<onSelect type="js">
+            <![CDATA[function(data){}]]>
+		</onSelect>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_ANAG_PROFESSIONI</storedQuery>
+		<maxResults>40</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>Professioni</title>
+	    <id_wk>AC_ANAG_PROFESSIONI</id_wk>
+	</LIST>  
+</AUTOCOMPLETE>	 
+    

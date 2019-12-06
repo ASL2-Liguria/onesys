@@ -1,0 +1,14 @@
+<root>
+    <statements_list>
+        <statement name="getAltezzaPaziente">				
+            <sql>
+			<![CDATA[		
+                SELECT ccpr.VALORE_1 ALTEZZA
+                FROM CC_PARAMETRI_RICOVERO ccpr
+                JOIN CC_PARAMETRI_TYPE ccpt ON ccpt.IDEN = ccpr.IDEN_PARAMETRO
+                WHERE ccpr.IDEN_VISITA = TO_NUMBER(?) AND ccpr.IDEN_PARAMETRO = 21
+			]]>
+            </sql>
+        </statement>      
+    </statements_list>	
+</root>	

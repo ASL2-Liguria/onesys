@@ -1,0 +1,6 @@
+<INCLUDE>
+	<CSS path="css/PS/Inail/Inail.css"/>
+    <JS path="config/PS/validator/model/V_PS_INAIL.js"/>
+    <JS path="js/PS/SchedeModulistica/ModulisticaFunzioniComuni.js"/>
+    <JS path="js/PS/Inail/Inail.js"/>
+</INCLUDE>

@@ -1,0 +1,30 @@
+<PAGINA key_id="FILTRI">
+	<HEADER_PAGE key_id="FILTRI" valore="DEFAULT_MMG,SCHEDA,FILTRI#DEFAULT_MMG,FILTRI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab" valore="tab#lblTitolo#butResetProblemi,butResetDiari,butTuttiProblemi,butFiltra,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabFiltri" valore="tabFiltri" evento="START">
+				<FIELDSET_TABLE key_id="filtri" valore="Filtri" evento="START">
+					<TR_TD_LABEL_DATA key_id="oDaData" valore="lblDaData#txtDaData#txtDaData##startWithToday:false, format: 'd/m/Y'#disabled:true" evento="START">
+						<TD_LABEL_DATA key_id="oAData" valore="lblAData#txtAData#txtAData##startWithToday:true, format: 'd/m/Y'#disabled:true#" evento="START">
+						</TD_LABEL_DATA>
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_CHECK key_id="radChiusAperto" valore="lblChiusoAperto##radChiusAperto#radChiusAperto#N#{width:150,ctrl:false}##" evento="START">
+						<TD_LABEL_RADIO key_id="radNascosto" valore="lblNascosto##radNascosto#radNascosto#{width:150}#S#" evento="START">
+						</TD_LABEL_RADIO>
+					</TR_TD_LABEL_CHECK>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="filtriDiari" valore="FiltriDiari" evento="START">
+					<TR.INIT key_id="tr" valore="tr" evento="START">
+						<TD_LABEL_DATA key_id="oDaDataDiari" valore="lblDaDataDiari#txtDaDataDiari#txtDaDataDiari##startWithToday:false, format: 'd/m/Y'#disabled:true" evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="oADataDiari" valore="lblADataDiari#txtADataFiltri#txtADataDiari##startWithToday:true, format: 'd/m/Y'#disabled:true#" evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<!-- TR_TD_LABEL_RADIO key_id="tipoScheda" valore="lbltipoScheda##tipoScheda#radtipoScheda#{width:'auto'}#N#TIPO_SCHEDA" evento="START">
+					</TR_TD_LABEL_RADIO-->
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

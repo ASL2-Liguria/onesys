@@ -1,0 +1,7 @@
+div.sostanza {font-size: 10px;}
+td table {width:100%;}
+td.dose {text-align:right;}
+div#content>table {border-collapse: collapse; width: 100%;}
+div#content>table>tbody>tr>td{border: 1px solid black;}
+td[name=durata],td[name=seleziona] {text-align: center;}
+td[name=durata] input {width: 20px; text-align: center;}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROWSET>
+	<ROW>
+		<lblTitolo>Frasi Standard</lblTitolo>
+		<btnSolo>Solo codice</btnSolo>
+		<btnTutti>Selez. tutti</btnTutti>
+		<btnCerca>Cerca</btnCerca>
+	</ROW>
+</ROWSET>

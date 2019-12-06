@@ -1,0 +1,16 @@
+<root>
+<statements_list>	
+		<statement name="chiudi">				
+			<sql>
+			<![CDATA[
+				declare
+					pIden pls_integer := to_number(?);
+					pUte pls_integer := to_number(?);
+				begin
+					update radsql.cc_trattamenti set chiuso='S',ute_chiusura=pUte,data_chiusura=sysdate where iden_versione= pIden;
+				end;
+			]]>
+			</sql>
+		</statement>
+		</statements_list>
+</root>

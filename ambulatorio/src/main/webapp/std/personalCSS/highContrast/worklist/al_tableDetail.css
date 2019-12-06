@@ -1,0 +1,77 @@
+
+td.classTdLabelNoWidth{
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;	
+}
+td.classTdText{
+	background-color:#DAF5FE;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;	
+	text-align:right;
+	text-decoration: underline;
+	border-bottom:1px;
+}
+
+td.classTdLabel{
+	background-color:#DAF5FE;
+	width:100px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;	
+	white-space:nowrap;
+}
+
+td.classTdField{
+	background-color:#F2FEFF;
+	white-space:nowrap;	
+}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+/* **************************  */
+table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	border: 1px solid #000099;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	overflow:hidden;
+	width: 100%;
+	border-top-width:12px;
+}
+
+table.classDataTable td{
+	border: 1px solid #83E2BC;
+}
+
+table.classDataTable th {
+	background-color:#000099;
+	border: 1px solid #83E2BC;
+	
+}
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:14px;
+	border-color:#000099;
+	border-width:thin;
+	border-style:solid;
+	font-family: Arial, Helvetica, sans-serif;
+	color:yellow;
+}
+
+div.classDatiTabella{
+	white-space:nowrap;
+}
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+

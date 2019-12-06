@@ -1,0 +1,203 @@
+<PAGINA key_id="GESTIONE_DSA">
+	<HEADER_PAGE key_id="GESTIONE_DSA" valore="DEFAULT,SCHEDA,GESTIONE_DSA#DEFAULT,GESTIONE_DSA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="GESTIONE_DSA#lblTitolo#butFirma,butSalva,butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabDSA" valore="tabDSA" evento="START">
+				<FIELDSET_TABLE key_id="Assistito" valore="idAssistito" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome##txtCognome####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtDataNasc" valore="lblDataNascita##txtDataNasc####S#w80px#N" evento="START">
+						</TD_LABEL_TEXT>
+						<INPUT.HIDDEN key_id="h-txtDataNasc" valore="h-txtDataNasc" evento="START">
+                    	</INPUT.HIDDEN>
+						<TD_LABEL_TEXT key_id="txtSesso" valore="lblSesso##txtSesso####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtCodFisc" valore="lblCodiceFiscale##txtCodFisc####S#w130px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="AperturaDSA" valore="idAperturaDSA" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataAperturaDSA" valore="lblDataAperturaDSA#maskData#txtDataAperturaDSA##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_APRI_DSA" evento="START">"
+						<TD_LABEL_ORA key_id="txtOraAperturaDSA" valore="lblOraAperturaDSA##txtOraAperturaDSA#N" evento="START">
+						</TD_LABEL_ORA>
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_COMBO key_id="cmbReparto" valore="lblReparto##cmbReparto#cmbReparto#N#SALVA#S#" evento="START">
+						<TD_LABEL_TEXT key_id="txtNumNosologico" valore="lblNumNosologico##txtNumNosologico####S#w130px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_COMBO>
+
+					<!--  TR_TD_LABEL_RADIO key_id="radTipoDSA" valore="lblTipoDSA##radTipoDSA#radTipoDSA#{width:120}#N#SAVE" evento="START">
+					</TR_TD_LABEL_RADIO-->
+					<TR_TD_LABEL_COMBO key_id="cmbTipologiaDSA" valore="lblTipologiaDSA##cmbTipologiaDSA#cmbTipologiaDSA#N#SALVA#S#" evento="START">
+						<TD_AUTOCOMPLETE key_id="CaseManager" valore="lblCaseManager#acCaseManager#CaseManager#txtCaseManager#Medici#" evento="START">
+						</TD_AUTOCOMPLETE>
+					</TR_TD_LABEL_COMBO>
+
+					<TR_TD_LABEL_DATA key_id="dataRiceIniDSA" valore="lblDataRiceIniDSA#maskData#txtDataRiceIniDSA##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_PREN_DSA" evento="START">
+						<TD_LABEL_TEXT key_id="codiceRiceIniDSA" valore="lblCodiceRiceIniDSA##txtCodiceRiceIniDSA####N#w130px#N" evento="START">
+						</TD_LABEL_TEXT>
+						<!--  TD_LABEL_TEXT key_id="TicketRiceIniDSA" valore="lblTicketRiceIniDSA##txtTicketRiceIniDSA####N#w130px#N" evento="START">
+						</TD_LABEL_TEXT-->
+
+					</TR_TD_LABEL_DATA>
+
+				</FIELDSET_TABLE>
+				<!--  FIELDSET_TABLE key_id="tableUrg" valore="lblLivelloUrg" evento="START">
+					<TR_TD_CHECK key_id="chkUrgDSA" valore="chkUrgDSA#chkUrgDSA#N#{width:'200px',single_val:true}##URGENZA" evento="START">
+					</TR_TD_CHECK>
+				</FIELDSET_TABLE-->
+				<FIELDSET_TABLE key_id="DatiPrimoAccesso" valore="idDatiPrimoAccesso" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="txtAnamnesi" valore="lblAnamnesi#txtAnamnesi##N#N#N" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtSospettoDia" valore="lblSospettoDia#txtSospettoDia##N#N#N" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtEsameObi" valore="lblEsameObi#txtEsameObi##N#N#N" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtEsamiPrec" valore="lblEsamiPrec#txtEsamiPrec##N#N#N" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<BUTTON key_id="butStampaLetteraAperturaDSA" valore="butStampaLetteraAperturaDSA" evento="START">
+				</BUTTON>
+                <BUTTON key_id="butStampaInformativaDSA" valore="butStampaInformativaDSA" evento="START">
+                </BUTTON>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabPrestDSA" valore="tabPrestDSA" evento="START">
+				<FIELDSET_TABLE key_id="EsenzioniPaziente" valore="idEsenzioniPaziente" evento="START">
+					<TR_TD_LABEL_COMBO key_id="cmbTipoRicetta" valore="lblTipoRicetta##cmbTipoRicetta#cmbTipoRicetta#N#SALVA#S#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbPrioritaRicetta" valore="lblPrioritaRicetta##cmbPrioritaRicetta#cmbPrioritaRicetta#N##S#" evento="START">
+						</TD_LABEL_COMBO>
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO_LIST key_id="lstEsenzioniPaziente" valore="lblEsenzioniPaziente##lstEsenzioniPaziente#lstEsenzioniPaziente##" evento="START">
+						<TD_AUTOCOMPLETE key_id="EsenzioniScelte" valore="lblEsenzioniScelte#acEsenzioniScelte#EsenzioniScelte#txtEsenzioniScelte#ADT_ESENZIONI_PATOLOGIA#" evento="START">
+							<TD_COMBO_LIST key_id="lstEsenzioniScelte" valore="#lstEsenzioniScelte#N#" evento="START">
+							</TD_COMBO_LIST>
+						</TD_AUTOCOMPLETE>
+					</TR_TD_LABEL_COMBO_LIST>
+					<TD_AUTOCOMPLETE key_id="MedicoRicette" valore="lblMedicoRicette#acMedicoRicette#MedicoRicette#txtMedicoRicette#Medici#" evento="START">
+					</TD_AUTOCOMPLETE>
+					<TD_LABEL_COMBO key_id="cmbPrimoAccesso" valore="lblPrimoAccesso##cmbPrimoAccesso#cmbPrimoAccesso#N##S#" evento="START">
+					</TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO key_id="cmbStampanti" valore="lblStampanti##cmbStampanti#cmbStampanti#N##S#" evento="START">
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="PrestazioniDSA" valore="idPrestazioniDSA" evento="START">
+					<TR.INIT key_id="trPrestDSA" valore="" evento="START">
+						<TD.INIT key_id="tdPrestDSA" valore="" evento="START">
+							<DIV key_id="wkPrestDSA" valore="wkPrestDSA" evento="START">
+							</DIV >
+							<BUTTON key_id="butSelTutte" valore="butSelTutte" evento="START">
+							</BUTTON>
+							<BUTTON key_id="butGeneraRicette" valore="butGeneraRicette" evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="RicetteDSA" valore="idRicetteDSA" evento="START">
+					<TR.INIT key_id="trRicetteDSA" valore="" evento="START">
+						<TD.INIT key_id="tdRicetteDSA" valore="" evento="START">
+							<DIV key_id="wkRicetteDSA" valore="wkRicetteDSA" evento="START">
+							</DIV>
+							<BUTTON key_id="butRegistraCodiceRicetta" valore="butRegistraCodiceRicetta" evento="START">
+							</BUTTON>
+							<BUTTON key_id="butStampaRicette" valore="butStampaRicette" evento="START">
+							</BUTTON>
+							<!--BUTTON key_id="butPrenotaPrestazioni" valore="butPrenotaPrestazioni" evento="START">
+							</BUTTON-->
+							<BUTTON key_id="butAnnullaRicetta" valore="butAnnullaRicetta" evento="START">
+							</BUTTON>
+							<BUTTON key_id="butRichiestePrestazioni" valore="butRichiestePrestazioni" evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabRichiesteAccessi" valore="tabRichiesteAccessi" evento="START">
+				<FIELDSET_TABLE key_id="RichiesteDSA" valore="idRichiesteDSA" evento="START">
+					<TD.INIT key_id="tdRichiesteDSA" valore="" evento="START">
+							<DIV key_id="wkRichiesteDSA" valore="wkRichiesteDSA" evento="START">
+							</DIV>
+						</TD.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="AccessiDSA" valore="idAccessiDSA" evento="START">
+					<TR.INIT key_id="trAccessiDSA" valore="" evento="START">
+						<TD.INIT key_id="tdAccessiDSA" valore="" evento="START">
+							<DIV key_id="wkAccessiDSA" valore="wkAccessiDSA" evento="START">
+							</DIV>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<TR_TD_LABEL_TEXT key_id="txtNAccessi" valore="lblNAccessi##txtNAccessi####N#w10px#N" evento="START">
+				</TR_TD_LABEL_TEXT>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabChiusuraDSA" valore="tabChiusuraDSA" evento="START">
+                <ROW key_id="row1" valore="row1" evento="START">
+                    <COLUMN_FREE key_id="colWk2" valore="colWk2" evento="START">
+                        <FIELD_HEADER_TABLE key_id="idChiusuraDSA" valore="idChiusuraDSA"	evento="START">
+                            <TR_TD_LABEL_DATA key_id="txtDataChiusuraDSA" valore="lblDataChiusuraDSA#maskData#txtDataChiusuraDSA##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_APRI_DSA" evento="START">"
+                                <TR_TD_LABEL_TEXTAREA key_id="txtRisultati" valore="lblRisultati#txtRisultati##N#N#N##STD" evento="START">
+                                    <TD.INIT key_id="tdRefStd1" valore="1#tdRefStd1#tdRefStd1" evento="START">
+                                    </TD.INIT>
+                                </TR_TD_LABEL_TEXTAREA>
+                                <TR_TD_LABEL_TEXTAREA key_id="txtSintesiClinica" valore="lblSintesiClinica#txtSintesiClinica##N#N#N##STD" evento="START">
+                                    <TD.INIT key_id="tdRefStd2" valore="1#tdRefStd2#tdRefStd2" evento="START">
+                                    </TD.INIT>
+                                </TR_TD_LABEL_TEXTAREA>
+                                <TR_TD_LABEL_TEXTAREA key_id="txtTerapieProposte" valore="lblTerapieProposte#txtTerapieProposte##N#N#N##STD" evento="START">
+                                    <TD.INIT key_id="tdRefStd3" valore="1#tdRefStd3#tdRefStd3" evento="START">
+                                    </TD.INIT>
+                                </TR_TD_LABEL_TEXTAREA>
+                                <TR_TD_AUTOCOMPLETE key_id="DiagnosiPrinc" valore="lblDiagnosiPrinc#acDiagnosiPrinc#DiagnosiPrinc#txtDiagnosiPrinc#DiagnosiICD9#" evento="START">
+                                </TR_TD_AUTOCOMPLETE>
+                                <TR_TD_AUTOCOMPLETE key_id="EsenzioneProposta" valore="lblEsenzioneProposta#acEsenzioneProposta#EsenzioneProposta#txtEsenzioneProposta#ADT_EsenzionePropostaDsa#" evento="START">
+                                </TR_TD_AUTOCOMPLETE>
+                            </TR_TD_LABEL_DATA>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                    <COLUMN_FREE key_id="col3" valore="col3" evento="START">
+                        <FIELD_HEADER_TABLE key_id="datiPaziente" valore="datiPaziente"	evento="START">
+                            <TR.INIT key_id="tr1" valore="tr1" evento="START">
+                                <TD.INIT key_id="td1" valore="1#td1#td1" evento="START">
+                                    <BUTTON key_id="butRefStrum" valore="butRefStrum" evento="START">
+                                    </BUTTON>
+                                </TD.INIT>
+                            </TR.INIT>
+                            <TR.INIT key_id="trdatiwk" valore="trdatiwk" evento="START">
+                                <TD.INIT key_id="tddatiwk" valore="1#tddatiwk#tddatiwk" evento="START">
+                                    <DIV key_id="divwkReferti" valore="divwkReferti" evento="START">
+                                    </DIV>
+                                    <DIV key_id="divDatiLabo" valore="divDatiLabo" evento="START">
+                                        <IFRAME key_id="DatiLabo" valore="DatiLabo" evento="START"></IFRAME>
+                                    </DIV>
+                                </TD.INIT>
+                            </TR.INIT>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+                <ROW key_id="row2" valore="row2" evento="START">
+                    <COLUMN_FREE key_id="col4" valore="col4" evento="START">
+                        <TR.INIT key_id="trRichiesteDSA" valore="" evento="START">
+                            <TD.INIT key_id="tdRichiesteDSA" valore="" evento="START">
+                                <DIV key_id="wkRichiesteDSA" valore="wkRichiesteDSA" evento="START">
+                                </DIV>
+                            </TD.INIT>
+                        </TR.INIT>
+                        <TR.INIT key_id="tr2" valore="tr2" evento="START">
+                            <TD.INIT key_id="tdbutton" valore="1#tdbutton#tdbutton" evento="START">
+                                <BUTTON key_id="butStampaRelazione" valore="butStampaRelazione" evento="START">
+                                </BUTTON>
+                                <BUTTON key_id="butIPatient" valore="butIPatient" evento="START">
+                                </BUTTON>
+                                <BUTTON key_id="butDocumenti" valore="butDocumenti" evento="START">
+                                </BUTTON>
+                                <BUTTON key_id="butDatiLaboratorio" valore="butDatiLaboratorio" evento="START"></BUTTON>
+                                <BUTTON key_id="butModuloDiagnosi" valore="butModuloDiagnosi" evento="START"></BUTTON>
+                            </TD.INIT>
+                        </TR.INIT>
+                    </COLUMN_FREE>
+                </ROW>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

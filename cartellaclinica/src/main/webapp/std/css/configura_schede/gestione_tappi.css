@@ -1,0 +1,426 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#b9e0ff;padding-right:10px;}
+
+#div_elencoTappiScheda{
+	/*background:#a4a5a5;*/
+	background:#69ADFF;
+}
+
+#div_elencoEsamiTappo{
+	background:#a4a5a5;
+}
+#elencoTappiScheda {
+	overflow:auto;
+	height: 295 px;
+	background:url(../../../imagexPix/GestioneRichieste/provettaConfigSchede.png) /*#cccece*/#E1F2F2;
+	background-repeat:no-repeat;
+	background-position:center;
+	margin:1px;
+}
+
+#elencoTappiScheda li{
+	/*border: 1px solid #d7e4f3;*/
+	
+	BORDER: 1PX SOLID #91C1FF;
+	/*BORDER-top: 2PX SOLID #A5ACB5;*/
+	/*BORDER-RIGHT: 2PX SOLID #A5ACB5;*/
+	MARGIN: 2PX;
+	BACKGROUND: white;
+	/*BACKGROUND-image:url(../../../imagexPix/GestioneRichieste/tabConfigSchedeLi.png);*/
+	padding: 6px;
+	padding-left:20px;
+	width: 480px;
+	height:12px;
+	position:relative;
+	line-height:12px;
+	/*font-weight:bold;*/
+	font-size:12px;
+	cursor:n-resize;
+}	
+
+#elencoTappiScheda li:hover{
+font-size:100px;
+}
+
+#elencoEsamiTappo {
+	overflow:auto;
+	height: 348 px;
+	background:url(../../../imagexPix/GestioneRichieste/goccia_sangue.png)  /*#cccece*/ #E1F2F2;
+	background-repeat:no-repeat;
+	background-position:center;
+	margin:1px;
+}
+
+#elencoEsamiTappo li{
+	/*border: 1px solid #d7e4f3;*/
+	
+	BORDER: 1PX SOLID #91C1FF;
+	/*BORDER-LEFT: 2PX SOLID #A5ACB5;
+	BORDER-RIGHT: 2PX SOLID #A5ACB5;*/
+	MARGIN: 2PX;
+	BACKGROUND: WHITE;
+	/*BACKGROUND-image:url(../../../imagexPix/GestioneRichieste/tabConfigSchedeLi.png);*/
+	padding: 6px;
+	padding-left:20px;
+	width: 490 px;
+	height:12px;
+	position:relative;
+	line-height:12px;
+	/*font-weight:bold;*/
+	font-size:12px;
+	cursor:n-resize;
+}
+
+fieldset{
+	margin:10px;
+	border:4px solid #FFF;
+	padding:5px;
+	background:#fff;
+	}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+
+.opacity {
+
+	filter:alpha(opacity=20);
+	-moz-opacity: 0.2;
+	opacity: 0.2;
+
+}
+
+.radio td {
+
+	text-align:center;
+
+}
+
+#divElencoTappi {
+
+	background:#b9e0ff;
+	width:510px;
+	height:400px;
+	padding-bottom:30px;
+	padding-top:30px;
+	position:absolute;
+	left:60px;
+	top:0px;
+	cursor:pointer;
+
+}
+
+
+#divTappiScheda {
+
+	background:#b9e0ff;
+	width:510px;
+	height:400px;
+	padding-bottom:30px;
+	padding-top:30px;
+	position:absolute;
+	left:710px;
+	top:0px;
+
+}
+
+#divRicEsami {
+
+	background:#b9e0ff;
+	width:510px;
+	height:450px;
+	position:absolute;
+	left:100px;
+	top:150px;
+	padding-left:5 px;
+
+}
+
+#divEsamiTappo {
+
+	background:#b9e0ff;
+	width:500px;
+	height:450px;
+	position:absolute;
+	left:690px;
+	top:150px;
+
+}
+
+#divInsMat {
+
+	background:#b9e0ff;
+	width:250px;
+	height:100px;
+	position:absolute;
+	left:580px;
+	/*top:200px;*/
+	top:250px;
+	border:thick;
+	z-index:10;
+
+
+}
+
+#elencoEsami{
+
+	background:#CEF1FF;
+	width:505;
+	height:340;
+
+}
+
+#elencoTappi{
+
+	background:#CEF1FF;
+	width:510;
+	height:300;
+
+}
+
+
+/*label blu sopra wk tappi e esami*/
+.titoloElenco {
+
+	height:30px;
+	/*background:#94bff3;*/
+	background:url(../../../imagexPix/GestioneRichieste/top_tabella.gif) repeat-x;
+	color:#333333;
+	width:100%;	
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	border: 1px solid #6AA8F2;
+
+}
+
+/*label verde*/
+.tappo{
+
+	/*background:#46c269;*/
+	background:url(../../../imagexPix/tabheader/top_tabella_verde_30.gif) repeat-x;
+	/*color:#FFFFFF;*/
+	color:#333333;
+	width:100%;	
+	height:30px;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	border: 1px solid #6AA8F2;
+
+}
+
+.order {
+
+	BACKGROUND:#f2feff;
+	BORDER-BOTTOM: #6aa8f2 1px solid;
+	BORDER-LEFT: #6aa8f2 1px solid;
+	WHITE-SPACE: nowrap;
+	BORDER-TOP: #6aa8f2 1px solid;
+	BORDER-RIGHT: #6aa8f2 1px solid;
+	font-size:10px;
+	text-align: center;
+	width:15px;
+	float: right;
+	right:2px;
+	
+}
+
+.orderASC {
+	
+	BACKGROUND:#f2feff;
+	BACKGROUND-IMAGE: url(../../../imagexPix/Visualizzatore/selASC.png);
+	background-repeat:no-repeat;
+	font-size:10px;
+	text-align: center;
+	width:15px;
+	cursor:pointer;
+	
+}
+
+.orderASC td{
+
+	BORDER-BOTTOM: #6aa8f2 1px solid;
+	BORDER-LEFT: #6aa8f2 1px solid;
+	WHITE-SPACE: nowrap;
+	BORDER-TOP: #6aa8f2 1px solid;
+	BORDER-RIGHT: #6aa8f2 1px solid;
+	cursor:pointer;
+
+}
+
+.orderDesc {
+	
+	BACKGROUND:#f2feff;
+	font-size:10px;
+	text-align: center;
+	BACKGROUND-IMAGE: url(../../../imagexPix/Visualizzatore/selDESC.png);
+	background-repeat:no-repeat;
+	width:15px;
+	cursor:pointer;
+	padding:2px;
+
+}
+
+.orderDesc td {
+	
+	BORDER-BOTTOM: #6aa8f2 1px solid;
+	BORDER-LEFT: #6aa8f2 1px solid;
+	WHITE-SPACE: nowrap;
+	BORDER-TOP: #6aa8f2 1px solid;
+	BORDER-RIGHT: #6aa8f2 1px solid;
+	cursor:pointer;
+}
+
+.InsMat{
+
+	background:#CC0000;
+	color:#FFFFFF;
+	width:100%;	
+	height:30px;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	padding:2px;
+}
+
+
+DIV.popupEsamiRiep{
+
+	background:#b9e0ff;
+	border: 3px #000033;
+	position:absolute;
+	text-align:center;
+	top:100px;
+	left:200px;
+	width:200px;
+	height:150px;
+	border-left:3px solid #016aff;
+	border-right:3px solid #016aff;
+	border-bottom:3px solid #016aff;
+	border-top:3px solid #016aff;
+	z-index:8;
+}
+
+#titPopupRiep{
+
+	/*background:#016aff;*/
+	BACKGROUND-IMAGE: url(../../../imagexPix/bar/titleMenuOption.jpg);
+	display:block;
+	width:100%;
+	height:20px;
+	line-height:20px;
+	vertical-align:middle;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:5px;
+	text-align:center;
+}
+
+#lblColore{
+
+	width: 250 px;
+	margin-left: 10 px;
+	height: 30 px;
+	line-height: 30 px;
+	color: #333333;
+	font-size:10px;
+	font-stretch: extra-expanded;
+	font-style: oblique;
+}
+
+.hide{
+	
+	display:none;
+}
+
+div#overlay
+{
+	z-index:98;
+	/*background: url(../../../imagexPix/Layout/overlay.png) ! important;*/
+	width:100%;
+	height:100%;
+	position:absolute;top:0;left:0;
+}
+
+
+.elenchiScelte{
+
+	background:#FFFFCC;
+}
+
+.pulsCancella{
+
+	background-image: url(../../../imagexPix/button/mini/cancel.gif);
+	background-repeat:no-repeat;
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:2px;
+	right:2px;
+	cursor:pointer;
+}
+
+.pulsVisualizza{
+
+	background-image:   url(../../../imagexPix/button/mini/btInfo_mini.png);
+	background-repeat:no-repeat;
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:2px;
+	right:25px;
+	cursor:pointer;
+}
+
+.modificaPlus{
+
+	width:14px;
+	background-image: url(../../../imagexPix/button/mini/btMinus.gif) ;
+	background-repeat: no-repeat;
+	cursor:pointer;
+}
+	
+.modificaEsamiPlus{
+
+	width:14px;
+	height:20px;
+	right:5px;
+	background-image: url(../../../imagexPix/button/mini/btMinus.gif) ;
+	background-repeat: no-repeat;
+	background-position:right;
+	cursor:pointer;
+}
+
+.modificaMinus{
+
+	width:14px;
+	right:5px;
+	background-image: url(../../../imagexPix/button/mini/btMinus_over.gif) ;
+	background-repeat: no-repeat;
+	cursor:pointer;
+}
+	
+.modificaEsamiMinus{
+
+	width:14px;
+	height:20px;
+	background-image: url(../../../imagexPix/button/mini/btMinus_over.gif) ;
+	background-repeat: no-repeat;
+	background-position:right;
+	cursor:pointer;
+}
+		
+#txtRicEsami, #txtRicercaTappo, #txtRicTappo {
+
+	BORDER: 1PX SOLID #69ADFF;
+	margin: 2px;
+}
+

@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/PS/SchedeModulistica/ModuloSegnalazioneGiuntoCadavere/ModuloSegnalazioneGiuntoCadavere.css"/>
+    <JS path="js/PS/SchedeModulistica/ModulisticaFunzioniComuni.js"/>
+    <JS path="js/PS/SchedeModulistica/ModuloSegnalazioneGiuntoCadavere/ModuloSegnalazioneGiuntoCadavere.js"/>
+</INCLUDE>

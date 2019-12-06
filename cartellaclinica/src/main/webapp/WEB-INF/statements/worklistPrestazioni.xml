@@ -1,0 +1,42 @@
+<root>
+	<statements_list>
+		<statement name="getIdDocumento">
+		<pool>elcoPool_ambulatorio</pool>
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			select id_repository from (
+			SELECT id_repository 
+			FROM VERSIONI_REFERTI 
+			where iden_ref =? order by progr desc
+			) 
+			where rownum=1
+			]]>
+			</sql>
+		</statement>
+		<statement name="getTestoReferto">
+		<pool>elcoPool_ambulatorio</pool>
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			declare
+               pIdenRef pls_integer := to_number(?);
+               pPregresso varchar2(50):='';
+               pTesto clob;
+                    begin
+                        select key_pregresso into pPregresso from esami where iden_ref=pIdenRef and rownum=1;
+						if(pPregresso is null) then
+						 	 SELECT REPLACE(V.testo_referto,chr(13),' ' ) into pTesto
+   			 				 FROM VERSIONI_REFERTI V
+    		 				 WHERE V.IDEN_REF=pIdenRef
+    		 				 AND V.PROGR=RADSQL.MAXVERSION(pIdenRef) AND V.DELETED='N';
+						else
+						 select testo into pTesto from reftxt where iden_ref=pIdenRef and rownum=1;
+						end if;
+                  ? := pTesto;
+                end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

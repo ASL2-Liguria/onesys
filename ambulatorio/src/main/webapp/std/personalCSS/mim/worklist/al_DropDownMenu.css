@@ -1,0 +1,76 @@
+.classDDMenu{
+	position:absolute;
+	visibility:hidden;
+}
+
+.DropDownIcon{
+	height:30px;
+	width:30px;	
+	background-color:#FFFFFF;
+}
+
+.DropDownMenuLinks {
+	font-size: 12px;
+	font-family:Tahoma, Geneva, sans-serif;
+	padding: 0px;
+	border-top: Solid 2px #B8BACD;
+	border-left: Solid 2px #B8BACD;
+	border-right: Solid 2px #B8BACD;
+	border-bottom: Solid 2px #B8BACD;
+	cursor: Default;
+}
+
+.DropDownMenuOver {
+	background: #E3D8F1;
+	color:black;
+	font-size: 12px;
+	font-weight:bold;	
+	font-family:Tahoma, Geneva, sans-serif;
+	cursor: Default;	
+}
+
+.DropDownMenuNormal {
+	background:#B8BACD;
+	color: white;
+	font-weight:bold;	
+	font-size: 12px;
+	font-family:Tahoma, Geneva, sans-serif;
+	cursor: Default;		
+}
+
+
+#menuDDcontainer{
+	height:21px;
+}
+
+#menuDD{
+	width:80px;
+	float:right;
+	height:21px;
+	background-image:url(../../../../imagexPix/bar/btDDlightcyan_mim.jpg);
+	background-repeat:repeat-x;
+	padding:2px 2px 2px 2px;
+	margin:0px 2px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;	
+	white-space:nowrap;
+	color:white;
+}
+
+
+#menuDD a{
+	height:14px;
+	TEXT-DECORATION: none;
+	color: black;
+	display:block;	
+}
+
+#menuDD a:hover{
+	background-color:#E3D8F1;
+	background-repeat:repeat-x;
+	display:block;	
+	color: black;
+	
+}
+

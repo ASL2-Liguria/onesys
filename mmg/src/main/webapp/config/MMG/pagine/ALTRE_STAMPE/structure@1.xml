@@ -1,0 +1,104 @@
+<PAGINA key_id="ALTRE_STAMPE">
+	<HEADER_PAGE key_id="ALTRE_STAMPE"
+		valore="DEFAULT_MMG,SCHEDA,ALTRE_STAMPE#DEFAULT_MMG,ALTRE_STAMPE" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#LISTA_CERTIFICATI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="AltreStampe#lblTitolo#butStampa,butSalva,butSalvaStampa,butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabAltreStampe"
+				valore="tabAltreStampe" evento="START">
+				
+				
+				<FIELDSET key_id="fldTestiStandard" valore="fldTestiStandard"
+					evento="START">
+					<DIV key_id="container" valore="container" evento="START">
+					</DIV>
+				</FIELDSET>
+				
+				<FIELDSET_TABLE key_id="fldDatiPaziente" valore="fldDatiPaziente"
+					evento="START">
+					<INPUT.HIDDEN key_id="hCodCertificato" valore="hCodCertificato###" evento="START"></INPUT.HIDDEN>
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="CodiceFiscale"
+							valore="lblCodiceFiscale##txtCodiceFiscale" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DataDiNascita"
+							valore="lblDataDiNascita##txtDataDiNascita#DataDiNascita#readonly_element: true"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_TEXT key_id="LuogoNascita"
+							valore="lblLuogoNascita##txtLuogoNascita" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="IndirizzoResidenza"
+							valore="lblIndirizzoResidenza##txtIndirizzoResidenza" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_BUTTON key_id="butImporta" valore="butImporta##6"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldDatiCertificato" valore="fldDatiCertificato"
+					evento="START">
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="TitoloCertificato"
+							valore="lblTitoloCertificato##txtTitoloCertificato###TITOLO"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_DATA key_id="DataInserimento"
+							valore="lblDataInserimento##txtDataInserimento#DataInserimento#startWithToday:true, format: 'd/m/Y'#disabled:falsealse##DATA_DOC"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr5" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="GiorniPrognosi"
+							valore="lblGiorniPrognosi##txtGiorniPrognosi###GG_PROGNOSI"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_DATA key_id="DataScadenza"
+							valore="lblDataScadenza##txtDataScadenza#DataScadenza#format: 'd/m/Y'###DATA_SCADENZA"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr6" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="IntestazioneMedico"
+							valore="lblIntestazioneMedico##IntestazioneMedico#radIntestazioneMedico#{width:50,idxDefault:1}#S#INTESTAZIONE"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_RADIO key_id="TimbroMedico"
+							valore="lblTimbroMedico##TimbroMedico#radTimbroMedico#{width:50,idxDefault:1}#S#TIMBRO"
+							evento="START">
+						</TD_LABEL_RADIO>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldTesto" valore="fldTesto" evento="START">
+					<TR_TD_TEXTAREA key_id="testo" valore="testo" evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabLista" valore="tabLista"
+				evento="START">
+				<FIELDSET key_id="fldLista" valore="fldLista"
+					evento="START">
+					<DIV key_id="divWk" valore="divWk" evento="START">
+				</DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

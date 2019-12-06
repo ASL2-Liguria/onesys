@@ -1,0 +1,120 @@
+table.classTabHeader {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+
+table.classTabHeader td.classTabHeaderSx {
+	background-image:url(../../../imagexPix/tabheader/tabSx.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddle {
+	background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#lblDescrizionePaziente, #lblAgeValue{color:yellow;}
+
+table.classTabHeader td.classTabHeaderDx {
+background-image:url(../../../imagexPix/tabheader/tabDx.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+table.classTabHeader td.classTabFooterSx {
+background-image:url(../../../imagexPix/tabheader/tabSxDown.gif);
+width:10px;
+}
+
+table.classTabHeader td.classTabFooterDx {
+background-image:url(../../../imagexPix/tabheader/tabDxDown.gif);
+background-repeat:no-repeat;
+width:10px; 
+}
+
+
+
+table.classTabHeader td.classButtonHeader {
+background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+
+table.classTabHeader td.classButtonHeaderContainer {
+background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+background-repeat:repeat-x;
+width:120px;
+}
+
+table.classTabHeader td.classButtonHeaderCarousel {
+	background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat:repeat-x;
+	width:550px;
+}
+
+
+table.classTabHeader td.classMiniButtonheader {
+background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+background-repeat:repeat-x;
+width:26px;
+padding:0,5px,0,5px;
+
+}
+
+/* ************ configurazione per intestazione rossa ********** */
+
+table.classTabHeader td.classTabHeaderSxRed{
+	background-image:url(../../../imagexPix/tabheader/tabSx_red.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddleRed {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabHeader td.classTabHeaderDxRed {
+background-image:url(../../../imagexPix/tabheader/tabDx_red.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+table.classTabHeader td.classButtonHeaderRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+table.classTabHeader TD#headerThirdLayoutButton.classButtonHeaderContainerRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+table.classTabHeader td.classMiniButtonheaderRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:26px;
+padding:0,5px,0,5px;
+
+}
+/* ************************************************************* */

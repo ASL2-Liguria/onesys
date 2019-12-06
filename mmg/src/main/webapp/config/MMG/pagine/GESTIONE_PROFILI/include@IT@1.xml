@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/MMG/GestioneProfili/GestioneProfili.css" />
+	<JS path="js/MMG/GestioneProfili/GestioneProfili.js" />
+</INCLUDE>
+

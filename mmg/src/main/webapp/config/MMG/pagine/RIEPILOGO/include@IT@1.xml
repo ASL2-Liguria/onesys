@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/MMG/Riepilogo/Riepilogo.js" />
+	<CSS path="css/MMG/Riepilogo/Riepilogo.css" />
+	<CSS path="css/jquery.ui.css" />
+</INCLUDE>

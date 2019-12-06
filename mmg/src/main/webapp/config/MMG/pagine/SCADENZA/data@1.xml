@@ -1,0 +1,17 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_SCADENZARIO'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Ricorrente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RICORRENTE" db_descrizione="RICORRENTE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Attivo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ATTIVO" db_descrizione="ATTIVO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Note" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOTE" db_descrizione="NOTE" configurazione_multi_data="" />
+	<DATO key_id="Descrizione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DESCR" db_descrizione="DESCR" configurazione_multi_data="" />
+	<DATO key_id="hGiorniScadenza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="SCADENZA_GIORNI" db_descrizione="SCADENZA_GIORNI" configurazione_multi_data="" />
+	<DATO key_id="hGiorniDa" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="GIORNI_DA" db_descrizione="GIORNI_DA" configurazione_multi_data="" />
+	<DATO key_id="hGiorniA" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="GIORNI_A" db_descrizione="GIORNI_A" configurazione_multi_data="" />
+</DATI>
+

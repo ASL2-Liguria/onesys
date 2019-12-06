@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ADT_WK_ACCESSI_DH</ID>
+    <ID-QUERY connection="ADT">WORKLIST.WK_ACCESSI_DH</ID-QUERY>
+    <TITLE>"Worklist ACCESSI DH"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+    	<MENU>
+            <ID>MENU_WK_ACCESSI_DH</ID>
+        </MENU>
+    	<ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>20px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <GROUP_ROWS>
+            <GROUP_ROW>
+                <ID_WORKLIST>WK_ACCESSI_DH_TRASFERIMENTI</ID_WORKLIST>
+                <FILTER>
+                    <![CDATA[function(rec){return NS_ACCESSI_DH.caricaWKTrasferimentiAccesso(rec);}]]>
+                </FILTER>
+            </GROUP_ROW>
+        </GROUP_ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DETAIL_PROBLEM</COL>
+                        <DB/>
+                    </ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){return $(this).openDetailRow(0, data, wk);}]]></PROCESS>
+                    <WIDTH>40px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+            	 <COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO</COL>
+                        <DB>IDEN_CONTATTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN_CONTATTO"</DESCRIPTOR>
+                     <PROCESS/>
+                    <WIDTH>10px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+
+                 <COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO_ASSISTENZIALE</COL>
+                        <DB>IDEN_CONTATTO_ASSISTENZIALE</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN_CONTATTO_ASSISTENZIALE"</DESCRIPTOR>
+                     <PROCESS/>
+                    <WIDTH>10px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO_GIURIDICO</COL>
+                        <DB>IDEN_CONTATTO_GIURIDICO</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN_CONTATTO_GIURIDICO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>10px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_ANAGRAFICA</COL>
+                        <DB>IDEN_ANAGRAFICA</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN ANAGRAFICA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>10px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE</COL>
+                        <DB>CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>"NUM. NOSOLOGICO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>STATO_ACCESSO_DESCRIZIONE</COL>
+                        <DB>STATO_ACCESSO_DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"STATO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INIZIO</COL>
+                        <DB>DATA_INIZIO</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA ORA INIZIO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>130px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_FINE</COL>
+                        <DB>DATA_FINE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA ORA FINE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>130px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>REP_GIU</COL>
+                        <DB>REP_GIU</DB>
+                    </ID>
+                    <DESCRIPTOR>"REPARTO GIURIDICO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>230px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>REP_ASS</COL>
+                        <DB>REP_ASS</DB>
+                    </ID>
+                    <DESCRIPTOR>"REPARTO ASSISTENZIALE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>230px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN id="DATA_INIZIO_ISO">ASC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

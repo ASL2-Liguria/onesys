@@ -1,0 +1,45 @@
+<ROWSET>
+    <ROW>
+        <dataReferto>Data Referto</dataReferto>
+        <Paziente>Paziente</Paziente>
+        <etaPaziente>Eta Paziente</etaPaziente>
+        <Sospeso>Sospeso</Sospeso>
+        <riqFunzioni>Funzioni</riqFunzioni>
+        <riqFunzioniBase>Funzioni Base</riqFunzioniBase>
+        <accInfoEsame>Info Esame</accInfoEsame>
+        <accListaEsami>Lista Esami</accListaEsami>
+        <accOperatori>Operatori</accOperatori>
+        <accDocAllegati>Doc. Allegati</accDocAllegati>
+        <accImmagini>Immagini</accImmagini>
+        <lblRefTxt>Referto testuale</lblRefTxt>
+        <tabRefertoTestuale>Referto</tabRefertoTestuale>
+        <titPrimoMedico>Primo Medico</titPrimoMedico>
+        <lblIcoPrimoMedico>Modifica Operatore</lblIcoPrimoMedico>
+        <titSecondoMedico>Secondo Medico</titSecondoMedico>
+        <lblIcoSecondoMedico>Modifica Operatore</lblIcoSecondoMedico>
+        <titSpecializzando>Specializzando</titSpecializzando>
+        <lblIcoSpecializzando>Modifica Operatore</lblIcoSpecializzando>
+        <titOpeCdc>Centro di Costo</titOpeCdc>
+        <lblQuadroClinico>Quadro Clinico</lblQuadroClinico>
+        <lblQuesitoClinico>Quesito Clinico</lblQuesitoClinico>
+        <lblNote>Note</lblNote>
+        <lblAutorizzaMDC>Autorizza MDC</lblAutorizzaMDC>
+        <lblUrgenza>Urgenza</lblUrgenza>
+        <lblSospesoHeader>REFERTO SOSPESO</lblSospesoHeader>
+        <errTesto>Compilare il referto</errTesto>
+        <errPer>Selezionare un Medico</errPer>
+        <msgRefStd>Referto Standard importato</msgRefStd>
+        <msgNORefStd>Nessun referto standard associato a questo esame</msgNORefStd>
+        <titRefStd>Referto Standard</titRefStd>
+        <lblSblocca>Sblocca</lblSblocca>
+        <lblSospendi>Sospendi</lblSospendi>
+        <lblOkSbloccato>Referto sbloccato correttamente</lblOkSbloccato>
+        <lblOkSospeso>Referto sospeso correttamente</lblOkSospeso>
+        <accSpeechmagic>Speechmagic</accSpeechmagic>
+        <warnAnteprimaNoReferto>Salvare prima di visualizzare anteprima</warnAnteprimaNoReferto>
+        <lblProvenienza>Provenienza</lblProvenienza>
+        <lblMedicoInviante>Medico Inviante</lblMedicoInviante>
+        <lblApriSchedaAnagrafica>Apri Scheda Anagrafica</lblApriSchedaAnagrafica>
+        <lblSpeechmagicModified>Dettatura in corso, verificare</lblSpeechmagicModified>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>ALLERGIE / INTOLLERANZE</lblTitolo>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<fldLista>Lista Vaccini Eseguiti</fldLista>
+		<fldRicercaPaziente>Paziente che effettua la vaccinazione</fldRicercaPaziente>
+		<fldInserimento>Inserimento</fldInserimento>
+		<tabInserimentoAllergie>Inserimento</tabInserimentoAllergie>
+		<tabElencoAllergie>Lista Allergie/Intolleranze</tabElencoAllergie>
+		
+		<lblTipoAllergia>Tipologia</lblTipoAllergia>
+		<lblAllergia>Descrizione Visualizzata</lblAllergia>
+		<lblFarmaco>Nome Farmaco</lblFarmaco>
+		<lblTipoSostanza>Tipo Sostanza</lblTipoSostanza>
+		<lblPrincipioAttivo>Principio Attivo</lblPrincipioAttivo>
+		<lblLivello>Livello ATC</lblLivello>
+		<lblTipoReazAllergica>Tipo Reazione Allergica</lblTipoReazAllergica>
+		
+		<buttonInsAllergie>Inserisci</buttonInsAllergie>
+		
+		<phFarmaco>Inserire il nome del farmaco ...</phFarmaco>
+		<phPrincipioAttivo>Inserire il nome del principio attivo ...</phPrincipioAttivo>
+		
+    </ROW>
+</ROWSET>

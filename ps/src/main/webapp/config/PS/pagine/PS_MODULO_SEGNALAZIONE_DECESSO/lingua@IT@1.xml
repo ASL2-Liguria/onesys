@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>SEGNALAZIONE DECESSO</lblTitolo>
+        <fldSegnalazione>Segnalo : </fldSegnalazione>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

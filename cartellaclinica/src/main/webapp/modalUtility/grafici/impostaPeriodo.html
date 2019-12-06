@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Impostazione</title>
+<link href='../../std/css/attesaRegistra.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/tabulatore.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='../../std/jscript/engine/prototype.js' language='JavaScript'></script>
+
+<link href='../../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='../../std/jscript/calendario/calendarview.js' language='JavaScript'></script>
+
+<script type='text/javascript' src='../../std/jscript/orologio/orologio.js' language='JavaScript'></script>
+
+</head>
+
+<body onload="init();">
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%"  >
+      <tr>
+        <td class='classTabHeaderSx'></td>
+        <td class='classTabHeaderMiddle'>Impostare criteri di periodo</td>
+        <td class='classTabHeaderDx'></td>
+  </tr>
+        </table>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+  	<td class='classTdLabelNoWidth' width="30%">
+    	<label><input type="radio" name="statico_dinamico" checked="checked" onclick="setStatDin(0);"/>Statico</label>
+    </td>
+  	<td class='classTdLabelNoWidth'  width="70%" colspan="2">
+    	<label><input type="radio" name="statico_dinamico" onclick="setStatDin(1);"/>Dinamico</label>
+    </td>
+  </tr>
+  <tr>
+   <td class='classTdLabel'><label name='lbdataIni' id='lbdataIni'>Data Inizio</label><input id="IdataIni"/></td>
+   <td class='classTdLabel'><label><input type="radio" name="radioDinamico" disabled="disabled" onclick="setRadioDinamico(0);"/>Numero giorni</label></td>
+   <td class='classTdLabel'><input id="nGiorni" disabled="disabled"/></td>
+  </tr>
+  <tr>
+    <td class='classTdLabel'><label name='lbdataFine' id='lbdataIFine'>Data Fine</label><input id="IdataFine"/></td>
+    <td class='classTdLabel'><label><input type="radio" name="radioDinamico" disabled="disabled"  onclick="setRadioDinamico(1);"/>Periodo</label></td>
+  	<td class='classTdLabel'>
+    	<label><input type="radio" name="radioRicovero" value="0" disabled="disabled"/>Episodio</label>
+        <label><input type="radio" name="radioRicovero" value="1" disabled="disabled"/>Ricovero</label>
+        <label><input type="radio" name="radioRicovero" value="2" disabled="disabled"/>Storico paziente</label>
+    </td>       
+  </tr>    
+</table>
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+       <tr>
+        <td class='classTabFooterSx'>&nbsp;</td>     
+        <td class='classTabHeaderMiddle'>&nbsp;</td> 
+        <td id=tdOK class='classButtonHeader'><div class='pulsante'><a onclick='closeModal();'>OK</a></div></td>
+        <td id=tdChiudi class='classButtonHeader'><div class='pulsante'><a onclick='self.close ();'>Annulla</a></div></td>            
+        <td class='classTabFooterDx'>&nbsp;</td>
+      </tr>
+</table>
+</body>
+<script>
+var ordine='1';
+
+function init(){
+	
+	if (window.dialogArguments.dataIni!='')
+		document.all.IdataIni.value =window.dialogArguments.dataIni.substring(6,8) + '/' +window.dialogArguments.dataIni.substring(4,6) + '/'+window.dialogArguments.dataIni.substring(0,4) ;
+	if (window.dialogArguments.dataFine!='')
+		document.all.IdataFine.value =window.dialogArguments.dataFine.substring(6,8) + '/' +window.dialogArguments.dataFine.substring(4,6) + '/'+window.dialogArguments.dataFine.substring(0,4);
+	if (window.dialogArguments.n_giorni!='')
+	{
+		document.all.statico_dinamico[1].checked = true;
+		setStatDin(1);
+		document.all.radioDinamico[0].checked = true;
+		setRadioDinamico(0);
+		document.all.nGiorni.value = window.dialogArguments.n_giorni;
+	}
+	if(window.dialogArguments.episodio=='true' || window.dialogArguments.ricovero=='true' || window.dialogArguments.storico=='true')
+	{
+		document.all.statico_dinamico[1].checked = true;
+		setStatDin(1);
+		document.all.radioDinamico[1].checked = true;		
+		setRadioDinamico(1);
+		document.all.radioRicovero[0].checked = (window.dialogArguments.episodio=='true');
+		document.all.radioRicovero[1].checked = (window.dialogArguments.ricovero=='true');
+		document.all.radioRicovero[2].checked = (window.dialogArguments.storico=='true');		
+	}	
+	ordine = window.dialogArguments.ordine;
+}
+function closeModal(){
+
+	var dataIni =document.all.IdataIni.value.substring(6,10)+document.all.IdataIni.value.substring(3,5)+document.all.IdataIni.value.substring(0,2);
+
+	var dataFine = document.all.IdataFine.value.substring(6,10)+document.all.IdataFine.value.substring(3,5)+document.all.IdataFine.value.substring(0,2);
+
+	var xml = "<PERIODO ordine=\""+ordine+"\" dimension=\"\" ";
+	
+	if (document.all.statico_dinamico[0].checked)
+	{
+		if (document.all.IdataIni.value.length<10)
+		{
+			alert('Data inizio non corretta');
+			return;
+		}
+		if (document.all.IdataFine.value.length<10)
+		{
+			alert('Data Fine non corretta');
+			return;
+		}		
+		xml+= 'data_ini="'+dataIni+'" data_fine="'+dataFine+'" ';	
+		xml+= 'n_giorni="" episodio="false" ricovero="false" storico="false"';
+	}else
+	{
+		if (!document.all.radioDinamico[0].checked && !document.all.radioDinamico[1].checked)
+		{
+			alert('Effettuare una selezione');
+			return;
+		}
+		
+		xml+= 'data_ini="" data_fine="" ';	
+		if (document.all.radioDinamico[0].checked)
+		{
+			if(document.all.nGiorni.value=='')				
+			{
+				alert('Impostare il numero di giorni');
+				return;
+			}
+			xml+= 'n_giorni="'+document.all.nGiorni.value+'" episodio="false" ricovero="false" storico="false"';
+		}else
+		{
+			if (!document.all.radioRicovero[0].checked && !document.all.radioRicovero[1].checked && !document.all.radioRicovero[2].checked)
+			{
+				alert('Effettuare una selezione');
+				return;
+			}
+			xml+= 'n_giorni="" episodio="'+(document.all.radioRicovero[0].checked)+'" ricovero="'+(document.all.radioRicovero[1].checked)+'" storico="'+(document.all.radioRicovero[2].checked)+'"';
+		}
+	}
+
+	xml+="/>";
+	//alert(xml);
+	window.returnValue = xml; 
+	
+	self.close();
+}
+
+function setStatDin(val)
+{
+	if (val==0)
+	{
+		document.all.IdataIni.disabled=false;
+		document.all.IdataFine.disabled=false;
+		
+		document.all.radioDinamico[0].disabled = true;
+		document.all.radioDinamico[1].disabled = true;	
+		
+		document.all.nGiorni.disabled = true;
+		
+		document.all.radioRicovero[0].disabled = true;
+		document.all.radioRicovero[1].disabled = true;
+		document.all.radioRicovero[2].disabled = true;		
+	}else
+	{
+		document.all.IdataIni.disabled=true;
+		document.all.IdataFine.disabled=true;		
+		
+		document.all.radioDinamico[0].disabled = false;
+		document.all.radioDinamico[1].disabled = false;	
+		
+		if (document.all.radioDinamico[0].checked)
+		{
+			document.all.nGiorni.disabled = false;
+		}
+		if (document.all.radioDinamico[1].checked)
+		{
+			document.all.radioRicovero[0].disabled = false;
+			document.all.radioRicovero[1].disabled = false;
+			document.all.radioRicovero[2].disabled = false;			
+		}
+	}
+}
+function setRadioDinamico(val)
+{
+	if (val==0)
+	{
+			document.all.nGiorni.disabled = false;
+			document.all.radioRicovero[0].disabled = true;
+			document.all.radioRicovero[1].disabled = true;
+			document.all.radioRicovero[2].disabled = true;			
+	}else
+	{
+			document.all.nGiorni.disabled = true;
+			document.all.radioRicovero[0].disabled = false;
+			document.all.radioRicovero[1].disabled = false;
+			document.all.radioRicovero[2].disabled = false;	
+	}
+}
+</script>
+</html>

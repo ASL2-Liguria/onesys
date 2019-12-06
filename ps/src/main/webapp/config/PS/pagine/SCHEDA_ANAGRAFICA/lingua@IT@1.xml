@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <butStampa>Stampa</butStampa>
+        <butSalvaApri>Salva e Apri cartella</butSalvaApri>
+        <butSalvaRiassocia>Salva e Riassocia</butSalvaRiassocia>
+        <butEsenzione>Esenzione</butEsenzione>
+        <butSalva>Salva / Modifica</butSalva>
+        <butTriage>Apri cartella</butTriage>
+        <butChiudi>Chiudi</butChiudi>
+        <lblCellPaz>Cellulare</lblCellPaz>
+        <lblcodENI>Codice ENI</lblcodENI>
+        <lblcodGIU>Codice GIUBILEO</lblcodGIU>
+        <lblscadcodGIU>Scadenza Codice </lblscadcodGIU>
+        <lblGIU>GIUBILEO</lblGIU>
+        <lblscadcodENI>Scadenza ENI</lblscadcodENI>
+        <lblENI>ENI</lblENI>
+        <lblCodRegDom>Codice Regionale</lblCodRegDom>
+        <lblCuslDom>ASL</lblCuslDom>
+        <tabNote>Note</tabNote>
+        <tabCodiciEsterni>Codici Esterni</tabCodiciEsterni>
+        <tabAnamnesi>Anamnesi</tabAnamnesi>
+        <tabDatiTessera>Dati TesEuro</tabDatiTessera>
+        <tabResDom>Residenza e Domicilio</tabResDom>
+        <tabDatiPrincipali>Dati Anagrafici</tabDatiPrincipali>
+        <tabEsami>Esami</tabEsami>
+        <fldDP>Dati Principali</fldDP>
+        <fldInfoPaz>Info Paziente</fldInfoPaz>
+        <fldNote>Note</fldNote>
+        <lblCognome>Cognome</lblCognome>
+        <lblNome>Nome</lblNome>
+        <lblDataNasc>Data di Nascita</lblDataNasc>
+        <lblDataMorte>Data Decesso</lblDataMorte>
+        <lblEta>Età</lblEta>
+        <lblSesso>Sesso</lblSesso>
+        <lblLuogoNasc>Luogo di Nascita</lblLuogoNasc>
+        <lblCodFisc>Codice Fiscale</lblCodFisc>
+        <lblCodReg>Codice Regionale</lblCodReg>
+        <lblNoso>N° nosografico</lblNoso>
+        <lblCitt>Cittadinanza</lblCitt>
+        <lblCitt1>Cittadinanza</lblCitt1>
+        <lblCitt2>Cittadinanza</lblCitt2>
+        <lblCitt3>Cittadinanza</lblCitt3>
+        <lblMedBase>Medico di Base</lblMedBase>
+        <lblProf>Professione</lblProf>
+        <lblIDpaz>ID Patient</lblIDpaz>
+        <lblMail>E-Mail</lblMail>
+        <lblDataDec>Data Decesso</lblDataDec>
+        <lblLocRes>Località</lblLocRes>
+        <lblIndRes>Indirizzo</lblIndRes>
+        <lblCivRes>Civico</lblCivRes>
+        <lblUSLRes>ASL</lblUSLRes>
+        <lblCAPRes>CAP</lblCAPRes>
+        <lblTelRes>Telefono</lblTelRes>
+        <lblRegRes>Regione</lblRegRes>
+        <lblProvRes>Provincia</lblProvRes>
+        <lblCell>Cellulare</lblCell>
+        <lblLocDom>Località</lblLocDom>
+        <lblIndDom>Indirizzo</lblIndDom>
+        <lblCivDom>Civico</lblCivDom>
+        <lblUSLDom>ASL</lblUSLDom>
+        <lblCAPDom>CAP</lblCAPDom>
+        <lblTelDom>Telefono</lblTelDom>
+        <lblRegDom>Regione</lblRegDom>
+        <lblProvDom>Provincia</lblProvDom>
+        <lblTratDati>Consenso al trattamento dei dati personali</lblTratDati>
+        <lblUSLAss>ASL Assistenza</lblUSLAss>
+        <fldRes>Residenza</fldRes>
+        <fldDom>Domicilio</fldDom>
+        <wkDataEsame>Data Esame</wkDataEsame>
+        <wkEsame>Esame</wkEsame>
+        <wkProvenienza>Provenienza</wkProvenienza>
+        <wkStato>Stato</wkStato>
+        <lblStampaReferto>Stampa Referto</lblStampaReferto>
+        <lblStampaEtiEsame>Stampa Etichette Esame</lblStampaEtiEsame>
+        <lblFineEsecuzione>Fine Esecuzione</lblFineEsecuzione>
+        <lblInizioEsecuzione>Inizio Esecuzione</lblInizioEsecuzione>
+        <lblAccettaEsame>Accetta</lblAccettaEsame>
+        <lblRefertaEsame>Referta Esami</lblRefertaEsame>
+        <lblStampa>Stampa</lblStampa>
+        <lblInserisciEsame>Inserisci Esame</lblInserisciEsame>
+        <lblNewAnag>Inserimento nuovo paziente</lblNewAnag>
+        <errCalcCodFisc>Errore cacolo Codice Fiscale</errCalcCodFisc>
+        <errNoCognome>Compilare prima il cognome</errNoCognome>
+        <errNoNome>Compilare prima il nome</errNoNome>
+        <errNoSesso>Compilare prima il sesso</errNoSesso>
+        <errNoComNasc>Compilare prima il luogo di nascita</errNoComNasc>
+        <errNoDataNasc>Compilare prima la data di nascita</errNoDataNasc>
+        <lblAcCap>CAP</lblAcCap>
+        <lblAcCodice>Codice</lblAcCodice>
+        <lblAcCodiceFiscale>Codice Fiscale</lblAcCodiceFiscale>
+        <lblAcDescrizione>Comune</lblAcDescrizione>
+        <lblComuneDomicilio>Comune</lblComuneDomicilio>
+        <lblComuneResidenza>Comune</lblComuneResidenza>
+        <lblAcProvincia>Provincia</lblAcProvincia>
+        <lblAcInizioValidita>Inizio Validità</lblAcInizioValidita>
+        <lblAcFineValidita>Fine Validità</lblAcFineValidita>
+        <lblAcTitCittadinanza>Cittadinanza</lblAcTitCittadinanza>
+        <lblAcTitMedici>Medici</lblAcTitMedici>
+        <lblAcProfessioni>Professioni</lblAcProfessioni>
+        <lblSottopeso>Sottopeso</lblSottopeso>
+        <lblNormopeso>Normopeso</lblNormopeso>
+        <lblSovrappeso>Sovrappeso</lblSovrappeso>
+        <lblObesita>Obesità</lblObesita>
+        <fldCodici>Codici</fldCodici>
+        <fldCertificazione>Certificazione</fldCertificazione>
+        <lblTipoCert>Tipo</lblTipoCert>
+        <tabIndirizzi>Indirizzi</tabIndirizzi>
+        <butAddIndirizzo>Inserisci nuovo indirizzo</butAddIndirizzo>
+        <lblTitoloAnag>Titolo</lblTitoloAnag>
+        <lblAcTitoloAnag>Titolo</lblAcTitoloAnag>
+        <lblTitoloStudio>Titolo di Studio</lblTitoloStudio>
+        <lblAcTitoloStudioAnag>Titolo di Studio</lblAcTitoloStudioAnag>
+        <lblStatoCivile>Stato Civile</lblStatoCivile>
+        <lblAcStatoCivile>Stato Civile</lblAcStatoCivile>
+        <lblSTP>STP</lblSTP>
+        <lblscadcodSTP>Scadenza STP</lblscadcodSTP>
+        <lblcodSTP>Codice STP</lblcodSTP>
+        <lblAcProfessioni>Professioni</lblAcProfessioni>
+        <lblAcCittadinanza>Cittadinanza</lblAcCittadinanza>
+        <lblMedicoBase>Medico di Base</lblMedicoBase>
+        <lblASLDomicilio>ASL Domicilio</lblASLDomicilio>
+        <lblTesseraSanitaria>Tessera Sanitaria</lblTesseraSanitaria>
+        <lblScadTesseraSanitaria>Scadenza Tessera</lblScadTesseraSanitaria>
+        <lblTelRes>Telefono Residenza</lblTelRes>
+        <lblASLResidenza>ASL Residenza</lblASLResidenza>
+        <ultimononfunzia></ultimononfunzia>
+        <lblbultim></lblbultim>
+    </ROW>
+</ROWSET>

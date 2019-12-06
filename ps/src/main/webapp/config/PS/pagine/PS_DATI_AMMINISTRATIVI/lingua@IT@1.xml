@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <tabDati>Intervista</tabDati>
+        	 <lblTitolo>Dati Amministrativi</lblTitolo>
+        	 	<lblcmbAreaPS>Area PS</lblcmbAreaPS>
+        	 	<lblDataIngresso>Data di ingresso</lblDataIngresso>
+        	 	<lblOraIngresso>Ora ingresso</lblOraIngresso>   
+		        <lblMotivoIngresso>Motivo Ingresso</lblMotivoIngresso>
+		        <lblMezzoIncidente>Mezzo incidente</lblMezzoIncidente>
+		        <lblAutorita>Autorità intervenuta</lblAutorita>
+		        <lblPresidio>Presidio di provenienza</lblPresidio>
+		        <lblDataEvento>Data evento</lblDataEvento>
+		        <lblComuneEv>Comune evento (per infortunio)</lblComuneEv>
+		        <lblDescrLocEvento>Descrizione località evento</lblDescrLocEvento>
+		        <lblModArrivo>Modalità arrivo</lblModArrivo>
+		        <lblProbPrinc>Problema principale</lblProbPrinc>
+		        <lblAccompagnatore>Accompagnatore</lblAccompagnatore>
+		        <lblTriageAcc>Triage Accompagnatore</lblTriageAcc>
+		        <lblMezzoArrivo>Mezzo Arrivo</lblMezzoArrivo>
+		        <lblDich>Dichiarazione</lblDich>	        
+		        <lblDichiarazione>Dichiarazione</lblDichiarazione>	    
+		        <lblIntAutoritaGiu>Di interesse dell'autorità giudiziaria</lblIntAutoritaGiu>
+		        <lblCatena>Catena di custodia</lblCatena>
+	            <lblSTP>Straniero Temporaneamente Presente</lblSTP>
+	            <lblOraEvento>Ora</lblOraEvento>       	 
+        	    <fldCentrale118>Centrale operativa 118</fldCentrale118>
+        	 	<lblCodiceCol>Codice Colore</lblCodiceCol>
+        	 	<lblAnno>Anno</lblAnno>
+            	<lblProgressivoMissione>Progressivo missione</lblProgressivoMissione>
+            	<lblCodiceMissione>Codice missione 118 completo</lblCodiceMissione>
+            	<lblCodIdentificativo>Codice identificativo della centrale operativa</lblCodIdentificativo>       	 
+                <tabStorico>Rivalutazioni</tabStorico>
+        	    <butStampa>Stampa</butStampa>
+                <lblOnere>Onere</lblOnere>
+                <lblSubOnere>Sub onere</lblSubOnere>
+        <UltimotagSenoNonFunza>aaaa</UltimotagSenoNonFunza>
+    </ROW>
+</ROWSET>

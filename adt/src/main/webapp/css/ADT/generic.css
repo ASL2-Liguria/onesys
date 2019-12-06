@@ -1,0 +1,33 @@
+/* Button Stampa Videata in MINI_MENU */
+a#linkPrintMonitor {
+	background: url(../../img/CMenu/print.png) 0 1px no-repeat;
+}
+
+/* Aumento il FONT dei button in anteprima di Stampa e Firma*/
+fieldset .btn {
+	font-size: 20px !important;
+}
+
+/* Cambio i Gradienti del Button di Firma */
+table.campi tbody tr td button#butFirma {		
+	background-image:-webkit-gradient(linear, left top, left bottom,from(#01A9DB),to(#81DAF5)) !important;	
+	 background-color : #FFFFFF !important;
+	 filter : progid:DXImageTransform.Microsoft.gradient(startColorstr='#01A9DB', endColorstr='#81DAF5',GradientType=0) !important;
+	 color : #FFF !important;
+}
+
+/* Cambio i Gradienti del Button di Stampa e Stampa SU */
+table.campi tbody tr td button#butStampa, table.campi tbody tr td button#butStampaSu {		
+	background-image:-webkit-gradient(linear, left top, left bottom,from(#31B404),to(#21D021)) !important;
+	background-color : #FFFFFF !important;
+	filter : progid:DXImageTransform.Microsoft.gradient(startColorstr='#31B404', endColorstr='#21D021',GradientType=0) !important;
+	color : #FFF !important;	
+}
+
+/* Cambio i Gradienti del Button di Chiusura dell'Anteprima di Stampa/Firma */
+table.campi tbody tr td button#butChiudi {		
+	background-image:-webkit-gradient(linear, left top, left bottom,from(#B40404),to(#FF0000)) !important;	
+	background-color : #FFFFFF !important;
+	filter : progid:DXImageTransform.Microsoft.gradient(startColorstr='#B40404', endColorstr='#FF0000',GradientType=0) !important;
+	color : #FFF !important;	
+}

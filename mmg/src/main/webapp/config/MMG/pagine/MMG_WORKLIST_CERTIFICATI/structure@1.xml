@@ -1,0 +1,37 @@
+<PAGINA key_id="MMG_WORKLIST_CERTIFICATI">
+	<HEADER_PAGE key_id="MMG_WORKLIST_CERTIFICATI" valore="DEFAULT_MMG,SCHEDA,MMG_WORKLIST_CERTIFICATI#DEFAULT_MMG,MMG_WORKLIST_CERTIFICATI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_CERTIFICATO_MALATTIA#MMG_DATI#MMG_CERTIFICATO#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabListaCertificati" valore="ListaCertificati#lblTitolo#butInserisci,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabCertificato" valore="tabCertificato" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca" evento="START">
+					<TR_TD_LABEL_DATA key_id="DataNascita" valore="lblDataNascita##txtDataNascita###DATA_NASCITA" evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR.INIT key_id="rigaRicerca" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData" valore="lblDaData##txtDaData#DaData#direction:false,format: 'd/m/Y',startWithToday:true#disabled:false##DA_DATA" evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AData" valore="lblAData##txtAData#AData#direction:false,format: 'd/m/Y',startWithToday:true#disabled:false##A_DATA" evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD.INIT key_id="TD" valore="4" evento="START">
+							<BUTTON key_id="butRicerca" valore="butRicerca" evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldLista" valore="fldLista" evento="START">
+					<DIV.WORKLIST key_id="divWk" valore="divWk" evento="START">
+					</DIV.WORKLIST>
+					<TR.INIT key_id="rigaRicercaPaziente" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome###COGNOME" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome###NOME" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

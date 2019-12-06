@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>VACCINI</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butSalvataggio>Salva</butSalvataggio>
+		<butModuloConsensoInformato>Modulo Consenso Informato</butModuloConsensoInformato>
+		
+		<fldLista>Lista Vaccini Eseguiti</fldLista>
+		<fldRicercaPaziente>Paziente che effettua la vaccinazione</fldRicercaPaziente>
+		<fldInserimento>Inserimento</fldInserimento>
+		<tabInserimento>Inserimento</tabInserimento>
+		<tabLista>Lista Vaccini</tabLista>
+		
+		<lblTipoVaccino>Tipologia</lblTipoVaccino>
+		<lblFornito>Fornito da</lblFornito>
+		<lblLuogoEsecuzione>Eseguito presso</lblLuogoEsecuzione>
+		<lblClasseRischio>Cat. di rischio</lblClasseRischio>
+		<lblDataVaccino>Data vaccino</lblDataVaccino>
+		<lblDataScadenzaVaccino>Data scadenza vaccino</lblDataScadenzaVaccino>
+		<lblDescrizioneFornitore>Se altro specificare il fornitore</lblDescrizioneFornitore>
+		<lblNumeroLotto>Numero lotto</lblNumeroLotto>
+		<lblVaccino>Tipo di vaccino</lblVaccino>
+		<lblDataDiNascita>Data di nascita</lblDataDiNascita>
+		<butCerca>Cerca</butCerca>
+		
+		<fldVaccAntinfluenzale>Vaccinazione antinfluenzale</fldVaccAntinfluenzale>
+		<lblTipoVaccinazione>Tipologia</lblTipoVaccinazione>
+		
+		<fldVaccAntinfluenzale>Vaccinazione antinfluenzale</fldVaccAntinfluenzale>
+		<lblTipoVaccinazione>Tipologia</lblTipoVaccinazione>
+		
+    </ROW>
+</ROWSET>

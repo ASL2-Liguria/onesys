@@ -1,0 +1,56 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+div.infoWk
+{
+	float:left;
+	background: url(../../../imagexPix/GestioneRichieste/btinfo.gif) no-repeat ;
+	width:25px;
+	height:25px;
+	cursor:pointer;
+}
+div.infoWkEmpty
+{
+	width:25px;
+	height:25px;
+}
+
+
+.textDettaglio {
+
+	font-size:12px;
+	text-align:center;
+	line-height:12px;	
+
+}
+
+
+.boxInfoLayerShadow{
+
+	width:400px;height:250px;
+	font-size:12px;
+	z-index:0;
+}
+
+.TitoloSez{
+	
+	BORDER-BOTTOM: #3399ff 1px solid;
+	TEXT-ALIGN: center;
+	BORDER-LEFT: #3399ff 1px solid;
+	LINE-HEIGHT: 10px;
+	BACKGROUND-COLOR: #3399ff;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: collapse;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	COLOR: #ffffff;
+	FONT-SIZE: 12px;
+	font-weight: bold;
+
+}
+
+.PianoScaduto{
+	background-color:#CCC;
+}
+
+

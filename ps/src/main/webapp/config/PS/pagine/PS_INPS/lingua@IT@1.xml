@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<ROWSET>
+    <ROW>
+            <lblTitolo>Scheda compilazione certificato di malattia</lblTitolo>
+            <fldLogin>Dati Login Portale</fldLogin>
+            <lblRuolo>Ruolo</lblRuolo>
+            <lblDataRilascio>Data rilascio</lblDataRilascio>
+            <lblDataInizioMalattia>Data Inizio Malattia</lblDataInizioMalattia>  
+            <lblGiornataLavorativa>Giornata lavorativa</lblGiornataLavorativa>  
+            <lblDataTerminePrognosi>Data Fine Prognosi</lblDataTerminePrognosi> 
+            <lblTipoCertificato>Tipo Certificato</lblTipoCertificato>   
+            <lblDiagnosiDescrittiva>Diagnosi Descrittiva</lblDiagnosiDescrittiva>  
+            <lblAgevolazione>Agevolazione</lblAgevolazione>
+            <lblIndirizzoReperibilita>Indirizzo Reperibilita</lblIndirizzoReperibilita>
+            <lblNominativo>Nominativo</lblNominativo>
+            <lblTrauma>Trauma</lblTrauma>
+            <lblIndirizzoRepe>Indirizzo</lblIndirizzoRepe>
+            <lblTipoVisita>Tipo Visita</lblTipoVisita>
+            <lblDiagnosiDescrittiva>Diagnosi Descrittiva</lblDiagnosiDescrittiva>
+            <lblComuneRepe>Comune</lblComuneRepe>
+            <lblCapRepe>CAP</lblCapRepe>
+            <lblDataTermine>Data Termine Prognosi clinica</lblDataTermine>
+            <fldIndirizzoReperibilita>Indirizzo Reperibilita</fldIndirizzoReperibilita>
+            <lblProvincia>Provincia</lblProvincia>
+            <lblProvinciaRepe>Provincia</lblProvinciaRepe>
+            <butStampa>Stampa</butStampa>
+            <tabDatiCertificato>Dati Certificato</tabDatiCertificato>
+            <tabLavoratore>Lavoratore</tabLavoratore>
+            <lblUsername>Username</lblUsername>
+            <butLogin>Login</butLogin>
+            <fldINPS>Dati certificato</fldINPS>
+            <lblCivico>Civico</lblCivico>
+            <fldLavoratore>Lavoratore</fldLavoratore>
+            <butAnnulla>Annulla certificato</butAnnulla>
+            <lblRicorda>Ricorda</lblRicorda>
+            <tabLavoratore>Lavoratore</tabLavoratore>
+            <tabDatiCertificato>Certificato</tabDatiCertificato>
+            <tabLogin>Login</tabLogin>
+            <fldResidenza>Indirizzo Residenza</fldResidenza>
+            <lblCodFisc>Codice Fiscale</lblCodFisc>
+            <lblIndirizzo>Via</lblIndirizzo>
+            <lblComune>Comune</lblComune>
+            <lblCAP>CAP</lblCAP>
+            <lblPin>Pincode</lblPin>
+            <lblPwd>Password</lblPwd>
+            <tabLogin>Login</tabLogin>
+            <lblRicorda>Ricorda</lblRicorda>
+            <butFirma>Firma</butFirma>
+            <butSalva>Salva</butSalva>
+            <lblAcCap>Cap</lblAcCap>
+            <lblAcProvincia>Provincia</lblAcProvincia>
+            <lblAcDescrizione>Descrizione</lblAcDescrizione>
+            <lblDiagnosiICD9>Diagnosi ICD9</lblDiagnosiICD9>
+             <vutoa> ICD9</vutoa>
+            <lbltest>asd</lbltest>
+            <lblvuota>ads</lblvuota>
+            <lblvuota2>asd1</lblvuota2>
+            <lblvuota3>asd3</lblvuota3>
+    </ROW>
+</ROWSET>

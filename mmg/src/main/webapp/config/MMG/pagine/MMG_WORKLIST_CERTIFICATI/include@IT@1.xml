@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Certificati/wkCertificati.js" />
+	<CSS path="css/MMG/Certificati/wkCertificati.css" />
+</INCLUDE>

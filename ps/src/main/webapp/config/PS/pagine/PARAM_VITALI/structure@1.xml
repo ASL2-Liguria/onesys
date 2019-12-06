@@ -1,0 +1,95 @@
+<PAGINA key_id="PARAM_VITALI">
+    <HEADER_REFERTAZIONE key_id="PARAM_VITALI" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,PARAM_VITALI#DEFAULT,PS_PARAM_VITALI" evento="START_END">
+	</HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#PS_SALVATAGGI.FNC_SALVA_PARAMETRI#PS#" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="TRIAGE#lblTitolo#butSalva" evento="START">
+
+                <ROW key_id="rowParam" valore="rowParam" evento="START">
+                    <COLUMN_FREE key_id="colParam" valore="colParam" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldParam" valore="fldParam"	evento="START">
+                            <TR_TD_LABEL key_id="lblPressArt" valore="lblPressArt#" evento="START">
+                                <TD.INIT key_id="trPressArt" valore="" evento="START">
+                                    <INPUT.TEXT key_id="txtPressArtMax" valore="txtPressArtMax##pressione#PRESS_ART_MAX###N" evento="START">
+                                    </INPUT.TEXT>
+                                    <LABEL key_id="lblPressSlash" valore="lblPressSlash#" evento="START">
+                                    </LABEL>
+                                    <INPUT.TEXT key_id="txtPressArtMin" valore="txtPressArtMin##pressione#PRESS_ART_MIN###N" evento="START">
+                                    </INPUT.TEXT>
+                                </TD.INIT>
+                            </TR_TD_LABEL>
+                            <TR.INIT key_id="trPress" valore="" evento="START">
+                                <TD_LABEL_RADIO key_id="radPressMisur" valore="lblPressMisur##radPressMisur#radPressMisur#{width:80}#N#TIPO_MISURAZIONE" evento="START">
+                                </TD_LABEL_RADIO>
+                                <TD_LABEL_RADIO key_id="radPressBraccio" valore="lblPressBraccio##radPressBraccio#radPressBraccio#{width:80}#N#BRACCIO_MISURAZIONE" evento="START">
+                                </TD_LABEL_RADIO>
+                            </TR.INIT>
+                            <TR_TD_LABEL_TEXT key_id="txtFrequCard" valore="lblFrequCard##txtFrequCard###FREQUENZA###N" evento="START">
+                                <TD_LABEL_RADIO key_id="radRitmica" valore="lblVuota##radRitmica#radRitmica#{width:80}#N#TIPO_FC" evento="START">
+                                </TD_LABEL_RADIO>
+                            </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_TEXT key_id="txtFrequResp" valore="lblFrequResp##txtFrequResp###FR###N" evento="START">
+                                <TD_LABEL_TEXT key_id="txtTemperatura" valore="lblTemperatura##txtTemperatura##clsNotControl#TEMPERATURA###N" evento="START">
+                                </TD_LABEL_TEXT>
+                            </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_TEXT key_id="txtSPO2" valore="lblSPO2##txtSPO2###SATURAZIONEO2TER###N" evento="START">
+                                <TD_LABEL_TEXT key_id="txtGlasgow" valore="lblGlasgow##txtGlasgow###GLASGOW###N" evento="START">
+                                </TD_LABEL_TEXT>
+                                <INPUT.HIDDEN key_id="hmotoria" valore="hmotoria" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="hverbale" valore="hverbale" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="haperturaocchi" valore="haperturaocchi" evento="START"> </INPUT.HIDDEN>
+                            </TR_TD_LABEL_TEXT>
+                            <TR.INIT key_id="trRTS" valore="" evento="START">
+                                <TD_LABEL_TEXT key_id="txtRTS" valore="lblRTS##txtRTS###RTS###N" evento="START">
+                                </TD_LABEL_TEXT>
+                                <TD_LABEL_TEXT key_id="txtStickUri" valore="lblStickUri##txtStickUri##clsNotControl#STICK_URI###N" evento="START">
+                                </TD_LABEL_TEXT>
+                            </TR.INIT>
+                            <TR_TD_LABEL_TEXT key_id="txtHGT" valore="lblHGT##txtHGT###STICK###N" evento="START">
+                                <INPUT.HIDDEN key_id="hchetoni" valore="hchetoni" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="hemazie" valore="hemazie" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="hproteine" valore="hproteine" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="hleucociti" valore="hleucociti" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="hnoteStickUrina" valore="hnoteStickUrina" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="idenEsaStickGlicemico" valore="idenEsaStickGlicemico" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="idenEsaStaturazione" valore="idenEsaStaturazione" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="idenEsaPressione" valore="idenEsaPressione" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="idenCDC" valore="idenCDC" evento="START"> </INPUT.HIDDEN>
+                                <INPUT.HIDDEN key_id="idenSalaDefault" valore="idenSalaDefault" evento="START"> </INPUT.HIDDEN>
+                                <TD_LABEL_TEXTAREA key_id="taParamNote" valore="lblParamNote#taParamNote#taParamNote#N#N" evento="START">
+                                </TD_LABEL_TEXTAREA>
+                            </TR_TD_LABEL_TEXT>
+                        </FIELD_HEADER_TABLE>
+                        <FIELDSET key_id="lblScalaVas" valore="lblScalaVas" evento="START">
+                            <DIV key_id="divScalaVas" valore="divScalaVas#" evento="START">
+                                <DIV key_id="divSliderScalaVas" valore="divSliderScalaVas#" evento="START"> </DIV>
+                                <DIV key_id="divValueSlider" valore="divValueSlider#" evento="START"> </DIV>
+                                <INPUT.HIDDEN key_id="hScalaVas" valore="hScalaVas###DOLORE" evento="START">
+                                </INPUT.HIDDEN>
+                                <DIV key_id="divScalaVasImmagini" valore="divScalaVasImmagini#" evento="START">
+                                    <SPAN key_id="divImg1" valore="divImg1#primoSpan" evento="START">
+                                       <IMG key_id="Img1" valore="logo1#img/scala_vas/Immagine.png#90#65" evento="START"> </IMG>
+                                    </SPAN>
+                                    <SPAN key_id="divImg2" valore="divImg2#imgMargin" evento="START">
+                                        <IMG key_id="Img2" valore="logo2#img/scala_vas/Immagine2.png#90#65" evento="START"> </IMG>
+                                    </SPAN>
+                                    <SPAN key_id="divImg3" valore="divImg3#imgMargin" evento="START">
+                                        <IMG key_id="Img3" valore="logo3#img/scala_vas/Immagine3.png#90#65" evento="START"> </IMG>
+                                    </SPAN>
+                                    <SPAN key_id="divImg4" valore="divImg4#imgMargin" evento="START">
+                                        <IMG key_id="Img4" valore="logo4#img/scala_vas/Immagine4.png#90#65" evento="START"> </IMG>
+                                    </SPAN>
+                                    <SPAN key_id="divImg5" valore="divImg5#imgMargin" evento="START">
+                                        <IMG key_id="Img5" valore="logo5#img/scala_vas/Immagine5.png#90#65" evento="START"> </IMG>
+                                    </SPAN>
+                                    <SPAN key_id="divImg6" valore="divImg6#ultimoSpan" evento="START">
+                                        <IMG key_id="Img6" valore="logo6#img/scala_vas/Immagine6.png#90#65" evento="START"> </IMG>
+                                    </SPAN>
+                                </DIV>
+                            </DIV>
+                        </FIELDSET>
+                    </COLUMN_FREE>
+                </ROW>
+
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+		<!-- In comune tra CONFERMA_RICETTE e MMG_ELENCO_RICETTE -->
+		<lblSituazioneStampa>Situazione Stampa</lblSituazioneStampa>
+		<lblMedico>Medico</lblMedico>
+		<lblInfoRicetta>Informazioni ricetta</lblInfoRicetta>
+    </ROW>
+</ROWSET>

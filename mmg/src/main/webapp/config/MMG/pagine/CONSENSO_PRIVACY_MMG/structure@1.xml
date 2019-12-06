@@ -1,0 +1,290 @@
+<PAGINA key_id="CONSENSO_PRIVACY_MMG">
+	<HEADER_PAGE key_id="CONSENSO_PRIVACY_MMG"
+		valore="DEFAULT_MMG,SCHEDA,CONSENSO_PRIVACY_MMG#DEFAULT_MMG,CONSENSO_PRIVACY_MMG"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML_FUORI_CARTELLA#MMG_DATI#CONSENSO_PRIVACY_MMG#IDEN#IDEN" evento="START_END">
+
+		<TABULAZIONE.INIT key_id="tab"
+			valore="Consenso#lblTitolo#butInformativa,butConsensoVergine,butStampa,butSalva,butChiudi" evento="START_END">
+
+			<TABULAZIONE.CREA_TAB key_id="tabDichiarante"
+				valore="tabDichiarante" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldDataCertificato" valore="fldDataCertificato"
+					evento="START">
+				
+					<TR_TD_LABEL_DATA key_id="txtDataCertificato"
+						valore="lblDataCertificato##txtDataCertificato#DataCertificato#startWithToday:true, format: 'd/m/Y',direction:false#disabled:false##DATA_CERTIFICATO"
+						evento="START"></TR_TD_LABEL_DATA>
+						
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldMedicoTitolare" valore="fldMedicoTitolare"
+					evento="START">
+				
+					<TR.INIT key_id="TR2" valore="" evento="START">
+						<TD.INIT key_id="TD1" valore="2" evento="START">
+							<BUTTON key_id="butMedicoTitolare" valore="butMedicoTitolare"
+								evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+						
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldDatiDichiarante" valore="fldDatiDichiarante"
+					evento="START">
+
+					<TR_TD_LABEL_TEXT key_id="txtSottoscrittoNomeCognome"
+						valore="lblSottoscrittoNomeCognome##txtSottoscrittoNomeCognome###PAZIENTE"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_TEXT key_id="txtSottoscrittoLuogoNascita"
+						valore="lblSottoscrittoLuogoNascita##txtSottoscrittoLuogoNascita###LUOGO_NASCITA"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_DATA key_id="txtSottoscrittoDataNascita"
+						valore="lblSottoscrittoDataNascita##txtSottoscrittoDataNascita#DataNascita#startWithToday:false, format: 'd/m/Y'#disabled:false##DATA_NASCITA"
+						evento="START"></TR_TD_LABEL_DATA>
+
+					<TR_TD_LABEL_TEXT key_id="txtSottoscrittoResidente"
+						valore="lblSottoscrittoResidente##txtSottoscrittoResidente###RESIDENZA"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_TEXT key_id="txtSottoscrittoCodiceFiscale"
+						valore="lblSottoscrittoCodiceFiscale##txtSottoscrittoCodiceFiscale###CODICE_FISCALE"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_RADIO key_id="radTipoDichiarante"
+						valore="lblTipoDichiarante##radTipoDichiarante#radTipoDichiarante#{width:250}#N#TIPO_GARANTE"
+						evento="START"></TR_TD_LABEL_RADIO>
+
+					<TR_TD_LABEL_TEXT key_id="txtGaranteNomeCognome"
+						valore="lblGaranteNomeCognome##txtGaranteNomeCognome###GARANTE_PAZIENTE"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_TEXT key_id="txtGaranteLuogoNascita"
+						valore="lblGaranteLuogoNascita##txtGaranteLuogoNascita###LUOGO_NASCITA_GARANTE"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_DATA key_id="txtGaranteDataNascita"
+						valore="lblGaranteDataNascita##txtGaranteDataNascita#DataNascitaGarante#startWithToday:false, format: 'd/m/Y'#disabled:false##DATA_NASCITA_GARANTE"
+						evento="START"></TR_TD_LABEL_DATA>
+
+					<TR_TD_LABEL_TEXT key_id="txtGaranteResidente"
+						valore="lblGaranteResidente##txtGaranteResidente###RESIDENZA_GARANTE"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_TEXT key_id="txtGaranteCodiceFiscale"
+						valore="lblGaranteCodiceFiscale##txtGaranteCodiceFiscale###CODICE_FISCALE_GARANTE"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+				</FIELDSET_TABLE>
+
+			</TABULAZIONE.CREA_TAB>
+
+			<TABULAZIONE.CREA_TAB key_id="tabTrattamento"
+				valore="tabTrattamento" evento="START">
+
+				<!--
+
+				<FIELDSET_TABLE key_id="fldIntestazione" valore="fldIntestazione"
+					evento="START">
+
+					<TR_TD_LABEL key_id="lblInformativa" valore="lblInformativa"
+						evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL key_id="lblInformativa1" valore="lblInformativa1"
+						evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL key_id="lblDetailInfo1" valore="lblDetailInfo1"
+						evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL key_id="lblInformativa2" valore="lblInformativa2"
+						evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL key_id="lblDetailInfo2" valore="lblDetailInfo2"
+						evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL key_id="lblInformativa3" valore="lblInformativa3"
+						evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL key_id="lblDetailInfo3" valore="lblDetailInfo3"
+						evento="START"></TR_TD_LABEL>
+
+				</FIELDSET_TABLE>
+
+				-->
+				
+				<FIELDSET_TABLE key_id="fldConsensoDati" valore="fldConsensoDati"
+					evento="START">
+				
+					<TR_TD_LABEL key_id="lblInformativa" valore="lblInformativa"
+						evento="START"></TR_TD_LABEL>
+				
+					<TR_TD_LABEL key_id="lblTrattamentoConsensoDati"
+						valore="lblTrattamentoConsensoDati" evento="START"></TR_TD_LABEL>
+
+					<TR_TD_RADIO key_id="radTrattamentoDatiConsenso"
+						valore="radTrattamentoDatiConsenso#radTrattamentoDatiConsenso#{width:100,idxDefault:0}#S#CONSENSO_DATI"
+						evento="START"></TR_TD_RADIO>
+						
+					<TR_TD_LABEL key_id="lblTrattamentoConsensoDatiPost"
+						valore="lblTrattamentoConsensoDatiPost" evento="START"></TR_TD_LABEL>
+				
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldConsensoDatiSensibili" valore="fldConsensoDatiSensibili"
+					evento="START">
+				
+					<TR_TD_LABEL key_id="lblConsensoDatiSensibili"
+						valore="lblConsensoDatiSensibili" evento="START"></TR_TD_LABEL>
+
+					<TR_TD_RADIO key_id="radConsensoDatiSensibili"
+						valore="radConsensoDatiSensibili#radConsensoDatiSensibili#{width:100,idxDefault:0}#S#CONSENSO_DATI_SENSIBILI"
+						evento="START"></TR_TD_RADIO>
+						
+					<TR_TD_LABEL key_id="lblConsensoDatiSensibiliPost"
+						valore="lblConsensoDatiSensibiliPost" evento="START"></TR_TD_LABEL>
+				
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+
+			<TABULAZIONE.CREA_TAB key_id="tabCondivisione"
+				valore="tabCondivisione" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldTrattamentoDatiSostituto"
+					valore="fldTrattamentoDatiSostituto" evento="START">
+
+					<TR_TD_LABEL key_id="lblCondivisioneDati" valore="lblCondivisioneDati"
+						evento="START"></TR_TD_LABEL>
+						
+					<TR_TD_RADIO key_id="radTrattamentoDatiSostituto"
+						valore="radTrattamentoDatiSostituto#radTrattamentoDatiSostituto#{width:100,idxDefault:0}#S#SOSTITUTO"
+						evento="START"></TR_TD_RADIO>
+						
+					<TR_TD_LABEL key_id="lblTrattamentoDatiSostituto"
+						valore="lblTrattamentoDatiSostituto" evento="START"></TR_TD_LABEL>
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldSpecialista" valore="fldSpecialista"
+					evento="START">
+
+					<TR_TD_RADIO key_id="radSpecialista"
+						valore="radSpecialista#radSpecialista#{width:100,idxDefault:0}#S#SPECIALISTA"
+						evento="START"></TR_TD_RADIO>
+
+					<TR_TD_LABEL key_id="lblSpecialista" valore="lblSpecialista"
+						evento="START"></TR_TD_LABEL>
+
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldAssociati" valore="fldAssociati"
+					evento="START">
+
+					<TR_TD_RADIO key_id="radAssociati"
+						valore="radAssociati#radAssociati#{width:100,idxDefault:0}#S#ASSOCIATI"
+						evento="START"></TR_TD_RADIO>
+					
+					<TR_TD_LABEL key_id="lblAssociati" valore="lblAssociati"
+						evento="START"></TR_TD_LABEL>
+
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldCollaboratori" valore="fldCollaboratori"
+					evento="START">
+
+					<TR_TD_RADIO key_id="radCollaboratori"
+						valore="radCollaboratori#radCollaboratori#{width:100,idxDefault:0}#S#COLLABORATORI"
+						evento="START"></TR_TD_RADIO>
+
+					<TR_TD_LABEL key_id="lblCollaboratori" valore="lblCollaboratori"
+						evento="START"></TR_TD_LABEL>
+
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldConsensoPersonaleASL"
+					valore="fldConsensoPersonaleASL" evento="START">
+
+					<TR_TD_RADIO key_id="radConsensoPersonaleASL"
+						valore="radConsensoPersonaleASL#radConsensoPersonaleASL#{width:100,idxDefault:0}#S#CONSENSO_PERSONALE_ASL"
+						evento="START"></TR_TD_RADIO>
+
+					<TR_TD_LABEL key_id="lblConsensoPersonaleASL"
+						valore="lblConsensoPersonaleASL" evento="START"></TR_TD_LABEL>
+
+				</FIELDSET_TABLE>
+
+			</TABULAZIONE.CREA_TAB>
+
+			<TABULAZIONE.CREA_TAB key_id="tabConsensoComunicazione"
+				valore="tabConsensoComunicazione" evento="START">
+
+				<FIELDSET_TABLE key_id="fldConsensoComunicazione"
+					valore="fldConsensoComunicazione" evento="START">
+
+					<TR_TD_LABEL key_id="lblDomandaConsenso" valore="lblDomandaConsenso"
+						evento="START"></TR_TD_LABEL>
+
+					<TR_TD_RADIO key_id="radConsensoComunicazione"
+						valore="radConsensoComunicazione#radConsensoComunicazione#{width:100,idxDefault:0}#S#CONSENSO_COMUNICAZIONE"
+						evento="START"></TR_TD_RADIO>
+
+					<TR_TD_LABEL key_id="lblConsensoComunicazione" valore="lblConsensoComunicazione"
+						evento="START"></TR_TD_LABEL>
+
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldElencoNominativo" valore="fldElencoNominativo"
+					evento="START">
+
+					<TR.INIT key_id="TR1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtNominativo1"
+							valore="lblNominativo##txtNominativo1###NOM_1" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtTelefono1"
+							valore="lblTelefono##txtTelefono1###TEL_1" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TR2" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtNominativo2"
+							valore="lblNominativo##txtNominativo2###NOM_2" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtTelefono2"
+							valore="lblTelefono##txtTelefono2###TEL_2" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TR3" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtNominativo3"
+							valore="lblNominativo##txtNominativo3###NOM_3" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtTelefono3"
+							valore="lblTelefono##txtTelefono3###TEL_3" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldDatiRecepimento" valore="fldDatiRecepimento"
+					evento="START">
+
+					<TR_TD_LABEL_DATA key_id="txtDataRecepimento"
+						valore="lblDataRecepimento##txtDataRecepimento#DataRecepimento#startWithToday:false, format: 'd/m/Y',direction:false#disabled:false##DATA_RECEPIMENTO"
+						evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="txtOpeRecepimento"
+						valore="lblOpeRecepimento##txtOpeRecepimento###RECEPIMENTO"
+						evento="START"></TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+					
+				<FIELDSET_TABLE key_id="fldDatiUltimaModifica" valore="fldDatiUltimaModifica"
+					evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataModulo"
+						valore="lblDataModulo##txtDataModulo#DataModulo#startWithToday:false, format: 'd/m/Y',direction:false, readonly_element:true#disabled:false##DATA_MODULO"
+						evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="txtOraModulo"
+						valore="lblOraModulo##txtOraModulo###ORA_MODULO"
+						evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtUtenteModulo"
+						valore="lblUtenteModulo##txtUtenteModulo###UTENTE"
+						evento="START"></TR_TD_LABEL_TEXT>
+
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+
+		</TABULAZIONE.INIT>
+
+	</FORM>
+</PAGINA>

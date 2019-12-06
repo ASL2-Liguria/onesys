@@ -1,0 +1,38 @@
+<MENU>
+    <ID>MENU_ANAGRAFICA</ID>
+    <TITLE>traduzione.menuIndirizzi</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISCI</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                var url = 'page?KEY_LEGAME=SCHEDA_INDIRIZZO&IDEN_INDIRIZZO=';
+                url += '&IDEN_TABELLA=' + rec[0].IDEN_TABELLA;
+                url += '&NOME_TABELLA=' + rec[0].NOME_TABELLA;
+
+                home.NS_FENIX_TOP.apriPagina({url:url,id:'Scheda',fullscreen:true});
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.menuInserisciIndirizzo</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                var url = 'page?KEY_LEGAME=SCHEDA_INDIRIZZO&IDEN_INDIRIZZO=' + rec[0].IDEN;
+                home.NS_FENIX_TOP.apriPagina({url:url,id:'Scheda',fullscreen:true});
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0);}]]></WHERE>
+            <OUTPUT>traduzione.menuModificaIndirizzo</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+    </LIST>
+</MENU>

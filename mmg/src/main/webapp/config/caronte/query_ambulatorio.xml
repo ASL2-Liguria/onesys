@@ -1,0 +1,10 @@
+<?xml version = "1.0"?>
+<QUERIES>
+    <QUERY_GROUP id="TEST">
+    	<QUERY id="TEST">
+			<SQL>
+			select 1 from dual
+			</SQL>
+    	</QUERY>
+    </QUERY_GROUP>
+</QUERIES>

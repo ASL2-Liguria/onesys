@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>PS_VERSIONI_PAT_PROSSIMA</ID>
+    <ID-QUERY connection="PS">WORKLIST.VERSIONI_PATOLOGIA_PROSSIMA</ID-QUERY>
+    <TITLE>"Valutazioni Patologia Prossima"</TITLE>
+    <PAGER>N</PAGER>
+    <LIMIT_ROWS>100</LIMIT_ROWS>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_RIVALUTAZIONI</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA</COL>
+                        <DB>DATA</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>100PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ORA</COL>
+                        <DB>ORA</DB>
+                    </ID>
+                    <DESCRIPTOR>"ORA"</DESCRIPTOR>
+                    <WIDTH>100PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTENTE</COL>
+                        <DB>UTENTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"Utente"</DESCRIPTOR>
+                    <WIDTH>250PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PATOLOGIA_PROSSIMA</COL>
+                        <DB>PATOLOGIA_PROSSIMA</DB>
+                    </ID>
+                    <DESCRIPTOR>"Patologia Prossima"</DESCRIPTOR>
+                    <WIDTH>250PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN ID="DATA">DESC</COLUMN>
+                <COLUMN ID="ORA">DESC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

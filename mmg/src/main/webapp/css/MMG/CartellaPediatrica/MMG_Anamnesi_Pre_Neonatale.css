@@ -1,0 +1,8 @@
+body{ width: 960px; }
+
+#fldNascita .tdText { width: 30%; }
+/*#fldNascita .tdLbl { width: 20%; }*/
+
+#fldNascita table { table-layout: fixed; }
+
+#lblPesoCentile, #lblAltezzaCentile, #lblCirconferenza_CranicaCentile { text-align: left; }

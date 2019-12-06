@@ -1,0 +1,356 @@
+@charset "utf-8";
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body
+{
+	position: relative;
+	overflow:hidden;
+}
+
+.hide
+{
+	display:none;
+}
+
+img
+{
+	margin: 5px 5px 0px 10px;
+	float: right;
+}
+
+a
+{
+	line-height: 26px;
+	color: #fff;
+	text-decoration: none;
+	font: Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: 11px;
+}
+
+ul.container
+{
+	width:100%;
+	}
+
+	ul.container li
+	{
+		list-style:none;
+	}
+
+	li.menu
+	{
+		padding:0;
+		width:100%;
+	}
+	
+li.title_menu a
+{
+	float:left;
+	font-weight:bold;
+	color:#fff;
+	position:relative;
+	display: block; 
+	height:26px;
+	width:100%;
+	line-height:26px;
+	overflow: hidden;
+	padding:0 0 0 5px;
+	text-decoration:none;
+	text-align:left;
+	background:url(../../../imagexPix/Layout/hBar.png) repeat-x;
+}
+
+li.title_menu a:hover
+{
+	background:url(../../../imagexPix/Layout/bar.png) repeat-x;
+}
+
+li.title a
+{
+	float:left;
+	font-weight:bold;
+	color:#FFF;
+	position:relative;
+	display: block; 
+	height:26px;
+	width:100%;
+	line-height:26px;
+	overflow: hidden;
+	padding:0 0 0 5px;
+	text-decoration:none;
+	background:url(../../../imagexPix/Layout/hBar.png); /*MenuImg.jpg) repeat-x;*/
+}
+
+li.title a:hover
+{
+	background:url(../../../imagexPix/Layout/bar.png) repeat-x;
+}
+
+li.title a span.menuPlus
+{
+	position:absolute;
+	right:5px;
+	top:0;
+	font-family:Verdana;
+	font-size:8px;
+	font-weight:bold;
+	color:#FFF;
+}
+
+li.title_menu a span.keepMenu
+{
+	background:url(../../../imagexPix/Layout/block.png) no-repeat center center;
+	position:absolute;
+	right:5px;
+	top:5px;
+	width:16px;
+	height:16px;
+	cursor:hand;
+}
+
+li.title_menu a span.keepMenuPressed
+{
+	background:url(../../../imagexPix/Layout/unblock.png);
+	position:absolute;
+	right:5px;
+	top:2px;
+	width:20px;
+	height:20px;
+	cursor:hand;
+}
+
+.sub-menu
+{
+	width:100%;
+	display:none;
+}
+
+.sub-menu li a
+{
+	background:#fff;
+	width:100%;
+	padding:0 0 0 5px;	
+	height:28px;
+	line-height:28px;
+	display:block;
+	text-decoration:none;
+	font-weight:bold;
+	color:#000;
+	border-bottom:1px dotted #000;
+}
+
+.sub-menu li a:hover
+{
+	background:yellow;
+}
+
+span#imgSf
+{
+	position:absolute;
+	top:0;
+	left:200px;
+	height:26px;
+	width:14px;
+	background:url(../../../imagexPix/Layout/sfBar.png);
+}
+
+div#lay{width:100%;height:100%;position:absolute;top:0;left:0;z-index:2;}
+
+
+
+div#divMenu
+{
+	position: absolute;
+	width: 214px;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	float: left;
+	z-index: 3;
+}
+
+div.clsMenuFrame
+{
+	height: 26px;
+}
+
+div.clsMenuFrameBlock
+{
+	height: 100%;
+	display: block;
+}
+
+div.clsMenuFrameExpand
+{
+	height: auto;
+}
+
+div#divBarMenu
+{
+	position: absolute;
+	top: 0px;
+	left: 0;
+	width:100%;
+	height: 26px;
+	display:block;
+	overflow: hidden;
+	background: url(../../../imagexPix/Layout/bar.png) repeat-x;
+}
+
+div#infoSx
+{
+	margin-left:215px;
+}
+
+div#infoDx
+{
+	margin-right:5px;
+}
+
+div#infoDx a
+{
+	float:right;
+	width:20px;
+	height:20px;
+	padding-top:3px;
+	margin:0 2px;
+	display:block;
+}
+
+div#infoDx a img
+{
+	margin:0;
+	padding:0;
+}
+
+h5
+{
+	float: left;
+	line-height: 28px;
+	margin-right: 5px;
+}
+
+h5.barMenuTitle
+{
+	color: #FFF;
+	font: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+h5.barMenuValue
+{
+	color: yellow;
+	font: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+
+
+#oIFWork
+{
+	width: 100%;
+	height: 100%;
+}
+
+div#divWork
+{
+	position: absolute;
+	/*top: 27px;	//	Senza tabsBar*/
+	top: 52px;	//	Con tabsBar
+	left: 0px;
+	width: 100%;
+	height: 97%;
+	z-index: 0;
+}
+
+div#divWork.clsResized
+{
+	position:relative;
+	border:5px double red;
+	width:100%;
+	margin-left:200px;
+}
+
+div#divWork.clsResized iframe
+{
+	width:100%;
+}
+
+iframe#oIFWork
+{	
+	/*background: url(../../imagexPix/wallpaper/pattern_sfondo.gif);*/
+	background: #000;
+	margin:0 5px;
+}
+
+/*
+ *	Barra dei tabulatori
+ */
+div#divBarTabs
+{
+	position:absolute;
+	top:26px;
+	left:0;
+	height:24px;
+	overflow:hidden;
+}
+
+ul#ulTabs li
+{
+	width:161px;
+	height:24px;
+	margin:0 0 0 2px;
+	padding:0;
+	background: url(../../../imagexPix/Layout/tab2.png) no-repeat;
+	float:left;
+	position:relative;
+}
+
+li.tabActive
+{
+	background: url(../../../imagexPix/Layout/tabActive2.png) ! important;
+}
+
+li.tabActive a
+{
+	color:#fff ! important;
+	font-weight:bold ! important;
+	line-height:24px ! important;
+}
+li.tabActive span.rto{top:4px ! important;}
+li.tabActive span.rth{top:4px ! important;}
+
+ul#ulTabs li a
+{
+	color:#315d98;
+	font-size:10px;
+	line-height:19px;
+	text-align:center;
+	display:block;
+	padding-right:14px;
+}
+
+/*	tasto chiusura tab */
+ul#ulTabs li span
+{
+	cursor:pointer;
+	width:16px;
+	height:16px;
+	overflow:hidden;
+	position:absolute;
+	right:3px;
+	top:2px;
+	z-index:4;
+}
+/*	tasto chiusura tab */
+span.rto{background: url(../../../imagexPix/Layout/tMin.png) center center no-repeat;}
+/*	tasto chiusura tab hover */
+span.rth{background: url(../../../imagexPix/Layout/tMinH.png) center center no-repeat;}
+

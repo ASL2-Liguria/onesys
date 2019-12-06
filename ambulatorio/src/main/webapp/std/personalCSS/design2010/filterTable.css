@@ -1,0 +1,33 @@
+table.classFilterTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	border: 1px solid #83E2BC;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:97%;
+	overflow:hidden;
+}
+
+td.classTdFilterLabel{
+	border: 1px solid #83E2BC;
+	background-color:#B9EEFD;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding-left:5px;
+}
+
+td.classTdFilterField{
+	border: 1px solid #83E2BC;
+	background-color:#E7FCFE;
+
+}
+
+div.classFilterLabel{
+	white-space:nowrap;
+}
+
+div.classFilterField{
+	white-space:nowrap;
+	
+}

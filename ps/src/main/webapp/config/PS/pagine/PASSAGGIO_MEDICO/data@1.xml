@@ -1,0 +1,27 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'PS.Q_LOAD_TRASFERIMENTO@PS'; :where := null; :campo_xml := null; end;">
+
+
+    <DATO key_id="hStatoListaAttesa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_LISTA_ATTESA" db_descrizione="STATO_LISTA_ATTESA" configurazione_multi_data="" />
+
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_CONTATTO" db_descrizione="STATO_CONTATTO" configurazione_multi_data="" />
+
+    <DATO key_id="cmbMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_PERSONALE_MEDICO@PS" />
+
+    <DATO key_id="hUtenteSorgente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTENTE_RIFERIMENTO" db_descrizione="UTENTE_RIFERIMENTO" configurazione_multi_data="" />
+
+    <DATO key_id="hProvenienza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_PROVENIENZA" db_descrizione="IDEN_PROVENIENZA" configurazione_multi_data="" />
+        
+    <DATO key_id="cmbRepDestinazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_PROVENIENZE_PS@PS" />
+
+    <DATO key_id="iden_cdc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="iden_cdc" db_descrizione="iden_cdc" configurazione_multi_data="" />
+
+</DATI>

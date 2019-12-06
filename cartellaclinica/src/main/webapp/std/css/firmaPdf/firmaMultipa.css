@@ -1,0 +1,60 @@
+.divFirma {
+	height: 50px;
+	width: 100%;
+}
+
+.inputPinFirma {
+	margin: 0 auto;
+}
+
+.divInputFirma{
+    margin-left: 200px;
+    margin-top: 15px;
+    display: block;
+    float: left;
+    padding-right: 6px;	
+}
+
+.divInputFirma input{
+	width: 200px;
+}
+
+.divButtonFirma {
+	display: block;
+    float: left;
+    padding-right: 6px;	
+	width: 105px;
+	height: 21px;
+    margin-top: 15px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image: url(../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat: repeat-x;
+	text-align: center;
+	line-height: 20px;
+}
+
+.divButtonFirma:hover {
+	background-image: url(../../../imagexPix/bar/btCyan.jpg);
+	background-repeat: repeat-x;
+	color: yellow;
+	cursor: pointer;
+}
+
+
+.divFirmato{
+	height: 100%;
+	width: 100%;	
+}
+
+.spanFirmato{
+	font-size: xx-large;
+	font-weight: bold;
+	color: black;
+	margin-left:25%;
+}
+
+#btStampaCartella{
+	width: 150px;
+}

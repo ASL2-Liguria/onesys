@@ -1,0 +1,135 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; if('#STATO_PAGINA#'='I')then :key_query := 'LISTA_ATTESA_PAGINA.Q_DATI_INSERIMENTO@ADT'; else :key_query := 'LISTA_ATTESA_PAGINA.Q_DATI_MODIFICA@ADT'; end if; :where := null; :campo_xml := null; end;">
+	<DATO key_id="NOME" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOME" db_descrizione="NOME"
+          configurazione_multi_data="" 
+    /> 
+    <DATO key_id="COGNOME" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COGNOME" db_descrizione="COGNOME"
+          configurazione_multi_data="" 
+    /> 
+    <DATO key_id="DATA_NASCITA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_NASCITA" db_descrizione="DATA_NASCITA"
+          configurazione_multi_data="" 
+    /> 
+    <DATO key_id="CODICE_FISCALE" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_FISCALE" db_descrizione="CODICE_FISCALE"
+          configurazione_multi_data="" 
+    /> 
+    <DATO key_id="txtNumeroTelefono" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TELEFONO" db_descrizione="TELEFONO"
+          configurazione_multi_data="" 
+    /> 
+    <DATO key_id="ETA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ETA" db_descrizione="ETA"
+          configurazione_multi_data="" 
+    />     
+    <DATO key_id="CDC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CDC" db_descrizione="CDC"
+          configurazione_multi_data="" 
+    />    
+    <DATO key_id="STATO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO" db_descrizione="STATO"
+          configurazione_multi_data="" 
+    />    
+    <DATO key_id="ID_LISTA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ID_LISTA" db_descrizione="ID_LISTA"
+          configurazione_multi_data="" 
+    />  
+    <DATO key_id="IDEN_CONTATTO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_CONTATTO" db_descrizione="IDEN_CONTATTO"
+          configurazione_multi_data="" 
+    />  
+    <DATO key_id="IDEN_ANAGRAFICA" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_ANAGRAFICA" db_descrizione="IDEN_ANAGRAFICA"
+          configurazione_multi_data="" 
+    />  
+    <DATO key_id="h-cmbUrgenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="URGENZA" db_descrizione="URGENZA"
+          configurazione_multi_data="" 
+    />
+    <DATO key_id="cmbUrgenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="LISTA_ATTESA_FILTRI.Q_LIVELLO_PRIORITA@ADT"
+    />
+    <DATO key_id="cmbRegimeRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="LISTA_ATTESA_PAGINA.Q_REGIME@ADT"
+    />
+    <DATO key_id="txtListaAttesaDescrizione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOME_LISTA" db_descrizione="NOME_LISTA"
+          configurazione_multi_data="" 
+    />  
+    <DATO key_id="cmbModalitaAccesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''LISTA_ATTESA_MODALITA_ACCESSO'''; end;" 
+    /> 
+    <DATO key_id="radTipoMedicoProponente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="ADT.Q_MEDICO_PROPONENTE@ADT"
+    />
+    <DATO key_id="radLateralita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''LATERALITA'''; end;" 
+    />
+    <DATO key_id="radPrevisioneRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="LISTA_ATTESA_PAGINA.Q_PREVISIONE_RICOVERO@ADT"
+    />
+    <DATO key_id="txtNote" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTE" db_descrizione="NOTE"
+          configurazione_multi_data="" 
+    />
+    <DATO key_id="txtDataPrenotazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_PRENOTAZIONE_CHAR" db_descrizione="DATA_PRENOTAZIONE_CHAR"
+          configurazione_multi_data="" 
+    />
+    <DATO key_id="txtOraPrenotazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_PRENOTAZIONE" db_descrizione="ORA_PRENOTAZIONE"
+          configurazione_multi_data="" 
+    />
+    <DATO key_id="txtNoteModifica" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTE_MODIFICA" db_descrizione="NOTE_MODIFICA"
+          configurazione_multi_data="" 
+    />
+    <DATO key_id="cmbAttivita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''LISTA_ATTESA_ATTIVITA'''; end;" 
+    />
+    <DATO key_id="cmbLateralita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''LATERALITA'''; end;"
+    />
+    <DATO key_id="cmbTipoAnestesia" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''TIPO_ANESTESIA'''; end;" 
+    /> 
+    <DATO key_id="chkRXAllergico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="LISTA_ATTESA_PAGINA.Q_CHECK_RX_ALLERGICO@ADT"
+    />
+    <DATO key_id="chkSolvente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="LISTA_ATTESA_PAGINA.Q_CHECK_SOLVENTE_LIBERA_PROFESSIONE@ADT"
+    />
+    <DATO key_id="txtDiagnosiICD" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI_ICD9" db_descrizione="DIAGNOSI_ICD9"
+          configurazione_multi_data=""
+    />
+    <DATO key_id="txtInterventoICD" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INTERVENTO_ICD9" db_descrizione="INTERVENTO_ICD9"
+          configurazione_multi_data=""
+    />
+    <DATO key_id="txtMedicoProponente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEDICO_PROPONENTE" db_descrizione="MEDICO_PROPONENTE"
+          configurazione_multi_data=""
+    />
+    <DATO key_id="txtMedicoPrimoChirurgo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEDICO_PRIMO_CHIRURGO" db_descrizione="MEDICO_PRIMO_CHIRURGO"
+          configurazione_multi_data=""
+    />
+    <DATO key_id="txtRepartoDegenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REPARTO_DEGENZA" db_descrizione="REPARTO_DEGENZA"
+          configurazione_multi_data=""
+    />
+
+</DATI>

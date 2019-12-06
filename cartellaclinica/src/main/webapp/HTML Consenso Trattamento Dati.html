@@ -1,0 +1,181 @@
+<html><head><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1" />
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/calendario/jquery.datepick.css' type='text/css' rel='stylesheet'>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/attesaRegistra.css' type='text/css' rel='stylesheet'>
+<link href='std/css/tabulatore.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+ 
+<link href='std/css/Schede_xml/consenso_trattamento_dati.css' type='text/css' rel='stylesheet'>
+<SCRIPT> 
+var arrayLabelName = new Array('lblTitleConsensoTrattDati','lblSottoscritto','lblNato','lblDataNasc','lblComuneRes','lblIndirizzo','lblTelefono','lblNomeProprio','lblRappLegale','lblParente','lblConvivente','lblSig','lblNatoA','lblDataNasc2','lblComuneRes2','lblIndirizzo2','lblCodiceFiscale','lblCodiceFiscale2','lblAutorizzaTrattDati','lblNonAutorizzaTrattDati','lblTrattDati','lblComunicDati','lblSigComunicDati','lblDottComunicDati','lblRicoDati','lblSigRicoDati','lblRegistra','lblStampa','lblData','lblChiudi','lblSottoscritto2','lblNatoA2','lblDataNasc3','lblComuneRes3','lblDocIdentita','lblDichiaraOpzioni','lblDataDichiara','lblCap','lblCap2');
+var arrayLabelValue = new Array('CONSENSO AL TRATTAMENTO DEI DATI PERSONALI','Il/La sottoscritto/a','nato/a a','il','residente a','in via','telefono','In nome proprio','Parente / Minore','Altro','convivente','del Sig. / della Sig.ra','nato/a a','il','residente a','Via/Piazza','Codice Fiscale','Codice Fiscale','ESPRIME','REVOCA','il consenso al trattamento dei dati e documenti clinici da parte di: medico di medicina generale / pediatra o suo sostituto','il personale sanitario a comunicare i dati di salute','al Signor','al Dottor','gli operatori dell\'azienda a rendere noto il suo ricovero al/ai','Signor/Signori','Registra','Stampa','Data','Chiudi','Il sottoscritto','nato/a a','il','residente a','documento d\'identita n?','Consapevole delle sanzioni penali in caso di dichiarazioni non veritiere DICHIARA','Data','CAP','CAP');
+</SCRIPT>
+
+<script> 
+	var _SITO_PAGINA = 'ALL';
+	var _KEY_PAGINA = 'CONSENSO_TRATTAMENTO_DATI_OE';
+	var _STATO_PAGINA = 'I';
+	var _VERSIONE_PAGINA = '1';
+	var _TIPO_PAGINA = 'PAGINA';
+</script>
+</head>
+<body id='body' onload='javascript:try{fillLabels(arrayLabelName, arrayLabelValue);}catch(ex){}'><form accept-charset='UNKNOWN' method='POST' name='dati' action='' enctype='application/x-www-form-urlencoded'><table cellpadding='0' cellspacing='0' class='classTabHeader'><tr>
+<td class='classTabHeaderSx'></td>
+<td class='classTabHeaderMiddle'><label name='lblTitleConsensoTrattDati' id='lblTitleConsensoTrattDati'></label></td>
+<td class='classTabHeaderDx'></td>
+</tr>
+</table><div id='groupDatiAnag'><table class='classDataEntryTable'><tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblSottoscritto' id='lblSottoscritto'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input size='50' STATO_CAMPO='E' value='' name='txtSottoscritto' length='50' type='text'>
+</input></td>
+<td STATO_CAMPO='E' class='classTdLabelLink'><label id='lblNato' SCANDB_RIC='txtNato' SCANDB_PROC='TAB_COMUNI_NASC' name='lblNato' onclick='javascript:launch_scandb_link(this);'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input STATO_CAMPO='E' value='' name='hComuneNasc' type='hidden'>
+</input><input size='50' STATO_CAMPO='E' value='' name='txtNato' length='50' type='text'>
+</input></td>
+<td colspan='9' STATO_CAMPO='E' class='classTdField'><input size='5' STATO_CAMPO='E' value='' name='txtProvNasc' length='5' type='text'>
+</input></td>
+</tr>
+<tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblDataNasc' id='lblDataNasc'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input id='txtDataNasc' STATO_CAMPO='E' name='txtDataNasc' FILTRO_CAMPO_TIPO='DATE' maxlength='10' max_length='10' length='10' value='' size='10' type='text'>
+</input></td>
+<td STATO_CAMPO='E' class='classTdLabelLink'><input STATO_CAMPO='E' value='' name='hComuneRes' type='hidden'>
+</input><label id='lblComuneRes' SCANDB_RIC='txtComuneRes' SCANDB_PROC='TAB_COMUNI_RES' name='lblComuneRes' onclick='javascript:launch_scandb_link(this);'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input size='50' STATO_CAMPO='E' value='' name='txtComuneRes' length='50' type='text'>
+</input></td>
+<td colspan='9' STATO_CAMPO='E' class='classTdField'><input size='5' STATO_CAMPO='E' value='' name='txtProvRes' length='5' type='text'>
+</input></td>
+</tr>
+<tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblIndirizzo' id='lblIndirizzo'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input size='50' STATO_CAMPO='E' value='' name='txtIndirizzo' length='50' type='text'>
+</input></td>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblCap' id='lblCap'></label></td>
+<td colspan='10' STATO_CAMPO='E' class='classTdField'><input STATO_CAMPO='E' id='txtCap' name='txtCap' length='30' value='' size='30' type='text'>
+</input></td>
+</tr>
+<tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblCodiceFiscale' id='lblCodiceFiscale'></label></td>
+<td colspan='12' STATO_CAMPO='E' class='classTdField'><input STATO_CAMPO='E' id='txtCodiceFiscale' name='txtCodiceFiscale' length='100' value='' size='100' type='text'>
+</input></td>
+</tr>
+<colgroup><col width=''>
+<col width=''>
+<col width=''>
+<col width=''>
+<col width=''>
+</colgroup>
+</table><table class='classDataEntryTable'><tr>
+<td STATO_CAMPO='E' class='classTdField'><input id='radAutorizzaTrattDati' STATO_CAMPO='E' value='1' name='radioAutorizzaTrattDati' type='radio'>
+</input><label name='lblAutorizzaTrattDati' id='lblAutorizzaTrattDati'></label></td>
+<td colspan='12' STATO_CAMPO='E' class='classTdField'><input id='radNonAutorizzaTrattDati' STATO_CAMPO='E' value='0' name='radioAutorizzaTrattDati' type='radio'>
+</input><label name='lblNonAutorizzaTrattDati' id='lblNonAutorizzaTrattDati'></label></td>
+</tr>
+<tr>
+<td colspan='13' STATO_CAMPO='E' class='classTdLabel'><label name='lblTrattDati' id='lblTrattDati'></label></td>
+</tr>
+<colgroup><col width=''>
+<col width=''>
+</colgroup>
+</table><table class='classDataEntryTable'><tr>
+<td colspan='13' STATO_CAMPO='E' class='classTdField'><input id='radNomeProprio' STATO_CAMPO='E' value='1' name='radioPotesta' type='radio'>
+</input><label name='lblNomeProprio' id='lblNomeProprio'></label></td>
+</tr>
+<tr>
+<td colspan='13' STATO_CAMPO='E' class='classTdField'><input id='radRappLegale' STATO_CAMPO='E' value='2' name='radioPotesta' type='radio'>
+</input><label name='lblRappLegale' id='lblRappLegale'></label></td>
+</tr>
+<tr>
+<td STATO_CAMPO='E' class='classTdField'><input id='radParente' STATO_CAMPO='E' value='3' name='radioPotesta' type='radio'>
+</input><label name='lblParente' id='lblParente'></label></td>
+<td colspan='12' STATO_CAMPO='E' class='classTdField'><input STATO_CAMPO='E' id='txtAltro' name='txtAltro' length='150' value='' size='150' type='text'>
+</input></td>
+</tr>
+<colgroup><col width=''>
+</colgroup>
+</table><table class='classDataEntryTable'><tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblSig' id='lblSig'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input size='50' STATO_CAMPO='E' value='' name='txtSig' length='50' type='text'>
+</input></td>
+<td STATO_CAMPO='E' class='classTdLabelLink'><label id='lblNatoA' SCANDB_RIC='txtNatoA' SCANDB_PROC='TAB_COMUNI_NASC2' name='lblNatoA' onclick='javascript:launch_scandb_link(this);'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input size='50' STATO_CAMPO='E' value='' name='txtNatoA' length='50' type='text'>
+</input></td>
+<td colspan='9' STATO_CAMPO='E' class='classTdField'><input STATO_CAMPO='E' value='' name='hComuneNasc2' type='hidden'>
+</input><input size='5' STATO_CAMPO='E' value='' name='txtProvNasc2' length='5' type='text'>
+</input></td>
+</tr>
+<tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblDataNasc2' id='lblDataNasc2'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input id='txtDataNasc2' STATO_CAMPO='E' name='txtDataNasc2' FILTRO_CAMPO_TIPO='DATE' maxlength='10' max_length='10' length='10' value='' size='10' type='text'>
+</input></td>
+<td STATO_CAMPO='E' class='classTdLabelLink'><input STATO_CAMPO='E' value='' name='hComuneRes2' type='hidden'>
+</input><label id='lblComuneRes2' SCANDB_RIC='txtComuneRes2' SCANDB_PROC='TAB_COMUNI_RES2' name='lblComuneRes2' onclick='javascript:launch_scandb_link(this);'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input size='50' STATO_CAMPO='E' value='' name='txtComuneRes2' length='50' type='text'>
+</input></td>
+<td colspan='9' STATO_CAMPO='E' class='classTdField'><input size='5' STATO_CAMPO='E' value='' name='txtProvRes2' length='5' type='text'>
+</input></td>
+</tr>
+<tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblIndirizzo2' id='lblIndirizzo2'></label></td>
+<td STATO_CAMPO='E' class='classTdField'><input size='50' STATO_CAMPO='E' value='' name='txtIndirizzo2' length='50' type='text'>
+</input></td>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblCap2' id='lblCap2'></label></td>
+<td colspan='10' STATO_CAMPO='E' class='classTdField'><input STATO_CAMPO='E' id='txtCap2' name='txtCap2' length='30' value='' size='30' type='text'>
+</input></td>
+</tr>
+<tr>
+<td STATO_CAMPO='E' class='classTdLabel'><label name='lblCodiceFiscale2' id='lblCodiceFiscale2'></label></td>
+<td colspan='12' STATO_CAMPO='E' class='classTdField'><input STATO_CAMPO='E' id='txtCodiceFiscale2' name='txtCodiceFiscale2' length='100' value='' size='100' type='text'>
+</input></td>
+</tr>
+<colgroup><col width=''>
+<col width=''>
+<col width=''>
+<col width=''>
+<col width=''>
+</colgroup>
+</table><table class='classDataEntryTable'><colgroup></colgroup>
+</table></div><table cellpadding='0' cellspacing='0' class='classTabHeader'><tr>
+<td class='classTabFooterSx'></td>
+<td class='classTabHeaderMiddle'>&nbsp;</td>
+<td class='classButtonHeader'><div class='pulsante'><a id='lblRegistra' href='javascript:registraConsenso();'></a></div></td>
+<td class='classButtonHeader'><div class='pulsante'><a id='lblStampa' href='javascript:stampao();'></a></div></td>
+<td class='classButtonHeader'><div class='pulsante'><a id='lblChiudi' href='javascript:chiudi();'></a></div></td>
+<td class='classTabFooterDx'></td>
+</tr>
+</table></form>
+<form accept-charset='UNKNOWN' method='POST' name='EXTERN' action='' enctype='application/x-www-form-urlencoded'><input id='KEY_LEGAME' value='CONSENSO_TRATTAMENTO_DATI_OE' name='KEY_LEGAME' type='hidden'>
+</input><input id='USER_ID' value='20181' name='USER_ID' type='hidden'>
+</input><input id='KEY_ID' value='' name='KEY_ID' type='hidden'>
+</input><input id='USER_LOGIN' value='lucas' name='USER_LOGIN' type='hidden'>
+</input><input id='PC_ID' value='NB_LUCAS_HP.ELCO2009.IT' name='PC_ID' type='hidden'>
+</input></form>
+ 
+<script type='text/javascript' src='std/jscript/engine/jquery.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/jquery_fancybox.js' language='JavaScript'></script>
+<script type='text/javascript' src='dwr/engine.js' language='JavaScript'></script>
+<script type='text/javascript' src='dwr/util.js' language='JavaScript'></script>
+<script type='text/javascript' src='dwr/interface/eventDWR.js' language='JavaScript'></script>
+<script type='text/javascript' src='dwr/interface/toolKitDB.js' language='JavaScript'></script>
+<script type='text/javascript' src='dwr/interface/toolKitUtility.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/clsDate.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/gestione.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/eventi.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/prototype.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/tabulazione.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/toolkit_pagina.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/scandb.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/ShowHideLayer.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/calendario/jquery.datepick.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/consensoRevoca.js' language='JavaScript'></script>
+ 
+<script type='text/javascript' src='dwr/engine.js' language='JavaScript'></script>
+<script type='text/javascript' src='dwr/util.js' language='JavaScript'></script>
+ 
+	<script>jQuery('#txtDataNasc').datepick({onClose: function(){jQuery(this).focus();}, showOnFocus: false,  showTrigger: '<img class="trigger" src="imagexPix/calendario/cal20x20.gif" class="trigger"></img>'});</script>
+	<script>jQuery('#txtDataNasc2').datepick({onClose: function(){jQuery(this).focus();}, showOnFocus: false,  showTrigger: '<img class="trigger" src="imagexPix/calendario/cal20x20.gif" class="trigger"></img>'});</script></body></html>
+

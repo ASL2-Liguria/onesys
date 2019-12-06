@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+       <lblTitolo>CONSTATAZIONE GIUNTO CADAVERE</lblTitolo>
+       <fldDichiarazioneMorte>Dichiarazione di morte</fldDichiarazioneMorte>
+       <lblAltro>Specificare</lblAltro>
+        <lblConstatazioneGiunto>Causa</lblConstatazioneGiunto>
+        <butStampa>Stampa</butStampa>
+        <butFirma>Firma</butFirma>
+        <butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

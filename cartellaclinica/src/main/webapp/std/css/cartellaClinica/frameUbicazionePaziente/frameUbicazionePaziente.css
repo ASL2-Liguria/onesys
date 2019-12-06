@@ -1,0 +1,36 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th{
+	border: 0;
+	font-family: Arial;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+body{
+background-color:#f2feff;	
+}
+
+table.tabella
+{	
+font-size: 14px;
+background-color:#f2feff;
+height:110px;
+width:350px;
+}
+
+
+.tdPaziente
+{
+	font-size: 15px;
+	text-align: center;
+	background-color:#daf5fe;
+}

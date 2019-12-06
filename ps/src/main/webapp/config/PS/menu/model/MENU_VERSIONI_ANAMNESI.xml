@@ -1,0 +1,21 @@
+<MENU>
+    <ID>MENU_VERSIONI_ANAMNESI</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>Cancella Rivalutazione</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_PS.deleteRivalutazione({iden: rec[0].IDEN, deleted: false, callback: function(){location.reload();}});}]]></LINK>
+            <URL_IMAGE>img/CMenu/annulla_esecuzione.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+                if( (rec[0].UTE_INS == home.baseUser.IDEN_PER) && (rec[0].DIFF <= home.baseGlobal["cartella.tempo_modifica.cartella_chiusa"]) && ($("#READONLY").val()!=='S') ){
+                    return true;
+                }else{
+                    return false
+            }}]]></WHERE>
+            <OUTPUT>"Rimuovi Anamnesi"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Rimuovi Anamnesi"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

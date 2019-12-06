@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>SCADENZARIO_MEDICO</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.SCADENZARIO_MEDICO</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_SCADENZARIO_MEDICO</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCR</COL>
+						<DB>DESCR</DB>
+					</ID>
+					<DESCRIPTOR>"Attività"</DESCRIPTOR>
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>SCADENZA_GIORNI</COL>
+						<DB>SCADENZA_GIORNI</DB>
+					</ID>
+					<DESCRIPTOR>"Scadenza"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return SCADENZARIO_MEDICO.processScadenza( data, wk ); }]]></PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<!-- COLUMN>
+					<ID>
+						<COL>RICORRENTE</COL>
+						<DB>RICORRENTE</DB>
+					</ID>
+					<DESCRIPTOR>"Ricorrente"</DESCRIPTOR>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN-->
+				
+				<COLUMN>
+					<ID>
+						<COL>ATTIVO</COL>
+						<DB>ATTIVO</DB>
+					</ID>
+					<DESCRIPTOR>"Attivo"</DESCRIPTOR>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>TIPO</COL>
+						<DB>TIPO</DB>
+					</ID>
+					<DESCRIPTOR>"Tipo"</DESCRIPTOR>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>NOTE</COL>
+						<DB>NOTE</DB>
+					</ID>
+					<DESCRIPTOR>"Note"</DESCRIPTOR>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				
+				
+
+			</LIST>
+			<SORT>
+				<COLUMN id="SCADENZA_GIORNI">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,82 @@
+#barretta {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	border-top: 2px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	padding-left: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align:right;
+	background-image:url(../../../imagexPix/bar/MenuImg_mim.jpg);
+	height:29px;
+}
+
+#barretta a {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	margin-right: 2px; 
+}
+
+#barretta a:hover {
+	color: black;
+	background-color: #E3D8F1;
+	text-decoration: none;
+}
+
+
+
+#barMenuMain {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	border-top: 2px solid #FFFFFF;
+	border-bottom: 2px solid #FFFFFF;
+	padding-left: 1px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	text-align:right;
+	background-image:url(../../../imagexPix/bar/MenuImg_mim.jpg);
+	height:29px;
+}
+
+#barMenuMain a {
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	margin-right: 2px; 
+}
+
+#barMenuMain a:hover {
+	color: #000000;
+	background-color: #E3D8F1;
+	text-decoration: none;
+}
+
+#barChatInfo{
+	width:150px;
+	overflow:hidden;
+	display:inline;
+	visibility:hidden;
+}
+
+
+#barChatInfo a {
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	margin-right: 2px; 
+	cursor:pointer;	
+}
+
+#barChatInfo a:hover {
+	text-decoration: none;
+	cursor:pointer;
+}

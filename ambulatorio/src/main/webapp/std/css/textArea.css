@@ -1,0 +1,20 @@
+/*
+	Questa classe serve per espandere la textarea senza fare casini quando c'è un testo molto lungo...
+*/
+
+textarea.classTextArea
+{
+	float: left;
+	width: 100%;
+}
+
+.clsTextFullWidth
+{
+	width: 100%;
+}
+
+.clsTextMiddleWidth
+{
+	float: left;
+	width: 50%;
+}

@@ -1,0 +1,22 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+	
+	<DATO key_id="radTipoDichiarante" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="RAD_TIPO_DICHIARANTE_CONSENSO" />
+	
+	<DATO key_id="radTrattamentoDatiConsenso" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+
+	<DATO key_id="radConsensoDatiSensibili" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+
+	<DATO key_id="radTrattamentoDatiSostituto" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radSpecialista" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="radAssociati" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radCollaboratori" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radConsensoComunicazione" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+			
+	<DATO key_id="radConsensoPersonaleASL" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+</DATI>
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>INFORMAZIONI RICETTA</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butSalvataggio>Salva</butSalvataggio>
+		<butSalvaNoPrint>Salva ricette senza stampare</butSalvaNoPrint>
+		<butInserisci>Diagnosi STD</butInserisci>
+		
+		<tabSal>Salvataggio Ricetta</tabSal>
+
+		<fldAllergieFarmaco>Farmaco e intolleranze connesse</fldAllergieFarmaco>
+		<fldNote>Note</fldNote>
+		<fldDiagnosi>Diagnosi</fldDiagnosi>
+		<fldNoteCuf>Note Cuf</fldNoteCuf>
+		<fldGradoUrgenza>Grado di Urgenza</fldGradoUrgenza>
+		<fldPrimoAccesso>Tipologia Accesso</fldPrimoAccesso>
+		<fldRiepilogo>Riepilogo farmaci</fldRiepilogo>
+		<fldAltro>Altro</fldAltro>
+		
+		<lblUrgenza>Urgenza</lblUrgenza>
+		<lblAccesso>Tipologia</lblAccesso>
+		<lblNoteArea>Note Area</lblNoteArea>
+		<lblTipoProblema>Tipologia Problema</lblTipoProblema>
+		<lblDiagnosi>Diagnosi</lblDiagnosi>
+		<lblSuggerita>Suggerita</lblSuggerita>
+		<lblSuggerito_da>Suggerita da</lblSuggerito_da>
+		<lblSuggerito_struttura>Struttura</lblSuggerito_struttura>
+		<lblRicovero>Ricovero</lblRicovero>
+		<lblAltro>Altro</lblAltro>
+		<lblStampaInformativa>Stampa informativa</lblStampaInformativa>
+		<lblStampaPosologia>Stampa posologia</lblStampaPosologia>
+		
+		<lblNessunaInterazione>Nessuna Allergia/Intolleranza con i farmaci selezionati</lblNessunaInterazione>
+		<th_Intolleranza>ALLERGIA/INTOLLERANZA INSERITA</th_Intolleranza>
+		<th_Farmaco>FARMACO IN PRESCRIZIONE</th_Farmaco>
+		<lblAllergiaSave>Si vuole continuare ugualmente a prescrivere nonostante l'allergia/intolleranza segnalata?</lblAllergiaSave>
+		<lblVisNotaCuf>Impossibile visualizzare la Nota CUF.\n\nErrore: Parametro URL_NOTE_CUF non configurato. Contattare il servizio di assistenza</lblVisNotaCuf>
+		<lblSelFarmaci>Selezionare note per i farmaci che si stanno prescrivendo</lblSelFarmaci>
+		<lblPresAllergie>Vi sono allergie/intolleranze presenti per uno dei farmaci che si sta prescrivendo</lblPresAllergie>
+		
+		<farmaco>Farmaco</farmaco>
+		<esenzione>Esenzione</esenzione>
+		
+		<lblApplicaEsenzioni>Applica a tutte le prescrizioni</lblApplicaEsenzioni>
+    </ROW>
+</ROWSET>

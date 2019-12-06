@@ -1,0 +1,23 @@
+.linkStorico{
+	background:url(../../../../imagexPix/button/mini/spostata.png) no-repeat;
+	float:right;
+	margin-right:2px;
+	width:20px;height:20px;
+	cursor:pointer;
+}
+
+.labelClass{
+	float:left;
+}
+
+.Link{
+	background:url(../../../../imagexPix/interrogativo.png) no-repeat;
+	float:right;
+	margin-right:10px;
+	width:20px;height:17px;
+	cursor:pointer;
+}
+
+div span.Button{display: inline-block; border:1px solid #FFF;color:#FFF;text-align:center;cursor:pointer;padding:0px 3px;margin:2px 0px 0px 2px;BACKGROUND: url(../../../../imagexPix/bar/sf-th.png) repeat-x;}
+div span.Button:hover{border-color:blue;color:blue;}	
+div span.Button.selected {border-color:blue;color:blue;BACKGROUND: url(../../../../imagexPix/bar/sf_orange.jpg) repeat-x;}

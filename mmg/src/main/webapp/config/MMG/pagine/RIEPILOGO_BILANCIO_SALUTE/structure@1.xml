@@ -1,0 +1,47 @@
+<PAGINA key_id="RIEPILOGO_BILANCIO_SALUTE">
+	<HEADER_PAGE key_id="RIEPILOGO_BILANCIO_SALUTE"
+		valore="DEFAULT_MMG,SCHEDA,RIEPILOGO_BILANCIO_SALUTE#DEFAULT_MMG,RIEPILOGO_BILANCIO_SALUTE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#RIEPILOGO_BILANCIO_SALUTE#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="WKBilanci#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabRiepilogoBilanciSalute"
+				valore="tabRiepilogoBilanciSalute" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_BUTTON key_id="but_bs_1" valore="but_bs_1" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_bs_2" valore="but_bs_2" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_bs_3" valore="but_bs_3" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_bs_4" valore="but_bs_4" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_BUTTON key_id="but_bs_5" valore="but_bs_5" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_bs_6" valore="but_bs_6" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_bs_7" valore="but_bs_7" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_bs_8" valore="but_bs_8" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="ElencoWork" valore="ElencoWork"
+					evento="START_END">
+				</DIV.WORKLIST>
+				<INPUT.HIDDEN key_id="hBilanciCompilati" valore="hBilanciCompilati"
+					evento="START">
+				</INPUT.HIDDEN>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

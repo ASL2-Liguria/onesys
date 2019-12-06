@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/calendario/jquery.datepick.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/attesaRegistra.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/tabulatore.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/dataTable.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/calendario/jquery.datepick.css' type='text/css' rel='stylesheet'>
+
+
+    <title>Pianifica terapia</title>
+    <style>
+        .green{
+            background:url(../imagexPix/bar/28/sf-green.png)
+            /*repeat-x;*/
+
+        }
+        .orange{
+            background:url(../imagexPix/bar/28/sf-orange.png)
+            /*repeat-x;*/
+        }
+        .red{
+            background:url(../imagexPix/bar/28/sf-red.png)
+            /*repeat-x;*/
+        }
+        .white{
+            background:url(../imagexPix/bar/28/sf-white.png)
+            /*repeat-x;*/
+        }
+
+        td[name="stato"]{
+            width: 20px;
+            display: inline-block;
+            height: 10px;
+            color:#000;
+            padding: 3px;
+
+        }
+        .classDataEntryTable td{
+            border: solid 1px;
+        }
+        #lblRegistra{
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+<TABLE class=classTabHeader cellSpacing=0 cellPadding=0><TBODY>
+<TR>
+    <TD class=classTabHeaderSx></TD>
+    <TD class=classTabHeaderMiddle><LABEL id=lblTitle name="lblTitle">Pianificazione terapia</LABEL></TD>
+    <TD class=classTabHeaderDx></TD></TR></TBODY>
+</TABLE>
+
+<TABLE class=classDataEntryTable>
+    <TBODY id="TableBody">
+
+    </tbody>
+</TABLE>
+
+<TABLE class=classTabHeader cellSpacing=0 cellPadding=0><TBODY>
+<TR>
+    <TD class=classTabFooterSx></TD>
+    <TD class=classTabHeaderMiddle>&nbsp;</TD>
+    <TD class=classButtonHeader>
+        <DIV class=pulsante><A id=lblRegistra >Registra</A></DIV></TD>
+    <TD style="DISPLAY: none" class=classButtonHeader >
+    <TD class=classTabFooterDx></TD></TR></TBODY></TABLE>
+
+</body>
+<script type='text/javascript' src='../std/jscript/engine/jquery.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/RicercaPazienti/Ricoverati/scheda_ricovero/gestioneTerapie/PaginaPianificazioneTerapia.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/calendario/jquery.datepick.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/maskedit.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/engine/toolkit_pagina.js' language='JavaScript'></script>
+
+
+</html>

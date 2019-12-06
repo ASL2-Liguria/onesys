@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>3</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){NS_VERBALE_CONTROLLI.checkDiagnosi(data);}]]>
+        </onSelect>
+        <!--<maxHeight>400</maxHeight>
+        <width>300</width>
+        <zIndex>9999</zIndex>-->
+        <datasource>PS</datasource>
+        <deferRequestBy>200</deferRequestBy>
+        <storedQuery>AUTOCOMPLETE.ADT_DIAGNOSI_ICD9</storedQuery>
+        <storedQueryIden>AUTOCOMPLETE.ADT_DIAGNOSI_ICD9_IDEN</storedQueryIden>
+        <maxResults>20</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Diagnosi ICD9</title>
+        <id_wk>ADT_DIAGNOSI_ICD9</id_wk>
+        <onSelect type="js">
+            <![CDATA[function(data){NS_VERBALE_CONTROLLI.checkDiagnosi(data);}]]>
+        </onSelect>
+    </LIST>
+</AUTOCOMPLETE>

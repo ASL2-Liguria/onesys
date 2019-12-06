@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Moduli/MMG_Lettera.js" />
+	<CSS path="css/MMG/Moduli/MMG_Lettera.css" />
+</INCLUDE>

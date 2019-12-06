@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>4</minChars>
+		<onSelect type="js">
+			<![CDATA[function(data){WK_ALLERGIE_INTOLLERANZE.scelta(data.ATC_CORRELATI,data.DESCR,data.VALUE);}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>700</width>
+		<zIndex>9999</zIndex>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_PRINCIPI_ATTIVI</storedQuery>
+		<maxResults>15</maxResults>
+		<datasource>MMG_DATI</datasource>
+	</AJAX> 
+	<LIST>
+	    <title>PrincipioAttivo</title>
+	    <id_wk>AC_PRINCIPI_ATTIVI</id_wk>
+	    <onSelect type="js">
+			<![CDATA[function(data){WK_ALLERGIE_INTOLLERANZE.scelta(data.ATC_CORRELATI,data.DESCR,data.VALUE);}]]>
+		</onSelect>
+	</LIST>  
+</AUTOCOMPLETE>

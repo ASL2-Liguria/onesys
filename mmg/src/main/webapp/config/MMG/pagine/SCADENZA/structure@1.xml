@@ -1,0 +1,32 @@
+<PAGINA key_id="SCADENZA">
+	<HEADER_PAGE key_id="SCADENZA" valore="DEFAULT_MMG,SCHEDA,SCADENZA#DEFAULT_MMG,SCADENZA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#SCADENZARIO#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab" valore="Scadenza#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabMain" valore="tabMain" evento="START">
+				<FIELDSET_TABLE key_id="fldEvento" valore="fldEvento" evento="START">
+					<TR_TD_LABEL_TEXT key_id="Descrizione" valore="lblDescrizione##txtDescrizione###DESCR" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Ricorrente" valore="lblRicorrente##Ricorrente#radRicorrente#{width:50,idxDefault:1}#S#RICORRENTE" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="AnniPaz" valore="lblAnniPaz##txtAnniPaz###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="MesiPaz" valore="lblMesiPaz##txtMesiPaz###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="GiorniPaz" valore="lblGiorniPaz##txtGiorniPaz###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="GiorniOgni" valore="lblGiorniOgni##txtGiorniOgni###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="AnniDa" valore="lblAnniDa##txtAnniDa###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="MesiDa" valore="lblMesiDa##txtMesiDa###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="GiorniDa" valore="lblGiorniDa##txtGiorniDa###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="AnniA" valore="lblAnniA##txtAnniA###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="MesiA" valore="lblMesiA##txtMesiA###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="GiorniA" valore="lblGiorniA##txtGiorniA###" evento="START"></TR_TD_LABEL_TEXT>
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_TEXTAREA key_id="Note" valore="lblNote#txtNote#NOTE###5" evento="START"></TD_LABEL_TEXTAREA>
+					</TR.INIT>
+					<TR_TD_LABEL_RADIO key_id="Attivo" valore="lblAttivo##Attivo#radAttivo#{width:50,idxDefault:0}#S#ATTIVO" evento="START"></TR_TD_LABEL_RADIO>
+					<INPUT.HIDDEN key_id="hGiorniScadenza" valore="hGiorniScadenza###SCADENZA_GIORNI" evento="START"></INPUT.HIDDEN>
+					<INPUT.HIDDEN key_id="hGiorniDa" valore="hGiorniDa###GIORNI_DA" evento="START"></INPUT.HIDDEN>
+					<INPUT.HIDDEN key_id="hGiorniA" valore="hGiorniA###GIORNI_A" evento="START"></INPUT.HIDDEN>
+					<INPUT.HIDDEN key_id="hIdenMed" valore="hIdenMed###IDEN_MED" evento="START"></INPUT.HIDDEN>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

@@ -1,0 +1,47 @@
+/* CSS Document */
+.classInfoIcon {
+	width:25px;
+	height:25px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/icon/ico_info.gif);
+}
+
+.classInfoIcon A{
+	TEXT-DECORATION: none;
+}
+
+.classInfoIcon A:hover {
+	background-image:url(../../../imagexPix/button/icon/ico_info_over.gif);
+}
+
+
+div.boxInfoLayer{
+	width:400px;
+	height:250px;
+    background:url(../../../imagexPix/wallpaper/examInfoLayer.png) no-repeat top left;
+    padding:5px 0 0 5px;
+	font-size:14px;
+	font-weight: bold;
+	z-index:3;
+}
+
+div.boxInfoLayer-inner{
+	height: 200px;
+	overflow:auto;
+    margin:25px 24px 0;
+	padding-right:8px; 
+	padding-left:8px;
+	font-size:14px;
+	font-weight: bold;
+	z-index:2;
+}
+
+div.boxInfoLayerShadow{width:400px;height:250px;
+    background:url(../../../imagexPix/wallpaper/examInfoLayerShadow.png) no-repeat top left;
+    padding:1px 0;
+	font-size:14px;
+	font-weight: bold;
+	z-index:0;
+}

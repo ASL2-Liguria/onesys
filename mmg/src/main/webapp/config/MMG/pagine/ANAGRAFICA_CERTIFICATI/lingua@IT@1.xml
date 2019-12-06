@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<tabAnagraficaCertificati>Certificato</tabAnagraficaCertificati>
+		<tabListaCertificati>Lista certificati</tabListaCertificati>
+		<lblTitoloCertificati>Inserimento/modifica di un certificato</lblTitoloCertificati>
+		
+		<fldCertificato>Composizione certificato</fldCertificato>
+		<lblSegnaposto>Inserisci segnaposto per:</lblSegnaposto>
+		<lblTitolo>Titolo del certificato</lblTitolo>
+		<lblCodice>Codice</lblCodice>
+		<lblDescrizione>Testo del certificato</lblDescrizione>
+		<lblTipoCertificato>Tipo</lblTipoCertificato> 
+		
+		<fldListaCertificati>Lista dei certificati già salvati nel sistema</fldListaCertificati>
+		        
+    </ROW>
+</ROWSET>

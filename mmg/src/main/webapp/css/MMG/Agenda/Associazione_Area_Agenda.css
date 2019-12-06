@@ -1,0 +1,12 @@
+.exchangeList {
+    width: 90%;
+    margin: 0 auto;
+}
+
+    .exchangeList select {
+        min-height: 500px;
+    }
+
+    .exchangeList > .buttons {
+        max-width: 45px;
+    }

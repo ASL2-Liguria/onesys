@@ -1,0 +1,183 @@
+/* CONFERMA RICETTE */
+
+.tableConferma{
+	height: 50px;
+	padding: 5px;
+}
+
+.borderBottom { border-bottom: 1px solid grey; }
+.refused{ background: #ffd2d2; /* rosso light */ }
+.accepted{ background: #d5ffd5; /* green light */ }
+
+#divConfermaRicette {
+	padding:5px;
+	background:#C3DCEC;
+	height:500px;
+	width:740px;
+	position:relative;
+	margin-top:24px;
+	margin-right:-100px;
+	float:right;
+	border-left: 2px solid #3D3D3D;
+	border-bottom: 2px solid #3D3D3D;
+	border-right: 2px solid #3D3D3D;
+}
+
+#divElencoRicette, #ulListaRicette {
+	width: 100%;
+	height: 440px;
+	width:720px;
+	position:relative;
+	overflow: hidden;
+	border: 1px solid grey;
+	border-bottom: 2px solid grey;
+}
+
+#ulListaRicette { overflow: auto; height: 420px;}
+#ulListaRicette li{ background: white; height:50px; border-bottom: 1px solid grey;}
+#ulListaRicette li:hover{ background: #FEF794; height:50px; border-bottom: 1px solid grey; cursor:default;}
+#ulListaRicette li div{	background: inherit; }
+
+.buttonConfermaRicette{
+	padding:5px;
+	border:1px solid grey;
+	font-weight:bold;
+	position:relative;
+	cursor:pointer;
+}
+
+#divButton div{
+	width:240px;
+	background: white;
+	float:right;
+	margin-left: 2px;
+	margin-top: 15px;
+	height: 30px;
+	line-height: 20px;
+	text-align: center;
+}
+
+#divButton div i{ margin-left: 10px; }
+
+#butElenco{ float:right; }
+#butConferma{ float:left; }
+#butConfermaStampa{ float:left; }
+
+.divPaziente { 
+	font-weight: bold; 
+	font-size: 10px;
+	height: 15px;
+	width: 435px;
+	float: left;
+}
+.divElenco { 
+	font-style: italic; 
+	font-size: 10px;
+	height: 35px;
+	width: 435px;
+	float: left;
+}
+
+.divInfoRicetta {
+	font-size: 10px;
+	height: 15px;
+	width: 150px;
+	float: left;
+}
+
+.divUtenteIns {
+	font-size: 10px;
+	height: 35px;
+	width: 150px;
+	float: left;
+}
+
+.divAction { 
+	width: 100px; 
+	float: right;
+	height: 50px; 
+}
+
+.divAction i{ 
+	margin-left: 2px; 
+	font-size:14px;
+	line-height: 40px;
+}
+
+#divIconTray {
+	height:20px;
+	width:30%;
+	float:right;
+	background: #3D3D3D;
+}
+
+#divTitle {
+	height:20px;
+	width:70%;
+	float:left;
+	background: #3D3D3D;
+	color: white;
+	line-height: 20px;
+	padding-left:5px;
+	font-weight: bold;
+	
+}
+
+.iconTray {
+	background: white;
+	border: 1px solid grey;
+	float:right;
+	cursor:pointer;
+	height:20px;
+	width:20px;
+	line-height:20px;
+	text-align:center;
+	margin-left:2px;
+}
+
+/** message **/
+
+#divElencoPrescr{
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 10px;
+}
+
+.btnMsg{
+	border:1px solid grey;
+	padding: 5px;
+	width:67px;
+	float:left;
+	margin-left:5px;
+	text-align: center;
+	margin-top:15px;
+	cursor:pointer;
+	background: #F2FAFF;
+	color:black;
+	height: 55px;
+}
+
+.btnMsg a{
+	
+	margin-top:10px;
+	cursor:pointer;
+}
+
+.linkCartella a {
+	text-decoration: underline;
+	cursor:pointer
+}
+
+/** dialog options **/
+
+.divOptions li v{ font-weight:bold; }
+.divOptions i{ font-style: italic; }
+ #dialogOptions button{ margin-left: 10px; }
+/* FINE CONFERMA RICETTE */
+
+#integration {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	left: -400001px
+}

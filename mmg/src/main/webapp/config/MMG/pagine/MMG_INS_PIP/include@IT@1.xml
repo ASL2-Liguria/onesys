@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Pip/Pip.css" />
+	<JS path="js/MMG/Pip/Pip.js" />
+</INCLUDE>

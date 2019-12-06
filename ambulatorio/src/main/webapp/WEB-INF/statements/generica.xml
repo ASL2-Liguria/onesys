@@ -1,0 +1,12 @@
+<root>
+	<statements_list>
+		<statement name="infoDettEsami">
+			<sql>
+			<![CDATA[
+				select iden, xml_module_output from dett_esami where iden  = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+	</statements_list>
+</root>

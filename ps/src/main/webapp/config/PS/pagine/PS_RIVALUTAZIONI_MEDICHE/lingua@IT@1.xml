@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <fldPrimaValutazione>Prima Valutazione</fldPrimaValutazione>
+        <fldRivalutazioniMediche>Rivalutazioni Mediche</fldRivalutazioniMediche>
+        <lblData>DATA</lblData>
+        <lblOra>ORA</lblOra>
+        <lblUtente>UTENTE</lblUtente>
+        <lblUrgenza>URGENZA</lblUrgenza>
+        <lblEsameObiettivo>VALUTAZIONE MEDICA</lblEsameObiettivo>
+        <lblVuotaaaaaaaaaa>lblVuotaaaaaaaaaa</lblVuotaaaaaaaaaa>
+    </ROW>
+</ROWSET>

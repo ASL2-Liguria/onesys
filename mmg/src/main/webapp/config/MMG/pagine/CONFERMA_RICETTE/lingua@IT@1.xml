@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    
+    <ROW>
+        
+        <lblTitolo>Visualizzazione delle ricette da confermare o già confermate</lblTitolo>
+        
+		<tabConfermaRicette>Conferma ricette</tabConfermaRicette>
+	        <fldFiltri>Filtri Ricetta</fldFiltri>
+	        	<lblDemaSN>Tipologia</lblDemaSN>
+	        	<lblVisualizza>Visualizza</lblVisualizza>
+	        	<lblDataInizio>dal</lblDataInizio>
+	        	<lblDataFine>al</lblDataFine>
+	        	
+	        <fldFiltriDate>Filtri Prescrizione</fldFiltriDate>
+        
+        <butSelezionaTutto>Seleziona tutto</butSelezionaTutto>
+        <butDeselezionaTutto>Deseleziona tutto</butDeselezionaTutto>
+        
+        <conferma>Sei sicuro di voler confermare le ricette selezionate?</conferma>
+        
+        <lblDataRicetta>Data ricetta</lblDataRicetta>
+        <lblPaziente>Paziente</lblPaziente>
+        <lblStato>Stato ricetta</lblStato>
+        <lblElencoRicette>Contenuto</lblElencoRicette>
+
+        <lblConfermaRicetta>Conferma</lblConfermaRicetta>
+        <lblStampaRicetta>Stampa</lblStampaRicetta>
+        <lblConfermaStampa>Conferma e Stampa</lblConfermaStampa>
+        <lblAnnulla>Annulla conferma</lblAnnulla>
+        
+    </ROW>
+    
+</ROWSET>

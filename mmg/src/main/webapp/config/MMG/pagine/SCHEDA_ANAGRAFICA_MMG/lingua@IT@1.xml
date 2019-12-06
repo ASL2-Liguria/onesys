@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Scheda Anagrafica</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butEsenzione>Esenzione</butEsenzione>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<tabNote>Note</tabNote>
+		<tabCodiciEsterni>Codici Esterni</tabCodiciEsterni>
+		<tabAnamnesi>Anamnesi</tabAnamnesi>
+		<tabDatiTessera>Dati TesEuro</tabDatiTessera>
+		<tabResDom>Residenza e Domicilio</tabResDom>
+		<tabDatiPrincipali>Dati Principali</tabDatiPrincipali>
+        <tabEsami>Esami</tabEsami>
+		<fldDP>Dati Principali</fldDP>
+		<fldInfoPaz>Info Paziente</fldInfoPaz>
+		<fldNote>Note</fldNote>
+		<lblCognome>Cognome</lblCognome>
+		<lblNome>Nome</lblNome>
+		<lblDataNasc>Data di Nascita</lblDataNasc>
+		<lblEta>Età</lblEta>
+		<lblSesso>Sesso</lblSesso>
+		<lblLuogoNasc>Luogo di Nascita</lblLuogoNasc>
+		<lblCodFisc>Codice Fiscale</lblCodFisc>
+		<lblCodReg>Codice Regionale</lblCodReg>
+		<lblNoso>N° nosografico</lblNoso>
+		<lblCitt>Cittadinanza</lblCitt>
+		<lblMedBase>Medico di Base</lblMedBase>
+		<lblProf>Professione</lblProf>
+		<lblIDpaz>ID Patient</lblIDpaz>
+		<lblMail>E-Mail</lblMail>
+		<lblMailPEC>E-Mail PEC</lblMailPEC>
+		<lblDataDec>Data Decesso</lblDataDec>
+		<lblCausaDecesso>Causa Decesso</lblCausaDecesso>
+		<lblLocRes>Località</lblLocRes>
+		<lblIndRes>Indirizzo</lblIndRes>
+		<lblCivRes>Civico</lblCivRes>
+		<lblUSLRes>USL</lblUSLRes>
+		<lblCAPRes>CAP</lblCAPRes>
+		<lblTelRes>Telefono</lblTelRes>
+		<lblRegRes>Regione</lblRegRes>
+		<lblProvRes>Provincia</lblProvRes>
+		<lblCell>Cellulare</lblCell>
+		<lblCellRV>Cellulare</lblCellRV>
+		<lblLocDom>Località</lblLocDom>
+		<lblIndDom>Indirizzo</lblIndDom>
+		<lblCivDom>Civico</lblCivDom>
+		<lblUSLDom>USL</lblUSLDom>
+		<lblCAPDom>CAP</lblCAPDom>
+		<lblTelDom>Telefono</lblTelDom>
+		<lblRegDom>Regione</lblRegDom>
+		<lblProvDom>Provincia</lblProvDom>
+		<lblNominativoRV>Nominativo</lblNominativoRV>
+		<lblLocRV>Località</lblLocRV>
+		<lblIndRV>Indirizzo</lblIndRV>
+		<lblCivRV>Civico</lblCivRV>
+		<lblUSLRV>USL</lblUSLRV>
+		<lblCAPRV>CAP</lblCAPRV>
+		<lblTelRV>Telefono</lblTelRV>
+		<lblTel>Telefono</lblTel>
+		<lblCell>Telefono</lblCell	>
+		<lblRegRV>Regione</lblRegRV>
+		<lblProvRV>Provincia</lblProvRV>
+		<lblPresso>Presso</lblPresso>
+		<lblIDCitt>ID Cittadino</lblIDCitt>
+		<lblNtes>N. Tessera</lblNtes>
+		<lblNrTesseraSanitaria>N. Tessera</lblNrTesseraSanitaria>
+		<lblICT>Istit. Competente Tessera</lblICT>
+		<lblDescrStrut>Descrizione Struttura</lblDescrStrut>
+		<lblDataScadTes>Data Scadenza Tessera</lblDataScadTes>
+		<lblQualBen>Qualifica Beneficiario</lblQualBen>
+		<lblCert>Certificazione</lblCert>
+		<lblID1>ID 1</lblID1>
+		<lblID2>ID 2</lblID2>
+		<lblID3>ID 3</lblID3>
+		<lblID4>ID 4</lblID4>
+		<lblID5>ID 5</lblID5>
+		<lblID6>ID 6</lblID6>
+		<lblID7>ID 7</lblID7>
+		<lblID8>ID 8</lblID8>
+		<lblID9>ID 9</lblID9>
+		<lblID10>ID 10</lblID10>
+		<lblID11>ID 11</lblID11>
+		<lblID12>ID 12</lblID12>
+		<lblPeso>Peso</lblPeso>
+		<lblAlt>Altezza</lblAlt>
+		<lblSupCorp>Sup. Corporea</lblSupCorp>
+		<lblPesoId>Peso Ideale</lblPesoId>
+		<lblBMI>Body Mass Index</lblBMI>
+		<lblRisPeso>Risultato Peso</lblRisPeso>
+		<lblMDC>MDC</lblMDC>
+		<lblAnamnesi>Anamnesi</lblAnamnesi>
+		<lblTratDati>Consenso al trattamento dei dati personali</lblTratDati>
+		<lblUSLAss>USL Assistenza</lblUSLAss>
+		<fldRes>Residenza</fldRes>
+		<fldDom>Domicilio</fldDom>
+		<fldRecapitoVisite>Recapito visite domiciliari</fldRecapitoVisite>
+		<fldConsenso>Consenso Privacy</fldConsenso>
+		<lblConsenso>Compilazione modulo del Consenso Privacy</lblConsenso>		
+		<fldConsensoPrivacyMMG>Consenso Privacy</fldConsensoPrivacyMMG>
+		<lblConsensoPrivacyMMG>Consenso Privacy</lblConsensoPrivacyMMG>
+        <wkDataEsame>Data Esame</wkDataEsame>
+        <wkEsame>Esame</wkEsame>
+        <lblStatoEstero>Stato Estero</lblStatoEstero>
+        
+        <butInfoPrivacy>Info privacy</butInfoPrivacy>
+        <butConsensoPrivacy>Consenso privacy</butConsensoPrivacy>
+        <butRecepisciConsenso>Compila Modulo Privacy</butRecepisciConsenso>
+        <butVisualizzaConsenso>Visualizza PDF Modulo Privacy</butVisualizzaConsenso>
+        <butVisualizzaStoricoConsenso>Visualizza lo Storico del Modulo</butVisualizzaStoricoConsenso>
+        <butConsensoVergine>Stampa il consenso con soli dati anagrafici</butConsensoVergine>
+        <butImposta_Stampante>Imposta stampante e margini</butImposta_Stampante>
+        <butStampaRetro>Stampa retro della Ricetta Rossa</butStampaRetro>
+        <butOK>OK</butOK>
+        <fldRetroRicetta>Dati per stampa retro ricetta</fldRetroRicetta>
+        <fldDatiStampa>Dati per stampa Tipo Ricetta (assisititi SPECIALI)</fldDatiStampa>
+        <tabDatiAggiuntivi>Dati Aggiuntivi</tabDatiAggiuntivi>
+        <lblCodTipoRicetta>Codice Tipo Ricetta</lblCodTipoRicetta>
+        <lblTipoAssistito>Tipo di assistito</lblTipoAssistito>
+        <lblCodStatoEstero>Codice stato estero</lblCodStatoEstero>
+        <lblIDPersonale>N° di identificazione personale</lblIDPersonale>
+        <lblIDIstituzione>N° di identificazione dell'istituzione</lblIDIstituzione>
+        <lblIDTessera>N° di identificazione della tessera</lblIDTessera>
+        <lblDataScadenza>Scadenza</lblDataScadenza>
+        <lblStatoEst>Stato Estero</lblStatoEst>
+        <lblAnagraficaDaCompletare>Attenzione! Impossibile proseguire, paziente in sola lettura!  Al fine di garantire un ottimale servizio di allineamento dati anagrafici, è NECESSARIO compilare i campi obbligatori (con il contorno verde) in modo da completare i dati fondamentali relativi al paziente. Dopo aver compilato i campi, è sufficiente SALVARE la scheda.</lblAnagraficaDaCompletare>
+        <msgCodFiscSexWrong>Il codice fiscale inserito non è corretto considerando il sesso dell'assistito</msgCodFiscSexWrong>
+        <lblTitleAnagraficaDaCompletare>Attenzione! Anagrafica con dati incompleti</lblTitleAnagraficaDaCompletare>
+       
+    </ROW>
+</ROWSET>

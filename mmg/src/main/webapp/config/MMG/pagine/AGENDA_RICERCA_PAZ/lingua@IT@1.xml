@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitoloRicerca>RICERCA ANAGRAFICA</lblTitoloRicerca>
+		<lblRicerca>Ricerca</lblRicerca>
+		<fldPaziente>Paziente</fldPaziente>
+		<lblCogn>Cognome</lblCogn>
+		<lblNome>Nome</lblNome>
+		<lblData>Data Nascita</lblData>
+		<lblCodFisc>Codice Fiscale</lblCodFisc>
+		<butRicerca>Ricerca</butRicerca>
+		<butInserisci>Inserisci nuova anagrafica</butInserisci>
+		<butConferma>Conferma prenotazione</butConferma>
+		<fldNote>Note</fldNote>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,15 @@
+#fldDatiTec > table > tbody > tr{margin-top:15px} 
+#tblDataPrevisione{width:auto}
+#tblUrgenza{width:auto}
+.radTipoMedicoProponente{width:200px}
+.chkRegime{width:250px}
+#txtMotivoPriorita{width:250px}
+#txtDiagnosi{height:40px}
+#txtTipoIntervento{height:40px}
+#txtMateriale{height:40px}
+#txtNote{height:40px}
+#txtNoteModifica{height:40px}
+#txtDataPrenotazione{width:100px}
+#txtOraPrenotazione{width:80px}
+#chkRXAllergico_AL{width:115px}
+

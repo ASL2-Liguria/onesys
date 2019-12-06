@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){/*alert("You selected: " + data.DESCR);*/}]]>
+        </onSelect>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.AC_LISTE_ATTESA</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Liste disponibili</title>
+        <id_wk>ADT_LISTE_ATTESA_ELENCO</id_wk>
+    </LIST>
+</AUTOCOMPLETE>

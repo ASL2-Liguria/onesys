@@ -1,0 +1,6 @@
+<INCLUDE>
+	<JS path="js/MMG/CartellaPediatrica/PLS_Utility.js" />
+	<CSS path="css/MMG/Rilevazioni/insRilevazioniPls.css" />
+	<JS path="js/MMG/Visite/PLS_Visite.js" />
+	<CSS path="css/MMG/Visite/PLS_Visite.css" />
+</INCLUDE>

@@ -1,0 +1,27 @@
+body#page{
+	width:960px;
+}
+
+#butInserisci{
+	float:right;
+}
+
+.containerSx{
+   width:300px;
+   height:200px;
+   margin-right:50px;
+}
+#ComboIn{
+    width:180px;
+    height:150px;
+    margin-right:30px;
+}
+
+.containerDx{
+    width:200px;
+    height:200px;
+}
+#ComboOut{
+    width:150px;
+    height:150px;
+}

@@ -1,0 +1,64 @@
+*{font-size:12px;}
+html,body{height:100%;margin:0;padding:0;background:#e9f3fe;overflow:hidden;cursor:default;}
+
+.BarraHeader{width: 100%;	font: bold 10px Verdana;	background: url(../../imagexPix/tabheader/top_tabella.gif) repeat-x;	height: 20px;	color: #fff;	clear: both;	bottom:4px;	position:absolute;left:0px;}
+.pulsanteBarraHeader{float:right;}
+.pulsanteBarraHeader.left{float:left;}
+.pulsanteBarraHeader A{/*float:right;*/width:80px;TEXT-DECORATION:none;color:blue;line-height:16px;padding-left:2px;padding-right:2px;margin:2px;background:url(../../imagexPix/bar/btLightCyan.jpg) repeat-x;text-align:center;font:bold Verdana;display:block;}
+.pulsanteBarraHeader A:hover {background:url(../../imagexPix/bar/btCyan.jpg) repeat-x;color: yellow;font-weight:bold;}
+span.pulsanteBarraHeader a {width:80px;}
+
+body.visualizza div#boxRicerca{display:none;}
+body.visualizza div#boxTerapie div#headBoxTerapie{display:none;}
+body.visualizza div#boxTerapie div.tabber{display:none;}
+body.visualizza div#boxTerapie iframe {width: 100%;}
+
+body.inserimentoOrizzontale {max-height: 95%;}
+body.inserimentoOrizzontale div#boxRicerca{position:relative;float:left;/*height:510px;*/width:49.9%; height: 100%;}
+body.inserimentoOrizzontale div#boxTerapie{position:relative;float:left;/*height:510px;*/width:49.9%; height: 100%;}
+body.inserimentoOrizzontale div#boxTerapie iframe {width: 100%;}
+
+body.inserimentoVerticale {max-height: 95%;}
+body.inserimentoVerticale div#boxRicerca {max-height: 50%;}
+body.inserimentoVerticale div#boxRicerca div#frameSearchFarmaci {height: 90%; width: 100%;}
+body.inserimentoVerticale div#boxTerapie iframe {width: 100%;}
+div#boxRicerca {height:100%;}
+div#boxRicerca iframe, div#boxRicerca div.inner{/*height:505px;*/width:100%;height: 95%;min-height: 95%;}
+div#boxRicerca div#frameSearchFarmaci {height:90%; width: 100%;}
+div#boxRicerca div.inner>table div {margin-top: 5px;}
+div#boxRicerca div.inner>table td {vertical-align: top;}
+div.tipiTerapie {padding-bottom: 10px;}
+
+div span.Button{display: inline-block; border:1px solid #FFF;color:#FFF;text-align:center;cursor:pointer;padding:0px 3px;margin:2px 0px 0px 2px;BACKGROUND: url(../../imagexPix/bar/sf-th.png) repeat-x;}
+div span.Button:hover{border-color:blue;color:blue;}	
+div span.Button.selected {border-color:blue;color:blue;BACKGROUND: url(../../imagexPix/bar/sf_orange.jpg) repeat-x;}
+div table{table-layout:fixed; border:1px solid #95baff;background:#D5E2FF;width:100%;}
+div table tr.ricerca{height:50px;}
+div table th{width:25%; background:#95baff;display:block;color:#FFF;text-align:right; padding-right: 20px;}
+div table td{width:70%;}
+
+div.head{width:100%; background: /*url(http://localhost:8080/whale/imagexPix/bar/sf-th.png) repeat-x*/#95baff; color:white; font-weight: bold; cursor: hand; padding-left: 5px; width: 150px; display: block;}
+div.head span.open{background: url(../../imagexPix/arrow/up.gif) no-repeat; padding-left:20px;background-position: left;font-size: 12px;}
+div.head span.close{background: url(../../imagexPix/arrow/down.gif) no-repeat; padding-left:20px;background-position: left;}
+
+div#lstTerapie{width:100%;height:280px;overflow-y:scroll;overflow-x:hidden;position:relative;}
+
+div.tabber{width:100%;/*border:1px solid black;*/}
+div.tabber div.tab {width:200px;float:left;height:14px;margin:2px;border:1px solid #4259ff;text-align:center;background:url(../../imagexPix/tabulator/hoverTab.png);color:#4259ff;cursor:hand;}
+div.tabber div.tab.selected{background:url(../../imagexPix/tabulator/selectedTab.png);color:white;}
+div.tabber div.tab div{float:left;width:180px;text-align:left;}
+div.tabber div.tab div.btn{display:none;float:right;width:10px;font:8px;font-weight:bold;}
+div.tabber div.tab.selected div.btn{display:block;}
+div.tabber div.tab div.btn:hover{background:#e4e4e4;color:#4259ff;}
+
+div.menu{position:absolute;background:#FFF;border:2px solid blue;padding:2px;}
+div.menu div{height:20px;float:none;border:none;color:blue;padding-top:3px;padding-bottom:1px;padding-left:10px;padding-right:10px;background:#FFF;}
+div.menu div:hover{background:#FEFAC7;}
+
+div.objTrascinato{
+	background:#FFF;
+	border:2px solid blue;
+	color:blue;
+	font-weight:bold;
+	text-align:center;
+}

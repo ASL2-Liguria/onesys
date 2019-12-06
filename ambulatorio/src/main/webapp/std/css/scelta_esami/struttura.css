@@ -1,0 +1,37 @@
+div#body_omni
+{
+	position:relative;
+	left:0px;
+	top:0px;
+	float:left;
+}
+
+div#oGroupOmni
+{
+	position:relative;
+	left:0px;
+	top:0px;
+	float:left;
+}
+
+div#divFiltriMetodiche
+{	
+	float:right;
+}
+
+div#divElencoEsami
+{	
+
+	float:right;
+}
+
+div#divElencoEsamiScelti
+{
+
+	float:right;
+}
+
+ul
+{
+	list-style:none;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TD_LABEL_ORA">
+        <OBJ classe_id="PATH::td@0">
+            <PROC id="setTagValue">
+                <PAR translate="true" type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::td@0*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="tdLbl"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::td@1">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="tdOra"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::td@0">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::td@1(ORA)">
+            <PROC id="VOID">
+                <PAR type="idx" value="2"/>
+                <PAR type="idx" value="3"/>
+                <PAR type="idx" value="4"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::td@1*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="tdText oracontrol w80px"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::td@0">
+            <PROC id="appendAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>1</minChars>
+		<onSelect type="js">
+            <![CDATA[function(data){}]]>
+		</onSelect>
+		<deferRequestBy>200</deferRequestBy>
+		 <datasource>ADT</datasource>
+		<storedQuery>AUTOCOMPLETE.AC_ANAG_STATO_CIVILE</storedQuery>
+		<maxResults>40</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>Stato Civile</title>
+	    <id_wk>AC_ANAG_STATO_CIVILE</id_wk>
+	</LIST>  
+</AUTOCOMPLETE>	 
+    

@@ -1,0 +1,120 @@
+div.clsACR
+{
+	background-color:#F2FEFF;
+	border:groove;
+	border-color:#0CF;
+	border-width:1px;
+	height:auto;
+}
+
+div.clsACR ol li
+{
+	margin:0px 0px 6px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+
+div.clsACR ol li a
+{
+	text-decoration:none;
+	color:#000;
+}
+
+div.clsACR table:hover
+{
+	background:#FFF;
+	cursor:hand;
+}
+div.clsACR table td 
+{
+	border:1px solid #09BADF;
+}
+
+#tabBck table{
+	border:1px solid #000;		
+}
+#tabBck td,table.bck td{
+	background:#FFF;
+	border:1px solid #000;
+	font-size:10px;
+	font-weight:bold;
+	text-align: center;
+}
+#tabBck th,table.bck th{
+	background:#CCC;
+	border:1px solid #000;
+	font-size:10px;
+	font-weight:bold;	
+}
+#divContainer{
+	overflow-y:auto;
+	overflow-x:hidden;
+	height: 80%;
+	width: 100%;
+}
+table.bck{display:none; width:100%;}
+div.dettaglio-container {border : 1px solid black; margin-bottom:5px; background: #f2feff;}
+table.dettaglio { margin-top:10px;cursor:pointer;width:100%;table-layout: fixed;}
+table.dettaglio td,table.dettaglio th {padding:5px;text-align: center; }
+table.dettaglio td[stato=P] {background: white;}
+table.dettaglio td[stato=I] {background: orange;}
+table.dettaglio td[stato=E] {background: #6b6; color:white;}
+table.dettaglio td[stato=S] {background: gray; color:white;}
+table.dettaglio td[stato=K] {background: red;}
+
+html {
+height:100%; /* fix height to 100% for IE */
+max-height:100%; /* fix height for other browsers */
+padding:0; /*remove padding */
+margin:0; /* remove margins */
+border:0; /* remove borders */
+background:#fff; /*color background - only works in IE */
+font-size:80%; /*set default font size */
+background: white;
+font-family:"trebuchet ms", tahoma, verdana, arial, sans-serif; /* set default font */
+/* hide overflow:hidden from IE5/Mac */
+/* \*/
+/* */
+}
+
+body {
+height:100%; /* fix height to 100% for IE */
+max-height:100%; /* fix height for other browsers */
+padding:0; /*remove padding */
+margin:0; /* remove margins */
+border:0; /* remove borders */
+background: white;
+}
+
+
+/*	INTESTAZIONE SCHEDA */
+table#intestazione div.scheda.intestazione {font-weight: bold;font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;}
+table#intestazione  div.tipoPrescrizione{
+	PADDING-LEFT: 5px;
+	FONT-size: 8px;
+	font-weight: bold;	
+	WIDTH: 150px;
+	line-height:15px;
+	margin:0px;
+text-align:center;
+	}
+	
+table#intestazione  div.liv0{BACKGROUND: url(../../../imagexPix/bar/sf_gray2.png) repeat-x;COLOR: #333;}	
+table#intestazione  div.liv1{BACKGROUND: url(../../../imagexPix/bar/sf_orange.jpg) repeat-x;COLOR: #333;}	
+	
+table#intestazione  div.GiorniResidui{float:left;border:1px solid red;color:red;height:auto;}	
+table#intestazione  tbody div.farmaci{cursor:hand;float:left;line-height:15px;}
+	div.std{BORDER: none;}
+	div.chemio{BORDER: #FADBA3 1px solid;}
+	div.antibio{BORDER: #BBFC8B 1px solid;}		
+
+table#intestazione  div.farmaci table{width:100%;}
+table#intestazione div.farmaci tr.Pari{BACKGROUND: #efefef;;}
+table#intestazione div.farmaci td{padding:2px;border:none;line-height:15px; padding:0px; margin:0px;}
+table#intestazione  div.farmaci td.dose{font-size:12px;}
+table#intestazione  div.farmaci td div.Descr{width:100%;overflow:hidden; 	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;}
+table#intestazione  div.farmaci td div.Sost{font-size:8px;width:100%;overflow:hidden;}
+
+table#intestazione div.farmaci .Bold{font-weight:bold;color:red;}

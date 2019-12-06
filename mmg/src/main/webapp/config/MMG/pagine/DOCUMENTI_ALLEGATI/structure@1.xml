@@ -1,0 +1,53 @@
+<PAGINA key_id="DOCUMENTI_ALLEGATI">
+	
+	<HEADER_PAGE key_id="DOCUMENTI_ALLEGATI" valore="DEFAULT_MMG,SCHEDA,DOCUMENTI_ALLEGATI#DEFAULT_MMG,DOCUMENTI_ALLEGATI" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#DOCUMENTI_ALLEGATI#IDEN#IDEN" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="DocumentiAllegati#lblTitolo#butSalva,butChiudi" evento="START">
+						
+			<TABULAZIONE.CREA_TAB key_id="tabDocumentiAllegati" valore="tabDocumentiAllegati" evento="START">
+				
+				<FIELDSET key_id="fldDocumentiAllegati" valore="fldDocumentiAllegati" evento="START">
+				
+					<DIV.WORKLIST key_id="divWk" valore="divWk" evento="START">
+					</DIV.WORKLIST>
+					
+				</FIELDSET>
+			
+			</TABULAZIONE.CREA_TAB>
+				
+			<TABULAZIONE.CREA_TAB key_id="tabAllegaDocumento" valore="tabAllegaDocumento" evento="START">	
+				
+				<FIELDSET_TABLE key_id="fldAllegaDocumento" valore="fldAllegaDocumento" evento="START">
+
+					<TR_TD_LABEL_RADIO key_id="tipoCaricamentoFile" valore="lblTipoCaricamentoFile##tipoCaricamentoFile#radTipoCaricamentoFile#{width:150}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_FILE key_id="AllegaFile" valore="lblAllegaFile##AllegaFile" evento="START">
+					</TR_TD_LABEL_FILE>
+					
+					<TR_TD_LABEL key_id="SelezionaScanner" valore="lblSelezionaScanner#SelezionaScanner" evento="START">
+						<TD_COMBO key_id="comboScanner" valore="comboScanner#comboScanner#N" evento="START"></TD_COMBO>
+					</TR_TD_LABEL>
+					
+					<TR_TD_LABEL_TEXT key_id="NomeAllegato" valore="lblNomeAllegato##txtNomeAllegato###NOME_FILE" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO key_id="AllegaPazienteEpisodio" valore="lblAllegaPazienteEpisodio##AllegaPazienteEpisodio#radAllegaPazienteEpisodio#{width:150}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_COMBO key_id="cmbTipoDocumento" valore="lblTipoDocAllegato##cmbTipoDocAllegato#cmbTipoDocAllegato##" evento="START">
+					</TR_TD_LABEL_COMBO>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>
+

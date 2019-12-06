@@ -1,0 +1,105 @@
+<PAGINA key_id="MMG_MODULO_RM_V2">
+	<HEADER_PAGE key_id="MMG_MODULO_RM_V2"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_RM_V2#DEFAULT_MMG,MMG_MODULO_RM_V2"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_RM_V2#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ModuloRM#lblTitolo#butStampaIndicazioni,butStampaInformativa,butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabDati" valore="tabDati" evento="START">
+			
+				<FIELDSET_TABLE key_id="fld0" valore="fld0" evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Collaborazione" valore="lblCollaborazione##Collaborazione#radCollaborazione#{width:150}#S#COLLABORAZIONE" evento="START"></TD_LABEL_RADIO>
+						<TD_RADIO key_id="Collaborazione_bis" valore="Collaborazione_bis#radCollaborazione_bis#{width:150}#N#COLLABORAZIONE_BIS" evento="START"></TD_RADIO>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXT key_id="Peso" valore="lblPeso##txtPeso##lettura#PESO" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldNotizie_Clin" valore="fldNotizie_Clin" evento="START">
+					<TR_TD_TEXTAREA key_id="Notizie_Clin" valore="Notizie_Clin#NOTIZIE_CLINICHE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="ProblemiPaziente" valore="lblProblemiPaziente##cmbProblemiPaziente#cmbProblemiPaziente#N#PROBLEMI_PAZIENTE" evento="START">
+						<TD_BUTTON key_id="butInserisci" valore="butInserisci" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldIndagine" valore="fldIndagine" evento="START">
+					<TR_TD_TEXTAREA key_id="Indagine" valore="txtAcc_Eff#INDAGINE" evento="START"></TR_TD_TEXTAREA>
+					<TR_TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TR_TD_BUTTON>
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldQuesito" valore="fldQuesito" evento="START">
+					<TR_TD_TEXTAREA key_id="Quesito" valore="Quesito#QUESITO" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabQuestionario_I" valore="tabQuestionario_I" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldContrAssolute" valore="fldContrAssolute" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="PaceMaker" valore="lblPaceMaker##PaceMaker#PaceMaker#{width:150}#S#PACE_MAKER" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="DispoEleNR" valore="lblDispoEleNR##DispoEleNR#DispoEleNR#{width:150}#S#DISP_ELE_NR" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="ClipVascolari" valore="lblClipVascolari##ClipVascolari#ClipVascolari#{width:150}#S#CLIP_VASCOLARI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="FiltriStentSpirali" valore="lblFiltriStentSpirali##FiltriStentSpirali#FiltriStentSpirali#{width:150}#S#FILTRI_STENT_SPIRALI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Catetere" valore="lblCatetere##Catetere#Catetere#{width:150}#S#CATETERE" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="MedicazioniTransdermiche" valore="lblMedicazioniTransdermiche##MedicazioniTransdermiche#MedicazioniTransdermiche#{width:150}#S#MED_TRANSDERMICHE" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Protesi" valore="lblProtesi##Protesi#Protesi#{width:150}#S#PROTESI" evento="START"></TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldContrRelative" valore="fldContrRelative" evento="START">
+					<TR_TD_LABEL_RADIO key_id="CorpiEstranei" valore="lblCorpiEstranei##CorpiEstranei#CorpiEstranei#{width:150}#S#CORPI_ESTRANEI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="ClipsMet" valore="lblClipsMet##ClipsMet#ClipsMet#{width:150}#S#CLIPS_MET" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="FiltriStentSpiraliNon" valore="lblFiltriStentSpiraliNon##FiltriStentSpiraliNon#FiltriStentSpiraliNon#{width:150}#S#FILTRI_STENT_SPIRALI_NON" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Shunt" valore="lblShunt##Shunt#Shunt#{width:150}#S#SHUNT" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="ProtesiOrtMet" valore="lblProtesiOrtMet##ProtesiOrtMet#ProtesiOrtMet#{width:150}#S#PROTESI_ORT_MET" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Espansori" valore="lblEspansori##Espansori#Espansori#{width:150}#S#ESPANSORI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Iud" valore="lblIud##Iud#Iud#{width:150}#S#IUD" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Tatuaggi" valore="lblTatuaggi##Tatuaggi#Tatuaggi#{width:150}#S#TATUAGGI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="t8" valore="t8" evento="START">
+						<TD_LABEL_RADIO key_id="MesiGravidanza" valore="lblMesiGravidanza##MesiGravidanza#radMesiGravidanza#{width:150}#S#MESI_GRAVIDANZA" evento="START"></TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="DataUltimoMestruo" valore="lblDataUltimoMestruo##txtDataUltimoMestruo#DataUltimoMestruo#format: 'd/m/Y',direction:false###DATA_ULTIMO_MESTRUO" evento="START"></TD_LABEL_DATA>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabQuestionario_II" valore="tabQuestionario_II" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldRisonanzaMDC" valore="fldRisonanzaMDC" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="RischioAllergico" valore="lblRischioAllergico##RischioAllergico#radRischioAllergico#{width:150}#S#RISCHIO_ALLERGICO" evento="START">
+						<TD_TEXT key_id="txtSpecRischioAllergico" valore="txtSpecRischioAllergico##lettura#DETTAGLIO_RISCHIO_ALLERGICO" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="AllergieMetalli" valore="lblAllergieMetalli##AllergieMetalli#radAllergieMetalli#{width:150}#S#ALLERGIE_METALLI" evento="START">
+						<TD_TEXT key_id="txtAllergieMetalli" valore="txtAllergieMetalli##lettura#DETTAGLIO_ALLERGIE_METALLI" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="GraveInsufficienzaEpatica" valore="lblGraveInsufficienzaEpatica##GraveInsufficienzaEpatica#radGraveInsufficienzaEpatica#{width:150}#S#INS_EPATICA" evento="START">
+						<TD_TEXT key_id="txtGraveInsufficienzaEpatica" valore="txtGraveInsufficienzaEpatica##lettura#DETTAGLIO_INS_EPATICA" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="InsufficienzaRenale" valore="lblInsufficienzaRenale##InsufficienzaRenale#radInsufficienzaRenale#{width:150}#S#INSUFF_RENALE" evento="START">
+						<TD_TEXT key_id="txtInsufficienzaRenale" valore="txtInsufficienzaRenale##lettura#DETTAGLIO_INSUFF_RENALE" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>	
+				
+				<FIELDSET_TABLE key_id="fldCreatininemia" valore="fldCreatininemia" evento="START">	
+										
+					<TR.INIT key_id="t8" valore="t8" evento="START">		
+						<TD_LABEL_TEXT key_id="Creatininemia" 
+							valore="lblCreatininemia##txtCreatininemia###CREATININEMIA"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_DATA key_id="DataCreatininemia" 
+							valore="lblDataCreatininemia##txtDataCreatininemia#DataCreatininemia#format: 'd/m/Y',direction:false###DATA_CREATININEMIA" 
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>					
+					
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

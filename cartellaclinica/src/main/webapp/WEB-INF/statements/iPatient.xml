@@ -1,0 +1,590 @@
+<root>
+    <statements_list>
+        <statement name="getInfoPaziente">
+            <schema>RADSQL</schema>
+            <sql>
+                <![CDATA[
+                    DECLARE
+                        pIdPz       VARCHAR2(4001) := ?;
+                        vIdenPz     pls_integer;
+                        vNomePz     VARCHAR2(4001);
+                        vCognPz     VARCHAR2(4001);
+                        vDataPz     VARCHAR2(4001);
+                        vCFPz       VARCHAR2(4001);
+                        vIdPz       VARCHAR2(4001);
+                        vComNasc    VARCHAR2(4001);
+                        vSesso      VARCHAR2(4001);
+                        vConsenso   VARCHAR2(4001);
+                    BEGIN
+                        SELECT 
+                            a.IDEN
+                            , a.NOME
+                            , a.COGN
+                            , a.DATA
+                            , a.COD_FISC
+                            , cea.ID1
+                            , a.COM_NASC
+                            , a.SESSO
+                            , CASE WHEN a.PRIVACY_PAZIENTE IS NOT NULL OR a.PRIVACY_PAZIENTE <> ''
+                                THEN EXISTSNODE(XMLTYPE(a.PRIVACY_PAZIENTE),'//flag[@value="N"]/@key')
+                                ELSE NULL
+                            END
+                        INTO 
+                            vIdenPz
+                            , vNomePz
+                            , vCognPz
+                            , vDataPz
+                            , vCFPz
+                            , vIdPz
+                            , vComNasc
+                            , vSesso
+                            , vConsenso
+                        FROM Radsql.Anag a
+                        INNER JOIN Radsql.Cod_Est_Anag cea ON a.iden = cea.iden_anag
+                        WHERE cea.id1 = pIdPz ;
+
+                        ? := vIdenPz;
+                        ? := vNomePz;
+                        ? := vCognPz;
+                        ? := vDataPz;
+                        ? := vCFPz;
+                        ? := vIdPz;
+                        ? := vComNasc;
+                        ? := vSesso;
+                        ? := vConsenso;
+                    END;							
+
+		 
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getRicoveri">				
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        np.IDEN
+                        , np.NUM_NOSOLOGICO
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO
+                        , CASE WHEN (np.dimesso='S')
+                            THEN datetimeconverter(np.data_fine_ricovero||np.ora_fine_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi')
+                            ELSE ''
+                        END DATA_FINE
+                        , cdc.descr REPARTO
+                        , cdc.COD_CDC
+                        , CC_RICOVERI.getLinkVisita(np.iden, np.accesso) LINK_ACCESSO
+                        , ttr.descr TIPOLOGIA
+                        , CASE WHEN (np.dea_cartella IS NOT NULL)
+                            THEN (
+                                SELECT cdc.descr
+                                FROM nosologici_paziente
+                                INNER JOIN centri_di_costo cdc ON cdc.cod_cdc = nosologici_paziente.cod_cdc
+                                WHERE dea_str = SUBSTR( np.num_nosologico,0,instr( np.num_nosologico,'-',1)-1)
+                                AND dea_anno = SUBSTR( np.num_nosologico,instr( np.num_nosologico,'-',1)  +1,4)
+                                AND dea_cartella = SUBSTR( np.num_nosologico,instr(np.num_nosologico,'-', -1)+1,LENGTH( np.num_nosologico))
+                            )
+                            ELSE ''
+                        END post_ps
+                        , (SELECT descrizione FROM tab_mod_dimissione WHERE iden = np.mod_dimissione) AS mod_dimissione
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO
+                        , 'dd/MM/yyyy HH:mm' PATTERN
+                        , cdc.COD_DEC REPARTO_AMMETTENTE
+                    FROM nosologici_paziente np
+                    JOIN centri_di_costo cdc ON (cdc.cod_cdc = np.cod_cdc)
+                    JOIN tab_tipo_ricovero ttr ON (ttr.iden = np.iden_tipo_ricovero)
+                    WHERE np.iden_anag IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?)
+                    AND accesso = 0
+                    AND deleted = 'N'
+                    AND (ttr.codice <> 'DH' OR (SELECT checkDatiAccessodh(np.IDEN) FROM dual) > 0)
+                    AND ((SELECT COUNT(*) FROM nosologici_paziente WHERE parent = np.iden AND accesso = 0 AND deleted = 'N') = 0 or ttr.codice='PS')
+                    AND iden_tipo_ricovero IN (
+                        SELECT iden
+                        FROM tab_tipo_ricovero
+                        WHERE codice IN (SELECT column_value FROM TABLE(split(?))) AND attivo ='S'
+                    )
+                    and cdc.cod_cdc not in ('REP_MET_SV','REP_MET_PL','REP_MET_AL','REP_MET_CA')
+                    ORDER BY np.data_ricovero DESC, np.ora_ricovero DESC
+                ]]>
+            </sql>
+        </statement>		
+        <statement name="getRicoveriAmbulatorio">				
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        np.IDEN
+                        , np.NUM_NOSOLOGICO
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO
+                        , CASE WHEN (np.dimesso='S')
+                            THEN datetimeconverter(np.data_fine_ricovero||np.ora_fine_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi')
+                            ELSE ''
+                        END DATA_FINE
+                        , cdc.descr REPARTO
+                        , cdc.COD_CDC
+                        , CC_RICOVERI.getLinkVisita(np.iden, np.accesso) LINK_ACCESSO
+                        , ttr.descr TIPOLOGIA
+                        , CASE WHEN (np.dea_cartella IS NOT NULL)   
+                            THEN (
+                                SELECT cdc.descr
+                                FROM nosologici_paziente
+                                INNER JOIN centri_di_costo cdc ON cdc.cod_cdc = nosologici_paziente.cod_cdc
+                                WHERE dea_str    = SUBSTR( np.num_nosologico,0,instr( np.num_nosologico,'-',1)-1)
+                                AND dea_anno     = SUBSTR( np.num_nosologico,instr( np.num_nosologico,'-',1)  +1,4)
+                                AND dea_cartella = SUBSTR( np.num_nosologico,instr(np.num_nosologico,'-',     -1)+1,LENGTH( np.num_nosologico))
+                            )
+                            ELSE ''
+                        END post_ps
+                        , (SELECT descrizione FROM tab_mod_dimissione WHERE iden = np.mod_dimissione) AS mod_dimissione
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO
+                        , 'dd/MM/yyyy HH:mm' PATTERN  
+                        , cdc.COD_DEC REPARTO_AMMETTENTE                      
+                    FROM nosologici_paziente np
+                    JOIN centri_di_costo cdc ON (cdc.cod_cdc = np.cod_cdc)
+                    JOIN tab_tipo_ricovero ttr ON (ttr.iden = np.iden_tipo_ricovero)
+                    WHERE np.iden_anag IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?)
+                    AND accesso = 0
+                    AND deleted = 'N'
+                    AND ((SELECT checkDatiAccesso(CC_RICOVERI.getLinkVisita(np.iden, np.accesso)) FROM dual) > 0)
+                    AND (SELECT COUNT(*) FROM nosologici_paziente WHERE parent = np.iden AND accesso  = 0 AND deleted = 'N') = 0
+                    AND iden_tipo_ricovero IN (
+                        SELECT iden 
+                        FROM tab_tipo_ricovero 
+                        WHERE codice IN (SELECT column_value FROM TABLE(split(?))) AND attivo ='S'
+                    )
+                    ORDER BY np.data_ricovero DESC, np.ora_ricovero DESC
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getEsamiAmbulatorio">				
+            <pool>elcoPool_ambulatorio</pool>
+            <sql>			
+                <![CDATA[
+                    SELECT 
+                        te.DESCR
+                        , radsql.datetimeconverter(e.DAT_ESA,'YYYYMMDD','DD/MM/YYYY') DAT_ESA
+                        , tp.DESCR PROVENIENZA
+                        , e.IDEN_REF
+                        , cee.ARRIVATODA
+                        , cee.IDEN_INFOWEB_RICHIESTA
+                        , vr.ID_REPOSITORY
+                        , vr.ID_REPOSITORY ID
+                        , vr.DATA_ORA_FIRMA CREATIONTIME
+                        , EXTRACTVALUE(e.PRIVACY_ESAME, '/consenso/confidentiality-code/text()') OSCURAMENTO
+                        , (SELECT NUM_NOSOLOGICO FROM radsql.VIEW_NOSOLOGICI_REPOSITORY WHERE IDEN = e.IDEN) NUM_NOSOLOGICO
+                    FROM ESAMI e
+                    INNER JOIN TAB_ESA te ON te.IDEN = e.IDEN_ESA
+                    INNER JOIN TAB_PRO tp ON tp.IDEN = e.IDEN_PRO
+                    INNER JOIN COD_EST_ESAMI cee ON cee.IDEN_ESAME = e.IDEN
+                    INNER JOIN VERSIONI_REFERTI vr ON vr.IDEN_REF = e.IDEN_REF AND vr.IDEN_VR = (SELECT MAX(IDEN_VR) FROM VERSIONI_REFERTI WHERE IDEN_REF = e.IDEN_REF)
+                    WHERE e.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                    AND e.DELETED = 'N'
+                    AND e.ESEGUITO = '1'
+                    ORDER BY DAT_ESA DESC
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getEsamiAmbulatorioUVA">				
+            <pool>elcoPool_polaris</pool>
+            <sql>			
+                <![CDATA[
+                    SELECT 
+                        te.DESCR
+                        , radsql.datetimeconverter(e.DAT_ESA,'YYYYMMDD','DD/MM/YYYY') DAT_ESA
+                        , tp.DESCR PROVENIENZA
+                        , e.IDEN_REF
+                        , cee.ARRIVATODA
+                        , cee.IDEN_INFOWEB_RICHIESTA
+                        , vr.ID_REPOSITORY
+                        , vr.ID_REPOSITORY ID
+                        , vr.DATA_ORA_FIRMA CREATIONTIME
+                        , EXTRACTVALUE(e.PRIVACY_ESAME, '/consenso/confidentiality-code/text()') OSCURAMENTO
+                        , (SELECT NUM_NOSOLOGICO FROM radsql.VIEW_NOSOLOGICI_REPOSITORY WHERE IDEN = e.IDEN) NUM_NOSOLOGICO
+                    FROM ESAMI e
+                    INNER JOIN TAB_ESA te ON te.IDEN = e.IDEN_ESA
+                    INNER JOIN TAB_PRO tp ON tp.IDEN = e.IDEN_PRO
+                    INNER JOIN COD_EST_ESAMI cee ON cee.IDEN_ESAME = e.IDEN
+                    INNER JOIN VERSIONI_REFERTI vr ON vr.IDEN_REF = e.IDEN_REF AND vr.IDEN_VR = (SELECT MAX(IDEN_VR) FROM VERSIONI_REFERTI WHERE IDEN_REF = e.IDEN_REF)
+                    WHERE e.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                    AND e.DELETED   = 'N'
+                    AND e.ESEGUITO  = '1'
+                    AND e.REPARTO   = 'UVAPL'
+                    ORDER BY DAT_ESA DESC
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getPrestazioniStrumentali">				
+            <pool>elcoPool_polaris</pool>
+            <sql>			
+                <![CDATA[
+                    SELECT 
+                        te.DESCR
+                        , radsql.datetimeconverter(e.DAT_ESA,'YYYYMMDD','DD/MM/YYYY') DAT_ESA
+                        , tp.DESCR PROVENIENZA
+                        , e.IDEN_REF
+                        , cee.ARRIVATODA
+                        , cee.IDEN_INFOWEB_RICHIESTA
+                        , vr.ID_REPOSITORY
+                        , vr.ID_REPOSITORY ID
+                        , vr.DATA_ORA_FIRMA CREATIONTIME
+                        , EXTRACTVALUE(e.PRIVACY_ESAME, '/consenso/confidentiality-code/text()') OSCURAMENTO
+                        , (SELECT NUM_NOSOLOGICO FROM radsql.VIEW_NOSOLOGICI_REPOSITORY WHERE IDEN = e.IDEN) NUM_NOSOLOGICO                                              
+                    FROM ESAMI e
+                    INNER JOIN TAB_ESA te ON te.IDEN = e.IDEN_ESA
+                    INNER JOIN TAB_PRO tp ON tp.IDEN = e.IDEN_PRO
+                    INNER JOIN COD_EST_ESAMI cee ON cee.IDEN_ESAME = e.IDEN
+                    INNER JOIN VERSIONI_REFERTI vr ON vr.IDEN_REF = e.IDEN_REF AND vr.IDEN_VR = (SELECT MAX(IDEN_VR) FROM VERSIONI_REFERTI WHERE IDEN_REF = e.IDEN_REF)
+                    WHERE e.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                    AND e.ESEGUITO  = '1'
+                    AND e.DELETED   = 'N'
+                    AND e.REPARTO   <> 'UVAPL'
+                    AND te.METODICA <> '0'
+                    ORDER BY DAT_ESA DESC
+                ]]>
+            </sql>
+        </statement>          
+        <statement name="getMenuLaterale">				
+            <sql>
+                <![CDATA[
+                    SELECT FUNZIONE, LABEL, LINK AS QUERY, ORDINE, ATTRIBUTI_LI_MULTI AS FILTER_FIELD, TIPO_UTE, CLASSE
+                    FROM imagoweb.MENU
+                    WHERE PROCEDURA = 'iPatientMenu' AND APPLICAZIONE = ? AND ATTIVO = 'S'
+                    ORDER BY ORDINE
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getMenuLateraleApplicazione">				
+            <sql>
+                <![CDATA[				
+                    DECLARE
+                        pApplicazione VARCHAR2(4001) := TO_CHAR(?); -- prov_chiamata
+                        vCount Pls_Integer;
+                    BEGIN
+                        -- Se Ci Sono record per Quella Provenienza Filtro per quella altrimenti 'ALL'
+                        SELECT COUNT(funzione) INTO vCount
+                        FROM imagoweb.menu
+                        WHERE procedura = 'iPatientMenu' AND applicazione = pApplicazione;
+
+                        pApplicazione := iif(vCount > 0, pApplicazione, 'ALL');
+                        ? := pApplicazione;
+                    END;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getIdPaziente">				
+            <sql>
+                <![CDATA[
+                    SELECT id1 
+                    FROM cod_est_anag 
+                    WHERE iden_anag = to_number(?)
+                ]]>
+            </sql>
+        </statement>
+		
+        <!-- Query Patient Summary -->		
+        <statement name="getMedicoPaziente">				
+            <sql>
+                <![CDATA[				
+                    DECLARE
+                        vDescrMedicoBase VARCHAR2(4001);
+                    BEGIN
+                        DECLARE
+                            pIdPz VARCHAR2(4001) := ?;
+                        BEGIN
+                            SELECT descr INTO vDescrMedicoBase
+                            FROM tab_per
+                            WHERE iden IN (SELECT iden_med_base FROM anag WHERE iden IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = pIdPz));
+                      
+                            EXCEPTION
+                            WHEN NO_DATA_FOUND THEN
+                                vDescrMedicoBase := 'Medico di Base NON DISPONIBILE';
+                        END;
+                      
+                        ? := vDescrMedicoBase;
+                    END;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getProblemiPaziente">				
+            <schema>MMG</schema>
+            <sql>
+                <![CDATA[				
+                    SELECT radsql.datetimeconverter(data,'yyyyMMdd','dd/MM/yyyy') data_problema, problema AS descr_problema, descr_med
+                    FROM MMG.VIEW_PROBLEMI
+                    WHERE IDEN_ANAG IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?) AND CHIUSO = 'N'
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getAllergiePaziente">				
+            <schema>MMG</schema>
+            <sql>
+                <![CDATA[				
+                    SELECT 
+                        radsql.datetimeconverter(data_ins,'yyyyMMdd','dd/MM/yyyy') data_allergia
+                        , Descrizione
+                        , (SELECT descr FROM RADSQL.tab_per WHERE iden = iden_med) AS DESCR_MED
+                    FROM MMG.MMG_ALLERGIE_INTOLLERANZE
+                    WHERE IDEN_ANAG IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?) AND DELETED = 'N' AND ATTIVO = 'S'
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getFarmaciTerapiaCronicaPaziente">				
+            <schema>MMG</schema>
+            <sql>
+                <![CDATA[				
+                    SELECT data, farmaco, posologia
+                    FROM MMG.VIEW_RICETTA_FARMACI
+                    WHERE IDEN_ANAG IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?) AND CRONICITA = 'S' AND DELETED = 'N' AND ATTIVO = 'S'
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getEsenzioniPaziente">				
+            <schema>RADSQL</schema>
+            <sql>
+                <![CDATA[				
+                    SELECT descr.cod_esenzione, descr.Descr AS descr_esenzione
+                    FROM Esenzioni_Paziente esenz
+                    LEFT OUTER JOIN tab_esenzioni_patologia descr ON (esenz.iden_esenzione = descr.iden)
+                    WHERE esenz.iden_anag IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?)
+                ]]>
+            </sql>
+        </statement>
+                              
+		
+        <!-- Query di Controllo Presenza Dati Button -->
+        <statement name="getButtonRicoveri">				
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        np.NUM_NOSOLOGICO
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO
+                        , 'dd/MM/yyyy HH:mm' PATTERN  
+                        , cdc.COD_DEC REPARTO_AMMETTENTE
+                    FROM NOSOLOGICI_PAZIENTE np
+                    JOIN CENTRI_DI_COSTO cdc ON (cdc.COD_CDC = np.COD_CDC)
+                    JOIN TAB_TIPO_RICOVERO ttr ON (ttr.IDEN = np.IDEN_TIPO_RICOVERO AND ttr.CODICE IN ('ORD','URG'))
+                    WHERE np.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                    AND np.ACCESSO = 0
+                    AND np.DELETED = 'N'
+                    AND (SELECT COUNT(*) FROM NOSOLOGICI_PAZIENTE WHERE PARENT = np.IDEN AND ACCESSO = 0 AND DELETED = 'N') = 0
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getButtonRicoveriDH">				
+            <sql>
+                <![CDATA[
+                    SELECT
+                        np.NUM_NOSOLOGICO
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO
+                        , 'dd/MM/yyyy HH:mm' PATTERN  
+                        , cdc.COD_DEC REPARTO_AMMETTENTE
+                    FROM NOSOLOGICI_PAZIENTE np
+                    JOIN CENTRI_DI_COSTO cdc ON (cdc.COD_CDC = np.COD_CDC)
+                    JOIN TAB_TIPO_RICOVERO ttr ON (ttr.IDEN = np.IDEN_TIPO_RICOVERO AND ttr.CODICE IN ('DH','PRE-DH','ODS'))
+                    WHERE np.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                    AND np.ACCESSO = 0
+                    AND np.DELETED = 'N'
+                    AND (SELECT COUNT(*) FROM NOSOLOGICI_PAZIENTE WHERE PARENT = np.IDEN AND ACCESSO = 0 AND DELETED = 'N') = 0
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getButtonPS">				
+            <sql>
+                <![CDATA[
+                    SELECT
+                        np.NUM_NOSOLOGICO
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO
+                        , 'dd/MM/yyyy HH:mm' PATTERN  
+                        , cdc.COD_DEC REPARTO_AMMETTENTE
+                    FROM NOSOLOGICI_PAZIENTE np
+                    JOIN CENTRI_DI_COSTO cdc ON (cdc.COD_CDC = np.COD_CDC)
+                    JOIN TAB_TIPO_RICOVERO ttr ON (ttr.IDEN = np.IDEN_TIPO_RICOVERO AND ttr.CODICE IN ('PS'))
+                    WHERE np.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                      /* and (select 1 from RADSQL.anag where iden = To_Number(?)) > 0 */
+                    AND np.ACCESSO = 0
+                    AND np.DELETED = 'N'
+                  --  AND (SELECT COUNT(*) FROM NOSOLOGICI_PAZIENTE WHERE PARENT = np.IDEN AND ACCESSO = 0 AND DELETED = 'N') = 0
+                ]]>
+            </sql>
+        </statement>        
+        <statement name="getButtonDatiLabo">	
+            <!--pool>registryPool_oracle_whale</pool>
+            <schema>XDSREGISTRY</schema-->
+            <params>                            
+                <param index="1" type="VARCHAR"/>
+                <param index="2" type="VARCHAR"/>
+                <param index="3" type="VARCHAR"/>
+                <param index="4" type="VARCHAR"/>
+                <param index="5" type="VARCHAR"/>
+                <param index="6" type="VARCHAR"/>
+                <param index="7" type="VARCHAR"/>
+                <param index="8" type="VARCHAR"/>
+                <param index="9" type="VARCHAR"/>
+                <param index="10" type="VARCHAR"/>
+                <param index="11" type="VARCHAR"/>
+                <param index="12" type="VARCHAR"/>
+                <param index="13" type="CLOB"/>
+                <param index="14" type="VARCHAR"/>
+            </params>               			
+            <sql>
+                <![CDATA[
+                declare
+                    pModalita         varchar2(5000) := ?;
+                    pReparto          varchar2(5000) := ?;
+                    pNosologico       Varchar2(5000) := ?;
+                    pIdPaziente       Varchar2(5000) := ?;
+                    pIdenRichiesta    Varchar2(5000) := ?;
+                    pNumRic           Varchar2(5000) := ?;
+                    pGiorniPs         Varchar2(5000) := ?;
+                    pDataInizio       Varchar2(5000) := ?; 
+                    pDataFine         Varchar2(5000) := ?;
+                    pElencoEsami      Varchar2(5000) := ?;
+                    pProvRisultati    Varchar2(5000) := ?;
+                    pBranca           Varchar2(5000) := ?;
+                    xmlOut            CLOB;
+                    errOut            VARCHAR2(5000);
+				Begin
+                    pNumRic := iif(pNumRic is null or pNumRic = '', 'TUTTE', pNumRic);                                                                                                                
+                    CC_DATI_LABORATORIO.GET_XML_ESAMI_LABO(pModalita, pReparto, pNosologico, pIdPaziente, pIdenRichiesta, pNumRic, pGiorniPs, pDataInizio, pDataFine, pElencoEsami, pProvRisultati, pBranca, xmlOut, errOut);
+                    ? := xmlOut;
+                    ? := errOut;
+                end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getButtonCartelleAmbulatorio">				
+            <sql>
+                <![CDATA[
+                    SELECT
+                        np.NUM_NOSOLOGICO
+                        , datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO
+                        , 'dd/MM/yyyy HH:mm' PATTERN  
+                        , cdc.COD_DEC REPARTO_AMMETTENTE
+                    FROM NOSOLOGICI_PAZIENTE np
+                    JOIN CENTRI_DI_COSTO cdc ON (cdc.COD_CDC = np.COD_CDC)
+                    JOIN TAB_TIPO_RICOVERO ttr ON (ttr.IDEN = np.IDEN_TIPO_RICOVERO AND ttr.CODICE = 'AMB' AND ttr.ATTIVO = 'S')
+                    WHERE np.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                      /* and (select 1 from RADSQL.anag where iden = To_Number(?)) > 0 */
+                    AND np.ACCESSO = 0
+                    AND np.DELETED = 'N'
+                    AND (SELECT COUNT(*) FROM NOSOLOGICI_PAZIENTE WHERE PARENT = np.IDEN AND ACCESSO = 0 AND DELETED = 'N') = 0
+                    AND ((SELECT checkDatiAccesso(CC_RICOVERI.getLinkVisita(np.iden, np.accesso)) FROM dual) > 0)
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getButtonVisiteAmbulatorio">				
+            <pool>elcoPool_ambulatorio</pool>
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        vr.ID_REPOSITORY ID
+                        , vr.DATA_ORA_FIRMA CREATIONTIME
+                        , EXTRACTVALUE(e.PRIVACY_ESAME, '/consenso/confidentiality-code/text()') OSCURAMENTO
+                        , (SELECT NUM_NOSOLOGICO FROM radsql.VIEW_NOSOLOGICI_REPOSITORY WHERE IDEN = e.IDEN) NUM_NOSOLOGICO
+                    FROM ESAMI e
+                    JOIN VERSIONI_REFERTI vr ON vr.IDEN_REF = e.IDEN_REF AND vr.IDEN_VR = (SELECT MAX(IDEN_VR) FROM VERSIONI_REFERTI WHERE IDEN_REF = e.IDEN_REF)
+                    JOIN TAB_PRO tp ON tp.IDEN = e.IDEN_PRO
+                    WHERE e.IDEN IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                    AND e.ESEGUITO = '1'
+                    AND e.DELETED = 'N'           
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getButtonVisiteAmbulatorioUVA">				
+            <pool>elcoPool_polaris</pool>
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        vr.ID_REPOSITORY ID
+                        , vr.DATA_ORA_FIRMA CREATIONTIME
+                        , EXTRACTVALUE(e.PRIVACY_ESAME, '/consenso/confidentiality-code/text()') OSCURAMENTO
+                        , (SELECT NUM_NOSOLOGICO FROM radsql.VIEW_NOSOLOGICI_REPOSITORY WHERE IDEN = e.IDEN) NUM_NOSOLOGICO
+                    FROM ESAMI e
+                    JOIN VERSIONI_REFERTI vr ON vr.IDEN_REF = e.IDEN_REF AND vr.IDEN_VR = (SELECT MAX(IDEN_VR) FROM VERSIONI_REFERTI WHERE IDEN_REF = e.IDEN_REF)
+                    JOIN TAB_PRO tp ON tp.IDEN = e.IDEN_PRO
+                    WHERE e.IDEN IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                    AND e.ESEGUITO = '1'
+                    AND e.DELETED  ='N'
+                    AND e.REPARTO  = 'UVAPL'          
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getButtonPatientSummary">				
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        CASE WHEN PRIVACY_PAZIENTE IS NOT NULL
+                            THEN EXISTSNODE(XMLTYPE(PRIVACY_PAZIENTE), '/consenso/flag[@key="A2_4" and @value="S"]')
+                            ELSE 0
+                        END LIVELLO                    
+                    FROM radsql.ANAG
+                    WHERE IDEN IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)              
+                ]]>
+            </sql>
+        </statement>        
+        <statement name="getButtonPT">				
+            <sql>
+                <![CDATA[
+                    -- select count(iden) as livello from pt_testata where iden_anag = 628874 and (select 1 from RADSQL.anag where iden = To_Number(?)) > 0
+                    SELECT COUNT(iden) AS livello
+                    FROM pt_testata
+                    WHERE iden_anag IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?)
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="getButtonDocumenti">				
+            <pool>registryPool_oracle_whale</pool>
+            <schema>XDSREGISTRY</schema>
+            <timeout>80</timeout>
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        ID
+                        --, TO_DATE(CREATIONTIME, 'yyyyMMdd HH24:mi') CREATIONTIME
+                        , CREATIONTIME
+                        , NOSOLOGICO NUM_NOSOLOGICO
+                        , OSCURAMENTO
+                    FROM view_documenti
+                    WHERE patientid = ?||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO'
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getButtonPrestazioniStrumentali">				
+            <pool>elcoPool_polaris</pool>
+            <sql>
+                <![CDATA[
+                    SELECT 
+                        vr.ID_REPOSITORY ID
+                        , vr.DATA_ORA_FIRMA CREATIONTIME
+                        , EXTRACTVALUE(e.PRIVACY_ESAME, '/consenso/confidentiality-code/text()') OSCURAMENTO
+                        , (SELECT NUM_NOSOLOGICO FROM radsql.VIEW_NOSOLOGICI_REPOSITORY WHERE IDEN = e.IDEN) NUM_NOSOLOGICO
+                    FROM ESAMI e
+                    JOIN TAB_ESA te ON te.IDEN = e.IDEN_ESA
+                    JOIN VERSIONI_REFERTI vr ON vr.IDEN_REF = e.IDEN_REF AND vr.IDEN_VR = (SELECT MAX(IDEN_VR) FROM VERSIONI_REFERTI WHERE IDEN_REF = e.IDEN_REF)
+                    JOIN TAB_PRO tp ON tp.IDEN = e.IDEN_PRO
+                    WHERE e.IDEN_ANAG IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?) 
+                    AND e.ESEGUITO = '1' 
+                    AND e.DELETED = 'N' 
+                    AND e.REPARTO <> 'UVAPL' 
+                    AND te.METODICA <> '0'
+                ]]>
+            </sql>
+        </statement>                        
+        <statement name="getButtonScreening">				
+            <sql>
+                <![CDATA[
+                    SELECT 0 AS livello
+                    FROM RADSQL.anag
+                    WHERE iden IN (SELECT iden_anag FROM cod_est_anag WHERE id1 = ?)
+                ]]>
+            </sql>
+        </statement> 
+        
+        <statement name="getDatiPaziente">				
+            <sql>
+                <![CDATA[
+                    SELECT /*+ FIRST_ROWS(1) */ COD_FISC CODICE_FISCALE, COM_NASC COMUNE_NASCITA, COGN COGNOME, DATA DATA_NASCITA, IDEN, NOME, SESSO 
+                    FROM radsql.ANAG 
+                    WHERE IDEN IN (SELECT IDEN_ANAG FROM COD_EST_ANAG WHERE ID1 = ?)
+                ]]>
+            </sql>
+        </statement>                                                            				
+    </statements_list>
+</root>

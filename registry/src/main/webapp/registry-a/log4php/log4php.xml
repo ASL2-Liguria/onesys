@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4php:configuration xmlns:log4php="http://logging.apache.org/log4php/">
+    <appender name="elcoAppender" class="LoggerAppenderDailyFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="ConversionPattern" value="%d{ISO8601} [%p] %c: %m (at %F line %L)%n" />
+        </layout>
+        <param name="datePattern" value="Y-m-d" />
+        <param name="file" value="log/log4php_%s.log" />
+    </appender>
+    <root>
+        <level value="DEBUG" />                                    
+        <appender_ref ref="elcoAppender" />
+    </root>
+</log4php:configuration>

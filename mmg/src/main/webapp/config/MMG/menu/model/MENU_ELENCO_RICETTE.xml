@@ -1,0 +1,72 @@
+<MENU>
+	<id>MENU_ELENCO_RICETTE</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MER.SR</ID>
+			<LINK><![CDATA[function(rec){WORKLIST_RICETTE.stampa(rec);}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WORKLIST_RICETTE.whereStampa(rec);}]]></WHERE>
+			<OUTPUT>"Stampa Ricetta"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MER.CR</ID>
+			<LINK><![CDATA[function(rec){NS_MENU_ELENCO_RICETTE.cancellaRicetta(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WORKLIST_RICETTE.whereCancella(rec);}]]></WHERE>
+			<OUTPUT>"Cancella Ricetta"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MER.VMT</ID>
+			<LINK><![CDATA[function(rec){NS_MENU_ELENCO_RICETTE.apriModulo("MMG_MODULO_TC", rec );}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WORKLIST_RICETTE.whereModuloTC(rec);}]]></WHERE>
+			<OUTPUT>"Visualizza Modulo TC"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MER.VMR</ID>
+			<LINK><![CDATA[function(rec){NS_MENU_ELENCO_RICETTE.apriModulo("MMG_MODULO_RM", rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WORKLIST_RICETTE.whereModuloRM(rec);}]]></WHERE>
+			<OUTPUT>"Visualizza Modulo RM"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MER.VMPC</ID>
+			<LINK><![CDATA[function(rec){NS_MENU_ELENCO_RICETTE.apriModulo("MMG_PRIORITA_CLINICA", rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WORKLIST_RICETTE.whereModuloPRI(rec);}]]></WHERE>
+			<OUTPUT>"Visualizza Modulo Priorità Clinica"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+    
+    	<ITEM>
+            <ID>ELENCO_RIC_INFO</ID>
+            <LINK><![CDATA[ function( rec ){ WORKLIST_RICETTE.showInfoRicetta( rec ); }]]></LINK>
+            <ICON_CLASS>informazioni</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return WORKLIST_RICETTE.whereInfo( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblInfoRicetta</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+	</LIST>
+</MENU>

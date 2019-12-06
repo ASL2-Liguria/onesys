@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>PS_WK_RIASSOCIA_PAZ</ID>
+    <ID-QUERY connection="PS">WORKLIST.ANAGRAFICA_RIASSOCIA</ID-QUERY>
+    <TITLE>"Worklist anagrafica"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_ASSOCIA</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+                <DBLCLICK><![CDATA[function(rec){
+                    home.NS_FENIX_PS.associa(rec.IDEN_ANAG, document.getElementById('IDEN_CONTATTO').value, rec.COGNOME);
+                }]]></DBLCLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_ANAG</COL>
+                        <DB>IDEN_ANAG</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN_ANAG"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>40px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>COGNOME</COL>
+                        <DB>COGNOME</DB>
+                    </ID>
+                    <DESCRIPTOR>"COGNOME"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NOME</COL>
+                        <DB>NOME</DB>
+                    </ID>
+                    <DESCRIPTOR>"NOME"</DESCRIPTOR>
+                    <WIDTH>250PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>SESSO</COL>
+                        <DB>SESSO</DB>
+                    </ID>
+                    <DESCRIPTOR>"SESSO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_NASCITA</COL>
+                        <DB>DATA_NASCITA</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA DI NASCITA"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_FISCALE</COL>
+                        <DB>CODICE_FISCALE</DB>
+                    </ID>
+                    <DESCRIPTOR>"CODICE FISCALE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

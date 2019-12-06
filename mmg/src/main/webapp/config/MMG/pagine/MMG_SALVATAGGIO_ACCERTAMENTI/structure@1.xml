@@ -1,0 +1,37 @@
+<PAGINA key_id="MMG_SALVATAGGIO_ACCERTAMENTI">
+	<HEADER_PAGE key_id="MMG_SALVATAGGIO_ACCERTAMENTI" valore="DEFAULT_MMG,SCHEDA,MMG_SALVATAGGIO_ACCERTAMENTI#DEFAULT_MMG,MMG_SALVATAGGIO_ACCERTAMENTI,COMMON_ACCERTAMENTI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_SAVA_DATA#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabSalvataggio" valore="tabSalvataggio#lblTitolo#butSalvaNoPrint,butSalvataggio,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabSal" valore="tabSal" evento="START">
+				<FIELDSET_TABLE key_id="fldDefault" valore="fldDefault" evento="START">
+					<TR_TD_LABEL_RADIO key_id="Urgenza" valore="lblUrgenza##Urgenza#radUrgenza##N#URGENZA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="Diagnosi" valore="lblDiagnosi#txtDiagnosi#NOTE#2" evento="START">
+						<TD_BUTTON key_id="butInserisci" valore="butInserisci#butInserisci" evento="START">
+						</TD_BUTTON>
+					</TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_RADIO key_id="POCI" valore="lblPOCI##POCI#radPOCI##N#POCI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_COMBO key_id="hUrgenza" valore="lblUrgenza##hUrgenza#cmbUrgenza#N##S" evento="START_END">
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRiepilogo" valore="fldRiepilogo" evento="START">
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAltro" valore="fldAltro" evento="START">
+					<TR_TD_LABEL_RADIO key_id="Suggerita" valore="lblSuggerita##Suggerita#radSuggerita#{width:100,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_AUTOCOMPLETE key_id="Suggerito_da"
+						valore="lblSuggerito_da#acSuggerito_da#Suggerito_da#txtSuggerito_da#AC_MEDICO_SUGGERITO#SUGGERITO_DA"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="Suggerito_struttura" valore="lblSuggerito_struttura##txtSuggerito_struttura###SUGGERITO_STRUTTURA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Ricovero" valore="lblRicovero##Ricovero#radRicovero#{width:100,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Altro" valore="lblAltro##Altro#radAltro#{width:100,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

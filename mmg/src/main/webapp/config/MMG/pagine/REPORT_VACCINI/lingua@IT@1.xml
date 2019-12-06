@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+	<ROW>
+
+		<tabReportVaccini>Vaccini</tabReportVaccini>
+		
+		<lblTitolo>Report dei vaccini</lblTitolo>
+		
+		<fldReportVaccini>Parametri del report</fldReportVaccini>
+		
+		<fldRange>Range di età del paziente al momento della vaccinazione</fldRange>
+		
+		<fldRangeTemporale>Range temporale</fldRangeTemporale>
+		
+		<lblDaData>Da data</lblDaData>
+		<lblAData>A data</lblAData>
+		
+		<lblSesso>Sesso</lblSesso>
+		<lblTipoVaccino>Tipo vaccino</lblTipoVaccino>				
+		<lblDataInizio>da</lblDataInizio>
+		<lblDataFine>a</lblDataFine>				
+		<lblUM>U.M.</lblUM>				
+				
+		<lblMesi>Mesi</lblMesi>
+		<lblAnni>Anni</lblAnni>	
+		
+		<butEseguiConteggio>Esegui conteggio</butEseguiConteggio>			
+				
+				
+	</ROW>
+</ROWSET>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Catena di custodia</lblTitolo>
+        <lblTest>Esecuzione test</lblTest>
+        <lblSi>Si</lblSi>
+        <lblNo>No</lblNo>
+        <lblFarmaciNotizie>Assunzione Farmaci/Notizie Cliniche</lblFarmaciNotizie>
+        <lblConsenso>La persona sopraindicata mom ha acconsentito all'esecuzione del/dei test</lblConsenso>
+        <lblDataPrelievo>Data Prelievo</lblDataPrelievo>
+        <lblOraPrelievo>Ora Prelievo</lblOraPrelievo>
+        <butSalva>Salva+Stampa</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,276 @@
+<root>
+	<statements_list>
+		<statement name="getConfigMenuReparto">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				 select 
+					FUNZIONE
+					,LABEL
+					,RIFERIMENTI 
+				from 
+					imagoweb.CONFIG_MENU_REPARTO 
+				where 
+					procedura=? 
+					and attivo='S' 
+					and codice_reparto=? 
+					and (tipo_ute is null or tipo_ute=?) 
+				order by 
+					ordinamento
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getConfigMenuRepartoAvv">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				 select 
+					FUNZIONE
+					,ORDINAMENTO,
+					TIPO_UTE,
+					LABEL,
+					QUERY,
+					GRUPPO,
+					RIFERIMENTI,
+					QUERY_CONTROLLO,
+					STATEMENT
+				from 
+					imagoweb.CONFIG_MENU_REPARTO 
+				where 
+					procedura=? 
+					and attivo='S' 
+					and codice_reparto=?
+				order by 
+					ordinamento
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getTabExtFiles">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				Select PATH_FILE from imagoweb.tab_ext_files where (ORIGINE='Default' or ORIGINE=?) and deleted='N' order by ordine
+			]]>
+			</sql>
+		</statement>
+		<statement name="getTabExtFilesNoDefault">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				Select PATH_FILE from imagoweb.tab_ext_files where ORIGINE=? and deleted='N' order by ordine
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getTabElemMenuDD">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				select descrizione,link,urlimg from tab_elem_menudd where procedura= ?  and attivo='S' order by ordine
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getTabCodifiche">
+			<sql>
+			<![CDATA[
+				select 0 iden,'' codice,'' descrizione,0 ordine from dual
+				union all
+				select iden , codice , descrizione, ordine from radsql.tab_codifiche where TIPO_SCHEDA=? and TIPO_DATO=? and attivo='S' and deleted='N' order by ordine
+			]]>
+			</sql>
+		</statement>
+		<statement name="getTabCodificheScheda">
+			<sql>
+			<![CDATA[
+				select iden, tipo_dato, codice, descrizione, ordine from radsql.tab_codifiche where TIPO_SCHEDA=? and attivo='S' and deleted='N' order by tipo_dato, ordine
+			]]>
+			</sql>
+		</statement>
+		<statement name="getValueCdc">
+			<sql>
+			<![CDATA[
+				declare
+					pCodCdc varchar2(5000) := ?;
+					pKey varchar2(5000) := ?;
+					vResult	varchar2(5000);	
+				begin 
+					if(pCodCdc is not null) then
+	                    begin
+	                        vResult := imagoweb.pck_configurazioni.getValueCdc(pCodCdc,pKey);	
+	                    exception when no_data_found then
+	                        vResult := imagoweb.pck_configurazioni.getValueGlobal(pKey);
+	                    end;
+					else
+                    	vResult := imagoweb.pck_configurazioni.getValueGlobal(pKey);
+					end if;
+					
+					? := vResult;				
+				end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="SetDefinizione">
+			<sql>
+			<![CDATA[
+				declare
+					pCodice varchar2(5000) := ?;
+					pDescrizione varchar2(5000) := ?;
+					pDB varchar2(5000) := ?;
+					pWEB varchar2(5000) := ?;
+					pCLIENT varchar2(5000) := ?;
+
+					--xml data
+					pType varchar2(5000) := ?;
+					pMenu varchar2(5000) := ?;
+					
+					pXml varchar2(5000);
+
+				begin 
+				
+					pXml := '<r><cr type="' || pType || '"/><mr attivo="' || pMenu || '"/></r>';
+				
+					update radsql.TAB_CODIFICHE set 
+						descrizione = pDescrizione, 
+						VALORE_DEFAULT = pDB, 
+						VISUALIZZA_MEDICO = pWEB, 
+						VISUALIZZA_INFERMIERE = pCLIENT ,
+						URLIMAGE = pXml
+					where TIPO_DATO='PARAMETRO_CONFIGURAZIONE' and codice=pCodice;
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="SetRecordConfigurazione">
+			<sql>
+			<![CDATA[
+				declare
+					pRowId varchar2(5000) := ?;
+					pSito varchar2(5000) := ?;
+					pStruttura varchar2(5000) := ?;
+					pReparto varchar2(5000) := ?;
+					pValore varchar2(5000) := ?;										
+
+				begin 
+					update imagoweb.CC_CONFIGURA_REPARTO set 
+						SITO = pSito, 
+						STRUTTURA = pStruttura, 
+						CDC = pReparto, 
+						VALORE = pValore 
+					where ROWID=pRowId;
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="RimuoviRecordConfigurazione">
+			<sql>
+			<![CDATA[
+				declare
+					pRowId varchar2(5000) := ?;									
+				begin 
+					delete from imagoweb.CC_CONFIGURA_REPARTO where ROWID=pRowId;					
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="InserisciRecordConfigurazione">
+			<sql>
+			<![CDATA[
+				declare
+					pKey varchar2(200) := ?;									
+				begin 
+					insert into	imagoweb.CC_CONFIGURA_REPARTO (key)	values (pKey);
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getCodiceConfigurato">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				select 
+					SITO,
+					STRUTTURA,
+					CDC,				
+					VALORE					
+				from 
+					cc_configura_reparto
+				where 
+					key=?					
+				order by
+					sito,
+					struttura,
+					cdc
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getModalitaCartella">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				select 
+					FUNZIONE,
+					RIFERIMENTI
+				from 
+					config_menu_reparto
+				where 
+					procedura='CARTELLA_PAZIENTE_MODELLI'
+					and attivo='S'
+					and codice_reparto=?
+				order by
+					funzione				
+			]]>
+			</sql>
+		</statement>
+		<statement name="setModalitaCartella">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				declare					
+					pFunzione varchar2(5000) := ?;
+					pCodiceReparto varchar2(5000) := ?;
+					pLob clob := ?;
+				begin
+					update 
+						config_menu_reparto
+					set
+						riferimenti = pLob
+					where
+						procedura='CARTELLA_PAZIENTE_MODELLI'
+						and funzione = pFunzione
+						and attivo='S'
+						and codice_reparto=pCodiceReparto;	
+				end;			
+			]]>
+			</sql>
+		</statement>
+		<statement name="stampe.recuperaRepartoConfigurazione">				
+			<sql>
+			<![CDATA[
+				select imagoweb.pck_configurazioni.getValueCdcRicovero(?,?,?) reparto from dual
+			]]>
+			</sql>
+		</statement>
+		<statement name="stampe.recuperaNomeReport">				
+			<sql>
+			<![CDATA[
+				select nome_report from imagoweb.configura_stampe where funzione_chiamante = ? and cdc=? 
+			]]>
+			</sql>
+		</statement>
+		<statement name="baseReparto.getConfigurazioneGlobale">				
+			<sql>
+			<![CDATA[
+				select * from table(imagoweb.PCK_CONFIGURAZIONI.getConfigurazioniGlobal) where sessione_webserver='S' or sessione_client='S'
+			]]>
+			</sql>
+		</statement>
+		<statement name="baseReparto.getConfigurazioneReparto">				
+			<sql>
+			<![CDATA[
+				select * from table(imagoweb.PCK_CONFIGURAZIONI.getConfigurazioniCdc(?)) where sessione_webserver='S' or sessione_client='S'
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

@@ -1,0 +1,43 @@
+textarea,iframe{width:734px;height:200px;margin:0;border:none;overflow:auto;font-size:12px}
+
+.wysiwyg{border:1px solid #ccc}
+
+.toolbar{padding:5px;overflow:hidden;border-bottom:1px solid #eee;background:#f9f9f9} * html .toolbar{height:0}
+
+.toolbar *{display:block;margin:0 1px;padding:1px 2px;border:1px solid #eee;width:16px;height:16px;float:left;background-repeat:no-repeat;background-position:center;cursor:default} * html .toolbar *{width:22px;height:18px}
+.toolbar *:hover{background-color:#ffffb0;border-color:#999}
+
+.toolbar .spacer{border:none;width:0px;margin:2px 5px;border-right:2px solid #ccc}
+.toolbar .strong{background-image:url(../../../../imagexPix/wysiwyg/strong.png)}
+.toolbar .em{background-image:url(../../../../imagexPix/wysiwyg/em.png)}
+.toolbar .u{background-image:url(../../../../imagexPix/wysiwyg/underline.png)}
+.toolbar .superscript{background-image:url(../../../../imagexPix/wysiwyg/superscript.png)}
+.toolbar .subscript{background-image:url(../../../../imagexPix/wysiwyg/subscript.png)}
+.toolbar .left{background-image:url(../../../../imagexPix/wysiwyg/left.png)}
+.toolbar .center{background-image:url(../../../../imagexPix/wysiwyg/center.png)}
+.toolbar .right{background-image:url(../../../../imagexPix/wysiwyg/right.png)}
+.toolbar .indent{background-image:url(../../../../imagexPix/wysiwyg/indent.png)}
+.toolbar .outdent{background-image:url(../../../../imagexPix/wysiwyg/outdent.png)}
+.toolbar .h1{background-image:url(../../../../imagexPix/wysiwyg/h1.png)}
+.toolbar .h2{background-image:url(../../../../imagexPix/wysiwyg/h2.png)}
+.toolbar .h3{background-image:url(../../../../imagexPix/wysiwyg/h3.png)}
+.toolbar .ul{background-image:url(../../../../imagexPix/wysiwyg/ul.png)}
+.toolbar .ol{background-image:url(../../../../imagexPix/wysiwyg/ol.png)}
+.toolbar .p{background-image:url(../../../../imagexPix/wysiwyg/p.png)}
+.toolbar .img{background-image:url(../../../../imagexPix/wysiwyg/img.png)}
+.toolbar .link{background-image:url(../../../../imagexPix/wysiwyg/link.png)}
+.toolbar .unlink{background-image:url(../../../../imagexPix/wysiwyg/unlink.png)}
+.toolbar .clean{background-image:url(../../../../imagexPix/wysiwyg/clean.png)}
+.toolbar .toggle{background-image:url(../../../../imagexPix/wysiwyg/code.png)}
+
+.toolbar.disabled *{opacity:0.3;-moz-opacity:0.3;filter:alpha(opacity=30)}
+.toolbar.disabled *:hover{background-color:transparent;border-color:#eee}
+.toolbar.disabled .toggle{background-image:url(../../../../imagexPix/wysiwyg/html.png);opacity:1;-moz-opacity:1;filter:alpha(opacity=100)}
+
+/* l altezza la terrò fissa perchè il layout in verticale verrà mantenuto fisso */
+#objReportControl textarea,#objReportControl iframe,#objReportControl .wysiwyg{height:275px;width:100%;}
+#objReportControl .wysiwyg{height:auto}
+#objReportControl form{border:1px solid #ccc;display:block;padding:8px 16px;text-align:right}
+#objReportControl form input{padding:0 5px}
+
+.hidden{display:none !important}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>Modulo di richiesta per il porto d'armi</lblTitolo>
+        <tabModuloPortoArmi>Modulo di richiesta per il porto d'armi</tabModuloPortoArmi>
+        
+        <fldMalattieSysNervoso>Malattie del Sistema Nervoso</fldMalattieSysNervoso>
+        <fldTurbePsichiche>Turbe Psichiche</fldTurbePsichiche>
+        <fldSostanzeStupefacenti>Sostanze Stupefacenti</fldSostanzeStupefacenti>
+        
+        <lblMalattieSysNervoso>Malattie del sistema nervoso</lblMalattieSysNervoso>
+        <lblCentrale>Centrale</lblCentrale>
+        <lblPeriferico>Periferico</lblPeriferico>
+        <lblPostumiInvalidanti>Postumi invalidanti</lblPostumiInvalidanti>
+        <lblEpilessia>Epilessia</lblEpilessia>
+        <lblAltre>Altre</lblAltre>
+        
+        <lblTurbePsichiche>Turbe psichiche</lblTurbePsichiche>
+        <lblDaMalattie>Da malattie</lblDaMalattie>
+        <lblDaTraumatismi>Da traumatismi</lblDaTraumatismi>
+        <lblPostOperatorie>Post-operatorie</lblPostOperatorie>
+        <lblDaRitMentGrave>Da ritardo mentale grave</lblDaRitMentGrave>
+        <lblDaPsicosi>Da psicosi</lblDaPsicosi>
+        <lblDellaPersonalita>Della personalità</lblDellaPersonalita>
+        
+		<lblSostanzeStupefacenti>Sostanze Stupefacenti</lblSostanzeStupefacenti>
+		<lblAbusoAlcol>Abuso di alcol</lblAbusoAlcol>
+		<lblUsoStupefacenti>Uso di stupefacenti</lblUsoStupefacenti>
+		<lblUsoSosPsicotrope>Uso di sostanze psicotrope</lblUsoSosPsicotrope>
+		<lblDipendenzaAlcol>Dipendenza da alcol</lblDipendenzaAlcol>
+		<lblDipendenzaStupefacenti>Dipendenza da stupefacenti</lblDipendenzaStupefacenti>
+		<lblDipendenzaSosPsicotrope>Dipendenza da sostanze psicotrope</lblDipendenzaSosPsicotrope>
+		
+		<lblLuogoRilascio>Luogo di rilascio</lblLuogoRilascio>
+		
+		<lblIntestazione>CERTIFICATO ANAMNESTICO PRELIMINARE PER IL SUCCESSIVO ACCERTAMENTO DELLE CONDIZIONI PSICOFISICHE PER IL 
+		RILASCIO DELL'AUTORIZZAZIONE AL PORTO DI FUCILE PER USO DI CACCIA ED ESERCIZIO DELLO SPORT DEL TIRO A VOLO
+		 O AL PORTO D'ARMI PER USO DIFESA PERSONALE</lblIntestazione>
+		 <lblProfessione>Professione</lblProfessione>
+		 <lblTessera>N.tess.ass.</lblTessera>
+		 <lblNotaBene>N:B: Il presente certificato anamnestico è valido unicamente ai fini dell'accertamento dei requisiti psicofisici 
+		 minimi per il rilascio dell'autorizzazione al porto di fucile per uso di caccia ed esercizio dello sport</lblNotaBene>
+		 
+		 <lblNota_I>Barrare con una X le caselle interessate</lblNota_I>
+		 <lblNota_II>Indicare la data dell'ultima crisi avuta da soggetti epilettici</lblNota_II>
+		 <lblNota_III>Specificare le modalità di uso</lblNota_III>
+		 
+		 <butStampa>Salva e Stampa</butStampa>
+		 <butStampaOnly>Stampa</butStampaOnly>
+		
+    </ROW>
+</ROWSET>

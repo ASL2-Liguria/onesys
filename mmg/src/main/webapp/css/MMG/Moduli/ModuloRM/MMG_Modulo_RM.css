@@ -1,0 +1,5 @@
+body { width: 960px; }
+
+#fldIndagine >table.campi tr td.tdButton { width: 180px; }
+
+#butCerca {	float: right; }

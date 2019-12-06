@@ -1,0 +1,21 @@
+<PAGINA key_id="EVENTI_INTEGRAZIONI">
+    <HEADER_WK key_id="EVENTI_INTEGRAZIONI" valore="DEFAULT,WK,EVENTI_INTEGRAZIONI#EVENTI_INTEGRAZIONI" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroEventiIntegrazioni" valore="filtroEventiIntegrazioni#WK_EVENTI_INTEGRAZIONI" evento="START">
+            <TABELLA.INIT key_id="tableEventiIntegrazioni" valore="" evento="START">
+                <TR.INIT key_id="rigaEventiIntegrazioni" valore="" evento="START">
+                    <FILTRO_RADIO key_id="radTipoEvento" valore="lblTipoEvento#radTipoEvento#radTipoEvento#{width:100}#N#stato#WK_EVENTI_INTEGRAZIONI#V#" evento="START">
+                    </FILTRO_RADIO>
+                    <FILTRO_DATA key_id ="daData" valore ="lblDaDataEventiIntegrazioni#txtDaDataEventiIntegrazioni#DaDataEventiIntegrazioni#direction: false, format : 'd/m/Y'##lblDaDataEventiIntegrazioni#da_data#EVENTI_INTEGRAZIONI_DA_DATA" evento="START">
+                    </FILTRO_DATA>
+                    <FILTRO_DATA key_id ="aData" valore ="lblADataEventiIntegrazioni#txtADataEventiIntegrazioni#DataADataEventiIntegrazioni#direction: false, format : 'd/m/Y'##lblADataEventiIntegrazioni#a_data#EVENTI_INTEGRAZIONI_A_DATA" evento="START">
+                    </FILTRO_DATA>
+                </TR.INIT>
+
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+    </TABULAZIONE.FILTRI>
+</PAGINA>

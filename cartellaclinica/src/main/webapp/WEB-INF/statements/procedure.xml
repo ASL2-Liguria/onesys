@@ -1,0 +1,72 @@
+<root>
+	<statements_list>
+		<statement name="cancellaTestata">
+			<sql>
+			<![CDATA[
+				declare	
+					pIdenProcedura pls_integer := to_number(?);			
+					vDettagliEseguiti pls_integer;
+					resp varchar2(4000):='KO';
+  				begin 
+   					select count(*) into vDettagliEseguiti from cc_procedure_dettagli where iden_procedura = pIdenProcedura and stato = 'E';
+    				if vDettagliEseguiti = 0 then
+      					update cc_procedure_ricovero set deleted='S' where iden = pIdenProcedura;
+      					resp:='OK';
+      				else 
+      					resp:='Impossibile cancellare la procedura, sono presenti dei dettagli associati';
+    				end if;
+    				?:=resp;
+    			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaScheda">
+			<sql>
+			<![CDATA[
+				declare	
+					pIdenProcedura pls_integer := to_number(?);			
+					vDettagliEseguiti pls_integer;
+					resp varchar2(4000):='KO';
+					vIdenScheda pls_integer;
+					vSchede pls_integer;
+  				begin 
+  					select count(iden) into vSchede from cc_procedure_scheda where iden_procedura=pIdenProcedura and stato<>'X';
+  					if vSchede > 1 then
+  						select iden into vIdenScheda from (select iden from cc_procedure_scheda where iden_procedura=pIdenProcedura and stato<>'X' order by validita_inizio desc) where rownum=1;
+   						select count(iden) into vDettagliEseguiti from cc_procedure_dettagli where IDEN_SCHEDA = vIdenScheda and stato = 'E';
+    					if vDettagliEseguiti = 0 then
+      						update cc_procedure_scheda set stato='X' where iden = vIdenScheda;
+      						select iden into vIdenScheda from (select iden from cc_procedure_scheda where iden_procedura=pIdenProcedura and stato<>'X' order by validita_inizio desc) where rownum=1;
+      						update cc_procedure_scheda set stato='I', validita_fine = null where iden = vIdenScheda;
+      						update cc_procedure_ricovero set stato='I', validita_fine = null where iden = pIdenProcedura;
+      						resp:='OK';
+      					else 
+      						resp:='Impossibile cancellare la scheda, sono presenti dei dettagli associati';
+    					end if;
+    				else 
+    					resp:='Impossibile cancellare la scheda, unica scheda presente';
+    				end if;	
+    				?:=resp;
+    			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaDettaglio">
+			<sql>
+			<![CDATA[
+				declare	
+					pIdenUtente pls_integer := to_number(?);			
+					pIdenDettaglio pls_integer := to_number(?);			
+  				begin 
+  					update cc_procedure_dettagli 
+  						set ute_mod=pIdenUtente,
+  						data_mod=sysdate,
+  						stato='X',
+  						impostazioni=cc_procedura.setData(impostazioni,'X',to_char(sysdate,'yyyyMMddhh24:mi'),to_char(pIdenUtente)) 
+  						where iden = pIdenDettaglio or iden_parent=pIdenDettaglio;
+    			end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

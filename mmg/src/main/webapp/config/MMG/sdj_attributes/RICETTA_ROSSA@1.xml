@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="RICETTA_ROSSA">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="setId">
+                <PAR value="tabRicettaRossa"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.mmg.extRicettaRossa}">
+            <PROC id="initRR">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

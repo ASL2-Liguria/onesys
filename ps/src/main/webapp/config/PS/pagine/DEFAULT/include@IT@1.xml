@@ -1,0 +1,34 @@
+<INCLUDE>
+	<CSS path="css/mix.css" />
+    <CSS path="css/ie7.css" condizione="IE 7" />
+    <CSS path="css/eoc.css" />
+    <CSS path="css/PS/ProntoSoccorsoDefault.css" />
+    <JS path="js/Base/LIB.js" />
+    <JS path="js/Base/NO-min/ecma.js"  condizione="IE" />
+    <JS path="js/Base/NO-min/infoDialog.js" />
+    <JS path="js/Base/tinymce4/tinymce.js" />
+    <!--<JS path="js/Base/NO-min/jquery.autocomplete.js" />-->
+    <JS path="js/Base/NO-min/jquery.autocomplete2.js" />
+    <JS path="js/Base/NO-min/jquery.combolist.js" />
+    <JS path="js/Base/NO-min/jquery.validator.js" />
+    <JS path="js/Base/NO-min/WK.js" />
+    <JS path="js/Base/NO-min/jquery.timeline.js" />
+	<DWR path="dwr/engine.js" />
+	<DWR path="dwr/interface/toolKitDB.js" />
+	<DWR path="dwr/interface/toolKitWK.js" />
+	<JS path="js/Base/NS_WORKLIST_COMPONENT.js" />
+    <JS path="js/Base/NO-min/jquery.contextmenu.js" />
+	<!--<JS path="js/Base/NS_PROCESS_CLASS.js" />-->
+    <JS path="js/Base/NO-min/WK.js" />
+	<JS path="js/Base/NS_FENIX.js" />
+	<JS path="js/Base/GestTime.js"/>
+    <JS path="js/Base/NO-min/jquery.exchangeLists.js"/>
+	<JS path="js/TimePicker/jquery.ptTimeSelect.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+	<JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/Anagrafica/Anagrafica.js"/>
+    <JS path="js/PS/ChiamateController/ChiamateController.js"/>
+    <JS path="js/PS/GestioneTriage/GestioneTriage.js"/>
+    <JS path="js/Base/NO-min/NS_CALL_DB.js"/>
+</INCLUDE>

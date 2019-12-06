@@ -1,0 +1,73 @@
+<PAGINA key_id="SEGNALAZIONI">
+
+	<HEADER_PAGE key_id="SEGNALAZIONI" valore="DEFAULT_MMG,SCHEDA,SEGNALAZIONI#DEFAULT_MMG,SEGNALAZIONI" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#SEGNALAZIONI#IDEN#IDEN" evento="START_END">
+	
+		<TABULAZIONE.INIT key_id="tab" valore="Segnalazioni#lblTitolo#butSalva,butChiudi" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabInserimentoSegnalazioni" valore="tabInserimentoSegnalazioni" evento="START">
+		
+				<FIELDSET_TABLE key_id="fldTipoSegnalazione" valore="fldTipoSegnalazione" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="TipoSegnalazione" valore="lblTipoSegnalazione##TipoSegnalazione#radTipoSegnalazione#{width:auto,idxDefault:0}#N#TIPO_SEGNALAZIONE" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+					
+				<FIELDSET_TABLE key_id="fldErroreApplicativo" valore="fldErroreApplicativo" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="ErroreApplicativo" valore="lblErroreApplicativo##ErroreApplicativo#radErroreApplicativo#{width:auto,idxDefault:0}#N#ERRORE_APPLICATIVO" evento="START">
+					</TR_TD_LABEL_RADIO>
+				
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldProblemaAnagrafica" valore="fldProblemaAnagrafica" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="ProblemaAnagrafica" valore="lblProblemaAnagrafica##ProblemaAnagrafica#radProblemaAnagrafica#{width:auto,idxDefault:0}#N#PROBLEMA_ANAGRAFICA" evento="START">
+					</TR_TD_LABEL_RADIO>
+				
+				</FIELDSET_TABLE>
+									
+				<FIELDSET_TABLE key_id="fldDatiContatto" valore="fldDatiContatto" evento="START">
+				
+					<TR_TD_LABEL_TEXT key_id="Telefono" valore="lblTelefono##txtTelefono###CONTATTO_TELEFONO" evento="START">
+						
+						<TD_LABEL_TEXT key_id="Email" valore="lblEmail##txtEmail###CONTATTO_MAIL" evento="START">
+						</TD_LABEL_TEXT>
+						
+						<TD_LABEL_RADIO key_id="PreferenzaContatto" valore="lblPreferenzaContatto##PreferenzaContatto#radPreferenzaContatto#{width:150,idxDefault:0}#S#CONTATTO_PREFERITO" evento="START">
+						</TD_LABEL_RADIO>
+					</TR_TD_LABEL_TEXT>
+						
+					<INPUT.HIDDEN key_id="StatoSegnalazione" valore="hStatoSegnalazione###STATO_SEGNALAZIONE" evento="START"></INPUT.HIDDEN>	
+										
+				</FIELDSET_TABLE>
+			
+				<FIELDSET_TABLE key_id="fldTesto" valore="fldTesto" evento="START">
+				
+					<TR_TD_TEXTAREA key_id="Testo" valore="Testo" evento="START">
+					</TR_TD_TEXTAREA>
+					
+				</FIELDSET_TABLE>
+			
+			</TABULAZIONE.CREA_TAB>
+		
+			<TABULAZIONE.CREA_TAB key_id="tabSegnalazioni" valore="tabSegnalazioni" evento="START">
+				
+				<FIELDSET key_id="fldSegnalazioni" valore="fldSegnalazioni" evento="START">
+				
+					<DIV key_id="divWk" valore="divWk" evento="START">
+					</DIV>
+					
+				</FIELDSET>
+
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>
+

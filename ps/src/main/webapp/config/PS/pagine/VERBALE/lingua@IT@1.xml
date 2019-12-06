@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+        <lblSceltaEsito>Seleziona Esito</lblSceltaEsito>
+        <lblTemplate1>Selezionare l'urgenza</lblTemplate1>
+
+        <lbltaDiagnosiICD9>Diagnosi descrittiva</lbltaDiagnosiICD9>
+        <lblDiagnosiICD9>Diagnosi ICD9</lblDiagnosiICD9>
+        <lblDiagnosiSec1>1° Diagnosi Secondaria</lblDiagnosiSec1>
+        <lblDiagnosiSec2>2° Diagnosi Secondaria</lblDiagnosiSec2>
+        <lblDiagnosiSec3>3° Diagnosi Secondaria</lblDiagnosiSec3>
+        <lblDiagnosiSec4>4° Diagnosi Secondaria</lblDiagnosiSec4>
+        <lblDayPrognosi>giorni prognosi SC</lblDayPrognosi>
+        <lblPrognosi>Prognosi</lblPrognosi>
+        <lblMedicoRef>Medico Refertante</lblMedicoRef>
+        <lblDataDim>Data dimissione</lblDataDim>
+        <lbltaPrognosi>Prescrizioni/Note</lbltaPrognosi>
+        <lblEpicrisi>Epicrisi</lblEpicrisi>
+        <lblNumeroPubblicaSicurezza>Numero referto di pubblica sicurezza</lblNumeroPubblicaSicurezza>
+
+        <lblDataRicovero>Data Ricovero</lblDataRicovero>
+        <lblOraRicovero>Ora Ricovero</lblOraRicovero>
+        <lblrepRicovero>Reparto Giuridico</lblrepRicovero>
+        <lblrepAssistenza>Reparto Assistenza</lblrepAssistenza>
+        <lblTraumatismo>Causa Traumatismo</lblTraumatismo>
+        <lblCategoriaCausaEsterna>Categoria Causa Esterna</lblCategoriaCausaEsterna>
+        <lblCausaEsterna>Causa Esterna</lblCausaEsterna>
+        <lblTipoRico>Tipo Ricovero</lblTipoRico>
+        <lblOnere>Onere</lblOnere>
+        <lblSubOnere>Sub Onere</lblSubOnere>
+        <lbltaNoteBraccialettoRicovero>Note braccialetto ricovero</lbltaNoteBraccialettoRicovero>
+
+        <lblDataTrasferimento>Data Trasferimento</lblDataTrasferimento>
+        <lblOraTrasferimento>Ora Trasferimento</lblOraTrasferimento>
+        <lblAccMedico>Accompagnatore Medico</lblAccMedico>
+        <lblAccInfermiere>Accompagnatore Infermiere</lblAccInfermiere>
+        <lblMezzoTrasporto>Mezzo Trasporto</lblMezzoTrasporto>
+        <lblcmbTrasferimento>Destinazione</lblcmbTrasferimento>
+        <lblMotivoTrasf>Motivo Trasferimento</lblMotivoTrasf>
+        <lbltaTrasferimento>Note</lbltaTrasferimento>
+
+        <lblDataDecesso>Data del decesso</lblDataDecesso>
+        <lblOraDecesso>Ora del decesso</lblOraDecesso>
+        <lblComuneDec>Comune del decesso</lblComuneDec>
+        <lblRiscontro>Riscontro autoptico</lblRiscontro>
+        <lblReferto>Referto dell Autorita Giudiziaria</lblReferto>
+        <lblDecesso>Note</lblDecesso>
+
+        <lblOBI>Esito OBI</lblOBI>
+        <lblDataInizioOBI>Data Inizio OBI</lblDataInizioOBI>
+        <lblMenu>Menu</lblMenu>
+        <lblFrasiStdRef>Inserisci Frase</lblFrasiStdRef>
+        <lblInsFrasiStd>Aggiungi Frase</lblInsFrasiStd>
+        <lblMantieniOBI>Mantieni OBI</lblMantieniOBI>
+
+        <butFirma>Firma</butFirma>
+        <butSalvaVerbale>Salva</butSalvaVerbale>
+        <butSalvaBozza>Salva Bozza</butSalvaBozza>
+
+        <labelvuota>AAAAAAAAAA</labelvuota>
+        <labelvuota1>BBBBBBBB</labelvuota1>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_WK_TRASFERIMENTI_ACCETTAZIONE</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ACCETTA_TRASFERIMENTO_GIURIDICO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT_FUNZIONI_CONTATTO.accettaTrasferimento(rec)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/esegui.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Accetta trasferimento"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

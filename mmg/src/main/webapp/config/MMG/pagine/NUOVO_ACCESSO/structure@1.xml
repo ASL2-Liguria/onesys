@@ -1,0 +1,130 @@
+<PAGINA key_id="NUOVO_ACCESSO">
+	<HEADER_PAGE key_id="NUOVO_ACCESSO"
+		valore="DEFAULT_MMG,SCHEDA,NUOVO_ACCESSO#DEFAULT_MMG,NUOVO_ACCESSO"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_NUOVO_ACCESSO#MMG_DATI#MMG_ACCESSI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabAccesso"
+			valore="nuovoAccesso#lblTitolo#butSalva,butSalvaModifiche,butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabIns" valore="tabIns"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldData" valore="fldData"
+					evento="START">
+					<TR_TD_LABEL_DATA key_id="Data"
+						valore="lblDataAccesso##txtDataAccesso#DataAccesso#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){},direction:false#disabled:false##DATA_ACCESSO"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAccesso" valore="fldAccesso"
+					evento="START">
+					<TR_TD_RADIO key_id="Accesso"
+						valore="Accesso#radAccesso#{width:150,idxDefault:0}#N#TIPO_ACCESSO"
+						evento="START">
+					</TR_TD_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtIndirizzoAccesso" valore="lblIndirizzoAccesso##txtIndirizzoAccesso###INDIRIZZO_ACCESSO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtOperatoreAccesso" valore="lblOperatoreAccesso##txtOperatoreAccesso###OPERATORE_ACCESSO" evento="START"></TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRegimeAccesso" valore="fldRegimeAccesso"
+					evento="START">
+					<TR_TD_RADIO key_id="Regime"
+						valore="Regime#Regime#{width:150}#N#COD_REGIME_ACCESSO"
+						evento="START">
+					</TR_TD_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNote" valore="fldNote"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="Note" valore="txtAreaNote#NOTE#2"
+						evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabProblema"
+				valore="tabProblema" evento="START">
+				<FIELDSET_TABLE key_id="fldProblema" valore="fldProblema"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="TipoProblema"
+						valore="lblTipoProblema##TipoProblema#radTipoProblema#{width:120}#N#TIPO_PROBLEMA"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_AUTOCOMPLETE key_id="DescrProblema"
+						valore="lblDescrProblema#acProblema#DescrProblema#DescrProblema#AC_PROBLEMA#DESCR_ICD9"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="CodProblema"
+						valore="lblCodProblema#acCodProblema#CodProblema#CodProblema#AC_CODICE_PROBLEMA#CODICE_ICD9"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="Problema"
+						valore="lblProblema##txtProblema###DESCRIZIONE_PROBLEMA" evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteProblema" valore="fldNoteProblema"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="NoteProblema"
+						valore="txtAreaNoteProblema#NOTE_PROBLEMA#2" evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabFumoAlcol"
+				valore="tabFumoAlcol" evento="START">
+				<FIELDSET_TABLE key_id="fldFumo" valore="fldFumo"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="Fumo"
+						valore="lblFumoSiNo##Fumo#radFumo#{width:60}#S#FUMO" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteFumo" valore="fldNoteFumo"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="NoteFumo" valore="txtAreaNoteFumo#NOTE_FUMO#2"
+						evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAlcol" valore="fldAlcol"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="Alcol"
+						valore="lblAlcolSiNo##Alcol#radAlcol#{width:60}#S#ALCOL" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteAlcol" valore="fldNoteAlcol"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="NoteAlcol"
+						valore="txtAreaNoteAlcol#NOTE_ALCOL#2" evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabBMI" valore="tabBMI"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldBMI" valore="fldBMI"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Altezza"
+						valore="lblAltezza##txtAltezza###ALTEZZA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Peso" valore="lblPeso##txtPeso###PESO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="B.M.I." valore="lblBMI##txtBMI###BMI"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAltro" valore="fldAltro"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Circonferenza"
+						valore="lblCirconferenza##txtCirconferenza###CIRCONFERENZA"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="AttFisica"
+						valore="lblAttFisica##txtAttFisica###ATT_FISICA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<INPUT.HIDDEN key_id="IdenIcd" valore="hIdenIcd###IDEN_ICD"
+						evento="START">
+					</INPUT.HIDDEN>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

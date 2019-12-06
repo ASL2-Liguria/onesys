@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+
+       <lblTitolo>TRASPORTO SANITARIO EMERGENZA</lblTitolo>
+       <fldDati>Dati</fldDati>
+       <lblRecapito>Recapito telefonico medico</lblRecapito>
+       <lblTrasportoDi>Trasporto di</lblTrasportoDi>
+       <lblReparto>Reparto degenza paziente</lblReparto>
+       <lblOspedale>Ospedale</lblOspedale>
+       <lblDiagnosi>Diagnosi</lblDiagnosi>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

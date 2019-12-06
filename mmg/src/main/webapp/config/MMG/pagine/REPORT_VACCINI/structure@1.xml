@@ -1,0 +1,78 @@
+<PAGINA key_id="REPORT_VACCINI">
+	<HEADER_PAGE key_id="REPORT_VACCINI"
+		valore="DEFAULT_MMG,SCHEDA,REPORT_VACCINI#DEFAULT_MMG,REPORT_VACCINI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+	
+		<TABULAZIONE.INIT key_id="tab"
+			valore="ReportVaccini#lblTitolo#butSalva,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabReportVaccini" valore="tabReportVaccini"
+				evento="START">
+				
+				<FIELDSET_TABLE key_id="fldRangeTemporale" valore="fldRangeTemporale"
+					evento="START">
+
+					<TR_TD_LABEL_DATA key_id="DaData"
+						valore="lblDaData##txtDaData#DaData#startWithToday:false, format: 'd/m/Y'#disabled:false##DA_DATA"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_DATA key_id="AData"
+						valore="lblAData##txtAData#AData#startWithToday:true, format: 'd/m/Y'#disabled:false##A_DATA"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					
+				</FIELDSET_TABLE>
+				
+
+				<FIELDSET_TABLE key_id="fldReportVaccini" valore="fldReportVaccini"
+					evento="START">
+
+					<TR_TD_LABEL_RADIO key_id="Sesso"
+						valore="lblSesso##Sesso#radSesso#{width:150,idxDefault:1}#S#SESSO"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="TipoVaccino"
+						valore="lblTipoVaccino##TipoVaccino#radTipoVaccino#{width:318,idxDefault:1}#N#TIPO_VACCINO"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+				
+				<FIELDSET_TABLE key_id="fldRange" valore="fldRange"
+					evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="DataInizio" valore="lblDataInizio##txtDataInizio###DATA_INIZIO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="DataFine" valore="lblDataFine##txtDataFine###DATA_FINE"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<!-- <TR_TD_LABEL_RADIO key_id="UM"
+						valore="lblUM##UM#radUM#{width:150,idxDefault:1}#S#DATA_FINE_UM"
+						evento="START">
+					</TR_TD_LABEL_RADIO> -->
+					
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="UM" valore="lblUM##UM#radUM#{width:150,idxDefault:1}#S#DATA_FINE_UM" evento="START"></TD_LABEL_RADIO>
+						<TD_BUTTON key_id="butEseguiConteggio" valore="butEseguiConteggio" evento="START"></TD_BUTTON>
+					</TR.INIT>
+					
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldResult" valore="fldResult"
+					evento="START">
+					<TR.INIT key_id="rigaLabel" valore="" evento="START">
+						<TD_LABEL key_id="lblQueryResult" valore="lblQueryResult#" evento="START"></TD_LABEL>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

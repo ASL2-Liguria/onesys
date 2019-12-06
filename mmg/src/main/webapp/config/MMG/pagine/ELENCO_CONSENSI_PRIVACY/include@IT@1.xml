@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/ConsensoTrattamentoDati/elencoConsensiPrivacy.css" />
+	<JS path="js/MMG/ConsensoTrattamentoDati/elencoConsensiPrivacy.js" />
+</INCLUDE>

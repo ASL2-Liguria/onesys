@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>INSERIMENTO NUOVO PROBLEMA</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<tabProblema>Problema</tabProblema>
+		<tabInserimento>Problemi</tabInserimento>
+		
+		<fldProblema>Problema</fldProblema>
+		<fldNoteProblema>Note</fldNoteProblema>
+		<fldChiusuraProblema>Note</fldChiusuraProblema>
+		<fldGravidanza>Segnala Gravidanza</fldGravidanza>
+		
+		<lblTipoProblema></lblTipoProblema>
+		<lblData>Data</lblData>
+		<lblDataUM>Data Ultima Mestruazione</lblDataUM>
+		<lblNoteChiusura>Note Chiusura</lblNoteChiusura>
+		<lblChiusuraProblema>Chiusura Problema</lblChiusuraProblema>
+		<lblProblema>Problema</lblProblema>
+		<lblDescrProblema>Problema ICD9</lblDescrProblema>
+		<lblCodProblema>Codice ICD9</lblCodProblema>
+		<lblProblemaRAO>Diagnosi RAO</lblProblemaRAO>
+		<lblProblGravidanza>Se il problema da inserire è una gravidanza indicare la data dell'ultimo mestruo.</lblProblGravidanza>
+		<lblaRischio>Patologia a rischio di evoluzione critica</lblaRischio>
+		
+		<btnGravidanza>Segnala Gravidanza</btnGravidanza>
+		
+        <lblSetProblema>Si vuole impostare la diagnosi appena inserita come problema selezionato per il paziente corrente?</lblSetProblema>
+		
+    </ROW>
+</ROWSET>

@@ -1,0 +1,123 @@
+/* CSS Document */
+
+
+div#container{ float:left;width:100%;margin:0 auto;min-height: 100%;}
+
+
+div#headerUser{position:relative;height:18px;padding:2 0 2 0; color: white; text-align:center; background-color:#508AFF;}
+div#userLayerContainer{ height:120px; position:relative;}
+div#usersList{float:left; height:90px; width:50%; background-color:#D9FFF8;overflow:auto;border-style:solid; border-color:#0000FF; border-width:1px;}
+div#userInfo{background-color:#0000FF;  height:90px; border-style:solid; border-color:#0000FF; border-width:1px; overflow:hidden; } 
+
+div#boxInfoUtente{ height:50px;  background-color:#D9FFF8; overflow:auto}
+div#comandiUtente{ height:25px; background-color:#FF00FF; overflow:hidden; background-image:url(../../../imagexPix/bar/btContainer.jpg); background-repeat:repeat-x;}
+
+div#footer{background: #333;color: #FFF}
+div#footer p{margin:0;padding:5px 10px}
+div#footer a{display:inline;padding:0;color: #C6D5FD}
+
+div#headerChat{ position:relative;height:18px;padding:2 0 2 0; color: white; text-align:center; background-color:#508AFF; margin-top:-25px;}
+
+
+div#chatLayerContainer{width:100%;}
+
+div#chatIndexContainer{width:100%;height:25px; background-image:url(../../../imagexPix/bar/btContainer.jpg); background-repeat:repeat-x; }
+
+div#chatBoxContainer{width:100%; position:relative;height:200px;}
+div#chatBoxHistory{ background-color:#FBFEE2; height:200px; overflow:auto; padding:10px 10px 10px 10px; border-style:solid; border-color:#0000FF; border-width:1px;}
+
+
+div#wrapperSendBox{ position:relative; height:100px; margin-top:5px;}
+div#chatBoxSendBox{float:left; height:100px;  width:70%; background-color:#CCFFFF;overflow:auto;overflow:hidden;border-style:solid; border-color:#0000FF; border-width:1px;}
+
+div#chatBoxButton{height:100px; padding:10px 10px 10px 10px;border-style:solid; border-color:#0000FF; border-width:1px; overflow:hidden; }
+
+
+/* indicano i nomi di chi scrivi i mshg*/
+.userSender1{
+	display:block;
+	background-color:#FF00FF;
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:2 2 2 2;
+}
+
+.userSender2{
+	display:block;
+	background-color:#FFCCFF;
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:2 2 2 2;
+}
+
+
+
+/* pulsanti per indicizzare le chat*/
+.chatTab {
+	width:80px;
+	height:25px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/chat/chatTab.gif);
+	text-align: center;
+	overflow:hidden;
+	float:left;
+	color:#FFFFFF;
+}
+
+.chatTab A{
+	TEXT-DECORATION: none;
+	color: white;
+	padding-top:3px;
+	display:block;
+	padding-bottom:25px;
+
+}
+
+.chatTab A:hover {
+	background-image:url(../../../imagexPix/button/chat/chatTabOver.gif);
+	background-repeat:repeat-x;
+	color: yellow;
+	color:#000000;
+
+}
+
+/* indica i titoli relativi alle sottosezioni: infoUtente, ListaUtentiLoggati  */
+.titolettoChat{
+	display:block;
+	background-color:#FBFEE2;
+	color:black;
+	font-size:12px;
+	font-weight:bold;
+	padding:2 2 2 2;
+	line-height:12px;
+}
+
+/* classe per lista utenti, posizionamento del padding*/
+.classComboListaUtenti{
+	padding:5px 5px 5px 5px ;
+}
+
+/* classe style propria del combo */
+.styleComboListaUtenti{
+	font:Arial, Helvetica, sans-serif ;
+	font-size:10px;
+}
+
+/* style dell'option della lista utenti*/
+.utenteOnline{
+	color:#0000FF;
+}
+
+.utenteOffline{
+	color:#999999;
+}
+
+/* stile del textarea per inserimento testo*/
+.styleBoxTextArea{
+	float:left;
+	width:100%;
+	line-height:12px;
+	background-color:#E1FFFF;
+}

@@ -1,0 +1,88 @@
+/** foglio di stile per i pulsanti dello zoom **/
+
+.DivUpArrow{
+	width:15px;
+	height:15px;
+	background: url(../../imagexPix/button/mini/arrowUp.gif) no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;	
+	
+	/*	MOD	*/
+	width:300px;
+	position:absolute;
+	top:0;
+	left:5px;
+	z-index:99;
+	background: url(../../imagexPix/trasp.gif) no-repeat;
+}
+
+.DivDownArrow{
+	width:15px;
+	height:15px;
+	background: url(../../imagexPix/button/mini/arrowDown.gif) no-repeat;
+	display:inline;
+	position:relative;	
+	cursor:pointer;	
+	
+	/*	MOD	*/
+	width:300px;
+	position:absolute;
+	top:0;
+	left:5px;
+	z-index:99;
+	display:block;
+	background: url(../../imagexPix/trasp.gif) no-repeat;
+}
+
+.DivUpArrowSelected{
+	width:15px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowUp_over.gif);
+	display:inline;
+	position:relative;	
+	
+	/*	MOD	*/
+	background:url(../../imagexPix/worklistFlex/arrow_up.gif) no-repeat left center;
+}
+
+.DivDownArrowSelected{
+	width:15px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowDown_over.gif);
+	display:inline;
+	position:relative;	
+	
+	/*	MOD	*/
+	background:url(../../imagexPix/worklistFlex/arrow_down.gif) no-repeat left center;
+}
+
+#idDragDropResizeElement
+{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  cursor:w-resize;
+  display:none;
+  top:0;
+  left:0;
+  background-image:url(../../imagexPix/button/mini/hResize.gif);
+  z-index:100;
+}
+
+
+#idResizeElementForColumn{
+	width:15px;
+	height:15px;
+	display:inline;
+	position:relative;
+	background-image:url(../../imagexPix/button/mini/resize4Col.gif);
+	
+	/*	MOD	*/
+	background: url(../../imagexPix/trasp.gif) no-repeat;
+	cursor:w-resize;
+}
+
+/*	MOD per wk principale	*/
+#idDIV_STATO .DivUpArrow{display:none;}
+#idDIV_STATO .DivDownArrow{display:none;}

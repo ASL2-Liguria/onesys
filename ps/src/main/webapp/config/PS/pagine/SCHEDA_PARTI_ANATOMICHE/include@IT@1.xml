@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="js/Base/NO-min/jquery.imagemapster.js" />
+	<JS path="js/Base/NO-min/NS_LISTBOX.js" />
+	<JS path="js/PS/SchedaPartiAnatomiche/SchedaPartiAnatomiche.js"/>
+    <CSS path="css/PS/SchedaPartiAnatomiche/SchedaPartiAnatomiche.css"/>
+</INCLUDE>

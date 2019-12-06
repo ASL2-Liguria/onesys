@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>SCADENZARIO_BACHECA</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.SCADENZARIO_BACHECA</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_SCADENZARIO_BACHECA</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>INFO</COL>
+					</ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                   	<!--  <PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setMenuProblemi( data ); }]]></PROCESS> -->
+                   	<PROCESS type="javascript"><![CDATA[function(data, wk){ return SCADENZARIO_BACHECA.processInfo( data, wk ); }]]></PROCESS>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_PREVISTA</COL>
+						<DB>DATA_PREVISTA</DB>
+					</ID>
+					<DESCRIPTOR>"Data prevista"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Attività"</DESCRIPTOR>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>RITARDO</COL>
+						<DB>RITARDO</DB>
+					</ID>
+					<DESCRIPTOR>"Ritardo/Anticipo"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return SCADENZARIO_BACHECA.processRitardo( data, wk ); }]]></PROCESS>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>NOTE</COL>
+						<DB>NOTE</DB>
+					</ID>
+					<DESCRIPTOR>"Note"</DESCRIPTOR>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_PREVISTA">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

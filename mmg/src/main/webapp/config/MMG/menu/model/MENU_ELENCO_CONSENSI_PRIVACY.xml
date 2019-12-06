@@ -1,0 +1,73 @@
+<MENU>
+	<id>MENU_ELENCO_CONSENSI_PRIVACY</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MECP.MC</ID>
+			<LINK><![CDATA[function(rec){WK_ELENCO_CONSENSI.modifica(rec[0]);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Modifica"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MECP.SC</ID>
+			<LINK><![CDATA[function(rec){WK_ELENCO_CONSENSI.stampa(rec[0], 'PRINT');}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Stampa Consenso"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MECP.VC</ID>
+			<LINK><![CDATA[function(rec){WK_ELENCO_CONSENSI.stampa(rec[0], 'PDF');}]]></LINK>
+			<ICON_CLASS>anteprima</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Visualizza PDF"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MECP.VSC</ID>
+			<LINK><![CDATA[function(rec){WK_ELENCO_CONSENSI.visualizzaStorico(rec[0]);}]]></LINK>
+			<ICON_CLASS>calendario</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return typeof rec[0] != "undefined";}]]></WHERE>
+			<OUTPUT>"Visualizza lo Storico Consenso"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MECP.CC</ID>
+			<LINK><![CDATA[function(rec){WK_ELENCO_CONSENSI.cancella(rec[0], "S");}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return typeof rec[0] != "undefined";}]]></WHERE>
+			<OUTPUT>"Cancella e ripristina versione precedente"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<!--
+		<ITEM>
+			<ID>MECP.CCD</ID>
+			<LINK><![CDATA[function(rec){WK_ELENCO_CONSENSI.cancella(rec[0], "N");}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return typeof rec[0] != "undefined";}]]></WHERE>
+			<OUTPUT>"Cancella Consenso DEFINITIVAMENTE"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		-->
+	</LIST>
+</MENU>

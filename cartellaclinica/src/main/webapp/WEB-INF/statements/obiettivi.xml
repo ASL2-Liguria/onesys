@@ -1,0 +1,15 @@
+<root>
+	<statements_list>
+		<statement name="remove">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenObiettivo pls_integer := to_number(?);
+				begin
+					delete from radsql.cc_bisogni_obiettivi where iden= pIdenObiettivo;
+				end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

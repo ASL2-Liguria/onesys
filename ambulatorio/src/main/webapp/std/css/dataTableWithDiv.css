@@ -1,0 +1,157 @@
+/* css per la tabella di dati, come ad esempio la worklist */
+
+div#idLayerTestata{
+	margin:0 0 0 0;
+	height:42px;
+	display:block;
+	top:0;
+	left:0;
+	position:absolute;
+	width: 100%;
+}
+
+div#idLayerWorklist{
+	margin-top:42px;
+	display:block;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	height: 500px;
+	width:100%;
+}
+
+
+div#idLayerWorklist table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+div#idLayerWorklist table.classDataTable td{
+	border: 1px solid #6AA8F2;
+}
+
+
+div#idLayerWorklist table.classDataTable th {
+	background-color:#C2FAFE;
+	border: 1px solid #6AA8F2;
+}
+
+
+div#idLayerTestata table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+div#idLayerTestata table.classDataTable td{
+	border: 1px solid #6AA8F2;
+}
+
+div#idLayerTestata table.classDataTable th {
+	background-color:#C2FAFE;
+	border: 1px solid #6AA8F2;
+}
+
+
+
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	float:left;
+	overflow:hidden;
+}
+
+div#idLayerWorklist div.classDatiTabella{
+	white-space:nowrap;
+/*	padding-left:5px;*/
+}
+
+
+
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+
+
+div.classContainerHeader{
+	width:100%;
+	table-layout:fixed;	
+}
+
+div.classResizeColumn{
+	background-color:#00FFFF;
+	width:3px;
+	height:10px;
+	float:right;
+	display:inline;	
+}
+
+
+.classNormalRow{
+	height:25px;
+}
+
+/* ****** */
+
+
+
+div#menuScrollPD
+{
+	position:absolute;
+	z-index:200;
+	background:#ddf8ff;
+	border:#069 2px solid;
+	white-space:nowrap;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	width:262px;
+}
+
+div#menuScrollPD ul
+{
+	margin:0px 0px 0px 0px;
+}
+
+div#menuScrollPD ul li
+{
+	display:block;
+	height:auto;
+	width:100%;
+	list-style-type:none;
+}
+
+div#menuScrollPD ul li a
+{
+	display:block;
+	color:blue;
+	text-decoration:none;
+/*	margin-left:20px;*/
+	text-align:justify;
+}
+
+div#menuScrollPD ul li#clsClickDM
+{
+	background:#00F;
+	color:white;
+}
+
+div#menuScrollPD ul li.clsOverMenu
+{
+	background:white;
+	border:#0CF 1px dotted;
+}

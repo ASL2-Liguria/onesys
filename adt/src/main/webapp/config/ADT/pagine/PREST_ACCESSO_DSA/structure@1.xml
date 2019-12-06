@@ -1,0 +1,16 @@
+<PAGINA key_id="PREST_ACCESSO_DSA">
+	<HEADER_PAGE key_id="PREST_ACCESSO_DSA" valore="DEFAULT,SCHEDA,PREST_ACCESSO_DSA#DEFAULT,PREST_ACCESSO_DSA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="f" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabInfoPrest" valore="tabInfoPrest#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabPrest" valore="tabPrest" evento="START">
+				<TABELLA.INIT key_id="tabellaPrest" valore="" evento="START">
+					<TR.INIT key_id="trPrest" valore="" evento="START">
+						<TR_TD_LABEL_COMBO_LIST key_id="lstPrestazioni" valore="lblPrestazioni##lstPrestazioni#lstPrestazioni##" evento="START">
+						</TR_TD_LABEL_COMBO_LIST>
+					</TR.INIT>
+				</TABELLA.INIT>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

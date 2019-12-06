@@ -1,0 +1,137 @@
+/* css per la tabella di dati, come ad esempio la worklist */
+
+table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+table.classDataTable td{
+	border: 1px solid #6AA8F2;
+}
+
+table.classDataTable th {
+	/*background-color:#C2FAFE;*/
+	background-color:#d9f3ff;
+	border: 1px solid #6AA8F2;
+}
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+div.classDatiTabella{
+	white-space:nowrap;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	div.classDatiTabella {
+		overflow: hidden;
+	}
+	div.classHeaderTabella {
+		overflow: hidden;
+	}
+}
+
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+/* ****** */
+
+.titolo{
+	background-color:#00F;
+	color:white;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif ;
+	font-size:20px;
+	font-weight:bold;
+}
+
+TR.information{
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif ;
+	font-size:12px;
+	font-style:italic;
+
+}
+
+/* Ricerca del Paziente quanto non trova nessun record */
+div.classRicVuota{
+	text-align:center;
+	font-size:16px;
+	white-space:nowrap;
+	font-weight:bold;
+	color:#0000CC;
+}
+
+
+label.labelFiltroView
+{
+	width:240px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+table.classDataTable2 {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+}
+
+table.classDataTable2 td{
+	border: 1px solid #6AA8F2;
+	text-align: center;
+	height: 30px;
+}
+
+table.classDataTable2 th {
+	background-color:#C2FAFE;
+	border: 1px solid #6AA8F2;
+	text-align: center;
+	height: 20px;
+}
+
+.bianco{
+	background-color: white;
+}
+
+.verde{
+	background-color: green;
+}
+
+.giallo{
+	background-color: yellow;
+}
+
+.rosso{
+	background-color: #FF0000;/*red*/
+}
+
+.light_yellow{
+	background-color: #FFFFF0;
+}
+
+.grigio{
+	background-color: #CCC;
+}
+
+.labelHidden{
+	display:none;
+}

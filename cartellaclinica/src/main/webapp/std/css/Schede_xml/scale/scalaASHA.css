@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+label{
+    cursor: pointer;
+}
+
+td.classTdField {
+	width: auto;
+	padding: 5px;
+}
+
+td.classTdLabelLink {
+	vertical-align: baseline;
+	width: auto;
+}

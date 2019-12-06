@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>
+
+        <statement name="getRiepilogoRicoveroWhale">
+            <sql>
+                <![CDATA[
+				select 
+				  RR.DATA
+				  ,RR.ORA
+				  ,RR.ACCESSO
+				  ,RR.APPUNTAMENTO
+				  ,RR.NOTE_APPUNTAMENTO
+				  ,RR.IDEN_RICOVERO
+				  ,RR.DIMESSO
+				  ,RR.GIORNO_DIMISSIONE
+				  ,cursor(
+					select
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.richieste) r
+				  ) richieste
+				  ,cursor(
+					select 
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.consulenze) r
+				  ) consulenze				  
+				  ,cursor(
+					select 
+					  e.LOCKED,e.STATO,e.IDEN,e.DESCRIZIONE,e.URGENZA,e.TIPO,e.NOTA,e.CLASSE_BUTTON,e.TITLE_BUTTON
+					from table(RR.esami) e
+				  ) esami
+				  ,cursor(
+					select 
+					  p.LOCKED,p.STATO,p.IDEN,p.DESCRIZIONE,p.URGENZA,p.TIPO,p.NOTA,p.CLASSE_BUTTON,p.TITLE_BUTTON
+					from table(RR.prenotazioni) p
+				  ) prenotazioni
+				  ,cursor(
+					select 
+					  t.LOCKED,t.STATO,t.IDEN,t.DESCRIZIONE,t.URGENZA,t.TIPO,t.NOTA,t.CLASSE_BUTTON,t.TITLE_BUTTON
+					from table(RR.terapie) t
+				  ) terapie
+				  ,cursor(
+					select 
+					  pt.LOCKED,pt.STATO,pt.IDEN,pt.DESCRIZIONE,pt.URGENZA,pt.TIPO,pt.NOTA,pt.CLASSE_BUTTON,pt.TITLE_BUTTON
+					from table(RR.procedure_terapeutiche) pt
+				  ) procedure_terapeutiche
+				  ,cursor(
+					select 
+					  l.LOCKED,l.STATO,l.IDEN,l.DESCRIZIONE,l.URGENZA,l.TIPO,l.NOTA,l.CLASSE_BUTTON,l.TITLE_BUTTON
+					from table(RR.lettere) l
+				  ) lettere
+				  ,cursor(
+					select d.TIPOLOGIA,d.UTENTE,d.DATA_EVENTO,d.ORA_EVENTO,d.TESTO
+					from table(RR.diari) d
+				  ) diari
+				from 
+				  table(getRiepilogoRicovero(to_number(?),to_number(?),?,?)) RR 
+				order by RR.data	
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="getRiepilogoAnagRepartoWhale">
+            <sql>
+                <![CDATA[
+				select
+				  RR.DATA
+				  ,RR.ORA
+				  ,RR.ACCESSO
+				  ,RR.APPUNTAMENTO
+				  ,RR.NOTE_APPUNTAMENTO
+				  ,RR.IDEN_RICOVERO
+				  ,RR.DIMESSO
+				  ,RR.GIORNO_DIMISSIONE
+				  ,cursor(
+					select
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.richieste) r
+				  ) richieste
+				  ,cursor(
+					select
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.consulenze) r
+				  ) consulenze
+				  ,cursor(
+					select
+					  e.LOCKED,e.STATO,e.IDEN,e.DESCRIZIONE,e.URGENZA,e.TIPO,e.NOTA,e.CLASSE_BUTTON,e.TITLE_BUTTON
+					from table(RR.esami) e
+				  ) esami
+				  ,cursor(
+					select
+					  p.LOCKED,p.STATO,p.IDEN,p.DESCRIZIONE,p.URGENZA,p.TIPO,p.NOTA,p.CLASSE_BUTTON,p.TITLE_BUTTON
+					from table(RR.prenotazioni) p
+				  ) prenotazioni
+				  ,cursor(
+					select
+					  t.LOCKED,t.STATO,t.IDEN,t.DESCRIZIONE,t.URGENZA,t.TIPO,t.NOTA,t.CLASSE_BUTTON,t.TITLE_BUTTON
+					from table(RR.terapie) t
+				  ) terapie
+				  ,cursor(
+					select
+					  pt.LOCKED,pt.STATO,pt.IDEN,pt.DESCRIZIONE,pt.URGENZA,pt.TIPO,pt.NOTA,pt.CLASSE_BUTTON,pt.TITLE_BUTTON
+					from table(RR.procedure_terapeutiche) pt
+				  ) procedure_terapeutiche
+				  ,cursor(
+					select
+					  l.LOCKED,l.STATO,l.IDEN,l.DESCRIZIONE,l.URGENZA,l.TIPO,l.NOTA,l.CLASSE_BUTTON,l.TITLE_BUTTON
+					from table(RR.lettere) l
+				  ) lettere
+				  ,cursor(
+					select d.TIPOLOGIA,d.UTENTE,d.DATA_EVENTO,d.ORA_EVENTO,d.TESTO
+					from table(RR.diari) d
+				  ) diari
+				from
+				  table(getRiepilogoAnagReparto(to_number(?),?,?,?)) RR
+				order by RR.data
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="getRiepilogoRicoveroAmbulatorio">
+            <pool>elcoPool_ambulatorio</pool>
+            <sql>
+                <![CDATA[
+				select 
+				  RR.DATA
+				  ,RR.ORA
+				  ,RR.ACCESSO
+				  ,RR.APPUNTAMENTO
+				  ,RR.NOTE_APPUNTAMENTO
+				  ,RR.IDEN_RICOVERO
+				  ,RR.DIMESSO
+				  ,RR.GIORNO_DIMISSIONE
+				  ,cursor(
+					select 
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.richieste) r
+				  ) richieste
+				  ,cursor(
+					select 
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.consulenze) r
+				  ) consulenze				  
+				  ,cursor(
+					select 
+					  e.LOCKED,e.STATO,e.IDEN,e.DESCRIZIONE,e.URGENZA,e.TIPO,e.NOTA,e.CLASSE_BUTTON,e.TITLE_BUTTON
+					from table(RR.esami) e
+				  ) esami
+				  ,cursor(
+					select 
+					  p.LOCKED,p.STATO,p.IDEN,p.DESCRIZIONE,p.URGENZA,p.TIPO,p.NOTA,p.CLASSE_BUTTON,p.TITLE_BUTTON
+					from table(RR.prenotazioni) p
+				  ) prenotazioni
+				  ,cursor(
+					select 
+					  t.LOCKED,t.STATO,t.IDEN,t.DESCRIZIONE,t.URGENZA,t.TIPO,t.NOTA,t.CLASSE_BUTTON,t.TITLE_BUTTON
+					from table(RR.terapie) t
+				  ) terapie
+				  ,cursor(
+					select 
+					  pt.LOCKED,pt.STATO,pt.IDEN,pt.DESCRIZIONE,pt.URGENZA,pt.TIPO,pt.NOTA,pt.CLASSE_BUTTON,pt.TITLE_BUTTON
+					from table(RR.procedure_terapeutiche) pt
+				  ) procedure_terapeutiche
+				  ,cursor(
+					select 
+					  l.LOCKED,l.STATO,l.IDEN,l.DESCRIZIONE,l.URGENZA,l.TIPO,l.NOTA,l.CLASSE_BUTTON,l.TITLE_BUTTON
+					from table(RR.lettere) l
+				  ) lettere
+				  ,cursor(
+					select d.TIPOLOGIA,d.UTENTE,d.DATA_EVENTO,d.ORA_EVENTO,d.TESTO
+					from table(RR.diari) d
+				  ) diari
+				from 
+				  table(getRiepilogoRicovero(to_number(?),to_number(?),?,?)) RR 
+				order by RR.data	
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="getRiepilogoAnagRepartoAmbulatorio">
+            <pool>elcoPool_ambulatorio</pool>
+            <sql>
+                <![CDATA[
+				select
+				  RR.DATA
+				  ,RR.ORA
+				  ,RR.ACCESSO
+				  ,RR.APPUNTAMENTO
+				  ,RR.NOTE_APPUNTAMENTO
+				  ,RR.IDEN_RICOVERO
+				  ,RR.DIMESSO
+				  ,RR.GIORNO_DIMISSIONE
+				  ,cursor(
+					select
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.richieste) r
+				  ) richieste
+				  ,cursor(
+					select
+					  r.LOCKED,r.STATO,r.IDEN,r.DESCRIZIONE,r.URGENZA,r.TIPO,r.NOTA,r.CLASSE_BUTTON,r.TITLE_BUTTON
+					from table(RR.consulenze) r
+				  ) consulenze
+				  ,cursor(
+					select
+					  e.LOCKED,e.STATO,e.IDEN,e.DESCRIZIONE,e.URGENZA,e.TIPO,e.NOTA,e.CLASSE_BUTTON,e.TITLE_BUTTON
+					from table(RR.esami) e
+				  ) esami
+				  ,cursor(
+					select
+					  p.LOCKED,p.STATO,p.IDEN,p.DESCRIZIONE,p.URGENZA,p.TIPO,p.NOTA,p.CLASSE_BUTTON,p.TITLE_BUTTON
+					from table(RR.prenotazioni) p
+				  ) prenotazioni
+				  ,cursor(
+					select
+					  t.LOCKED,t.STATO,t.IDEN,t.DESCRIZIONE,t.URGENZA,t.TIPO,t.NOTA,t.CLASSE_BUTTON,t.TITLE_BUTTON
+					from table(RR.terapie) t
+				  ) terapie
+				  ,cursor(
+					select
+					  pt.LOCKED,pt.STATO,pt.IDEN,pt.DESCRIZIONE,pt.URGENZA,pt.TIPO,pt.NOTA,pt.CLASSE_BUTTON,pt.TITLE_BUTTON
+					from table(RR.procedure_terapeutiche) pt
+				  ) procedure_terapeutiche
+				  ,cursor(
+					select
+					  l.LOCKED,l.STATO,l.IDEN,l.DESCRIZIONE,l.URGENZA,l.TIPO,l.NOTA,l.CLASSE_BUTTON,l.TITLE_BUTTON
+					from table(RR.lettere) l
+				  ) lettere
+				  ,cursor(
+					select d.TIPOLOGIA,d.UTENTE,d.DATA_EVENTO,d.ORA_EVENTO,d.TESTO
+					from table(RR.diari) d
+				  ) diari
+				from
+				  table(getRiepilogoAnagReparto(to_number(?),?,?,?)) RR
+				order by RR.data
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="getConfigurazioneColonne">
+            <sql>
+                <![CDATA[
+				select 
+					funzione SCOPE,
+					LABEL,
+					gruppo WIDTH,
+					RIFERIMENTI
+				from 
+					imagoweb.config_menu_reparto
+				where 
+					procedura = 'RIEPILOGO_RICOVERO_COLONNE'
+					and codice_reparto=?
+					and attivo='S'
+					and (tipo_ute is null or tipo_ute=?)
+				order by ORDINAMENTO
+			]]>
+            </sql>
+        </statement>
+        <statement name="existAccesso">
+            <sql>
+                <![CDATA[
+				select 1 from radsql.nosologici_paziente np_ricovero join radsql.nosologici_paziente np  on (np.num_nosologico=np_ricovero.num_nosologico) where np_ricovero.iden=? and np_ricovero.data_ricovero=?
+			]]>
+            </sql>
+        </statement>
+        <statement name="DettAppuntamento">
+            <sql>
+                <![CDATA[
+                SELECT iden,data,ora,iden_visita,note FROM RADSQL.cc_appuntamenti_ricovero where iden_visita = ? and deleted='N'
+                ]]>
+            </sql>
+        </statement>
+        <statement name="setAccesso">
+            <sql>
+                <![CDATA[
+				declare
+					vIdenRicovero 	pls_integer 	:= to_number(?);	
+					vData 			varchar2(5000) := ?;
+					vOra 			varchar2(5000) := ?;
+					vMotivo			varchar2(5000) := ?;
+					vNotaBreve		varchar2(5000) := ?;	
+
+					vIdenAnag		pls_integer;
+					vIdenPro		pls_integer;
+					vIdenTipoRico	pls_integer;
+					vCodCdc			varchar2(5000);
+					vIdenAccesso	pls_integer;
+				begin
+					select iden_anag,iden_pro,iden_tipo_ricovero,cod_cdc into vIdenAnag,vIdenPro,vIdenTipoRico,vCodCdc from nosologici_paziente where iden=vIdenRicovero;
+					CC_INSERIMENTO_ACCESSO(vIdenAnag ,vIdenRicovero ,vIdenPro ,vCodCdc ,vIdenTipoRico ,vData ,vOra ,vMotivo ,'ASSOCIAZIONE',vNotaBreve );
+					select SEQ_NOSOLOGICI_PAZIENTE.currval into vIdenAccesso from dual;
+					
+					? := to_char(vIdenAccesso);
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="checkDatiAccesso">
+            <sql>
+                <![CDATA[
+                            select checkDatiAccesso(to_number(?)) DATI_ACCESSO from dual
+                        ]]>
+            </sql>
+        </statement>
+        <statement name="delAccesso">
+            <sql>
+                <![CDATA[
+                            declare
+                                    vIden 		pls_integer 	:= to_number(?);					
+                            begin
+                                update nosologici_paziente set deleted='S' where iden = vIden;					
+                            end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="existAppuntamento">
+            <sql>
+                <![CDATA[
+				select 1 from radsql.cc_appuntamenti_ricovero app where app.iden_visita=? and app.data=? and app.deleted ='N'
+			]]>
+            </sql>
+        </statement>
+        <statement name="setAppuntamento">
+            <sql>
+                <![CDATA[
+				declare
+					pIdenAppuntamento pls_integer := to_number(?);
+					pOraAppuntamento  varchar2(5000) := ?;
+					hCodCDC  varchar2(5000) := ?;
+					pAccesso  varchar2(5000) := ?;
+					pNote  varchar2(5000) := ?;
+					pDataAppuntamento  varchar2(5000) := ?;
+					pIdenVisita pls_integer := to_number(?);
+					pNotaBreve varchar2(5000) := ?;
+					pIdenPer pls_integer := to_number(?);
+					pOut varchar2(5000);
+				begin
+					if(hCodCDC is null) then
+						select cod_cdc into hCodCDC from nosologici_paziente where iden=pIdenVisita;
+					end if;
+					CC_INSERIMENTO_APPUNTAMENTO (pIdenAppuntamento, pOraAppuntamento , hCodCDC, pAccesso , pNote , pDataAppuntamento , pIdenVisita , pOut ,pNotaBreve, pIdenPer);
+					? := pOut;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="delAppuntamento">
+            <sql>
+                <![CDATA[
+				declare
+					vIden 				pls_integer 	:= to_number(?);
+					pIdenPer			pls_integer 	:= to_number(?);
+					pMotivoCanc         varchar2(4001)  := ?;
+					vDataAppuntamento 	varchar2(4001);
+					vNosologico 		varchar2(4001);
+					vIdenAccesso 		pls_integer;
+					vNum				pls_integer:=0;
+					vPresenzaAccesso	pls_integer:=0;
+					vAlert      		varchar2(4001) := 'Prima di rimuovere l''appuntamento provvedere a spostare/cancellare le seguenti pianificazioni ' || chr(10);
+
+
+					vMsgAccesso 		varchar2(5000):='E'' stato segnalato un accesso nella data selezionate, provvedere alla sua rimozione prima di proseguire';
+					vMsgLaboratorio 	varchar2(5000):='	-Richiesta verso Laboratorio' || chr(10);
+					vMsgRadiologia 		varchar2(5000):='	-Richiesta verso Radiologia' || chr(10);
+					vMsgAltroServizio 	varchar2(5000):='	-Richiesta verso Altro servizio' || chr(10);
+					vOutStato varchar2(5000) := 'OK';
+				
+				begin
+
+
+
+					select num_nosologico,app.data into vNosologico,vDataAppuntamento from nosologici_paziente np join cc_appuntamenti_ricovero app on (np.iden=app.iden_visita) where app.iden=vIden;
+
+
+
+
+					for cur in (select tipologia_richiesta,infoweb.getDataRiferimento(data_richiesta,data_proposta,data_esecuzione,data_prelievo) data_riferimento from infoweb.testata_richieste tr join nosologici_paziente np on (np.iden=tr.iden_visita ) where np.num_nosologico = vNosologico and stato_richiesta<>'X')					
+					loop
+						if(cur.data_riferimento=vDataAppuntamento) then													
+							case cur.tipologia_richiesta
+								when 0 then 
+									vAlert := vAlert || vMsgLaboratorio;
+								when 1 then
+									vAlert := vAlert || vMsgRadiologia;
+								else
+									vAlert := vAlert || vMsgAltroServizio;
+							end case;
+							vNum := vNum +1;
+						end if;												
+					end loop;
+
+					select count(*) into vPresenzaAccesso from nosologici_paziente where num_nosologico = vNosologico and data_ricovero = vDataAppuntamento and accesso=1  and deleted='N';
+					if(vPresenzaAccesso>0) then
+						vOutStato := 'KO';
+						vAlert := vMsgAccesso;
+					else
+						if(vNum>0) then
+							vOutStato := 'KO';
+						else
+							update cc_appuntamenti_ricovero set data_mod = sysdate, ute_mod = pIdenPer,  deleted = 'S', MOTIVO_CANC = pMotivoCanc where iden=vIden;
+						end if;
+					end if;
+					
+					? := vOutStato;
+					? := vAlert;
+					
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="controlloAppuntamentoDipendenze">
+            <sql>
+                <![CDATA[
+                        declare
+					vIden 				pls_integer     	:= to_number(?);
+					vDataAppuntamento 	varchar2(4001);
+					vNosologico 		varchar2(4001);
+					vNum				pls_integer:=0;
+					vAlert      		varchar2(4001) := 'Prima di rimuovere l''appuntamento provvedere a spostare/cancellare le seguenti pianificazioni ' || chr(10);
+
+					vMsgLaboratorio 	varchar2(5000):='	-Richiesta verso Laboratorio' || chr(10);
+					vMsgRadiologia 		varchar2(5000):='	-Richiesta verso Radiologia' || chr(10);
+					vMsgAltroServizio 	varchar2(5000):='	-Richiesta verso Altro servizio' || chr(10);
+					begin
+
+                            select num_nosologico,app.data into vNosologico,vDataAppuntamento from nosologici_paziente np join cc_appuntamenti_ricovero app
+                            on (np.iden=app.iden_visita) where app.iden=vIden;
+
+                            for cur in (select tipologia_richiesta,infoweb.getDataRiferimento(data_richiesta,data_proposta,data_esecuzione,data_prelievo)
+                            data_riferimento from infoweb.testata_richieste tr join nosologici_paziente np on (np.iden=tr.iden_visita ) where np.
+                            num_nosologico = vNosologico and stato_richiesta<>'X')
+                        loop
+                            if(cur.data_riferimento=vDataAppuntamento) then
+                                case cur.tipologia_richiesta
+                                    when 0 then
+                                        vAlert := vAlert || vMsgLaboratorio;
+                                    when 1 then
+                                        vAlert := vAlert || vMsgRadiologia;
+                                    else
+                                        vAlert := vAlert || vMsgAltroServizio;
+                                end case;
+							   vNum := vNum +1;
+						    end if;
+					    end loop;
+					if vNum=0 then vAlert:='';
+					end if;
+						? := vAlert;
+				   end;
+             ]]>
+            </sql>
+
+        </statement>
+
+        <statement name="setData">
+            <sql>
+                <![CDATA[
+				declare			
+					vScope      varchar2(5000)  := ?;					
+					vIden 		pls_integer 	:= to_number(?);
+					vData       varchar2(5000)  := ?;	
+					vIdenPer	pls_integer		:= to_number(?);	
+					
+					vDataMod    varchar2(8)		:= to_char(sysdate,'yyyyMMdd');
+					vOraMod    varchar2(8)		:= to_char(sysdate,'hh24:mi');								
+				begin
+					case (vScope)
+						when ('Richieste') then							
+							null; --gestione peculiare da js
+						when ('Esami') then
+							null; --gestione peculiare da js
+						when ('Terapia') then null;
+							--tutto il calcolo sulla durata etc
+						when ('Procedure') then null;
+							--tutto il calcolo sulla durata etc							
+					end case;
+				end;
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="tagliaPrenotazione">
+            <pool>elcoPool_ambulatorio</pool>
+            <sql>
+                <![CDATA[
+				declare
+					vWebUser        varchar2(5000)  := ?;
+					vIdenEsame 		pls_integer 	:= to_number(?);					
+					vIdenDettaglio 	pls_integer;	
+					vIdenAre        pls_integer;
+					vIdenSal        pls_integer;					
+					vReparto        varchar2(5000);
+				begin
+					select iden_are,iden_sal,reparto into vIdenAre,vIdenSal,vReparto from esami where iden=vIdenEsame;
+					select min(iden) into vIdenDettaglio from radsql.dettaglio_imp_sale where iden_esame=vIdenEsame;
+					delete from radsql.tab_work where webuser=vWebUser and tipo = 'PRENOTAZIONE_SPOSTA';
+					insert into radsql.tab_work (tipo,webuser,valore1,valore2,valore3) values ('PRENOTAZIONE_SPOSTA',vWebUser,to_char(vIdenDettaglio),to_char(vIdenEsame),'CUT');
+					? := to_char(vIdenAre);
+					? := to_char(vIdenSal);
+					? := vReparto;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="queryDiari">
+            <sql>
+                <![CDATA[
+				select 
+					utente_inserimento
+					,replace(testo,chr(10),'<br/>') testo
+					,data_evento
+					,ora_evento
+					,n_ricovero
+					,tipo_diario 
+				from 
+					view_diari 
+				where 
+					n_ricovero=?
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="getAppuntamentiInfo">
+            <sql>
+                <![CDATA[
+                            Select 
+				app.DATA, 
+				RADSQL.datetimeconverter(app.DATA,'yyyyMMdd','Dy dd/MM') data_out, 
+				count(*) num_appuntamenti, 
+				to_number(RADSQL.datetimeconverter(app.DATA,'yyyyMMdd','WW')) settimana,
+				(Select 1 From Cc_Appuntamenti_Ricovero Where Data = App.Data And Iden_Visita = to_number(?) and deleted='N') paz_presente
+			    From 
+				Cc_Appuntamenti_Ricovero app 
+			    Where 
+				Cod_Cdc=? AND DATA >= to_char(sysdate,'yyyyMMdd') and deleted='N' GROUP BY app.DATA ORDER BY app.DATA
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="Servizi.clean">
+            <sql>
+                <![CDATA[
+                declare
+					pWebUser varchar2(5000) := ?;
+				begin
+					radsql.GEST_SERVIZI.clean(pWebUser);
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="Servizi.set">
+            <sql>
+                <![CDATA[
+                declare
+					pWebUser varchar2(5000) := ?;
+					pTabella varchar2(5000) := ?;
+					pIdenTabella pls_integer := to_number(?);
+					pCodiceEvento varchar2(5000) := ?;
+					pDataEvento varchar2(5000) := ?;
+					pOraEvento  varchar2(5000) := ?;
+
+				begin
+					radsql.GEST_SERVIZI.set(pWebuser ,pTabella ,pIdenTabella ,pCodiceEvento ,pDataEvento ,pOraEvento);
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="getInfoRichieste">
+            <sql>
+                <![CDATA[
+                    select
+                         te.descsirm
+                    FROM
+                        infoweb.dettaglio_richieste dr
+                    JOIN tab_esa te ON dr.iden_tab_esa = te.iden
+                    JOIN infoweb.testata_richieste tr ON tr.iden = dr.iden_testata
+                    WHERE
+                    tr.iden_visita = to_number(?)
+                    and tr.data_richiesta = to_number(?)
+                ]]>
+            </sql>
+        </statement>
+
+        <statement name="getInfoAppuntamenti">
+            <sql>
+                <![CDATA[
+               select
+                to_char(data_ins,'dd/MM/yyyy hh24:mi') data,
+                to_char(data_mod,'dd/MM/yyyy hh24:mi') data_mod,
+                core_api.decodeidenper(ute_ins) ute_ins,
+                core_api.decodeidenper(ute_mod) ute_mod
+                from cc_appuntamenti_ricovero
+                where iden = to_number(?)
+			]]>
+            </sql>
+        </statement>
+        <statement name="getInfoNosologici">
+            <sql>
+                <![CDATA[
+                select
+                  data_fine_ricovero,
+                  accesso,
+                  parent,
+                  cod_cdc,
+                  dimesso
+                      from nosologici_paziente
+                  where
+                  iden = to_number(?)
+                ]]>
+            </sql>
+        </statement>
+
+
+    </statements_list>
+</root>

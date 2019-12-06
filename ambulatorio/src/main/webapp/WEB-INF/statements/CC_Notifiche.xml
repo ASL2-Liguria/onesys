@@ -1,0 +1,21 @@
+<root>
+    <statements_list>
+
+        <statement name="InserimentoEsame">
+			<pool>elcoPool_whale</pool>
+			<sql>
+			<![CDATA[
+				declare
+					pWebuser varchar2(5000) := ?;
+					pIdenEsame pls_integer := to_number(?);
+					pDataEsame varchar2(5000) := ?;
+					pOraEsame varchar2(5000) := ?;					
+				begin
+					radsql.GEST_SERVIZI.set(pWebuser,'ESAMI',pIdenEsame,'ESAME_INSERITO',pDataEsame,pOraEsame);
+				end;
+			]]>
+			</sql>	
+		</statement>
+	
+    </statements_list>	
+</root>	

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='../../std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+<title>Impostazioni grafico</title>
+</head>
+<body>
+    <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+           <tr>
+            <td class='classTabHeaderSx'>&nbsp;</td>     
+            <td class='classTabHeaderMiddle'>Impostazione dimensione sezioni</td> 
+            <td class='classTabHeaderDx'>&nbsp;</td>
+          </tr>
+    </table>
+    <iframe src="../../blank.htm" width="100%" height="450px" id="iframe"></iframe>
+    <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+           <tr>
+            <td class='classTabFooterSx'>&nbsp;</td>     
+            <td class='classTabHeaderMiddle'>&nbsp;</td> 
+            <td id=tdOK class='classButtonHeader'><div class='pulsante'><a href='javascript:setReturn(true);self.close();'>OK</a></div></td>
+            <td id=tdChiudi class='classButtonHeader'><div class='pulsante'><a href='javascript:setReturn(false);self.close ();'>Annulla</a></div></td>            
+            <td class='classTabFooterDx'>&nbsp;</td>
+          </tr>
+    </table>
+</body>
+<script>
+var arLarghezzaPeriodi = new Array(dialogArguments.arPeriodi.length);
+for(i=0;i<arLarghezzaPeriodi.length;i++)
+	arLarghezzaPeriodi[i]=90/arLarghezzaPeriodi.length;
+var arAltezzaParametri = new Array(dialogArguments.arParametri.length);
+for(i=0;i<arAltezzaParametri.length;i++)
+	arAltezzaParametri[i]=90/arAltezzaParametri.length;
+
+var periodi='';
+var parametri='';
+
+for (var  i=0;i<dialogArguments.arPeriodi.length;i++)
+	periodi += dialogArguments.arPeriodi[i]+"@";
+
+for (var  i=0;i<dialogArguments.arParametri.length;i++)
+	parametri += dialogArguments.arParametri[i]+"@";
+	
+periodi= periodi.substring(0,periodi.length-1);
+parametri= parametri.substring(0,parametri.length-1);
+//alert(parametri)
+//alert(periodi)
+document.all.iframe.src= "../../framesetDimensioni?concatParametri="+parametri+"&concatPeriodi="+periodi;
+
+
+function setReturn(bool){
+	function classReturn(input){
+		this.wPeriodo = new Array();
+		this.hParametro = new Array();
+		
+		if(input)
+		{
+			for(i=0;i<arLarghezzaPeriodi.length;i++)
+					this.wPeriodo.push(arLarghezzaPeriodi[i]);
+				for(i=0;i<arAltezzaParametri.length;i++)
+					this.hParametro.push(arAltezzaParametri[i]);	
+		}
+	}
+	window.returnValue= new classReturn(bool);
+}
+function setH(index,obj)
+{
+	arAltezzaParametri[index] = Math.round(obj.height*100/obj.parentNode.offsetHeight/10);
+}
+function setW(index,obj)
+{
+	arLarghezzaPeriodi[index] = Math.round(obj.width*100/obj.parentNode.offsetWidth/10);
+}
+function setBody(obj,contenuto,type){
+	switch (type)
+	{
+		case "ORIGINE": 
+			obj.contentWindow.document.body.bgColor='#C6DEFD';
+			obj.contentWindow.document.body.innerHTML = ''; 
+			break;
+		case "PERIODO": 
+			obj.contentWindow.document.body.bgColor='#C6DEFD';
+			obj.contentWindow.document.body.innerHTML = contenuto; 			
+			break;
+		case "PARAMETRO": 
+			obj.contentWindow.document.body.bgColor='#C6DEFD';
+			obj.contentWindow.document.body.innerHTML = contenuto; 					
+			break;
+		case "": 
+			obj.contentWindow.document.body.style.margin='0 0 0 0';
+			obj.contentWindow.document.body.innerHTML = '<img id="image" height="'+obj.contentWindow.document.body.offsetHeight+'px" width="'+obj.contentWindow.document.body.offsetWidth+'px" src="imagexPix/wallpaper/chart.png" />';
+			break;
+	}
+}
+function resizeImg(obj){
+	obj.contentWindow.document.all.image.width= obj.contentWindow.document.body.offsetWidth;
+	obj.contentWindow.document.all.image.height= obj.contentWindow.document.body.offsetHeight;
+}
+</script>
+</html>

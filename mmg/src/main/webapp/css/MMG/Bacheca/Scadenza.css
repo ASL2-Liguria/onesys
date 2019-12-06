@@ -1,0 +1,5 @@
+body#page { width: 960px;}
+
+#txtGiorniOgni,#txtGiorniDa,#txtGiorniA,#txtMesiDa,#txtMesiA,#txtAnniDa,#txtAnniA, #txtAnniPaz,#txtMesiPaz,#txtGiorniPaz {width: 50px;}
+
+table.campi tr td.tdLbl { width: 200px;}

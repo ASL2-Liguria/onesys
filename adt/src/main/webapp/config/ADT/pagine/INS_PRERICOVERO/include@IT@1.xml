@@ -1,0 +1,11 @@
+<INCLUDE>
+    <JS path="js/NS_APPLICATIONS.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/Anagrafica/Anagrafica.js"/>    
+    <JS path="config/ADT/validator/model/V_PRERICOVERO.js"/>
+    <JS path="js/ADT/InsPreRicovero/PrericoveroGestione.js"/>
+    <JS path="js/ADT/InsPreRicovero/PrericoveroSalvataggio.js"/>
+</INCLUDE>

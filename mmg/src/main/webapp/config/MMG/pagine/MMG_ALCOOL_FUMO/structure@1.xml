@@ -1,0 +1,13 @@
+<PAGINA key_id="MMG_ALCOOL_FUMO">
+	<HEADER_PAGE key_id="MMG_ALCOOL_FUMO" valore="DEFAULT_MMG,SCHEDA,MMG_ALCOOL_FUMO#DEFAULT_MMG,MMG_ALCOOL_FUMO" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati####" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabWK" valore="Alcool_Fumo#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<FIELDSET_TABLE key_id="fldWK" valore="fldWK" evento="START">
+				<DIV.WORKLIST key_id="wkAlcoolFumo" valore="wkAlcoolFumo" evento="START">
+				</DIV.WORKLIST>
+			</FIELDSET_TABLE>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

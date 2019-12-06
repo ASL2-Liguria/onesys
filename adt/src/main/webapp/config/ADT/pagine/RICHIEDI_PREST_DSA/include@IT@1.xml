@@ -1,0 +1,8 @@
+<INCLUDE>
+	<JS path="config/ADT/validator/model/V_DSA_INS_RICHIESTE.js"/>
+	<JS path="js/ADT/GestioneDSA/inviaRichieste.js"/>
+	<JS path="js/ADT/GestioneDSA/appendRichieste.js"/>
+	<CSS path="css/ADT/GestioneDSA/RichiediPrestDsa.css"/>
+	<CSS path="css/ADT/GestioneDSA/Richieste.css"/>
+	<JS path="js/ADT/GestioneDSA/RichiediPrestDsa.js"/>
+</INCLUDE>

@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/GestioneTabelle/SchedaTipi.js" />
+    <CSS path="css/Scheda_Tipo/SchedaTipo.css" />
+</INCLUDE>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblSceltaIOT" TYPE="label" TEXT="IOT difficile" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="radSceltaIOT" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="0" TEXT="SI"/>
+            <OPTIONVAL VALUE="1" TEXT="NO"/>
+            <OPTIONVAL VALUE="2" TEXT="POSSIBILE"/>
+        </CAMPO>
+        <!--CAMPO KEY_CAMPO="txtMotivoIOT" TYPE="textarea"  TEXT="prova"/-->
+    </CAMPI>
+</PAGINA>

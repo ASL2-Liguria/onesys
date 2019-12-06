@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Moduli/ModuloRM/MMG_Modulo_RM.css" />
+	<JS path="js/MMG/Moduli/ModuloRM/MMG_Modulo_RM.js" />
+</INCLUDE>

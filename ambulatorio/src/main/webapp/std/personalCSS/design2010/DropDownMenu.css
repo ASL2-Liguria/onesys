@@ -1,0 +1,75 @@
+.classDDMenu{
+	position:absolute;
+	visibility:hidden;
+}
+
+.DropDownIcon{
+	height:30px;
+	width:30px;	
+	background-color:#FFFFFF;
+}
+
+.DropDownMenuLinks {
+	font-size: 14px;
+	font-family:Arial, Helvetica, sans-serif;
+	padding: 0px;
+	cursor: Default;
+}
+
+.DropDownMenuOver {
+	background: yellow;
+	color:#000000;
+	font-size: 14px;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor: Default;	
+}
+
+.DropDownMenuNormal {
+	background: white;
+	color:#000000;
+	font-size: 14px;
+	font-family:Arial, Helvetica, sans-serif;
+	cursor: Default;		
+}
+
+
+#menuDDcontainer{
+	height:21px;
+}
+
+#menuDD{
+	width:80px;
+	float:right;
+	height:21px;
+	background-image:url(../../../imagexPix/bar/btDDlightcyan.jpg);
+	background-repeat:repeat-x;
+	padding:2px 2px 2px 2px;
+	margin:0px 2px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	white-space:nowrap;
+}
+
+
+#menuDD a{
+	height:14px;
+	TEXT-DECORATION: none;
+	color:#000099;
+	display:block;	
+}
+
+#menuDD a:hover{
+	font-size: 14px;
+	color:black;
+	background:black;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	background-image:url(../../../imagexPix/tabheader/top_tabella_2010.gif);
+	background-repeat:repeat-x;
+	height:25px;
+	line-height:25px;	
+}
+

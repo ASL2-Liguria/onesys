@@ -1,0 +1,21 @@
+[PropertyInfo]
+arrayCodicePreferitiDisponibili,java.util.ArrayList,false,false, , ,false,<default>
+arrayCodicePreferitiSelezionati,java.util.ArrayList,false,false, , ,false,<default>
+arrayDescrizioneProcedure,java.util.ArrayList,false,false, , ,false,<default>
+arrayJsWorklist,String,false,false, , ,false,<default>
+arrayPreferitiDisponibili,java.util.ArrayList,false,false, , ,false,<default>
+arrayPreferitiSelezionati,java.util.ArrayList,false,false, , ,false,<default>
+arrayProcedure,java.util.ArrayList,false,false, , ,false,<default>
+infoGlobali,imago.http.baseClass.baseGlobal,false,false, , ,false,<default>
+infoPC,imago.http.baseClass.basePC,false,false, , ,false,<default>
+logged_user,imago.http.baseClass.baseUser,false,false, , ,false,<default>
+myBaseInfo,imago.http.baseClass.baseWrapperInfo,false,false, , ,false,<default>
+myContext,javax.servlet.ServletContext,false,false, , ,false,<default>
+myRequest,javax.servlet.http.HttpServletRequest,false,false, , ,false,<default>
+mySession,javax.servlet.http.HttpSession,false,false, , ,false,<default>
+myTipoWk,String,false,false, , ,false,<default>
+[IconNames]
+
+
+
+

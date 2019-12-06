@@ -1,0 +1,40 @@
+<PAGINA key_id="GRUPPI_FAMILIARI">
+	<HEADER_PAGE key_id="GRUPPI_FAMILIARI"
+		valore="DEFAULT_MMG,SCHEDA,GRUPPI_FAMILIARI#DEFAULT_MMG,GRUPPI_FAMILIARI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tab" valore="GruppoFamiliare#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabGruppoFamiliare" valore="tabGruppoFamiliare" evento="START">
+				<FIELDSET_TABLE key_id="fldParentela" valore="fldParentela"
+					evento="START">
+					<TR.INIT key_id="r1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="r2" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DataNascita"
+							valore="lblDataNascita##txtDataNascita#DataNascita#format: 'd/m/Y'"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_BUTTON key_id="butApplica" valore="butApplica##2"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<DIV key_id="divWk" valore="divWk" evento="START"></DIV>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="fldInserimentoParentela" valore="fldInserimentoParentela" evento="START">
+				<COMBO key_id="TipoParentela"
+					valore="TipoParentela#cmbTipoParentela#N" evento="START">
+				</COMBO>
+				<DIV key_id="container" valore="container" evento="START"></DIV>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

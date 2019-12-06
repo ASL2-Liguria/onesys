@@ -1,0 +1,24 @@
+
+.classNumImgPacs {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/rx.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classNumImgPacs A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classNumImgPacs A:hover {
+	color:red;
+	display:block;	
+}

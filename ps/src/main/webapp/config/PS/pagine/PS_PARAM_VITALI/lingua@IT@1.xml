@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+	<ROW>
+		<tabParametriVit>Inserisci Parametri</tabParametriVit>
+        <butCalcola>Calcola RTS</butCalcola>
+		<lblTitolo>Parametri vitali</lblTitolo>
+		<fldParam>Parametri vitali</fldParam>
+		<lblPressArt>Pressione arteriosa</lblPressArt>
+		<lblPressSlash>\</lblPressSlash>
+		<lblPressMisur>Misurazione</lblPressMisur>
+		<lblPressBraccio>Braccio</lblPressBraccio>
+		<lblFrequCard>Frequenza cardiaca (bpm)</lblFrequCard>
+		<lblExtrasis>Extrasistoli</lblExtrasis>
+		<lblFrequResp>Frequenza respiratoria (a.m.)</lblFrequResp>
+		<lblSaturazione>Saturazione emoglobinica (SaO2)</lblSaturazione>
+		<lblTemperatura>Temperatura (°C)</lblTemperatura>
+		<lblSPO2>SPO2 (saturazione)</lblSPO2>
+		<lblGlasgow>Glasgow coma scale</lblGlasgow>
+		<lblRTS>RTS (Revised trauma score)</lblRTS>
+		<lblHGT>HGT (Concentrazione ematica glucosio)</lblHGT>
+		<lblStickUri>Stick urinario</lblStickUri>
+		<lblParamNote>Note</lblParamNote>
+        <lblScalaVas>Scala VAS</lblScalaVas>
+	</ROW>
+</ROWSET>

@@ -1,0 +1,104 @@
+table.classTabHeader {
+	text-align: left;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px; 
+	border: 0;
+	height:25px;
+}
+
+table.classTabHeader td.classTabHeaderSx {
+	
+	background-image:url(../../../imagexPix/tabheader/tabSx_mim.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddle {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_mim.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:white;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+		
+}
+
+table.classTabHeader td.classTabHeaderDx {
+	
+background-image:url(../../../imagexPix/tabheader/tabDx_mim.gif);
+background-repeat:no-repeat;
+width:10px;
+	
+}
+
+table.classTabHeader td.classTabFooterSx {
+background-image:url(../../../imagexPix/tabheader/tabSxDown_mim.gif);
+width:10px;
+	
+}
+
+table.classTabHeader td.classTabFooterDx {
+background-image:url(../../../imagexPix/tabheader/tabDxDown_mim.gif);
+background-repeat:no-repeat;
+width:10px; 
+	
+}
+
+
+
+table.classTabHeader td.classButtonHeader {
+background-image:url(../../../imagexPix/tabheader/top_tabella_mim.gif);
+background-repeat:repeat-x;
+width:80px; 
+}
+
+
+
+
+table.classTabHeader td.classTabHeaderMiddleTitle {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_mim.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:16px;
+	color:white;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+
+table.classTabHeader td.miniButton {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_mim.gif);
+	width:25px;
+	padding:0 2px 0 2px;
+
+}
+
+
+table.classTabHeader td.classVaiA {
+background-image:url(../../../imagexPix/tabheader/top_tabella_mim.gif)
+font-weight: bold;
+color:#0000CC;
+font-size:12px;
+width:150px; 
+}
+
+
+table.classTabHeader td.classTabHeaderSxUncut {
+	
+	background-image:url(../../../imagexPix/tabheader/tabSxUnCut_mim.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+
+table.classTabHeader td.classTabHeaderDxUncut {
+	
+background-image:url(../../../imagexPix/tabheader/tabDxUnCut_mim.gif);
+background-repeat:no-repeat;
+width:10px;
+	
+}

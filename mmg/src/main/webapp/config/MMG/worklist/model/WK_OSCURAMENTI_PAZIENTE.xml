@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_OSCURAMENTI_PAZIENTE</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.WK_OSCURAMENTI_PAZIENTE</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_WK_OSCURAMENTI_PAZENTE</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN_UTENTE_OSCURATO');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+				<COLUMN>
+					<ID>
+						<COL>DATA_INSERIMENTO</COL>
+						<DB>DATA_INSERIMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Data Inserimento"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>UTENTE_OSCURATO</COL>
+						<DB>UTENTE_OSCURATO</DB>
+					</ID>
+					<DESCRIPTOR>"Utente Oscurato"</DESCRIPTOR>           				
+					<WIDTH>400px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>NOTE</COL>
+						<DB>NOTE</DB>
+					</ID>
+					<DESCRIPTOR>"Note"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_INSERIMENTO">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

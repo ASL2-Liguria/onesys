@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Associazione Paziente</lblTitolo>
+    	<lblNome>Nome</lblNome>
+    	<lblCognome>Cognome</lblCognome>
+    	<tabAssociaPaziente>Associa Paziente</tabAssociaPaziente>
+        <lblTest1></lblTest1>
+        <lblTest2></lblTest2>
+        <lblTest3></lblTest3>
+    </ROW>
+</ROWSET>

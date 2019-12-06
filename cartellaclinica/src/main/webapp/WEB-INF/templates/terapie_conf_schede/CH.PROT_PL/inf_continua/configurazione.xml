@@ -1,0 +1,71 @@
+<Terapia stile="liv0" a_ereditabili="">
+
+    <UserInput tipo="text" name="FarmaciSelezionati" a_globali="obligatory=S;None" descr=""/>
+    <UserInput tipo="text" name="dataInizioTerapia" a_globali="None" a_inserimento="Default=TODAY;"/>
+
+    <GruppoFarmaciDescrizione classe="Label" a_globali="Intestazione">Liquido di
+        infusione</GruppoFarmaciDescrizione>
+    <GruppoFarmaci tipo="2" a_globali="obligatory=S;obligatory_modello=S;minimo=1;massimo=1"
+        key="tipo">
+        <Template file="Farmaci.xml" i="solvente"/>
+    </GruppoFarmaci>
+
+    <GruppoFarmaciDescrizione classe="Label" a_globali="Intestazione"
+        >Farmaco</GruppoFarmaciDescrizione>
+    <GruppoFarmaci tipo="3" a_globali="obligatory=S;obligatory_modello=S;minimo=0;massimo=5"
+        key="tipo">
+        <Template file="Farmaci.xml" i="soluto"/>
+    </GruppoFarmaci>
+
+    <SettingDescrizione classe="Label" a_globali="Intestazione">Velocita'</SettingDescrizione>
+    <Template file="Setting.xml" i="Velocita"/>
+
+
+    <GruppoPrescrizioniDescrizione classe="Label" a_globali="Intestazione"
+        >Prescrizioni</GruppoPrescrizioniDescrizione>
+    <GruppoPrescrizioni classe="Gruppo">
+        <Riga classe="Gruppo">
+
+            <UserInput classe="Options" tipo="radio" name="TipoPrescrizione" value="">
+                <OPTION value="3">Continua</OPTION>
+            </UserInput>
+
+            <UserInput tipo="text" name="DataInizio" a_globali="obligatory=S;Calendario=S ;Disable"
+                a_inserimento="Default=TODAY;CopyValueTo=dataInizioTerapia;"
+                a_modifica="Default=TODAY" descr="Data inizio"/>
+            <UserInput tipo="text" name="OraInizio" a_globali="obligatory=S; Orario=S"
+                a_inserimento="" a_modifica="Default=NOW" descr="Ora inizio" value="06:00"/>
+            <UserInput tipo="text" name="NumeroGiorni" a_globali="obligatory=S;Positive" value=""
+                descr="Numero giorni:"/>
+            <UserInput tipo="checkbox" name="chkNoDataFine" a_globali=""
+                descr="Fino a fine ricovero"/>
+
+        </Riga>
+
+        <Riga classe="Gruppo" a_globali="None">
+            <UserInput tipo="text" name="DataFine" descr="Data fine"/>
+            <UserInput tipo="text" name="OraFine" descr="Ora fine"/>
+        </Riga>
+
+        <Prescrizione classe="Gruppo" a_globali="value=3;None" tipo="3" key="tipo"> </Prescrizione>
+
+        <Template file="Prescrizioni.xml" i="notemodifica"/>
+    </GruppoPrescrizioni>
+
+    <SettingDescrizione classe="Label" a_globali="Intestazione">Note</SettingDescrizione>
+    <Setting classe="Gruppo">
+        <Riga classe="Gruppo" a_globali="h=2">
+            <UserInput tipo="textarea" name="Note" descr="" rows="3" cols="30"/>
+        </Riga>
+    </Setting>
+
+    <GruppoDatiInserimentoDescrizione classe="Label" a_inserimento="None" a_globali="Intestazione"
+        >Dati Inserimento</GruppoDatiInserimentoDescrizione>
+
+    <Template file="Setting.xml" i="DatiSistema" a_inserimento="None"/>
+
+    <HtmlContent>
+        <script> ModelloTerapiaVelocita.init(); farmaci.setEventsSomma("ml","VolumeTotale"); </script>
+
+    </HtmlContent>
+</Terapia>

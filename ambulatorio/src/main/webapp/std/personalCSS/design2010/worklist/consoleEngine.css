@@ -1,0 +1,895 @@
+/* normalBody.css  */
+body {
+	margin: 0;
+	background-color:#E0E0E0;
+	font-size: 12px;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+
+.Titolo {
+	font-size: 14px;
+	color:#000;
+	background:#999;
+	width:100%;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	height:25px;
+	line-height:20px;
+}
+
+.StatoPrenotatoAccettato{
+	background:#33CCFF;
+}
+
+.StatoRefertoSospeso{
+	background:#FF3333;
+}
+
+.StatoInizioEsecuzione{
+	background:#F93;
+}
+
+/* usato per definire lo sfondo dei livelli di info*/
+.layerInfo{
+	background:url(../../../imagexPix/button/gradient/gradientKeyImage.jpg) repeat;
+	overflow:auto;
+}
+
+SPAN.spanTitle{
+	color:black;
+	font-weight:bold; 
+	font-size:14px; 
+	display:block; 
+	background:#FFC; 
+	width:100%; 
+	text-align:center;	
+}
+
+input.hasDatePick{float:left;}
+
+
+tr.oddRow{background:#fff;}
+tr.evenRow{background:#e6e6e6;}
+tr.col_over{background:#fff9c7;}
+tr.col_over{background:#fff0a9;}
+tr.desel{background:#FFFFF0;}
+tr.sel{background:#ffea00;}
+tr.sel td{background:#ffea00;}
+
+#framesetAssociaTarMed{border:0;}
+
+#form_pag_ric{
+	width:99.5%;
+	margin-top:5px;
+	}
+	
+SPAN.classSpanOmonimo {
+	BACKGROUND-COLOR: #ffc58a;
+	PADDING-LEFT: 5px;
+	WIDTH: 500px;
+	DISPLAY: block;
+	HEIGHT: 200px;
+	COLOR: black;
+	MARGIN-LEFT: -5px;
+	FONT-WEIGHT: bold;
+	line-height:30px;
+}
+
+/* al_consoleMain.css */
+/*  css per la gestione dei dati nella consolle */
+
+table.classDataEntryTable {
+	table-layout:fixed;
+	text-align: left;
+	width: 100%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+}
+
+td.classTdLabelNoWidth{
+	border: 1px solid #888;
+	background:#ececec;
+	padding-left:5px;	
+	font-weight: bold;
+	font-size:14px;	
+}
+td.classTdText{
+	border: 1px solid #888;
+	background:#ececec;	
+	font-size:14px;	
+	text-align:right;
+	text-decoration: underline;
+	border-bottom:1px;
+}
+
+td.classTdLabel{
+	border: 1px solid #999;
+	color:#fff;
+	background:#999;
+	padding-left:5px;
+	width:75px;
+	font-weight: bold;
+	font-size:12px;	
+	white-space:nowrap;
+}
+	td.classTdLabel a{
+		color:#fff;
+		}
+
+td.classTdField{
+	border: 1px solid #999;
+	background:#fff;
+	white-space:nowrap;	
+	font-size:12px;	
+	}
+	td.classTdField img{
+		margin:0 3px;
+		}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+input.smallTextBox{
+	font:Arial, Helvetica, sans-serif;
+	font-size:9px;
+}
+
+#myConsoleBody{
+	padding:5px;
+	}
+
+/* imposto info primo layer */
+#divFirstLayout{
+	display:block;
+	height:50px;
+	background:#ccc;
+	padding:5px 5px 0 5px;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+}
+/* imposto info secondo layer */
+#divSecondLayout{
+	display:block;
+	height:180px;
+	padding:0 5px 5px 5px;
+	border-left:1px solid #999;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	background:#ccc;
+	margin-bottom:5px;
+}
+/* imposto info terzo layer */
+#divThirdLayout{
+	display:block;
+}
+
+/* */
+div.classQuesito{
+	width:100%;
+    height:60px;
+    overflow:auto;padding: 4px;
+    border:2px solid #888;
+	background:url(../../../../imagexPix/button/gradient/gradient.png);
+	background-repeat:repeat-x;
+}
+
+div.classDescrEsameQuesito{
+	color:white;	
+	font-size:14px;	
+	font-weight:bold;	
+	color:blue;	
+}
+
+div.classTestoQuesito{
+	margin-top:0px;
+	color:blue;
+	text-align:justify;	
+	font-size:14px;
+	overflow:auto;
+	
+}
+
+/* */
+
+div.classQuadro{
+	width:100%;
+    height:60px;
+    overflow:auto;padding: 4px;
+    border:2px solid #888;
+	background:url(../../../../imagexPix/button/gradient/gradient.png);
+	background-repeat:repeat-x;
+}
+div.classDescrEsameQuadro{	
+	font-size:14px;
+	font-weight:bold;	
+	color:blue;	
+}
+
+div.classTestoQuadro{
+	margin-top:0px;
+	text-align:justify;	
+	font-size:14px;		
+	color:blue;	
+	
+}
+
+
+
+
+
+#attesaBox{
+	background:#000;
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	display:block;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	visibility:hidden;
+}
+
+
+.testoAttesaBox{
+	top:10%;
+	left:30%; 
+	color:white; 
+	position:relative;
+	font-size:20px;
+	
+}
+
+
+DIV.boxSceltaEsami {
+  display:     block;
+  width:       500px;
+  height:      250px;
+
+  position:    absolute;
+  top:         120px;
+  left:        40px;
+
+  background:#e0e0e0;
+}
+
+
+SPAN.closeLinkInLine{
+	float:right;
+	top:-24px;
+	position:relative;
+	width:23px;
+	height:23px;
+	background-image:url(../../../../imagexPix/button/mini/btCloseInLine.png);	
+	background-repeat:no-repeat;
+	cursor:pointer;
+} 
+
+SPAN.lenteInLine{
+	float:left;
+	width:23px;
+	height:23px;
+	background:url(../../../../imagexPix/button/mini/lente.png) no-repeat;
+	cursor:pointer;
+} 
+
+/* link per elenco esami (lente) */
+A LABEL.elencoEsamiClass{
+	cursor:pointer;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	text-decoration:none;	
+	line-height:25px;
+	color:blue;
+	float:left;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+A:hover LABEL.elencoEsamiClass{
+	color:white;
+	background:#00F;
+}
+
+/* ********************* */
+
+/* link esami (solo inserimento) */
+A#idLinkSceltaEsami LABEL.esamiClass{
+	cursor:pointer;
+	font-size:12px;
+	font-weight:bold;
+	vertical-align:middle;
+	line-height:25px;
+	color:blue;
+	float:left;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+A#idLinkSceltaEsami:hover LABEL.esamiClass{
+	color:white;
+	background:#00F;
+}
+
+
+SPAN#spanNotificaMsg{
+	position:absolute;
+	left:0;
+	top:0;
+	background:red;
+	color:white;
+	text-align:left;
+	font-size:12px;
+	font-weight:bold;
+	width:150px;
+	height:22px;
+	visibility:hidden;
+	padding-left:4px;
+	overflow:auto;
+}
+
+
+SPAN#boxOpenExamForm{
+	width:40px;
+	height:23px;
+	cursor:pointer;
+	position:relative;
+	margin-top:-24px;
+	float:right;
+	background-image:url(../../../../imagexPix/button/mini/schedaRM.png);
+	background-repeat:no-repeat;
+	margin-right:3px;
+}
+
+LABEL#lblDESCR_SEC_MEDICO{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+#tableSecondLayer {
+	height:30px;
+	line-height:30px;
+	}
+	
+	
+
+/* al_headerTableConsole.css  */
+table.classTabHeader {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+
+table.classTabHeader td.classTabHeaderSx {
+	background:url(../../../../imagexPix/tabheader/tab_sx_2010.png) no-repeat;
+	width:14px;
+}
+
+table.classTabHeader td.classTabHeaderMiddle {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#000;
+	font-weight: bold;
+}
+
+#lblDescrizionePaziente, #lblAgeValue{color:#ff7e00;}
+
+table.classTabHeader td.classTabHeaderDx {
+	background:url(../../../../imagexPix/tabheader/tab_dx_2010.png) no-repeat;
+	width:14px;
+	}
+
+table.classTabHeader td.classTabFooterSx {
+background:url(../../../../imagexPix/tabheader/tab_sx_down_2010.png);
+width:14px;;
+}
+
+table.classTabHeader td.classTabFooterDx {
+background:url(../../../../imagexPix/tabheader/tab_dx_down_2010.png);
+width:14px;
+}
+
+
+
+table.classTabHeader td.classButtonHeader {
+background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+width:120px; 
+}
+
+
+table.classTabHeader td.classButtonHeaderContainer {
+background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+width:120px;
+}
+
+table.classTabHeader td.classButtonHeaderCarousel {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	width:400px;
+	color:#000;
+}
+
+
+table.classTabHeader td.classMiniButtonheader {
+background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+background-repeat:repeat-x;
+width:26px;
+padding:0,5px,0,5px;
+
+}
+
+/* ************ configurazione per intestazione rossa ********** */
+
+table.classTabHeader td.classTabHeaderSxRed{
+	background-image:url(../../../imagexPix/tabheader/tabSx_red.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddleRed {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabHeader td.classTabHeaderDxRed {
+background-image:url(../../../imagexPix/tabheader/tabDx_red.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+table.classTabHeader td.classButtonHeaderRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+table.classTabHeader TD#headerThirdLayoutButton.classButtonHeaderContainerRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+table.classTabHeader td.classMiniButtonheaderRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:26px;
+padding:0,5px,0,5px;
+
+}
+/* ************************************************************* */
+
+/* al_buttonValida.css */
+.classButtonValida {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/button/icon/validaUtente.gif);
+	text-align: center;
+	
+}
+
+.classButtonValida A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValida A:hover {
+	background-image:url(../../../../imagexPix/button/icon/validaUtente_over.gif);
+}
+/* pulsante di validazione con lucchetto */
+.classButtonValidaLock {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/button/icon/validaUtenteLock.gif);
+	text-align: center;
+	
+}
+
+.classButtonValidaLock A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValidaLock A:hover {
+	background-image:url(../../../../imagexPix/button/icon/validaUtenteLock_over.gif);
+}
+
+/* ****************************** */
+
+
+#idImgSecMed{
+width:32px;
+height:32px;
+display:inline;
+}
+
+/* al_button.css */
+.pulsante {
+	width:105px;
+	height:18px;
+	font-size: 12px;
+	background:url(../../../../imagexPix/bar/bw/pulsante105.png) no-repeat;
+	text-align: center;
+	line-height:18px;
+	float:right;
+	color:#000;
+	margin-top:1px;
+	margin-right:5px;
+}
+
+.pulsante A{
+	background:url(../../../../imagexPix/bar/bw/pulsante105.png) no-repeat;
+	text-decoration: none;
+	display:block;
+	color:black;
+}
+
+.pulsante A:hover {
+	background:url(../../../../imagexPix/bar/bw/pulsante105_hover.png) no-repeat;
+}
+.pulsanteDis {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}
+
+.pulsanteWide {
+	width:100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/bar/btLightCyan_50.jpg);
+	background-repeat:repeat;
+	text-align: center;
+	line-height:40px;
+}
+
+.pulsanteWide A{
+	width:100%;
+	height:50px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:inline-table;
+}
+
+.pulsanteWide A:hover {
+	background-image:url(../../../../imagexPix/bar/btCyan_50.jpg);
+	background-repeat:repeat;
+	color: yellow;
+}
+
+/* dialog_box.css */
+
+#content {padding:20px}
+#dialog {position:absolute; width:425px; padding:10px; z-index:200; background:#fff}
+#dialog-header {display:block; position:relative; width:411px; padding:3px 6px 7px; height:14px; font-size:14px; font-weight:bold}
+#dialog-title {float:left}
+#dialog-close {float:right; cursor:pointer; margin:3px 3px 0 0; height:11px; width:11px; background:url(../../../../imagexPix/dialog/dialog_close.gif) no-repeat}
+#dialog-content {display:block; height:160px; padding:6px; color:#666666; font-size:13px; font-family:Verdana, Arial, Helvetica;}
+#dialog-mask {position:absolute; top:0; left:0; min-height:100%; width:100%; background:#FFF; opacity:.75; filter:alpha(opacity=75); z-index:100}
+.error {background:#fff url(../../../../imagexPix/dialog/error_bg.jpg) bottom right no-repeat; border:1px solid #924949; border-top:none}
+.errorheader {background:url(../../../../imagexPix/dialog/error_header.gif) repeat-x; color:#6f2c2c; border:1px solid #924949; border-bottom:none}
+.warning {background:#fff url(../../../../imagexPix/dialog/warning_bg.jpg) bottom right no-repeat; border:1px solid blue; border-top:none}
+.warningheader {background:url(../../../../imagexPix/dialog/warning_header.gif) repeat-x; color:black; border:1px solid blue; border-bottom:none}
+.success {background:#fff url(../../../../imagexPix/dialog/success_bg.jpg) bottom right no-repeat; border:1px solid #60a174; border-top:none}
+.successheader {background:url(../../../../imagexPix/dialog/success_header.gif) repeat-x; color:#3c7f51; border:1px solid #60a174; border-bottom:none}
+.prompt {background:#fff url(../../../../imagexPix/dialog/prompt_bg.jpg) bottom right no-repeat; border:1px solid #4f6d81; border-top:none}
+.promptheader {background:url(../../../../imagexPix/dialog/prompt_header.gif) repeat-x; color:#355468; border:1px solid #4f6d81; border-bottom:none}
+
+
+/* carouselExam.css */
+.stepcarousel_Exam{
+	position: relative; /*leave this value alone*/
+	overflow: scroll; /*leave this value alone*/
+	width: 90%; /*Width of Carousel Viewer itself*/
+	height: 25px; /*Height should enough to fit largest content's height*/
+	padding-left:10px;
+	padding-right:10px;
+	margin-left:5px;	
+}
+
+.stepcarousel_Exam .beltCarousel_Exam{
+	position: absolute; /*leave this value alone*/
+	left: 0;
+	top: 0;
+}
+
+.stepcarousel_Exam .panelCarousel_Exam{
+	float: left; /*leave this value alone*/
+	overflow: hidden; /*clip content that go outside dimensions of holding panel DIV*/
+	width: 170px; /*Width of each panel holding each content. If removed, widths should be individually defined on each content DIV then. */
+	padding-left:3px;
+	padding-right:3px;
+	line-height: 25px;
+	height: 25px;
+}
+
+/* css per elemento del carosello */
+.stepcarousel_Exam  .singleExam{
+	font-style:12px;
+	text-decoration:none;
+	padding:3px;
+	height:18px;
+	line-height:22px;
+	color:#000;
+	font-weight:bold;
+}
+
+.singleExam img{
+	float:left;
+	margin-left:10px;
+	line-height:18px;
+	}
+
+
+.stepcarousel_Exam .panelCarousel_Exam A LABEL.labelSingleElemCarousel_Exam{
+	cursor:pointer;
+	font-size:12px;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A:hover LABEL.labelSingleElemCarousel_Exam{
+	color:white;
+	height:18px;
+	line-height:22px;
+	background-color:#00F;
+}
+/* ********** */
+/* css per elemento del carosello SELEZIONATO*/
+.stepcarousel_Exam .panelCarousel_Exam A LABEL.labelSingleElemCarousel_ExamSelected{
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A:hover LABEL.labelSingleElemCarousel_ExamSelected{
+	color:white;
+	background-color:#00F;
+	height:18px;
+	line-height:22px;
+}
+
+/* ********** */
+
+
+
+SPAN.infoButtonExam{
+	top:-25px;
+	position:relative;
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/info.png);
+	background-repeat:no-repeat;
+	cursor:pointer;	
+}
+
+
+/* sceltaEsamiBox.css */
+#sceltaEsamiBox{
+	background-color:#000;
+	filter:alpha(opacity=98);
+	-moz-opacity: 0.98;
+	opacity: 0.98;
+	display:block;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	visibility:hidden;
+	z-index:51;
+	border:2px 2px 2px 2px;
+	border-color:blue;
+}
+
+
+.testoSceltaEsamiBox{
+	top:10%;
+	left:30%; 
+	color:white; 
+	position:relative;
+	font-size:20px;
+	
+}
+
+
+
+/* commonInLineStyle.css */
+@charset "utf-8";
+/* CSS Document */
+
+
+.pulsanteInline A{
+	width:100%;
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:25px;
+	
+	float:left;
+	background-image:url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	display:block;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.pulsanteInline A:hover {
+	width:100%;	
+	background-image:url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;	
+}
+
+
+.infoInLine{
+	display:block;
+	background-color:#09C;
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+	height:25px;
+	line-height:25px;
+	width:100%;
+	overflow:hidden;
+	
+}
+
+.infoInLineSubTitle{
+	display:block;
+	background-color:#03F;	
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+}
+
+SPAN.closeLinkInLine{
+	float:right;
+	top:-24px;
+	position:relative;
+	width:23px;
+	height:23px;
+	background-image:url(../../../imagexPix/button/mini/btCloseInLine.png);	
+	background-repeat:no-repeat;
+	cursor:pointer;
+} 
+
+
+/* attesaRegistra.css */
+#divAttesa
+{
+	position:absolute;
+}
+body > div#divAttesa
+{
+	position:fixed;
+}
+
+div#divAttesa
+{
+	left:expression(((ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft)) + 'px');
+	top:expression(((ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop)) + 'px');
+}
+
+#divRichiesta
+{
+	position:absolute;
+}
+body > div#divRichiesta
+{
+	position:fixed;
+}
+
+div#divRichiesta
+{
+	left:expression(((ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft + ((document.body.offsetWidth / 2) - 170): document.body.scrollLeft + ((document.body.offsetWidth / 2) - 170))) + 'px');
+	top:expression(((ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop + ((document.body.offsetHeight / 2) - 100): document.body.scrollTop + ((document.body.offsetHeight / 2) - 100))) + 'px');
+}
+
+.clsDivBlackOpacity
+{
+	filter:alpha(opacity=74);
+	position:absolute;
+	width:100%;
+	height:expression(document.body.offsetHeight + 'px' );
+	top:0;
+	left:0;
+	background-color:black;
+	display:none;
+	z-index:10;
+}
+
+.clsDivAttesaRegistra
+{
+	filter:alpha(opacity=100);
+	position:absolute;
+	width:200px;
+	height:80px;
+	left:expression(((document.body.offsetWidth / 2) - 100) + 'px' );
+	top:expression(((document.body.offsetHeight / 2) - 50) + 'px' );
+	background-color:white;
+	vertical-align:middle;
+	border:ridge;
+	border-color:#999999;
+	z-index:11;
+}
+
+.clsImgAttesaRegistra
+{
+	position:absolute;
+	width:160px;
+	left:16px;
+	top:expression((document.all['divRegistraAttesa'].offsetHeight - 30) + 'px' );
+}
+
+.clsSpanAttesaRegistra
+{
+	font-style:oblique;
+	font-weight: bold;
+	font-size:16px;
+	text-align:center;
+	text-shadow:#00CCFF;
+	position:absolute;
+	width:160px;
+	left:16px;
+	top:10px;
+}
+
+.clsdivRichiestaPassword
+{
+	position:absolute;
+	width:340px;
+	height:2000px;
+	/*left:expression(((document.body.offsetWidth / 2) - 170) + 'px' );
+	top:expression(((document.body.offsetHeight / 2) - 100) + 'px' );*/
+	vertical-align:middle;
+	z-index:11;
+}
+
+/* conclusioniStyle.css */
+@charset "utf-8";
+/* CSS Document */
+
+body { font-size:0.75em;}
+h1 { font-size: 1.2em; margin: .6em 0; }		
+fieldset { padding:0; border:0; margin-top:25px; }
+div#users-contain { width: 500px; margin: 20px 0; }
+div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; }
+#widget-docs .ui-state-error, #widget-docs .ui-widget-content #widget-docs .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec url(std/jscript/jQueryUI/images/fef1ec_40x100_textures_05_inset_soft_95.png) 50% bottom repeat-x; color: #cd0a0a; }
+#widget-docs .ui-state-error .ui-icon, #widget-docs .ui-state-error-text .ui-icon {background-image: url(std/jscript/jQueryUI/images/cd0a0a_256x240_icons_icons.png); }	

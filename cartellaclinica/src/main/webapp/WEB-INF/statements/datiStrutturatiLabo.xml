@@ -1,0 +1,367 @@
+<root>
+	<statements_list>
+		<statement name="getDatiMicrobiologia">				
+			<sql>
+			<![CDATA[
+		select rg.strnomemicro||'('||rg.bytprogrmicro||')' GERME,ra.strnomeantibiotico ANTIBIOTICO,ra.strmic MIC, ra.strrisultatorsi RISULTATORSI 
+		from infoweb.risultati_germi rg 
+			left outer join infoweb.risultati_antibiogrammi ra
+			on ((rg.id_whale = ra.id_whale or rg.seqrichiesta = ra.seqrichiesta)and rg.bytprogranalisi=ra.bytprogranalisi and rg.bytprogranalisiprofilo=ra.bytprogranalisiprofilo and rg.bytprogrmicro=ra.bytprogrmicro) 
+		where 	rg.bytprogrmicro=ra.bytprogrmicro 
+				and rg.seqrichiesta in (select seqrichiesta from infoweb.dati_strutt_laboratorio where iden_whale = ?)
+				and rg.bytprogranalisi=? AND rg.bytprogranalisiprofilo=? 
+		order by rg.strnomemicro,rg.bytprogrmicro,ra.strnomeantibiotico
+			]]>
+			</sql>
+		</statement>
+		<statement name="insertNewPrestazione">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				Declare
+  					
+  					newPrestUser	varchar2(4001)	:= ?;
+  					newPrestDescr	varchar2(4001)	:= ?;
+  					newPrestVMin	varchar2(4001)	:= ?;
+  					newPrestVMax	varchar2(4001)	:= ?;
+  					newPrestUM		varchar2(4001)	:= ?;
+  					newPrestNote	varchar2(4001)	:= ?;   					
+  					
+					vInTabEsa		Pls_Integer;
+  					vIdenEsa		Pls_Integer;
+  					vIdenRange		varchar2(4001);
+  					vCodEsa			varchar2(4001);
+					vCodDec			varchar2(4001);
+  					currVal 		Pls_Integer;
+  					
+				Begin
+				
+					Execute Immediate 'Select Count(Iden) From Radsql.Tab_Esa Where Descsirm = :bDescrEsa and Attivo = ''S''' Into vInTabEsa Using newPrestDescr;
+					
+					if (vInTabEsa > 0) Then
+						
+						Execute Immediate 'Select Iden, Cod_Esa, Cod_Dec From Radsql.Tab_Esa Where Descr = :bDescrEsa and Attivo =''S'' and Rownum < 2' Into vIdenEsa, vCodEsa, vCodDec Using newPrestDescr;						
+						Insert Into Radsql.Tab_Esa_Range_Riferimento (IDEN_ESA, COD_DEC, VALORE_MINIMO, VALORE_MASSIMO, UTE_INS) Values (vIdenEsa, vCodDec, newPrestVMin, newPrestVMax, newPrestUser);  					
+					
+					Else
+					
+						Insert Into radsql.tab_esa (Descr,Descsirm,Tmp_Esa,attivo,Metodica,Esame_di_Servizio,Branca,Mn_Doppia_Dose,Esecuzione_Obbligatoria,cdc) values  (upper(newPrestDescr),upper(newPrestDescr),1,'S','L','N','L','N','S','');	
+						Select seq_tab_esa.currval, to_char(seq_tab_esa.currval), 'W'|| to_char(seq_tab_esa.currval) Into currVal, vIdenEsa, vCodEsa from dual;	
+						Execute Immediate 'Update Radsql.Tab_Esa Set cod_esa = ''W''||to_char(:currVal), cod_dec = ''W''||to_char(:currVal) Where iden = :currVal and rownum < 2' Using currVal, currVal, currVal;						
+						Insert Into Radsql.Tab_Esa_Range_Riferimento (IDEN_ESA, COD_DEC, VALORE_MINIMO, VALORE_MASSIMO,UTE_INS) Values (vIdenEsa, Substr(vCodEsa,2), newPrestVMin, newPrestVMax, newPrestUser);  								
+						
+					End If;
+					
+					Select to_char(seq_esa_range_rif.currval) Into vIdenRange from dual;
+  					
+  					? := vIdenEsa;
+					? := vCodEsa;
+					? := vIdenRange;
+					? := vCodDec;  
+					
+				End;							
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getInfoPaziente">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				Declare
+  
+			  		pIdenAnag	varchar2(4001) := ?;
+					vNomePz		varchar2(4001);
+					vCognPz		varchar2(4001);
+					vDataPz		varchar2(4001);
+					vCFPz		varchar2(4001);
+			  	
+				Begin
+		
+		    		Execute Immediate 'Select Nome, Cogn, Data, Cod_Fisc From Radsql.Anag Where Iden = :bIdenAnag' Into vNomePz, vCognPz, vDataPz, vCFPz Using pIdenAnag;
+					
+					? := vNomePz;
+					? := vCognPz;
+					? := vDataPz; 
+					? := vCFPz;
+		 
+				End;							
+			]]>
+			</sql>
+		</statement>
+		<statement name="insertNewRisultato">
+			<schema>INFOWEB</schema>
+			<sql>
+			<![CDATA[
+				Declare
+  					
+  					v_iden_anag		varchar2(4001)	:= ?;
+  					v_data_esa		varchar2(4001)	:= ?;
+  					v_cod_esa		varchar2(4001)	:= ?;
+  					v_vmin_esa		varchar2(4001)	:= ?;
+  					v_vmax_esa		varchar2(4001)	:= ?;  					
+  					v_mat_esa		varchar2(4001)	:= ?;
+  					v_risultato		varchar2(4001)	:= ?;
+  					v_nome_pz		varchar2(4001)	:= ?;
+  					v_cogn_pz		varchar2(4001)	:= ?;
+  					v_data_pz		varchar2(4001)	:= ?;
+  					v_cod_fisc		varchar2(4001)	:= ?;
+  					v_id_paz		varchar2(4001)  := ?;
+  					v_prov			varchar2(4001)  := ?;
+  					v_nosol			varchar2(4001)  := ?;
+  					v_user			varchar2(4001)	:= ?;
+  					v_cdc			varchar2(4001)	:= ?;
+					
+					v_cod_esaE		Varchar2(4001);
+					v_dest 			Varchar2(4001);
+					v_tabella		Varchar2(4001);
+					v_annoFineRic	Varchar2(4001);
+					vAnno			Varchar2(4001);
+					v_cod_dec_prov  Varchar2(4001);
+					v_cod_pro       Varchar2(4001);
+					ris 			boolean;
+					vSeq            integer;
+  					
+						Begin
+				
+					if (v_prov='I') then
+						select destinazione_dati, substr(data_fine_ricovero,1,4) into v_dest,v_annoFineRic from nosologici_paziente where num_nosologico=v_nosol and accesso='0';
+						if (v_dest='LINEA') then
+						  v_tabella:='DATI_STRUTT_LABORATORIO';
+						elsif (v_dest='STORICO') then
+						  vAnno:=CC_DATI_LABORATORIO.checkTabellaAnno(to_number(v_annoFineRic));
+						  v_tabella:='DATI_STRUTT_LAB_STORICO_' || vAnno;						
+						end if;
+					 else
+					    vAnno:=CC_DATI_LABORATORIO.checkTabellaAnno(to_number(substr(v_data_esa,1,4)));			
+              		    v_tabella:='DATI_STRUTT_LAB_STORICO_' || vAnno;		
+              		end if;
+  					
+					-- Seleziono Cod_Esa 
+					if (substr(v_cod_esa,1,1)='W') then
+					v_cod_esaE:=v_cod_esa;
+					else
+					v_cod_esaE:='E'||v_cod_esa;
+					end if;
+					
+					select t.cod_pro,c.cod_dec into v_cod_pro,v_cod_dec_prov from radsql.tab_pro t join radsql.centri_di_costo c on (c.cod_dec=t.cod_dec) where c.cod_cdc=v_cdc;
+					
+					SELECT infoweb.seq_dsl_null_value.nextval into vSeq from dual;
+					
+					-- Differenzio Insert a seconda Abbia Un Range o Un Valore di Riferimento
+					if (v_vmin_esa = v_vmax_esa) Then
+                    	 execute immediate 'Insert Into INFOWEB.'||v_tabella||' (IDEN_WHALE,DTMDATAACCETTAZIONE,STRIDANALISISINGOLA,STRIDANALISIMULTIPLA,STRIDANALISISINGOLAWHALE,STRRISULTATOESAMECORTO,STRVALORERIFERIMENTO,STRIDSISTEMAESTERNO,STRCODNOSOLOGICO,STRNOME,STRCOGNOME,STRCODICEFISCALE,DTMDATANASCITA,STRIDPAZIENTEESTERNO,DTMDATAPRELIEVO,STRUSER,COD_DEC,bytstatorichiesta, bytnummicroidentificati,STRIDMATERIALE,INT_EST,BRANCA,STRIDREPARTO,SEQRICHIESTA,STRIDRICHIESTAESTERNO,STRIDRICHIESTA)Values(REPLACE(:data_esa,'':'','''')||:iden_anag,to_date(:data_esa,''YYYYMMDDHH24:MI''),:cod_dec,:cod_dec,:cod_esa,:risultato,:max_esa,''IMPORTAZIONE_MANUALE'',:nosologico,:nome,:cogn,:cod_fisc,to_date(:data_pz,''YYYYMMDD''),:id_paz,to_date(:data_esa,''YYYYMMDDHH24:MI''),:buser,:v_cod_dec_prov,''8'',''0'',:mat_esa,:int_est,''L'',:v_cod_pro,:seqrichiesta,:stridrichestaesterno,:stridrichiesta)' using v_data_esa,v_iden_anag,v_data_esa,v_cod_esa,v_cod_esa,v_cod_esaE,v_risultato,v_vmax_esa,v_nosol,v_nome_pz,v_cogn_pz,v_cod_fisc,v_data_pz,v_id_paz,v_data_esa,v_user,v_cod_dec_prov,v_mat_esa,v_prov,v_cod_pro,vSeq,'EXT'||to_char(vSeq),'F'||to_char(vSeq);	--		Else
+					else
+						execute immediate 'Insert Into INFOWEB.'||v_tabella||' (IDEN_WHALE,DTMDATAACCETTAZIONE,STRIDANALISISINGOLA,STRIDANALISIMULTIPLA,STRIDANALISISINGOLAWHALE,STRRISULTATOESAMECORTO,SNGVALORERIFERIMENTOMIN,SNGVALORERIFERIMENTOMAX,STRIDSISTEMAESTERNO,STRCODNOSOLOGICO,STRNOME,STRCOGNOME,STRCODICEFISCALE,DTMDATANASCITA,STRIDPAZIENTEESTERNO,DTMDATAPRELIEVO,STRUSER,COD_DEC,bytstatorichiesta, bytnummicroidentificati,STRIDMATERIALE,INT_EST,BRANCA,STRIDREPARTO,SEQRICHIESTA,STRIDRICHIESTAESTERNO,STRIDRICHIESTA) Values(to_number(REPLACE(:data_esa,'':'','''')||:iden_anag),to_date(:data_esa,''YYYYMMDDHH24:MI''),:cod_dec,:cod_dec,:cod_esa,:risultato,to_number(:min_esa),to_number(:max_esa),''IMPORTAZIONE_MANUALE'',:nosologico,:nome,:cogn,:cod_fisc,to_date(:data_paz,''YYYYMMDD''),:id_paz,to_date(:data_esa,''YYYYMMDDHH24:MI''),:buser,:v_cod_dec_prov,''8'',''0'',:mat_esa,:int_est,''L'',:v_cod_pro,:seqrichiesta,:stridrichestaesterno,:stridrichiesta)' using v_data_esa,v_iden_anag,v_data_esa,v_cod_esa,v_cod_esa,v_cod_esaE,v_risultato,v_vmin_esa,v_vmax_esa,v_nosol,v_nome_pz,v_cogn_pz,v_cod_fisc,v_data_pz,v_id_paz,v_data_esa,v_user,v_cod_dec_prov,v_mat_esa,v_prov,v_cod_pro,vSeq,'EXT'||to_char(vSeq),'F'||to_char(vSeq);    		    	  
+    		     	End If;  					
+				End;								
+			]]>
+			</sql>
+		</statement>
+		<statement name="manageProfilo">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				Declare
+  
+			  		pReparto        varchar2(4001) := ?;
+			  		pCodprofilo     varchar2(4001) := ?;
+			  		pdescrProfilo   varchar2(4001) := ?;
+			  		pIdEsami        varchar2(4001) := ?;
+			  		pTipo           varchar2(50)   := ?;
+			
+				Begin
+		  			-- 0 Inserimento
+		  			-- 1 Modifica
+		  			-- 2 Delete
+		
+		    		if(pTipo = '1' or pTipo = '2') then
+		       	 		-- Caso di modifica o cancellazione!  
+		        		delete from TAB_ESA_GRUPPI where COD_GRUPPO = pCodprofilo and  SITO = 'VISUALIZZA_PRO_LABO' and REPARTO = pReparto;
+		    		end if;
+		    
+		    		if(pIdEsami <> 'DEL') then
+		       		 	insert into TAB_ESA_GRUPPI(COD_GRUPPO, SITO, REPARTO, DESCR, IDEN_ESA, COD_DEC) 
+		        		select /*+first_rows(100)*/ pCodprofilo, 'VISUALIZZA_PRO_LABO', pReparto, pdescrProfilo, to_number(substr(COLUMN_VALUE,0,instr(COLUMN_VALUE,'$')-1)), substr(COLUMN_VALUE,instr(COLUMN_VALUE,'$')+1)  from table(split(pIdEsami));
+		    		end if;
+		    
+		    		commit;
+		 
+				End;							
+			]]>
+			</sql>
+		</statement>
+		<statement name="deletePrestazione">
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				Declare
+  
+			  		pIdenEsa        varchar2(4001) := ?;
+			  		pUser     		varchar2(4001) := ?;
+					
+					vCountEsaMnuali Pls_Integer;
+			  		vCountEsaSys	Pls_Integer;
+					vCaseReturn		varchar2(4001);
+					
+				Begin
+		  			
+		    		Execute Immediate 'Select count(Iden_Esa) From Radsql.Tab_Esa_Range_Riferimento T Where T.Ute_Ins = :bUser and Iden_Esa = :bIdenEsa ' Into vCountEsaMnuali Using pUser, pIdenEsa;
+					Execute Immediate 'Select count(Iden_Esa) From Radsql.Tab_Esa_Range_Riferimento T Where T.Ute_Ins <> :bUser and Iden_Esa = :bIdenEsa ' Into vCountEsaSys Using pUser, pIdenEsa;
+		    		
+					vCaseReturn := '0';
+						
+					If vCountEsaSys > 0 and vCountEsaMnuali > 0 Then
+						-- Ci Sono Sia Esami Inseriti Manualmente Che Da Sistema - Rimuovo solo le rige dei range
+						Execute Immediate 'Delete Radsql.Tab_Esa_Range_Riferimento Where Ute_Ins = :bUser and Iden_Esa = :bIdenEsa ' Using pUser, pIdenEsa;
+						vCaseReturn := '1';
+					Elsif vCountEsaSys < 1 and vCountEsaMnuali > 0 Then
+						--  Ci Sono Solo Esami Inseriti Manualmente - Disattivo il record su Tab_Esa
+						Execute Immediate 'Delete Radsql.Tab_Esa_Range_Riferimento Where Ute_Ins = :bUser and Iden_Esa = :bIdenEsa ' Using pUser, pIdenEsa;
+						Execute Immediate 'Update Radsql.Tab_Esa Set Attivo = ''N'' Where Iden = :bIdenEsa' Using pIdenEsa;						
+						vCaseReturn := '2';
+					End If;
+					
+		    		commit;
+					
+					? := vCaseReturn;
+		 
+				End;							
+			]]>
+			</sql>
+		</statement>
+		<statement name="checkDatiManuali">				
+			<sql>
+			<![CDATA[
+				Declare
+  					
+  					pIdenAnag	Varchar2(4001)	:= ?;
+  					pNosologico	Varchar2(4001)	:= ?;
+  					vCount		Pls_Integer; 
+  					vMinData	Varchar2(4001);
+  					 					
+				Begin
+				
+					select min(data_accettazione) Into vMinData from infoweb.view_risultati_laboratorio where num_nosologico = pNosologico;
+  					select count(*) Into vCount From Infoweb.View_Risultati_Laboratorio Where iden_Testata like '____________'||pIdenAnag and num_nosologico = 'NOS'||pIdenAnag and Data_Accettazione > vMinData;
+  					
+  					? := vCount;
+					
+				End;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getCodEsaByIden">				
+			<sql>
+			<![CDATA[
+				Declare
+  					
+  					pConcatIdenEsa	Varchar2(4001)	:= ?;
+					vConcatIdenEsa	Varchar2(4001); 
+  					 					
+				Begin
+				
+					Select Radsql.Concat_Fields_Param('Select cod_esa From Radsql.Tab_Esa Where iden in (select column_value from table(split(:parametro)))',pConcatIdenEsa) Into vConcatIdenEsa from dual;
+  					? := vConcatIdenEsa;
+					
+				End;
+			]]>
+			</sql>
+		</statement>                
+		<statement name="insertCodEsaByIdenToTabWork">				
+			<sql>
+			<![CDATA[
+				Declare
+  					pConcatIdenTes	Varchar2(4001)	:= ?;  					
+  					pConcatIdenEsa	Varchar2(4001)	:= ?;
+                                        pWebUser        Varchar2(4001)  := ?;
+                                        pIdenVisita     pls_integer     := ?;                                        
+					vConcatIdenEsa	Varchar2(4001); 
+  					vOut	Varchar2(4001); 					
+				Begin
+                                    Begin
+                                        delete from radsql.tab_work where tipo = 'DATI_LABO_LETTERA' and webuser=pWebUser;
+					Select radsql.Concat_Fields_Param ('Select cod_esa From Radsql.Tab_Esa Where iden in (select column_value from table(split(:parametro)))',pConcatIdenEsa) Into vConcatIdenEsa from dual;
+  					insert into radsql.tab_work
+                                        (webuser,tipo,valore1,valore2,valoren1)
+                                        values(pWebUser,'DATI_LABO_LETTERA',pConcatIdenTes,vConcatIdenEsa,pIdenVisita);
+                                        vOut := '';
+                                        exception when others then
+                                        vOut := sqlerrm;
+                                    end;
+                                    ?:=vOut;    
+				End;
+			]]>
+			</sql>
+		</statement>   
+                <statement name="getXmlDati">	
+                        <params>                            
+                            <param index="1" type="VARCHAR"/>
+                            <param index="2" type="VARCHAR"/>
+                            <param index="3" type="VARCHAR"/>
+                            <param index="4" type="VARCHAR"/>
+                            <param index="5" type="VARCHAR"/>
+                            <param index="6" type="VARCHAR"/>
+                            <param index="7" type="VARCHAR"/>
+                            <param index="8" type="VARCHAR"/>
+                            <param index="9" type="VARCHAR"/>
+                            <param index="10" type="VARCHAR"/>
+                            <param index="11" type="VARCHAR"/>
+                            <param index="12" type="VARCHAR"/>
+                            <param index="13" type="CLOB"/>
+                            <param index="14" type="VARCHAR"/>
+                        </params>                      			
+			<sql>
+			<![CDATA[
+                                Declare
+                                    pModalita         varchar2(5000) := ?;
+                                    pReparto          varchar2(5000) := ?;
+                                    pNosologico       Varchar2(5000) := ?;
+                                    pIdPaziente       Varchar2(5000) := ?;
+                                    pIdenRichiesta    Varchar2(5000) := ?;
+                                    pNumRic           Varchar2(5000) := ?;
+                                    pGiorniPs         Varchar2(5000) := ?;
+                                    pDataInizio       Varchar2(5000) := ?; 
+                                    pDataFine         Varchar2(5000) := ?;
+                                    pElencoEsami      Varchar2(5000) := ?;
+                                    pProvRisultati    Varchar2(5000) := ?;
+                                    pBranca           Varchar2(5000) := ?;
+                                    xmlOut            CLOB;
+                                    errOut            VARCHAR2(5000);
+				Begin
+                                     
+                                    pNumRic := iif(pNumRic is null or pNumRic = '', 'TUTTE', pNumRic);                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                      
+                                    CC_DATI_LABORATORIO.GET_XML_ESAMI_LABO(pModalita, pReparto, pNosologico, pIdPaziente, pIdenRichiesta, pNumRic, pGiorniPs, pDataInizio, pDataFine, pElencoEsami, pProvRisultati, pBranca, xmlOut, errOut);
+
+                                    ? := xmlOut;
+                                    ? := errOut;
+				End;
+			]]>
+			</sql>
+		</statement> 
+		<statement name="esitiConsultati">				
+			<sql>
+			<![CDATA[
+				Declare
+                   pIdenPer        pls_integer   := ?;
+                   pIdenVisita     pls_integer     := ?;                                        
+				   pInsert	    	Varchar2(4001) := ?; 					
+				Begin
+				 if(pInsert='S') then
+               		insert into ESITI_CONSULTATI (iden_per,iden_testata_richieste) values (pIdenPer,pIdenVisita); 
+				 else
+					delete ESITI_CONSULTATI where  iden_per=pIdenPer and iden_testata_richieste=pIdenVisita; 
+				 end if;
+               End;
+			]]>
+			</sql>
+		</statement>   
+		 <statement name="getEsitiConsultati">				
+			<sql>
+			<![CDATA[
+				select iden_testata_richieste from esiti_consultati WHERE iden_per=? and PRESENZA_ULTERIORI_VERSIONI='N'  and iden_testata_richieste IN (SELECT column_value FROM TABLE(split(?)))
+			]]>
+			</sql>
+		</statement>               
+	</statements_list>
+</root>

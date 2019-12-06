@@ -1,0 +1,18 @@
+body{width:960px}
+
+#lblDataMarkerTumFirst, #lblDataMarkerTumSec, #lblMarkerValFirst, #lblMarkerValSec {
+	
+	width: auto;
+}
+
+#fldCheck >table.campi tr td.tdText {
+	
+	
+	width: 42%;
+}
+
+#fldCheck >table.campi tr td.tdCheck {
+	
+	
+	width: 23%;
+}

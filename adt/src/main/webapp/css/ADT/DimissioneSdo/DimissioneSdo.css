@@ -1,0 +1,17 @@
+#idDatiAusiliari{
+	width:60%
+}
+
+#txtGgPermesso,#cmbAssDomi,#cmbRefAutop{
+	width:60px;
+}
+#lblAssDomi{
+	width:200px;
+}
+#txtDescrDRG{
+    width:600px;
+}
+#txtOraRicovero,#txtOraUltimoMov{
+	width:50px;
+}
+#butDiagnosi0UP, #butDiagnosi6DOWN, #butIntervento0UP, #butIntervento6DOWN {visibility:hidden;}

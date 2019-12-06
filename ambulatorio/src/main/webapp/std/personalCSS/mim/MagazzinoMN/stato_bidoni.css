@@ -1,0 +1,15 @@
+aperto{
+	background-color:'white';
+}
+
+.chiuso{
+	background-color:'green';
+}
+
+.ritirato{
+	background-color: 'yellow';
+}
+
+.cancellato{
+	background-color: '#FF0000';/*red*/
+}

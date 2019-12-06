@@ -1,0 +1,18 @@
+<INCLUDE>
+	
+	<CSS path="css/MMG/mmg.css" />
+	<!-- <CSS path="css/font-override.css" /> -->
+	<CSS path="css/ie.css"  condizione="IE" />
+	
+	<JS path="js/Base/LIB.js" />
+	<JS path="js/MMG/LIB.js" />
+	<JS path="js/Base/NO-min/ecma.js"  condizione="IE" />
+	<JS path="dwr/engine.js" />
+	<JS path="dwr/interface/toolKitDB.js" />
+	<JS path="dwr/interface/toolKitWK.js" />
+	<JS path="js/MMG/NS_MMG_UTILITY.js" />
+	<JS path="js/Base/NS_FENIX.js" />
+	<JS path="js/MMG/NS_PROCESS_CLASS_MMG.js" />
+	
+</INCLUDE>
+

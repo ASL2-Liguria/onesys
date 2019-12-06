@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+       <lblTitolo>RICHIESTA POSIZIONAMENTO CVC</lblTitolo>
+       <fldDatiPrincipali>Dati Principali</fldDatiPrincipali>
+
+       <lblIndicazioni>Indicazioni al posizionamento</lblIndicazioni>
+       <lblDiagnosi>Diagnosi</lblDiagnosi>
+       <lblNotizie>Eventuali notizie utili al posiz del CVC</lblNotizie>
+       <lblTerapiaProgrammata>Terapia programmata</lblTerapiaProgrammata>
+       <lblAllergieNote>Allergie note</lblAllergieNote>
+       <lblLatoPreferibile>Lato preferibile per il pz.</lblLatoPreferibile>
+       <lblTerapieDaSospendere>Eventuali terapie in corso da sospendere</lblTerapieDaSospendere>
+        <fldTempoRichiesto>Tempo richiesto per il posizionamento</fldTempoRichiesto>
+        <lblUrgente>Urgente</lblUrgente>
+        <lblMotivo>Motivazione</lblMotivo>
+        <lblData>Entro il</lblData>
+        <lblCompilato>Conesnso informato compilato</lblCompilato>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

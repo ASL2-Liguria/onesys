@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/MMG/Anagrafica/SchedaAnagrafica.css" />
+	<JS path="js/MMG/Anagrafica/anagrafica.js" />
+</INCLUDE>
+

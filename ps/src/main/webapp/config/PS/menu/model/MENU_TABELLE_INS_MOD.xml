@@ -1,0 +1,26 @@
+<MENU>
+    <ID>MENU_TABELLE_INS_MOD</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>MTIM_INSERISCI</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=' + $('input[name="SCHEDA"]').val(),id:'Scheda',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.GestTabInserisci</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"inserimento"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MTIM_MODIFICA</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=' + $('input[name="SCHEDA"]').val() + '&IDEN='+rec[0].IDEN,id:'Scheda',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE>
+            <OUTPUT>traduzione.GestTabModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"modifica"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

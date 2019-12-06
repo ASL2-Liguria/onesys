@@ -1,0 +1,75 @@
+<PAGINA key_id="GESTIONE_PROFILI">
+	<HEADER_PAGE key_id="GESTIONE_PROFILI"
+		valore="DEFAULT_MMG,SCHEDA,GESTIONE_PROFILI#DEFAULT_MMG,GESTIONE_PROFILI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#####" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="GestProf#lblTitolo#butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabProfili"
+				valore="tabProfili" evento="START">
+				<FIELDSET_TABLE key_id="fldtbl" valore="fldtbl"
+					evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD.INIT key_id="TD" valore="" evento="START">
+							<TD_TEXT key_id="txtCercaGruppi" valore="txtCercaGruppi"
+								evento="START">
+							</TD_TEXT>
+						</TD.INIT>
+					</TR.INIT>
+					<TR_TD_LABEL_COMBO_LIST key_id="listGruppi"
+						valore="lblGruppi#listGruppi#listGruppi#listGruppi#listGruppi"
+						evento="START">
+					</TR_TD_LABEL_COMBO_LIST>
+					<TR.INIT key_id="TR2" valore="" evento="START">
+						<TD.INIT key_id="TD2" valore="1" evento="START">
+						</TD.INIT>
+						<TD.INIT key_id="TD3" valore="1" evento="START">
+							<BUTTON key_id="butElimina" valore="butElimina" evento="START">
+							</BUTTON>
+							<BUTTON key_id="butAggiungi" valore="butAggiungi" evento="START">
+							</BUTTON>
+							<BUTTON key_id="butDuplica" valore="butDuplica" evento="START">
+							</BUTTON>
+							<BUTTON key_id="butModificaNome" valore="butModificaNome" evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDettaglio" valore="fldDettaglio"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="gruppo"
+						valore="lblNomeGruppo#txtNomeGruppo#txtNomeGruppo" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_COMBO_LIST key_id="listGruppiCross"
+						valore="lbllistCross#listCross#listCross#listCross#listCross"
+						evento="START">
+					</TR_TD_LABEL_COMBO_LIST>
+					<INPUT.HIDDEN key_id="HIdenGruppo" valore="HIdenGruppo"
+						evento="START">
+					</INPUT.HIDDEN>
+					<TR_TD_AUTOCOMPLETE key_id="ac_prestazioni"
+						valore="lblPrestazioni#acPrestazioni#prestazioni#prestazioni#AC_PRESTAZIONI#PRESTAZIONI"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR.INIT key_id="TR3" valore="" evento="START">
+						<TD.INIT key_id="TD4_spaziatore" valore="1" evento="START">
+						</TD.INIT>
+						<TD.INIT key_id="TD4" valore="1" evento="START">
+							<BUTTON key_id="butChiudiDettaglio" valore="butChiudiDettaglio"
+								evento="START">
+							</BUTTON>
+							<BUTTON key_id="butAggiungiAccertamento" valore="butAggiungiAccertamento"
+								evento="START">
+							</BUTTON>
+							<BUTTON key_id="butRimuoviAccertamento" valore="butRimuoviAccertamento"
+								evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

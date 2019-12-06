@@ -1,0 +1,146 @@
+<MENU>
+    <ID>MENU_WK_GEST_RICH_CART</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+    	<ITEM>
+            <ID>INSERISCI_RICHIESTA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.inserisciRichiesta(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Inserimento richiesta cartella"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_RICHIESTA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.modificaRichiesta(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Modifica richiesta cartella"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CARTELLA_ARRIVATA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setCartellaArrivata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella arrivata"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COPIA_FATTA_FIRMATA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setStatoRichiestaCartella(rec,'04','03');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Copia fatta e firmata"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COPIA_CONSEGNATA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setStatoRichiestaCartella(rec,'05','04');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Copia consegnata"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COPIA_SPEDITA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setStatoRichiestaCartella(rec,'06','04');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Copia spedita"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COPIA_SPEDITA_REPARTO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setStatoRichiestaCartella(rec,'07','04');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Copia spedita in reparto"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COPIA_SPEDITA_ENTE</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setStatoRichiestaCartella(rec,'08','04');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Copia spedita all'ente"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COPIA_SOSPESA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setStatoRichiestaCartella(rec,'15','');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Copia sospesa"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>COPIA_ANNULLATA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.setStatoRichiestaCartella(rec,'16','');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Copia annullata"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>SOLLECITA_CARTELLA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.sollecitaCartelle(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return NS_HOME_ARCHIVIO_WK.where.isAdt(rec);}]]></WHERE>
+            <OUTPUT>"Sollecita Cartelle"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_STATO_RICHIESTA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_RICHIESTE.AnnullaStatoRichiestaCartella(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla stato richiesta"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CRONOLOGIA RICHIESTA</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=RICHIESTA_CARTELLA_CRONO&IDEN_RICHIESTA='+rec[0].IDEN_RICHIESTA+'&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA,id:'CronoRichiestaCartella',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cronologia richiesta cartella"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>VISUALIZZA_VERBALE</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_WK.apriVerbale(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return NS_HOME_ARCHIVIO_WK.where.isPsDiacharged(rec);}]]></WHERE>
+            <OUTPUT>"Visualizza Verbale"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

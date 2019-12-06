@@ -1,0 +1,155 @@
+/*	Reset	*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;/*vertical-align:baseline*/}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+	html{height:100%;overflow-y:scroll;overflow-x:hidden;}
+	body{height:100%;}
+	div{display:block;}
+	
+	input.Calendario{width:70px;}
+	
+	div#Intestazione{background:#efefef;display:block;overflow:hidden;}
+	div#Intestazione > div{clear:both;margin:5px;}
+	div#Intestazione div div{float:left;}
+	div#Intestazione div div.Header{width:15%;border:1px solid blue;margin:3px;}
+	div#Intestazione div div.Detail{width:30%;}	
+		
+	div.Riga{clear:both;background:#efefef;border-top:1px solid #ccc;border-bottom:1px solid #ccc;overflow:hidden;margin-bottom:3px;font-size:12px;font-family:Arial;padding:1px;width:100%;margin-left: 3px; border-left: 3px solid transparent}
+	
+	div.Today{background:#C4FFC4;}
+	
+	div.Riga > div {float:left;/*width:16%;*/border:1px solid #07336e;line-height:18px;margin:1px;color:#000;/*background:#fff;*/}
+	
+	div.Riga > div.RowDiari{clear:both;width:98%;color:#07336e;background:none;border:none;}
+	div.DiarioMedico{/*padding-left:120px;width:43%;*/float:left;}
+	div.DiarioInfermiere{/*width:43%;*/float:right;}
+	div.NotaDiario{margin:3px;border:1px solid #6aa8f2;background:#FFF;display:block;overflow:hidden;}
+	div.NotaDiario div{float:left;}
+	div.NotaDiario div.Header{color:#000;font-weight:bold;background:#daf5fe;width:19%;height:100%;}
+	div.NotaDiario div.Data{width:80%;padding-left:4px;}
+	
+	div.Riga > div.Appuntamento{width:22px;border:none;background-repeat:no-repeat;background-position:center;}
+	div.tDetail > div.Appuntamento:hover{cursor:hand;background-color:yellow;}
+	div.Riga > div.Appuntamento.ATTIVO{background-image:url(../../../imagexPix/contextMenu/calendar_16.png);}
+	
+	div.Riga > div.Accesso{width:22px;border:none;background-repeat:no-repeat;background-position:center;}
+	div.tDetail > div.Accesso:hover{cursor:hand;background-color:yellow;}
+	div.Riga > div.Accesso.ATTIVO{background-image:url(../../../imagexPix/contextMenu/key_16.png);}
+	
+	div.Riga > div.Data{width:6%;font-size:12px;line-height:18px;text-align:center;border:none;}
+	div.Riga > div.Ora{width:4%;line-height:18px;text-align:center;border:none;}	
+	div.Riga > div.NoteAppuntamento{width:18%;border:1px solid #ccc;}	
+	
+	div.tHeader{background:url(../../../imagexPix/bar/MenuImgV.png) repeat-x;border:1px solid #FFF;}
+	div.tHeader > div{font-weight:bold;color:#FFF;text-align:center;}
+	div.tHeader > div.Appuntamento{width:22px;background:none;border:none;}
+    div.tHeader > div.Info{width:22px;background:none;border:none;}
+	div.tHeader > div.Accesso{width:22px;background:none;border:none;}
+	div.tHeader > div.Data{width:6%;font-size:12px;line-height:18px;background:none;border:none;}
+	div.tHeader > div.Ora{width:4%;line-height:18px;text-align:center;background:none;border:none;}
+	div.tHeader > div.NoteAppuntamento{width:18%;background:none;color:#FFF;border:none;}
+
+    div.Riga > div.Info{width:22px;border:none;background-repeat:no-repeat;background-position:center;}
+    div.tDetail > div.Info:hover{cursor:hand;background-color:yellow;}
+    div.Riga > div.Info.ATTIVO{background-image:url(../../../imagexPix/interrogativo.png);}
+	
+	div ul{display:none;}
+	div.Droppable > a{font-size:12px;font-family:Arial;padding:0px;margin-left:3px;color:#cccccc;padding-left:10px;padding-right:10px;}
+	div.Droppable{background:#efefef;}
+	div.withContent {display:block;background:url(../../../imagexPix/arrow/down.gif) right 7px no-repeat #daf5fe  !important;cursor:pointer;}
+	div.withContent a{color:#000;padding-left:5px;padding-right:5px;}
+	li.withContent {display:block;background:url(../../../imagexPix/arrow/down.gif) right 7px no-repeat ;cursor:pointer;}
+	div.Droppable ul li {border:1px solid #07336e;font-size:10px;padding:0 0 0 3px;margin:1px;color:#000;}
+	
+	div.Droppable > ul{background:#fff;}
+	div.Droppable > ul > li[locked="N"]{border:1px solid #cccccc;color:#cccccc;}
+	div.Droppable ul li ul li{
+		border-top:none;border-right:none;border-left:none;
+		border-bottom:2px dotted #cccccc;
+		margin-left:3px;margin-right:3px;}
+	
+	div.Dropover > a{background:#FF0 !important;color:blue;}
+	
+	
+	div.ContextMenu{position:absolute;border:#2e74b9 1px solid;}
+	div.ContextMenu div.MenuHeader{background:url(../../../imagexPix/bar/titleMenuOption.jpg) repeat-x;padding:3px;}
+	div.ContextMenu div.MenuDetail{background:white;}
+	div.ContextMenu div.MenuDetail:hover{background:yellow;cursor:pointer;}	
+
+	div.light {background:#FF0;}
+	
+	*[stato="R"] > a{background:url(../../../imagexPix/bar/14/sf-yellow.png) repeat-x;}
+	*[stato="P"] > a{background:#FFF;}
+	*[stato="I"] > a{background:url(../../../imagexPix/bar/14/sf-orange.png) repeat-x;}
+	*[stato="E"] > a{background:green; color:#FFF !important;}
+	*[stato="K"] > a{background:url(../../../imagexPix/bar/14/sf-red.png) repeat-x;color:#FFF !important;}
+	*[stato="S"] > a{}
+	*[stato="X"] > a{background:url(../../../imagexPix/bar/14/sf-gray.png) repeat-x;color:#FFF !important;}
+	*[stato="C"] > a{background:url(../../../imagexPix/bar/14/sf-green.png) repeat-x;color:#FFF !important;}
+
+	div.Urgenza{width:16px;height:16px;overflow:hidden;float:left;margin:2px 2px 0 0;}
+	div.NonUrgente{background:url(../../../imagexPix/contextMenu/nonurgenza.png) no-repeat;}
+	div.UrgenzaDifferita{background:url(../../../imagexPix/contextMenu/urgenzadifferita.png) no-repeat;}
+	div.Urgente{background:url(../../../imagexPix/contextMenu/urgenza.png) no-repeat;}
+	div.Emergenza{background:url(../../../imagexPix/contextMenu/emergenza.png) no-repeat;}			
+	
+	div.letteraFarmaci { background: #a0d0f0; overflow-y: scroll; height: 400px; }	
+	div.letteraFarmaci table {background:#b9e0ff; width:100%; font:italic bold 12px/30px Georgia, serif;}
+	div.letteraFarmaci table td {border:1px solid black; padding: 5px;}	
+	
+	.Link a, a.Link{text-decoration:underline;color:blue !important;}
+
+	span.farmaci{display:inline-block;width:18px; height: 16px; background:url(../../../imagexPix/button/farma_btn.png) no-repeat center right; }
+    span.richiesta, span.consulenza, span.prenotazione{display:inline-block;width:18px; height: 16px; background:url(../../../imagexPix/button/iconaelencorichieste.png) no-repeat center right; }
+
+div.wk-tabberRiepilogo{
+	margin:4px;
+}
+
+div.wk-tabberRiepilogo > span{	
+	background-color:#FFF;
+	margin-left:4px;
+		
+}
+
+div.wk-tabberRiepilogo a.wk-tabberRiepilogo{	
+	color:gray;
+	text-decoration:underline;
+	font-size:11px;
+	cursor:pointer;
+	margin:3px 3px 1px 3px;
+}
+div.wk-tabberRiepilogo a.active{
+	color:blue;
+}
+div.wk-tabberRiepilogo ul{
+	font-size:11px;
+	display:none;	
+	background:#EFEFEF;
+	margin-top:6px;	
+	border:1px solid #BDDFDA;
+	padding:2px;
+}
+
+.wk-tabberRiepilogo ul li{
+	font-size:11px;
+	line-height:18px;
+	display:block;
+}
+/*div.Riga.giornodimissione{*/
+    /*border-top: 4px dotted red;*/
+/*}*/
+.divricovero{
+    margin-top: 10px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+.red{
+    border-left: solid 3px red !important;
+}
+.blue{
+    border-left: solid 3px #0000ff !important;
+}
+.green{
+    border-left: solid 3px green !important;
+
+}

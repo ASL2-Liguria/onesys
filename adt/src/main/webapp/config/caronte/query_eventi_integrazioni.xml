@@ -1,0 +1,35 @@
+<?xml version = "1.0"?>
+<QUERIES>
+    <QUERY_GROUP id="EVENTI_INTEGRAZIONI">
+
+        <QUERY id="Q_TIPO_EVENTI_INTEGRAZIONE">
+            <SQL>
+                (select '0' value, 'INSERITE' descr, 0 ordine from dual)
+                union
+                (select '1' value, 'ELABORATE' descr, 1 ordine from dual)
+                union
+                (select '2' value, 'IN ERRORE' descr, 2 ordine from dual)
+            </SQL>
+        </QUERY>
+
+
+        <QUERY id="WK_EVENTI_INTEGRAZIONI">
+            <SQL>
+                <![CDATA[
+                        SELECT
+                        IDEN, STATO, IDEN_CONTATTO, URL, JSON, MESSAGGIO, SITO,
+                        MODULE, CLIENT_ID, CONN_INFO, MACHINE,
+                        TO_CHAR(DATA_ELABORAZIONE, 'YYYYmmDD') AS DATA_ELABORAZIONE,
+                        TO_CHAR(DATA_INSERIMENTO, 'YYYYmmDD') AS DATA_INSERIMENTO,
+                        TO_CHAR(DATA_ERRORE, 'YYYYmmDD') AS DATA_ERRORE
+                        FROM EVENTI_INTEGRAZIONI
+                        WHERE STATO = :stato
+                        AND DATA_INSERIMENTO >= TO_DATE(:da_data,'yyyyMMdd')
+                        AND DATA_INSERIMENTO <= TO_DATE(:a_data,'yyyyMMdd')+1
+                        ORDER BY IDEN DESC
+                    ]]>
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+
+</QUERIES>

@@ -1,0 +1,320 @@
+<PAGINA key_id="MMG_STAMPANTE">
+	<HEADER_PAGE key_id="MMG_STAMPANTE"
+		valore="DEFAULT_MMG,SCHEDA,MMG_STAMPANTE#DEFAULT_MMG,MMG_STAMPANTE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_STAMPANTE#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="Stampante#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<FIELDSET_TABLE key_id="fld0" valore="fld0" evento="START">
+				<TR.INIT key_id="tr" valore="" evento="START_END">
+					<TD_LABEL key_id="lblImpostaUtente" valore="lblImpostaUtente#"
+						evento="START_END">
+					</TD_LABEL>
+					<TD_COMBO key_id="ImpostaUtente"
+						valore="ImpostaUtente#ImpostaUtente#N#IMPOSTA_UTENTE" evento="START_END">
+					</TD_COMBO>
+					<TD_BUTTON key_id="but_CancellaImpostazioniUtente"
+						valore="but_CancellaImpostazioniUtente" evento="START_END">
+					</TD_BUTTON>
+				</TR.INIT>
+				<TR.INIT key_id="TRIGA" valore="" evento="START_END">
+					<TD_LABEL_TEXT key_id="ConfigStampa"
+						valore="lblConfigStampa##txtConfigStampa##classe#CONFIGSTAMPA"
+						evento="START_END">
+					</TD_LABEL_TEXT>
+					<TD_BUTTON key_id="but_ConfigurazioniStampa" valore="but_ConfigurazioniStampa"
+						evento="START_END">
+					</TD_BUTTON>
+				</TR.INIT>
+			</FIELDSET_TABLE>
+			<TABULAZIONE.CREA_TAB key_id="tabMainPrinter" valore="tabMainPrinter" evento="START">
+				<FIELDSET_TABLE key_id="fldMainPrinter" valore="fldMainPrinter" evento="START">
+					<LABEL key_id="lblPrinter" valore="lblPrinter#lblPrinter" evento="START">
+					</LABEL>
+					<COMBO key_id="Main_Printer" valore="#Main_Printer#Main_Printer#N#MAIN_PRINTER" evento="START">
+					</COMBO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldParametri" valore="fldParametri"
+					evento="START">
+					<TR.INIT key_id="TRIGA_1" valore="" evento="START_END">
+						<TD_LABEL_COMBO key_id="Avviso_Conferma_Stampa"
+							valore="lblAvviso_Conferma_Stampa##Avviso_Conferma_Stampa#Avviso_Conferma_Stampa#N#AVVISO_CONFERMA_STAMPA"
+							evento="START_END">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_TEXT key_id="Descrizione_PC"
+							valore="lblDescrizione_PC##Descrizione_PC###DESCRIZIONE_PC"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TRIGA_2" valore="" evento="START_END">
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabRR_Printer"
+				valore="tabRR_Printer" evento="START">
+				<FIELDSET key_id="fldRicettaRossa" valore="fldRicettaRossa" evento="START">
+					<LABEL key_id="lblPrinter" valore="lblPrinter#lblPrinter" evento="START">
+					</LABEL>
+					<COMBO key_id="RR_Printer" valore="#RR_Printer#RR_Printer#N#RR_PRINTER" evento="START">
+					</COMBO>
+					<FIELDSET_TABLE key_id="fldRicettaRossaPrinter" valore="fldRicettaRossaPrinter" evento="START">
+						<TR.INIT key_id="riga_0" valore="" evento="START_END">
+							<TD_LABEL_TEXT key_id="Altezza"
+								valore="lblAltezza##txtAltezza##lettura#ALTEZZA" evento="START">
+							</TD_LABEL_TEXT>
+							<TD_LABEL_TEXT key_id="Larghezza"
+								valore="lblLarghezza##txtLarghezza##lettura#LARGHEZZA" evento="START">
+							</TD_LABEL_TEXT>
+						</TR.INIT>
+						<TR_TD_LABEL_COMBO key_id="Allineamento"
+							valore="lblAllineamento##Allineamento#Allineamento#N#ALLINEAMENTO"
+							evento="START">
+						</TR_TD_LABEL_COMBO>
+						<TR.INIT key_id="rigaPrima" valore="" evento="START_END">
+							<TD.INIT key_id="TD" valore="5" evento="START_END">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga0" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="2" evento="START">
+							</TD.INIT>
+							<TD_LABEL key_id="lblMarTop" valore="lblMarTop#" evento="START">
+							</TD_LABEL>
+							<TD.INIT key_id="lb1" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga1" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="2" evento="START">
+							</TD.INIT>
+							<TD_TEXT key_id="MarTop" valore="txtMarTop##lettura#TOP"
+								evento="START">
+							</TD_TEXT>
+							<TD.INIT key_id="lb2" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga1_5" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="5" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga2" valore="" evento="START_END">
+							<TD_LABEL_TEXT key_id="MarLeft"
+								valore="lblMarLeft##txtMarLeft##lettura#SINISTRA" evento="START">
+							</TD_LABEL_TEXT>
+							<TD_LABEL key_id="centrale_rossa" valore="centrale_rossa#centrale" evento="START">
+								<BUTTON key_id="butPageScaleRR" valore="butPageScaleRR#butPageScale" evento="START"></BUTTON>
+							</TD_LABEL>
+							<TD_TEXT key_id="MarRight" valore="txtMarRight##lettura#DESTRA"
+								evento="START">
+							</TD_TEXT>
+							<TD_LABEL key_id="lblMarRight" valore="lblMarRight#"
+								evento="START">
+							</TD_LABEL>
+						</TR.INIT>
+						<TR.INIT key_id="riga2_5" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="5" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga3" valore="" evento="START_END">
+							<TD.INIT key_id="lb4" valore="2" evento="START">
+							</TD.INIT>
+							<TD_TEXT key_id="MarBottom" valore="txtMarBottom##lettura#BOTTOM"
+								evento="START">
+							</TD_TEXT>
+							<TD.INIT key_id="lb5" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga4" valore="" evento="START_END">
+							<TD.INIT key_id="lb5" valore="2" evento="START">
+							</TD.INIT>
+							<TD_LABEL key_id="lblMarBottom" valore="lblMarBottom#"
+								evento="START">
+							</TD_LABEL>
+							<TD.INIT key_id="lb5" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+					</FIELDSET_TABLE>
+					<BUTTON key_id="but_Impost_Predef_RR" valore="but_Impost_Predef_RR#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="but_Impost_Predef_RR_A4_LS" valore="but_Impost_Predef_RR_A4_LS#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="but_Impost_Predef_RR_A4" valore="but_Impost_Predef_RR_A4#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="but_Impost_JOLLY_RR" valore="but_Impost_JOLLY_RR#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="butStampa_di_Prova" valore="butStampa_di_Prova#butStampa_di_Prova" evento="START">
+					</BUTTON>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabRB_Printer"
+				valore="tabRB_Printer" evento="START">
+				<FIELDSET key_id="fldRB" valore="fldRB" evento="START">
+					<LABEL key_id="lblSceltaStampanteRB" valore="lblSceltaStampanteRB#lblSceltaStampanteRB" evento="START"></LABEL>
+					<COMBO key_id="SceltaStampanteRB" valore="SceltaStampanteRB#SceltaStampanteRB#N#SCELTA_STAMPANTE_RB" evento="START"></COMBO>
+					<FIELDSET_TABLE key_id="fldRBPrinter" valore="fldRBPrinter" evento="START">
+						<TR.INIT key_id="riga_10" valore="" evento="START_END">
+							<TD.INIT key_id="td1" valore="2" evento="START_END">
+								<LABEL key_id="lblRB_Printer" valore="lblRB_Printer#lblRB_Printer"
+									evento="START">
+								</LABEL>
+							</TD.INIT>
+							<TD.INIT key_id="td2" valore="2" evento="START_END">
+								<COMBO key_id="RB_Printer" valore="RB_Printer#RB_Printer#N#RB_PRINTER"
+									evento="START">
+								</COMBO>
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga_12" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="5" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga_20" valore="" evento="START_END">
+							<TD_LABEL_TEXT key_id="B_Altezza"
+								valore="lblAltezza##B_txtAltezza##lettura#B_ALTEZZA" evento="START">
+							</TD_LABEL_TEXT>
+							<TD_LABEL_TEXT key_id="B_Larghezza"
+								valore="lblLarghezza##B_txtLarghezza##lettura#B_LARGHEZZA"
+								evento="START">
+							</TD_LABEL_TEXT>
+						</TR.INIT>
+						<TR_TD_LABEL_COMBO key_id="B_Allineamento"
+							valore="lblAllineamento##B_Allineamento#B_Allineamento#N#B_ALLINEAMENTO"
+							evento="START">
+						</TR_TD_LABEL_COMBO>
+						<TR.INIT key_id="riga_21" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="2" evento="START">
+							</TD.INIT>
+							<TD_LABEL key_id="lblMarTop" valore="lblMarTop#"
+								evento="START">
+							</TD_LABEL>
+							<TD.INIT key_id="lb1" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga_22" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="2" evento="START">
+							</TD.INIT>
+							<TD_TEXT key_id="B_MarTop" valore="B_txtMarTop##lettura#B_TOP"
+								evento="START">
+							</TD_TEXT>
+							<TD.INIT key_id="lb2" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga_23" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="5" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga_24" valore="" evento="START_END">
+							<TD_LABEL_TEXT key_id="B_MarLeft"
+								valore="lblMarLeft##B_txtMarLeft##lettura#B_SINISTRA" evento="START">
+							</TD_LABEL_TEXT>
+							<TD_LABEL key_id="centrale_bianca" valore="centrale_bianca#centrale" evento="START">
+								<BUTTON key_id="butPageScaleRB" valore="butPageScaleRB#butPageScaleRB" evento="START"></BUTTON>
+							</TD_LABEL>
+							<TD_TEXT key_id="B_MarRight" valore="B_txtMarRight##lettura#B_DESTRA"
+								evento="START">
+							</TD_TEXT>
+							<TD_LABEL key_id="lblMarRight" valore="lblMarRight#"
+								evento="START">
+							</TD_LABEL>
+						</TR.INIT>
+						<TR.INIT key_id="riga_25" valore="" evento="START_END">
+							<TD.INIT key_id="lb1" valore="5" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga_26" valore="" evento="START_END">
+							<TD.INIT key_id="lb4" valore="2" evento="START">
+							</TD.INIT>
+							<TD_TEXT key_id="B_MarBottom" valore="B_txtMarBottom##lettura#B_BOTTOM"
+								evento="START">
+							</TD_TEXT>
+							<TD.INIT key_id="lb5" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="riga_27" valore="" evento="START_END">
+							<TD.INIT key_id="lb5" valore="2" evento="START">
+							</TD.INIT>
+							<TD_LABEL key_id="lblMarBottom" valore="lblMarBottom#"
+								evento="START">
+							</TD_LABEL>
+							<TD.INIT key_id="lb5" valore="2" evento="START">
+							</TD.INIT>
+						</TR.INIT>
+					</FIELDSET_TABLE>
+					<BUTTON key_id="but_Impost_Predef_RB" valore="but_Impost_Predef_RB#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="but_Impost_Predef_RB_LS" valore="but_Impost_Predef_RB_LS#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="but_Impost_Predef_RB_A5" valore="but_Impost_Predef_RB_A5#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="but_Impost_Predef_RB_A5_LS" valore="but_Impost_Predef_RB_A5_LS#but_Impost_Predef" evento="START">
+					</BUTTON>
+					<BUTTON key_id="butStampa_di_Prova_RB" valore="butStampa_di_Prova_RB#butStampa_di_Prova_RB" evento="START">
+					</BUTTON>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabDemaPrinter" valore="tabDemaPrinter" evento="START">
+				<FIELDSET key_id="fldDema" valore="fldDema" evento="START">
+					<LABEL key_id="lblAvvisoDema" valore="lblAvvisoDema#lblAvvisoDema" evento="START"></LABEL>
+					<COMBO key_id="AvvisoDema" valore="AvvisoDema#AvvisoDema#N#AVVISO_DEMA" evento="START"></COMBO>
+					<FIELDSET_TABLE key_id="fldDemaPrinter" valore="fldDemaPrinter" evento="START">
+						<TR.INIT key_id="demaRiga1" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga1td1" valore="2" evento="START_END">
+								<LABEL key_id="lblPrinter" valore="lblPrinter#lblPrinter" evento="START"></LABEL>
+							</TD.INIT>
+							<TD.INIT key_id="demaRiga1td2" valore="2" evento="START_END">
+								<COMBO key_id="DemaPrinter" valore="DemaPrinter#DemaPrinter#N#DemaPrinter" evento="START"></COMBO>
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga2" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga2lb1" valore="5" evento="START"></TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga3" valore="" evento="START_END">
+							<TD_LABEL_TEXT key_id="DemaAltezza" valore="lblAltezza##txtDemaAltezza##lettura#DEMA_ALTEZZA" evento="START"></TD_LABEL_TEXT>
+							<TD_LABEL_TEXT key_id="DemaLarghezza" valore="lblLarghezza##txtDemaLarghezza##lettura#DEMA_LARGHEZZA" evento="START"></TD_LABEL_TEXT>
+						</TR.INIT>
+						<TR_TD_LABEL_COMBO key_id="DemaAllineamento" valore="lblAllineamento##DemaAllineamento#DemaAllineamento#N#DEMA_ALLINEAMENTO" evento="START"></TR_TD_LABEL_COMBO>
+						<TR.INIT key_id="demaRiga4" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga4lb1" valore="2" evento="START"></TD.INIT>
+							<TD_LABEL key_id="lblMarTop" valore="lblMarTop#" evento="START"></TD_LABEL>
+							<TD.INIT key_id="demaRiga4lb2" valore="2" evento="START"></TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga5" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga5lb1" valore="2" evento="START"></TD.INIT>
+							<TD_TEXT key_id="DemaMarTop" valore="txtDemaMarTop##lettura#DEMA_TOP" evento="START"></TD_TEXT>
+							<TD.INIT key_id="demaRiga5lb2" valore="2" evento="START"></TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga6" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga6lb1" valore="5" evento="START"></TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga7" valore="" evento="START_END">
+							<TD_LABEL_TEXT key_id="DemaMarLeft" valore="lblMarLeft##txtDemaMarLeft##lettura#DEMA_SINISTRA" evento="START"></TD_LABEL_TEXT>
+							<TD_LABEL key_id="centrale_dema" valore="centrale_dema#centrale" evento="START">
+								<BUTTON key_id="butPageScaleDema" valore="butPageScaleDema#butPageScale" evento="START"></BUTTON>
+							</TD_LABEL>
+							<TD_TEXT key_id="DemaMarRight" valore="txtDemaMarRight##lettura#DEMA_DESTRA" evento="START"></TD_TEXT>
+							<TD_LABEL key_id="lblMarRight" valore="lblMarRight#" evento="START"></TD_LABEL>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga8" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga8lb1" valore="5" evento="START"></TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga9" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga9lb4" valore="2" evento="START"></TD.INIT>
+							<TD_TEXT key_id="DemaMarBottom" valore="txtDemaMarBottom##lettura#DEMA_BOTTOM" evento="START"></TD_TEXT>
+							<TD.INIT key_id="demaRiga9lb5" valore="2" evento="START"></TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="demaRiga10" valore="" evento="START_END">
+							<TD.INIT key_id="demaRiga10lb5" valore="2" evento="START"></TD.INIT>
+							<TD_LABEL key_id="lblMarBottom" valore="lblMarBottom#" evento="START"></TD_LABEL>
+							<TD.INIT key_id="demaRiga10lb6" valore="2" evento="START"></TD.INIT>
+						</TR.INIT>
+					</FIELDSET_TABLE>
+					<BUTTON key_id="butImpostPredefDema" valore="butImpostPredefDema#butImpostPredefDema" evento="START"></BUTTON>
+					<BUTTON key_id="butImpostPredefDemaA4" valore="butImpostPredefDemaA4#butImpostPredefDemaA4" evento="START"></BUTTON>
+					<BUTTON key_id="butImpostPredefDemaRB" valore="butImpostPredefDemaRB#butImpostPredefDemaRB" evento="START"></BUTTON>
+					<BUTTON key_id="but_Impost_JOLLY_Dema" valore="but_Impost_JOLLY_Dema#but_Impost_Predef" evento="START"></BUTTON>
+					<BUTTON key_id="butStampaProvaDema" valore="butStampaProvaDema#butStampaProvaDema" evento="START"></BUTTON>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

@@ -1,0 +1,34 @@
+<fieldset iden_contatto={{:id}} nosologico='{{:codice.codice}}' class="fldCampi fldSintesiPazienteClose">
+	<legend>{{:codice.codice}}</legend><table>
+	<table class='campi tblSintesiPaziente'>
+		<tr>
+			<td class='tdLblSintesiPaziente'>Data Inizio</td><td class='tdText w80px'><input readonly='readonly'type='text' value={{dateConverter:dataInizio formatIn='YYYYMMDDHH:mm' formatOut='DD/MM/YYYY'}}></td>
+			<td class='tdLbl'>Reparto Ric.</td><td class='tdText w150px'><input readonly='readonly'type='text' value='{{:contattiGiuridici[0].provenienza.descrizione}}'></td>
+			<td class='tdLbl'>Data Dim.</td><td class='tdText w80px'><input readonly='readonly'type='text' value={{dateConverter:dataFine formatIn='YYYYMMDDHH:mm' formatOut='DD/MM/YYYY'}}></td>
+			<td class='tdLbl'>Reparto Dim.</td><td class='tdText w150px'><input readonly='readonly'type='text' value='{{:contattiGiuridici[contattiGiuridici.length - 1].provenienza.descrizione}}'></td>
+			<td class='tdLbl'>Regime</td><td class='tdText w50px'><input readonly='readonly'type='text' value={{:regime.codice}}></td>
+			<td class='tdLbl'>DRG</td><td class='tdText w50px'><input readonly='readonly'type='text' value={{:codiceDRG}}></td>
+		</tr>
+	</table>
+	<table class='tblSintesiPaziente'>
+		{{for codiciICD.mapCodiciICD}}  
+				<tr>
+					<td class='tdIntestazioneICD'><b>{{>key}}</b></td>
+					<td>
+					{{for value}}
+						<span class='spICD' data-descrizione='{{>descrizione}}'>{{>codice}}</span>
+					{{/for}} 
+					</td> 
+				</tr>
+		{{/for}}
+		<tr>
+			<td class='tdIntestazioneICD'>
+				{{if stato.codice == 'DISCHARGED' && codice.assigningAuthorityArea == 'ADT'}}
+					<button type="button" class="btn butStampaSDO" iden_contatto='{{:id}}' class=butStampaSDO_{{:id}} >Stampa SDO</button>
+				{{else}}
+				{{/if}}
+			</td>
+			<td class='tdText tdDescrizioneICD w500px'><input readonly='readonly' type='text' value=''></td>
+		</tr>
+	</table>
+</fieldset>

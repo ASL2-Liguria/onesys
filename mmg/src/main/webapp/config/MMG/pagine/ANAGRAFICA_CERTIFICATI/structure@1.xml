@@ -1,0 +1,44 @@
+<PAGINA key_id="ANAGRAFICA_CERTIFICATI">
+	<HEADER_PAGE key_id="ANAGRAFICA_CERTIFICATI"
+		valore="DEFAULT_MMG,SCHEDA,ANAGRAFICA_CERTIFICATI#DEFAULT_MMG,ANAGRAFICA_CERTIFICATI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#ALTRI_CERTIFICATI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="AnagraficaCertificati#lblTitoloCertificati#butSalva,butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabListaCertificati"
+				valore="tabListaCertificati" evento="START">
+				<FIELDSET key_id="fldListaCertificati" valore="fldListaCertificati"
+					evento="START">
+					<DIV key_id="divWk" valore="divWk" evento="START"></DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabAnagraficaCertificati"
+				valore="tabAnagraficaCertificati" evento="START">
+				<FIELDSET_TABLE key_id="fldCertificato" valore="fldCertificato"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Titolo"
+						valore="lblTitolo##txtTitolo###TITOLO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Codice"
+						valore="lblCodice##txtCodice###COD_CERTIFICATO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Segnaposto"
+						valore="lblSegnaposto##Segnaposto#radSegnaposto#{width:150}#N"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="Descrizione"
+						valore="lblDescrizione#txtDescrizione#TESTO" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_COMBO key_id="TipoCertificato"
+						valore="lblTipoCertificato##TipoCertificato#cmbTipoCertificato#N#TIPO"
+						evento="START">
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabInserimentoPAC>Interventi Chirurgici Ambulatoriali</tabInserimentoPAC>
+        <tableDatiRicovero>Dati Ricovero</tableDatiRicovero>
+        <lblReparto>Reparto</lblReparto>
+        <lblRepartoAss>Reparto assistenziale</lblRepartoAss>
+        <lblDataInizioPAC>Data Inizio</lblDataInizioPAC>
+        <lblDataPrenotazionePAC>Data Prenotazione</lblDataPrenotazionePAC>
+        <lblDataFinePAC>Data Fine</lblDataFinePAC>
+        <lblOraInizioPAC>Ora</lblOraInizioPAC>
+        <lblOraPrenotazionePAC>Ora</lblOraPrenotazionePAC>
+        <lblOraFinePAC>Ora</lblOraFinePAC>
+        <lblDiagnosiIcd9>Diagnosi ICD9</lblDiagnosiIcd9>
+        <lblInterventiIcd90>Intervento Principale</lblInterventiIcd90>
+        <lblInterventiIcd91>Intervento Secondario</lblInterventiIcd91>
+        <lblCodPAC>Codice Interventi Chirurgici Ambulatoriali</lblCodPAC>
+        <tableWkAccessiPAC>Riepilogo Accessi</tableWkAccessiPAC>
+        <tableDatiPrimoAccessoPAC>Dati Primo Accesso</tableDatiPrimoAccessoPAC>
+        <lblDataPrimoAccessoPAC>Data</lblDataPrimoAccessoPAC>
+        <lblOraInizioPrimoAccessoPAC>Ora Inizio</lblOraInizioPrimoAccessoPAC>
+        <lblOraFinePrimoAccessoPAC>Ora Fine</lblOraFinePrimoAccessoPAC>
+    </ROW>
+</ROWSET>

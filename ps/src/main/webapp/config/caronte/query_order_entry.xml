@@ -1,0 +1,482 @@
+<?xml version = "1.0"?>
+<!--
+	Mettere le query in ordine alfabetico!
+	ALFABETO : A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+	-->
+
+<!--*****************************************************OE***********************************************************************-->
+<QUERIES>
+    <QUERY_GROUP id="OE">
+        <QUERY id="CHECK_USER_REFERTA">
+            <SQL>
+                select 1 from
+                tab_per tp
+                join imagoweb.web on web.iden_per = tp.iden
+                join imagoweb.web_cdc on web_cdc.webuser = web.webuser
+                where
+                web.webuser = :user
+                and web_cdc.reparto = :repartoDestinatario
+                and tp.tipo='M'
+            </SQL>
+        </QUERY>
+        <QUERY id="BUT_FILTRO">
+            <SQL>
+                SELECT
+                distinct (TEG.COD_GRUPPO),
+                TEG.DESCR,
+                TEG.URGENZA
+                FROM TAB_ESA_GRUPPI teg
+                WHERE teg.SITO=:sito_gruppo
+                AND TEG.DESTINATARIO =:destinatario
+                AND TEG.REPARTO=:cod_cdc
+                AND TEG.URGENZA=:urgenza
+                AND TEG.ATTIVO='S'
+                AND TEG.COD_GRUPPO like '%'||:cod_gruppo
+                order by TEG.DESCR asc
+            </SQL>
+        </QUERY>
+        <QUERY id="BUT_PROFILI_MULTI">
+            <SQL>
+                SELECT
+                distinct (TEG.COD_GRUPPO),
+                TEG.DESCR,
+                TEG.REPARTO
+                FROM TAB_ESA_GRUPPI teg
+                WHERE teg.SITO=:sito_gruppo
+                AND TEG.REPARTO=:cod_cdc
+                AND TEG.ATTIVO='S'
+                order by TEG.DESCR asc
+            </SQL>
+        </QUERY>
+        <QUERY id="BUT_PROFILO">
+            <SQL>
+                SELECT
+                distinct (TEG.COD_GRUPPO),
+                TEG.DESCR,
+                TEG.DESTINATARIO,
+                TEG.URGENZA,
+                CDC.COD_DEC
+                FROM TAB_ESA_GRUPPI teg
+                INNER JOIN CENTRI_DI_COSTO cdc ON(CDC.COD_CDC=TEG.DESTINATARIO AND CDC.ATTIVO='S')
+                WHERE TEG.DESTINATARIO =:destinatario AND teg.SITO=:sito_gruppo
+                AND TEG.REPARTO=:cod_cdc
+                AND TEG.URGENZA=:urgenza
+                AND TEG.ATTIVO='S'
+                order by TEG.DESCR asc
+            </SQL>
+        </QUERY>
+        <QUERY id="GET_DATA_ORA_PRELIEVO">
+            <SQL>
+                SELECT
+                DATA_PRELIEVO,
+                ORA_PRELIEVO
+                FROM INFOWEB.TESTATA_RICHIESTE TR
+                WHERE TR.IDEN = :iden_richiesta
+
+            </SQL>
+        </QUERY>
+        <QUERY id="MEZZO_DI_CONTRASTO">
+            <SQL>
+                SELECT
+                count(TE.MDC_SINO) AS MDC_SINO
+                FROM INFOWEB.TESTATA_RICHIESTE TR
+                INNER JOIN INFOWEB.DETTAGLIO_RICHIESTE DR ON(TR.IDEN=DR.IDEN_TESTATA)
+                INNER JOIN TAB_ESA TE ON(DR.IDEN_TAB_ESA=TE.IDEN AND TE.ATTIVO='S')
+                WHERE TR.IDEN = :iden_richiesta
+                AND TE.MDC_SINO='S'
+            </SQL>
+        </QUERY>
+        <QUERY id="PROFILO">
+            <SQL>
+                SELECT
+                DISTINCT
+                TE.IDEN,
+                TE.DESCR,
+                TE.DESCR AS ESAME,
+                TE.COD_DEC COD_ESA,
+                TE.IDEN AS IDEN_ESA,
+                TE.METODICA,
+                CDC.COD_DEC,
+                CDC.COD_CDC,
+                CDC.DESCR DESCR_REPARTO,
+                TEG.URGENZA,
+                TEG.DESTINATARIO
+                FROM TAB_ESA_GRUPPI TEG
+                INNER JOIN TAB_ESA TE ON(TEG.IDEN_ESA = TE.IDEN)
+                LEFT OUTER JOIN CENTRI_DI_COSTO CDC ON(CDC.COD_CDC = TEG.DESTINATARIO)
+                WHERE TEG.ATTIVO='S'
+                AND TEG.SITO =:sito_gruppo
+                AND TEG.COD_GRUPPO =:cod_gruppo
+                AND TEG.URGENZA = :urgenza
+                and teg.reparto = :reparto_richiedente
+                and ((teg.destinatario = :reparto_destinartario) or (:reparto_destinartario is null))
+            </SQL>
+        </QUERY>
+        <QUERY id="PROFILO_MULTI">
+            <SQL>
+                SELECT
+                TE.IDEN,
+                TE.DESCR,
+                TE.COD_DEC COD_ESA,
+                TE.METODICA,
+                CDC.COD_DEC,
+                CDC.DESCR DESCR_REPARTO,
+                TEG.URGENZA,
+                TEG.DESTINATARIO
+                FROM TAB_ESA_GRUPPI TEG
+                INNER JOIN TAB_ESA TE ON(TEG.COD_DEC = TE.COD_DEC)
+                LEFT OUTER JOIN CENTRI_DI_COSTO CDC ON(CDC.COD_CDC = TEG.DESTINATARIO)
+                WHERE TEG.ATTIVO='S'
+                AND TEG.SITO =:sito_gruppo
+                AND TEG.COD_GRUPPO =:cod_gruppo
+                and teg.reparto = :reparto_richiedente
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_RICHIESTE">
+            <SQL>
+                SELECT
+                    extractvalue(column_value, 'EROGATORE/@descr') VALUE
+                    , extractvalue(column_value, 'EROGATORE/@descr') DESCR
+                    , extractvalue(column_value, 'EROGATORE/@cod-cdc') COD_CDC
+                    , extractvalue(column_value, 'EROGATORE/@tipo') TIPO
+                    , extractvalue(column_value, 'EROGATORE/@iden_scheda') IDEN_SCHEDA
+                    , extractvalue(column_value, 'EROGATORE/@urgenza-default') URGENZA_DEFAULT
+                , imagoweb.PCK_CONFIGURAZIONI.GETVALUECDC(extractvalue(column_value, 'EROGATORE/@cod-cdc'), 'OEPS_TIPO_SCELTA_ESAME') TIPO_SCELTA_ESAME
+                FROM TABLE(
+                    XMLSequence(
+                        xmltype(
+                            imagoweb.PCK_CONFIGURAZIONI.GETVALUECDC(:cod_cdc, 'ALBERO_RICHIESTE_PS')
+                            ).extract('EROGATORI/EROGATORE')
+                        )
+                    ) t
+                where REGEXP_SUBSTR(extractvalue(column_value, 'EROGATORE/@abilitazione'),:fase || '\[[A-Z#]*' || :tipoUtente || '[A-Z#]*\]') is not null
+            </SQL>
+            <BINDS>
+                <BIND id="fase" value="#WK_APERTURA#" type="V"></BIND>
+                <BIND id="cod_cdc" value="#COD_CDC_PS#" type="V"></BIND>
+                <BIND id="tipoUtente" value="#TIPO_PERSONALE#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="Q_AMBULATORI">
+            <SQL>
+                SELECT
+                extractvalue(column_value, 'EROGATORE/@cod-cdc') VALUE
+                , extractvalue(column_value, 'EROGATORE/@descr') DESCR
+                , extractvalue(column_value, 'EROGATORE/@cod_dec') COD_DEC
+
+                FROM TABLE(
+                XMLSequence(
+                xmltype(
+                imagoweb.PCK_CONFIGURAZIONI.GETVALUECDC(:cod_cdc, 'ALBERO_RICHIESTE_PS')
+                ).extract('EROGATORI/AMBULATORI/EROGATORE')
+                )
+                ) t
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTO_CONSULENZE">
+            <SQL>
+                SELECT
+                    extractvalue(column_value, 'EROGATORE/@descr') DESCR
+                    , extractvalue(column_value, 'EROGATORE/@tipo') TIPO
+                    , extractvalue(column_value, 'EROGATORE/@iden_scheda') IDEN_SCHEDA
+                    , cdc.iden VALUE
+                    , cdc.COD_CDC
+                    , cdc.struttura
+                    , extractvalue(column_value, 'EROGATORE/@urgenza-default') URGENZA_DEFAULT
+                FROM TABLE(
+                    XMLSequence(
+                        xmltype(
+                            imagoweb.PCK_CONFIGURAZIONI.GETVALUECDC(:cod_cdc, 'ALBERO_RICHIESTE_PS')
+                            ).extract('EROGATORI/ALTRI-EROGATORI/EROGATORE')
+                        )
+                    ) t
+                join centri_di_costo cdc on cdc.cod_cdc = extractvalue(column_value, 'EROGATORE/@cod-cdc')
+                where REGEXP_SUBSTR(extractvalue(column_value, 'EROGATORE/@utenti-abilitati'),:tipoUtente) is not null
+                order by  to_number(extractvalue(column_value, 'EROGATORE/@ordine'))
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_STRUTTURE">
+            <SQL>
+                SELECT DISTINCT STRUTTURA descr,
+                CODICE_STRUTTURA,
+                SUB_CODICE_STRUTTURA value,
+                SITO
+                FROM CENTRI_DI_COSTO
+                WHERE attivo          ='S'
+                AND SITO              ='ASL2'
+                AND CODICE_STRUTTURA IS NOT NULL
+                AND SUB_CODICE_STRUTTURA            IS NOT NULL
+                ORDER BY SUB_CODICE_STRUTTURA ASC
+            </SQL>
+        </QUERY>
+        <QUERY id="REPARTI_CONSULENZE_PREF">
+            <SQL>
+                select
+                teg.DESTINATARIO,
+                CDC.COD_DEC,
+                CDC.DESCR DESCR_REPARTO
+                from TAB_ESA_GRUPPI teg
+                inner join CENTRI_DI_COSTO cdc on(CDC.COD_CDC=TEG.DESTINATARIO and CDC.ATTIVO='S')
+                where teg.COD_GRUPPO =:cod_gruppo
+                AND teg.SITO=:sito_gruppo
+                AND TEG.REPARTO=:cod_cdc
+                AND TEG.ATTIVO='S'
+            </SQL>
+        </QUERY>
+
+        <QUERY id="SCHEDA_PARTI_ANATOMICHE_METODICHE">
+            <SQL>
+                SELECT
+                distinct (TEG.COD_GRUPPO) VALUE,
+                TEG.DESCR
+                FROM TAB_ESA_GRUPPI teg
+                WHERE teg.SITO=:sito_gruppo
+                AND TEG.DESTINATARIO =:destinatario
+                AND TEG.REPARTO=:cod_cdc
+                AND TEG.ATTIVO='S'
+                order by TEG.DESCR asc
+            </SQL>
+            <BINDS>
+                <BIND id="cod_cdc" value="#COD_CDC_PS#" type="V"></BIND>
+                <BIND id="destinatario" value="#DESTINATARIO#" type="V"></BIND>
+                <BIND id="sito_gruppo" value="OE_FILTRO" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="SCHEDA_PARTI_ANATOMICHE_ESAMI">
+            <SQL>
+                select
+                    COL01 IDEN, COL02 DESCR, CDC.COD_DEC,
+                    COL04 COD_ESA, COL07 METODICA, COL08 URGENZA,
+                    :cdcDestinatario REPARTO_DESTINAZIONE,
+                    CDC.DESCR DESCR_REPARTO,
+                    col17 CORPO
+                from table(getesamirichiedibili(
+                    :cdcDestinatario,
+                    :cdcSorgente,
+                    :tipoRichiesta,
+                    :urgenza
+                ))
+                inner join CENTRI_DI_COSTO cdc on(:cdcDestinatario=cdc.cod_cdc and cdc.attivo='S')
+                where (:metodica is null OR COL07 like :metodica)
+                and (COL02 like '%'||:descr OR COL05 like '%'||:descr)
+                AND (:corpo is null OR (REGEXP_INSTR(COL17,'['||:corpo||']'))>0)
+                order by col02 asc
+            </SQL>
+            <BINDS>
+                <BIND id="cdcSorgente" value="#COD_CDC_PS#" type="V"></BIND>
+                <BIND id="cdcDestinatario" value="#DESTINATARIO#" type="V"></BIND>
+                <BIND id="tipoRichiesta" value="#TIPO#" type="V"></BIND>
+                <BIND id="urgenza" value="#URGENZA#" type="V"></BIND>
+                <BIND id="descr" value="%" type="V"></BIND>
+                <BIND id="metodica" value="%" type="V"></BIND>
+                <BIND id="corpo" value="" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_EMPTY">
+            <SQL>select null VALUE, null DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_TEMPLATES">
+            <SQL>select :template AS TEMPLATE from DUAL</SQL>
+            <BINDS>
+                <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+
+    </QUERY_GROUP>
+
+    <!--*****************************************************WORKLIST*****************************************************************-->
+    <QUERY_GROUP id="WORKLIST">
+
+
+        <QUERY id="ACCERTAMENTI_INAIL">
+            <SQL>
+                SELECT distinct TR.METODICA,tt.descr1 as descr
+                FROM INFOWEB.TESTATA_RICHIESTE TR
+                INNER JOIN nosologici_paziente np ON(np.iden=tr.iden_visita AND np.deleted='N' AND NP.ACCESSO=0)
+                INNER JOIN TAB_TESA tt ON(TR.metodica=TT.MET_APP_ORG and TT.TIPO='M')
+                WHERE NP.NUM_NOSOLOGICO=:codice and tr.stato_richiesta in ('A','I','E','R','P')
+            </SQL>
+        </QUERY>
+
+        <QUERY id="ESAMI_RICHIEDIBILI">
+            <SQL>
+
+                select
+                    COL01 IDEN, COL02 DESCR, COL02 ESAME, CDC.COD_DEC,CDC.COD_CDC, COL01 IDEN_ESA,
+                    COL04 COD_ESA, COL07 METODICA, COL08 URGENZA,
+                    :cdcDestinatario REPARTO_DESTINAZIONE,
+                    CDC.DESCR EROGATORE,
+                    CDC.DESCR DESCR_REPARTO,
+                    col17 CORPO
+                from table(getesamirichiedibili(
+                    :cdcDestinatario,
+                    :cdcSorgente,
+                    :tipoRichiesta,
+                    :urgenza,
+                    null,
+                    :idenScheda
+                ))
+                inner join CENTRI_DI_COSTO cdc on(:cdcDestinatario=cdc.cod_cdc and cdc.attivo='S')
+                where (:corpo is null OR (REGEXP_INSTR(COL17,'['||:corpo||']'))>0)
+                and (COL02 like '%'||:descr OR COL05 like '%'||:descr)
+                order by col02 asc
+            </SQL>
+        </QUERY>
+        <QUERY id="INS_PRESTAZIONI">
+            <SQL>
+                select
+                TE.DESCR, TE.IDEN, TE.METODICA, TE.BRANCA, TE.DATA_INS,
+                TER.REPARTO_DESTINAZIONE, TER.TIPO, TER.URGENZA, CDC.DESCR DESCR_REPARTO
+                from TAB_ESA TE
+                inner join TAB_ESA_REPARTO TER ON (TE.IDEN=TER.IDEN_ESA AND TER.ATTIVO='S'AND TER.URGENZA='3')
+                inner join CENTRI_DI_COSTO cdc on(CDC.COD_CDC=TER.REPARTO_DESTINAZIONE)
+                where TER.REPARTO_DESTINAZIONE like :rep_destinazione AND TE.DESCR like '%'||:descr
+                ORDER BY DESCR ASC
+            </SQL>
+        </QUERY>
+        <!--<QUERY id="INS_PREST_CONSULENZE">-->
+        <!--<SQL>-->
+        <!--select -->
+        <!--TER.REPARTO_DESTINAZIONE, TER.TIPO, TER.URGENZA, TE.DESCR, TE.IDEN ,-->
+        <!--TE.METODICA, TE.BRANCA, TE.DATA_INS, CDC.DESCR DESCR_REPARTO-->
+        <!--from TAB_ESA_REPARTO ter-->
+        <!--inner join tab_esa te on(TE.IDEN=TER.IDEN_ESA)-->
+        <!--inner join CENTRI_DI_COSTO cdc on(CDC.COD_CDC=TER.REPARTO_DESTINAZIONE)-->
+        <!--where TER.iden_esa in (17661,17662) and TER.ATTIVO='S' and TER.URGENZA='2' -->
+        <!--and TER.REPARTO_DESTINAZIONE like :reparto and TE.DESCR like '%'||:descr-->
+        <!--</SQL>-->
+        <!--</QUERY>-->
+        <QUERY id="PRESTAZIONI">
+            <SQL>
+                SELECT
+                TR.IDEN IDEN_RICHIESTA,
+                TR.QUESITO,
+                TR.QUADRO_CLI QUADRO,
+                TR.NOTE,
+                TR.TIPOLOGIA_RICHIESTA,
+                TR.DATA_RICHIESTA,
+                TR.ORA_RICHIESTA,
+                to_date(TR.DATA_RICHIESTA||TR.ORA_RICHIESTA, 'yyyymmddhh24:mi')as data_richiesta_iso,
+                (select DESCR from TAB_PER where iden=TR.IDEN_MED_RICH) AS  MED_RICH,
+                TR.CDC,
+                (select DESCR from CENTRI_DI_COSTO where COD_CDC=TR.CDC) AS DESCR_CDC,
+                TE.DESCR,
+                TE.METODICA
+                FROM INFOWEB.TESTATA_RICHIESTE TR
+                INNER JOIN INFOWEB.DETTAGLIO_RICHIESTE DR ON(TR.IDEN=DR.IDEN_TESTATA)
+                inner join nosologici_paziente np on(np.iden=tr.iden_visita and np.deleted='N' and NP.ACCESSO=0)
+                INNER JOIN tab_esa te ON(DR.IDEN_TAB_ESA=TE.IDEN AND TE.ATTIVO='S')
+                WHERE NP.NUM_NOSOLOGICO=:codice
+                order by (to_date(TR.DATA_RICHIESTA||TR.ORA_RICHIESTA, 'yyyymmddhh24:mi')) desc
+            </SQL>
+        </QUERY>
+        <QUERY id="CONSULENZE">
+            <SQL><![CDATA[select
+                tr.iden as IDEN_RICHIESTA
+                , tr.stato_richiesta
+                , tr.data_richiesta
+                , tr.ora_richiesta
+                , tr.cdc as COD_CDC_DESTINATARIO
+                , tr.cod_cdc_pro as COD_CDC_RICHIEDENTE
+                , richiedente.descr as RICHIEDENTE
+                , destinatario.descr as DESTINATARIO
+                , np.num_nosologico as NUMERO_PRATICA
+                , a.cogn || ' ' || a.nome || ' ' || datetimeconverter(a.data, 'yyyyMMdd', 'dd/MM/yyyy') as PAZIENTE
+                , tr.quesito,
+                a.iden as iden_anag,
+                tab_per.descr as MED_RICH
+                from
+                infoweb.testata_richieste tr
+                join anag a on a.iden = tr.iden_anag
+                join nosologici_paziente np on np.iden = tr.iden_visita
+                join centri_di_costo richiedente on richiedente.cod_cdc = tr.cod_cdc_pro and richiedente.tipo_cdc= '8'
+                join imagoweb.web_cdc w on w.reparto = tr.cdc
+                join tab_per on (tr.iden_med_rich=tab_per.iden)
+                join centri_di_costo destinatario on destinatario.cod_cdc = tr.cdc
+                where
+                data_filtro >= to_char(sysdate-1, 'yyyyMMdd')
+                and tr.stato_richiesta != 'X'
+                and tr.tipologia_richiesta = '5'
+                and w.webuser = :username
+                and a.cogn like :cognome || '%'
+                and a.nome like :nome || '%']]></SQL>
+        </QUERY>
+        <QUERY id="PRESTAZIONI_INFO_DIALOG">
+            <SQL>
+                SELECT
+                TR.IDEN IDEN_RICHIESTA,
+                TR.QUESITO,
+                TR.TIPOLOGIA_RICHIESTA,
+                TR.DATA_RICHIESTA,
+                TR.ORA_RICHIESTA,TR.CDC,
+                DR.IDEN IDEN_DETTAGLIO,
+                TE.DESCR,
+                TE.METODICA,
+                TE.MDC_SINO,
+                (select DESCR from TAB_PER where IDEN=TR.IDEN_MED_RICH) AS MED_RICH,
+                (select DESCR from CENTRI_DI_COSTO where COD_CDC=TR.CDC AND ATTIVO='S') AS DESCR_CDC
+                FROM INFOWEB.TESTATA_RICHIESTE TR
+                INNER JOIN INFOWEB.DETTAGLIO_RICHIESTE DR ON(TR.IDEN=DR.IDEN_TESTATA)
+                INNER JOIN tab_esa te ON(DR.IDEN_TAB_ESA=TE.IDEN AND TE.ATTIVO='S')
+                WHERE TR.IDEN=:iden_richiesta
+            </SQL>
+        </QUERY>
+        <QUERY id="RICHIESTE">
+            <SQL>
+                with Q_IDEN_VISITA as (
+                    select iden from NOSOLOGICI_PAZIENTE where NUM_NOSOLOGICO in
+                        (select num_nosologico from nosologici_paziente where iden_tipo_ricovero in (121,61) and parent  in
+                            (select iden from NOSOLOGICI_PAZIENTE where num_nosologico = :codice and deleted='N'))
+                    union all
+                    select iden from nosologici_paziente where num_nosologico = :codice and deleted='N'
+                )
+                select
+                    (select num_nosologico from nosologici_paziente where iden = tr.iden_visita) NUM_NOSOLOGICO,
+                    tr.ID_RICHIESTA_2,
+                    tr.ID_RICHIESTA,
+                    tr.TIPOLOGIA_RICHIESTA,
+                    TR.IDEN IDEN_RICHIESTA, TR.IDEN_ANAG, TR.IDEN_VISITA,
+                    TR.IDEN_TAB_PRO, TR.DATA_RICHIESTA, TR.ORA_RICHIESTA, TR.STATO_RICHIESTA,
+                    TR.METODICA, TR.URGENZA, TR.QUESITO, TR.NOTE, TR.CDC, TR.PRELIEVO_EFFETTUATO,
+                    TR.UTE_INS AS IDEN_MEDICO_INVIANTE,
+                    TR.IDEN_OP_RICH AS IDEN_OPERATORE_INS,
+                    ANAG.COGN ||' ' || ANAG.NOME PAZIENTE,
+                    TO_DATE(TR.DATA_RICHIESTA||TR.ORA_RICHIESTA,'YYYYMMDDHH24:mi') as DATA_ISO_RICHIESTA,
+                    (select DESCR from CENTRI_DI_COSTO where COD_CDC=TR.CDC AND ATTIVO='S')AS DESCR_CDC,
+                    (select DESCR from tab_pro where iden=TR.IDEN_TAB_PRO and attivo='S') AS PROVENIENZA,
+                    (select DESCR from tab_per where iden=tr.ute_ins and attivo='S')AS DESCR_UTE_INS,
+                    recupera_url_registry(tr.iden) URL_DOCUMENTO,
+                    RECUPERA_ACCESSION_NUMBER(tr.iden)AS ACCESSION_NUMBER,
+                    anag.id_paz_dicom as PATIENT_ID,
+                    tr.stato_referto as STATO_REFERTO,
+                    tr.deleted,
+                    (select wm_concat(id_dettaglio) from INFOWEB.dettaglio_richieste where iden_testata=tr.iden)as ID_DETTAGLIO
+                from infoweb.testata_richieste tr
+                inner join ANAG anag on(tr.iden_anag=anag.iden and anag.deleted='N')
+                where
+                    tr.stato_richiesta in ('A','I','E','R','P','X') and
+                    tr.iden_visita in (select iden from Q_IDEN_VISITA )
+                order by DATA_ISO_RICHIESTA desc
+            </SQL>
+        </QUERY>
+        <QUERY id="RICHIESTE_TAB_HOME">
+            <SQL>
+                select
+                TR.IDEN IDEN_RICHIESTA, TR.IDEN_ANAG, TR.IDEN_VISITA, NP.NUM_NOSOLOGICO, ANAG.COGN ||' ' || ANAG.NOME PAZIENTE,
+                CDC.DESCR DESCR_CDC, TR.IDEN_TAB_PRO, TPRO.DESCR PROVENIENZA, TR.DATA_RICHIESTA, TR.ORA_RICHIESTA,
+                TP.DESCR DESCR_UTE_INS, TR.STATO_RICHIESTA, TR.METODICA, TR.URGENZA, TR.QUESITO,
+                TR.NOTE, TR.CDC, TR.PRELIEVO_EFFETTUATO
+                from infoweb.testata_richieste tr
+                inner join ANAG anag on(tr.iden_anag=anag.iden and anag.deleted='N')
+                inner join radsql.nosologici_paziente np on(np.iden=tr.iden_visita and np.deleted='N')
+                inner join radsql.centri_di_costo cdc on(CDC.COD_CDC=TR.CDC and cdc.attivo='S')
+                inner join radsql.tab_per tp on(tp.iden=tr.ute_ins and tp.attivo='S')
+                inner join tab_pro tpro on(TR.IDEN_TAB_PRO=tpro.iden and tpro.attivo='S')
+                where tr.deleted='N' AND TR.STATO_RICHIESTA='I' AND ANAG.COGN LIKE :cognome AND ANAG.NOME LIKE :nome
+                order by TR.IDEN desc
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+</QUERIES>

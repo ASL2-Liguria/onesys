@@ -1,0 +1,56 @@
+body#page {
+	padding: 0;
+	background: transparent;
+}
+
+
+div.clsWk div.clsWkScroll table tr td {
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.ulTabs {
+	display: none !important;
+}
+
+.contentTabs {
+	padding: 5px;
+}
+
+/*div.clsWk div.clsWkHdFix,div.clsWk div.clsWkHdFix table thead tr,div.clsWk div.clsTR24 table tr
+	{
+	height: 30px;
+}*/
+
+div.headerTabs .icon-spin3 {
+	display: none;
+}
+
+#divWk2 {
+	margin: 5px 10px;
+}
+
+i.red-color {
+	color: #e74c3c !important;
+}
+
+i.green-color {
+	color: #27ae60 !important;
+}
+
+i.brown-color {
+	color: #96281B !important;
+}
+
+i.yellow-color {
+	color: #f39c12 !important;
+}
+
+i.icon-info-circled {
+	font-size: 12px;
+	color: #274069;
+}
+
+.icon-lamp {
+	display: none !important;
+}

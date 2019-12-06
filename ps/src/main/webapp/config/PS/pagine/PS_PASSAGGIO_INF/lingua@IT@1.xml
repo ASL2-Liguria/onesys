@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Consegna Infermieristica</lblTitolo>
+        <fldPassaggioInf>Passaggio Di Consegne</fldPassaggioInf>
+        <lblDataPassaggio>Data Passaggio</lblDataPassaggio>
+        <lblOraPassaggio>Ora Passaggio</lblOraPassaggio>
+        <lblRepDestinazione>Reparto Destinazione</lblRepDestinazione>
+        <lblInfermiere>Infermiere</lblInfermiere>
+        <lblNote>Note</lblNote>
+        <butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

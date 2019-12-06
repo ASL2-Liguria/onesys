@@ -1,0 +1,26 @@
+#SchedaAnagrafica{
+    width: 960px;
+    display: block;
+    margin:0 auto;
+}
+#fldDP,#fldInfoPaz,#fldAna,#fldAnaResult{
+    width:49%;
+    float:left;
+    margin:10px;
+    display: inline-block;
+}
+#fldNote,#fldCodici,#fldCertificazione{
+    width:450px;
+    display:block;clear:both;
+    margin:10px;
+}
+#fldRes,#fldDom{
+    width:450px;
+    float:left;
+    margin:10px;
+}
+#txtEta{background:none;border:none;line-height:25px;font-weight:bold;}
+/*#lblCodFisc{text-decoration:underline;cursor:pointer;}*/
+#divWkIndirizzi{height:200px;margin:10px;}
+#divOperazioni{margin:20px 10px;}
+div.c-free { width: 49%; }

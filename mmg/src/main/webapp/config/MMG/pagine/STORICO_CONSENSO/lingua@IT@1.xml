@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Storico del modulo del consenso</lblTitolo>
+       	<fldStoricoConsenso>Ricerca per data</fldStoricoConsenso>
+       	<tabMain>Storico del consenso</tabMain>
+       	<lblCancella>Elimina</lblCancella>
+       	<lblDialogCancella>Cancellare la prescrizione selezionata?</lblDialogCancella>
+       	
+        <lblDaData>Dal</lblDaData>
+        <lblAData>Al</lblAData>
+        
+        <lblVisualizza>Visualizza PDF</lblVisualizza>
+        
+        <butApplica>Cerca</butApplica>
+    </ROW>
+</ROWSET>

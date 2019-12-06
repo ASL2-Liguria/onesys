@@ -1,0 +1,74 @@
+<PAGINA key_id="MMG_ASSISTITI">
+	<HEADER_PAGE key_id="MMG_ASSISTITI"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ASSISTITI#DEFAULT_MMG,MMG_ASSISTITI,WORKLIST_RICERCA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#MMG_ASSISTITI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="Assistiti#lblTitolo#butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabAssistiti" valore="tabAssistiti" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome"
+							valore="lblCognome##Cognome##lettura#COGNOME" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##Nome##lettura#NOME"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DataNascita"
+							valore="lblDataNascita##txtDataNascita#DataNascita#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_NASCITA"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="DataScadenza"
+							valore="lblDataScadenza##txtDataScadenza#DataScadenza#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Residenza" valore="lblResidenza##Residenza"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD.INIT key_id="TD" valore="2" evento="START">
+							<BUTTON key_id="butCerca" valore="butCerca" evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="ElencoWork" valore="ElencoWork" evento="START">
+				</DIV.WORKLIST>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabRevocati" valore="tabRevocati" evento="START">
+				<FIELDSET_TABLE key_id="fldRicercaRevocati" valore="fldRicercaRevocati"
+					evento="START">
+					<TR.INIT key_id="TR1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="CognomeRevocato" valore="lblCognome##CognomeRevocato"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="NomeRevocato" valore="lblNome##NomeRevocato"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TR2" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DataRevoca"
+							valore="lblDataRevoca##txtDataRevoca#DataRevoca#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="TR3" valore="" evento="START">
+						<TD.INIT key_id="TDButton" valore="5" evento="START">
+							<BUTTON key_id="butCercaRevocati" valore="butCercaRevocati"
+								evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="divWk" valore="divWk" evento="START">
+				</DIV.WORKLIST>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

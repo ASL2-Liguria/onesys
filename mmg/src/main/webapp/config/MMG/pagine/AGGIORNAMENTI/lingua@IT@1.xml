@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<lblTitolo>Inserimento di una nuova revisione dell'applicativo</lblTitolo>
+        
+        <tabAggiornamenti>Inserimento nuovo aggiornamento</tabAggiornamenti>
+        
+	        <fldAggiornamenti>Intestazione aggiornamento</fldAggiornamenti>
+	        
+		        <lblTitoloAggiornamento>Titolo</lblTitoloAggiornamento>
+		        <lblDataAggiornamento>Data aggiornamento</lblDataAggiornamento>
+		        <lblProgetto>Progetto</lblProgetto>
+        
+        	 <fldTesto>Contenuto dell'aggiornamento</fldTesto>
+        		
+        		<lblCancellaAggiornamento>Cancellare le righe precedenti con deleted = 'N'</lblCancellaAggiornamento>
+        
+        <tabWorklist>Lista aggiornamenti</tabWorklist>
+        	
+        	<fldWorklist>Lista degli aggiornamenti dell'applicativo MMG</fldWorklist>
+        		
+        		<lblData>Data aggiornamento</lblData>
+        		<lblDeleted>Cancellato</lblDeleted>
+        
+        
+        <lblModifica>Modifica</lblModifica>
+        <lblCancella>Cancella</lblCancella>
+        <lblElimina>Elimina definitivamente</lblElimina>
+        
+    </ROW>
+</ROWSET>

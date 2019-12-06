@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>INDIRIZZI</ID>
+    <ID-QUERY connection="POLARIS_DATI">WORKLIST.INDIRIZZI</ID-QUERY>
+    <TITLE>"Worklist Indirizzi"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_INDIRIZZI</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){NS_INDIRIZZI.clickRow(rec,this);}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>INDIRIZZO</COL>
+                        <DB>INDIRIZZO</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblIndirizzo</DESCRIPTOR>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>TIPO</COL>
+                        <DB>TIPO</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblTipoIndirizzo</DESCRIPTOR>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>COMUNE</COL>
+                        <DB>COMUNE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblComuneIndirizzo</DESCRIPTOR>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NAZIONE</COL>
+                        <DB>NAZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblNazioneIndirizzo</DESCRIPTOR>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN ID="INDIRIZZO">asc</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

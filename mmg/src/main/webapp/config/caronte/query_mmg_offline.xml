@@ -1,0 +1,114 @@
+<?xml version = "1.0"?>
+<QUERIES>
+	<QUERY_GROUP id="OFFLINE">
+		<QUERY id="ACCERTAMENTI">
+			<SQL>with VRA as (select /*+first_rows(1000)*/ IDEN, CODICE, CODICE_REGIONALE, CODICE_ISES, DESCRIZIONE, CICLICHE, BRANCA,
+					rank() over(order by CODICE) RIGA
+          from VIEW_RR_ACCERTAMENTI WHERE ATTIVO='S' and DATA_AGGIORNAMENTO &gt; :data_aggiornamento )
+				select /*+first_rows(1000)*/ ACC.*,
+				(select string_agg(CODICE_ESENZIONE) from VIEW_RR_ACCERTAMENTI_ESENZIONI VRE where VRE.COD_PRESTAZIONE=ACC.CODICE) ESENZIONI
+				from (
+					select /*+first_rows(1000)*/ * from vra
+					union all
+					select /*+first_rows(1000)*/ vra.IDEN, vra.CODICE, vra.CODICE_REGIONALE, vra.CODICE_ISES, SIN.DESCRIZIONE, vra.CICLICHE, vra.BRANCA, vra.RIGA
+					from VRA
+					JOIN RADSQL.RR_PRESTAZIONI_SINONIMI SIN on VRA.CODICE_REGIONALE=SIN.COD_PRESTAZIONE and SIN.ATTIVO='S' and to_char(SIN.DATA_AGGIORNAMENTO,'YYYYMMDDHH24MI') &gt;= :data_aggiornamento
+					where :importa_sinonimi = 'S'
+				) ACC where ACC.RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+		<QUERY id="ASSISTITI">
+			<SQL>select /*+first_rows(10)*/ NIN.*,
+				cursor(select /*+first_rows(10)*/ * from VIEW_RR_PAZIENTI_ESENZIONI VRE where VRE.IDEN_ANAG=NIN.IDEN_ANAG and (DATA_FINE_ES_PAZ is null or DATA_FINE_ES_PAZ &gt;= to_char(sysdate,'YYYYMMDD'))) ESENZIONI,
+				cursor(select /*+first_rows(100)*/ IDEN, DATA, DATA_INSERIMENTO, PROBLEMA, PROBLEMA_COMPLETO, DESCR_ICD9, CHIUSO_DESCR, OSCURATO
+					from VIEW_PROBLEMI VP where VP.IDEN_ANAG=NIN.IDEN_ANAG and DELETED='N'
+					and (CHIUSO='N' or (CHIUSO='S' and RILEVANTE='S'))
+					and VUA(vp.IDEN_ANAG, NIN.IDEN_MED_BASE,vp.iden_med,to_char(vp.data_ins,'YYYYMMDD'),'ASSISTITO,SOSTITUTO,GRUPPO,SOSTITUTO_GRUPPO',vp.oscurato)=1
+					order by DATA_INS
+				) PROBLEMI,
+				cursor(
+					select /*+first_rows(100)*/ * from table(OFFLINE_QUERIES.GET_DIARIO(NIN.IDEN_ANAG, :iden_med_base))
+				) DIARIO,
+				cursor(
+					select /*+first_rows(100)*/ * from table(OFFLINE_QUERIES.GET_FARMACI(NIN.IDEN_ANAG, :iden_med_base))
+				) RICETTE_FARMACI,
+				cursor(
+			        select /*+first_rows(100)*/ * from table(OFFLINE_QUERIES.GET_ACCERTAMENTI(NIN.IDEN_ANAG, :iden_med_base))
+				) RICETTE_ACCERTAMENTI
+        		from (
+					select /*+first_rows(1000)*/ VOA.*, rank() over (order by IDEN_ANAG) RIGA
+					FROM VIEW_OFFLINE_ASSISTITI VOA
+			        WHERE VOA.IDEN_MED_BASE = :iden_med_base and VOA.DATA_MORTE is null and VOA.DATA_AGG_OFFLINE &gt;= to_date(:data_aggiornamento,'YYYYMMDDHH24MI')
+				) NIN
+				where RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+		<QUERY id="ESENZIONI">
+			<SQL>select /*+first_rows(1000)*/ * from
+				(select /*+first_rows(1000)*/ v.*, rank() over(order by CODICE) RIGA
+				from VIEW_RR_ESENZIONI v
+				) where RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+		<QUERY id="FARMACI">
+			<SQL>select /*+first_rows(1000)*/ * from
+				(select /*+first_rows(1000)*/ vof.*, rank() over(order by COD_FARMACO) RIGA
+				from VIEW_OFFLINE_FARMACI vof
+				where DATA_INS &gt;= to_date(:data_aggiornamento,'YYYYMMDDHH24MI')
+				) where RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+		<QUERY id="PERSONALE">
+			<SQL>select /*+first_rows(10)*/ GIG.*,
+				OFFLINE_QUERIES.GET_MEDICI_GRUPPO_STRING(GIG.IDEN_PER) MEDICI_GRUPPO,
+				FIRME.RICETTA_FIRMA_MEDICO,
+				FIRME.RICETTA_BIANCA_FIRMA_MEDICO
+				/*,cursor(select USERNAME, UTL_I18N.RAW_TO_CHAR(DBMS_CRYPTO.HASH(UTL_I18N.STRING_TO_RAW(CONFIG_WEB.DECRYPT(PASSWORD), 'AL32UTF8'),2)) PASSWORD from CONFIG$UTENTI U where U.IDEN_PER=GIG.IDEN_PER) LOGIN*/
+				from (
+					select /*+first_rows(1000)*/ VOP.IDEN_PER, VOP.DESCRIZIONE, VOP.TIPO, VOP.TIPO_MED, VOP.COD_DEC, VOP.COD_FISC, VOP.NOME, VOP.COGNOME,
+						rank() over(order by VOP.IDEN_PER) RIGA
+					from VIEW_OFFLINE_PERSONALE VOP
+					join VIEW_OFFLINE_PERSONALE VOP2 on VOP.COD_CDC=VOP2.COD_CDC or (VOP.COD_CDC is null and VOP.IDEN_PER=VOP2.IDEN_PER)
+					where VOP2.IDEN_PER=:iden_utente
+				) GIG, table(OFFLINE_QUERIES.GET_FIRME_MEDICO(GIG.IDEN_PER)) FIRME
+				where GIG.RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+		<QUERY id="POSOLOGIE">
+			<SQL>select /*+first_rows(100)*/ * from (
+				with UTENTI as (select regexp_substr(x, '[^,]+', 1, level) ID
+					from(select :iden_utente x from dual)
+					connect by level &lt;= length(x) - length(replace(x, ',')) + 1)
+				select /*+first_rows(100)*/ P.IDEN, P.CODICE, P.DESCRIZIONE, P.QTA, P.QTA_GIORNALIERA, P.PERSONALE, P.IDEN_MED, rank() over(order by P.IDEN) RIGA
+				from MMG_POSOLOGIA P
+				join UTENTI U on (P.PERSONALE = 'N' OR (P.PERSONALE = 'S' AND P.UTE_INS = U.ID))
+				where P.attivo = 'S' and P.deleted = 'N' and P.DATA_INS &gt;= :data_aggiornamento)
+				where RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+		<QUERY id="PROBLEMI">
+			<SQL>select /*+first_rows(1000)*/ * from
+				(select /*+first_rows(1000)*/ v.*, rank() over(order by IDEN) RIGA
+				from VIEW_MMG_ICD9 v
+				) where RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+		<QUERY id="PROFILI">
+			<SQL>select /*+first_rows(100)*/ PROFILI.*,
+				cursor (select GAC.CODICE_PREST, VRA.DESCRIZIONE from MMG_GRUPPI_ACC_CROSS GAC
+					join VIEW_RR_ACCERTAMENTI VRA on VRA.CODICE = GAC.CODICE_PREST where GAC.IDEN_PROFILO = PROFILI.IDEN and GAC.ABILITATO = 'S' and VRA.ATTIVO = 'S'
+				) ACCERTAMENTI
+				from (
+					select 
+					GA.IDEN, 
+					GA.DESCRIZIONE, 
+					GA.CODICE_CDC,
+					GA.IDEN_UTENTE,
+					rank() over(order by IDEN) RIGA
+					from MMG_GRUPPI_ACC GA where GA.ATTIVO = 'S' and GA.IDEN_UTENTE = :iden_utente
+				) PROFILI
+				where RIGA between to_number(:lower) and to_number(:upper)
+			</SQL>
+		</QUERY>
+	</QUERY_GROUP>
+</QUERIES>

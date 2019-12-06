@@ -1,0 +1,184 @@
+<MENU>
+    <ID>MENU_WK_RICERCA_ANAGRAFICA</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISCI RICOVERO</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.inserisciRicovero(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length > 0 && rec[0].DATA_MORTE == null  && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI RICOVERO_ANAGRAFICA_REMOTA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.ElaboraRemoto(rec, function(r){ NS_MENU_ANAGRAFICA.inserisciRicovero(r);});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && rec[0].DATA_MORTE == null  && NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>INSERISCI_PRERICOVERO</ID>
+            <LINK><![CDATA[function(rec){
+
+                //top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=INS_PRERICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&STATO_PAGINA=I&TIPO=WK_PAZIENTI',id:'INS_PRERICOVERO',fullscreen:true})
+                var url='page?KEY_LEGAME=INS_PRERICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&STATO_PAGINA=I&TIPO=WK_PAZIENTI';
+                NS_HOME_ADT_FUNZIONI_CONTATTO.checkListaAttesa(rec,url,'INS_PRERICOVERO','PRERICOVERO');
+
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_prericovero.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && rec[0].DATA_MORTE == null  && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci prericovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_PRERICOVERO_ANAGRAFICA_REMOTA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.ElaboraRemoto(rec, function(r){ NS_MENU_ANAGRAFICA.inserisciPrericovero(r);});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_prericovero.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && rec[0].DATA_MORTE == null  && NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci prericovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>INSERISCI_IN_LISTA_ATTESA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.inserisciInListAttesa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi_modulo.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && rec[0].DATA_MORTE == null  && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci in lista attesa"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_IN_LISTA_ATTESA_ANAGRAFICA_REMOTA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.ElaboraRemoto(rec, function(r){ NS_MENU_ANAGRAFICA.inserisciInListAttesa(r);});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi_modulo.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return ( rec.length != 0 && rec[0].DATA_MORTE == null  && NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci in lista attesa"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>VISUALIZZA_STORICO</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=STORICO_PAZIENTE&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA,id:'STORICO_PAZIENTE',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/storico.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Visualizza storico paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_PAC</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=GESTIONE_PAC&IDEN_ANAGRAFICA='+rec[0].IDEN_ANAGRAFICA+'&STATO_PAGINA=I&TIPO=WK_PAZIENTI',id:'GESTIONE_PAC',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return ( rec.length != 0 && rec[0].DATA_MORTE == null  && !NS_MENU_ANAGRAFICA.IsRemota(rec))}]]></WHERE>
+            <OUTPUT>"Ins Intervento Chirurgici Ambulatoriali"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_DSA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.inserisciDSA(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && rec[0].DATA_MORTE == null  && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci DSA"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_CARTELLA_STORICA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.inserisciCartellaStorica(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (home.basePermission.hasOwnProperty('BACKOFFICE') && rec.length != 0 && rec[0].DATA_MORTE == null  && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci Cartella Storica"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_STORICO_RICOVERI</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.stampaStoricoRicoveri(rec[0].IDEN_ANAGRAFICA);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return rec.length > 0}]]></WHERE>
+            <OUTPUT>"Stampa Storico Ricoveri"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_DSA_ANAGRAFICA_REMOTA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.ElaboraRemoto(rec, function(r){ NS_MENU_ANAGRAFICA.inserisciDSA(r);});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && rec[0].DATA_MORTE == null  && NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci DSA"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_PAZIENTE</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.inserisciPaziente(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserimento_nuovo_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length == 0 || !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_PAZIENTE_ANAGRAFICA_REMOTA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.ElaboraRemoto(rec, function(r){ NS_MENU_ANAGRAFICA.inserisciPaziente(r);});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserimento_nuovo_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Inserisci paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_PAZIENTE</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.modificaPaziente(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Modifica dati paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PAZIENTE_SCONOSCIUTO</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_ANAGRAFICA.inserisciPazienteSconosciuto(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/appropriatezza.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Paziente sconosciuto"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PRIVACY</ID>
+            <LINK><![CDATA[function(rec){var params = {'rec' : rec[0],'origine':'ANAGRAFICA'}; home.HOME_ADT.apriConsensoPrivacy(params);}]]></LINK>
+            <URL_IMAGE>./img/privacy/pcyPaz_assenteInfoCartella.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if(home.baseGlobal.ATTIVA_PRIVACY === 'S'){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>"Compila consenso unico"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

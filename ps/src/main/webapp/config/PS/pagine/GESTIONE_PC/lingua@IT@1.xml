@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <filtroGestPC>Gestione PC</filtroGestPC>
+		<lblIp>IP</lblIp>
+        <GestTabInserisci>Inserisci PC</GestTabInserisci>
+        <GestTabModifica>Modifica PC</GestTabModifica>
+        <lblNomePC>Nome PC</lblNomePC>
+        <fldDatiPC>Dati Configurazione</fldDatiPC>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/PS/Prestazioni/Prestazioni.js"/>
+    <CSS path="css/PS/Prestazioni/Prestazioni.css"/>
+</INCLUDE>

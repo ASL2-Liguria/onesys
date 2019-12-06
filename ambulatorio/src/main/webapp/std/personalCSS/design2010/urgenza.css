@@ -1,0 +1,37 @@
+/* CSS Document */
+.btnNoUrg {
+	background: url(../../../imagexPix/Urgenza/opt_2010_NoUrg_off.gif) center center no-repeat;
+	height: 24px;
+}
+.btnNoUrgCheck {
+	background: url(../../../imagexPix/Urgenza/opt_2010_NoUrg_on.gif) center center no-repeat;
+	height: 24px;
+}
+.btnUrgDif {
+	background: url(../../../imagexPix/Urgenza/opt_2010_UrgDiff_off.gif) center center no-repeat;
+	height: 24px;
+}
+.btnUrgDifCheck {
+	background: url(../../../imagexPix/Urgenza/opt_2010_UrgDiff_on.gif) center center no-repeat;
+	height: 24px;
+}
+.btnUrg {
+	background: url(../../../imagexPix/Urgenza/opt_2010_Urgenza_off.gif) center center no-repeat;
+	height: 24px;
+}
+.btnUrgCheck {
+	background: url(../../../imagexPix/Urgenza/opt_2010_Urgenza_on.gif) center center no-repeat;
+	height: 24px;
+}
+.btnEme {
+	background: url(../../../imagexPix/Urgenza/opt_2010_Emerg_off.gif) center center no-repeat;
+	height: 24px;
+}
+.btnEmeCheck {
+	background: url(../../../imagexPix/Urgenza/opt_2010_Emerg_on.gif) center center no-repeat;
+	height: 24px;
+}
+.tableDataFormat {
+	width : 100%;
+	height: 45px;
+}

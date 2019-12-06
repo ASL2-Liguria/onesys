@@ -1,0 +1,135 @@
+
+body{
+/* 	background:url(../../img/sfBody.png) 0 0 repeat-x #9b9b9b; sfondo originale Fenix */
+	background:#D4EBF9; /* sfondo azzurro */
+	overflow:hidden;
+}
+
+/*	Status Bar	*/
+div#statusBar{
+	background:url(../../img/bars.png) 0 -180px repeat-x #ccc;
+	color:black
+	height:20px;
+	position:absolute;
+	bottom:0;
+	display:block;
+	left:2px;right:2px;
+	border-left:1px solid #4d4d4d;
+	border-right:1px solid #4d4d4d;
+	}
+	div#statSx{height:20px;}
+	div#statSx h5{
+		float: left;
+		height: 20px;
+		line-height: 20px;
+		margin-left: 5px;
+		font-size:11px;
+		}
+		h5.statTitle{
+		color:black;
+		font-weight:bold;}
+		h5.statValue{
+		color:black;
+		font-weight:normal;}
+
+/*	Header layer	*/
+.hRiq{
+	position:relative;
+	}
+	.hRiq20{height:20px;}
+	.hRiq26{height:26px;}
+	
+	.hRiq .hSx{
+		position:absolute;
+		top:0;
+		left:0;
+		display:block;
+		width:6px;
+		}
+		.hRiq20 .hSx{background:url(../../img/bars.png) 0 -120px no-repeat;height:20px;}
+		.hRiq26 .hSx{background:url(../../img/bars.png) 0 -42px no-repeat;height:26px;}
+	
+	
+	.hRiq .hC{
+		color:#333;
+		font-size:12px;
+		font-weight:bold;
+		position:absolute;
+		top:0;
+		left:6px;
+		right:6px;
+		text-align:center;
+		}
+		.hRiq20 .hC{background:url(../../img/bars.png) 0 -140px repeat-x;height:20px;line-height:20px;}
+		.hRiq26 .hC{background:url(../../img/bars.png) 0 -68px repeat-x;height:26px;line-height:26px;}
+			
+	
+	.hRiq .hDx{
+		position:absolute;
+		top:0;
+		right:0;
+		display:block;
+		width:6px;
+		}
+		.hRiq20 .hDx{background:url(../../img/bars.png) 0 -160px no-repeat;height:20px;}
+		.hRiq26 .hDx{background:url(../../img/bars.png) 0 -94px no-repeat;height:26px;}
+	
+	
+/*	Login	*/
+
+img#logo{
+	width:253px;
+	height:163px;
+	margin:100px auto 30px auto;
+	display:block;
+}
+
+#divFormLogin{
+	width:300px;
+	margin:0 auto;
+	-moz-box-shadow: 4px 5px 11px #333333;
+	-webkit-box-shadow: 4px 5px 11px #333333;
+	box-shadow: 4px 5px 11px #333333;
+	border:solid 0px #000000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	}
+	#contentLogin{
+		padding:25px 36px 25px 36px;
+		border:1px solid #4d4d4d;
+		border-top:none;
+		background:url(../../img/sfTable.png) repeat-x #ececec;
+		overflow:hidden;
+	}
+	
+	#formLogin label{
+		font-weight:bold;
+		color:#333;
+		display:block;
+		margin:0 0 1px 0;		
+	}
+	#formLogin input{
+		color:#333;
+		display:block;
+		width:220px;
+		border:1px solid #4d4d4d;
+		height:20px;
+		line-height:20px;
+		padding:0 3px;
+		margin:0 0 10px 0;
+	}
+	
+	#errorMsg{
+		font-size:11px;
+		color:red;
+		font-weight:bold;
+		width:226px;
+		line-height:20px;
+		margin:10px 0 5px 0;
+	}
+
+.hide{display:none;}
+
+button{width: 106px;margin-top:10px;}
+#butLogin{margin-right:4px;}

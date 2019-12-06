@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+       <lblTitolo>Lista Richieste</lblTitolo>
+       <tabDati>Lista Richieste</tabDati>
+       <fldRichieste>Richieste</fldRichieste>
+       <titDettPrest>Dettaglio prestazioni</titDettPrest>
+       <thDescrizione>Descrizione</thDescrizione>
+       <thMedRichiedente>Medico Richiedente</thMedRichiedente>
+        <thQuesito>Quesito</thQuesito>
+       <butStampa>Catena Custodia</butStampa>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,11 @@
+<html>
+<SCRIPT>
+var myObjId= new ActiveXObject("StampaCR.Class1");
+myObjId.init();
+myObjId.setReport("C:/temp/fabio_stetiDBFprMet.rpt");
+myObjId.setSF("{STAMPA_ETICHETTE_CP.IDRICHIESTA} in ['1893466','1889009']");
+myObjId.setLogon("TEST", "dfelco", "dfelco", "elc0df");
+myObjId.Exp("C:/temp/test.pdf");
+myObjId.Stampa();
+</SCRIPT>
+</html>

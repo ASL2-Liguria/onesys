@@ -1,0 +1,107 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_POSIZIONAMENTO_CVC_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_POSIZIONAMENTO_CVC_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+
+    <!-- Caricamento Dati -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"  />
+
+    <DATO key_id="hTermine" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TERMINE" db_descrizione="TERMINE"  />
+
+    <DATO key_id="hCol1" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COL_1" db_descrizione="COL_1"  />
+
+    <DATO key_id="hCol2" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COL_2" db_descrizione="COL_2"  />
+
+    <DATO key_id="hCol3" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COL_3" db_descrizione="COL_3"  />
+
+    <DATO key_id="txtIndicazioni" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INDICAZIONI" db_descrizione="INDICAZIONI"  />
+
+    <DATO key_id="txtDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI" db_descrizione="DIAGNOSI"  />
+
+    <DATO key_id="txtNotizie" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTIZIE" db_descrizione="NOTIZIE"  />
+
+    <DATO key_id="txtAllergieNote" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ALLERGIE_NOTE" db_descrizione="ALLERGIE_NOTE"  />
+
+    <DATO key_id="txtLatoPreferibile" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LATO_PREFERIBILE" db_descrizione="LATO_PREFERIBILE"  />
+
+    <DATO key_id="txtTerapieDaSospendere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TERAPIE" db_descrizione="TERAPIE"  />
+
+    <DATO key_id="txtMotivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MOTIVO" db_descrizione="MOTIVO"  />
+
+    <DATO key_id="txtMotivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MOTIVO" db_descrizione="MOTIVO"  />
+
+    <DATO key_id="h-txtData" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA" db_descrizione="DATA"  />
+    <!-- Query multidata -->
+
+    <DATO key_id="radScelta" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''MODULO_RICHIESTA_POSIZIONAMENTO_CVC'' and attivo = ''S'''; end;" />
+
+    <DATO key_id="radTerapiaProgrammata" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''RICHIESTA_POSIZIONAMENTO_CVC_TERAPIA_PROGRAMMATA'' and attivo = ''S'''; end;" />
+
+    <DATO key_id="radUrgente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+    <DATO key_id="radCompilato" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO_CUSTODIA@PS" />
+
+
+
+    <DATO key_id="h-radScelta" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SCELTA" db_descrizione="SCELTA"/>
+
+    <DATO key_id="h-radTerapiaProgrammata" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TERAPIA_PROGRAMMATA" db_descrizione="TERAPIA_PROGRAMMATA"/>
+
+    <DATO key_id="h-radUrgente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="URGENTE" db_descrizione="URGENTE"/>
+
+    <DATO key_id="h-radCompilato" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMPILATO" db_descrizione="COMPILATO"/>
+
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+</DATI>

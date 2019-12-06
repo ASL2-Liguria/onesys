@@ -1,0 +1,43 @@
+div.clsACR
+{
+	margin: 2px;
+	background-color:#F2FEFF;
+	border:groove;
+	border-color:#0CF;
+	border-width:1px;
+	width:98%;
+	height:auto;
+
+	PADDING-right: 7px;
+	PADDING-bottom: 7px;
+	PADDING-top: 7px;
+	border: 2px solid  #6AA8F2;
+}
+
+div.clsACR * div
+{
+	width:100%;
+	/*background-color:expression(colore=this.numFiglio ? '#' + (225 - (parseInt(this.numFiglio) * 15)).toString(16) + 'F9FF':'#F2FEFF');*/
+}
+
+div.clsACR ol li
+{
+	margin:0px 0px 8px 0px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	
+}
+
+div.clsACR ol li a
+{
+	width:100%;
+	text-decoration:none;
+	color:#000;
+}
+
+div.clsACR ol li a:hover
+{
+	background-color:#FFF;
+	cursor:pointer;
+}
+

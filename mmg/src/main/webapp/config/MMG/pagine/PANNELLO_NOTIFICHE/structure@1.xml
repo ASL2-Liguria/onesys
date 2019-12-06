@@ -1,0 +1,57 @@
+<PAGINA key_id="PANNELLO_NOTIFICHE">
+
+	<HEADER_PAGE key_id="PANNELLO_NOTIFICHE" valore="DEFAULT_MMG,SCHEDA,PANNELLO_NOTIFICHE#DEFAULT_MMG,PANNELLO_NOTIFICHE" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_EVENTI_APPLET#POLARIS_DATI#EVENTI_APPLET#IDEN#IDEN" evento="START_END">
+	
+		<TABULAZIONE.INIT key_id="tabPannelloNotifiche" valore="PannelloNotifiche#lblTitolo#butSalva,butChiudi" evento="START">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabNotificheInvio" valore="tabNotificheInvio" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldRicercaUtenti" valore="fldRicercaUtenti" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="RicercaUtenti" valore="lblRicercaUtenti##txtRicercaUtenti###" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butFiltraOnline" valore="butFiltraOnline" evento="START">
+						</TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+			
+				<FIELDSET_TABLE key_id="fldFiltriMessaggio" valore="fldFiltriMessaggio" evento="START">
+					
+					<EXCHANGE_LISTS key_id="exchangeUser" valore="excUser#ComboInUser#ComboOutUser#N#btnControls#{ onlySingleTransfert: false, removeFirstListItems:true, listHeaders:{ listFrom:{ title:'Lista Utenti (scegliere con le frecce o con doppio clic)' }, listTo:{ title:'Destinatari messaggio (rimuovere con le frecce o con doppio clic)', } } }#USER" evento="START">
+					</EXCHANGE_LISTS>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldProprietaNotifica" valore="fldProprietaNotifica" evento="START">
+					
+					<TR_TD_LABEL_TEXTAREA key_id="Messaggio" valore="lblMessaggio#txtMessaggio#MESSAGE#N" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					
+					<TR_TD_LABEL_TEXT key_id="DurataMsg" valore="lblDurataMsg##txtDurataMsg#300##TIMEOUT" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldProprietaFunzione" valore="fldProprietaFunzione##hide" evento="START">
+				
+					<TR_TD_LABEL_TEXT key_id="funzioneJS" valore="lblFunzioneJS##txtFunzioneJS#NS_..##FUNZIONE##N" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="paramfunzioneJS" valore="lblparamfunzioneJS##txtparamfunzioneJS###PARAMETRI_FUNZIONE##N" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>
+

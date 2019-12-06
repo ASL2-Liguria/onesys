@@ -1,0 +1,37 @@
+<root>
+	<statements_list>
+		<statement name="info">				
+			<sql>
+			<![CDATA[
+				select
+					pc.nome_host,
+					pc.ip,
+					pc.directory_report,
+					pc.printername_eti_client,
+					pc.printername_ref_client,
+					pc.printername_ricetta_rossa,
+					pc.uso_applet_stampa,
+					pc.abilita_firma_digitale,
+					pc.configurazione_eti,
+					pc.scelta_stampante,
+					pc.CONFIGURAZIONE_APPLET_RICETTA,
+					pc.CONFIGURAZIONE_APPLET_REF,
+					pc.CONFIGURAZIONE_APPLET_ETI,
+					pc.APPLET_RICETTA_ROSSA,
+					pc.APPLET_REFERTI,
+					pc.APPLET_ETICHETTE,
+					pc.URL_VE,
+					pc.IDEN_AETITLE_VE,
+					pc.printername_ricetta_bianca,
+					pc.CONFIGURAZIONE_APPLET_BIANCA,									
+					pc.APPLET_RICETTA_BIANCA,
+					pc.PRINTERNAME_RICETTA_DEMA,
+					pc.CONFIGURAZIONE_APPLET_DEMA,									
+					pc.APPLET_RICETTA_DEMA			
+				from imagoweb.configura_pc pc
+				where pc.IP=?
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

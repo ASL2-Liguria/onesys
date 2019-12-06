@@ -1,0 +1,269 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C/DTD XHTML 1.0 TRANSITIONAL//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>X Domain Interface Test Program</title>
+<script type="text/javascript">
+<!--
+	var	urlnode;
+	var	msgnode;
+	var	inputnode;
+	var	outputnode;
+	var	sessionnode;
+	var	usernode;
+	var wcFrame;
+	var writebutton;
+	var batchbutton;
+	var src;
+
+	var XDomain = function() {
+
+	    var attached_callback,
+        window = this;
+	    return {
+	        postMessage: function(message, target_url, target) {
+                //di target verrà fatto l'override
+
+                //return alert("postMessage" + message +'\n'+ target_url +'\n'+ target);
+
+	            if (!target_url) {
+
+	                return;
+	            }
+
+	            target = frames[0];
+
+
+	            if (window['postMessage']) {
+	                target['postMessage'](message, target_url.replace(/([^:]+:\/\/[^\/]+).*/, '$1'));
+
+	            }
+	        },
+
+	        receiveMessage: function(callback) {
+
+	            if (window['postMessage']) {
+	                if (callback) {
+	                    attached_callback = function(e) {
+	                        callback(e);
+	                    };
+	                }
+	                if (window['addEventListener']) {
+	                    window['addEventListener']('message', attached_callback, !1);
+	                } else {
+	                    window['attachEvent']('onmessage', attached_callback);
+	                }
+	            }
+	        }
+	    };
+	} ();
+
+	function HandleError(sStr) {
+		msgnode.value = sStr;
+		msgnode.style.color = "red";
+	}
+
+	function btnWritePacket (sInPacket) {
+		outputnode.value = "";
+		try {
+		    var jsonMessage;
+		    if (this.JSON && this.JSON['stringify']) {
+		        var tempObj = {};
+		        tempObj.CALL = "WcWritePacket";
+		        tempObj.PACKET = sInPacket;
+		        jsonMessage = JSON.stringify(tempObj);
+		    } else  {
+                jsonMessage = '{"CALL":"WcWritePacket", "PACKET":"' + sInPacket + '"}';
+            }
+
+	        sendCRSMessage(jsonMessage);
+		} catch(err) {
+			HandleError(err.message);
+		}
+	}
+
+	function btnBatchPacket (sInPacket) {
+		outputnode.value = "";
+		try {
+		    if (window.JSON && window.JSON['stringify']) {
+		        var tempObj = {};
+		        tempObj.CALL = "WcBatchPacket";
+		        tempObj.PACKET = sInPacket;
+		        jsonMessage = JSON.stringify(tempObj);
+		    } else
+		        jsonMessage = '{"CALL":"WcBatchPacket", "PACKET":"' + sInPacket + '"}';
+		    sendCRSMessage(jsonMessage);
+			if(outputnode.value) {
+				msgnode.value = "Packet has been batched";
+				msgnode.style.color = "black";
+				window.focus;
+			}
+		} catch(err) {
+			HandleError(err.message);
+		}
+	}
+
+	function CRSClosed() {
+		alert("CRS application was closed.");
+		btnReleaseInstance();
+		initializeCRS();
+	}
+
+	var errcnt = 0;
+	function initializeCRS() {
+        //alert("initializeCRS");
+	    try {
+            sendCRSMessage('{"CALL":"WcInitInstance", "USER":"' + usernode.value + '", "SESSION":"' + sessionnode.value + '", "URL":"' + urlnode.value + '"}');
+		}catch(err) {
+			if(errcnt > 3)
+				HandleError(err.message);
+			else {
+				setTimeout(initializeCRS, 500);
+				errcnt+=1;
+			}
+
+        }
+	}
+
+	function btnInitInstance() {
+	    initializeCRS();
+	}
+
+	function btnLoadIFrame() {
+	    wcFrame.src = urlnode.value + '/interface/wcintf.html';
+	    src = urlnode.value + '/interface/wcintf.html#' + encodeURIComponent(document.location.href);
+	    wcFrame.src = src;
+	}
+
+	function ipkOnload() {
+		var url = document.URL;
+		urlnode = document.getElementById("URL");
+		sessionnode = document.getElementById("Session");
+		usernode = document.getElementById("User");
+		inputnode = document.getElementById("TAInput");
+		outputnode = document.getElementById("TAOutput");
+		msgnode = document.getElementById("Message");
+		wcFrame = document.getElementById("wcFrame");
+		writebutton = document.getElementById("WritePacket");
+		batchbutton = document.getElementById("BatchPacket");
+
+		var pos = url.indexOf("/interface/");
+		urlnode.value = "";
+		sessionnode.value = "Xdomain";
+		usernode.value = "Interactive";
+
+
+
+
+		XDomain.receiveMessage(onMessage);
+    }
+
+	function btnReleaseInstance()
+	{
+	    try {
+	        sendCRSMessage('{"CALL":"WcReleaseInstance"}');
+	        writebutton.disabled = true;
+	        batchbutton.disabled = true;
+	    } catch (err) {
+			HandleError(err.message);
+		}
+    }
+
+    function btnCheckStatus() {
+        try {
+            sendCRSMessage('{"CALL":"WcCheckStatus"}');
+        } catch (err) {
+            HandleError(err.message);
+        }
+    }
+
+    function sendCRSMessage(msg) {
+        XDomain.postMessage(msg,src,'3');
+        return false;
+    }
+
+    function onMessage(e) {
+        if (e.origin == urlnode.value) {
+            var msgobj = JSON.parse(e.data);
+            switch (msgobj.MSG) {
+                case "READ":
+                    outputnode.value = msgobj.PACKET;
+                    window.focus();
+                    break;
+                case "CLOSE":
+                    CRSClosed();
+                    break;
+                case "ERROR":
+                    HandleError(msgobj.TEXT);
+                    break;
+                case "STATUS":
+                    msgnode.value = msgobj.VALUE;
+                    break;
+                case "INITIALIZED":
+                    writebutton.disabled = false;
+                    batchbutton.disabled = false;
+                    break;
+            }
+        }
+        else
+            alert("message received unknown domain");
+    }
+//-->
+</script>
+</head>
+<body style="text-align:center;font-family:sans-serif;font-size:small;background-color:#edf3f9;margin-top:0;margin-left:0;margin-right:0;width:100%;" onload="ipkOnload();" onunload="btnReleaseInstance()">
+	<div style="background-color:#93acc5;padding-top:10px;padding-bottom:10px;color:white;">
+	<div style="font-size:large;">Interface Test Program</div>
+	<div>Cross Domain Messaging</div>
+	</div>
+	<div style="padding-top:10px;text-align:center;width:100%;">
+	<table width="100%">
+	<tr>
+	<td align="center">
+	<table style="font-size:x-small;" cellspacing="0">
+	<tr>
+		<th style="text-align:left;font-weight:normal;">Input:</th>
+		<th style="text-align:left;font-weight:normal;">Output:</th>
+	</tr>
+	<tr>
+		<td><textarea id="TAInput" cols="50" rows="25"></textarea></td>
+		<td><textarea id="TAOutput" cols="50" rows="25"></textarea></td>
+	</tr>
+	<tr>
+		<th colspan="2" style="text-align:left;font-weight:normal;">Status:</th>
+	</tr>
+	<tr>
+		<td colspan="2"><input type="text" id="Message" value="" size="137"/></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align:center">
+			<button style="background-color:#93acc5;color:white;" onclick="btnLoadIFrame();" type="button" name="LoadIFrame">Load IFrame</button>
+			<button style="background-color:#93acc5;color:white;" onclick="btnInitInstance();" type="button" name="InitInstance">Init Instance</button>
+			<button style="background-color:#93acc5;color:white;" onclick="btnWritePacket(inputnode.value);" disabled="disabled" id="WritePacket" type="button" name="Write Packet">Write Packet</button>
+			<button style="background-color:#93acc5;color:white;" onclick="btnBatchPacket(inputnode.value);" disabled="disabled" id="BatchPacket" type="button" name="Batch Packet">Batch Packet</button>
+			<button style="background-color:#93acc5;color:white;" onclick="btnReleaseInstance();" type="button" name="ReleaseInstance">Release Instance</button>
+			<button style="background-color:#93acc5;color:white;" onclick="btnCheckStatus();" type="button" name="Status">Check Status</button>
+		</td>
+	</tr>
+	<tr>
+		<table style="font-size:x-small;">
+			<tr>
+				<th style="text-align:left;font-weight:normal;">URL:</th>
+				<th style="text-align:left;font-weight:normal;">Session:</th>
+				<th style="text-align:left;font-weight:normal;">User:</th>
+			</tr>
+			<tr>
+				<td><input type="text" id="URL" value="" size="80" /></td>
+				<td><input type="text" id="Session" value="" size="20" /></td>
+				<td><input type="text" id="User" value="" size="20" /></td>
+			</tr>
+		</table>
+	</tr>
+	</table>
+	</td>
+	</tr>
+	</table>
+	</div>
+	<iframe name="wcFrame" src="wcintfempty.html" id="wcFrame" height="0" width="0" frameborder="0"></iframe>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<PAGINA key_id="WORKLIST_RICERCA">
+
+	<HEADER_WK key_id="WORKLIST_RICERCA" valore="DEFAULT_MMG,WK,WORKLIST_RICERCA#DEFAULT_MMG,WORKLIST_RICERCA" evento="START_END">
+	</HEADER_WK>
+	
+	<TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butLastVal,butUltimiAccessi,butInserisci,butAzzeraFiltri,butApplica##divWk#divWorklist" evento="START_END">
+	
+		<TABULAZIONE.CREA_TAB_FILTRO key_id="filtroWk" valore="filtroWk#PRINCIPALE" evento="START">
+			
+			<TABELLA.INIT key_id="tableWk" valore="" evento="START">
+				
+				<TR.INIT key_id="r1" valore="" evento="START">
+					
+					<TD_LABEL_RADIO key_id="Anagrafe" valore="lblAnagrafe##Anagrafe#radAnagrafe#{width:100}#S##3" evento="START">
+					</TD_LABEL_RADIO>
+					
+				</TR.INIT>
+				
+				<TR.INIT key_id="r2" valore="" evento="START">
+				
+					<TD_LABEL_RADIO key_id="TipoAssistito" valore="lblTipoAssistito##TipoAssistito#radTipoAssistito#{width:100}#S##3" evento="START">
+					</TD_LABEL_RADIO>
+					
+				</TR.INIT>
+				
+				<TR.INIT key_id="r3" valore="" evento="START">
+				
+					<FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognome#COGNOME##T" evento="START">
+					</FILTRO_TEXT>
+					
+					<FILTRO_TEXT key_id="Nome" valore="lblNome#txtNome#NOME##T" evento="START">
+					</FILTRO_TEXT>
+					
+				</TR.INIT>
+				
+				<TR.INIT key_id="r4" valore="" evento="START">
+				
+					<FILTRO_DATA key_id="DataNascita" valore="lblDataNascita#txtDataNascita#DataNascita####DATA_DI_NASCITA##V" evento="START">
+					</FILTRO_DATA>
+					
+					<FILTRO_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale#txtCodiceFiscale#CodiceFiscale##T" evento="START">
+					</FILTRO_TEXT>
+					
+				</TR.INIT>
+				
+			</TABELLA.INIT>
+			
+		</TABULAZIONE.CREA_TAB_FILTRO>
+		
+	</TABULAZIONE.FILTRI>
+	
+</PAGINA>

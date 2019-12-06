@@ -1,0 +1,36 @@
+--- worklist_ricerca_pazienti.js
++++ worklist_ricerca_pazienti.js
+@@ -363,4 +379,7 @@
+ 
+-	var url = "servletGenerator?KEY_LEGAME=INSERIMENTO_ACCESSO&IDEN_ANAG="+idenAnag;
+-	url+="&TIPO=INSERIMENTO";
++                    var finestra = window.open(url,"","fullscreen=yes");  
++                    configurazionetrovata = false;
++                }
++            }
++        });
+ 
+@@ -366,11 +385,16 @@
+ 
+-	parent.parent.$.fancybox({
+-		'padding'	: 3,
+-		'width'		: 1024,
+-		'height'	: 570,
+-		'href'		: url,
+-		'type'		: 'iframe'
+-	});
++	if (no_autologinadt){
++	    url = "servletGenerator?KEY_LEGAME=INSERIMENTO_ACCESSO&IDEN_ANAG="+idenAnag;
++		url+="&TIPO=INSERIMENTO";
++
++		parent.parent.$.fancybox({
++			'padding'	: 3,
++			'width'		: 1024,
++			'height'	: 570,
++			'href'		: url,
++			'type'		: 'iframe'
++		});        		
++	}
+ }
+ 
+ function cbk_visualizza_numeri_archivio(anagIden)

@@ -1,0 +1,28 @@
+<MENU>
+    <ID>MENU_PRECEDENTI</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>MODIFICA_RILEVAZIONE_PARAMETRI</ID>
+            <LINK><![CDATA[function(rec){FRASI_STD.applica(rec[0].FRASE);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblModificaRilevazione</OUTPUT>
+            <CONCEALING>N</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO>"Modifica rilevazione"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ELIMINA_RILEVAZIONE</ID>
+            <LINK><![CDATA[function(rec){CARTELLA_INFO.eliminaRilevazione(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblEliminaRilevazione</OUTPUT>
+            <CONCEALING>N</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO>"Elimina rilevazione"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

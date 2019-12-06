@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="js/PS/AndamentoTriage/AndamentoTriage.js" />
+    <JS path="js/Base/jquery.plugin/jquery.tooltipster.js"/>
+    <CSS path="css/base/jquery.plugin/tooltipster.css"/>
+    <CSS path="css/PS/AndamentoTriage/AndamentoTriage.css"/>
+</INCLUDE>

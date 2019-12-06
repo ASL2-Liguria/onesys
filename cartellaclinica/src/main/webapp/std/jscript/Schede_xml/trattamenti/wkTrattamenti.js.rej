@@ -1,0 +1,11 @@
+--- wkTrattamenti.js
++++ wkTrattamenti.js
+@@ -50,7 +50,7 @@
+ 	else
+ 	{
+ 		funzione 	= 'WK_RICOVERATI_TRATTAMENTI';
+-		sf= "{NOSOLOGICI_PAZIENTE.IDEN}  in [" + array_iden_visita + "]";
++		sf= "{VIEW_CC_TRATTAMENTI_ATTIVI.IDEN_TESTATA}  in [" + array_iden_testata + "]";
+ 		top.confStampaReparto(funzione,sf,'S',reparto,null);
+ 	}     
+ }

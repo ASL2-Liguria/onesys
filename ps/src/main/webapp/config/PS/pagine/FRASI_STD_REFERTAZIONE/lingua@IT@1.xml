@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROWSET>
+    <ROW>
+        <!-- PAGINA: FRASI_STD_REFERTAZIONE -->
+        <lblTitolo>Frasi Standard</lblTitolo>
+        <btnSolo>Solo codice</btnSolo>
+        <btnTutti>Selez. tutti</btnTutti>
+        <btnCerca>Cerca</btnCerca>
+        <!-- WK: FRASI_STD_REFERTAZIONE -->
+        <lblIden>IDEN</lblIden>
+        <lblFrasiStandard>TITOLO</lblFrasiStandard>
+        <lblGruppo>GRUPPO</lblGruppo>
+        <lblCodice>CODICE</lblCodice>
+        <lblTitolo>DESCRIZIONE BREVE</lblTitolo>
+        <lblFrase>TESTO FRASE</lblFrase>
+        <!-- MENU_FRASI_STD -->
+        <lblMenu>Menu</lblMenu>
+        <lblInserisciFrase>Aggiungi Nuova Frase</lblInserisciFrase>
+        <lblModificaFrase>Modifica Frase</lblModificaFrase>
+        <lblInserisciFraseTextarea>Inserisci Frase Nel Testo</lblInserisciFraseTextarea>
+        <lblVuota>aAAAa</lblVuota>
+    </ROW>
+</ROWSET>

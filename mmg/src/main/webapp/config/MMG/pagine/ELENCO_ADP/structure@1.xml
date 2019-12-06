@@ -1,0 +1,49 @@
+<PAGINA key_id="ELENCO_ADP">
+	<HEADER_PAGE key_id="ELENCO_ADP"
+		valore="DEFAULT_MMG,SCHEDA,ELENCO_ADP#DEFAULT_MMG,ELENCO_ADP"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_DATA#MMG_DATI#ELENCO_ADP#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ElencoConsensi#lblTitolo#butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabElencoConsensi"
+				valore="tabElencoConsensi" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtCognome"
+							valore="lblCognome##txtCognome##lettura#COGNOME" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtNome" 
+						valore="lblNome##txtNome##lettura#NOME"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR_TD_RADIO key_id="selezioneFiltroRicette" valore="selezioneFiltroRicette#selezioneFiltroRicette#{width:150, idxDefault:1}#N#" evento="START"></TR_TD_RADIO>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca#butCerca#5"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fldElenco" valore="fldElenco" evento="START">
+					<DIV key_id="divWk" valore="divWk" evento="START">
+					</DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

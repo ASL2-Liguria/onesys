@@ -1,0 +1,23 @@
+<ROWSET>
+    <ROW>
+        <filtroListaAttesa>Lista Attesa</filtroListaAttesa>
+        <lblListaAttesaCognome>Cognome</lblListaAttesaCognome>
+        <lblListaAttesaNome>Nome</lblListaAttesaNome>
+        <lblListaAttesaReparto>Reparto</lblListaAttesaReparto>
+        <lblListaAttesaPriorita>Priorità</lblListaAttesaPriorita>
+        <lblListaAttesaDataInizio>Data Inizio</lblListaAttesaDataInizio>
+        <lblListaAttesaDataFine>Data Fine</lblListaAttesaDataFine>
+        <lblListaAttesaID>Lista</lblListaAttesaID>
+        <lblListaAttesaStato>Stato</lblListaAttesaStato>
+        <lblListaAttesaMedicoProponente>Medico Proponente</lblListaAttesaMedicoProponente>
+        <lblListaAttesaStatoContatto>Stato Ricovero</lblListaAttesaStatoContatto>
+        <filtroListaChiamata>Lista di Chiamata</filtroListaChiamata>
+        <lblListaChiamataCognome>Cognome</lblListaChiamataCognome>
+        <lblListaChiamataNome>Nome</lblListaChiamataNome>
+        <lblListaChiamataID>Lista di Chiamata</lblListaChiamataID>
+        <lblListaChiamataMedicoProponente>Medico Proponente</lblListaChiamataMedicoProponente>
+        <PROVA1></PROVA1>
+        <PROVA2></PROVA2>
+        <PROVA3></PROVA3>
+    </ROW>
+</ROWSET>

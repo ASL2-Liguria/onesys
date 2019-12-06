@@ -1,0 +1,56 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_CONSTATAZIONE_DECESSO_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_CONSTATAZIONE_DECESSO_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+    <!-- Caricamento Dati -->
+    <DATO key_id="taCausaDecesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAUSA_DECESSO" db_descrizione="CAUSA_DECESSO"  />
+
+    <DATO key_id="txtMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEDICO" db_descrizione="MEDICO"  />
+
+    <DATO key_id="txtDataNecroscopo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_NECROSCOPO" db_descrizione="DATA_NECROSCOPO"  />
+
+    <DATO key_id="txtOraNecroscopo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_NECROSCOPO" db_descrizione="ORA_NECROSCOPO"  />
+
+    <DATO key_id="txtDataCompilazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_COMPILAZIONE" db_descrizione="DATA_COMPILAZIONE"  />
+
+    <DATO key_id="txtMedico24" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEDICO_24" db_descrizione="MEDICO_24"  />
+
+    <DATO key_id="txtDataCompilazione24" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_COMPILAZIONE_24" db_descrizione="DATA_COMPILAZIONE_24"  />
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+    <!-- Query multidata -->
+
+</DATI>

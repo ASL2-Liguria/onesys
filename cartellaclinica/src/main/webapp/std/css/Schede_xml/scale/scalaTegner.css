@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+#lblLegenda, #lblIntestazione{
+	white-space:nowrap;
+}
+/*
+.classTdField{
+    width:150px;
+    word-wrap:break-word;
+}
+*/

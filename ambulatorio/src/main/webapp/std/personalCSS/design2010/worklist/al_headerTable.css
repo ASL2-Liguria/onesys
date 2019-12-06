@@ -1,0 +1,85 @@
+table.classTabHeader {
+text-align: left;
+width: 100%;
+margin:0px 0 0 0;
+border: 0;
+height:25px;
+}
+
+table.classTabHeader td.classTabHeaderSx {
+	background:url(../../../../imagexPix/tabheader/tab_sx_2010.png) no-repeat;
+	width:14px;
+}
+
+table.classTabHeader td.classTabHeaderMiddle {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#000;
+	font-weight: bold;
+}
+
+table.classTabHeader td.classTabHeaderDx {
+background:url(../../../../imagexPix/tabheader/tab_dx_2010.png) no-repeat;
+width:14px;
+}
+
+table.classTabHeader td.classTabFooterSx {
+background:url(../../../../imagexPix/tabheader/tab_sx_down_2010.png);
+width:14px;
+}
+
+table.classTabHeader td.classTabFooterDx {
+background:url(../../../../imagexPix/tabheader/tab_dx_down_2010.png) no-repeat;
+width:14px; 
+}
+
+table.classTabHeader td.classButtonHeader {
+background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+width:100px; 
+}
+
+table.classTabHeader td.classButtonHeaderContainer {
+background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+width:550px;
+}
+
+table.classTabHeader td.classMiniButtonheader {
+background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+width:26px;
+padding:0 5px;
+}
+
+table.classTabHeader td.classTabHeaderSxRed{
+	background:url(../../../../imagexPix/tabheader/tabSx_red.gif) no-repeat;
+	width:12px;
+}
+
+table.classTabHeader td.classTabHeaderMiddleRed {
+	background:url(../../../../imagexPix/tabheader/top_tabella_red.gif) repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#000;
+	font-weight: bold;
+}
+
+table.classTabHeader td.classTabHeaderDxRed {
+background:url(../../../../imagexPix/tabheader/tabDx_red.gif) no-repeat;
+width:12px;
+}
+
+table.classTabHeader td.classButtonHeaderRed {
+background:url(../../../../imagexPix/tabheader/top_tabella_red.gif) repeat-x;
+width:100px; 
+}
+
+table.classTabHeader td.classButtonHeaderContainerRed {
+background:url(../../../../imagexPix/tabheader/top_tabella_red.gif) repeat-x;
+width:550px; 
+}
+
+table.classTabHeader td.classMiniButtonheaderRed {
+background:url(../../../../imagexPix/tabheader/top_tabella_red.gif) repeat-x;
+width:26px;
+padding:0 5px;
+}

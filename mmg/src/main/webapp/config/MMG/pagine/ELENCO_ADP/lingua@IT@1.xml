@@ -1,0 +1,15 @@
+<ROWSET>
+    <ROW>
+		<tabElencoConsensi>Lista Moduli ADP</tabElencoConsensi>
+		<lblTitolo>Assistenza Domiciliare Programmata</lblTitolo>
+		
+		<fldRicerca>Ricerca</fldRicerca>
+		
+		<lblDaData>Da data scadenza</lblDaData>
+		<lblAData>A data scadenza</lblAData>
+		<lblNoSave>Il salvataggio non è andato a buon fine</lblNoSave>
+		<lblErrorSave>Errore Salvataggio</lblErrorSave>
+
+		<butCerca>Cerca</butCerca>
+    </ROW>
+</ROWSET>

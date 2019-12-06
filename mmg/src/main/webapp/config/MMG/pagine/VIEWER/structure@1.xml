@@ -1,0 +1,10 @@
+<PAGINA key_id="VIEWER">
+	<HEADER_PAGE key_id="VIEWER" valore="DEFAULT_MMG,SCHEDA,VIEWER#DEFAULT_MMG,VIEWER" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#VIEWER#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab" valore="Viewer#lblTitolo#butChiudi" evento="START_END">
+			<IFRAME key_id="ifrload" valore="ifrload" evento="START">
+			</IFRAME>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

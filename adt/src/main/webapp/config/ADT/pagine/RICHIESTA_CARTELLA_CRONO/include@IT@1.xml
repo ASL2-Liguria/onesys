@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/ADT/GestioneRichiesteCartelle/CronologiaRichiestaCartella.js"/>
+    <CSS path="css/ADT/datiAssistito.css"/>
+</INCLUDE>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href='std/css/textArea.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+
+<script type='text/javascript' src='std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/filterTable.css' type='text/css' rel='stylesheet'>
+
+<link rel="stylesheet" type="text/css" href="std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/button.css">
+<link rel="stylesheet" type="text/css" href="std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SCELTA N° DI COPIE</title>
+<script>
+	
+	function intercetta_tasti(){
+	 if (window.event.keyCode==13){
+		 setta_valori();}
+}
+	function setta_valori()
+	{
+		window.returnValue=document.all.mCi.value;
+		//n_copie = document.all.mCi.value;
+		window.close();
+	}
+	function isnumeric(valore) {
+	//alert(valore);
+	if (valore ==1)
+	{document.all.mCi.value=1;return;}
+	if (valore ==2)
+	{document.all.mCi.value=2;return;}
+	if (valore ==3)
+	{document.all.mCi.value=3;return;}
+	if (valore ==4)
+	{document.all.mCi.value=4;return;}
+	if (valore ==5)
+	{document.all.mCi.value=5;return;}
+	if (valore ==6)
+	{document.all.mCi.value=6;return;}
+	if (valore ==7)
+	{document.all.mCi.value=7;return;}
+	if (valore ==8)
+	{document.all.mCi.value=8;
+	return;}
+	if (valore ==9)
+	{document.all.mCi.value=9;
+	return;}
+	alert('Inserire un valore numerico')
+	document.all.mCi.value=2;
+	return ;
+	
+	
+	}
+	var arrayLabelName = new Array('bt');
+	var arrayLabelValue = new Array('OK');
+</script>
+</head>
+<body onLoad='fillLabels(arrayLabelName,arrayLabelValue);document.all.mCi.focus()'>
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>N° di Copie</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td  width="50%" class='classTdLabelNoWidth'>N° di copie da Stampare</td>
+			<td  width="50%" class='classTdField'><input name='mCi' maxlength='20'  value=2	 size='20' onchange="javascript:isnumeric(document.all.mCi.value);" onkeypress=" javascript:intercetta_tasti()" type='text' ></td>
+		</tr>
+	</table>
+	
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+			<td class='classTabHeaderMiddle'> </td>
+			<td class='classButtonHeader'><div f class='pulsante' id='bt' onclick="javascript:setta_valori();"></div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+
+</body>
+</html>

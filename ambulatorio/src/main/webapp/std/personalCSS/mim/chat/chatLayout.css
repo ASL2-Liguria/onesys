@@ -1,0 +1,410 @@
+/* CSS Document */
+
+
+div#container{ float:left;width:100%;margin:0 auto;min-height: 100%;}
+
+
+div#headerUser{position:relative;height:18px;padding:2 0 2 0; color: white; text-align:center; background-color:#508AFF;}
+div#userLayerContainer{ height:120px; position:relative;}
+div#usersList{float:left; height:90px; width:30%; background-color:#D9FFF8;overflow:auto;border-style:solid; border-color:#0000FF; border-width:1px;}
+
+div#wrapperUserInfo{
+	float:left; 
+	width:100%;
+	overflow:auto;
+	
+}
+
+
+div#userInfo{background-color:#0000FF;  height:90px; border-style:solid; border-color:#0000FF; border-width:1px; overflow:hidden; } 
+
+div#boxInfoUtente{ height:50px;  background-color:#D9FFF8; overflow:auto; padding:3px 3px 3px 3px; color:blue; font-family:Arial, Helvetica, sans-serif; font-size:12px;}
+div#comandiUtente{ height:25px; background-color:FF00FF; overflow:hidden; background-image:url(../../../../imagexPix/bar/btContainer_mim.jpg); background-repeat:repeat-x; width:100%;}
+
+div#footer{background: #333;color: #FFF}
+div#footer p{margin:0;padding:5px 10px}
+div#footer a{display:inline;padding:0;color: #C6D5FD}
+
+div#headerChat{ position:relative;height:18px;padding:2 0 2 0; color: white; text-align:center; background-color:#508AFF; margin-top:-25px;}
+
+
+div#chatLayerContainer{width:100%;}
+
+div#chatIndexContainer{width:100%;height:25px; background-image:url(../../../../imagexPix/bar/btContainer.jpg); background-repeat:repeat-x; }
+
+div#chatBoxContainer{width:100%; position:relative;height:180px;}
+div#chatBoxHistory{ background-color:#FBFEE2; height:180px; overflow:auto; padding:10px 10px 10px 10px; border-style:solid; border-color:#0000FF; border-width:1px;}
+
+
+div#wrapperSendBox{ position:relative; height:100px; margin-top:5px; overflow:hidden; }
+div#chatBoxSendBox{float:left; height:100px;  width:70%; background-color:#CCFFFF;overflow:hidden;border-style:solid; border-color:#0000FF; border-width:1px;}
+/* NON impostare altezza del livello xkè IE7 crasha! */
+div#chatBoxButton{overflow:hidden;}
+
+
+div#vocalBox{
+	width=100%;
+	height:105px;
+	background-color:#00FF99;
+	padding:2px 2px 2px 2px;
+	overflow:auto;
+}
+
+/* pulsanti per invio msg e reset history */
+div.btCmdChat{
+	width:100%;
+	background-image:url(../../../../imagexPix/bar/btCyan_mim.jpg);
+	background-repeat:repeat-x;
+	font-size:12x;
+	font-weight:bold;
+	color:#FFFFFF;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:25px;
+	display:block;	
+	overflow:hidden;
+}
+
+
+div.btCmdChat A{
+	TEXT-DECORATION: none;
+	color: white;
+	display:block;
+}
+
+div.btCmdChat A:hover {
+	width:100%;
+	display:block;	
+	background-image:url(../../../../imagexPix/bar/btBlu.jpg);
+	background-repeat:repeat-x;	
+	font-size:12x;
+	font-weight:bold;
+	color:yellow;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;	
+	line-height:25px;	
+	overflow:hidden;
+}
+
+
+
+/* indicano i nomi di chi scrivi i mshg*/
+.userSender1{
+	display:block;
+	background-color:#FF00FF;
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:2 2 2 2;
+}
+
+.userSender2{
+	display:block;
+	background-color:#FFCCFF;
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	padding:2 2 2 2;
+}
+
+
+
+/* pulsanti per indicizzare le chat*/
+.chatTab {
+	width:80px;
+	height:25px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/button/chat/chatTab.gif);
+	text-align: center;
+	overflow:hidden;
+	float:left;
+	color:#FFFFFF;
+}
+
+.chatTab A{
+	TEXT-DECORATION: none;
+	color: white;
+	padding-top:3px;
+	display:block;
+	padding-bottom:25px;
+
+}
+
+.chatTab A:hover {
+	background-image:url(../../../../imagexPix/button/chat/chatTabOver.gif);
+	background-repeat:repeat-x;
+	color: yellow;
+	color:#000000;
+
+}
+
+.chatTabSelected {
+	width:80px;
+	height:25px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/button/chat/chatTabSelected.gif);
+	text-align: center;
+	overflow:hidden;
+	float:left;
+	color:#FFFFFF;
+}
+
+.chatTabSelected A{
+	TEXT-DECORATION: none;
+	color: white;
+	padding-top:3px;
+	display:block;
+	padding-bottom:25px;
+
+}
+
+.chatTabSelected A:hover {
+	background-image:url(../../../../imagexPix/button/chat/chatTabSelected.gif);
+	background-repeat:repeat-x;
+	color: yellow;
+	color:#000000;
+
+}
+
+
+
+
+/* indica i titoli relativi alle sottosezioni: infoUtente, ListaUtentiLoggati  */
+.titolettoChat{
+	display:block;
+	background-color:#D2FFE9;
+	color:blue;
+	font-size:12px;
+	font-weight:bold;
+	padding:2 2 2 2;
+	line-height:12px;
+	text-align: center;
+}
+
+/* classe per lista utenti, posizionamento del padding*/
+.classComboListaUtenti{
+	padding:5px 5px 5px 5px ;
+}
+
+/* classe style propria del combo */
+.styleComboListaUtenti{
+	font:Arial, Helvetica, sans-serif ;
+	font-size:10px;
+}
+
+/* style dell'option della lista utenti*/
+.utenteOnline{
+	color:#0000FF;
+}
+
+.utenteOffline{
+	color:#999999;
+}
+
+/* stile del textarea per inserimento testo*/
+.styleBoxTextArea{
+	float:left;
+	width:100%;
+	line-height:12px;
+	background-color:#E1FFFF;
+}
+
+/* pulsanti per interazione utente chat */
+.styleBtChatRefreshUserList{
+	background-image:url(../../../../imagexPix/button/chat/btUserRefresh.gif);
+	width:25px;
+	height:25px;
+	float:left;
+}
+
+.styleBtChatRefreshUserList A{
+	background-image:url(../../../../imagexPix/button/chat/btUserRefresh.gif);
+	width:25px;
+	height:25px;
+	float:left;	
+}
+
+
+.styleBtChatRefreshUserList A:hover {
+	width:25px;
+	height:25px;
+	float:left;
+	background-image:url(../../../../imagexPix/button/chat/btUserRefreshOver.gif)
+}
+
+
+
+.styleBtChatWithUser{
+	background-image:url(imagexPix/button/chat/btChat.gif);
+	width:25px;
+	height:25px;
+	float:left;
+}
+
+.styleBtChatWithUser A{
+	background-image:url(../../../../imagexPix/button/chat/btChat.gif);
+	width:25px;
+	height:25px;
+	float:left;	
+}
+
+
+.styleBtChatWithUser A:hover {
+	width:25px;
+	height:25px;
+	float:left;
+	background-image:url(../../../../imagexPix/button/chat/btChatOver.gif)
+}
+
+
+
+.styleBtVocalChat{
+	background-image:url(../../../../imagexPix/button/chat/btVoice.gif);
+	width:25px;
+	height:25px;
+	float:left;
+}
+
+.styleBtVocalChat A{
+	background-image:url(../../../../imagexPix/button/chat/btVoice.gif);
+	width:25px;
+	height:25px;
+	float:left;	
+}
+
+
+.styleBtVocalChat A:hover {
+	width:25px;
+	height:25px;
+	float:left;
+	background-image:url(../../../../imagexPix/button/chat/btVoiceOver.gif)
+}
+
+/* SMS */
+.styleBtSms{
+	background-image:url(../../../../imagexPix/button/chat/btSms.gif);
+	width:25px;
+	height:25px;
+	float:left;
+}
+
+.styleBtSms A{
+	background-image:url(../../../../imagexPix/button/chat/btSms.gif);
+	width:25px;
+	height:25px;
+	float:left;	
+}
+
+
+.styleBtSms A:hover {
+	width:25px;
+	height:25px;
+	float:left;
+	background-image:url(../../../../imagexPix/button/chat/btSmsOver.gif)
+}
+
+/* phonecall*/
+
+.styleBtPhoneCall{
+	background-image:url(../../../../imagexPix/button/chat/btPhoneCall.gif);
+	width:25px;
+	height:25px;
+	float:left;
+}
+
+.styleBtPhoneCall A{
+	background-image:url(../../../../imagexPix/button/chat/btPhoneCall.gif);
+	width:25px;
+	height:25px;
+	float:left;	
+}
+
+
+.styleBtPhoneCall A:hover {
+	width:25px;
+	height:25px;
+	float:left;
+	background-image:url(../../../../imagexPix/button/chat/btPhoneCallOver.gif)
+}
+
+/* sync action */
+
+.styleBtSyncAction{
+	background-image:url(../../../../imagexPix/button/chat/btSyncAction.gif);
+	width:25px;
+	height:25px;
+	float:left;
+}
+
+.styleBtSyncAction A{
+	background-image:url(../../../../imagexPix/button/chat/btSyncAction.gif);
+	width:25px;
+	height:25px;
+	float:left;	
+}
+
+
+.styleBtSyncAction A:hover {
+	width:25px;
+	height:25px;
+	float:left;
+	background-image:url(../../../../imagexPix/button/chat/btSyncActionOver.gif)
+}
+
+/* email */
+
+.styleBtEmail{
+	background-image:url(../../../../imagexPix/button/chat/btEmail.gif);
+	width:25px;
+	height:25px;
+	float:left;
+}
+
+.styleBtEmail A{
+	background-image:url(../../../../imagexPix/button/chat/btEmail.gif);
+	width:25px;
+	height:25px;
+	float:left;	
+}
+
+
+.styleBtEmail A:hover {
+	width:25px;
+	height:25px;
+	float:left;
+	background-image:url(../../../../imagexPix/button/chat/btEmailOver.gif)
+}
+
+
+
+
+/* classe che gestisce l'iframe */
+.iframeVocalBox{
+	width:100%;
+	height:100%;
+	background-color:#FF0000;
+}
+
+
+/* classe per intestazione chatButtonRoom */
+.headerChatRoomTab{
+	float:left;
+	width:56px;
+	overflow:hidden;
+	height:20px;
+	margin-top:3px;
+	cursor:pointer;
+}
+
+/* classe per img di chiusura per pulsante chatButtonRoom */
+.closeBtChatRoomTab{
+	float:right;
+	width:20px;
+	height:20px;
+	background-image:url(../../../../imagexPix/button/chat/iconCloseChatRoom.gif);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	margin-top:3px;	
+}

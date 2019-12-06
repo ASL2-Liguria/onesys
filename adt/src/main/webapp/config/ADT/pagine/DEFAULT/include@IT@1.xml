@@ -1,0 +1,31 @@
+<INCLUDE>
+    <CSS path="css/mix.css" />
+    <CSS path="css/ie7.css" condizione="IE 7" />
+    <CSS path="css/eoc.css" />
+    <DWR path="dwr/engine.js" />
+    <DWR path="dwr/interface/toolKitDB.js" />
+    <DWR path="dwr/interface/toolKitWK.js" />
+    <JS path="js/Base/LIB.js" />
+    <JS path="js/Base/NO-min/ecma.js" condizione="IE" />
+    <JS path="js/Base/NO-min/infoDialog.js" />
+    <JS path="js/Base/tinymce4/tinymce.js" />
+    <JS path="js/Base/NO-min/jquery.combolist.js" />
+    <JS path="js/Base/NO-min/browserDetector.js" />
+    <JS path="js/Base/NS_WORKLIST_COMPONENT.js" />
+    <JS path="js/Base/NO-min/ecma.js"/>
+    <JS path="js/Base/NS_FENIX.js" />
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/Base/NO-min/jquery.exchangeLists.js"/>
+    <!--<JS path="js/Base/NO-min/WK.js" />-->
+    <!--<JS path="js/TimePicker/jquery.ptTimeSelect.js"/>-->
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/NS_SCRIPT_WK.js" />
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <!--JS path="config/ADT/validator/model/V_DEFAULT.js"/-->
+    <JS path="js/Base/NS_FENIX_TAG_LIST.js"/>
+    <JS path="js/ADT/Date/controlliDate.js"/>
+    <JS path="js/Base/NS_AUTOCOMPLETE.js"/>
+    <JS path="js/ADT/WK/whereWkMenu.js"/>
+
+</INCLUDE>
+

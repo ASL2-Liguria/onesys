@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_WK_CONTRODEDUZIONI</ID>
+    <TITLE>"Menu gestione contestazioni"</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>MODIFICA_SCHEDA_CONTESTAZIONE</ID>
+           <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=CONTRODEDUZIONI_SCHEDA&IDEN='+rec[0].IDEN+'&STATO_PAGINA=E',id:'ModificaSchedaContestazione',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { return true; } ]]></WHERE>
+            <OUTPUT>"Modifica scheda contestazione"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

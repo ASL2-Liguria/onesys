@@ -1,0 +1,228 @@
+<root>
+	<statement_list>
+		<statement name="rr_esenzioni_prestazioni">
+			<sql>
+			<![CDATA[
+				Declare 
+					pElencoPrest Varchar2(32767) :=?;
+					pElencoEse	 Varchar2(32767) :=?;
+					vRet		 Varchar2(32767);
+				Begin
+					vRet:= radsql.rr_esenzione_prestazione(pElencoPrest,pElencoEse);					
+					?:= vRet;
+				End;
+			]]>
+			</sql>
+		</statement>
+		<statement name="rr_prest_attiva">
+			<sql>
+			<![CDATA[
+			declare
+				pCodicePrest    Radsql.RR_PRESTAZIONI.CODICE%type :=?;
+				vAttivo         Radsql.RR_PRESTAZIONI.CODICE%type := 'N';
+			begin
+				-- Restituisce lo stato di attivazione della prestazione.
+				-- Nel caso di più attivazioni per la stessa prestazione,
+				-- la procedura restituisce il primo valore a 'S'. 
+				begin
+					select 'S' into vAttivo from radsql.view_rr_prestazioni
+					where codice = pCodicePrest
+					and attivo = 'S' and rownum = 1;
+				exception when no_data_found then null; 
+				end;
+				?:= vAttivo;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="inviaRicettaDematerializzata">
+			<sql>
+			<![CDATA[
+			declare
+				pProgressivo number               := to_number(?);
+				pTipoInvio varchar2(1)            := to_char(?);
+				vIden varchar2(32767)             := '0';
+				vRosse varchar2(32767)            := '';
+				vDematerializzate varchar2(32767) := '';
+				vExitCode varchar2(32767)         := '{"number": 0, "message": "Si è verificato un errore durante l''invio."}';
+			begin
+				begin
+					Select string_agg(mmg.iden) into vIden FROM MMG.Rr_Ricetta_Rossa_Testata mmg
+					JOIN Radsql.RR_RICETTA_ROSSA_SCHEDA rr ON rr.progressivo_mmg=mmg.progressivo
+					WHERE rr.progressivo = pProgressivo
+					GROUP BY mmg.progressivo;
+					
+					If pTipoInvio = 'D' then
+						MMG.RR_DEMA.INVIA_RICETTE(vIden, vRosse, vDematerializzate);
+						If vRosse is null Then
+							If vDematerializzate is not null Then
+								-- Tutte le ricette sono state dematerializzate
+								vExitCode := '{"number": -1, "message": ""}';
+								vIden := vDematerializzate;
+							End If;
+						Else
+							vExitCode := '{"number": 1, "message": "Impossibile inviare una o più prescrizioni come dematerializzate."}';
+							vIden := vRosse;
+						End If;
+					Elsif pTipoInvio = 'S' Then
+						Begin
+							Select string_agg(mmg.iden) into vRosse FROM MMG.Rr_Ricetta_Rossa_Testata mmg
+							JOIN Radsql.RR_RICETTA_ROSSA_SCHEDA rr ON rr.progressivo_mmg=mmg.progressivo
+							WHERE rr.progressivo = pProgressivo
+							and mmg.dematerializzata = 'N' and mmg.tipo_ricetta not in ('B', 'Q')
+							GROUP BY mmg.progressivo;
+							
+							-- vRosse contiene gli iden delle ricette che non sono state dematerializzate
+							Begin
+								select '{"number": 1, "message": "Impossibile inviare una o più prescrizioni come dematerializzate:\n\n'||replace(replace(replace(t.messaggio, '"', '\"'), CHR(10), '\n'), CHR(13),'\r')||'"}' into vExitCode from
+								(
+									select iden, messaggio
+									from MMG.View_Rr_Dema_Invii
+									where Iden in (select to_number(column_value) iden from table(split(vRosse))) and DATA_INS > sysdate-1
+									order by data_ins desc, iden
+								) t
+								where rownum = 1;
+							Exception when others then
+								vExitCode := '{"number": 1, "message": "Impossibile inviare una o più prescrizioni come dematerializzate."}';
+							End;
+						Exception when no_data_found then
+							-- Tutte le ricette sono state dematerializzate
+							vExitCode := '{"number": -1, "message": ""}';
+						End;
+					Else
+						-- Nessun errore
+						vExitCode := '{"number": -1, "message": ""}';					
+					End If;
+				Exception when no_data_found then null;
+				End;
+				
+				? := vExitCode;
+				? := vIden;
+			end;			
+			]]>
+			</sql>
+		</statement>
+		<statement name="confermaRicetta">
+			<sql>
+			<![CDATA[
+			declare
+				pIdenTestataDaConfermare varchar2(32767) := to_char(?);
+				pIdenTestataDaStampare varchar2(32767)   := to_char(?);
+				pStato varchar2(1)                       := to_char(?);
+				pStampa varchar2(1)                      := to_char(?);
+				vResult varchar2(32767)                  := '';
+			begin
+				begin
+					If pIdenTestataDaConfermare is not null Then
+						MMG.RR_CONFERMA (
+							p_iden_ricetta => pIdenTestataDaConfermare,
+							--p_stato => pStato,
+							v_stampato => 'N',
+							p_result => vResult
+						);
+					End If;
+					
+					If pIdenTestataDaStampare is not null and pStampa = 'S' Then
+						MMG.RR_STAMPATO (
+							p_iden_ricetta => pIdenTestataDaStampare,
+							p_result => vResult
+						);						
+					End If;
+				exception when others then
+				    vResult := sqlerrm;
+				end;
+				vResult := NVL(vResult, 'OK');
+				if vResult = '<br/>-Operazione eseguita correttamente' Then vResult := 'OK'; End If;
+				? := vResult;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaRicetta">
+			<sql>
+			<![CDATA[
+			declare
+				pIdenRicetta ARRAY_STRING    := ARRAY_STRING(to_char(?));
+				vResult varchar2(32767)      := '';
+			begin
+				begin
+					MMG.RR_CANCELLA (
+						v_tipo => 'RICETTA',
+						v_ar_iden => pIdenRicetta,
+						c_errori => vResult
+					);
+				exception when others then
+			    	vResult := sqlerrm;
+			    end;
+				vResult := NVL(vResult, 'OK');
+				if vResult = '<br/>-Operazione eseguita correttamente' Then vResult := 'OK'; End If;
+				? := vResult;
+			end;	
+			]]>
+			</sql>
+		</statement>
+		<statement name="stampaRicetta">
+			<sql>
+			<![CDATA[
+			declare
+				pIdenTestataDaStampare varchar2(32767)   := to_char(?);
+				vResult varchar2(32767)                  := '';
+			begin
+				begin					
+					If pIdenTestataDaStampare is not null Then
+						MMG.RR_STAMPATO (
+							p_iden_ricetta => pIdenTestataDaStampare,
+							p_result => vResult
+						);						
+					End If;
+				exception when others then
+				    vResult := sqlerrm;
+				end;
+				vResult := NVL(vResult, 'OK');
+				if vResult = '<br/>-Operazione eseguita correttamente' Then vResult := 'OK'; End If;
+				? := vResult;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getAttribute">
+			<sql>
+			<![CDATA[
+			declare
+				pWebuser IMAGOWEB.ATTRIBUTI.Valore_campo_filtro%Type := ?;
+				pAttributo IMAGOWEB.ATTRIBUTI.Attributo%Type         := ?;
+				value IMAGOWEB.ATTRIBUTI.Attributo%Type              := '';
+			begin
+				begin
+					select string_agg(attributo) into value from IMAGOWEB.ATTRIBUTI where tabella = 'WEB' and valore_campo_filtro = pWebuser and attributo in (
+						select distinct column_value from table(split(pAttributo))
+					);
+				exception when no_data_found then null;
+				end;
+				? := value;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="setAttribute">
+			<sql>
+			<![CDATA[
+			declare
+				pWebuser IMAGOWEB.ATTRIBUTI.Valore_campo_filtro%Type := ?;
+				pAttributo varchar2(32767)                           := ?;
+				pValue varchar2(32767)                               := ?;
+			begin
+				-- Crea un attributo con valore pari al nome dell'attributo o lo cancella se il valore è nullo
+				Delete from IMAGOWEB.ATTRIBUTI where tabella = 'WEB' and valore_campo_filtro = pWebuser and attributo in (
+					select column_value from table(split(pAttributo))
+				);
+				Insert into IMAGOWEB.ATTRIBUTI(tabella, valore_campo_filtro, attributo)
+				select 'WEB' tabella, pWebuser valore_campo_filtro, column_value attributo
+				from table(split(pValue))
+				where column_value is not null;
+			end;
+			]]>
+			</sql>
+		</statement>
+	</statement_list>
+</root>

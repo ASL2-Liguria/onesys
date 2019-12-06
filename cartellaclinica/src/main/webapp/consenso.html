@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="std/css/button.css" />
+        <link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css" />
+        <link rel="stylesheet" type="text/css" href="std/css/normalBody.css" />
+        <link rel="stylesheet" type="text/css" href="std/css/headerTable.css" />
+        <link rel="stylesheet" type="text/css" href="std/css/dataTable.css" />
+        <link rel="stylesheet" type="text/css" href="std/css/filterTable.css" />
+        <link rel="stylesheet" type="text/css" href="std/css/textArea.css" />      		
+        <link rel="stylesheet" type="text/css" href="std/css/jquery-ui-1.8.19.custom_cupertino.css" />     
+    </head>
+    <body >
+
+        <form method="post" name="formDAO" action="SrvDAO" enctype="application/x-www-form-urlencoded">
+            <table cellpadding="0" cellspacing="0" class="classTabHeader">
+                <tr>
+                    <td class="classTabHeaderSx"></td>
+                    <td class="classTabHeaderMiddle"><label id="titoloOscuramento">Gestione Oscuramento Cittadino</label></td>
+                    <td class="classTabHeaderDx"></td>
+                </tr>
+            </table>
+            <div id="btSetOscuramento">
+                <input type="radio" id="radio1" name="rdOscuramento" value="N" ><label for="radio1">Documento non oscurato</label>
+                <input type="radio" id="radio3" name="rdOscuramento" value="V" ><label for="radio3">Documento oscurato</label>
+            </div>         
+            <table class="classDataEntryTable" id="idTableOscuramento">
+                <tr>
+                    <td class="classTdLabel" >
+                        <label id = "lblOscuramentoPerVolereCittadino">Volonta' del cittadino</label>
+                    </td>
+                    <td colspan="2" class="classTdField" >
+                        <input  key="001" name="chkVolereCittadino" type="checkbox" id="idVolereCittadino"></input>
+                    </td>               
+                </tr>
+                <tr>
+                    <td  class="classTdLabel" >
+                        <label id = "lblOscuramentoPerLegge">per Legge</label>
+                    </td>
+                    <td  class="classTdField" >
+                        <input  key="001" name="chkPerLegge" type="checkbox" id="idPerLegge"></input>
+                    </td>
+                    <td class="classTdField" >
+                        <select id="cmbOscuramentoPerLegge">
+                            <option key=""></option>
+                            <option key="002" value="002">Violenza sessuale</option>
+                            <option key="003" value="003">Pedofilia</option>                     
+                            <option key="004" value="004">Sieropositivita'</option>
+                            <option key="005" value="005">Dipendenza da sostanze stupefacienti</option>
+                            <option key="006" value="006">Dipendenza da sostanze psicotrope</option>
+                            <option key="007" value="007">Dipendenza da alcool</option>                     
+                            <option key="008" value="008">Interruzione volontaria di gravidanza</option>
+                            <option key="009" value="009">Parto in anonimato</option>
+                            <option key="010" value="010">Adozioni nazionali</option>
+                            <option key="010" value="010">Patologie psichiatriche</option>                     
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <!--  <table cellpadding="0" cellspacing="0" class="classTabHeader">
+                <tr>
+                    <td class="classTabFooterSx"></td>
+                    <td class="classTabHeaderMiddle"><label>&nbsp;</label></td>
+                    <td class="classButtonHeader"> 
+                        <div class="pulsante" id="registra">Salva</div>
+                    </td>
+                    <td class="classButtonHeader">
+                        <div class="pulsante" id="chiudi">Chiudi</div>
+                    </td>
+                    <td class="classTabFooterDx"></td>
+                </tr>
+            </table> 
+            -->
+        </form>
+        <script type="text/javascript" src="std/jscript/engine/jquery1_7.js"></script>
+        <script type="text/javascript" src="std/jscript/engine/jquery-ui-1.8.19.custom.min.js"></script>
+        <script type="text/javascript" src="std/jscript/NS_GESTIONE_CONSENSO.js"></script>  
+    </body>
+</html>

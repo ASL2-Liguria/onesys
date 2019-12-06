@@ -1,0 +1,26 @@
+<root>
+	<statements_list>
+		<statement name="test">				
+			<sql>
+			<![CDATA[
+				select * from dual
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		<statement name="testbatch">				
+			<sql>
+			<![CDATA[
+				declare
+					prova varchar2(100) := ?;
+					prova2 varchar2(100) := ?;
+				begin
+					? := prova || '@' || prova2;
+					? := prova2 || '#' || prova;
+				end;
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+	</statements_list>
+</root>

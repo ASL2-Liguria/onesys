@@ -1,0 +1,84 @@
+<ROWSET>
+    <ROW>
+        <Paziente>Paziente</Paziente>
+        <etaPaziente>Eta Paziente</etaPaziente>
+        <Sesso>Sesso</Sesso>
+        <codFiscale>Codice fiscale</codFiscale>
+		<numeroPratica>Numero Pratica</numeroPratica>
+		<statoAttivita>Stato Attività</statoAttivita>
+        <utenteRiferimento>Operatore di Riferimento</utenteRiferimento>
+        <infermiereTriage>Infermire Triagista</infermiereTriage>
+        <riqFunzioniScheda>Funzioni Scheda</riqFunzioniScheda>
+        <riqFunzioniIns>Funzioni Inserimento</riqFunzioniIns>
+        <statoPaziente>Stato paziente</statoPaziente>
+        <accAccoglienza>Accoglienza</accAccoglienza>
+        <lblEsameObiettivo>Valutazione Medica</lblEsameObiettivo>
+        <lblCodiceColore>Codice Colore</lblCodiceColore>
+        <lblTriage>Triage</lblTriage>
+        <lblTrasportoNonUrgente>Trasporto Non Urgente</lblTrasportoNonUrgente>
+        <lblDatiAmmi>Dati amministrativi</lblDatiAmmi>
+        <lblAnamnesi>Anamnesi Infermieristica</lblAnamnesi>
+        <lblEsenzione>Esenzione</lblEsenzione>
+        <lblDecesso>Decesso</lblDecesso>
+        <lblParamVitali>Parametri vitali</lblParamVitali>
+        <lblRichieste>Richieste</lblRichieste>
+        <lblPrestazioni>Prestazioni</lblPrestazioni>
+        <lblVerbale>Verbale</lblVerbale>
+        <lblTrasferimento>Passaggio di consegne</lblTrasferimento>
+        <lblTerapie>Terapie</lblTerapie>
+		<accCartellaInf>Cartella infermieristica</accCartellaInf>
+		<accCartellaMed>Cartella medica</accCartellaMed>
+        <lblDiari>Diario Medico</lblDiari>
+        <lblDiariInf>Diario Infermieristico</lblDiariInf>
+		<accChiusura>Chiusura</accChiusura>
+        <accDocAllegati>Doc. Allegati</accDocAllegati>
+        <infResponsabile>Infermiere responsabile</infResponsabile>
+        <titAnamnesi>Anamnesi</titAnamnesi>
+        <titRischioCardio>Rischio Cardiologico</titRischioCardio>
+        <lblregistra>Registra</lblregistra>
+        <lblfirma>Firma</lblfirma>
+        <lblinsPrestazione>Prestazione</lblinsPrestazione>
+        <lblinsRichieste>Richieste / Prestazioni</lblinsRichieste>
+        <lblinsTerapie>Terapie</lblinsTerapie>
+        <lblinsDiario>Diario Clinico</lblinsDiario>
+        <lblinsEsaObiettivo>Inserisci Esame Obiettivo</lblinsEsaObiettivo>
+        <lblinsTrasferimento>Inserisci Trasferimento</lblinsTrasferimento>
+        <lbliPatient>iPatient</lbliPatient>
+        <lblAnteprima>Anteprima Verbale</lblAnteprima>
+        <lblPotesta>Potestà genitoriale</lblPotesta>
+        <lblDatiStrutturati>Dati Strutturati</lblDatiStrutturati>
+        <lblModulistica>Modulistica</lblModulistica>
+        <lblEsito>Esito</lblEsito>
+        <lblInail>INAIL</lblInail>
+        <accFunzioniStampa>Funzioni Stampa</accFunzioniStampa>
+        <accRiepilogo>Funzioni Riepilogo</accRiepilogo>
+        <lblanteprimaTriage>Anteprima Triage</lblanteprimaTriage>
+        <lblDiariStampa>Anteprima Diari</lblDiariStampa>
+        <lblcompletaTriage>Completa Stampa Triage</lblcompletaTriage>
+        <lblPrenotazione>Prenotazione Ambulatori(interna)</lblPrenotazione>
+        <lblPrenotazioneEsterna>Prenotazione Ambulatori(esterna)</lblPrenotazioneEsterna>
+        <lblRicettaRossaFarmaci>Ricetta Rossa Farmaci</lblRicettaRossaFarmaci>
+        <lblRicettaRossaPrestazioni>Ricetta Rossa Prestazioni</lblRicettaRossaPrestazioni>
+        <lblPianiTerapeutici>Piani Terapeutici</lblPianiTerapeutici>
+        <CodiceColoreAttuale>Codice Colore</CodiceColoreAttuale>
+        <lblPassaggioInf>Passaggio Infermieristico</lblPassaggioInf>
+        <lblStoriaContatto>Iter Paziente</lblStoriaContatto>
+        <lblDocumentiPaziente>Documenti Paziente</lblDocumentiPaziente>
+        <lblRivalutazioniMediche>Rivalutazioni Mediche</lblRivalutazioniMediche>
+        <lblRivalutazioniMedichePassate>Storico Accessi Paziente</lblRivalutazioniMedichePassate>
+        <lblAndamentoTriage>Triage</lblAndamentoTriage>
+        <lblCatenaCustodia>Catena di Custodia</lblCatenaCustodia>
+        <lblNumeroChiamata>Numero di Chiamata</lblNumeroChiamata>
+        <lblPrivacy>Modulo Privacy</lblPrivacy>
+        <lblBraccialetto>Braccialetto</lblBraccialetto>
+        <lblEliminaRilevazione>Elimina Rilevazione</lblEliminaRilevazione>
+        <lblAnagrafica>Scheda Anagrafica</lblAnagrafica>
+        <lblanteprimaNumero>Anteprima Numero</lblanteprimaNumero>
+        <lblanteprimaPrivacy>Anteprima Privacy</lblanteprimaPrivacy>
+        <lblAnamnesiInfRiepilogo>Anamnesi Inf Riepilogo</lblAnamnesiInfRiepilogo>
+        <lblinsDiarioInf>Inserisci Diario Infermieristico</lblinsDiarioInf>
+        <lblcompletaRivalutazione>Completa Rivalutazione</lblcompletaRivalutazione>
+        <lblWorklistRicette>Worklist Ricette</lblWorklistRicette>
+        <lblanteprimaDiarioOBI>Anteprima Diario OBI</lblanteprimaDiarioOBI>
+    </ROW>
+</ROWSET>

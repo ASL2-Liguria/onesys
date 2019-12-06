@@ -1,0 +1,7 @@
+<INCLUDE>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="config/ADT/validator/model/V_TRASFERIMENTO_ODS.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/TrasferimentoODS/TrasferimentoODS.js"/>
+</INCLUDE>

@@ -1,0 +1,8 @@
+body{width:960px;}
+#butRicerca {
+	float:right;
+}
+
+.popup { z-index: 99999; }
+
+#txtTestoMail { width: 450px; height: 90px; }

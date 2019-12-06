@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Accessi/wkCronologiaAccessi.css" />
+	<JS path="js/MMG/Accessi/wkCronologiaAccessi.js" />
+</INCLUDE>

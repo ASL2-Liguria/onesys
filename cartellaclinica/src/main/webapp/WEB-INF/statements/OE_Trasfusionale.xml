@@ -1,0 +1,25 @@
+<root>
+	<statements_list>
+	
+			<statement name="getProfili">
+				<sql>
+				<![CDATA[		
+					SELECT DISTINCT DESCR PROFILO, COD_GRUPPO,URGENZA	 
+					FROM TAB_ESA_GRUPPI 
+					WHERE SITO = ? AND REPARTO= ? AND URGENZA=? 
+					ORDER BY DESCR
+				]]>
+				</sql>
+			</statement>
+				
+			<statement name="getProfiliDettaglio">
+				<sql>
+				<![CDATA[		
+					SELECT TO_CHAR(WM_CONCAT(IDEN_ESA)) RS 
+					FROM TAB_ESA_GRUPPI 
+					WHERE DESCR = ? and REPARTO = ?
+				]]>
+				</sql>
+			</statement>			
+	</statements_list>
+</root>

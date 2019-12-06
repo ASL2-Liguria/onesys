@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=8"/>
+<title>Modulo Generico di refertazione</title>
+
+<link rel="stylesheet"
+	href="../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script src="../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../std/jscript/jQueryUI/1.9.1//ui/jquery.ui.widget.js"></script>
+<script src="../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<link href='../std/css/moduloConsole/baseCss.css' type='text/css'
+	rel='stylesheet'>
+<link href='../std/css/moduloConsole/commonStyleForm.css'
+	type='text/css' rel='stylesheet'>
+
+<script type="text/javascript"
+	src="../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script type="text/javascript"
+	src="../std/jscript/moduloConsole/jquery.multi-accordion-1.5.3.js"></script>
+<link rel="stylesheet"
+	href="../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<!--    <link rel="stylesheet" href="../std/jscript/jqDataTable/themes/smoothness/jquery-ui-1.8.4.custom.css">-->
+<script type="text/javascript" language="javascript"
+	src="../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8" src="../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<script type="text/javascript" src="../std/jscript/fancybox2.1.3/jquery.mousewheel-3.0.6.pack.js"></script>
+<link rel="stylesheet" href="../std/jscript/fancybox2.1.3/jquery.fancybox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../std/jscript/fancybox2.1.3/jquery.fancybox.pack.js"></script>
+
+<script type="text/javascript" src="../std/jscript/moduloConsole/jquery.multi-accordion-1.5.3.js"></script>
+
+<script type='text/javascript' src='../std/jscript/jsElementUtil.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/xmlHttpRequestHandler/xmlHttpRequestHandler.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/xmlHttpRequestHandler/XMLWriter-1.0.0.js' language='JavaScript'></script>
+
+<script type='text/javascript' src="../std/jscript/moduloConsole/commonFunction.js" language='JavaScript'></script>
+
+<script type='text/javascript' src="../std/jscript/moduloConsole/GENERICA/GENERICA.js" language='JavaScript'></script>
+<script type='text/javascript' src="../std/jscript/moduloConsole/GENERICA/descrGruppi.js" language='JavaScript'></script>
+<script type='text/javascript' src="../std/jscript/commonProcedures.js" language='JavaScript'></script>
+<script type='text/javascript' src="../std/jscript/notificaFunction.js" language='JavaScript'></script>
+<script type='text/javascript' src="../std/jscript/jsStringUtil.js" language='JavaScript'></script>
+<script type='text/javascript' src="../std/jscript/optionJsUtil.js" language='JavaScript'></script>
+
+<script type='text/javascript' src="../std/jscript/json/json2.js" language='JavaScript'></script> 
+<script type='text/javascript' src="../std/jscript/json/json_sans_eval.js" language='JavaScript'></script> 
+
+ 
+<link href="../std/css/dataEntryTable.css" type='text/css' rel='stylesheet'>
+<link href="../std/css/classeCampi.css" type='text/css' rel='stylesheet'>
+<link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+<link href="../std/css/headerTable.css" type='text/css' rel='stylesheet'>
+<link href="../std/css/attesaBox.css" type='text/css' rel='stylesheet'>
+
+</head>
+
+<body>
+<form>
+
+<!-- <input type="hidden" value="" id="IDEN_ESAME" gruppo = "GENERICA" formato='N' obbligatorio='N'/> -->
+<!-- <input type="hidden" value="" id="IDEN_REF" gruppo = "GENERICA" formato='N' obbligatorio='N'/> -->
+
+	<input type="hidden" id="IDEN_ANAG" gruppo = "GENERICA" formato='S'></input>
+	<input type="hidden" id="IDEN_ESAME" gruppo = "GENERICA" formato='S'></input>
+  	<input type="hidden" id="PRESTAZIONI_REFERTATE" gruppo = "GENERICA" formato='S'></input>    
+
+        <div id="multiAccordion">
+            <h3><a href="#">Diagnosi</a></h3>
+            <div>
+                <textarea id="DIAGNOSI" onfocus="javascript:cambiaStileTextArea(this,'ON');return false;" onblur="javascript:cambiaStileTextArea(this,'OFF');return false;" class="OFF"  rows="35"  obbligatorio='N'  gruppo = "GENERICA" formato='S'  cols="5000"/></textarea>
+            </div>
+             <h3 id='h3_history_DIAGNOSI'>
+                <a href="#" id='historySez_DIAGNOSI'>Precedenti</a>
+            </h3>
+            <div>
+                 <table cellpadding="0" cellspacing="0" border="0" class="display" id="TAB_HISTORY_DIAGNOSI" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Data visita</th>
+                            <th>Esame</th>
+                            <th>Info</th>
+                            <th>&nbsp;</th>                            
+                            <th>&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>			            
+            </div>                   
+        </div>
+
+
+
+
+<!--  il salvataggio richiama javascript:checkbeforeSaving(params.get("scheda")); -->
+
+</form>
+
+<SCRIPT>
+// 
+$(function(){
+	   
+			// init accordion
+			$('#multiAccordion').multiAccordion({
+				click: function(event, ui) {
+					//console.log('clicked')
+				},
+				init: function(event, ui) {
+					//console.log('whoooooha')
+				},
+				tabShown: function(event, ui) {
+					//console.log('shown')
+				},
+				tabHidden: function(event, ui) {
+					//console.log('hidden')
+				}
+			});
+			$('#multiAccordion').multiAccordion("option", "active", [0]);
+			//alert("###callbackFromIframeAfterLoading");
+			try{parent.callbackFromIframeAfterLoading("INIT");}
+			catch(e){alert(e.description);}
+			// ************ sezione history
+			$('table[id^="TAB_HISTORY_"]').each(function(){
+			jQuery(this).dataTable({
+					"bPaginate": false,
+					"bLengthChange": true,
+					"bFilter": false,
+					"bSort": true,
+					"sScrollY": "200px",
+					"bPaginate": false,
+					"bScrollCollapse": true,
+					"bInfo": false,
+					"bAutoWidth": true ,
+					"bJQueryUI": true,
+					"oLanguage": {
+							"sZeroRecords": "Nessun elemento"
+						}				
+					});			
+			 });
+			initHistorySections('GENERICA');
+			// ******************	
+			// ******************	
+			
+			//alert(parent.objectReportControl.style.height);
+			// definisco 
+			document.getElementById("DIAGNOSI").style.height = parseInt(parent.objectReportControl.style.height.toString().replace("px","")) - 130;
+			setFocusOnFirstField();
+			// ***********************
+			// modifica 30-04-2015
+			try{
+				if (parent.glbMedIniziativa){
+					var strToAppendMedIniz = "";
+					for (var z=0;z<listaCampiMedIniziativa.length;z++){
+						strToAppendMedIniz = "<input type='checkbox' id='chkInvioMedIniz_" + listaCampiMedIniziativa[z]+"'><label for='chkInvioMedIniz_" + listaCampiMedIniziativa[z]+"' class='lblChkMedIniz'>" + parent.parent.top.opener.top.gestioneNotifiche.msgCondivisioneNotifica+"</label>";
+						$("#" + listaCampiMedIniziativa[z]).parent().append(strToAppendMedIniz);				
+				//		alert($("label[for=chkInvioMedIniz_DIAGNOSI]").html())				
+					}
+				}
+			}
+			catch(e){;}
+			// ***********************	
+		});
+
+</SCRIPT>
+</body>
+</html>

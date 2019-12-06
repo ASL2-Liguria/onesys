@@ -1,0 +1,17 @@
+<ROWSET>
+    <ROW>
+        <fldMalattieRare>Elenco Malattie Rare</fldMalattieRare>
+        <lblTitolo>Sezione Malattie Rare</lblTitolo>
+        <lblUteIns>UTENTE INSERIMENTO</lblUteIns>
+        <lblDataIns>DATA INSERIMENTO</lblDataIns>
+        <lblCodiceICD9>CODICE ICD</lblCodiceICD9>
+        <lblDescrizione>DESCRIZIONE</lblDescrizione>
+        <lblDescrICD9>DESCRIZIONE ICD9</lblDescrICD9>
+        <menuMalattieRare>Malattie Rare</menuMalattieRare>
+        <menuDiariMMG>Note</menuDiariMMG>
+        <menuModifica>Modifica</menuModifica>
+        <menuInserisci>Inserisci</menuInserisci>
+        <menuDelete>Cancella</menuDelete>
+        <lbltaNota>Nota</lbltaNota>
+    </ROW>
+</ROWSET>

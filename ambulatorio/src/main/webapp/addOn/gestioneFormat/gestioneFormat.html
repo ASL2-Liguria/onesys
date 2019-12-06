@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script type="text/javascript"	src="../../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script type="text/javascript" src="../../std/jscript/moduloConsole/jquery.multi-accordion-1.5.3.js"></script>
+
+<script src="../../std/jscript/jQueryOloader/js/jquery.oLoader.min.js"></script>
+
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.widget.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<script type="text/javascript" src="../../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../../std/jscript/optionJsUtil.js"></script>   
+
+
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+<link rel="stylesheet"	href="../../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<script type="text/javascript" language="javascript"	src="../../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/dataTable.css" rel="stylesheet" type="text/css" />
+<link href="css/gestioneFormat.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/gestioneFormat.js"></script>
+<link href='../../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<script type="text/javascript" src="../../../std/jscript/moduloConsole/jsComboHandler.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Gestione format / moduli refertazione</title>
+<style>
+.ui-autocomplete {
+    max-height: 200px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+  }
+  /* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+  * html .ui-autocomplete {
+    height: 200px;
+  }
+TD.classTdLabelRicerca{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding:5px 5px 5px 5px;
+	width:60px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+TD.classTdFieldRicerca{
+	border: 1px solid #6AA8F2;	
+	background-color:#F2FEFF;
+	padding:5px 5px 5px 5px;
+}
+
+SPAN.resetBt {
+	margin-top: 5px;
+	width: 20px;
+	height: 20px;
+	background-image: url(../../imagexPix/button/mini/btReset.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+}
+
+LABEL.lblDataEntry{
+	margin-right:3px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+
+.fieldInputText{
+	border:1px solid #909090;
+  }
+  
+  
+  #tabs .tabs-spacer { float: left; height: 200px; }
+  .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+  .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+  .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }  
+  
+INPUT.campiRicerca{
+	border:1px solid #909090;
+	margin-left:5px;
+}
+
+LABEL.lblPuntTot{
+	font-weight:bold;
+}
+  
+LABEL.searchTitle{
+	margin-left:5px;
+	font-size:12px;
+	font-weight:bold;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+TD.titoloSezRicerca{
+  padding-top:5px;
+  padding-bottom:5px; 
+  padding-left:5px; 
+  padding-right:5px;
+  background-color:#FFCC00;
+  width:45%;
+}
+TD.celleSezRicerca{
+	background-color:#FFCC00;
+}
+TD.titoloSezSelezionato{
+  padding-top:5px;padding-bottom:5px;background-color:#66FF99;
+}
+TD.celleSezSelezionato{
+	background-color:#66FF99;
+}
+
+SPAN#btInfoFormat{
+	background-image:url(../../imagexPix/button/icon/ico_info.gif);
+	display:inline-block;
+	width:25px;
+	height:25px;
+	cursor:pointer;
+}
+</style>
+
+</head>
+
+
+
+<body id="myBody">
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Gestione format / moduli refertazione</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+    <div id="multiAccordion-main">
+		<h3><a href="#">Configurazioni</a></h3>
+        <div  id="sezione_configurazioni">
+        <table width="100%" border="0" cellspacing="2" cellpadding="0" >
+        <tbody>
+              <tr>
+                <td colspan="2" class="titoloSezRicerca" ><label class='searchTitle'>Ricerca</label></td>
+                <td colspan="3" class="titoloSezSelezionato"><label class='searchTitle'>Valori selezionati</label></td>
+              </tr>        
+	        <tr>
+	            <td class="classTdLabelRicerca"  >Prestazione</td>
+	            <td class="classTdFieldRicerca" > <input id='ricESAME' obbligatorio='N'  formato='S' size="40" /></td>                        
+                <td  width="25px" class="celleSezSelezionato"><span title='Reset' class='resetBt' onclick="javascript:resetField('ESAME');"></span></td>
+                <td  class="classTdLabel">Valori</td>
+                <td bgcolor="#66FF99"><select id="selESAME" multiple="multiple" size="4"></select></td>
+            </tr>
+	        <tr>
+	            <td class="classTdLabelRicerca"  >Unita' eroganti</td>
+	            <td class="classTdFieldRicerca" ><input id='ricCDC' obbligatorio='N'  formato='S' size="40"  /></td>         
+				<td  width="25px" class="celleSezSelezionato"><span title='Reset' class='resetBt' relatedTo='lblCDC' onclick="javascript:resetField('CDC');"></span></td>
+                <td  class="classTdLabel">Valore</td>
+                <td bgcolor="#66FF99"><label id='lblCDC'></label></td>                            
+            </tr>            
+	        <tr>
+	            <td class="classTdLabelRicerca"  >Stanza</td>
+	            <td class="classTdFieldRicerca" ><select id='ricSALA' title="Format / moduli con idenEsa, CDC, Sala non valorizzati" onchange="javascript:updateJsonSala(this);"></select></td>       
+				<td  width="25px" class="celleSezSelezionato"><span title='Reset' class='resetBt' relatedTo='lblSALA' onclick="javascript:resetField('SALA');"></span></td>
+                <td  class="classTdLabel">Valore</td>
+                <td bgcolor="#66FF99"><label id='lblSALA'></label></td>                                  
+            </tr>      
+	        <tr>
+	            <td class="classTdLabelRicerca"  >Format / Moduli ref.</td>
+	            <td class="classTdFieldRicerca" ><select id='ricMODULO' title="Format / moduli con idenEsa, CDC, Sala non valorizzati" onchange="javascript:updateJsonModulo(this);"></select><span id='btInfoFormat' title="Click per aprire anteprima format / modulo" onclick="javascript:openFormatPreview(getValue('ricMODULO'));"></span></td>              
+				<td  width="25px" class="celleSezSelezionato"><span title='Reset' class='resetBt' relatedTo='lblMODULO' onclick="javascript:resetField('MODULO');"></span></td>
+                <td  class="classTdLabel">Valore</td>
+                <td bgcolor="#66FF99"><label id='lblMODULO'></label></td>                                
+            </tr>                                
+        </tbody>
+        </table>
+<!-- 		<button id='btCreaFormat'>Inserisci nuovo format</button> -->
+        </div>
+    </div>
+     <table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+        <tr>
+           <td class='classTabFooterSx'></td>
+           <td class='classTabHeaderMiddle'><label>&nbsp;</label></td>
+           <td class='classButtonHeader'> 
+              <div class='pulsante'><a id='regi' href="javascript:registra();">Registra</a></div>
+           </td>
+<!--           <td class='classButtonHeader'>
+              <div class='pulsante'><a id='chiudi' href='javascript:chiudi(false);'>Chiudi</a></div>
+           </td>-->
+           <td class='classTabFooterDx'></td>
+        </tr>
+     </table>      
+    <div id='formatTable'>
+        <fieldset>
+        <legend><label>Format gia' assegnati: </label><label id='lblIesimoFormat'></label>/<label id='lblTotFormat'></label></legend>
+            <table id="TAB_MODULI" style="margin-bottom:1px;" cellspacing="0" >
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>        
+                    <th>&nbsp;</th>                                
+                    <th style="cursor:pointer;">Esame</th>
+                    <th style="cursor:pointer;">Unita' erogatrice (cdc)</th>
+                    <th style="cursor:pointer;">Sala</th>                        
+                    <th style="cursor:pointer;">Modulo</th>                                    
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+                <tr>
+                <th contiene_combo='N' ><a href='#' onclick="resetFilter('TAB_MODULI');" title="Click per resettare tutti i filtri">Filtra per :</a></th>
+                <th contiene_combo='N' >&nbsp;</th>
+                <th contiene_combo='S' id="colCombo_1"></th>
+                <th contiene_combo='S' id="colCombo_2"></th>
+                <th contiene_combo='S' id="colCombo_3"></th>
+                <th contiene_combo='S' id="colCombo_4"></th>            
+                </tr>
+            </tfoot>    
+            </table> 
+         </fieldset>
+	</div>
+     <script>
+		var oTable;
+		$(function() {
+			init();
+	   });	 
+     </script>
+	 
+</body>
+</html>

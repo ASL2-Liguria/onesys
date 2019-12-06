@@ -1,0 +1,204 @@
+/*	Reset	*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align: middle;/*vertical-align:baseline*/}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a:active,a:focus{border:none;outline:0;}
+/*	Font	*/
+a,h1,h2,h3,h4,h5,p,li,div,label,input{font:12px Verdana,Arial,sans-serif;}
+strong,b{font-weight:bold;}
+
+body{
+	background:url(../../../images/sfuni.jpg) #fff;
+}
+div#sfAzz{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:url(../../../images/sfazz.png) repeat-x;}
+img#logo{margin:60px 0 0 30px;}
+div#wrap2{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;background:url(../../../images/sfbia.png) repeat-y;}
+
+div#informazioni{
+	width:580px;
+	position:absolute;
+	top:230px;
+	right:370px;
+	}
+	div#informazioni h3{
+		font-size:12px;
+		font-weight:bold;
+		color:#0066cc;
+		line-height:20px;
+	}
+	div#divInformazioni{
+		background:#fff;
+		border:1px solid #0066cc;
+		height:150px;
+		overflow:auto;
+	}
+	p.Info{
+		display:block;
+		overflow:hidden;
+		border-bottom:1px dotted #06c;
+		line-height:25px;
+		font-size:10px;
+		padding:0 5px;
+		}
+		p.Info span{
+			line-height:25px;
+			display:block;float:left;
+		}
+		p.Info .func{
+			font-weight:bold;
+			color:#000;
+			margin-right:5px;
+		}
+		p.Info .data{
+			color:#06c;
+			margin-right:5px;
+		}
+		p.Info .tit{
+			color:red;
+			margin-right:5px;
+		}
+		p.Info .info{
+			width:16px;
+			margin:0;
+			padding:0;
+			height:25px;
+			cursor:pointer;
+			background:url(../../../images/info.png) center center no-repeat;
+		}
+		p.Info .manuale{
+			width:16px;
+			margin:0;
+			padding:0;
+			height:25px;
+			background:url(../../../images/pdf.png) center center no-repeat;
+		}
+		p.Info .manuale a{
+			display:block;
+			width:16px;
+			height:25px;
+		}
+	.tipsy { padding: 5px; font-size: 10px; position: absolute; z-index: 100000; }
+	  .tipsy-inner { padding: 5px 8px 4px 8px; background-color: #fff; color: #000; border:1px solid #000;max-width: 450px;  }
+	  .tipsy-inner { border-radius: 3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+	  .tipsy-arrow { position: absolute; background: url(../../../images/tipsy.gif) no-repeat top left; width: 9px; height: 5px; }
+	  .tipsy-n .tipsy-arrow { top: 0; left: 50%; margin-left: -4px; }
+		.tipsy-nw .tipsy-arrow { top: 0; left: 10px; }
+		.tipsy-ne .tipsy-arrow { top: 0; right: 10px; }
+	  .tipsy-s .tipsy-arrow { bottom: 0; left: 50%; margin-left: -4px; background-position: bottom left; }
+		.tipsy-sw .tipsy-arrow { bottom: 0; left: 10px; background-position: bottom left; }
+		.tipsy-se .tipsy-arrow { bottom: 0; right: 10px; background-position: bottom left; }
+	  .tipsy-e .tipsy-arrow { top: 50%; margin-top: -4px; right: 0; width: 5px; height: 9px; background-position: top right; }
+	  .tipsy-w .tipsy-arrow { top: 50%; margin-top: -4px; left: 0; width: 5px; height: 9px; }	
+	  
+	.tipsy-inner ul{list-style-type:circle;margin:10px;}
+	.tipsy-inner ul li{}
+	  
+div#divMenu{
+	position:absolute;
+	right:20px;
+	top:60px;
+	width:300px;
+	}
+	div#divMenu ul{
+	
+		}
+		div#divMenu ul li{
+			width:130px;
+			height:135px;
+			/*border:1px solid purple;*/
+			background:url(../../../images/sfLi.png) center top no-repeat;
+			text-align:center;
+			overflow:hidden;
+			margin:0 20px 20px 0;
+			float:left;
+			}
+			div#divMenu ul li a{
+				text-decoration:none;
+				display:block;
+			}
+			div#divMenu ul li img{			
+				margin:10px auto 12px auto;
+				display:block;
+			}
+			div#divMenu ul li span{
+				clear:both;
+				font-weight:bold;
+				color:#06c;
+				font-size:11px;
+				line-height:16px;
+			}
+			a.Manuale{
+				background:url(../../../images/pdf.png) left center no-repeat;
+				padding-left:1px;
+				/*border:1px solid red;*/
+				line-height:16px;
+				margin-top:3px;
+				margin-left:27px;
+				color:#000;
+				font-size:10px;font-weight:bold;width:68px;
+				text-align:right;
+			}
+			
+div#but{
+	width:100%;
+	position:absolute;
+	bottom:10px;
+	left:0;
+	}
+	div#butWrap{width:520px;margin:0 auto;overflow:hidden;}	
+	div.but{
+		width:238px;
+		margin:0 10px;
+		float:left;
+		}
+		div.but fieldset{
+			border:1px solid #06c;
+			margin:10px;
+			padding:10px;
+		}
+		div.but fieldset legend{
+			font-weight:bold;
+			padding:0 10px;
+			font-size:12px;
+			text-align:center;
+			color:#06c;
+			margin-bottom:10px;
+			}
+	div.but ul li{
+		width:199px;
+		height:70px;
+		text-align:center;
+	}			
+	div#divEmergenza ul li{
+		background:url(../../../images/sf-eme.png) no-repeat;
+	}
+	div#divReperibilita ul li{
+		background:url(../../../images/sf-repe.png) no-repeat;
+	}
+	div#divSostInfermieristico ul li{
+		background:url(../../../images/sf-but.png) no-repeat;
+	}	
+	div.but ul li a{
+		display:block;
+		color:#000;
+		text-decoration:none;
+		font-weight:bold;
+		line-height:35px;
+	}
+	
+div#help{
+	position:fixed;
+	top:0;
+	right:0;
+	padding:6px;
+	}
+	div#help p{
+		display:none;
+		color:#06c;
+		font-size:18px;
+		font-weight:bold;
+		float:right;
+		margin:8px 6px 0 0;
+		width:590px;
+	}
+	div#help a{
+		float:right;
+		width:40px;height:40px;background:url(../../../images/help.png) no-repeat;
+        }

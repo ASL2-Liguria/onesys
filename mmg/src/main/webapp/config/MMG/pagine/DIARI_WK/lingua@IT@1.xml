@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>DIARIO CLINICO</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butInserisci>Inserisci Nota</butInserisci>
+		<butInserisciVisita>Inserisci Visita</butInserisciVisita>
+		<butFiltraDiari>Filtra</butFiltraDiari>
+		<filtroNote>Diario</filtroNote>
+		<lblConfermaCancellazioneVisita>Cancellare la visita selezionata?</lblConfermaCancellazioneVisita>
+		<lblConfermaCancellazioneBilancio>Cancellare il bilancio selezionato?</lblConfermaCancellazioneBilancio>
+		<lblConfermaCancellazioneAnamnesi>Cancellare l'anamnesi selezionata?</lblConfermaCancellazioneAnamnesi>
+		<lblConfermaCancellazioneNota>Cancellare la nota selezionata?</lblConfermaCancellazioneNota>
+		<lblConfermaCancellazioneGravidanza>Cancellando questa nota verrà cancellata anche la gravidanza correlata. Procedere?</lblConfermaCancellazioneGravidanza>
+		<lblInserisci>Inserisci Nota</lblInserisci>
+		<lblInserisciVisita>Inserisci Visita</lblInserisciVisita>
+		<lblModifica>Visualizza/Modifica</lblModifica>
+		<lblCancella>Cancella</lblCancella>
+		<lblElencoVisite>Elenco Visite</lblElencoVisite>
+		
+		<lblDeniedOscuramentoRilevazione>Al momento non risulta possibile oscurare rilevazioni</lblDeniedOscuramentoRilevazione>
+		<lblTitleDeniedRilevazione>Oscuramento delle rilevazioni</lblTitleDeniedRilevazione>
+		
+		<lblStampaNota>Stampa</lblStampaNota>
+		
+		<lblMedicinadIniziativa>Medicina d'Iniziativa</lblMedicinadIniziativa>
+		<lblRemoveMedicinadIniziativa>Rimuovi da Medicina d'Iniziativa</lblRemoveMedicinadIniziativa>
+		<BPCO>BPCO</BPCO>
+		<scompensoCardiaco>Scompenso Cardiaco</scompensoCardiaco>
+		<diabete>Diabete</diabete>
+		
+    </ROW>
+</ROWSET>

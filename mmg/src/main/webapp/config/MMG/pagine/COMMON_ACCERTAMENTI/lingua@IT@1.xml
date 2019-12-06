@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+		
+		<!-- Note appropriatezza Decreto Lorenzin -->
+		<lblNota>Nota</lblNota>
+		<lblTitleCondiz>Condizioni di erogabilità</lblTitleCondiz>
+		<lblIndAppr>Indicazioni di appropriatezza prescrittiva</lblIndAppr>
+		<visualizzaPDFDecreto>Visualizza il Decreto</visualizzaPDFDecreto>
+		<visualizzaPDFCircolareDecreto>Circolare 3012 del 25/03/2016</visualizzaPDFCircolareDecreto>
+        
+    </ROW>
+</ROWSET>

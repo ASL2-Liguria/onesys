@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>MALATTIE_RARE</ID>
+    <ID-QUERY connection="MMG">WORKLIST.MALATTIE_RARE</ID-QUERY>
+    <TITLE>"Elenco"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_MALATTIE_RARE</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <MOUSEOVER>function(rec){$(this).find('div').tooltipster({
+                    content: rec.NOTE,
+                    delay: 100
+                    })}</MOUSEOVER>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <GROUP_ROWS>
+            <GROUP_ROW>
+                <ID_WORKLIST>WK_DIARI_MMG</ID_WORKLIST>
+                <FILTER>
+                    <![CDATA[function(rec){return MALATTIE_RARE.caricaWkDiari(rec);}]]>
+                </FILTER>
+            </GROUP_ROW>
+        </GROUP_ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DETAIL_PROBLEM</COL>
+                        <DB/>
+                    </ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){return $(this).openDetailRow(0, data, wk);}]]></PROCESS>
+                    <WIDTH>40px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN</COL>
+                        <DB>IDEN</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTE_INS</COL>
+                        <DB>UTE_INS</DB>
+                    </ID>
+                    <DESCRIPTOR>"UTE INS"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCR_UTE_INS</COL>
+                        <DB>DESCR_UTE_INS</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblUteIns</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA</COL>
+                        <DB>DATA</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDataIns</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCRIZIONE</COL>
+                        <DB>DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDescrizione</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NOTE</COL>
+                        <DB>NOTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DOSE MINIMA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+               
+                <COLUMN>
+                    <ID>
+                        <COL>DESCR_ICD9</COL>
+                        <DB>DESCR_ICD9</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDescrICD9</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN id="DATA">DESC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

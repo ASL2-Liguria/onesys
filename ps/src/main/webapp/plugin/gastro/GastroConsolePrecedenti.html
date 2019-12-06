@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>Precedenti</title>
+        
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />    
+        
+        <link rel="stylesheet" href="css/GastroConsolePrecedenti.css" />            
+
+        <script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+        
+		<script src="js/engineGastroConsolePrecedenti.js"></script>    
+        
+        <script type="text/javascript" src="../../dwr/engine.js"></script>
+        <script type="text/javascript" src="../../dwr/util.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/eventDWR.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+        
+</head>
+<body>
+<!----------------------------------------------------------------------------------------------------------------------->
+<div data-role="collapsible-set" data-theme="b">
+    <form>
+        <div data-role="collapsible" data-collapsed="false" >
+	        <h3>WorkList Precedenti Paziente</h3>
+    	    <iframe id="iFrameWk" height="190px" width="100%" ></iframe>
+        </div>
+        <div data-role="collapsible" data-collapsed="false">
+        	<h3>Dettaglio Referto</h3>
+	        <textarea name="txtReferto" rows="25" readonly id="txtReferto" placeholder="" ></textarea>
+        </div>
+    </form>
+</div>
+<!----------------------------------------------------------------------------------------------------------------------->
+</body>
+</html>

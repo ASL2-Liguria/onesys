@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>NOTIFICA DI MALATTIA INFETTIVA</lblTitolo>
+        <tabModuloMalattiaInfettivaNot>Notifica di malattia infettiva</tabModuloMalattiaInfettivaNot>
+        
+        <lblComune>Comune di</lblComune>
+        <lblProfessione>Professione</lblProfessione>
+        <lblConiugata>Coniugata in</lblConiugata>
+        <lblULSS>U.L.S.S.</lblULSS>
+        <lblCodiceSSN>Codice SSN</lblCodiceSSN>
+        <lblDiagnosi>DIAGNOSI</lblDiagnosi>
+        <lblDataInizio>Data inizio malattia</lblDataInizio>
+        <lblFrqCollettivita>Collettività frequentata</lblFrqCollettivita>
+        <lblVaccinazione>Eventuale vaccinazione</lblVaccinazione>
+        <lblAnnoVacc>Anno</lblAnnoVacc>
+        <lblRicovero>EVENTUALE RICOVERO</lblRicovero>
+        <lblMisProfilattiche>MISURE PROFILATTICHE ADOTTATE</lblMisProfilattiche>
+        <lblOsservazioni>OSSERVAZIONI</lblOsservazioni>
+		
+		<butStampa>Salva e Stampa</butStampa>
+		<butStampaOnly>Stampa</butStampaOnly>
+    </ROW>
+</ROWSET>

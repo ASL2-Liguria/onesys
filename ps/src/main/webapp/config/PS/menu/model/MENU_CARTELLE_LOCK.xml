@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_CARTELLE_LOCK</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>SBLOCCA</ID>
+            <LINK><![CDATA[function(rec){NS_MENU_GESTIONE.sbloccaCartella(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/annulla_sospendi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return rec.length != 0}]]></WHERE>
+            <OUTPUT>"Sblocca cartella"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Sblocca la cartella selezionata"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

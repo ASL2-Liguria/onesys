@@ -1,0 +1,99 @@
+body{
+	
+	
+	margin-left: -20px;
+	padding-left: -20px;
+	background:#b9e0ff;
+}
+/*
+	
+fieldset{ margin:3px; border:4px solid #FFF; padding:5px; float:right; }
+fieldset legend{ font-weight:bold; margin-bottom:10px; }
+fieldset label{ font-size:12px; cursor:pointer; }
+
+*/
+
+
+TD.classTdField {
+	width: 100%;
+	background: #f0fafb;
+	BORDER: #6aa8f2 2px solid;
+	WHITE-SPACE: nowrap;
+	FONT-SIZE: 14px;
+	text-align:left;
+	padding-bottom: 5px;
+}
+ul.pulsanteULCenter li
+{
+	display:inline;
+	/*padding:2px;*/
+	width:145px;
+	/*background:url(../../imagexPix/bar/btLightCyan.jpg) repeat-x;*/
+	background: url(../../imagexPix/worklistFlex/sf-th.png) repeat-x;
+	border: 1px solid #1e60b8;
+	text-align:center;
+	margin:10px 0px -15px 3px; /*top right bottom left*/
+	WHITE-SPACE: nowrap;
+	OVERFLOW: hidden;
+	CURSOR: pointer;
+}
+
+ul.pulsanteULCenter li.pulsanteLISelezionato
+{
+	display:inline;
+	width:115px;
+	color: blue;
+	/*padding:2px;*/
+	background:url(../../imagexPix/bar/btGreen.jpg) repeat-x;
+	border: 1px solid #1e60b8;
+	text-align:center;
+	margin:10px 0px -15px 3px; /*top right bottom left*/
+	CURSOR: pointer;
+}
+
+li.pulsanteLISelezionato A
+{
+	display:inline;
+	width:115px;
+	background:url(../../imagexPix/bar/btGreen.jpg) repeat-x;
+	color: blue;
+	text-align:center;
+}
+
+/* Rule N°18 from std/css/button.css */
+UL.pulsanteULCenter LI A:hover {
+	/*BACKGROUND-IMAGE: url(../../imagexPix/bar/btCyan.jpg);*/
+	background: url(../../imagexPix/worklistFlex/sf-th_hover.png) repeat-x;
+	BACKGROUND-REPEAT: repeat-x;
+	COLOR: yellow;
+}
+
+/* Rule N°17 from std/css/button.css */
+UL.pulsanteULCenter LI A {
+	LINE-HEIGHT: 19px;
+	font-size: 11px;
+	padding: 2px;
+	DISPLAY: inline-block;
+	width: 115px;
+	HEIGHT: 19px;
+	/*COLOR: blue;*/
+	color: white;
+	font-weight: bold;
+	TEXT-DECORATION: none;
+}
+
+UL.pulsanteULCenter li.pulsanteLISelezionato A
+{
+	display:inline;
+	width:115px;
+	background:url(../../imagexPix/bar/btGreen.jpg) repeat-x;
+	color: blue;
+	text-align:center;
+}
+
+UL.pulsanteULCenter  li.pulsanteLISelezionato A:hover {
+	BACKGROUND-IMAGE: url(../../imagexPix/bar/btGreen_hover.jpg);
+	/*background: url(../../imagexPix/worklistFlex/sf-th_hover.png) repeat-x;*/
+	BACKGROUND-REPEAT: repeat-x;
+	COLOR: #ffd800;
+}

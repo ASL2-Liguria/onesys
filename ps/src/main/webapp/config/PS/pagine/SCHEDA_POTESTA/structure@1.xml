@@ -1,0 +1,33 @@
+<PAGINA key_id="SCHEDA_POTESTA">
+    <HEADER_PAGE key_id="SCHEDA_POTESTA" valore="DEFAULT,SCHEDA,SCHEDA_POTESTA#DEFAULT,SCHEDA_POTESTA,INDIRIZZI" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabAnag" valore="SchedaPotesta#lblTitolo#butInserisci,butChiudi" evento="START_END">
+            <TABULAZIONE.CREA_TAB key_id="tabDatiPrincipali" valore="tabDatiPrincipali" evento="START">
+                <ROW key_id="row1" valore="row1" evento="START">
+                    <COLUMN_FREE key_id="colDP" valore="colFarmaci"	evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldDP" valore="fldDP" evento="START">
+                            <TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome###COGNOME###" evento="START">
+                            </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome###NOME###" evento="START">
+                            </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_DATA key_id="DataNasc" valore="lblDataNasc##txtDataNasc#DataNasc#readonly_element: false, format: 'd/m/Y',direction:false#disabled:false##DATA_NASCITA" evento="START">
+                            </TR_TD_LABEL_DATA>
+                            <TR_TD_LABEL_RADIO key_id="Sesso" valore="lblSesso##Sesso#radSesso#{width:'none',idxDefault:2}#S#SESSO" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                            <INPUT.HIDDEN key_id="hCodComNasc" valore="hCodComNasc###" evento="START">
+                            </INPUT.HIDDEN>
+                            <TR_TD_AUTOCOMPLETE key_id="LocResNasc" valore="lblLuogoNasc#acLuogoNascita#ComuneNascita#txtLuogoNasc#AnagraficaComuneNascita#IDEN_COMUNE_NASCITA" evento="START">
+                            </TR_TD_AUTOCOMPLETE>
+                            <TR_TD_LABEL_TEXT key_id="CodFisc" valore="lblCodFisc##txtCodFisc###CODICE_FISCALE" evento="START">
+                            </TR_TD_LABEL_TEXT>
+
+                            
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

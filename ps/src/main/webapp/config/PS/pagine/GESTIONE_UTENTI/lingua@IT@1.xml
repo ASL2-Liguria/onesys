@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <filtroGestUtenti>Gestione Utenti</filtroGestUtenti>
+        <GestTabInserisci>Inserisci Utente</GestTabInserisci>
+        <GestTabModifica>Modifica Utente</GestTabModifica>
+        <lblWorklistGestioneUtenti>Worklist Gestione Utenti</lblWorklistGestioneUtenti>
+        <lblUsername>Username</lblUsername>
+        <lblUtente>Utente</lblUtente>
+        <lblTipo>Tipo</lblTipo>
+        <lblLingua>Lingua</lblLingua>
+    </ROW>
+</ROWSET>

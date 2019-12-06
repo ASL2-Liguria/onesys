@@ -1,0 +1,241 @@
+*{
+	margin:0px;
+	padding:0px;
+	border:0px;
+}
+
+html{}
+
+body{
+	height:100%;
+	overflow:hidden;
+}
+
+table{
+	font-size:10px;
+}
+
+tr.Title{
+
+	height:20px;
+	padding-top:3px;
+
+}
+
+	tr.Title td{
+		background:url(../../../../imagexPix/bar/sf_turni.jpg) repeat-x bottom;
+		color:white;
+		font-weight:bold;
+		padding:0 5px;
+		position:relative;
+	}
+	
+	tr.Title td div{
+		position:absolute;
+		right: 2px;
+		top:5px;
+		visibility:hidden;
+	}
+	
+	tr.Title td div:hover{
+		cursor:pointer;
+	}
+	
+	tr.Title td:hover div{
+		float:right;
+		visibility:visible;
+		border:1px solid #F90;
+		color:#F90;
+	}	
+
+tr.Header{
+	height:18px;
+}
+
+	tr.Header td{
+		background:url(../../../../imagexPix/img/sfTable.png) #ececec repeat-x #e8e8e8;
+		font-weight:bold;
+		text-align:center;
+		border-right:1px solid #CCC;
+		position:relative;
+	}
+	
+	tr.Header td div{
+		position:absolute;
+		right: 2px;
+		top:2px;
+		visibility:hidden;
+	}
+	
+	tr.Header td div:hover{
+		cursor:pointer;
+	}
+	
+	tr.Header td:hover div{
+		float:right;
+		visibility:visible;
+		border:1px solid #F90;
+		color:#F90;
+	}	
+
+tr.Detail{
+	height:16px;	
+	border-left:1px solid #CCC;	
+}
+
+	tr.Detail td{
+		background:url(../../../../imagexPix/img/sfTable.png) #ececec repeat-x #efefef;
+		border-right:1px solid #CCC;
+		border-bottom:1px solid #CCC;
+	}	
+
+	tr.Detail td div[name="addOrario"]{
+		float:right;
+		visibility:hidden;
+		cursor:pointer;
+		border:1px solid #F90;
+		color:#F90;
+	}
+		
+	tr.Detail td:hover div[name="addOrario"]{		
+		visibility:visible;
+	}	
+	
+	tr.Detail td table td{
+		border:none;
+		background:none;
+	}
+	
+	tr.Detail td table td input{
+		width:30px;
+	}
+
+div.Detail{
+	font-size:10px;
+	float:left;
+	margin-right:3px;
+}
+
+	div.Detail div.Left{
+		width:5px;
+		background:url(../../../../imagexPix/bar/14/sx-white.png) no-repeat;
+	}	
+	
+	div.Detail div{
+		background:url(../../../../imagexPix/bar/14/sf-white.png) repeat-x;
+		height:14px;
+		float:left;
+	}
+	
+	div.Detail div div{
+		visibility:hidden;
+		border:1px solid #F90;
+	}
+	
+	div.Detail:hover div div{
+		visibility:visible;
+		cursor:pointer;
+		color:#F90;
+	}	
+	
+	div.Detail div.Right{
+		width:5px;
+		background:url(../../../../imagexPix/bar/14/dx-white.png) no-repeat;
+	}
+
+div.Impostazioni{
+	display:block;
+	width:100%;	
+	background:url(../../../../imagexPix/img/sfTable.png) #ececec repeat-x;
+
+}
+
+	div.Impostazioni > div{
+		display:block;
+		height:30px;
+	}
+	
+	div.Impostazioni div.Label{
+		width:15%;
+		float:left;
+	}
+	
+	div.Impostazioni div.Data{
+		width:30%;
+		float:left;
+	}	
+
+div#tabs{
+	clear:both;
+}
+
+ul.ulTabs{
+	height:30px;
+	list-style: none;
+    margin:0;
+    padding:0;
+	overflow:hidden;
+	}
+	ul.ulTabs li {
+		background:url(../../../../imagexPix/img/sfTabs.png) ;
+		float: left;
+		margin: 0 1px 0 0;
+		padding-left: 10px;
+		margin-right: 4px;
+		}
+		ul.ulTabs li.tabActive{
+			background-position:0 -30px;
+			}
+			ul.ulTabs li.tabActive *{
+				background-position:100% -30px;
+				color:#fff;				
+			}
+	ul.ulTabs li * {
+		background: url(../../../../imagexPix/img/sfTabs.png) 100% 0;
+		color: #000;
+		float: left;
+		height: 30px;
+		line-height: 30px;
+		padding-right: 10px;
+		text-decoration: none;
+		display: block;
+		margin-right:-5px;	
+		text-transform:capitalize;
+		font-weight:bold;
+		cursor:pointer;
+		font-size:12px;
+	}
+
+	div.divtab{
+		background:url(../../../../imagexPix/img/sfTable.png) repeat-x #fff;
+		border:1px solid #666;
+		border-top:0;		
+		overflow:auto;
+	}
+	div#headerTabs,div.Header{background:url(../../../../imagexPix/img/bars.png) 0 0px repeat-x #ccc;border:1px solid #666;border-top:0;color:#000;height:24px;margin-top:-1px;padding:0 7px;}
+		div#headerTabs h2,div.Header h2{line-height:24px;font-weight:bold;font-size:12px;}
+	#contentTabs{margin-top:-1px;border-left:1px solid black;border-right:1px solid black;padding:0 3px;}
+	div#footerTabs{
+		background:url(../../../../imagexPix/img/bars.png) 0 0px repeat-x #ccc;
+		border-left:1px solid #666;
+		border-right:1px solid #666;
+		color:#fff;
+		height:24px;
+		margin-top:-1px;
+		padding:0 2px;
+		clear:both;
+		}
+
+div.buttons{float:right;}
+a.button{margin: 3px 0 0 5px;width:90px;height:18px;line-height:18px;background:url(../../../../imagexPix/img/button.png) 0 0 no-repeat;display:block;float:left;color:#fff;
+	text-align:center;font-size:11px;text-decoration:none;font-weight:bold;text-transform:capitalize;cursor:pointer;}
+	a.button:active{background:url(../../../../imagexPix/img/button.png) 0 -18px no-repeat;}
+
+div.Tab{
+	display:none;
+}
+
+iframe{
+	height:0px;
+	width:49%;
+}

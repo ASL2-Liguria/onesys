@@ -1,0 +1,47 @@
+<PAGINA key_id="MMG_SALVATAGGIO_RR">
+	<HEADER_PAGE key_id="MMG_SALVATAGGIO_RR" valore="DEFAULT_MMG,SCHEDA,MMG_SALVATAGGIO_RR#DEFAULT_MMG,MMG_SALVATAGGIO_RR" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_SAVA_DATA#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabSalvataggio" valore="tabSalvataggio#lblTitolo#butSalvaNoPrint,butSalvataggio,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabSal" valore="tabSal" evento="START">
+				<FIELDSET_TABLE key_id="fldDiagnosi" valore="fldDiagnosi" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="Note" valore="lblDiagnosi#txtDiagnosi#NOTE#2" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD.INIT key_id="TD" valore="2" evento="START">
+							<BUTTON key_id="butInserisci" valore="butInserisci#butInserisci" evento="START">
+							</BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fldNoteCuf" valore="fldNoteCuf" evento="START">
+					<RICETTA_NOTE_CUF key_id="NoteCuf" valore="NOTE_CUF" evento="START">
+					</RICETTA_NOTE_CUF>
+				</FIELDSET>
+				<FIELDSET key_id="fldAllergieFarmaco" valore="fldAllergieFarmaco" evento="START">
+					<ALLERGIE_FARMACO key_id="AllergieFarmaco" valore="lblNessunaInterazione" evento="START">
+					</ALLERGIE_FARMACO>
+				</FIELDSET>
+				<FIELDSET_TABLE key_id="fldRiepilogo" valore="fldRiepilogo" evento="START">
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAltro" valore="fldAltro" evento="START">
+					<TR_TD_LABEL_RADIO key_id="Suggerita" valore="lblSuggerita##Suggerita#radSuggerita#{width:100,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_AUTOCOMPLETE key_id="Suggerito_da"
+						valore="lblSuggerito_da#acSuggerito_da#Suggerito_da#txtSuggerito_da#AC_MEDICO_SUGGERITO#SUGGERITO_DA"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="Suggerito_struttura" valore="lblSuggerito_struttura##txtSuggerito_struttura###SUGGERITO_STRUTTURA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Ricovero" valore="lblRicovero##Ricovero#radRicovero#{width:100,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Altro" valore="lblAltro##Altro#radAltro#{width:100,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="StampaInformativa" valore="lblStampaInformativa##StampaInformativa#radStampaInformativa#{width:100,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="StampaPosologia" valore="lblStampaPosologia##StampaPosologia#radStampaPosologia#{width:100}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

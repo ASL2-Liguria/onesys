@@ -1,0 +1,35 @@
+<PAGINA key_id="ASS_PAZ_SCONOSCIUTO">
+    <HEADER_PAGE key_id="ASS_PAZ_SCONOSCIUTO" valore="DEFAULT,SCHEDA,ASS_PAZ_SCONOSCIUTO#DEFAULT,ASSOCIA_PAZIENTE_SCONOSCIUTO" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#FNC_SALVA_PS_SCHEDE_XML#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="AssociaPazienteSconosciuto" valore="ASS_PAZ_SCONOSCIUTO#lblTitolo#butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabAssociaPaziente" valore="tabAssociaPaziente" evento="START">
+                <TABELLA.INIT key_id="tableAssociaPaziente" valore="tableAssociaPaziente" evento="START">
+                    <TR.INIT key_id="rigaPz1" valore="" evento="START">
+                        <TD_LABEL_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale#txtCodiceFiscale#codicefiscale##T" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR.INIT>
+                    <TR.INIT key_id="rigaPz2" valore="" evento="START">
+                        <TD.INIT key_id="td1" valore="5#5#5" evento="START"></TD.INIT>
+                        <TD.INIT key_id="td3" valore="td3" evento="START">
+                            <BUTTON key_id="butApplica" valore="butApplica" evento="START">
+                            </BUTTON>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+                <TABELLA.INIT key_id="tableAnag" valore="" evento="START">
+                    <TR.INIT key_id="rigaAnag1" valore="" evento="START">
+                        <TD.INIT key_id="tdAnag" valore="" evento="START">
+                            <DIV key_id="divWkAnagrafica" valore="divWkAnagrafica" evento="START">
+                            </DIV>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

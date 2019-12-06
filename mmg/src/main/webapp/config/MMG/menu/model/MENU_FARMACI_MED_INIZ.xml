@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<MENU>
+    <ID>MENU_APPUNTI</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+    
+    	<ITEM>
+            <ID>APPUNTI_MODIFICA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_APPUNTI.modifica( rec, $('#N_SCHEDA').val() ); }]]></LINK>
+            <ICON_CLASS>modifica</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_APPUNTI.whereModifica( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblModifica</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+    	
+    	<ITEM>
+            <ID>APPUNTI_ELIMINA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_APPUNTI.elimina( rec ); }]]></LINK>
+            <ICON_CLASS>bidone</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_APPUNTI.whereElimina( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblElimina</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        
+        <ITEM>
+            <ID>APPUNTI_STAMPA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_APPUNTI.stampa( rec ); }]]></LINK>
+            <ICON_CLASS>stampa</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_APPUNTI.whereStampa( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblStampa</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+    	
+    </LIST>
+    
+</MENU>

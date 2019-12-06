@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabDocumento>Visualizzazione allegato</tabDocumento>
+        <lblTitolo>Visualizzazione del documento allegato </lblTitolo>
+        
+        <butChiudi>Chiudi</butChiudi>
+    </ROW>
+</ROWSET>

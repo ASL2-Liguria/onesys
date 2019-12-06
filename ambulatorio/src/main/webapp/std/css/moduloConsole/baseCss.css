@@ -1,0 +1,300 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	background-color:#FFFFCC;
+	margin: 0 0 0 0;
+	background-image:url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding:0;
+	}
+
+.Titolo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFFFF;
+	border: 1px solid #3399FF;
+	background-color:#3399FF;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+}
+
+
+
+/* usato per definire lo sfondo dei livelli di info*/
+.layerInfo{
+	background-image:url(../../../imagexPix/button/gradient/gradientKeyImage.jpg);
+	background-repeat:repeat;
+	overflow:auto;
+}
+/* titolo delle sezioni definito come span */
+SPAN.spanTitle{
+	color:black;
+	font-weight:bold; 
+	font-size:10px; 
+	display:block; 
+	background-color:#FFC; 
+	width:100%; 
+	text-align:center;	
+}
+
+
+
+
+table.classDataEntryTable {
+	text-align: left;
+	width: 100%;
+	border: 0;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+
+td.classTdLabelNoWidth{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:10px;
+	right: 0px;
+}
+
+td.classTdLabel{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:2px;
+	width:60px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelReadOnly{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:2px;
+	width:60px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+
+td.classTdField{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	white-space: nowrap;
+	font-size:12px;
+}
+
+td.classTdFieldReadOnly{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	white-space: nowrap;
+	font-size:10px;
+}
+
+td.classTdFieldReadOnly input{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	white-space: nowrap;
+	font-size:10px;
+}
+
+
+
+td.titoletto{
+	background-color:#3399FF;
+	color:white;
+	font-size:12px;
+	font-weight:bold;
+	text-align:center;
+}
+
+
+SPAN.infoPazienteEsame{
+	color:yellow;
+}
+
+textarea.ON,
+textarea.OFF {
+  border: 1px solid #606060;
+  font-family: verdana, tahoma, sans-serif;
+  padding:5px 5px 5px 5px;
+  width:500px;
+   min-width:98%;
+   max-width:98%;
+  font-size:12px;
+}
+textarea.ON {
+  background:#CCC;
+  color: black;  
+  border: 1px solid #000000;
+}
+textarea.OFF {
+  background: #EEEEEE;
+  color:#666;
+}
+
+
+INPUT.ON,
+INPUT.OFF {
+  border: 1px solid #606060;
+  font-family: verdana, tahoma, sans-serif;
+  padding:5px 5px 5px 5px;
+  width:98%;
+  font-size:12px;
+}
+INPUT.ON {
+  background:#CCC;
+  color: black;  
+  border: 1px solid #000000;
+}
+INPUT.OFF {
+  background: #EEEEEE;
+  color:#666;
+}
+
+
+
+.ui-autocomplete-loading {
+	background: white
+		url('../../../std/jscript/jQueryUI/1.9.1/themes/cupertino/images/ui-anim_basic_16x16.gif')
+		right center no-repeat;
+}
+
+#format {
+	margin-top: 2em;
+}
+
+.wideBox {
+	width: 95%;
+}
+
+fieldset input.text {
+	margin-bottom: 5px;
+	width: 95%;
+	padding: .4em;
+}
+
+fieldset {
+	border: 1;
+	margin-top: 5px;
+	padding-left: 5px;
+}
+
+h1 {
+	font-size: 1.2em;
+	margin: .6em 0;
+}
+
+.ui-dialog .ui-state-error {
+	padding: .3em;
+}
+
+.legendaFieldSet {
+	color: blue;
+	margin-bottom: 3px;
+}
+
+.margineSxAmpio {
+	padding-left: 25px;
+}
+
+.chiaveStyle {
+	color: blue;
+	font-weight: bold;
+}
+
+.pulsanteInclApprofondimenti {
+	width: 100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image: url(../../../imagexPix/bar/btLightCyan_50.jpg);
+	background-repeat: repeat;
+	text-align: center;
+	line-height: 40px;
+}
+
+.pulsanteInclApprofondimenti  A {
+	width: 100%;
+	height: 50px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display: inline-table;
+}
+
+.pulsanteInclApprofondimenti A:hover {
+	background-image: url(../../../imagexPix/bar/btCyan_50.jpg);
+	background-repeat: repeat;
+	color: yellow;
+}
+
+.colonneApprofondimentiTestata {
+	background-color: #3CF;
+}
+
+.colonneApprofondimenti {
+	padding-left: 5px;
+	background-color: #DEF5FE;
+}
+
+
+SPAN.docUnread {
+	width: 32px;
+	height: 32px;
+	background-image: url(../../../imagexPix/button/docUnread.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+	float: left;
+}
+
+SPAN.docRead {
+	width: 32px;
+	height: 32px;
+	background-image: url(../../../imagexPix/button/docRead.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+	float: left;
+}
+
+SPAN.txtImport {
+	width: 32px;
+	height: 32px;
+	background-image: url(../../../imagexPix/button/txtImport.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+	float: left;
+}
+
+
+.classePulsanteTabDoc{
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	padding-bottom:5px;
+	margin-bottom:5px;
+	margin-right:10px;	
+	font-size:12px;
+}
+
+
+.headerDocToRead{
+	background:none;
+	background-color:red;
+}
+
+LABEL.LABEL_LAST_ADDED{
+	color:red;
+	display:inline;
+}

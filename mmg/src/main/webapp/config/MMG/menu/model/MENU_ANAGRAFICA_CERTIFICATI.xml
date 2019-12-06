@@ -1,0 +1,27 @@
+<MENU>
+	<id>MENU_ANAGRAFICA_CERTIFICATI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MAC_DEL</ID>
+			<LINK><![CDATA[function(rec){ANAGRAFICA_CERTIFICATI.cancellaCertificato(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblCancella</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MAC_MOD</ID>
+			<LINK><![CDATA[function(rec){ANAGRAFICA_CERTIFICATI.modificaCertificato(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblModifica</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

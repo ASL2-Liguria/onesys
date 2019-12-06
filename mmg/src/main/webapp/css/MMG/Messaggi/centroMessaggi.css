@@ -1,0 +1,103 @@
+body{
+	width: 1280px;
+}
+
+#fldRicerca{
+	width:55%;
+	float:left;
+	height:30%;
+}
+#fldListaMessaggi {
+	width:55%;
+	float:left;
+	height: 65%;
+}
+
+#fldVisualizzazione {
+	width:40%;
+	float:right;
+	height: 100%;
+}
+
+#fldTipoMessaggi{
+	width:40%;
+	border:0px;
+	float:left;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.exchangeList {
+	height:140px;
+	font-size: 10px; 
+}
+
+/* replica css notifiche */
+
+.exchangeList div.buttons {
+	width: 100px;	
+	height:200px;
+	text-align: center;
+	padding-top: 5px; 
+}
+
+.exchangeList div.buttons button { width: 50px; margin: 5px auto; display: block; }
+.listFrom, .listTo { height: 100px; font-size: 11px; border: 1px solid  grey; padding:2px;}
+
+.butAddOne { background:#9EDDB9; }
+.butRemOne{ background:#fdc4c4; }
+
+#txtMessaggio{ height:250px; border: 1px solid green; }
+#txtRicerca{ width:290px; }
+#txtDurataMsg{ width:50px; }
+
+#fldRicercaUtenti { padding:1px !important; }
+#fldProprietaNotifica { float:right; width:25%; }
+#fldNotifica { float:left; width:73%; }
+
+#divWk td div{ font-size:11px; }
+
+#divAction {
+	width:160px;
+	float:right;
+	height:120px;
+	margin-left:2px;
+	background: #ffffff;
+	border: 1px solid #aeaeae; /*grigio*/
+	padding-left:10px;
+}
+
+#divAction i{ font-size: 25px; margin-left:1px; }
+#divAction i:hover{ background-color: #d7e8f2; }
+#divAction #divIcone{ margin-top:40px; }
+
+#divMsg {
+	float:left;
+	height:120px;
+	background: #ffffff;
+	border: 1px solid #aeaeae; /*grigio*/
+	padding:5px;
+}
+
+#divMsg div { margin-top:3px; }	
+
+#testoMsg {
+	margin-top:130px;
+	background: #ffffff;
+	padding:10px;
+	border: 1px solid #aeaeae; /*grigio*/
+	overflow:auto;
+}
+
+#divDestinatari{ height:30px; overflow:auto; }
+
+.IntGrassetto { font-weight: bold; width: 50px; }
+.sizeSmall { font-size:11px; color:#1552c1; /* blu */ }
+.borderBottom{ border-bottom:1px solid #e4e4e4; /*grigio chiaro*/ }
+.noIcon{ cursor: not-allowed; color:#e4e4e4; }
+
+#butMsgPazienteCorrente.selected {
+	background:yellow;
+}

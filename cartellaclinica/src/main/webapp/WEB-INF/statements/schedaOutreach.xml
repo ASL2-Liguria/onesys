@@ -1,0 +1,11 @@
+<root>
+	<statements_list>
+			<statement name="caricaParametriSaps">
+				<sql>
+				<![CDATA[		
+					SELECT codice,valore FROM TABLE (RADSQL.GETPARAMETRICCOR(?)) t
+				]]>
+				</sql>
+			</statement>			
+	</statements_list>
+</root>

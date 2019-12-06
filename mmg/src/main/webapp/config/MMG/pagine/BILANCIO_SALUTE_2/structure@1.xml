@@ -1,0 +1,117 @@
+<PAGINA key_id="BILANCIO_SALUTE_2">
+	<HEADER_PAGE key_id="BILANCIO_SALUTE_2"
+		valore="DEFAULT_MMG,SCHEDA,BILANCIO_SALUTE_2#DEFAULT_MMG,BILANCIO_SALUTE_2"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_BILANCIO_SALUTE#MMG_DATI#BILANCIO_SALUTE_2#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="BilancioSalute#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabBilancioSalute"
+				valore="tabBilancioSalute" evento="START">
+				<FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtData" valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA" evento="START"></TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDatiGenerali" valore="fldDatiGenerali" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtEtaMesi" valore="lblEtaMesi##txtEtaMesi###ETAMESI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtEtaGiorni" valore="lblEtaGiorni##txtEtaGiorni###ETAGIORNI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXTAREA key_id="txtRaccordoAnamnestico" valore="lblRaccordoAnamnestico#txtRaccordoAnamnestico#RACCORDOANAMNESTICO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDatiAuxometrici" valore="fldDatiAuxometrici" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtPeso" valore="lblPeso##txtPeso###PESO" evento="START">
+						<TD_LABEL key_id="PesoCentile" valore="lblPesoCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtAltezza" valore="lblAltezza##txtAltezza###ALTEZZA" evento="START">
+						<TD_LABEL key_id="AltezzaCentile" valore="lblAltezzaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtBMI" valore="lblBMI##txtBMI###BMI###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCirconferenza_Cranica" valore="lblCirconferenza_Cranica##txtCirconferenza_Cranica###CIRCONFERENZA_CRANICA" evento="START">
+						<TD_LABEL key_id="txtCirconferenza_CranicaCentile" valore="lblCirconferenza_CranicaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldEsameClinico" valore="fldEsameClinico" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="txtNoteEsameClinico" valore="lblNoteEsameClinico#txtNoteEsameClinico#NOTEESAMECLINICO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldSviluppoPsicomotorio" valore="fldSviluppoPsicomotorio" evento="START">
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="ManiAperte_Si_No" valore="lblManiAperte_Si_No##ManiAperte_Si_No#radManiAperte_Si_No#{width:100,idxDefault:0}#S#MANIAPERTE_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtManiAperte" valore="txtManiAperte###MANIAPERTE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="MantieneOggetti_Si_No" valore="lblMantieneOggetti_Si_No##MantieneOggetti_Si_No#radMantieneOggetti_Si_No#{width:100,idxDefault:0}#S#MANTIENEOGGETTI_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtMantieneOggetti" valore="txtMantieneOggetti###MANTIENEOGGETTI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="VariaPianto_Si_No" valore="lblVariaPianto_Si_No##VariaPianto_Si_No#radVariaPianto_Si_No#{width:100,idxDefault:0}#S#VARIAPIANTO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtVariaPianto" valore="txtVariaPianto###VARIAPIANTO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr5" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="EmetteSuoni_Si_No" valore="lblEmetteSuoni_Si_No##EmetteSuoni_Si_No#radEmetteSuoni_Si_No#{width:100,idxDefault:0}#S#EMETTESUONI_SI_NO" evento="START"> </TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtEmetteSuoni" valore="txtEmetteSuoni###EMETTESUONI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr6" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Sorride_Si_No" valore="lblSorride_Si_No##Sorride_Si_No#radSorride_Si_No#{width:100,idxDefault:0}#S#SORRIDE_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtSorride" valore="txtSorride###SORRIDE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr7" valore="txttr7###TR7" evento="START">
+						<TD_LABEL_RADIO key_id="ReagisceRumori_Si_No" valore="lblReagisceRumori_Si_No##ReagisceRumori_Si_No#radReagisceRumori_Si_No#{width:100,idxDefault:0}#S#REAGISCERUMORI_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtReagisceRumori" valore="txtReagisceRumori###REAGISCERUMORI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr8" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Calma_Si_No" valore="lblCalma_Si_No##Calma_Si_No#radCalma_Si_No#{width:100,idxDefault:0}#S#CALMA_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtCalma" valore="txtCalma###CALMA" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr9" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="SegueOggetti_Si_No" valore="lblSegueOggetti_Si_No##SegueOggetti_Si_No#radSegueOggetti_Si_No#{width:100,idxDefault:0}#S#SEGUEOGGETTI_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtSegueOggetti" valore="txtSegueOggetti###SEGUEOGGETTI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr10" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="FissaOggetti_Si_No" valore="lblFissaOggetti_Si_No##FissaOggetti_Si_No#radFissaOggetti_Si_No#{width:100,idxDefault:0}#S#FISSAOGGETTI_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtFissaOggetti" valore="txtFissaOggetti###FISSAOGGETTI" evento="START"></TD_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldControlloVisivo" valore="fldControlloVisivo" evento="START">
+					<TR.INIT key_id="tr12" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Leucocoria_Si_No" valore="lblLeucocoria_Si_No##Leucocoria_Si_No#radLeucocoria_Si_No#{width:100,idxDefault:1}#S#LEUCOCORIA_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtLeucocoria" valore="txtLeucocoria###LEUCOCORIA" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr13" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Strabismo_Si_No" valore="lblStrabismo_Si_No##Strabismo_Si_No#radStrabismo_Si_No#{width:100,idxDefault:1}#S#STRABISMO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtStrabismo" valore="txtStrabismo###STRABISMO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr14" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="RiflessoPupillare_Si_No" valore="lblRiflessoPupillare_Si_No##RiflessoPupillare_Si_No#radRiflessoPupillare_Si_No#{width:100,idxDefault:0}#S#RIFLESSOPUPILLARE_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtRiflessoPupillare" valore="txtRiflessoPupillare###RIFLESSOPUPILLARE" evento="START"></TD_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldControlloOrtopedico" valore="fldControlloOrtopedico" evento="START">
+					<TR.INIT key_id="tr16" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="EcografiaBacino_Si_No" valore="lblEcografiaBacino_Si_No##EcografiaBacino_Si_No#radEcografiaBacino_Si_No#{width:100,idxDefault:0}#S#ECOGRAFIABACINO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtEcografiaBacino" valore="txtEcografiaBacino###ECOGRAFIABACINO" evento="START"></TD_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldSonno" valore="fldSonno" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="txtNoteSonno" valore="lblNoteSonno#txtNoteSonno#NOTESONNO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAllattamento" valore="fldAllattamento" evento="START">
+					<TR_TD_LABEL_RADIO key_id="Allattamento" valore="lblAllattamento##Allattamento#radAllattamento#{width:100,idxDefault:0}#N#ALLATTAMENTO" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="txtNoteAllattamento" valore="lblNoteAllattamento#txtNoteAllattamento#NOTEALLATTAMENTO" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<INPUT.HIDDEN key_id="hIden" valore="hIden" evento="START"></INPUT.HIDDEN>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<!-- TABULAZIONE.CREA_TAB key_id="tabSviluppoPsicomotorio" valore="tabSviluppoPsicomotorio" evento="START">
+				
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabControlli"
+				valore="tabControlli" evento="START">
+				
+				<TR.INIT key_id="tr11" valore="" evento="START">
+				</TR.INIT>
+				
+				<TR.INIT key_id="tr15" valore="" evento="START">
+				</TR.INIT>
+			</TABULAZIONE.CREA_TAB-->
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

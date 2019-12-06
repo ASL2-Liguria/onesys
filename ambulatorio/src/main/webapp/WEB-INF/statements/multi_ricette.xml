@@ -1,0 +1,467 @@
+<root>
+	<statements_list>
+		<statement name="getEsaPerRicette">				
+			<sql>
+			<![CDATA[
+	  		SELECT 
+			esami.IDEN_ANAG,
+			 tab_esa.cod_esa,
+			datetimeconverter(esami.dat_esa, 'yyyymmdd', 'dd/mm/yyyy')			 dat_esa,
+				esami.num_pre,
+				  esami.iden,
+				  anag.cogn
+				  || ' '
+				  || anag.nome
+				  || ' '
+				  || datetimeconverter(anag.data, 'yyyymmdd', 'dd/mm/yyyy') AS PAZIENTE,
+				  tab_esa.descr esa_descr,
+				  tab_sal.descr descr_sala,
+				  esami.reparto,
+				  COD_EST_TAB_ESA.COD1,
+  				  COD_EST_TAB_ESA.COD2,
+				  ESAMI.LEA_CLASSE_PRIORITA,
+          COD_EST_ANAG.ID1,
+          is_Anonimo_Per_Cdc(COD_EST_ANAG.ID1, ESAMI.REPARTO) ANONIMATO,
+		  ESAMI.QUESITO, 		'SSN' TIPO_RICETTA, ESAMI.LEA_PRESTAZIONI_PRIMO_ACC,
+		  COD_EST_ESAMI.COD1	IDEN_TESTATA_RICH,
+		  COD_EST_ESAMI.COD2	STATO_TESTATA_RICH
+				FROM 
+        ESAMI, ANAG, TAB_ESA, TAB_SAL, DETT_ESAMI, COD_EST_ANAG, COD_EST_TAB_ESA , COD_EST_ESAMI
+				where
+		        ESAMI.IDEN_ANAG = ANAG.IDEN
+				and ESAMI.IDEN_ESA = TAB_ESA.IDEN
+				and ESAMI.IDEN_SAL   = TAB_SAL.IDEN
+				and ESAMI.IDEN    = DETT_ESAMI.IDEN (+)
+				and ESAMI.IDEN_ESA = COD_EST_TAB_ESA.iden_esa(+)
+		        and  ANAG.IDEN = COD_EST_ANAG.IDEN_ANAG (+)
+				and ESAMI.IDEN = COD_EST_ESAMI.IDEN_ESAME 
+				and Esami.Deleted  = 'N'
+				AND anag.deleted     ='N'
+				AND (esami.accettato ='1'
+				OR esami.prenotato   ='1')
+				AND esami.eseguito   ='0'
+				AND (esami.dat_esa    >= ? and esami.dat_esa    <= ?)
+				AND DETT_ESAMI.STATO_INVIO_RICETTA is null
+				AND esami.numimp_numrich is null
+				AND esami.reparto   IN
+				  (SELECT column_value FROM TABLE (split(?))
+				  )
+				order by anag.cogn asc, anag.nome asc, esami.iden_anag asc
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		
+		<statement name="getEsaPerRicette_x_IdenAnag">				
+			<sql>
+			<![CDATA[
+	  		SELECT 
+			esami.IDEN_ANAG,
+			 tab_esa.cod_esa,
+			datetimeconverter(esami.dat_esa, 'yyyymmdd', 'dd/mm/yyyy')			 dat_esa,
+				esami.num_pre,
+				  esami.iden,
+				  anag.cogn
+				  || ' '
+				  || anag.nome
+				  || ' '
+				  || datetimeconverter(anag.data, 'yyyymmdd', 'dd/mm/yyyy') AS PAZIENTE,
+				  tab_esa.descr esa_descr,
+				  tab_sal.descr descr_sala,
+				  esami.reparto,
+				  COD_EST_TAB_ESA.COD1,
+  				  COD_EST_TAB_ESA.COD2,
+				  ESAMI.LEA_CLASSE_PRIORITA,
+          COD_EST_ANAG.ID1,
+          is_Anonimo_Per_Cdc(COD_EST_ANAG.ID1, ESAMI.REPARTO) ANONIMATO,
+		  ESAMI.QUESITO, 		'SSN' TIPO_RICETTA, ESAMI.LEA_PRESTAZIONI_PRIMO_ACC,
+		  COD_EST_ESAMI.COD1	IDEN_TESTATA_RICH,
+		  COD_EST_ESAMI.COD2	STATO_TESTATA_RICH
+				FROM 
+        ESAMI, ANAG, TAB_ESA, TAB_SAL, DETT_ESAMI, COD_EST_ANAG, COD_EST_TAB_ESA , COD_EST_ESAMI
+				where
+		        ESAMI.IDEN_ANAG = ANAG.IDEN
+				and ESAMI.IDEN_ESA = TAB_ESA.IDEN
+				and ESAMI.IDEN_SAL   = TAB_SAL.IDEN
+				and ESAMI.IDEN    = DETT_ESAMI.IDEN (+)
+				and ESAMI.IDEN_ESA = COD_EST_TAB_ESA.iden_esa(+)
+		        and  ANAG.IDEN = COD_EST_ANAG.IDEN_ANAG (+)
+				and ESAMI.IDEN = COD_EST_ESAMI.IDEN_ESAME 
+				and Esami.Deleted  = 'N'
+				AND anag.deleted     ='N'
+				AND (esami.accettato ='1'
+				OR esami.prenotato   ='1')
+				AND esami.eseguito   ='0'
+				AND (esami.dat_esa    >= ? and esami.dat_esa    <= ?)
+				AND DETT_ESAMI.STATO_INVIO_RICETTA is null
+				AND esami.numimp_numrich is null
+				AND esami.reparto   IN
+				  (SELECT column_value FROM TABLE (split(?))
+				  )
+				 and esami.iden_anag = to_number(?)
+				order by anag.cogn asc, anag.nome asc, esami.iden_anag asc
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		
+		<statement name="getEsaPerRicette_x_Iden">				
+			<sql>
+			<![CDATA[
+	  		SELECT 
+			esami.IDEN_ANAG,
+			 tab_esa.cod_esa,
+			datetimeconverter(esami.dat_esa, 'yyyymmdd', 'dd/mm/yyyy')			 dat_esa,
+				esami.num_pre,
+				  esami.iden,
+				  anag.cogn
+				  || ' '
+				  || anag.nome
+				  || ' '
+				  || datetimeconverter(anag.data, 'yyyymmdd', 'dd/mm/yyyy') AS PAZIENTE,
+				  tab_esa.descr esa_descr,
+				  tab_sal.descr descr_sala,
+				  esami.reparto,
+				  COD_EST_TAB_ESA.COD1,
+  				  COD_EST_TAB_ESA.COD2,
+				  ESAMI.LEA_CLASSE_PRIORITA,
+          COD_EST_ANAG.ID1,
+          is_Anonimo_Per_Cdc(COD_EST_ANAG.ID1, ESAMI.REPARTO) ANONIMATO,
+		  ESAMI.QUESITO, 		'SSN' TIPO_RICETTA, ESAMI.LEA_PRESTAZIONI_PRIMO_ACC,
+		  COD_EST_ESAMI.COD1	IDEN_TESTATA_RICH,
+		  COD_EST_ESAMI.COD2	STATO_TESTATA_RICH
+				FROM 
+        ESAMI, ANAG, TAB_ESA, TAB_SAL, DETT_ESAMI, COD_EST_ANAG, COD_EST_TAB_ESA , COD_EST_ESAMI
+				where
+		        ESAMI.IDEN_ANAG = ANAG.IDEN
+				and ESAMI.IDEN_ESA = TAB_ESA.IDEN
+				and ESAMI.IDEN_SAL   = TAB_SAL.IDEN
+				and ESAMI.IDEN    = DETT_ESAMI.IDEN (+)
+				and ESAMI.IDEN_ESA = COD_EST_TAB_ESA.iden_esa(+)
+		        and  ANAG.IDEN = COD_EST_ANAG.IDEN_ANAG (+)
+				and ESAMI.IDEN = COD_EST_ESAMI.IDEN_ESAME 
+				and Esami.Deleted  = 'N'
+				AND anag.deleted     ='N'
+--				AND (esami.accettato ='1'
+	--			OR esami.prenotato   ='1')
+		--		AND esami.eseguito   ='0'
+			--	AND DETT_ESAMI.STATO_INVIO_RICETTA is null
+			-- ATTENZIONE : VERIFICA SE E' CORRETTO CHE NON SI CONTROLLI NUMIMP_NUMRICH
+				-- AND esami.numimp_numrich is null
+				AND esami.iden   IN
+				  (SELECT column_value FROM TABLE (split(?))
+				  )
+				order by anag.cogn asc, anag.nome asc, esami.iden_anag asc
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>				
+		
+		
+		<statement name="getInfoRRprestazioni">	
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+				select codice, descrizione, num_sedute from VIEW_RR_PRESTAZIONI where codice_regionale = ? and dm_codice = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getIdenAnagWhale">	
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+				SELECT iden_anag FROM cod_est_anag WHERE id1 = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getIdenMedWhale">	
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+				SELECT iden FROM tab_per WHERE cod_dec = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>					
+		
+		
+		<statement name="updateStatoInvioRicetta">				
+			<sql>
+			<![CDATA[
+				declare
+				v_tmp number;
+				idenEsame number := to_number(?);
+				vStato varchar2(100) := ?;
+				begin
+					select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = idenEsame;
+					if(v_tmp > 0) then
+						update dett_esami set STATO_INVIO_RICETTA = vStato where iden = idenEsame;
+					else
+						insert into dett_esami (iden,	STATO_INVIO_RICETTA) values (idenEsame, vStato);					
+					end if;
+				end;				
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="generaRicetta">	
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+		
+			declare
+			    myPrestazioni varchar2(32767) := ? ;
+			    myIdenAnag number := ?;
+				myIdenMed number:= ?;
+				myDematerializzata varchar2(1) := ? ;
+				myPriorita varchar2(1) := ? ;
+				myCategoria varchar2(100) := ? ;
+				myDiagnosiICD9 varchar2(32767) := ? ;
+				myDiagnosiDesc varchar2(32767) := ? ;
+				myQuesitoLibero varchar2(32767) := ? ;
+				myResult varchar2(32767) ;
+				myPrimoAccesso varchar2(1) := ? ;
+				mySito varchar2(100) := ? ;
+				myAnonimo varchar2(1) := ? ;												
+				vResult varchar2(32767);
+			begin
+				Radsql.RR_DEMA_EXTERN.Prescrivi_Prestazioni_Amb(
+				pPrestazioni      => myPrestazioni,
+				pIdenAnag         =>  myIdenAnag,      
+				pIdenMed          =>  myIdenMed,      
+				pDematerializzata => myDematerializzata,     
+				pPriorita         => myPriorita,     
+				pCategoria        => myCategoria,   
+				pDiagnosiICD9     => myDiagnosiICD9,      
+				pDiagnosiDesc     => myDiagnosiDesc,      
+				pQuesitoLibero    => myQuesitoLibero,      
+				pResult           => vResult, 
+				pPrimoAccesso     => myPrimoAccesso,   
+				pSito             => mySito,   
+				pAnonimo          => myAnonimo  
+			);
+			? := vResult;
+			end;
+	
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		
+		<statement name="generaRicettaFarmaci">	
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+		
+			declare
+			    myFarmaciEsenti varchar2(32767) := ? ;
+				myEsenzioni varchar2(32767) := ?;
+			    myIdenAnag number := ?;
+				myIdenMed number:= ?;
+				myDematerializzata varchar2(1) := ? ;
+				myPriorita varchar2(1) := ? ;
+				myCategoria varchar2(100) := ? ;
+				myDiagnosiICD9 varchar2(32767) := ? ;
+				myDiagnosiDesc varchar2(32767) := ? ;
+				myQuesitoLibero varchar2(32767) := ? ;
+				myResult varchar2(32767) ;
+				myFarmaciNonEsenti varchar2(32767) := ? ;
+				myFarmaciNonMutuabili varchar2(32767) := ? ;
+				myPrimoAccesso varchar2(1) := ? ;
+				mySito varchar2(100) := ? ;
+				myAnonimo varchar2(1) := ? ;												
+				vResult varchar2(32767);
+			begin
+				Radsql.RR_DEMA_EXTERN.Prescrivi_Farmaci_Amb(
+				pFarmaciEsenti      => myFarmaciEsenti,
+				pEsenzioni			=> myEsenzioni,
+				pIdenAnag         =>  myIdenAnag,      
+				pIdenMed          =>  myIdenMed,      
+				pDematerializzata => myDematerializzata,     
+				pPriorita         => myPriorita,     
+				pCategoria        => myCategoria,   
+				pDiagnosiICD9     => myDiagnosiICD9,      
+				pDiagnosiDesc     => myDiagnosiDesc,      
+				pQuesitoLibero    => myQuesitoLibero,      
+				pResult           => vResult, 
+				pFarmaciNonEsenti	=> myFarmaciNonEsenti,
+				pFarmaciNonMutuabili => myFarmaciNonMutuabili,
+				pPrimoAccesso     => myPrimoAccesso,   
+				pSito             => mySito,   
+				pAnonimo          => myAnonimo  
+			);
+			? := vResult;
+			end;
+	
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+				
+		
+
+		<statement name="generaRicettaFarmaciOLD">	
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+		
+			declare
+			    myPrestazioni varchar2(32767) := ? ;
+			    myIdenAnag number := ?;
+				myIdenMed number:= ?;
+				myDematerializzata varchar2(1) := ? ;
+				myPriorita varchar2(1) := ? ;
+				myCategoria varchar2(100) := ? ;
+				myDiagnosiICD9 varchar2(32767) := ? ;
+				myDiagnosiDesc varchar2(32767) := ? ;
+				myQuesitoLibero varchar2(32767) := ? ;
+				myResult varchar2(32767) ;
+				myPrimoAccesso varchar2(1) := ? ;
+				mySito varchar2(100) := ? ;
+				myAnonimo varchar2(1) := ? ;												
+				vResult varchar2(32767);
+			begin
+				select 'OK${"progressivo": 1062710}' into vResult from dual;
+			? := vResult;
+			end;
+	
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getEsenzioniPaziente">	
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+				select  codice_esenzione,descr_esenzione,iden_esenzione, iden_anag  from VIEW_RR_pazienti_ESENZIONI where DATA_FINE_ESENZIONE is not null and id_remoto = ? order by descr_esenzione
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getInfoDettRichiesta">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+				select descr,tr_iden,descr_med_richiedente,ope_rich,descr_tab_spaz,quesito,quadro_cli,descr_ute_controllo,note from INFOWEB.VIEW_VIS_RICHIESTA where tr_iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getSubPrestRichiesta">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>					
+			<sql>
+			<![CDATA[
+				select codice, descrizione,num_sedute  from view_rr_prestazioni where codice_regionale in (select cod3  from cod_est_tab_esa c where iden_esa in(select iden_tab_esa from Infoweb.Dettaglio_Richieste where Iden_Testata = ?) )
+				]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getLastQuesito">				
+			<sql>
+			<![CDATA[
+					select quesito from esami where iden_anag =? and reparto =? and quesito is not null order by dat_esa desc
+				]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+
+		<statement name="updStatoRichLabo">				
+			<sql>
+			<![CDATA[
+					update cod_est_esami set cod1 = ? , cod2 ='I' where iden_esame = to_number(?)
+				]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getIdenRicettaFromDettEsami">				
+			<sql>
+			<![CDATA[
+					select STATO_INVIO_RICETTA from dett_esami where iden = to_number(?)
+				]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+
+	<statement name="getTipoRicetta">				
+		<sql>
+		<![CDATA[
+			SELECT '' TIPO_IDEN, '' TIPO_DESC, 0 IDEN FROM DUAL  
+			UNION ALL  
+			SELECT 'SSN' TIPO_IDEN, 'Servizio Sanitario Nazionale' TIPO_DESC, 1 IDEN FROM DUAL  
+			UNION ALL  
+			SELECT 'EE' TIPO_IDEN,  'Assicurati extra-europei in temporaneo soggiorno' TIPO_DESC, 2 IDEN FROM DUAL  
+			UNION ALL  
+			SELECT 'UE' TIPO_IDEN, 'Assicurati europei in temporaneo soggiorno' TIPO_DESC, 3 IDEN FROM DUAL  
+			UNION  
+			SELECT 'NA' TIPO_IDEN, 'Assistiti SASN con visita Ambulatoriale' TIPO_DESC, 4 IDEN FROM DUAL  
+			UNION  
+			SELECT 'ND' TIPO_IDEN, 'Assistiti SASN con visita domiciliare' TIPO_DESC, 5 IDEN FROM DUAL  
+			UNION  
+			SELECT 'NX' TIPO_IDEN, 'Assistiti da Istituzioni europee' TIPO_DESC, 6 IDEN FROM DUAL  
+			UNION  
+			SELECT 'NX' TIPO_IDEN, 'Assistiti SASN extraeuropei' TIPO_DESC, 7 IDEN FROM DUAL  
+			ORDER BY IDEN 
+					]]>
+		</sql>
+		<schema>RADSQL</schema>
+	</statement>
+
+	<statement name="getInfoFarmaDati">
+		<pool>elcoPool_whale</pool>
+		<catalogo>dati</catalogo>					
+		<sql>
+		<![CDATA[
+				select * FROM farmadati.VIEW_PRODOTTI_RICERCA WHERE CODICE_PRODOTTO = ?
+			]]>
+		</sql>
+		<schema>RADSQL</schema>
+	</statement>
+		
+	<statement name="getProxAppuntamenti">				
+		<sql>
+		<![CDATA[
+			SELECT datetimeconverter(esami.dat_esa, 'yyyymmdd', 'dd/mm/yyyy') dat_esa,
+			esami.ora_esa,
+			esami.iden,
+			tab_esa.descr,
+			esami.reparto
+			FROM esami,
+			tab_esa
+			WHERE iden_anag  = to_number(?)
+				AND esami.data_ins_pre > to_Date(?, 'yyyymmddhh24miss' )
+				AND esami.prenotato    ='1'
+				AND esami.accettato    ='0'
+				AND esami.deleted      ='N'
+				AND esami.reparto     IN
+			(SELECT column_value FROM TABLE (split(?))
+			)
+			AND esami.iden_esa = tab_esa.iden
+		]]>
+		</sql>
+	<schema>RADSQL</schema>
+	</statement>			
+		
+	</statements_list>
+</root>

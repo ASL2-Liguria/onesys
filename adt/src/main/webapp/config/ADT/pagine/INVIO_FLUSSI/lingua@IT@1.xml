@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>GENERAZIONE</lblTitolo>
+    	<tabInvioFlussoSDO>Flusso</tabInvioFlussoSDO>
+			<fieldsetInvioFlusso>Impostazioni</fieldsetInvioFlusso>
+				<lblTipoFlusso>Tipo</lblTipoFlusso>
+				<lblDataFine>Data Fine</lblDataFine>
+				<!-- lblMail>E-Mail</lblMail -->
+				<!-- lblOggettoMail>Oggetto</lblOggettoMail -->
+			<fieldsetOutputSDO>Output Flussi SDO</fieldsetOutputSDO>
+				<lblDataEstrazioneSDO>Data Estrazione</lblDataEstrazioneSDO>
+				<lblFileAnagraficoSDO_Pietra>File Anagrafico pres. Ponente</lblFileAnagraficoSDO_Pietra>
+				<lblFileClinicoSDO_Pietra>File Clinico pres. Ponente</lblFileClinicoSDO_Pietra>
+				<lblFileAnagraficoSDO_Savona>File Anagrafico pres.Levante</lblFileAnagraficoSDO_Savona>
+				<lblFileClinicoSDO_Savona>File Clinico pres. Levante</lblFileClinicoSDO_Savona>
+				<lblInvioSDO>Inviato</lblInvioSDO>
+			<fieldsetOutputDSA>Output Flussi DSA</fieldsetOutputDSA>
+				<lblDataEstrazioneDSA>Data Estrazione</lblDataEstrazioneDSA>
+				<lblFileAnagraficoDSA>Anagrafica</lblFileAnagraficoDSA>
+				<lblFileClinicoDSA>File Clinico</lblFileClinicoDSA>
+				<lblFileRRDSA>Ricette</lblFileRRDSA>
+				<lblFileTipiDSA>Tipi</lblFileTipiDSA>
+				<lblInvioDSA>Inviato</lblInvioDSA>
+			<fieldsetOutputPS>Output Flussi PS</fieldsetOutputPS>
+				<lblFileAnagraficoPS>File Anagrafico</lblFileAnagraficoPS>
+				<lblFileClinicoPS>File Clinico</lblFileClinicoPS>
+				<lblInvioPS>Inviato</lblInvioPS>
+			<fieldsetOutputCCD>Output Flussi CCD</fieldsetOutputCCD>
+				<lblFileAnagraficoCCD>File Anagrafico</lblFileAnagraficoCCD>
+				<lblFileClinicoCCD>File Clinico</lblFileClinicoCCD>
+				<lblInvioCCD>Inviato</lblInvioCCD>
+			<fieldsetOutputST>Output Flussi ST</fieldsetOutputST>
+				<lblFileS>File S</lblFileS>
+				<lblFileT>File T</lblFileT>
+				<lblInvioST>Inviato</lblInvioST>
+			<butGenera>Genera Flussi</butGenera>
+			<!-- butGeneraInvia>Genera e Invia</butGeneraInvia -->
+			<!-- butInvia>Invia Flussi</butInvia -->
+			<!-- btnVisualizzaSDO>Visualizza</btnVisualizzaSDO -->
+			<btnShowFileAnagraficoSDO_Pietra>Scarica</btnShowFileAnagraficoSDO_Pietra>
+			<btnShowFileClinicoSDO_Pietra>Scarica</btnShowFileClinicoSDO_Pietra>
+			<btnShowFileAnagraficoSDO_Savona>Scarica</btnShowFileAnagraficoSDO_Savona>
+			<btnShowFileClinicoSDO_Savona>Scarica</btnShowFileClinicoSDO_Savona>
+			<btnShowFileAnagraficoDSA>Scarica</btnShowFileAnagraficoDSA>
+			<btnShowFileClinicoDSA>Scarica</btnShowFileClinicoDSA>
+			<btnShowFileRRDSA>Scarica</btnShowFileRRDSA>
+			<btnShowFileTipiDSA>Scarica</btnShowFileTipiDSA>
+			<btnShowFileClinicoCCD>Scarica</btnShowFileClinicoCCD>
+			<btnShowFileAnagraficoPS>Scarica</btnShowFileAnagraficoPS>
+			<btnShowFileClinicoPS>Scarica</btnShowFileClinicoPS>
+			<btnShowFileS>Scarica</btnShowFileS>
+			<btnShowFileT>Scarica</btnShowFileT>
+    </ROW>
+</ROWSET>

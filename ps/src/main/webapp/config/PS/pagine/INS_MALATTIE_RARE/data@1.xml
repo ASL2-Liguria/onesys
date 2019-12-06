@@ -1,0 +1,57 @@
+
+<DATI configurazione=" declare
+		vstato  varchar2(5);
+		vkey    varchar2(4000);
+		vwhere  varchar2(4000);
+		vcampo  varchar2(4000);
+	begin
+	    vstato := '#STATO_PAGINA#';
+
+	        if vstato='E' then
+	            vkey := 'DATI.Q_DATI_PROBLEMA@MMG';
+	        else
+	            vkey := 'DATI.Q_INS_PROBLEMA@MMG';
+	        end if;
+
+	        vwhere := null;
+	        vcampo := null;
+
+	    :stato_pagina := vstato;
+	    :key_query := vkey;
+	    :where := vwhere;
+	    :campo_xml := vcampo;
+
+    end;">
+
+    <DATO
+            key_id="h-txtSceltaMalattia"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE_ICD9"
+            db_descrizione="CODICE_ICD9"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="txtSceltaMalattia"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DESCR_ICD9"
+            db_descrizione="DESCR_ICD9"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="taTerapie"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DESCRIZIONE"
+            db_descrizione="DESCRIZIONE"
+            configurazione_multi_data=""
+            />
+			
+	<DATO
+            key_id="taDoseMinima"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="NOTE"
+            db_descrizione="NOTE"
+            configurazione_multi_data=""
+            />
+
+
+</DATI>

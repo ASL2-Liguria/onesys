@@ -1,0 +1,90 @@
+<root>
+	<statements_list>
+	
+	<!--
+		Statement gestiti dalla classe whale.snodo.DataDistribution.
+		Sono organizzati a triplette:
+		* check.[oggetto] = controlla se il record esiste nella tabella di destinazione
+		* select.[oggetto.] = esegue la query sul database di origine
+		* save.[oggetto] = salva il record sul database di destinazione
+	 -->
+
+		<statement name="check.farmaci">
+			<sql>
+				<![CDATA[
+					select * from VIEW_AMB_FARMACI_RICERCA where IDEN=?
+				]]>
+			</sql>
+		</statement>
+		<statement name="select.farmaci">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+				<![CDATA[
+					Select /*+first_rows(1)*/ IDEN, ATTIVO, IDEN_SOSTANZA, ID_ITALIA, DESCRIBE, FARM_ATC, COD_DEC, UNITA_DI_MISURA,
+					VOLUME_ML, COD_MINSAN10, COD_MINSAN32, COD_NOTA_CUF
+					from radsql.CC_FARMACI where iden=?
+				]]>
+			</sql>
+		</statement>
+		<statement name="insert.farmaci">
+			<sql>
+				<![CDATA[
+					insert into REMOTE_DATA (IDEN, ATTIVO, IDX_NUM_0, IDX_COD_0, IDX_COD_1, IDX_COD_2, IDX_COD_3, NUM_0, NUM_1, COD_0, COD_1, COD_2, TABELLA, SOURCE)
+							values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'FARMACI', 'WHALE')
+				]]>
+			</sql>
+		</statement>
+		
+		<statement name="check.sostanze">
+			<sql>
+				<![CDATA[
+					select * from VIEW_AMB_SOSTANZE where IDEN=?
+				]]>
+			</sql>
+		</statement>
+		<statement name="select.sostanze">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+				<![CDATA[
+					Select /*+first_rows(20)*/ IDEN, ATTIVO, COD_DEC, DESCRIZIONE from radsql.CC_FARMACI_SOSTANZE where iden=?
+				]]>
+			</sql>
+		</statement>
+		<statement name="insert.sostanze">
+			<sql>
+				<![CDATA[
+					insert into REMOTE_DATA (IDEN, ATTIVO, IDX_COD_0, IDX_COD_1, TABELLA, SOURCE)
+							values (?, ?, ?, ?, 'FARMACI_SOSTANZE', 'WHALE')
+				]]>
+			</sql>
+		</statement>
+		
+		<statement name="check.udm">
+			<sql>
+				<![CDATA[
+					select * from VIEW_AMB_UNITA_MISURA where IDEN=?
+				]]>
+			</sql>
+		</statement>
+		<statement name="select.udm">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+				<![CDATA[
+					Select /*+first_rows(20)*/ CODICE, DESCRIZIONE, URLIMAGE from radsql.tab_codifiche where tipo_dato='UDM' and TIPO_SCHEDA='FARMACI' and iden=?
+				]]>
+			</sql>
+		</statement>
+		<statement name="insert.udm">
+			<sql>
+				<![CDATA[
+					insert into REMOTE_DATA (IDEN, ATTIVO, IDX_COD_0, COD_0, COD_1, TABELLA, SOURCE)
+							values (?, ?, ?, ?, ?, 'UNITA_DI_MISURA', 'WHALE')
+				]]>
+			</sql>
+		</statement>
+		
+	</statements_list>
+</root>

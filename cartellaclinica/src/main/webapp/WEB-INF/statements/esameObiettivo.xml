@@ -1,0 +1,39 @@
+<root>
+	<statements_list>
+		<statement name="getEsamiSpecialistici">				
+			<sql>
+			<![CDATA[
+				select 
+					xml.IDEN_VISITA,
+					xml.KEY_LEGAME,
+					xml.SITO,
+					xml.VERSIONE,
+					cdc.descr REPARTO
+				from
+					nosologici_paziente np_ricovero					
+					join nosologici_paziente np on (np_ricovero.num_nosologico = np.num_nosologico and np.deleted = 'N' and np.accesso=1)
+					join cc_schede_xml xml on ( xml.iden_visita = np.iden and xml.funzione = 'ESAME_OBIETTIVO_SPECIALISTICO')
+					join centri_di_costo cdc on (cdc.cod_cdc = np.cod_cdc)
+					
+				where					
+					np_ricovero.iden = to_number(?)
+				order by
+					np.data_ricovero,np.ora_ricovero
+			]]>
+			</sql>
+		</statement>
+        <statement name="getDatiEsameObiettivo">
+            <sql>
+                <![CDATA[
+                    select
+                        ute_ins,
+                        to_char(data_ins,'yyyyMMdd') data,
+                        to_char(data_ins,'hh24:mi') ora
+                    from cc_schede_xml where funzione = 'ESAME_OBIETTIVO' and iden_visita_registrazione = ?
+			]]>
+            </sql>
+        </statement>
+
+
+	</statements_list>
+</root>

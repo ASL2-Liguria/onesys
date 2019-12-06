@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblLivelloUrgenza" TYPE="label" TEXT="Livello Urgenza"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="radLivelloUrgenza" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="0" TEXT="ELETTIVO"/>
+            <OPTIONVAL VALUE="1" TEXT="EMERGENTE"/>
+            <OPTIONVAL VALUE="2" TEXT="URGENTE A"/>
+            <OPTIONVAL VALUE="3" TEXT="URGENTE B"/>
+            <OPTIONVAL VALUE="4" TEXT="URGENTE C"/>
+        </CAMPO>
+    </CAMPI>
+</PAGINA>

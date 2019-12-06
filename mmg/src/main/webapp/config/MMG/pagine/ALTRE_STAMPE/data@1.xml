@@ -1,0 +1,43 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_ALTRE_STAMPE'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="CodiceFiscale" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_FISC" db_descrizione="COD_FISC" configurazione_multi_data="" />
+		
+	<DATO key_id="LuogoNascita" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NASCITA" db_descrizione="NASCITA" configurazione_multi_data="" />
+		
+	<DATO key_id="DataDiNascita" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA" db_descrizione="DATA" configurazione_multi_data="" />
+		
+	<DATO key_id="Nome" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOME" db_descrizione="NOME" configurazione_multi_data="" />
+		
+	<DATO key_id="Cognome" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COGNOME" db_descrizione="COGNOME" configurazione_multi_data="" />
+		
+	<DATO key_id="IndirizzoResidenza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RESIDENZA" db_descrizione="RESIDENZA" configurazione_multi_data="" />
+		
+	<DATO key_id="IntestazioneMedico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INTESTAZIONE" db_descrizione="INTESTAZIONE" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="TimbroMedico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TIMBRO" db_descrizione="TIMBRO" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="TitoloCertificato" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TITOLO" db_descrizione="TITOLO" configurazione_multi_data="" />
+		
+	<DATO key_id="GiorniPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="GG_PROGNOSI" db_descrizione="GG_PROGNOSI" configurazione_multi_data="" />
+		
+	<DATO key_id="DataInserimento" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_DOC" db_descrizione="DATA_DOC" configurazione_multi_data="" />
+		
+	<DATO key_id="DataScadenza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_SCADENZA" db_descrizione="DATA_SCADENZA" configurazione_multi_data="" />
+		
+	<DATO key_id="hCodCertificato" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_CERTIFICATO" db_descrizione="COD_CERTIFICATO" configurazione_multi_data="" />
+		
+</DATI>

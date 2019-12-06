@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WORKLIST_CODICI_MISSIONE_HOME</ID>
+    <ID-QUERY connection="PS">WORKLIST.GET_CODICI_MISSIONE_HOME</ID-QUERY>
+    <TITLE>"CODICI_MISSIONE"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_WK_CODICI_MISSIONE_HOME</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+                <DBLCLICK><![CDATA[function(rec){
+				        NS_CODICI_MISSIONE.valorizeCodiciMissione(rec);
+                }]]></DBLCLICK>
+
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN</COL>
+                        <DB>IDEN</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN"</DESCRIPTOR>
+
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+
+                <COLUMN>
+                    <ID>
+                        <COL>AUTOMEDICA</COL>
+                        <DB>AUTOMEDICA</DB>
+                    </ID>
+                    <DESCRIPTOR>"AUTOMEDICA"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){
+
+                        if(data.AUTOMEDICA == "S"){
+                            $(td).text("").css('text-align','center').append('<span class="icon-ambulance" style="color:red; display:block;"></span>');
+                        }
+                    }]]></PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_AMBU</COL>
+                        <DB>CODICE_AMBU</DB>
+                    </ID>
+                    <DESCRIPTOR>"CODICE AMBULANZA"</DESCRIPTOR>
+
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>STAZIONAMENTO</COL>
+                        <DB>STAZIONAMENTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"STAZIONAMENTO"</DESCRIPTOR>
+
+                    <WIDTH>300px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_MISSIONE</COL>
+                        <DB>CODICE_MISSIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"CODICE MISSIONE"</DESCRIPTOR>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>URGENZA</COL>
+                        <DB>URGENZA</DB>
+                    </ID>
+                    <DESCRIPTOR>"URGENZA"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){
+                        var $td = $(td);
+                        $td.text(data.URGENZA);
+
+                        if(data.IDEN_CONTATTO == null){
+                            switch(data.URGENZA){
+                                case "Bianco": $td.addClass("white");
+                                    break;
+                                case "Verde": $td.addClass("green");
+                                    break;
+                                case "Giallo": $td.addClass("yellow");
+                                    break;
+                                case "Rosso": $td.addClass("red");
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }]]></PROCESS>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INSERIMENTO</COL>
+                        <DB>DATA_INSERIMENTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA INSERIMENTO"</DESCRIPTOR>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+
+
+                <COLUMN>
+                    <ID>
+                        <COL>UTE_INS</COL>
+                        <DB>UTE_INS</DB>
+                    </ID>
+                    <DESCRIPTOR>"UTENTE INSERIMENTO"</DESCRIPTOR>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO</COL>
+                        <DB>IDEN_CONTATTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN CONTATTO"</DESCRIPTOR>
+
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+
+                <COLUMN>
+                    <ID>
+                        <COL>PATOLOGIA</COL>
+                        <DB>PATOLOGIA</DB>
+                    </ID>
+                    <DESCRIPTOR>"PATOLOGIA"</DESCRIPTOR>
+                    <PROCESS type="javascript"></PROCESS>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+
+
+
+                <COLUMN>
+                    <ID>
+                        <COL>PRATICA</COL>
+                        <DB>PRATICA</DB>
+                    </ID>
+                    <DESCRIPTOR>"PRATICA"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){
+
+                        if(data.IDEN_CONTATTO !== null){
+                            $(this).closest("tr").find("td").css('color','grey');
+                        }
+                        td.text(data.PRATICA === null ? "" : data.PRATICA).css('color','grey');
+
+                    }]]></PROCESS>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

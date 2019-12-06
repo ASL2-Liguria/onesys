@@ -1,0 +1,66 @@
+<PAGINA key_id="RIEPILOGO_MOBILE">
+
+	<HEADER_PAGE key_id="RIEPILOGO_MOBILE" valore="DEFAULT_MMG,SCHEDA,RIEPILOGO_MOBILE#DEFAULT_MMG,RIEPILOGO_MOBILE" evento="START_END"></HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_CONFIGURAZIONE_RIEPILOGO_MOBILE#MMG_DATI#RIEPILOGO_MOBILE#IDEN#IDEN" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="RiepilogoMobile#lblTitolo#" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabProblemi" valore="tabProblemi" evento="START">
+
+				<FIELDSET key_id="fldProblemi" valore="fldProblemi" evento="START">
+					
+					<DIV key_id="divProblemi" valore="divProblemi" evento="START"></DIV>
+					
+				</FIELDSET>
+	
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabDiarioClinico" valore="tabDiarioClinico" evento="START">
+
+				<FIELDSET key_id="fldDiarioClinico" valore="fldDiarioClinico" evento="START">
+						
+					<DIV key_id="divDiarioClinico" valore="divDiarioClinico" evento="START"></DIV>
+						
+				</FIELDSET>
+	
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabFarmaci" valore="tabFarmaci" evento="START">
+
+				<FIELDSET key_id="fldFarmaci" valore="fldFarmaci" evento="START">
+					
+					<INPUT.HIDDEN key_id="hProblemi" valore="hProblemi" evento="START_END">
+					</INPUT.HIDDEN>
+					
+					<INPUT.HIDDEN key_id="hFarmaci" valore="hFarmaci" evento="START_END">
+					</INPUT.HIDDEN>
+					
+					<RICETTA_ROSSA key_id="RicettaRossa" valore="FARMACI" evento="START">
+					</RICETTA_ROSSA>
+					
+				</FIELDSET>
+	
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabAccertamenti" valore="tabAccertamenti" evento="START">
+
+				<FIELDSET key_id="fldAccertamenti" valore="fldAccertamenti" evento="START">
+					
+					
+					<INPUT.HIDDEN key_id="hProblemi" valore="hProblemi" evento="START_END">
+					</INPUT.HIDDEN>
+					
+					<INPUT.HIDDEN key_id="hFarmaci" valore="hFarmaci" evento="START_END">
+					</INPUT.HIDDEN>
+					
+					<RICETTA_ROSSA_ACCERTAMENTI key_id="RicettaRossaAccertamenti" valore="ACCERTAMENTI" evento="START">
+					</RICETTA_ROSSA_ACCERTAMENTI>
+							
+				</FIELDSET>
+	
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

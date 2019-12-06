@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <!-- <lblTitolo>RIEPILOGO INSERIMENTO PROBLEMA</lblTitolo> -->
+        <butStampa>Stampa</butStampa>
+        <tabRiepilogo_I>Riepilogo generale</tabRiepilogo_I>
+        <tabRiepilogo_II>Riepilogo rilevazioni legate al problema</tabRiepilogo_II>
+        <tabRiepilogo_III>Riepilogo prescrizioni legate al problema</tabRiepilogo_III>
+        <lbltxtProblema>Problema</lbltxtProblema>
+        <lbltxtUtenteInserimento>Utente di inserimento</lbltxtUtenteInserimento>
+        <lbltxtDataInserimento>Data inserimento</lbltxtDataInserimento>
+        <lblNoteInserimento>Note inserimento</lblNoteInserimento>
+        <fldwkVisite>Visite legate al problema</fldwkVisite>
+        <fldwkNoteDiario>Note di diario legate al problema</fldwkNoteDiario>
+        <fldwkBMI>Rilevazioni BMI</fldwkBMI>
+        <fldwkTemperatura>Rilevazioni temperatura</fldwkTemperatura>
+        <fldwkRilevazioni>Rilevazioni generali</fldwkRilevazioni>
+        <fldwkPrescrFarmaci>Farmaci prescritti legati al problema</fldwkPrescrFarmaci>
+        <fldwkPrescrAccertamenti>Accertamenti prescritti legati al problema</fldwkPrescrAccertamenti>
+        <fldwkCertificati>Certificati legati al problema</fldwkCertificati>
+			
+    </ROW>
+</ROWSET>

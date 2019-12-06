@@ -1,0 +1,109 @@
+#contextualMenu{
+	position:absolute;
+/*	border:1px solid #2E74B9;*/
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	visibility:hidden;
+	z-index:1000;
+	color:#000000;
+}
+
+
+.ContextMenuLinks {
+	background: #EFF9FE;
+	padding: 0px;
+	border-top: Solid 1px #2E74B9;
+	border-left: Solid 1px #2E74B9;
+	border-right: Solid 1px #2E74B9;
+	border-bottom: Solid 1px #2E74B9;
+}
+
+.ContextMenuOver {
+	background-color: yellow;
+}
+
+.ContextMenuNormal {
+	background:#DDF8FF;
+}
+
+.ContextIcon{
+	height:30px;
+	width:30px;	
+	background-color:#FFFFFF;
+}
+
+.ContextNull{
+	height:60px;
+	width:150px;
+	border:1px solid #2E74B9;
+	font-size: 12px;
+	background-color:#FFFFCC;
+	padding-left:3px;
+	padding-top:3px;
+	
+}
+
+.titleMenuOption{
+	height:20px;
+	background-color:#258BF1;
+	color:white;
+	text-align:center;
+	background-image:url(../../imagexPix/bar/titleMenuOption.jpg);
+	background-repeat:repeat-x;
+	font-size: 12px;
+	margin:2px 0px 2px 0px;	
+}
+
+.contextMenuUl {
+	padding: 0px;
+	margin: 0px;
+	width:350px;
+	list-style:none;
+}
+
+.contextMenuUl ul {
+	padding: 0px;
+	margin: 0px;
+	border-top: Solid 1px #2E74B9;
+	border-bottom: Solid 1px #2E74B9;
+}
+
+.contextMenuUl li {
+/*	background: #EFF9FE;*/
+	width:350px;
+	height: 30px;
+	list-style:none;
+	border-left: Solid 1px #2E74B9;
+	border-right: Solid 1px #2E74B9;
+	white-space: nowrap;
+}
+
+.contextMenuUl li a, .contextMenuUl li a:hover {
+	text-decoration: none;
+	color: #000000;
+	padding: 0.5em;
+	vertical-align: top;
+	width: 315px;
+	display: inline-block;
+	overflow: hidden;
+	height: 100%;
+}
+
+.contextMenuUl img {
+	height:30px;
+	width:30px;
+	background-color:#FFFFFF;
+}
+
+.contextMenuUl li ul {
+	display: none;
+}
+
+.contextMenuNode {
+	background-image: url(../../imagexPix/arrow/right.gif);
+	background-position: right center;
+	background-repeat: no-repeat;
+	overflow: visible;
+}
+
+

@@ -1,0 +1,246 @@
+<MENU>
+    <ID>MENU_PS_LISTA_ATTESA</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+
+
+
+        <ITEM>
+            <ID>APRI_CARTELLA</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.apriCartellaAmministrativo(rec) }]]></LINK>
+            <URL_IMAGE>./img/CMenu/anteprima.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_GENERALE.PERSONALE_AMMINISTRATIVO(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblMenuApriConsole</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Apre la cartella"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>VALUTA_TRIAGE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.valutaTriage(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_dati_prontosoccorso.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.TRIAGE(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblMenuValutaTriage</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Valutazione Triage"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>COMPLETA_TRIAGE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.valutaTriage(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_dati_prontosoccorso.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.COMPLETA_TRIAGE(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblMenuCompletaTriage</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Completa un operazione di triage"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>MANUTENZIONE_TRIAGE</ID>
+            <LINK><![CDATA[function(rec){ FNC_MENU_LISTA_ATTESA.manutenzioneTriage(rec[0].IDEN_LISTA,rec[0].IDEN_ANAG,rec[0].IDEN_CONTATTO,rec[0].IDEN_PROVENIENZA,rec[0].IDEN_CDC,rec[0].CONTGIU_CDC,rec[0].CONTGIU_PROV, rec[0].URGENZA );}]]></LINK>
+            <URL_IMAGE>./img/CMenu/richiesta_modifiche.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_LISTA_ATTESA.MANUTENZIONE_TRIAGE(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblManutenzioneTriage</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Torna allo stato di Triage non completato"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>RIVALUTA_TRIAGE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.rivalutaTriage(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_dati_prontosoccorso.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_LISTA_ATTESA.RIVALUTA_TRIAGE(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblMenuRivaluta</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Operazione di Rivalutazione Triage"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>COMPLETA_RIVALUTAZIONE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.completaRivalutazione(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_dati_prontosoccorso.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_LISTA_ATTESA.COMPLETA_RIVALUTAZIONE(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblMenuCompletaRivalutazione</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Completa una rivalutazione"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>MANUTENZIONE_RIVALUTAZIONE</ID>
+            <LINK><![CDATA[function(rec){ FNC_MENU_LISTA_ATTESA.manutenzioneRivalutazione(rec[0].IDEN_LISTA,rec[0].IDEN_ANAG,rec[0].IDEN_CONTATTO,rec[0].IDEN_PROVENIENZA,rec[0].IDEN_CDC,rec[0].CONTGIU_CDC,rec[0].CONTGIU_PROV, rec[0].URGENZA); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/richiesta_modifiche.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_LISTA_ATTESA.MANUTENZIONE_RIVALUTAZIONE(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblManutenzioneRivalutazione</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Torna allo stato di Rivalutazione non completata"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>PRESA_IN_CARICO</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.presaInCarico(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/documenti_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.PRESA_IN_CARICO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuPresaInCarico</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Passaggio alla lista aperti Riservata ai medici"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>PRESA_IN_CARICO_INFERMIERISTICA</ID>
+            <LINK><![CDATA[function(rec){
+                    FNC_MENU_LISTA_ATTESA.presaInCaricoInf(rec, 'PRESA_IN_CARICO');
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/documenti_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.PRESA_IN_CARICO_INF(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuPresaInCaricoInf</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Funzione riservata agli infermieri"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>PASSAGGIO_DI_CONSEGNE_INFERMIERISTICO</ID>
+            <LINK><![CDATA[function(rec){
+                    FNC_MENU_LISTA_ATTESA.passaggioDiConsegneInf(rec, 'PASSAGGIO_DI_CONSEGNE');
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/documenti_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.PASSAGGIO_DI_CONSEGNE_INF(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuPassaggioConsegneInf</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Funzione riservata agli infermieri"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>ASS_PAZ_SCONOSCIUTO</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.associaPazSconosciuto(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/appropriatezza.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PAZIENTE_SCONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuAssociaPaz</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Associa paziente sconosciuto"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>RIASSOCIA_PAZIENTE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.riassociaPaziente(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_nomi_utenti_orari_modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PAZIENTE_CONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuRiassociaPaz</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Riassocia paziente"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>DETTAGLIO_ANAG</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.apriSchedaAnagrafica(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PAZIENTE_CONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuDettaglioAnag</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Funzione di modifica anagrafica"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>IPATIENT</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.apriIpatient(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/informazioni.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PERSONALE_MEDICO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuiPatient</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Chiama liPatient di Whale"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>STAMPA_TRIAGE</ID>
+            <LINK><![CDATA[function(rec){NS_STAMPE_PS.stampaTriage(rec[0].IDEN_CONTATTO,"N");}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.STAMPA_COMPLETO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblStampaTriage</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Triage"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>STAMPA_NUMERO</ID>
+            <LINK><![CDATA[function(rec){NS_STAMPE_PS.stampaNumero(rec[0].IDEN_CONTATTO,"N", function(){home.NS_FENIX_PRINT.chiudi({});});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.STAMPA_NUMERO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblStampaNumero</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Numero"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>STAMPA_PRIVACY</ID>
+            <LINK><![CDATA[function(rec){NS_STAMPE_PS.stampaPrivacy(rec[0].IDEN_CONTATTO,"N", function(){home.NS_FENIX_PRINT.chiudi({});} );}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.STAMPA_PRIVACY(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblStampaPrivacy</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Stampa Privacy"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>STAMPA_BRACIALETTO</ID>
+            <LINK><![CDATA[function(rec){NS_STAMPE_PS.stampaBraccialetto(rec[0].IDEN_CONTATTO,'S');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.STAMPA_COMPLETO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblStampaBraccialetto</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Stampa Braccialetto"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>SEGNALA_ALLONTANATO</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.segnalaAllontanato(rec)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_datawharehouse.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_ATTESA.SEGNALA_ALLONTANATO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblSegnalaAllontanato</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Apre la cartella"</INFO>
+        </ITEM>
+
+        <ITEM>
+              <ID>CANCELLA_AMM</ID>
+              <LINK><![CDATA[function(rec){
+                      FNC_MENU_LISTA_ATTESA.cancelAmministrativo(rec[0].IDEN_CONTATTO,rec[0].PAZIENTE, NS_WK_PS.caricaWk);
+                  }]]></LINK>
+              <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+              <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.CHECK_LENGTH_ONE(rec);}]]></WHERE>
+              <OUTPUT>traduzione.lblcancelAmministrativo</OUTPUT>
+              <CONCEALING>true</CONCEALING>
+              <SEPARATOR>false</SEPARATOR>
+              <INFO>"Cancella contatto"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>APRI_CARTELLA_DEBUGGER</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ATTESA.apriCartellaDebugger(rec) }]]></LINK>
+            <URL_IMAGE>./img/CMenu/anteprima.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_GENERALE.PERSONALE_DEBUGGER(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblMenuApriDebbugger</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Apre la cartella per i Debugger"</INFO>
+        </ITEM>
+
+    </LIST>
+</MENU>

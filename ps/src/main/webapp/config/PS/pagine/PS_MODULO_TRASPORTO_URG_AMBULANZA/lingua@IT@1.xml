@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+
+       <lblTitolo>TRASPORTO URGENTE AMBULANZA</lblTitolo>
+       <fldDati>Dati</fldDati>
+       <lblReparto>Reparto di Destinazione</lblReparto>
+       <lblRepartoProv>Reparto di Provenienza</lblRepartoProv>
+       <lblOspedaleProv>Ospedale di Provenienza</lblOspedaleProv>
+       <lblOspedale>Ospedale di Destinazione</lblOspedale>
+       <lblMedico>Medico</lblMedico>
+       <lblDiagnosi>Diagnosi</lblDiagnosi>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

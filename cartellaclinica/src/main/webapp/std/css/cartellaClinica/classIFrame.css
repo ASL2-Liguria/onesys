@@ -1,0 +1,426 @@
+*{font-family:Arial, Helvetica, sans-serif;}
+
+div{display:block;}
+
+html,body {height:100%;overflow: hidden;margin:0;padding:0;}
+
+body.singolo,body.confronto{background:#1b519a;}
+
+body.singolo iframe#frameWork,body.singolo div#AlberoConsultazioneLEFT{width:99.9%;}
+body.singolo iframe#frameConfronto,body.singolo div#AlberoConsultazioneRIGHT{display:none;}
+
+body.confronto iframe#frameWork,body.confronto div#AlberoConsultazioneLEFT{width:49.9%;}
+body.confronto iframe#frameConfronto,body.confronto div#AlberoConsultazioneRIGHT{width:49.9%;display:block;}
+
+iframe.classIFrame{
+	float:left;
+	display:none;
+	margin:1px;
+}
+iframe.classIFWork{
+	width:99.9%;
+	height:100%;
+	float:left;
+}
+iframe.classIFConfronto{
+	width:0%;
+	height:100%;
+	float:right;
+	border-left:1px solid #1b519a;
+}
+
+div#wrapperMenuInfo{height:24px;clear:both;}
+div#AlberoConsultazione{width:100%;display:block;}
+
+/*classi di sfondo per differenziare le ModalitaCartella*/
+div.Blue{background:url(../../../imagexPix/tabheader/sf-menu.gif) repeat;}	
+div.Red{background:url(../../../imagexPix/tabheader/top_tabella_red.gif) repeat;}
+div.Green{background:url(../../../imagexPix/tabheader/top_tabella_verde.gif) repeat;}
+
+div#intest{clear:both;width:100%;height:50px;/*display:block;line-height:25px;*/border-top:3px solid #1b519a;visibility:hidden;}
+label.head,label.data{float:left;margin-left:10px;font-weight:bold;font-size:12px;}
+
+label#lblLetto{font-size:16px;}
+
+label#lblEmergenzaMedica{font-size:16px;color:#FFF;}
+label.head{color:#FD0;}
+label.data{color:#FFF;}
+
+
+div.Red label.head{color:#000;}
+div.Red label.data{color:#FFF;}
+
+div#AlberoConsultazioneLEFT{width:49.9%;float:left;}
+div#AlberoConsultazioneRIGHT{width:49.9%;float:right;border-left:1px solid #1b519a;}
+
+div#divFiltroCartella{float:left;height:24px;padding:3px 0px 0px 3px;line-height:16px;}
+
+
+div#divFiltroCartella div{
+	color:white;
+	padding:0 3px;	
+	margin-left:0px;
+	cursor:pointer;
+	float:left;
+	height:20px;
+}
+
+div#divFiltroCartella div label{
+	margin-left:0px;
+	margin-right:0px;
+	float:left;
+	font-size:12px;
+	padding:0px 3px;
+	height:20px;
+	line-height:20px;
+	border-top:1px solid #BBB;
+	border-left:1px solid #BBB;
+	border-bottom:1px solid #666;
+	border-right:1px solid #666;
+}
+
+div#divFiltroCartellaDate{float:left;height:24px;padding:3px 0px 3px 3px;line-height:16px;}
+
+div#divFiltroCartellaDate img{
+	float:left;
+}
+
+div#divFiltroCartellaDate a{
+	float:left;
+	width:20px;
+	height:20px;
+}
+
+div#divFiltroCartellaDate div{
+	color:white;
+	padding:0px 3px;	
+	margin-left:0px;
+	cursor:pointer;
+	float:left;
+	height:20px;	
+	border-top:1px solid #BBB;
+	border-left:1px solid #BBB;
+	border-bottom:1px solid #666;
+	border-right:1px solid #666;	
+}
+
+div#divFiltroCartellaDate div input{margin-right:2px;margin-left:2px;float:left;font-size:11px;width:65px;}
+
+div#divFiltroCartellaDate div label{
+	margin-left:0px;
+	margin-right:0px;
+	float:left;
+	font-size:11px;
+	padding:0px 3px;
+	line-height:24px;
+}
+
+/* Filtro Numero Record */
+div#divFiltroNrRecords{
+	float:left;
+	height:24px;
+	padding:3px 0px 3px 3px;
+	line-height:24px;	
+}
+div#divFiltroNrRecords div{
+	color:white;
+	padding:0px 3px;	
+	margin-left:0px;
+	cursor:pointer;
+	float:left;
+	height:20px;	
+	border-top:1px solid #BBB;
+	border-left:1px solid #BBB;
+	border-bottom:1px solid #666;
+	border-right:1px solid #666;
+}
+div#divFiltroNrRecords label{
+	color:#FFF;
+	margin-left:0px;
+	margin-right:0px;
+	float:left;
+	font-size:11px;
+	padding:0px 3px;
+	line-height:24px;
+}
+div#divFiltroNrRecords select{margin-right:2px;margin-left:2px;float:left;font-size:11px;width:65px;}
+
+
+div#divFiltroCartella div.selected label{
+	border-bottom:1px solid #BBB;
+	border-right:1px solid #BBB;
+	border-top:1px solid #666;
+	border-left:1px solid #666;
+}
+
+div#divFiltroCartella div.disabled label{
+	color:#DDD;
+	text-decoration:none;	
+}
+
+div#slideMenuMain{float:right;border-left: 1px solid #0f5e9c;}
+div#slideMenuVersioniLEFT,div#slideMenuVersioniRIGHT{}
+
+div.header{position:relative;width:100%;height:25px;line-height:25px;display:block;background:url(../../../imagexPix/bar/MenuImgV.png) repeat-x;}
+div.header div.btn{float:right;display:block;width:25px;height:25px;cursor:pointer;margin-left: 15px;}
+div.header div.btn:hover{background-color:#FF0;}
+
+.info{background:url(../../../imagexPix/button/information.png);}
+.chiudi{background:url(../../../imagexPix/button/cross.png);  margin-right: 5px;}
+.patient{background:url(../../../imagexPix/button/Patient.png);}
+.previous{background:url(../../../imagexPix/arrow/arrow-curve-left.png) center no-repeat;}
+.next{background:url(../../../imagexPix/arrow/arrow-curve-right.png) center no-repeat; }
+.refresh{background:url(../../../imagexPix/button/mini/spostata.png) center no-repeat;}
+
+div.intestazioneCartella{color:#fff;height:25px;line-height:25px;position:absolute;width:50%;left:25%;text-align:center;font: bold 14px Verdana;cursor:pointer;float:left;}
+
+.Link{
+	background:url(../../../imagexPix/button/mini/group_go.png) left no-repeat;
+	padding-left:20px;
+	padding-top:3px;
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}
+
+.refreshPage{
+	float:right;margin-left:10px;font-weight:bold;font-size:12px;
+	color:#FFF;cursor:pointer;text-decoration:underline;
+	padding:3px;
+}
+
+div.btnMenu{
+	float:left;
+	width:10px;
+	background:url(../../../imagexPix/arrow/down.gif) no-repeat center;
+	border-top:1px solid #999;
+	/*border-left:1px solid #999;*/
+	border-bottom:1px solid #333;
+	border-right:1px solid #333;	
+}
+
+div.btnMenuVersioni{
+	display:block;
+	margin:3px 0px 0px 3px;
+	float:left;
+	width:18px;
+	height:16px;
+	background:url(../../../imagexPix/arrow/down.gif) no-repeat center;
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-bottom:1px solid #333;
+	border-right:1px solid #333;	
+	cursor:pointer;
+}
+
+table.PopupMenu{
+	width:100%
+}
+
+table.PopupMenu tr.Iniziale , table.PopupMenu tr.Selezionato{
+	background:#deedf7;
+}
+
+table.PopupMenu tbody tr:hover{
+	background:yellow;
+	cursor:pointer;
+}
+
+
+div.Paginatore{
+	height:19px;
+	padding-top:3px;
+	position:absolute;
+	bottom:0px;
+}
+
+div.Paginatore div{
+	float:left;
+}
+
+div.Paginatore div.btn{
+	width:18px;
+	height:18px;
+	cursor:pointer;	
+}
+
+div.Paginatore div.btn:hover{
+	background-color:#FF0;
+}
+
+div.Paginatore div.Previous{
+	background:url(../../../imagexPix/arrow/arrow-curve-left.png) center no-repeat;
+
+}
+
+div.Paginatore div.Next{
+	background:url(../../../imagexPix/arrow/arrow-curve-right.png) center no-repeat;
+}
+/*****************************************************************/
+div#Mappa{
+	height:35px;
+	background:#b9e0ff;
+}
+
+div#Mappa div{
+	float:left;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/mappa/MappaSprite.PNG);
+	height:35px;
+	width:31px;
+	margin-bottom:5px;
+}
+
+div#Mappa div div div{
+	height:19px;	
+	margin-top:8px;
+	cursor:pointer;
+	margin-left:6px;width:19px;	
+}
+/*****************************************************************/
+div#Mappa div div.orange{background-position:center -43px;}
+div#Mappa div div.active{background-position:center -78px;}
+div#Mappa div div.white{background-position:center -113px;}
+/*****************************************************************/
+div#Mappa > div {background-position:center -175px;}
+div#Mappa .linkLeft{background-position:center -210px;}
+div#Mappa .linkMiddle{background-position:center -280px;}
+div#Mappa .linkMiddleNone{background-position:center -245px;}
+div#Mappa .linkRight{background-position:center -315px;}
+/*****************************************************************/
+div#Mappa .groupNone{}
+
+div#Mappa .gray .groupSingle{background-position:center -455px;}
+div#Mappa .gray .groupLeft{background-position:center -350px;}
+div#Mappa .gray .groupRight{background-position:center -385px;}
+div#Mappa .gray .groupMiddle{background-position:center -420px;}
+
+div#Mappa .white .groupSingle{background-position:center -595px;}
+div#Mappa .white .groupLeft{background-position:center -490px;}
+div#Mappa .white .groupRight{background-position:center -525px;}
+div#Mappa .white .groupMiddle{background-position:center -560px;}
+
+/*****************************************************************/
+div#Mappa .gray .topSingle{background-position:center -770px;}
+div#Mappa .gray .topLeft{background-position:center -630px;}
+div#Mappa .gray .topRight{background-position:center -665px;}
+div#Mappa .gray .topMiddle{background-position:center -700px;}
+div#Mappa .gray .topMiddleNone{background-position:center -735px;}
+
+div#Mappa .white .topSingle{background-position:center -945px;}
+div#Mappa .white .topLeft{background-position:center -805px;}
+div#Mappa .white .topRight{background-position:center -840px;}
+div#Mappa .white .topMiddle{background-position:center -875px;}
+div#Mappa .white .topMiddleNone{background-position:center -910px;}
+
+/*****************************************************************/
+.legenda{font-size:10px;background:#b9e0ff;}
+
+.legenda fieldset{
+	margin-bottom:4px;
+}
+
+.legenda fieldset div{
+	float:left;
+	height:20px;
+	line-height:20px;
+	padding:0px 3px;
+}
+/*********************************************/
+.legenda fieldset div.orange{
+	width:15px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) -21px -45px no-repeat;
+}
+
+.legenda fieldset div.active{
+	width:15px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) -21px -80px no-repeat;
+}
+
+.legenda fieldset div.white{
+	width:15px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) -21px -115px no-repeat;
+}
+/*********************************************/
+.legenda fieldset div.OrdActiveLeft{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -497px no-repeat;
+}
+
+.legenda fieldset div.OrdActiveRight{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -532px no-repeat;
+}
+
+.legenda fieldset div.OrdLeft{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -357px no-repeat;
+}
+
+.legenda fieldset div.OrdRight{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -392px no-repeat;
+}
+/*********************************************/
+.legenda fieldset div.DHActiveLeft{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -802px no-repeat;
+}
+
+.legenda fieldset div.DHActiveRight{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -837px no-repeat;
+}
+
+.legenda fieldset div.DHLeft{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -627px no-repeat;
+}
+
+.legenda fieldset div.DHRight{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -662px no-repeat;
+}
+/*********************************************/
+.legenda fieldset div.linkLeft{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -225px no-repeat;
+}
+
+.legenda fieldset div.linkRight{
+	width:25px;	
+	background:url(../../../imagexPix/mappa/MappaSprite.PNG) #b9e0ff center -330px no-repeat;
+}
+
+
+/*POPUP*/
+
+/*dati microbiologia da dati strutturati (Dario)*/
+
+.divGerme {
+	width: 100%;
+	height: 20px;
+	font-size: 14px;
+	font-weight: bold;
+	text-align:center;
+	background-color:#FCE88D;
+	/*padding: 10px 0px 10px 0px;*/
+	/*margin: 0px -2px;*/
+	/*border: 2px solid #6633ff; */
+}
+
+.tableAntibio{
+	border: 1px outset;
+	/*border-color:custom;*/
+	width:100%;
+	text-align:left;
+	margin: 0px 0px 10px 0px;
+}
+
+.tableAntibio th{
+	background:#b9e0ff;
+}
+
+.tableAntibio td{
+	background:#deedf7;	
+}

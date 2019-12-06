@@ -1,0 +1,10 @@
+.slider{
+	height:17px;
+	width:150px;
+	background:url(../../../imagexPix/button/slider/slider.png) no-repeat;	
+}
+.sliderBT{
+	background:url(../../../imagexPix/button/slider/sliderBT.gif) no-repeat;
+	height:17px;
+	width:100%;
+}

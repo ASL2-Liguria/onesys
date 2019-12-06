@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>INSERIMENTO NUOVO ACCESSO</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butSalvaModifiche>Salva</butSalvaModifiche>
+		<butClose>Chiudi</butClose>
+		
+		<fldAccesso>Tipologia</fldAccesso>
+		<fldRegimeAccesso>Regime</fldRegimeAccesso>
+		<fldNote>Note</fldNote>
+		<fldFumo>Fumo</fldFumo>
+		<fldAlcol>Alcol</fldAlcol>
+		<fldData>Data Accesso</fldData>
+		<fldNoteFumo>Note Fumo</fldNoteFumo>
+		<fldNoteAlcol>Note Alcol</fldNoteAlcol>
+		<fldBMI>Calcolo Body Mass Index</fldBMI>
+		<fldProblema>Problema</fldProblema>
+		<fldNoteProblema>Note Problema</fldNoteProblema>
+		<fldAltro>Informazioni</fldAltro>
+		<lblRegime>Regime Accesso</lblRegime>
+		<lblAlcolSiNo>Alcol</lblAlcolSiNo>
+		<lblFumoSiNo>Fumo</lblFumoSiNo>>
+		<lblAccesso>Tipologia</lblAccesso>
+		<lblDataAccesso>Data</lblDataAccesso>
+		<lblAltezza>Altezza (cm)</lblAltezza>
+		<lblPeso>Peso (Kg)</lblPeso>
+		<lblBMI>B.M.I.</lblBMI>
+		<lblProblema>Problema</lblProblema>
+		<lblDescrProblema>Problema ICD9</lblDescrProblema>
+		<lblCodProblema>Codice ICD9</lblCodProblema>
+		<lblCirconferenza>Circonferenza Addominale (cm)</lblCirconferenza>
+		<lblAttFisica>Attività Fisica</lblAttFisica>
+		<lblOperatoreAccesso>Operatore che ha eseguito l'accesso</lblOperatoreAccesso>
+		<lblIndirizzoAccesso>Indirizzo dell'accesso</lblIndirizzoAccesso>
+		
+		<tabIns>Nuovo Accesso</tabIns>
+		<tabFumoAlcol>Fumo e Alcol</tabFumoAlcol>
+		<tabBMI>BMI - Body Mass Index</tabBMI>
+		<tabAccesso>Accesso</tabAccesso>
+		<tabProblema>Problema</tabProblema>
+		
+		<fldProblemi>Info Paziente</fldProblemi>
+		<fldProblemiPresenti>Note</fldProblemiPresenti>
+		
+		<valoreNonNumerico>Il valore inserito non è numerico</valoreNonNumerico>
+		
+    </ROW>
+</ROWSET>

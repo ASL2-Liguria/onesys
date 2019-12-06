@@ -1,0 +1,7 @@
+<DATI	configurazione="begin :stato_pagina := 'I'; :key_query := 'SDJ.Q_EMPTY@ADT'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="radCodDescr" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR"
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := ' tipo=''ADT_FRASI_STD_COD'' and attivo=''S'' and assigning_authority_area=''ADT'' '; end;"
+            />
+</DATI>

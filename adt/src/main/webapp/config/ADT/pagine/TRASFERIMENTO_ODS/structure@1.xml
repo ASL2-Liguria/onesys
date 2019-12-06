@@ -1,0 +1,26 @@
+<PAGINA key_id="TRASFERIMENTO_ODS">
+    <HEADER_PAGE key_id="TRASFERIMENTO_ODS" valore="DEFAULT,SCHEDA,TRASFERIMENTO_ODS#DEFAULT,TRASFERIMENTO_ODS" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#TRASF_GIU#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="TRASFERIMENTO_ODS#lblTitolo#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabTrasferimento" valore="tabTrasferimento" evento="START">
+            	 <FIELDSET_TABLE key_id="datiRicovero" valore="fldDatiRicovero" evento="START">
+					<TR_TD_LABEL_TEXT key_id="cartella" valore="lblCartella##txtCartella####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="dataRicovero" valore="lblDataRicovero##txtDataRicovero####S#w80px#N" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="oraRicovero" valore="lblOraRicovero##txtOraRicovero####S#w40px#N" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="repartoAttualeGiuridico" valore="lblRepartoAttualeGiuridico##txtRepartoAttualeGiuridico####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="repartoAttualeAssistenziale" valore="lblRepartoAttualeAssistenziale##txtRepartoAttualeAssistenziale####S##N" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>					
+				</FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="datiTrasferimento" valore="fldDatiTrasferimento" evento="START">
+                    <TR.INIT  key_id="rigaCont1" valore="" evento="START" >
+                        <TD_AUTOCOMPLETE key_id="repartoAssistenziale" valore="lblRepartoAssistenziale#acRepAss#repartoAssistenziale#repartoAssistenziale#TrasferimentoRepartoAssistenziale#" evento="START"></TD_AUTOCOMPLETE>
+                        <TD_LABEL_DATA key_id="dataInizio" valore="lblDataInizio#maskData#txtDataInizio##startWithToday:true, readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_inizio" evento="START"></TD_LABEL_DATA>
+                        <TD_LABEL_ORA key_id="oraInizio" valore="lbloraInizioRicovero##txtOraInizio#N" evento="START"></TD_LABEL_ORA>
+                    </TR.INIT>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

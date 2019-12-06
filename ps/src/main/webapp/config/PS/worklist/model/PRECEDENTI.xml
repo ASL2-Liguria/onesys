@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>PRECEDENTI</ID>
+    <ID-QUERY connection="PS">WORKLIST.PRECEDENTI</ID-QUERY>
+    <TITLE>"Valutazioni Parametri"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>N</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_</COL>
+                        <DB>DATA</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>80PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ORA</COL>
+                        <DB>ORA</DB>
+                    </ID>
+                    <DESCRIPTOR>"ORA"</DESCRIPTOR>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PRESSIONE,</COL>
+                        <DB>PRESSIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"P.A."</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'PRESSIONE');}]]></PROCESS>
+                    <WIDTH>70PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>FQ_CARDIO</COL>
+                        <DB>FQ_CARDIO</DB>
+                    </ID>
+                    <DESCRIPTOR>"F.C."</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'FQ_CARDIO');}]]></PROCESS>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>FQ_RESPIRATORIA</COL>
+                        <DB>FQ_RESPIRATORIA</DB>
+                    </ID>
+                    <DESCRIPTOR>"F.R."</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'FQ_RESPIRATORIA');}]]></PROCESS>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>FQ_CARDIO_TIPO</COL>
+                        <DB>FQ_CARDIO_TIPO</DB>
+                    </ID>
+                    <DESCRIPTOR>"Tipo"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'FQ_CARDIO_TIPO');}]]></PROCESS>
+                    <WIDTH>80PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>TEMPERATURA</COL>
+                        <DB>TEMPERATURA</DB>
+                    </ID>
+                    <DESCRIPTOR>"T."</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'TEMPERATURA');}]]></PROCESS>
+                    <WIDTH>60PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>SPO2</COL>
+                        <DB>SPO2</DB>
+                    </ID>
+                    <DESCRIPTOR>"Sat."</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'SPO2');}]]></PROCESS>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DOLORE</COL>
+                        <DB>DOLORE</DB>
+                    </ID>
+                    <DESCRIPTOR>"NRS"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'DOLORE');}]]></PROCESS>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>GLASGOW</COL>
+                        <DB>GLASGOW</DB>
+                    </ID>
+                    <DESCRIPTOR>"GCS"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'GLASGOW');}]]></PROCESS>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>HGT</COL>
+                        <DB>HGT</DB>
+                    </ID>
+                    <DESCRIPTOR>"HGT"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'HGT');}]]></PROCESS>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>STICK_URINARIO</COL>
+                        <DB>STICK_URINARIO</DB>
+                    </ID>
+                    <DESCRIPTOR>"STICK URI"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processParametri(data, wk, td,'STICK_URINARIO');}]]></PROCESS>
+                    <WIDTH>100PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+
+                <COLUMN>
+                    <ID>
+                        <COL>NOTE</COL>
+                        <DB>NOTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"NOTE"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return CARTELLA_INFO.processNote(data, wk, td);}]]></PROCESS>
+                    <WIDTH>50PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTE_INS</COL>
+                        <DB>UTE_INS</DB>
+                    </ID>
+                    <DESCRIPTOR>"Operatore"</DESCRIPTOR>
+                    <WIDTH>150PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

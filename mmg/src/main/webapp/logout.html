@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>logout</title>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<script>
+			var ie = (window.location.hash == "#IE"); /*se servisse*/
+			var opn = window.opener;
+			if (opn == null || opn.closed) { /*opn.closed serve su IE*/
+				window.location.replace("Logout?OP=LOGOUT");
+			} else {
+				window.close();
+			}
+		</script>
+	</body>
+</html>

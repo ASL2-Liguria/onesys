@@ -1,0 +1,4 @@
+<INCLUDE>
+    <CSS path="css/PS/Cartella/Cartella.css"/>
+    <JS path="js/PS/PassaggioInf/PassaggioInf.js"/>
+</INCLUDE>

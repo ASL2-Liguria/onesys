@@ -1,0 +1,525 @@
+/*Gestione struttura html base*/
+html,body{
+	margin:0;
+	padding:0;
+	overflow:hidden;
+}
+
+div.divContainer{
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+div.divHeader{
+	margin-top:2px;
+	background:#39F;
+	background-y:no-repeat;
+	height:30px; 	
+}
+
+div.divWrapper{
+	float:left;
+	width:100%;
+	margin-left:-33%;
+	overflow-y:auto;
+	background:url(../../../../imagexPix/wallpaper/pattern_sfondo.gif); 
+}
+
+div.divContent{
+	margin-left:33%;
+}
+
+div.divNavigation{
+	float:right;
+	width:32.9%;
+}
+
+div.divExtra{
+	float:right;
+	clear:right;
+	width:32.9%;
+	overflow-y:auto;
+}
+
+div.divFooter{
+	background:#39F; 
+	color: #FFF;
+	width:100%;
+	height:30px;
+	position:absolute;
+	bottom:0;
+	left:0;
+	margin-bottom:0;
+}
+/*Gestione Barra Intestazione Stanze/Letti*/
+.divBarraReparti div,.divBarraReparti select{
+	line-height:17px;
+	margin:4px;
+	padding:1px;
+	float:left;
+	cursor:pointer;
+}
+
+.divTitleBarra, .barraIntestazione{
+	color:black;
+	background:url(../../../../imagexPix/wallpaper/pattern_sfondo.gif);
+}
+
+
+/*Gestione Barra Intestazione Stanze/Letti*/
+div.stanza{
+	height:120px;
+	width:200px;
+	padding:5px 5px 5px 5px ;
+	float:left;
+	margin:20px;
+}
+
+.stanza:hover{
+	background-color:#FF0;
+	border:thin;
+	border-color:#F00;
+	height:120px;
+	width:200px;
+	border-width:thick;
+	padding:5px 5px 5px 5px ;
+
+}
+
+.stanzaSpazioLetti{
+	width:50px;
+	float:left;
+}
+
+.stanzaSpazioInfo{
+	margin-left:50px;
+	background-color:#3F0; 	
+}
+
+.lettoSpazioInfo{
+	margin-left:120px;
+	background-color:#3F0; 	
+}
+
+/*Gestione Stanza Occupata*/
+
+.titoloStanza_occupata{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/top_yellow.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.contenutoStanza_occupata{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/middle_yellow.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.footerStanza_occupata{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/bottom_yellow.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+/*Gestione Stanza Libera*/
+
+.titoloStanza_libera{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/top_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+	overflow:hidden;
+}
+
+.contenutoStanza_libera{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/middle_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.footerStanza_libera{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/bottom_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+/*Gestione Stanza Piena*/
+.titoloStanza_piena{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/top_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.contenutoStanza_piena{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/middle_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+.footerStanza_piena{
+	height:30px;
+	background-image:url(../../../../imagexPix/room/bottom_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:30px;
+}
+
+/*Gestione Letto Libero*/
+
+span#lettoLibero{
+	width:25px;
+	height:25px;
+	visibility:visible;
+	float:left;	
+	background-image:url(../../../../imagexPix/room/freeBed.gif);
+	margin-right:5px;
+	
+}
+
+/*Gestione Letto Occupato*/
+span#lettoOccupato{
+	display:inline-block;
+	width:25px;
+	height:25px;
+	visibility:visible;
+	float:left;		
+	background-image:url(../../../../imagexPix/room/busyBed.gif);
+	margin-right:5px;	
+}
+
+span.rimuoviAllettato{
+	display:inline-block;	
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:right;		
+	background-image:url(../../../../imagexPix/room/svuotaLetto.png);
+	margin-right:50px;	
+}
+/*gestione icone all'interno*/
+
+
+span#imgListaDegenti_UOMINI {
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:right;		
+	background-image:url(../../../../imagexPix/room/listaDegenti_UOMINI.png);
+	margin-right:80px;
+}
+
+span#imgListaDegenti_DONNE {
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:right;
+	background-image:url(../../../../imagexPix/room/listaDegenti_DONNE.png);
+	margin-right:80px;
+}
+
+span#imgListaDegenti_MISTA {
+	width:50px;
+	height:50px;
+	visibility:visible;
+	cursor:pointer;
+	float:right;	
+	background-image:url(../../../../imagexPix/room/listaDegenti_MISTA.png);
+	margin-right:80px;
+}
+
+/* ************************ LETTO ********************** */
+.headerTitleLettoCdc{
+	color:red;
+	display: block;
+	margin:2px;
+}
+
+.headerTitleLettoPaz{
+	color:blue;
+	display: block;
+	margin:2px;
+}
+
+.headerTitleLettoNos{
+	color:green;
+	display: block;	
+	margin:2px;
+}
+
+.titoloLetto_occupato{
+	height:auto;
+	background-image:url(../../../../imagexPix/room/bed_top_red.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	top:100px;
+	overflow:hidden;
+	vertical-align:middle;
+}
+
+.contenutoLetto_occupatoDonna{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_red_woman.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+.contenutoLetto_occupatoUomo{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_red_man.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+
+.footerLetto_occupato{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_bottom_red.png);
+	background-repeat:no-repeat;
+	padding-left:15px;
+	line-height:60px;
+}
+
+
+.titoloLetto_libero{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_top_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+	overflow:hidden;
+}
+
+.contenutoLetto_libero{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_green.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+.contenutoLetto_liberoDonna{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_green_woman.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+.contenutoLetto_liberoUomo{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_middle_green_man.png);
+	background-repeat:no-repeat;
+	padding-left:10px;
+	line-height:60px;
+}
+
+
+.footerLetto_libero{
+	height:60px;
+	background-image:url(../../../../imagexPix/room/bed_bottom_green.png);
+	background-repeat:no-repeat;
+	padding-left:15px;
+	line-height:60px;
+}
+
+
+.letto{
+	height:180px;
+	width:320px;
+	padding:5px 5px 5px 5px ;
+	float:left;
+	
+}
+
+.letto:hover{
+	background-color:#FF0;
+	border:thin;
+	border-color:#F00;
+	height:180px;
+	width:320px;
+	border-width:thick;
+	padding:5px 5px 5px 5px ;
+}
+
+/*Gestione Form di Ricerca*/
+.divNavigation table{
+	width:100%;
+	background:url(../../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	border:solid blue;
+}
+
+.divNavigation .formTrTitle{
+	background:#39F;
+	color:white;	
+	text-align:center;
+	width:100%;
+	cursor:pointer;
+}
+
+.divNavigation .formTrTitle:hover{
+	background:yellow;
+	color:black;	
+	text-align:center;
+	width:100%;
+	cursor:pointer;
+}
+
+.divNavigation .classTdTitle{
+	text-align:center;
+	padding:2px;
+}
+
+.divNavigation input[type=text]{
+	width:90%;
+}
+
+.divNavigation #idResetta, .divNavigation #idRicerca{
+	float:left;
+	width:48%;
+	text-align:center;
+	background:#39F;
+	color:white;
+	margin-right:2px;
+	cursor:pointer;
+}
+
+.divNavigation #idResetta:hover, .divNavigation #idRicerca:hover{
+	float:left;
+	width:48%;
+	text-align:center;
+	background:yellow;
+	color:black;
+	margin-right:2px;
+	cursor:pointer;
+}
+
+/*Gestione WK Pazienti da allettare-allettati*/
+#divExtra table{
+	width:100%;	
+	border-bottom:solid blue;
+	border-left:solid blue;
+	border-right:solid blue;		
+}
+
+span.patientSpan{
+	width:100%;
+	cursor:move;
+}
+
+span.spanPatientInfo{
+	width:80%;
+	display: block;
+}
+
+span.spanRepartoInfo{
+	width:80%;
+	display: block;
+}
+
+span.iconMan{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/man.png);
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+}
+
+span.iconWoman{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/woman.png);
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+}
+
+span.iconInfo{
+	width:25px;	
+	height:25px;
+	background-image:url(../../../../imagexPix/button/mini/btInfo.png);
+	visibility:visible;
+	cursor:pointer;
+	float:left;		
+}
+
+/* ****************** COLONNE TABELLA RICERCA */
+.divContentError{
+	background-color:white;
+	border:solid red;
+	color:red;
+	width:98%;
+	height:40px;
+	text-align:center;
+	margin:5px;
+}
+
+div.wkPatientInStanza tr td,div.infoPatient tr td{
+	border: 1px solid #aed0ea;
+	text-align:center;
+}
+
+
+div.wkPatientInStanza tr td.colonneRicercaTitle,div.infoPatient tr .colonneRicercaTitle{
+	border: 1px solid #aed0ea;
+	background: #deedf7 url(../../../../imagexPix/jquery-ui/cupertino/images/ui-bg_highlight-soft_100_deedf7_1x100.png) 50% 50% repeat-x; 
+	color: #222222; 
+	text-align:center;	
+}
+
+/* velonero */
+div.velonero {
+	filter:alpha(opacity=60);
+	background: gray url(../../../../imagexPix/loading.gif) center no-repeat;
+}
+
+/* footer button */
+div.divButtonBackWkRicoverati,div.buttonBarraBack{
+	height:20px;
+	line-height:20px;
+	padding-left:25px;
+	padding-right:10px;
+	margin:5px;
+	float:right;
+	cursor:pointer;
+	color:black;
+	display:inline-block;
+	background: url(../../../../imagexPix/room/arrowl.png) no-repeat;
+	font-size:bold;
+}
+
+
+div.divButtonBackWkRicoverati:hover,div.buttonBarraBack:hover{
+	height:20px;
+	line-height:20px;
+	padding-left:25px;
+	padding-right:10px;
+	margin:5px;
+	float:right;
+	cursor:pointer;
+	color:black;
+	display:inline-block;
+	background: yellow url(../../../../imagexPix/room/arrowl.png) no-repeat;
+	font-size:bold;
+}

@@ -1,0 +1,52 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'PS.Q_LOAD_INS_TERAPIA@PS'; :where := null; :campo_xml := null; end;">
+
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_CONTATTO" db_descrizione="STATO_CONTATTO" configurazione_multi_data="" />
+
+    <DATO key_id="hStatoListaAttesa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_LISTA_ATTESA" db_descrizione="STATO_LISTA_ATTESA" configurazione_multi_data="" />
+
+    <DATO key_id="cmbVieSomministra" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT_ID@PS'; :where := 'tipo = ''TERAPIA_VIE_SOMM'' and attivo = ''S'''; end;" />
+          
+      <DATO key_id="cmbVeicolo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT_ID@PS'; :where := 'tipo = ''TERAPIA_VEICOLO'' and attivo = ''S'''; end;" />
+          
+     <DATO key_id="cmbDiluizione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT_ID@PS'; :where := 'tipo = ''TERAPIA_DILUIZIONE'' and attivo = ''S'''; end;" />
+
+    <DATO key_id="cmbUnitaMisura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT_ID@PS'; :where := 'tipo = ''UNITA_MISURA_FARMACI'' and attivo = ''S'''; end;" />
+
+      <DATO key_id="ComboIn" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="AUTOCOMPLETE.FARMACI@PS" />
+
+    <DATO key_id="radFiltroWk" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_RAD_FILTRO_FARMACI@PS"
+            />
+    <DATO key_id="checkMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_CHECK_MEDICO@PS"
+            />
+    <DATO key_id="checkMagazzino" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_CHECK_MAGAZZINO@PS"
+            />
+    <DATO key_id="checkInfermiere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_CHECK_PROTOCOLLO@PS"
+            />
+    <DATO key_id="hUteRiferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTE_RIFERIMENTO" db_descrizione="UTE_RIFERIMENTO"
+          configurazione_multi_data=""
+            />
+
+    <DATO key_id="iden_cdc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="iden_cdc" db_descrizione="iden_cdc" configurazione_multi_data="" />
+</DATI>

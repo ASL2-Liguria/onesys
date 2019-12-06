@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>3</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){/*alert("You selected: " + data.DESCR);*/}]]>
+        </onSelect>
+        <maxHeight>400</maxHeight>
+        <width>300</width>
+        <zIndex>9999</zIndex>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>PS</datasource>
+        <storedQuery>AUTOCOMPLETE.REPARTI_ASSISTENZIALI_RICOVERO</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Reparti Assistenziali Ricovero</title>
+        <id_wk>REPARTI_ASSISTENZIALI_RICOVERO</id_wk>
+        <onSelect type="js">
+            <![CDATA[function(ret){/*alert("You selected: " + ret.DESCR);*/}]]>
+        </onSelect>
+    </LIST>
+    <QUERY_BINDS>
+        <iden>[iden_provenienza@value]</iden>
+    </QUERY_BINDS>
+</AUTOCOMPLETE>

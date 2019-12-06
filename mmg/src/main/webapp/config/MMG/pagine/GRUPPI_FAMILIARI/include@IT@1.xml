@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/GruppiFamiliari/GruppiFamiliari.js" />
+	<CSS path="css/MMG/GruppiFamiliari/GruppiFamiliari.css" />
+</INCLUDE>

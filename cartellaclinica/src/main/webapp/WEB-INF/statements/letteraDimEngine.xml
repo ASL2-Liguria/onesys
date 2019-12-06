@@ -1,0 +1,13 @@
+<root>
+    <statements_list>
+        <statement name="getConvalida">
+            <sql>
+                <![CDATA[
+                    SELECT CASE WHEN extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hMedConv"]/text()').getStringVal() IS NOT NULL THEN 'S' ELSE 'N' END CONVALIDATO
+                    FROM RADSQL.CC_SCHEDE_XML
+                    WHERE FUNZIONE = ? AND IDEN_VISITA = TO_NUMBER(?)       
+                ]]>
+            </sql>
+        </statement>        
+    </statements_list>
+</root>

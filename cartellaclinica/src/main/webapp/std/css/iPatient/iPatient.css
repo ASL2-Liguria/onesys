@@ -1,0 +1,123 @@
+/* Generic */
+html{border:0;padding:0;margin:0;overflow:hidden;}
+body{
+	padding:0;margin:0;border:0;
+	background-image:url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	/*background-color:#E0ECF8*/;
+	overflow:hidden;
+	font-family:Arial, Helvetica, sans-serif;
+}
+#iRicercaPz, #iBody, #divBody, #divSpinner{
+	position:absolute;overflow-y:auto;display:block;border:0;
+	top:30px;left:181px;
+}
+.divSezione{float:left;display:block;position:absolute;}
+.divBtnTop{float:right;display:inline-block;vertical-align:middle;width:25px;height:25px;cursor:pointer;margin:2px;}
+.divChkPIC{float:right;display:inline-block;vertical-align:middle;width:25px;height:25px;cursor:pointer;margin:2px;}
+.divEmergenzaPIC{
+    color:#FFF;
+    font-weight:bold;
+    float:left;
+    width:180px;
+    height:30px;
+    text-align:right;
+    cursor:pointer;
+}
+
+/* Sezioni */
+#divMenuSX{width:180px;border-right:1px solid #08088A;margin:0;padding:0}
+
+#divSpinner{
+	background-color:#151515;
+	filter:alpha(opacity=60); /* For IE8 and earlier */
+	z-index:99;
+}
+#imgSpinner{position:relative;left:50%;top:50%;/*margin-left:-100px;margin-top:-15px;*/}
+#divInfoTOP{background-color:#045FB4;height:30px;line-height:30px;left:181px;position:absolute;}
+#divInfoTOP p{text-align:center;height:30px;margin:0;color:#FFF;float:left;}
+
+#divRicercaPZ{background:url(../../../imagexPix/button/icoSearchIPatient.png)}
+#divBtnChiudi{background:url(../../../imagexPix/button/cross.png)}
+#divBtnChiudi:hover, #divRicercaPZ:hover{background-color:#ff0;}
+
+/* Menu Laterale */
+#UlMenuLaterale{width:120px;margin-left:30px;list-style:none;margin-top:15px;}
+#UlMenuLaterale li{
+	width:120px;height:50px;	
+	margin-top:12px;margin-bottom:12px;
+}
+#UlMenuLaterale li div.divWrapButton{height:50px;text-align:center;vertical-align:middle;cursor:pointer;z-index:99}
+#UlMenuLaterale li div.divLblButton{width:95px;height:auto;display:inline-block;float:left;text-align:center;position:relative;/*top:50%;margin-top:expression(-this.offsetHeight/2);*/}
+
+.liBtnMenu{
+	/*background-color:#045FB4;*//*border:1px solid #08088A;*/
+	background-image:url(../../../imagexPix/button/btnIPatient.png);background-position:-0px -50px;color:#FFF;
+}
+.liBtnMenu:hover{
+	/*background-color:#004688*/
+	background-image:url(../../../imagexPix/button/btnIPatient.png);background-position:-0px -100px;
+} 
+.liBtnMenuDisabled{
+	/*background-color:#D8D8D8;border:1px solid #848484;*/
+	background-image:url(../../../imagexPix/button/btnIPatient.png);background-position:-0px -0px;
+	color:#333
+}
+.liBtnMenuActive{
+	/*background-color:#0B2161;border:1px solid #0B0B61;*/
+	background-image:url(../../../imagexPix/button/btnIPatient.png);background-position:-0px -100px;
+	color:#FFF;
+}
+.liBtnMenuForbidden{background-color:#B8B8B8;border:1px solid #1C1C1C;color:#1C1C1C;}
+
+/* Style Wk*/
+.btnRicoveroClosed{background:url(../../../imagexPix/button/arrowStyle.png);background-position:-0px -25px;width:25px;height:25px;display:inline-block;cursor:pointer;}
+.btnRicoveroOpen{background:url(../../../imagexPix/button/arrowStyle.png);background-position:-0px -0px;width:25px;height:25px;display:inline-block;cursor:pointer;}
+
+.btnRicoveroClosed:hover{background:url(../../../imagexPix/button/arrowStyle.png);background-position:-25px -25px;width:25px;height:25px;display:inline-block;cursor:pointer;}
+.btnRicoveroOpen:hover{background:url(../../../imagexPix/button/arrowStyle.png);background-position:-25px -0px;width:25px;height:25px;display:inline-block;cursor:pointer;}
+
+.esameRefertato{background-image:url(../../../imagexPix/contextMenu/anteprima.gif);width:30px;height:30px;display:inline-block;cursor:pointer;}
+
+/* Table Wk Result */ 
+.divWrapperWk{display:inline-block;}
+.divTitoloWk{display:block;margin:15px 15px 15px 15px;padding:5px;background-color:#045FB4;border:1px solid #006;color:#FFC000;font-size:16px;font-weight:bold;}
+.divTitoloWkPatientSummary{display:block;margin:15px;padding:5px;background-color:#0066cc/*3A8BD6*/;border:1px solid #006;color:#FFC000;font-size:16px;font-weight:bold;}
+.tableWk{margin:15px;border-collapse:collapse;}
+.rowGeneric:hover{background-color:#F2F5A9;}
+.rowGeneric{background-color:#090;}
+.rowGeneric{background-color:#FFFFF0;}
+.trIntestazione td{background-color:#D9F3FF;padding:2px;border:1px solid #6AA8F2;border-bottom:2px solid #6AA8F2;font-weight:bold;font-size:14px;}
+.rowGeneric td, .rowGeneric td{padding:2px;border:1px solid #6AA8F2;font-size:12px;}
+
+.divPrecedenti{
+	background-color:#045FB4;border:1px solid #08088A;cursor:pointer;color:#FFF;
+	padding:15px;display:inline-block;margin:20px;width:150px;
+}
+.divPrecedenti:hover{background-color:#004688}
+
+/* Ricerca Paziente */
+#divAvvisoMenu{display:inline-block;padding:5px;background-color:#045FB4;border:1px solid #006;color:#FFC000;font-size:16px;font-weight:bold;}
+
+
+#divInfoPIC{background-color:#FF0000;height:30px;line-height:30px;left:181px;}
+#divInfoPIC p{text-align:left;height:30px;margin:0 0 0 5px;color:#FFF;font-weight:bold;}
+.consensoPazienteAssente{
+	float:left;
+	background: url(../../../imagexPix/button/consensi/pcyPaz_assente.png) no-repeat;
+	width:30px;
+	height:30px;
+	cursor:pointer;}
+.consensoPazienteKO{
+	float:left;
+	background: url(../../../imagexPix/button/consensi/pcyPaz_KO.png) no-repeat ;
+	width:30px;
+	height:30px;
+	cursor:pointer;
+}
+.consensoPazienteOK{
+	float:left;
+	background: url(../../../imagexPix/button/consensi/pcyPaz_OK.png) no-repeat ;
+	width:30px;
+	height:30px;
+	cursor:pointer;
+}

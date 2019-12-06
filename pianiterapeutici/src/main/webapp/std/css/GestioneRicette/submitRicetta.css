@@ -1,0 +1,194 @@
+body{
+padding-right:10px;background:#b9e0ff;
+overflow:auto;
+}
+
+
+.butt_elimina{
+	font-size: 10px;
+	width:10px;
+	padding:2px;
+	text-align: center;
+	color:red;
+}
+
+.butt_eliminaNonEse{
+	font-size: 10px;
+	/*width:20px;*/
+	padding:2px;
+	text-align: center;
+	color:red;
+}
+
+.butt_eliminaNonMut{
+	font-size: 10px;
+	/*width:20px;*/
+	padding:2px;
+	text-align: center;
+	color:red;
+}
+.prestazioni label{
+	/*width: 350px;*/
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+
+.farmaciEsentiInt label{
+	/*width: 450px;*/
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+
+.farmaciNonEsentiInt label{
+	/*width: 450px;*/
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+
+.farmaciNonMutInt label{
+	/*width: 450px;*/
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+
+.prAttivoInt label{
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+.nonSostituibileInt label{
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+.prAttivoNonEseInt label{
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+.nonSostituibileNonEseInt label{
+	font-family:Arial, Helvetica, sans-serif;
+	padding:10px;
+	font-size: 11px;
+}
+.motivo {
+	width: 100%;
+	font-size: 11px;
+}
+.motivoNonEse {
+	width: 100%;
+	font-size: 11px;
+}
+TD.classTdButton {
+	BORDER: #999 1px solid;
+	PADDING-LEFT: 5px;
+	BACKGROUND-color: #f2feff;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: bold;
+}
+
+.classTdButton button{
+	font-size: 10px;
+	background-color: #D9F4FC;/*9AB4ED*/
+	margin:2px;
+	padding:2px;
+	cursor:pointer;
+}
+
+.applicaEse{
+	border:1px solid #1E8DFC;
+	border-bottom: 3px solid #1E8DFC;
+	border-left:2px solid #1E8DFC;
+
+}
+
+.prestaz label 		{font-size: 10px;}
+.qta 				{width: 50px; font-size: 10px; }
+
+.qta label 			{font-size: 10px; }
+.cicliSedute 		{width: 50px; font-size: 10px; }
+.cicliSeduteInt label		{/*width: 100px*/; font-size: 11px; }
+.cicliSedute label 	{font-size: 11px;}
+.note				{width: 400px;}
+.note label 		{font-size: 10px;}
+.esenzioni			{width:200px;font-size: 10px;}
+.esenzioni label 	{font-size: 11px;}
+.esenz 				{width:250px;font-size: 11px;}
+
+.nConf 				{width: 30px; font-size: 10px; }
+.nConfInt	label	{/*width: 30px;*/ font-size: 11px; }
+.posologiaInt label	{/*width: 100%;*/ font-size: 11px; } /* 400 px */
+.posologia			{width: 100%;  } /* 400 px */
+.qtaInt	label		{width: 30px; font-size: 11px; }
+.notaCufInt label	{/*width: 100%;*/ font-size: 11px; } /*50px*/
+.notaCuf			{width: 100%; font-size: 11px; }
+.notePrestazioni	{/*width: 100%; */ font-size: 11px; }
+.notePrestazioni label	{width: 100%; font-size: 11px; }
+
+.nConfNonEseInt	label	{width: 30px; font-size: 11px; }
+.nConfNonEse			{width: 30px; font-size: 11px; }
+.posologiaNonEseInt label	{width: 100%; font-size: 11px; }
+.posologiaNonEse		{width: 100%; }
+.notaCufNonEseInt label	{width: 100%; font-size: 11px; }
+.notaCufNonEse			{width: 100%; font-size: 11px; }
+
+.nConfNonMut			{width: 30px; font-size: 11px; }
+.nConfNonMutInt	label	{width: 30px; font-size: 11px; }
+.posologiaNonMutInt label	{width: 100%; font-size: 11px; }
+.posologiaNonMut		{width: 100%; }
+
+fieldset{
+	
+	margin-RIGHT:10px;
+	margin-LEFT:10px;
+	margin-BOTTOM:2px;
+	border:3px solid #fff;
+	padding:5px;
+}
+fieldset legend{
+	font-weight:bold;
+	PADDING:5px;
+	margin-bottom:5px;
+} 
+fieldset label{
+	font-size:12px;
+	cursor:pointer;
+}
+
+#groupDatiPrestazioni td  {
+	margin: 20px;
+	overflow-y:scroll;
+}
+
+
+#divPrestazioni label 	{ HEIGHT: 20PX;line-height: 20PX; }
+#divPrestazioni td 		{ line-height: 25px; height: 25px; }
+#divFarmaciEsenti td    { line-height: 25px; height: 25px;}
+#divFarmaciNonEsenti td    { line-height: 25px; height: 25px;}
+#divFarmaciNonMutuabili td { line-height: 25px; height: 25px;}
+#lbFarmaciSceltiEsenti  { width: 300px; }
+#lbFarmaciSceltiNONEsenti { width: 300px; }
+#lbFarmaciSceltiNONMutuabili { width: 300px;}
+
+input.grey{background-color: #D3D3D3;}
+
+.Link{
+	background:url(../../../imagexPix/button/information20x20.png) no-repeat;
+	float:left;
+	margin-right:10px;
+	width:25px;height:25px;
+	cursor:pointer;
+}
+
+.btnInfo {
+	vertical-align: middle;
+	background: url(../../../imagexPix/button/information20x20.png) no-repeat;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	border: 0px
+}

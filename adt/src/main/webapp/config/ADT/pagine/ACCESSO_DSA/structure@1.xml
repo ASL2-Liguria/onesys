@@ -1,0 +1,20 @@
+<PAGINA key_id="ACCESSO_DSA">
+	<HEADER_PAGE key_id="ACCESSO_DSA" valore="DEFAULT,SCHEDA,ACCESSO_DSA#DEFAULT,ACCESSO_DSA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="ACCESSO_DSA#lblTitolo#butSalva,butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabAccessoDSA" valore="tabAccessoDSA" evento="START">
+				<FIELDSET_TABLE key_id="DatiAccessoDSA" valore="idDatiAccessoDSA" evento="START">
+					<TR_TD_LABEL_DATA key_id="dataAccesso" valore="lblDataAccesso#maskData#txtDataAccesso##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_ACC" evento="START">
+					<TD_LABEL_ORA key_id="txtOraIniAccesso" valore="lblOraIniAccesso##txtOraIniAccesso#N" evento="START">
+					</TD_LABEL_ORA>
+					<TD_LABEL_ORA key_id="txtOraFineAccesso" valore="lblOraFineAccesso##txtOraFineAccesso#N" evento="START">
+					</TD_LABEL_ORA>
+					<TD_LABEL_TEXTAREA key_id="txtNote" valore="lblNote#txtNote##N#N#N" evento="START">
+					</TD_LABEL_TEXTAREA>
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>GRUPPI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.GRUPPI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_GRUPPI</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('CODICE');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+				<COLUMN>
+					<ID>
+						<COL>INFO</COL>
+						<DB>INFO</DB>
+					</ID>
+					<DESCRIPTOR>""</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setOpenGruppo( data ); }]]></PROCESS>    				
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>CODICE</COL>
+						<DB>CODICE</DB>
+					</ID>
+					<DESCRIPTOR>"Codice"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>GRUPPO</COL>
+						<DB>GRUPPO</DB>
+					</ID>
+					<DESCRIPTOR>"Gruppo"</DESCRIPTOR>           				
+					<WIDTH>350px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="GRUPPO">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,120 @@
+/* CSS Document */
+
+table.classTabulator {
+	text-align: left;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px; 
+	border: 0;
+	height:25px;
+}
+/* link dei tabulatori su evento over */
+table.classTabulator td.classTabHeaderMiddle_tab a:hover{
+	color:yellow;
+	text-decoration:underline;
+}
+/* link dei tabultaori */
+table.classTabulator td.classTabHeaderMiddle_tab a{
+	color:yellow;
+	font-size:80%;
+}
+
+table.classTabulator td.classTabHeaderSx_tab {
+	
+	background-image:url(../../../imagexPix/tabheader/tabSx_blu.gif);
+	background-repeat:no-repeat;
+	width:12px;
+}
+
+table.classTabulator td.classTabHeaderMiddle_tab {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_blu.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:yellow;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+table.classTabulator td.classTabHeaderDx_tab {
+	
+background-image:url(../../../imagexPix/tabheader/tabDx_blu.gif);
+background-repeat:no-repeat;
+width:12px;
+	
+}
+
+table.classTabulator td.classTabHeaderSx_tab_press {
+	
+	background-image:url(../../../imagexPix/tabheader/tabSx_blu_press.gif);
+	background-repeat:no-repeat;
+	width:12px;
+}
+
+table.classTabulator td.classTabHeaderMiddle_tab_press {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_blu_press.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	color:#CCFF00;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:90%;
+	
+}
+
+table.classTabulator td.classTabHeaderDx_tab_press {
+	
+background-image:url(../../../imagexPix/tabheader/tabDx_blu_press.gif);
+background-repeat:no-repeat;
+width:12px;
+
+}
+
+
+
+table.classTabulator td.classTabFooterSx_tab {
+background-image:url(../../../imagexPix/tabheader/tabSxDown_blu.gif);
+width:12px;
+	
+}
+
+table.classTabulator td.classTabFooterDx_tab {
+background-image:url(../../../imagexPix/tabheader/tabDxDown_blu.gif);
+background-repeat:no-repeat;
+width:12px; 
+	
+}
+
+
+
+table.classTabulator td.classButtonHeader_tab {
+background-image:url(../../../imagexPix/tabheader/top_tabella_blu.gif);
+width:80px; 
+}
+
+
+
+table.classTabulator td.classTabHeaderMiddleTitle_tab {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_blu.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:16px;
+	color:#003399;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+
+/* classe per i pulsanti mini (21*21) */
+table.classTabulator td.miniButton {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_blu.gif);
+	width:25px;
+	padding:0 2px 0 2px;
+
+}
+
+
+

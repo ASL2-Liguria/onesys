@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<ID>MENU_PROBLEMI_PS</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MPS.OSCURA</ID>
+			<LINK><![CDATA[function(rec){NS_PRIVACY.WK.oscuraRecord(rec, 'S', "MMG_PROBLEMI", NS_MMG_PATIENT_SUMMARY.wkProblemi);}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (home.ASSISTITO.IDEN_MED_BASE == home.baseUser.IDEN_PER && rec[0].OSCURATO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MPS.DISOSCURA</ID>
+			<LINK><![CDATA[function(rec){NS_PRIVACY.WK.oscuraRecord(rec, 'N', "MMG_PROBLEMI", NS_MMG_PATIENT_SUMMARY.wkProblemi);}]]></LINK>
+			<ICON_CLASS>utente</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (home.ASSISTITO.IDEN_MED_BASE == home.baseUser.IDEN_PER &&  rec[0].OSCURATO == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblDisoscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

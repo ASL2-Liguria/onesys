@@ -1,0 +1,30 @@
+<PAGINA key_id="RICHIESTA_CARTELLA_CRONO">
+	<HEADER_PAGE key_id="RICHIESTA_CARTELLA_CRONO" valore="DEFAULT,SCHEDA,RICHIESTA_CARTELLA_CRONO#DEFAULT,RICHIESTA_CARTELLA_CRONO" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="RICHIESTA_CARTELLA_CRONO#lblTitolo#butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabRichiestaCrono" valore="tabRichiestaCrono" evento="START">
+				<FIELDSET_TABLE key_id="Assistito" valore="idAssistito" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome##txtCognome####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtDataNasc" valore="lblDataNascita##txtDataNasc####S#w80px#N" evento="START">"
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtSesso" valore="lblSesso##txtSesso####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtCodFisc" valore="lblCodiceFiscale##txtCodFisc####S#w130px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="tableCrono" valore="idCronoRichiesta" evento="START">
+	            	<DIV key_id="divCronoRichiesta" valore="divCronoRichiesta" evento="START">
+	            	</DIV>
+	            </FIELDSET_TABLE>
+	            <FIELDSET_TABLE key_id="tableCronoCartella" valore="idCronoCartella" evento="START">
+	            	<DIV key_id="divCronoRichiestaCartella" valore="divCronoRichiestaCartella" evento="START">
+	            	</DIV>
+	            </FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

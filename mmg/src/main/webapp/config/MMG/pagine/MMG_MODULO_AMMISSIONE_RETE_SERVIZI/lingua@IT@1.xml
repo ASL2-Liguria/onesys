@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabModulo>Modulo Ammissione Rete</tabModulo>
+    	
+        <lblTitolo>RICHIESTA MEDICA DI VALUTAZIONE PER L'AMMISSIONE ALLA RETE DEI SERVIZI DI ASSISTENZA RIABILITATIVA TERRITORIALE</lblTitolo>
+        
+        <fldInterventi>Interventi chirurgici (sede)</fldInterventi>
+        
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        <butInserisci>Inserisci</butInserisci>
+        
+        <lblData>Data compilazione</lblData>
+        <lblDataScadenza>Data scadenza</lblDataScadenza>
+        <lbltxtOspedale>- Ricoverato/a presso l'Ospedale</lbltxtOspedale>
+        <lbltxtReparto>reparto</lbltxtReparto>
+        <lbltxtStruttura>- Ricoverato/a presso la Struttura</lbltxtStruttura>
+        <lblDataDimissione>Data presunta di dimissione</lblDataDimissione>
+        <lbltxtAffezioni>Affetto/a da:</lbltxtAffezioni>
+        <lblProblemiPaziente>Diagnosi effettuate per il paziente</lblProblemiPaziente>
+        <lblRiferito>riferito</lblRiferito>
+        <lbltxtNote>Note:</lbltxtNote>
+        
+
+        <lblDataMarkerTumSec>data</lblDataMarkerTumSec>
+        <lblDataMarkerTumFirst>data</lblDataMarkerTumFirst>
+        <lblMarkerValSec>Valore (v.n.)</lblMarkerValSec>
+        <lblMarkerValFirst>Valore (v.n.)</lblMarkerValFirst>
+        <lblTerapia>Terapia attuale</lblTerapia>
+		
+    </ROW>
+</ROWSET>

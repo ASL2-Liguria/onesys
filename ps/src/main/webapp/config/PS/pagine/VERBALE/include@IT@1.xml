@@ -1,0 +1,16 @@
+<INCLUDE>
+    <CSS path="css/PS/Cartella/Cartella.css"/>
+    <CSS path="css/PS/Verbale/Verbale.css"/>
+    <CSS path="css/base/jquery.plugin/tooltipster.css"/>
+
+    <JS path="config/PS/validator/model/V_PS_VERBALE.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/PS/ContextMenu/ContextMenu.js"/>
+    <JS path="js/Base/jquery.plugin/jquery.tooltipster.js"/>
+    <JS path="js/PS/Verbale/VerbaleJson.js"/>
+    <JS path="js/PS/Verbale/VerbaleEventi.js"/>
+    <JS path="js/PS/Verbale/VerbaleControlli.js"/>
+    <JS path="js/PS/Verbale/VerbaleRegistraFirma.js"/>
+    <JS path="js/PS/Verbale/VerbaleEsiti.js"/>
+    <JS path="js/PS/Verbale/VerbaleMain.js"/>
+</INCLUDE>

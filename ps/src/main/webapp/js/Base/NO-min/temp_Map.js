@@ -1,0 +1,2 @@
+//Map powered by Jacopo
+;$.Map=function(e,t){function i(e,t){if(typeof (e,t)=="object"){n=e;r=t}}function s(){n=[];r=[]}var n=[];var r=[];i(e,t);return{getValues:function(){return r},getKeys:function(){return n},getValue:function(e){return r[n.indexOf(e)]},removeValue:function(e){var t=n.indexOf(e);if(t>-1){n.splice(t,1);r.splice(t,1)}},setData:function(e,t){i(e,t)},addData:function(e,t){var i=n.indexOf(e);if(i==-1){n.push(e);r.push(t)}},empty:function(){s()}}};$.Map.each=function(e,t){$.each(e.getKeys(),function(n,r){t(r,e.getValue(r))})}

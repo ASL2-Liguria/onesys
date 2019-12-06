@@ -1,0 +1,76 @@
+--- ScaricoFarmaci.js
++++ ScaricoFarmaci.js
+@@ -1,9 +1,4 @@
+-/**
+- * User: matteopi
+- * Date: 30/08/13
+- * Time: 12.23
+- */
+-var WindowHome 			= null;
++var WindowHome = null;
+ 
+ jQuery(document).ready(function () {
+     window.WindowHome = window;
+@@ -7,7 +2,7 @@
+ 
+ jQuery(document).ready(function () {
+     window.WindowHome = window;
+-    while((window.WindowHome.name != 'Home' || window.WindowHome.name != 'schedaRicovero') && window.WindowHome.parent != window.WindowHome){
++    while ((window.WindowHome.name != 'Home' || window.WindowHome.name != 'schedaRicovero') && window.WindowHome.parent != window.WindowHome) {
+         window.WindowHome = window.WindowHome.parent;
+     }
+ 
+@@ -22,9 +17,10 @@
+ 
+ var NS_SCARICO_FARMACI = {
+     init : function () {
+-       document.getElementById('hIdenMagazzino').value =  $('#IDEN_MAGAZZINO').val();
+-       inserisciUnita();
++       document.getElementById('hIdenMagazzino').value = $('#IDEN_MAGAZZINO').val();
++       document.getElementById('hIdenDettaglio').value = ($('#IDEN_DETTAGLIO').val() == undefined) ? '' : $('#IDEN_DETTAGLIO').val();
++       NS_GESTIONE_MAGAZZINO.unitaCaricoScarico('SCARICO');
+     },
+     event: function () {
+ 
+     }
+@@ -27,38 +23,5 @@
+     },
+     event: function () {
+ 
+     }
+-}
+-
+-function PreSalvataggio(){
+-
+-   // alert($('#hIdenMagazzino').val()+ $('#hIdenFarmaco').val() + $('#txtUnita').val() + $('#txtLotto').val()+$('#hDataOra').val());
+-
+-    var iden_farmaco = document.getElementById('hIdenFarmaco').value;
+-    var iden_magazzino = document.getElementById('hIdenMagazzino').value;
+-    var unita = document.getElementById('txtUnita').value;
+-
+-    if(iden_farmaco==''){
+-        return alert("Attenzione selezionare un farmaco dall'elenco");
+-    }else if (isNaN(unita)){
+-        return alert("Attenzione inserire un formato numerico nelle unità");
+-    }
+-    var vResp = WindowHome.executeStatement("Magazzino.xml", "CONTROLLOGIACENZA", [iden_farmaco,iden_magazzino,unita],2);
+-
+-    if(vResp[0] == 'KO'){
+-        return alert(vResp[1]);
+-    }else if (vResp[2]=='KO'){
+-        if(confirm(vResp[3])){
+-
+-            registra();
+-            alert("Trasferimento Effettuato");
+-            document.location.replace(document.location);
+-        }
+-    }else if(vResp[2]=='OK'){
+-        // alert(vResp[3]);  sarebbero le unità disponibili
+-        registra();
+-        alert("Trasferimento Effettuato");
+-        document.location.replace(document.location);
+-
+-    }
+-}
+\ No newline at end of file
++};

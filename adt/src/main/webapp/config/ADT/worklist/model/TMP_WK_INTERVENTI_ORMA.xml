@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>TMP_WK_INTERVENTI_ORMA</ID>
+    <ID-QUERY connection="ADT">AUTOCOMPLETE.TMP_INTERVENTI_ORMA</ID-QUERY>
+    <TITLE>"Interventi ormaweb"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>CODICE</COL>
+                        <DB>CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCodice</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+                    <WIDTH>75px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>           
+                <COLUMN>
+                    <ID>
+                        <COL>DESCR</COL>
+                        <DB>DESCR</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDescr</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>400px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                </LIST>
+            <SORT>
+                <COLUMN id="DESCR">ASC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

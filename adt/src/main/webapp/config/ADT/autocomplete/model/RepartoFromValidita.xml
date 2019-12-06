@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(rec){NS_CARTELLA_STORICA.checkRepartoValorizzato(rec)}]]>
+        </onSelect>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.WK_REPARTI_FROM_VALIDITA</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Reparti Giuridici</title>
+        <id_wk>WK_REPARTI_FROM_VALIDITA</id_wk>
+    </LIST>
+    <QUERY_BINDS>
+        <regime_abilitato>1</regime_abilitato>
+    </QUERY_BINDS>
+</AUTOCOMPLETE>

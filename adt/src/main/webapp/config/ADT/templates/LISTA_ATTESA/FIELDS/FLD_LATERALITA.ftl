@@ -1,0 +1,2 @@
+<@lib.tdLbl class="tdLbl" id="lblLateralita" value="${traduzione.lblLateralita}" ></@lib.tdLbl>
+<@lib.tdRadio idRadio="radLateralita" tdClass="radLateralita" option=dati_salvati.radLateralita.getMatrixData() configPlugin="{width:85,ctrl:false}" colspan="3"></@lib.tdRadio>

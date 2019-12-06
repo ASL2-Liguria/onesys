@@ -1,0 +1,53 @@
+/* CSS Document */
+.btnNoUrg {
+	background-image: url(../../../imagexPix/Urgenza/opt_NoUrg_off.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.btnNoUrgCheck {
+	background-image: url(../../../imagexPix/Urgenza/opt_NoUrg_on.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.btnUrgDif {
+	background-image: url(../../../imagexPix/Urgenza/opt_UrgDiff_off.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.btnUrgDifCheck {
+	background-image: url(../../../imagexPix/Urgenza/opt_UrgDiff_on.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.btnUrg {
+	background-image: url(../../../imagexPix/Urgenza/opt_Urgenza_off.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.btnUrgCheck {
+	background-image: url(../../../imagexPix/Urgenza/opt_Urgenza_on.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.btnEme {
+	background-image: url(../../../imagexPix/Urgenza/opt_Emerg_off.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.btnEmeCheck {
+	background-image: url(../../../imagexPix/Urgenza/opt_Emerg_on.gif);
+	background-position: center center;
+	background-repeat: no-repeat;
+	height: 24px;
+}
+.tableDataFormat {
+	WIDTH : 100%;
+	height: 45px;
+}

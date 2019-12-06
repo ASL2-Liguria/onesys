@@ -1,0 +1,210 @@
+/*!
+ * Gridpak Beta CSS
+ *
+ * Generator - http://gridpak.com/
+ * Created by @erskinedesign
+ */
+.col{border:0 solid rgba(0,0,0,0);float:left;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-moz-background-clip:padding-box!important;-webkit-background-clip:padding-box!important;background-clip:padding-box!important}.col{margin-left:0;padding:0 .5%}.row .col:first-child{margin-left:0}.span_1{width:3.22580645161%}.span_2{width:6.45161290323%}.span_3{width:9.67741935484%}.span_4{width:12.9032258065%}.span_5{width:16.1290322581%}.span_6{width:19.3548387097%}.span_7{width:22.5806451613%}.span_8{width:25.8064516129%}.span_9{width:29.0322580645%}.span_10{width:32.2580645161%}.span_11{width:35.4838709677%}.span_12{width:38.7096774194%}.span_13{width:41.935483871%}.span_14{width:45.1612903226%}.span_15{width:48.3870967742%}.span_16{width:51.6129032258%}.span_17{width:54.8387096774%}.span_18{width:58.064516129%}.span_19{width:61.2903225806%}.span_20{width:64.5161290323%}.span_21{width:67.7419354839%}.span_22{width:70.9677419355%}.span_23{width:74.1935483871%}.span_24{width:77.4193548387%}.span_25{width:80.6451612903%}.span_26{width:83.8709677419%}.span_27{width:87.0967741935%}.span_28{width:90.3225806452%}.span_29{width:93.5483870968%}.span_30{width:96.7741935484%}.span_31{margin-left:0;width:100%}
+
+#timeline {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: #333;
+    float: left;
+    webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+    #timeline > div.timeline-data-container > .month-container,
+    #timeline > div.timeline-data-container > .week-container,
+    #timeline > div.timeline-data-container > .day-name-container,
+    #timeline > div.timeline-data-container > .day-container,
+    #timeline > div.timeline-buttons-container > .month-buttons,
+    #timeline > div.timeline-buttons-container > .week-buttons,
+    #timeline > div.timeline-buttons-container > .day-name-buttons,
+    #timeline > div.timeline-buttons-container > .day-buttons {
+        width: 100%;
+        height: 26px;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        float: left;
+        clear: both;
+        overflow: hidden;
+    }
+    
+    #timeline > div.timeline-buttons-container {
+        width: 180px;
+        margin: 0;
+        padding: 0;
+        float: left;
+        border: 1px solid #c5c5c5;
+        border-right: none;
+    }
+
+        #timeline > div.timeline-buttons-container > .month-buttons,
+        #timeline > div.timeline-buttons-container > .week-buttons,
+        #timeline > div.timeline-buttons-container > .day-name-buttons,
+        #timeline > div.timeline-buttons-container > .day-buttons {
+            line-height: 26px;
+            border-bottom: 1px solid #e5e5e5;
+            text-align: center;
+        }
+
+        #timeline > div.timeline-buttons-container > .day-buttons {
+            border-bottom: none;
+        }
+
+            #timeline > div.timeline-buttons-container > .month-buttons > i,
+            #timeline > div.timeline-buttons-container > .week-buttons > i,
+            #timeline > div.timeline-buttons-container > .day-name-buttons > i,
+            #timeline > div.timeline-buttons-container > .day-buttons > i {
+                font-size: 18px;
+                float: left;
+                line-height: 26px;
+            
+                color: #b8b8b8;
+}
+
+                #timeline > div.timeline-buttons-container > .month-buttons > i:hover,
+                #timeline > div.timeline-buttons-container > .week-buttons > i:hover,
+                #timeline > div.timeline-buttons-container > .day-name-buttons > i:hover,
+                #timeline > div.timeline-buttons-container > .day-buttons > i:hover {
+                    background: #C3DCEC;
+                    color: #333;
+                    cursor: pointer;
+                }
+
+            #timeline > div.timeline-buttons-container > .month-buttons > div,
+            #timeline > div.timeline-buttons-container > .week-buttons > div,
+            #timeline > div.timeline-buttons-container > .day-name-buttons > div,
+            #timeline > div.timeline-buttons-container > .day-buttons > div {
+                height: 26px;
+                float: left;
+                text-transform: uppercase;
+                text-align: center;
+                line-height: 26px;
+            }
+
+                #timeline > div.timeline-buttons-container > .month-buttons > i#nextMonth,
+                #timeline > div.timeline-buttons-container > .week-buttons > i#nextWeek,
+                #timeline > div.timeline-buttons-container > .day-buttons > i#nextDay {
+                    float: right;
+                }
+
+                #timeline > div.timeline-buttons-container > .day-name-buttons > div {
+                    border-left: 1px solid #ddd;
+                    border-right: none;
+                    width: 26px;
+                }
+
+                    #timeline > div.timeline-buttons-container > .day-name-buttons > div:first-child {
+                        width: 25px;
+                        border-left: none;
+                    }
+
+                    #timeline > div.timeline-buttons-container > .day-name-buttons > div:last-child {
+                        width: 24px;
+                        border-right: none;
+                    }
+
+                    #timeline > div.timeline-buttons-container > .day-name-buttons > div:hover {
+                        background: #C3DCEC;
+                        color: #333;
+                        cursor: pointer;
+                    }
+
+    #timeline > div.timeline-data-container {
+        border: 1px solid #c5c5c5;
+        margin: 0;
+        padding: 0;
+        float: right;
+        font-size: 11px;
+    }
+
+        #timeline > div.timeline-data-container > .month-container,
+        #timeline > div.timeline-data-container > .week-container,
+        #timeline > div.timeline-data-container > .day-name-container,
+        #timeline > div.timeline-data-container > .day-container,
+        #timeline > div.timeline-buttons-container > .month-buttons,
+        #timeline > div.timeline-buttons-container > .week-buttons,
+        #timeline > div.timeline-buttons-container > .day-name-buttons,
+        #timeline > div.timeline-buttons-container > .day-buttons {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: #f8f8f8;
+            float: left;
+            clear: both;
+            overflow: hidden;
+        }
+
+        #timeline > div.timeline-data-container > .month-container,
+        #timeline > div.timeline-data-container > .week-container,
+        #timeline > div.timeline-data-container > .day-name-container
+        {
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+            #timeline > div.timeline-data-container > .month-container > div.month,
+            #timeline > div.timeline-data-container > .week-container > div.week,
+            #timeline > div.timeline-data-container > .day-name-container > div.day-name,
+            #timeline > div.timeline-data-container > .day-container > div.day {
+                line-height: 26px;
+                border-left: 1px solid #e5e5e5;
+                word-wrap: break-word;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: bold;
+            }
+
+            #timeline > div.timeline-data-container > .day-container > div.day {
+                font-weight: normal;
+            }
+
+            #timeline > div.timeline-data-container > .month-container > div.month:hover,
+            #timeline > div.timeline-data-container > .week-container > div.week:hover,
+            #timeline > div.timeline-data-container > .day-name-container > div.day-name:hover,
+            #timeline > div.timeline-data-container > .day-container > div.day:hover {
+                cursor: pointer;
+                background: #C3DCEC;
+                color: #333;
+            }
+
+            #timeline > div.timeline-data-container > .month-container > div.month:first-child,
+            #timeline > div.timeline-data-container > .week-container > div.week:first-child,
+            #timeline > div.timeline-data-container > .day-name-container > div.day-name:first-child,
+            #timeline > div.timeline-data-container > .day-container > div.day:first-child {
+                border-left: none !important;
+            }
+
+            #timeline > div.timeline-data-container > .month-container > div.month.selected,
+            #timeline > div.timeline-data-container > .week-container > div.week.selected,
+            #timeline > div.timeline-data-container > .day-name-container > div.day-name.selected,
+            #timeline > div.timeline-data-container > .day-container > div.day.selected {
+                background: #C3DCEC;
+            
+                border-left: 1px solid #C3DCEC;
+			}
+
+            #timeline > div.timeline-data-container > .month-container > div.month.selected:hover,
+            #timeline > div.timeline-data-container > .week-container > div.week.selected:hover,
+            #timeline > div.timeline-data-container > .day-name-container > div.day-name.selected:hover,
+            #timeline > div.timeline-data-container > .day-container > div.day.selected:hover {
+                color: #333;
+            }
+
+
+
+
+
+
+
+
+
+

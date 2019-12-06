@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html> 
+    <head>        
+        <title>Colonscopia - Refertazione</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link rel='stylesheet' type='text/css' href='../../css/mix.css'>
+        <link rel='stylesheet' type='text/css' href='css/Gastro.css'>
+        <link rel='stylesheet' type='text/css' href='fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css'>
+        <script>var traduzione = {};</script>
+
+        <script id="scriptPlugin">var SCRIPT_PLUGIN = new Array();</script>
+        <script id="scriptHome">var home = null;var wnd = window;
+        var n = 0;
+        while (wnd.name != "home" && n < 5)
+        {
+            wnd = wnd.parent;
+            n++;
+        }
+        home = (n<5) ? wnd : window;</script>
+
+        <script type="text/javascript" src="../../js/Base/LIB.js?t=76"></script>
+        <script type="text/javascript" src="../../js/Base/NS_FENIX.js?t=76"></script>
+        <script type='text/javascript' src='fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.js' language='JavaScript'></script>
+        <script type='text/javascript' src='fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js' language='JavaScript'></script>
+        <script type='text/javascript' src='js/core.js'></script>
+        <script type='text/javascript' src='js/referto.js'></script>
+    </head>
+    <body>
+        <div id="main">  
+            <div id="container_sx">
+                <ul id="nav" class="ulTabs"></ul>
+                <div class="headerTabs"><h2><span class="title"></span></h2></div>
+            </div>
+            <div id="container_dx">
+                <div id="container_dx_top">
+                    <div class="headerTabs"><h2><span>Riassunto</span></h2></div>
+                    <ul id="riassunto"></ul>                    
+                    <div class="footerTabs sfDark" id="riassuntoButs">
+                        <button type="button" class="btn" id="valida">Valida</button>
+                        <button type="button" class="btn" id="riapri">RIAPRI ALBERO</button>
+                    </div>
+                </div>
+                <div id="container_dx_bottom">
+                    <div class="headerTabs"><h2><span>Referto</span></h2></div>
+                    <textarea id="referto"></textarea>
+                    <div class="footerTabs sfDark">
+                        <button type="button" class="btn" id="butHelp" title="Documento Schema Refertazione Guidata...">Documento Schema Refertazione Guidata...</button>
+                        <button type="button" class="btn" id="butRiassunto" title="Copia il riassunto nel referto">Copia il riassunto nel referto</button>
+                        <button type="button" class="btn" id="butPHelp">HELP</button>
+                    </div>
+                </div>
+                <div id="pdDialog" style="display: none;">
+                    <div class="headerTabs"><h2><span class="title"></span></h2></div>
+                    <textarea id="dialog_box"></textarea>
+                    <div class="footerTabs sfDark">
+                        <button type="button" class="btn" id="dialog_conferma">Conferma</button>
+                        <button type="button" class="btn" id="dialog_chiudi">Chiudi</button>
+                    </div>
+                </div>    
+                <div id="dialog_login" style="display: none;">
+                    <span class="title"></span>
+                    <iframe id="frmLogin"></iframe>
+                    <a id="dialog_chiudi_login" class="button" href="javascript:void(0);"><span>Chiudi</span></a>
+                </div>                      
+            </div>
+	</div>
+    </body>
+</html>

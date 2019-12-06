@@ -1,0 +1,17 @@
+<ROWSET>
+    <ROW>
+
+        <!-- Campi filtri-->
+        <lblCognome>Cognome</lblCognome>
+        <lblNome>Nome</lblNome>
+        <filtroCartelleInail>Cartelle Inail</filtroCartelleInail>
+
+        <lblResetCampiCartelleInail>Reset Filtri</lblResetCampiCartelleInail>
+        <lblCartella>Cartella</lblCartella>
+        <lblAnno>Anno</lblAnno>
+
+        <lblDaDataCartelleInail>Da data</lblDaDataCartelleInail>
+        <lblADataCartelleInail>A data</lblADataCartelleInail>
+
+    </ROW>
+</ROWSET>

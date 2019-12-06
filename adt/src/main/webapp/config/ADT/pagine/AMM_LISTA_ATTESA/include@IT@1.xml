@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/ADT/TabAmmAdt/AmmListaAttesa/AmmListaAttesa.js"/>
+    <!--<JS path="js/TimePicker/jquery.meio.mask.js"/>-->
+</INCLUDE>

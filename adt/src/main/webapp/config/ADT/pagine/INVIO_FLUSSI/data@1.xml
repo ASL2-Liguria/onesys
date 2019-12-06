@@ -1,0 +1,6 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'SDJ.Q_EMPTY@ADT'; :where := null; :campo_xml := null; end;">
+
+	<DATO key_id="cmbTipoFlusso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_FIRST_NULL@ADT'; :where := 'tipo = ''INVIO_FLUSSO'''; end;" />          
+</DATI>

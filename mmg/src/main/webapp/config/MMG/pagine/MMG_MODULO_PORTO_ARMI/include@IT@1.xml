@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Moduli/Porto_armi/MMG_Modulo_Porto_Armi.js" />
+	<CSS path="css/MMG/Moduli/Porto_armi/MMG_Modulo_Porto_Armi.css" />
+</INCLUDE>

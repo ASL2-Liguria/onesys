@@ -1,0 +1,79 @@
+body{width:960px;}
+
+
+ul.reminderList {
+	list-style: none;
+	border-top: 1px solid #ddd;
+}
+
+ul.reminderList li {
+	width: 100%;
+	height:30px;
+	background:#fff;
+	display: list-item;
+	border: 1px solid #ddd;
+	border-top: none;
+	border-bottom: 3px solid #ddd;
+	padding: 5px 65px 5px 20px;
+	color: #444;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	cursor:pointer;
+	position: relative;
+	line-height: 130%;
+	position: relative;
+}
+
+ul.reminderList li.no-result {
+	text-align: center;
+	background:#e8e8e8;
+	cursor: default;
+}
+
+ul.reminderList li i.priorita_0 {color: #d8d8d8;}
+ul.reminderList li i.priorita_1 {color: #1abc9c;}
+ul.reminderList li i.priorita_2 {color: #f5e30a;}
+ul.reminderList li i.priorita_3 {color: #e74c3c;}
+
+ul.reminderList li i.priorita_0, ul.reminderList li i.priorita_1, ul.reminderList li i.priorita_2, ul.reminderList li i.priorita_3 {
+	position: absolute;
+	left: 2px;
+	top: 50%;
+	margin-top: -8px;
+}
+
+ul.reminderList li div {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+}
+
+ul.reminderList li div i {
+	display: inline-block;
+	font-size: 16px;
+	color: #646464;
+}
+
+#dialogAggiornamenti .dialog-content-inner {
+	font-size: 14px;
+	overflow:auto;
+}
+
+#dialogAggiornamenti .dialog-content-inner * {
+	font-size: 14px;
+	overflow:auto;
+}
+
+#dialogAggiornamenti .dialog-content-inner ul {
+	list-style: none;
+}
+
+#dialogAggiornamenti .dialog-content-inner ul li {
+	margin: 5px;
+}
+
+#radPriorita_0 {border-bottom: 2px solid #d8d8d8; padding: 2px; padding-left:10px; height: 30px;}
+#radPriorita_1 {border-bottom: 2px solid #1abc9c; padding: 2px; padding-left:10px; height: 30px;}
+#radPriorita_2 {border-bottom: 2px solid #f5e30a; padding: 2px; padding-left:10px; height: 30px;}
+#radPriorita_3 {border-bottom: 2px solid #e74c3c; padding: 2px; padding-left:10px; height: 30px;}

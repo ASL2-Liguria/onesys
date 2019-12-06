@@ -1,0 +1,4 @@
+TABLE#oTable td {vertical-align: top; }
+TABLE#oTable td div{width:100%;}
+TABLE#oTable td div table{width:150px; margin:5px;}
+TABLE#oTable td div table td{width:50px; text-align: center;}

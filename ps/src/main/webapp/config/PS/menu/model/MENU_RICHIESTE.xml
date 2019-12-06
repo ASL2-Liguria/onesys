@@ -1,0 +1,38 @@
+<MENU>
+    <ID>MENU_RICHIESTE</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERIMENTO_RICHIESTA</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({"url":"http://192.168.3.34:8082/whale/autoLogin?utente=fra" +
+	            "&postazione=NB_CARLOG-TS&ricovero=2013/1000&pagina=CARTELLAPAZIENTEADT&funzione=apriVuota()","id":"AUTOLOGIN_FENIX",
+	            "fullscreen":true,"showloading":false});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Inserisci richiesta"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>APRI_DOCUMENTO</ID>
+            <LINK><![CDATA[function(rec){RICHIESTE.apriDocumento()}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_documento.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Apri documento"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>DATI_STRUTTURATI</ID>
+            <LINK><![CDATA[function(rec){var url  =  'servletGeneric?class=cartellaclinica.cartellaPaziente.cartellaPaziente&iden_evento=681674&iden_anag=&reparto=&funzione=apriDatiLaboratorio()'; url = NS_APPLICATIONS.switchTo( 'WHALE', url ); window.open(url);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_dati_prontosoccorso.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Dati strutturati"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

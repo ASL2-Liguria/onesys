@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="radAutorizzazione" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="S" TEXT="Autorizzata"/>
+            <OPTIONVAL VALUE="N" TEXT="Non autorizzata"/>
+            <OPTIONVAL VALUE="M" TEXT="Si autorizza per una o due sedute di valutazione /addestramento del personale e dei care giver"/>
+        </CAMPO>
+    </CAMPI>
+</PAGINA>

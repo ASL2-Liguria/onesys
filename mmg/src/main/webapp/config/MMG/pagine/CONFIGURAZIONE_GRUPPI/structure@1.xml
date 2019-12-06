@@ -1,0 +1,97 @@
+<PAGINA key_id="CONFIGURAZIONE_GRUPPI">
+
+	<HEADER_PAGE key_id="CONFIGURAZIONE_GRUPPI" valore="DEFAULT_MMG,SCHEDA,CONFIGURAZIONE_GRUPPI#DEFAULT_MMG,CONFIGURAZIONE_GRUPPI" evento="START_END"></HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_GRUPPI_INTERFACCIA#MMG_DATI#CONFIGURAZIONE_GRUPPI#IDEN#IDEN##VCONFGRUPPO" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="ConfigurazioneGruppi#lblTitolo#butInserisci,butSalva,butChiudi" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabLista" valore="tabLista" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldRicercaGruppo" valore="fldRicercaGruppo"
+					evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="txtRicerca" valore="lblRicerca##txtRicerca###" evento="START">
+						<TD_BUTTON key_id="butCercaCodice" valore="butCercaCodice#butCercaCodice#5" evento="START"></TD_BUTTON>
+						<TD_BUTTON key_id="butCercaDescrizione" valore="butCercaDescrizione#butCercaDescrizione#5" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+					
+					<TR.INIT key_id="tr" valore="tr" evento="START">
+						<TD.INIT key_id="td" valore="td" evento="START">
+							<INPUT.HIDDEN key_id="hIdenUtentiGruppo"
+								valore="hIdenUtentiGruppo###IDEN_UTENTI_GRUPPO" evento="START">
+							</INPUT.HIDDEN>
+							<INPUT.HIDDEN key_id="hUserUtentiGruppo"
+								valore="hUserUtentiGruppo###USER_UTENTI_GRUPPO" evento="START">
+							</INPUT.HIDDEN>
+						</TD.INIT>
+					</TR.INIT>
+					
+				
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldLista" valore="fldLista"
+					evento="START">
+					<DIV.WORKLIST key_id="wkGruppi" valore="wkGruppi"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabConfigurazioneGruppi" valore="tabConfigurazioneGruppi" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldGruppo" valore="fldGruppo" evento="START">
+
+					<TR_TD_LABEL_TEXT key_id="CodiceGruppo" valore="lblCodiceGruppo##txtCodiceGruppo###CODICE_GRUPPO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="DescrizioneGruppo" valore="lblDescrizioneGruppo##txtDescrizioneGruppo###DESCRIZIONE_GRUPPO" evento="START">
+					</TR_TD_LABEL_TEXT>
+
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldAssociazioneGruppo" valore="fldAssociazioneGruppo" evento="START">
+				
+					<TR_TD_LABEL_TEXT key_id="txtRicercaPersonale" valore="lblRicercaPersonale##txtRicercaPersonale###" evento="START">
+						<TD_BUTTON key_id="butCercaPersonale" valore="butCercaPersonale#butCercaPersonale#5" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+				
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldExchangeLists" valore="fldExchangeLists" evento="START">
+				
+					<EXCHANGE_LISTS key_id="excGruppo"
+						valore="excGruppo#ComboIn#ComboOut#N#btnControls#
+									{ 
+									   onlySingleTransfert: 	true, 
+									   removeFirstListItems:	true,
+									   clickAndTransfert: 		true,
+									   listHeaders:
+									   {
+										   listFrom:
+										   {
+											   title: 'Personale selezionabile'
+											},
+											
+											listTo:
+											{	
+												title: 'Personale del gruppo'
+											}
+										}
+										
+									 }
+									 #CLASSI"
+						evento="START">
+					</EXCHANGE_LISTS>
+					
+					<INPUT.HIDDEN key_id="hIdenGruppo" valore="hIdenGruppo"
+						evento="START">
+					</INPUT.HIDDEN>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+	
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

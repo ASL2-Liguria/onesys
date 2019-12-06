@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<tabGruppoFamiliare>Gruppo familiare</tabGruppoFamiliare>
+
+		<fldParentela>Scelta dei componenti del nucleo familiare per l'utente corrente</fldParentela>
+        <fldInserimentoParentela>Parentele già riconosciute</fldInserimentoParentela>
+        
+        <lblPaziente>Paziente</lblPaziente>
+        <lblDataNascita>Data di nascita</lblDataNascita>
+        <lblCodiceFiscale>Codice fiscale</lblCodiceFiscale>
+        
+        <selezionareParente>Selezionare almeno una parentela.</selezionareParente>
+        
+        <!--  dialog regime di apertura -->
+        <butRegimeLP>LP (Libera Professione)</butRegimeLP>
+		<butRegimeAC>AC (Attività Convenzionata)</butRegimeAC>
+		<butRegimeSSN>SSN (Solo amministratori)</butRegimeSSN>
+		<butAnnulla>Annulla</butAnnulla>
+		<lblMsgRegimeApertura>L'Assistito risulta associato ad un altro medico. Scegliere con quale regime aprire la cartella dell'assistito:</lblMsgRegimeApertura>
+		<regimeApertura>Regime di apertura cartella</regimeApertura>
+        
+    </ROW>
+</ROWSET>

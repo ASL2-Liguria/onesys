@@ -1,0 +1,16 @@
+#SchedaPotesta{
+    width: 960px;
+    display: block;
+    margin:0 auto;
+}
+#fldDP{
+    width:49%;
+    float:left;
+    margin:10px;
+    display: inline-block;
+}
+
+#txtEta{background:none;border:none;line-height:25px;font-weight:bold;}
+/*#lblCodFisc{text-decoration:underline;cursor:pointer;}*/
+
+div.c-free { width: 49%; }

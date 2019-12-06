@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Rilevazioni/insRilevazioni.css" />
+	<JS path="js/MMG/Rilevazioni/insRilevazioni.js" />
+</INCLUDE>

@@ -1,0 +1,6 @@
+
+<INCLUDE>
+<JS path="js/Base/NS_FENIX_SCHEDA.js"/>
+<JS path="js/Base/NS_FENIX_SCHEDA_ADT.js"/>
+<CSS path="css\ADT\NS_FENIX_SCHEDA_ADT.css" />
+</INCLUDE>

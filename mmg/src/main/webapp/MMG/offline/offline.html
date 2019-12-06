@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html manifest="offline.appcache">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="css/MMG/offline/style.css" type="text/css"/>
+<title>Modalit&agrave; Offline</title>
+</head>
+<body>
+<p>Risorsa non disponibile</p>
+<p>Login su versione offline:</p>
+<script>
+function getAvailableUsers() {
+	var ar;
+	try {
+		ar = JSON.parse(localStorage["fenixMMG_availableUsers"]);
+	} catch (e) {
+		ar = {};
+	}
+	return ar;
+};
+
+for (var user in getAvailableUsers()) {
+	document.write('<p><a href="../../page?KEY_LEGAME=OFFLINE&UTENTE=' + user + '">' + user + '</a></p>');
+}
+</script>
+</body>
+</html>

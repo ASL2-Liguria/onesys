@@ -1,0 +1,69 @@
+* {
+	box-sizing: content-box;
+}
+
+#cmbMedico { position: absolute; top:50px; left: 15px;/*margin-top:20px; margin-left:10px;*/ width: 180px;}
+
+ /*event in day or week view*/
+    
+    div[name="unit_tab"] {
+    	width:120px;
+    }
+    
+    .dhx_cal_light_wide .dhx_section_time {
+    	height: 40px !important;
+    }
+   
+    div.zoom_button{
+    cursor:pointer;
+    color: #747473;
+    height: 30px;
+    line-height: 30px;
+    background: none;
+    border: 1px solid #CECECE;
+    text-decoration: none;
+    width: 80px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align:center;
+    left:auto;
+	}
+    div.dhx_cal_zoom_in_button{right:300px;}
+	div.dhx_cal_zoom_out_button{right:219px;}
+	
+
+	.dhx_cal_event .dhx_header, .dhx_cal_event .dhx_footer, .dhx_cal_event .dhx_body, .dhx_cal_event .dhx_title {
+		background-color: /*#c3dcec;*/ #0736A3;
+		color: /*#3d3d3d;*/ white;
+	}
+	
+	.dhx_cal_event.evn_sospeso .dhx_header, .dhx_cal_event.evn_sospeso .dhx_footer, .dhx_cal_event.evn_sospeso .dhx_body, .dhx_cal_event.evn_sospeso .dhx_title {
+		background-color: /*#e5e5e5;*/ gray;
+		color: /*#3d3d3d;*/ white;
+	}
+	
+	.dhx_cal_event.evn_nota .dhx_header, .dhx_cal_event.evn_nota .dhx_footer, .dhx_cal_event.evn_nota .dhx_body, .dhx_cal_event.evn_nota .dhx_title {
+		background-color: /*#65C6BB;*/ red;
+		color: #fff;
+	}
+	
+	.dhx_cal_event_line {
+		border-color: #c8c8c8;
+		background-color: #c8c8c8;
+		color: #3d3d3d;
+		font-weight: 700;
+	}
+	
+	.dhx_delete_btn_set {
+		border-color: #D64541;
+		background-color: #D64541;
+	}
+	
+	.dhx_save_btn_set {
+		border-color: #65C6BB;
+		background-color: #65C6BB;
+	}
+	
+		
+	#bt-conf {position: absolute; left: 200px; top:55px;}
+	.green_section {background-color: /*#CCC*/ green; opacity: 0.3;}

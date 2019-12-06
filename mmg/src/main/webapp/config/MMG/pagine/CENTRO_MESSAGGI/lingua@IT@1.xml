@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROWSET>
+
+    <ROW>
+    
+   		<lblTitolo>Pannello Notifiche</lblTitolo>
+        
+        <tabMessaggiInvio>Invio Messaggi</tabMessaggiInvio>
+        <tabMessaggi>Lista Messaggi</tabMessaggi>
+        
+        <fldRicerca>Ricerca</fldRicerca>
+        <fldListaMessaggi>Lista</fldListaMessaggi>
+        <fldVisualizzazione>Messaggio</fldVisualizzazione>
+        <fldRicercaUtenti></fldRicercaUtenti>
+        <fldTipoMessaggio>Tipo Messaggio</fldTipoMessaggio>
+        <fldNotifica>Messaggio</fldNotifica>
+        <fldProprietaNotifica>Proprietà Messaggio</fldProprietaNotifica>
+        <fldProprietaMessaggio>Proprietà Messaggio Amministratore</fldProprietaMessaggio>
+        
+        <butCerca>Ricerca</butCerca>
+        <butCercaMsg>Ricerca</butCercaMsg>
+        <butMsgPazienteCorrente>Messaggi legati a </butMsgPazienteCorrente>
+		<butFiltraOnline>Utenti online</butFiltraOnline>
+		<butNuovoMessaggio>Nuovo Messaggio</butNuovoMessaggio>
+        <butSalva>Invia</butSalva>
+        
+        <lblPriorita>Priorità</lblPriorita>
+        <lblRicerca>Ricerca</lblRicerca>
+        <lblRicercaUtenti>Ricerca destinatario</lblRicercaUtenti>
+        <lblChiamataFunzione>Chiamata Funzione</lblChiamataFunzione>
+        <lblOggettoMessaggio>Oggetto</lblOggettoMessaggio>
+        <lblMessaggio>Testo</lblMessaggio>
+        <fldProprietaFunzione>Proprietà Funzione</fldProprietaFunzione>
+        <lblTestoRisposta>Testo Messaggio di</lblTestoRisposta>
+        <lblInserisciOggetto>Inserisci qui l'oggetto del messaggio</lblInserisciOggetto>
+        <lblInserisciDestinatario>Inserisci qui il nome del destinatario</lblInserisciDestinatario>
+        <lblDaLeggere>Da leggere</lblDaLeggere>
+        <lblInsValNum>Inserire un valore numerico</lblInsValNum>
+		<lblCollegamentoPaziente>Collega al paziente </lblCollegamentoPaziente>
+		<lblPriorita0>Normale</lblPriorita0>
+		<lblPriorita1>Alta</lblPriorita1>
+		<lblConfirmCancella>Si vuole procedere con la cancellazione del messaggio? Non sarà più possibile recuperare il messaggio cancellato se non con intervento dell'assistenza</lblConfirmCancella>
+		<lblPHRicercaMsg>Testo da ricercare negli oggetti dei messaggi</lblPHRicercaMsg>
+		<lblInviatiRicevuti></lblInviatiRicevuti>
+		<dummy></dummy>
+    </ROW>
+    
+</ROWSET>

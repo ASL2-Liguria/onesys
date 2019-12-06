@@ -1,0 +1,26 @@
+<MENU>
+    <ID>MENU_TABELLE_INS_MOD</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>MTIM.GTI</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=' + $('input[name="SCHEDA"]').val(),id:'Scheda',fullscreen:true});}]]></LINK>
+            <ICON_CLASS>inserisci-esame</ICON_CLASS>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.GestTabInserisci</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>MTIM.GTM</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=' + $('input[name="SCHEDA"]').val() + '&IDEN='+rec[0].IDEN,id:'Scheda',fullscreen:true});}]]></LINK>
+            <ICON_CLASS>modifica</ICON_CLASS>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.GestTabModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

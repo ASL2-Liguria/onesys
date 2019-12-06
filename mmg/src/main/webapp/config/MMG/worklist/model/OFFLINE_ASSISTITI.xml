@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+
+	<ID>OFFLINE_ASSISTITI</ID>
+	<ID-QUERY connection="MMG_DATI"></ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+	<WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	
+	<STRUCTURE>
+		<!-- 
+		<MENU>
+		
+			<ID></ID>
+			
+		</MENU>
+		 -->
+		
+		<ROWS>
+		
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			
+			<HEIGHT>26px</HEIGHT>
+			
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('IDEN_ANAG');}</CLICK>
+				<DBLCLICK>function(rec){ OFFLINE.setPatient( rec ); }</DBLCLICK>
+				<TAPHOLD>function(rec){ OFFLINE.setPatient( rec ); }</TAPHOLD>
+				<TOUCHEND>function(rec){ OFFLINE.setPatient( rec ); }</TOUCHEND>
+			</EVENTS>
+			
+		</ROWS>
+		
+		<COLUMNS>
+			
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>PAZIENTE</COL>
+						<DB>PAZIENTE</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPaziente</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>COD_FISC</COL>
+						<DB>COD_FISC</DB>
+					</ID>
+                    <DESCRIPTOR>"Codice Fiscale"</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>MED_BASE_DESCR</COL>
+						<DB>MED_BASE_DESCR</DB>
+					</ID>
+                    <DESCRIPTOR>"Medico"</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_SCADENZA_ASSISTENZA</COL>
+						<DB>DATA_SCADENZA_ASSISTENZA</DB>
+					</ID>
+					<DESCRIPTOR>"Scadenza assistenza"</DESCRIPTOR>  
+					<PROCESS type="javascript"><![CDATA[function(data, wk){return LIB.isValid(data.DATA_SCADENZA_ASSISTENZA) ? moment(data.DATA_SCADENZA_ASSISTENZA,'YYYYMMDD').format("DD/MM/YYYY") : "";}]]></PROCESS>         				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			
+			
+			<SORT>
+				<COLUMN id="PAZIENTE">ASC</COLUMN>
+			</SORT>
+			
+		</COLUMNS>
+		
+	</STRUCTURE>
+	
+</WORKLIST>

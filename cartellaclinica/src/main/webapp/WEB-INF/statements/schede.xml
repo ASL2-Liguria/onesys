@@ -1,0 +1,124 @@
+<root>
+    <statements_list>
+        <statement name="getConfigurazioneSchede">		
+            <sql>
+                <![CDATA[
+                    declare
+                    
+                        pFunzione 			VARCHAR2(4000) 	:= ?; 
+                        pReparto 			VARCHAR2(4000) 	:= ?; 
+                        pIdenVisita 		pls_integer 	:= to_number(?);
+                        pIdenAnag 			pls_integer 	:= to_number(?); 
+                        oKeyLegame 			VARCHAR2(4000); 
+                        oSito 				VARCHAR2(4000); 
+                        oVersione 			VARCHAR2(4000);
+                        oApriImportazione 	VARCHAR2(4000);
+                        oDataUltimaModifica VARCHAR2(4000);					
+                        confImportazione 	IMAGOWEB.cc_configura_reparto.valore%type;
+                        vIdenScheda 		pls_integer;
+                        vFunzioni           VARCHAR2(4000);
+                        oSintesi			VARCHAR2(4000);
+                        
+                    BEGIN
+
+                        Oapriimportazione := 'N';
+                        
+                        select KEY_LEGAME,SITO,VERSIONE,SINTESI into OKEYLEGAME,OSITO,OVERSIONE,oSintesi 
+                        from IMAGOWEB.CONFIG_SCHEDE_REPARTO 
+                        where FUNZIONE=PFUNZIONE and CODICE_REPARTO=PREPARTO and ATTIVO='S';
+                        
+                        Select Imagoweb.Pck_Configurazioni.Getvaluecdc(Preparto,'IMP_SCHEDA_'||Pfunzione) Into Confimportazione From Dual;
+                        
+                         
+                        if(confImportazione is not null) then
+                            begin
+                              select xmltype(Confimportazione).extract('//SORGENTE/@funzione_imp').getstringval() into vFunzioni from dual;
+                      			if(vFunzioni is null) then
+                      			 vFunzioni:=pFunzione;
+                      			end if;
+                                case 
+                                    when (pFunzione='ANAMNESI' or pFunzione='ANAMNESI_AN' or pFunzione='DATI_GENERALI' or pFunzione='DATI_GENERALI_DS' or pFunzione='ESAME_OBIETTIVO' or pFunzione='ESAME_OBIETTIVO_AN' or pFunzione='ESAME_OBIETTIVO_SPECIALISTICO' or pFunzione='SETTIMANA36') then 
+                                        begin
+                                            Select iden,to_char(data_ultima_modifica,'yyyyMMddhh24:mi:ss') Into vIdenScheda,oDataUltimaModifica 
+                                            from CC_SCHEDE_XML 
+                                            where IDEN_VISITA=pIdenVisita and FUNZIONE=pFunzione;
+										
+                                            exception when No_Data_Found then
+                                            
+                                                select 'S',to_char(sysdate,'yyyyMMddhh24:mi:ss') into oApriImportazione,oDataUltimaModifica 
+                                                from CC_SCHEDE_XML xml  join NOSOLOGICI_PAZIENTE np on (np.iden=xml.iden_visita)
+                                                where IDEN_ANAG=pIdenAnag and funzione in (select COLUMN_VALUE from table(split(vFunzioni,','))) and rownum=1;
+                                         end;
+                                    when (substr(pFunzione,0,7)='BISOGNO') then
+                                        begin
+                                            select iden,to_char(data_ultima_modifica,'yyyyMMddhh24:mi:ss') into vIdenScheda,oDataUltimaModifica 
+                                            from CC_BISOGNI_RICOVERO 
+                                            where FUNZIONE=pFunzione and IDEN_VISITA=pIdenVisita;  
+                                            
+                                            exception when No_Data_Found then
+                                                select 'S',to_char(sysdate,'yyyyMMddhh24:mi:ss') into oApriImportazione,oDataUltimaModifica 
+                                                from CC_BISOGNI_RICOVERO bis 
+                                                join NOSOLOGICI_PAZIENTE np on (np.iden=bis.iden_visita) 
+                                                where IDEN_ANAG=pIdenAnag and FUNZIONE=pFunzione and rownum=1;  
+                                        end;
+                                End Case;
+                                
+                                Exception When No_Data_Found Then 
+                                Oapriimportazione:='N';
+                                oDataUltimaModifica:=to_char(sysdate,'yyyyMMddhh24:mi:ss');
+                            end;
+                        else
+                           	Oapriimportazione:='N';
+                        
+                           -- Altre funzioni per cui non è prevista l'importazione
+                           if pFunzione in ('PARTOGRAMMA_PARTO','ACCERTAMENTO_INFERMIERISTICO','ESAME_OBIETTIVO_USCITA') then
+                              begin
+                                    Select iden,to_char(data_ultima_modifica,'yyyyMMddhh24:mi:ss') Into vIdenScheda,oDataUltimaModifica 
+                                    from CC_SCHEDE_XML 
+                                    where IDEN_VISITA=pIdenVisita and FUNZIONE=pFunzione;
+                              exception when No_Data_Found then null;
+                              end;
+                           else
+                              oDataUltimaModifica:=to_char(sysdate,'yyyyMMddhh24:mi:ss');
+                           end if;
+                        end if;
+                        
+                        ? := oKeyLegame; 
+                        ? := oSito; 
+                        ? := oVersione;
+                        ? := oApriImportazione;
+                        ? := oDataUltimaModifica;
+                        ? := oSintesi;
+                        ? := vIdenScheda;
+
+                    end;
+                ]]>
+            </sql>
+        </statement>
+		<statement name="getIdenScheda">				
+			<sql>
+			<![CDATA[
+				select max(iden) iden from radsql.cc_schede_xml where iden_visita=to_number(?) and funzione=?
+			]]>
+			</sql>
+		</statement>
+        <statement name="eliminaScheda">
+            <sql>
+                <![CDATA[
+                    begin
+                        update
+                        	radsql.cc_schede_xml
+                        set
+                        	deleted = 'S'
+                        	, data_ultima_modifica = sysdate
+                        where
+                            funzione= ?
+                            and iden_visita = to_number(?)
+                        	and iden = to_number(?);
+                        ? := SQL%ROWCOUNT;
+                    end;
+                ]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

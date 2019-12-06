@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_PT</ID>
+	<ID-QUERY connection="WHALE">PIANI_TERAPEUTICI.ELENCO_PIANI_PAZIENTE</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_PIANI_TERAPEUTICI</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>45px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+				<COLUMN>
+					<ID>
+						<COL>INFO</COL>
+					</ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                   	<PROCESS type="javascript"><![CDATA[function(rec, wk){ return LISTA_PT.setStampaPT( rec ); }]]></PROCESS>
+					<WIDTH>40px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+			
+				<COLUMN>
+					<ID>
+						<COL>FARMACO_PA</COL>
+						<DB>FARMACO_PA</DB>
+					</ID>
+					<DESCRIPTOR>"Farmaco"</DESCRIPTOR>
+					<WIDTH>350px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>POSOLOGIA_INSERITA</COL>
+						<DB>POSOLOGIA_INSERITA</DB>
+					</ID>
+					<DESCRIPTOR>"Posologia"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>DATA_SCADENZA</COL>
+						<DB>DATA_SCADENZA</DB>
+					</ID>
+					<DESCRIPTOR>"Data scadenza"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>CHIUSO</COL>
+						<DB>CHIUSO</DB>
+					</ID>
+					<DESCRIPTOR>"Chiuso"</DESCRIPTOR>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>MEDICO_DESCR</COL>
+						<DB>MEDICO_DESCR</DB>
+					</ID>
+					<DESCRIPTOR>"Medico"</DESCRIPTOR>
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>ASL_INSERIMENTO</COL>
+						<DB>ASL_INSERIMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Asl inserimento"</DESCRIPTOR>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_ATTIVAZIONE">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,905 @@
+{
+  "ID":"ADT_STATISTICA",
+  "QUERY_DATI" : "SELECT DECODE(REGIME,'ORDINARIO',NULL,ACCESSI) AS ACCESSI ,ANNO,ANNO_DIMISSIONE,ANNO_RICOVERO,ARCHIVIO_UBICAZIONE_CARTELLA,ASL_ASSISTENZA,ASL_RESIDENZA,ASL_RESIDENZA_CODICE_UNIVOCO,CDC_ACCETTAZIONE_GIURIDICO,CITTADINANZA,CODICE_ASL_ASSISTENZA,CODICE_ASL_RESIDENZA,CODICE_COMUNE_RESIDENZA,CODICE_DRG,CODICE_LEA,CODICE_MODALITA_RICOVERO,CODICE_ONERE,CODICE_REGIONE_RESIDENZA,CODICE_STATO_CARTELLA,CODICE_STATO_SCHEDA,CODICI_TRAUMATISMO,COD_SEZIONE_RICOVERO,COD_STP,COD_STRUTTURA_DIMISSIONE,COD_STRUTTURA_RICOVERO,COGNOME,COMUNE_RESIDENZA,DATA_COMPLETAMENTO,DATA_COMPLETAMENTO_ISO,DATA_DIMISSIONE,DATA_FINE,DATA_FINE_ISO,DATA_INIZIO,DATA_INIZIO_ISO,DATA_INTERVENTO_PRINCIPALE,DATA_INTERVENTO1,DATA_INTERVENTO2,DATA_INTERVENTO3,DATA_INTERVENTO4,DATA_INTERVENTO5,DATA_INTERVENTO6,DATA_NASCITA,DATA_NASCITA_ISO,DATA_PRENOTAZIONE,DATA_RICOVERO,DATA_STATO_CARTELLA,DATA_STATO_CARTELLA_ISO,DATA_TARIFFAZIONE,DESCR_REPARTO_DIMISSIONE,DESCR_REPARTO_RICOVERO,DIAGNOSI_ACCETTAZIONE,DIAGNOSI_PRINCIPALE,DIAGNOSI_PRINCIPALE_CODICE,DIAGNOSI1,DIAGNOSI2,DIAGNOSI3,DIAGNOSI4,DIAGNOSI5,DIAGNOSI6,DIRETTO_O_PS,DRG,DRG_ANOMALO,ENTRO_28_GIORNI,ETA_PAZIENTE,FASCIA_ORARIA_DIMISSIONE,FASCIA_ORARIA_RICOVERO,FER_FEST_DIMISSIONE,FER_FEST_RICOVERO,GIORNI_DEGENZA,GIORNO_DIMISSIONE,GIORNO_RICOVERO,GIORNO_SETT_DIMISSIONE,GIORNO_SETT_RICOVERO,IDEN_ANAGRAFICA,IDEN_ARCHIVIO,IDEN_CDC_DIMISSIONE,IDEN_CDC_RICOVERO,IDEN_COMUNE_RESIDENZA,IDEN_CONTATTO,IDEN_MEDICO_BASE,IDEN_MODALITA_DIMISSIONE,IDEN_TIPO_RICOVERO,IDEN_UTENTE_ACCETTAZIONE,IDEN_UTENTE_DIMISSIONE,IDEN_UTENTE_INSERIMENTO,IDEN_UTENTE_TARIFFAZIONE,ID_PROVENIENZA,IMPORTO_DRG,IMPORTO_DRG_FUORISOGLIA,INDIRIZZO,INTERVENTI_IN_DS,INTERVENTO_PRINCIPALE,INTERVENTO_PRINCIPALE_CODICE,INTERVENTO1,INTERVENTO2,INTERVENTO3,INTERVENTO4,INTERVENTO5,INTERVENTO6,ISTRUZIONE,LEA,MEDICO_ACCETTANTE,MEDICO_BASE,MEDICO_DIMETTENTE,MEDICO_PROPONENTE_DESCR,MEDICO_PROPONENTE_IDEN,MESE_DIMISSIONE,MESE_RICOVERO,MINORENNE_MAGGIORENNE,MODALITA_DIMISSIONE,MOTIVO_RICOVERO,MOTIVO_RICOVERO_CODICE,NAZIONALITA,NEONATO,NOME,NOMINATIVO,NOSOLOGICO,ONERE,OSPEDALE_DIMISSIONE,OSPEDALE_RICOVERO,PESO_DRG,PRESIDIO_DIMISSIONE,PRESIDIO_RICOVERO,PRIORITA,PROVENIENZA,REGIME,REGIME_CODICE,REGIONE_RESIDENZA,REPARTO_DIMISSIONI,REPARTO_RICOVERO,SCHEDE_ANOMALE,SDO_GIORNATE_OLTRESOGLIA,SEMESTRE_DIMISSIONE,SEMESTRE_RICOVERO,SESSO,STATO_CARTELLA,STATO_SCHEDA,STP,SUB_COD_SEZIONE_RICOVERO,TELEFONO,TIPO_DRG,TIPO_DRG_CODICE,TIPO_RICOVERO,TURNO_INIZIO,URGENZA,URGENZA_CODICE,UTENTE_TARIFFAZIONE FROM MV_DATASOURCE_PENTAHO_2014",
+  "KEY_CONNECTION":"ADT",
+  "FILTRI" : {
+    "BEFORE_APPLICA" : "checkBeforeApplica",
+    "LIST" : [
+              {
+                "ID" : "COGNOME",
+                "KEY_CAMPO" : "COGNOME",
+                "TYPE" : "TEXT",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL" : "Cognome",
+                "OPERATORS" : {
+                  "VALUE" : ["eq","ne","bw","ew","cn"],
+                  "LABEL" : ["Uguale","Diverso","Inizia con","Finisce con","Contiene"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "NOME",
+                "KEY_CAMPO" : "NOME",
+                "TYPE" : "TEXT",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL" : "Nome",
+                "OPERATORS" : {
+                  "VALUE" : ["eq","ne","bw","ew","cn"],
+                  "LABEL" : ["Uguale","Diverso","Inizia con","Finisce con","Contiene"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "SESSO",
+                "KEY_CAMPO" : "SESSO",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Sesso",
+                "OPTIONS" : {
+                  "VALUE" : ["M","F"],
+                  "LABEL" : ["Maschio","Femmina"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "ETA",
+                "KEY_CAMPO" : "ETA_PAZIENTE",
+                "TYPE":"NUMBER",
+                "TYPE_DATA":"INTEGER",
+                "LABEL":"Età",
+                "OPERATORS":{
+                  "VALUE":["eq","gt","lt"],
+                  "LABEL":["Uguale","Maggiore di","Minore di"]
+                },
+                "ALLOW_MULTIPLE":true
+              },
+              {
+                "ID":"NAZIONALITA",
+                "TYPE":"AUTOCOMPLETE",
+                "LABEL":"Nazionalità",
+                "DETAIL" : {
+                  "URL":"api/nazioni/?",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr",
+                  "TYPE":"FUNCTION",
+                  "NAME":"HAS_CITTADINANZA",
+                  "CONDITION":" HAS_CITTADINANZA(IDEN_ANAGRAFICA, ?, CITTADINANZA_XML) > 0",
+                  "TYPE_BIND":"STRING_ARRAY"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID":"ASL_RESIDENZA",
+                "TYPE":"AUTOCOMPLETE",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL":"Asl Residenza",
+                "DETAIL": {
+                  "URL":"api/asl/",
+                  "TYPE":"FIELD",
+                  "NAME":"ASL_RESIDENZA_CODICE_UNIVOCO",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "PRESIDIO_RICOVERO",
+                "KEY_CAMPO" : "PRESIDIO_RICOVERO_CODICE",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Presidio di ricovero",
+                "OPTIONS" : {
+                  "VALUE" : ["07000101","07000102","07000103","07000104","07021101","07021102","07021203","07021204","07030101","07030102","07030103","07030104","07030105","07030106","07003901","07003902","07003903","07005801","07005802","07005803","07005804"],
+                  "LABEL" : ["STABILIMENTO OSPEDALIERO DI IMPERIA","STABILIMENTO OSPEDALIERO DI SANREMO","STABILIMENTO OSPEDALIERO DI BORDIGHERA","STABILIMENTO OSPEDALIERO DI COSTARAINERA","OSPEDALE SANTA MARIA MISERICORDIA","OSPEDALE SANTA CORONA","OSPEDALE SAN GIUSEPPE","OSPEDALE SAN PAOLO","OSPEDALE LA COLLETTA ARENZANO","OSPEDALE SAN CARLO VOLTRI","OSPEDALE PADRE ANTERO MICONE SESTRI P.","OSPEDALE VILLA SCASSI","OSPEDALE GALLINO","OSPEDALE SANT'ANTONIO RECCO","OSP. RIUNITI LEONARDI E RIBOLI LAVAGNA","OSPEDALE CIVILE DI SESTRI LEVANTE","OSPEDALE CIVILE DI S.MARGHERITA LIGURE","OSPEDALE SANT`ANDREA LA SPEZIA","OSPEDALE FELETTINO","OSPEDALE SAN NICOLO` LEVANTO","STABILIMENTO SAN BARTOLOMEO DI SARZANA"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "ANNO",
+                "KEY_CAMPO" : "ANNO",
+                "TYPE_DATA" : "INTEGER",
+                "TYPE" : "NUMBER",
+                "LABEL" : "Anno",
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "CARTELLA",
+                "KEY_CAMPO" : "CARTELLA",
+                "TYPE_DATA" : "INTEGER",
+                "TYPE" : "NUMBER",
+                "LABEL" : "Cartella",
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID":"DATA_RICOVERO",
+                "KEY_CAMPO":"DATA_INIZIO",
+                "TYPE":"DATE_RANGE",
+                "TYPE_DATA":"DATE",
+                "LABEL":"Data Ricovero",
+                "REQUIRED":false,
+                "ALLOW_MULTIPLE":false
+              },
+              {
+                "ID" : "DATA_FINE",
+                "KEY_CAMPO" : "DATA_FINE",
+                "TYPE" : "DATE_RANGE",
+                "TYPE_DATA" : "DATE",
+                "LABEL" : "Data Dimissione",
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "REPARTO_RICOVERO",
+                "TYPE" : "AUTOCOMPLETE",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Reparto di Ricovero",
+                "DETAIL" : {
+                  "URL":"api/cdc/?",
+                  "TYPE" : "FIELD",
+                  "NAME" : "IDEN_CDC_RICOVERO",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "REPARTO_DIMISSIONE",
+                "TYPE" : "AUTOCOMPLETE",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Reparto Dimissione",
+                "DETAIL" : {
+                  "URL":"api/cdc/?",
+                  "TYPE" : "FIELD",
+                  "NAME" : "IDEN_CDC_DIMISSIONE",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "MODALITA_DIMISSIONE",
+                "KEY_CAMPO" : "IDEN_MODALITA_DIMISSIONE",
+                "TYPE" : "MULTISELECT",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL" : "Modalità Dimissione",
+                "OPTIONS" : {
+                  "VALUE" : [181,182,183,184,185,186,187,188,189],
+                  "LABEL" : ["Deceduto","Ordinaria a domicilio","Ordinaria presso RSA","A domicilio con ospedalizzazione domiciliare","Volontaria","Trasferito ad altro istituto","Trasferito ad altro regime di ricovero","Trasferito a Riabilitazione","Ordinaria assistenza domiciliare integrata"],
+                  "SIZE" : 4
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "PROVENIENZA",
+                "KEY_CAMPO" : "ID_PROVENIENZA",
+                "TYPE" : "MULTISELECT",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL" : "Provenienza",
+                "OPTIONS" : {
+                  "VALUE" : [62,63,64,65,66,67,68,69],
+                 "LABEL" : ["Senza proposta medica 1","Proposta medico di base 2","Programmato da stesso istituto 3","Trasferito da istituto pubblico 4","Trasferito da istituto privato accreditato 5","Trasferito da istituto privato non accreditato 6","Trasferito da altra attivita di ricovero 7","Altro 9"],
+                  "SIZE" : 4
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "REGIME_RICOVERO",
+                "KEY_CAMPO" : "REGIME_CODICE",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Regime Ricovero",
+                "OPTIONS" : {
+                  "DATA_SLAVE" : ["TIPO_RICOVERO","MOTIVO_RICOVERO_TEST","MOTIVO_RICOVERO"],
+                  "VALUE" : [41,42],
+                  "LABEL" : ["Ordinario","Day Hospital"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "GIORNI_DEGENZA",
+                "KEY_CAMPO" : "GIORNI_DEGENZA",
+                "TYPE" : "NUMBER",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Giorni di Degenza",
+                "OPERATORS" : {
+                  "VALUE" : ["eq","gt","lt"],
+                  "LABEL" : ["Uguale","Maggiore di","Minore di"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "RIENTRI_DH",
+                "KEY_CAMPO" : "ACCESSI",
+                "TYPE" : "NUMBER",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Rientri DH",
+                "OPERATORS" : {
+                  "VALUE" : ["eq","gt","lt"],
+                  "LABEL" : ["Uguale","Maggiore di","Minore di"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "ENTARTI_USCITI_STESSO_GIORNO",
+                "KEY_CAMPO" : "ENTARTI_USCITI_STESSO_GIORNO",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Entrati e Usciti nello stesso giorno",
+                "OPTIONS" : {
+                  "VALUE" : ["S","N"],
+                  "LABEL" : ["Si","No"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "ASSISTITI_NON_DIMESSI",
+                "KEY_CAMPO" : "ASSISTITI_NON_DIMESSI",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Assistiti non dimessi",
+                "OPTIONS" : {
+                  "VALUE" : ["S","N"],
+                  "LABEL" : ["Si","No"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "DIAGNOSI_ICD9",
+                "TYPE" : "AUTOCOMPLETE",
+                "LABEL" : "Diagnosi",
+                "DETAIL" : {
+                  "URL":"api/icd9/diagnosi?",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr",
+                  "TYPE" : "FUNCTION",
+                  "NAME" : "HAS_ICD_CONTATTO",
+                  "CONDITION": " HAS_ICD_CONTATTO(IDEN_CONTATTO, ?) > 0",
+                  "TYPE_BIND": "STRING_ARRAY"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "PROCEDURE_ICD9",
+                "TYPE" : "AUTOCOMPLETE",
+                "LABEL" : "Interventi",
+                "DETAIL" : {
+                  "URL":"api/icd9/procedure?",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr",
+                  "TYPE" : "FUNCTION",
+                  "NAME" : "HAS_ICD_CONTATTO",
+                  "CONDITION": " HAS_ICD_CONTATTO(IDEN_CONTATTO, ?) > 0",
+                  "TYPE_BIND": "STRING_ARRAY"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "LEA",
+                "KEY_CAMPO" : "LEA",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "LEA",
+                "OPTIONS" : {
+                  "VALUE" : ["S","N"],
+                  "LABEL" : ["Sì","No"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "TIPO_DRG",
+                "KEY_CAMPO" : "TIPO_DRG_CODICE",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Tipo DRG",
+                "OPTIONS" : {
+                  "VALUE" : ["C","M","NA"],
+                  "LABEL" : ["Chirurgico","Medico","Non Differenziato"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "DRG",
+                "TYPE" : "AUTOCOMPLETE",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "DRG",
+                "DETAIL" : {
+                  "URL":"api/drg",
+                  "TYPE" : "FIELD",
+                  "NAME" : "CODICE_DRG",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "ONERE",
+                "KEY_CAMPO" : "CODICE_ONERE",
+                "TYPE_DATA" : "INTEGER",
+                "TYPE" : "MULTISELECT",
+                "LABEL" : "Onere",
+                "OPTIONS" : {
+                  "VALUE" : [79,70,71,72,73,74,75,76,77,78],
+                  "LABEL" : ["Ministero interno stranieri indigenti","SSN","Differenza alberghiera","Rimborso","Senza oneri per SSN","Libera professione","Libera professione e differenza alberghiera","SSN stranieri paesi convenzionati","SSN stranieri indigenti","Altro"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "STATO_SCHEDA",
+                "KEY_CAMPO" : "CODICE_STATO_SCHEDA",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Stato Scheda",
+                "OPTIONS" : {
+                  "VALUE" : ["S","N","X"],
+                  "LABEL" : ["Completo","Incompleto","Anomalo"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "TIPO_RICOVERO",
+                "KEY_CAMPO" : "TIPO_RICOVERO_CODICE",
+                "TYPE" : "MULTISELECT",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Tipo Ricovero",
+                "OPTIONS" : {
+                  "DATA_MASTER" : {
+                    "FIELD":"REGIME_RICOVERO",
+                    "CASE" : {
+                      "41":{
+                        "VALUE":[43,44,45,46],
+                        "LABEL":["Urgente","Ricovero programmato non urgente","TSO (Trattamento sanitario obbligatorio)","Ricovero programmato con pre-ospedalizzazione"],
+                        "SIZE": 4
+                      },
+                      "42":{
+                        "VALUE":[721,722,730,726,729],
+                        "LABEL":["Ricovero programmato non urgente","Ricovero programmato con pre-ospedalizzazione","Day Surgery tipo S","TSO (Trattamento sanitario obbligatorio),Day Surgery tipo O"],
+                        "SIZE": 4
+                      }
+                    }
+                  }
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "STP",
+                "KEY_CAMPO" : "STP",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "STP",
+                "OPTIONS" : {
+                  "VALUE" : ["S","N"],
+                  "LABEL" : ["Si","No"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "FASCIA_ORARIA",
+                "KEY_CAMPO" : "TURNO_INIZIO",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Orario",
+                "OPTIONS" : {
+                  "VALUE" : ["Mattino","Pomeriggio","Notte"],
+                  "LABEL" : ["Mattino","Pomeriggio","Notte"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "GIORNO_SETTIMANA",
+                "KEY_CAMPO" : "GIORNO_SETTIMANA",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Giorno",
+                "OPTIONS" : {
+                  "VALUE" : ["1","2","3","4","5","6","7"],
+                  "LABEL" : ["Lunedì","Martedì","Mercoledì","Giovedì","Venerdì","sabato","Domenica"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "REPARTO_DEGENZA",
+                "TYPE" : "AUTOCOMPLETE",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Reparto di Degenza",
+                "DETAIL" : {
+                  "URL":"api/cdc/ordinario?",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr",
+                  "TYPE" : "FUNCTION",
+                  "NAME" : "HAS_REPARTO_DEGENZA",
+                  "CONDITION": " HAS_REPARTO_DEGENZA(IDEN_CONTATTO, ?) > 0",
+                  "TYPE_BIND": "NUMBER_ARRAY"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "REPARTO_APPOGGIO",
+                "TYPE" : "AUTOCOMPLETE",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Reparto di Appoggio",
+                "DETAIL" : {
+                  "URL":"api/cdc/ordinario?",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr",
+                  "TYPE" : "FUNCTION",
+                  "NAME" : "HAS_REPARTO_APPOGGIO",
+                  "CONDITION": " HAS_REPARTO_APPOGGIO(IDEN_CONTATTO, ?) > 0",
+                  "TYPE_BIND": "NUMBER_ARRAY"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "STRUTTURA_RICOVERO",
+                "KEY_CAMPO" : "COD_STRUTTURA_RICOVERO",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Struttura Ricovero",
+                "OPTIONS" : {
+                  "VALUE" : ["8","9"],
+                  "LABEL" : ["Levante","Ponente"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "MOTIVO_RICOVERO",
+                "KEY_CAMPO" : "MOTIVO_RICOVERO_CODICE",
+                "TYPE" : "MULTISELECT",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Tipo Ricovero",
+                "OPTIONS" : {
+                  "DATA_MASTER" : {
+                    "FIELD":"REGIME_RICOVERO",
+                    "CASE" : {
+                      "41":{
+                        "VALUE":[52,53,54,55],
+                        "LABEL":["Non significativo","Intervento Chirurgico","Primo ricovero senza intervento chirurgico","Ricovero successivo per la stessa diagnosi"],
+                        "SIZE": 4
+                      },
+                      "42":{
+                        "VALUE":[56,57,58,59,60,61],
+                        "LABEL":["Ricovero diurno diagnostico","Ricovero diurno chirurgico","Ricovero diurno terapeutico","Ricovero diurno riabilitativo","One day surgery","Day surgery senza pernottamento"],
+                        "SIZE": 4
+                      }
+                    }
+                  }
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "DIAGNOSI_PRINCIPALE_ICD9",
+                "TYPE" : "AUTOCOMPLETE",
+                "LABEL" : "Diagnosi Principale",
+                "DETAIL" : {
+                  "URL":"api/icd9/diagnosi?",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr",
+                  "TYPE" : "FIELD",
+                  "NAME" : "DIAGNOSI_PRINCIPALE_CODICE",
+                  "TYPE_BIND": "STRING_ARRAY"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "INTERVENTO_PRINCIPALE_ICD9",
+                "TYPE" : "AUTOCOMPLETE",
+                "LABEL" : "Intervento Principale",
+                "DETAIL" : {
+                  "URL":"api/icd9/procedure?",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr",
+                  "TYPE" : "FIELD",
+                  "NAME" : "INTERVENTO_PRINCIPALE_CODICE",
+                  "TYPE_BIND": "STRING_ARRAY"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID":"DATA_INSERIMENTO",
+                "KEY_CAMPO":"DATA_INSERIMENTO",
+                "TYPE":"DATE_RANGE",
+                "TYPE_DATA":"DATE",
+                "LABEL":"Data Inserimento",
+                "REQUIRED":false,
+                "ALLOW_MULTIPLE":false
+              },
+              {
+                "ID":"DATA_TARIFFAZIONE",
+                "KEY_CAMPO":"DATA_TARIFFAZIONE",
+                "TYPE":"DATE_RANGE",
+                "TYPE_DATA":"DATE",
+                "LABEL":"Data Tariffazione",
+                "REQUIRED":false,
+                "ALLOW_MULTIPLE":false
+              },
+              {
+                "ID" : "SDO_DRG_ANOMALI",
+                "KEY_CAMPO" : "CODICE_DRG",
+                "TYPE" : "MULTISELECT",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL" : "SDO con DRG anomali (468,469,470,476,477)",
+                "OPTIONS" : {
+                  "VALUE" : ["468","469","470","476","477"],
+                  "LABEL" : ["468","469","470","476","477"],
+                  "SIZE" : 4
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "SDO_GIORNATE_OLTRE_SOGLIA",
+                "KEY_CAMPO" : "SDO_GIORNATE_OLTRE_SOGLIA",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "SDO con giornate di degenza oltre soglia",
+                "OPTIONS" : {
+                  "VALUE" : ["S","N"],
+                  "LABEL" : ["Si","No"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "UTENTE_INSERIMENTO",
+                "TYPE" : "AUTOCOMPLETE",
+                "TYPE_DATA" : "INTEGER",
+                "LABEL" : "Utente Inserimento",
+                "DETAIL" : {
+                  "URL":"api/personale/medici?",
+                  "TYPE" : "FIELD",
+                  "NAME" : "UTENTE_INSERIMENTO",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "DATA_COMPLETAMENTO",
+                "KEY_CAMPO" : "DATA_COMPLETAMENTO",
+                "TYPE" : "DATE_RANGE",
+                "TYPE_DATA" : "DATE",
+                "LABEL" : "Data Completamento",
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "IMPORTO_DRG",
+                "KEY_CAMPO" : "IMPORTO_DRG",
+                "TYPE":"NUMBER",
+                "TYPE_DATA":"INTEGER",
+                "LABEL":"Importo DRG",
+                "OPERATORS":{
+                  "VALUE":["eq","gt","lt"],
+                  "LABEL":["Uguale","Maggiore di","Minore di"]
+                },
+                "ALLOW_MULTIPLE":true
+              },
+              {
+                "ID":"OSPEDALE_PROVENIENZA",
+                "TYPE":"AUTOCOMPLETE",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL":"Ospedale Provenienza",
+                "DETAIL": {
+                  "URL":"api/asl/",
+                  "TYPE":"FIELD",
+                  "NAME":"ASL_ASSISTENZA_CODICE_UNIVOCO",
+                  "FIELD_VALUE":"VALUE",
+                  "FIELD_TEXT":"DESCRIZIONE",
+                  "FIELD_HTML":"DESCRIZIONE",
+                  "SEARCH_PARAM_GET":"descr"
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "SCHEDE_ANOMALE",
+                "KEY_CAMPO" : "SCHEDE_ANOMALE",
+                "TYPE_DATA" : "VARCHAR",
+                "TYPE" : "SELECT",
+                "LABEL" : "Schede Anomale",
+                "OPTIONS" : {
+                  "VALUE" : ["S","N"],
+                  "LABEL" : ["Si","No"]
+                },
+                "OPERATORS" : {
+                  "VALUE" : ["eq"],
+                  "LABEL" : ["Uguale"]
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "DEGENZA",
+                "KEY_CAMPO" : "DATA_INIZIO",
+                "TYPE" : "DATE_RANGE",
+                "TYPE_DATA" : "DATE",
+                "LABEL" : "Degenza da/a",
+                "EXPRESSION":" DATA_FINE > ? AND (DATA_FINE < ? OR DATA_FINE IS NULL)",
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID" : "CLASSE_PRIORITA",
+                "KEY_CAMPO" : "URGENZA_CODICE",
+                "TYPE" : "MULTISELECT",
+                "TYPE_DATA" : "VARCHAR",
+                "LABEL" : "Classe di Priorità",
+                "OPTIONS" : {
+                  "VALUE" : [21,22,23,24],
+                  "LABEL" : ["A","B","C","D"],
+                  "SIZE" : 4
+                },
+                "ALLOW_MULTIPLE" : false
+              },
+              {
+                "ID": "STATO_CARTELLA",
+                "KEY_CAMPO": "CODICE_STATO_CARTELLA",
+                "TYPE_DATA": "VARCHAR",
+                "TYPE": "SELECT",
+                "LABEL": "Codice Stato Cartella",
+                "OPTIONS": {
+                  "VALUE": [
+                    2765,2766,2767,2768,2770,3361,2771,2772
+                  ],
+                  "LABEL": [
+                    "INCOMPLETA","CONTROLLATA","INVIATA IN ARCHIVIO","RICEVUTA IN ARCHIVIO","ARCHIVIATA","REINVIATA IN REPARTO","PERSA","SEQUESTRATA"
+                  ]
+                },
+                "OPERATORS": {
+                  "VALUE": ["eq"],
+                  "LABEL": ["Uguale"]
+                },
+                "ALLOW_MULTIPLE": false
+              },
+              {
+                "ID":"DATA_STATO_CARTELLA",
+                "KEY_CAMPO":"DATA_STATO_CARTELLA",
+                "TYPE":"DATE_RANGE",
+                "TYPE_DATA":"DATE",
+                "LABEL":"Data Stato Cartella",
+                "REQUIRED":false,
+                "ALLOW_MULTIPLE":false
+              },
+              {
+                "ID": "STRUTTURA_DIMISSIONE",
+                "KEY_CAMPO": "COD_STRUTTURA_DIMISSIONE",
+                "TYPE_DATA": "VARCHAR",
+                "TYPE": "SELECT",
+                "LABEL": "Struttura Dimissione",
+                "OPTIONS": {
+                  "VALUE": [
+                    "SAVONA","PIETRA LIGURE","ALBENGA","CAIRO"
+                  ],
+                  "LABEL": [
+                    "SAVONA","PIETRA LIGURE","ALBENGA","CAIRO"
+                  ]
+                },
+                "OPERATORS": {
+                  "VALUE": ["eq"],
+                  "LABEL": ["Uguale"]
+                },
+                "ALLOW_MULTIPLE": false
+              },
+              {
+                "ID": "UTENTE_ACCETTAZIONE",
+                "TYPE": "AUTOCOMPLETE",
+                "TYPE_DATA": "INTEGER",
+                "LABEL": "Medico Accettante",
+                "DETAIL": {
+                  "URL": "api/personale/",
+                  "TYPE": "FIELD",
+                  "NAME": "IDEN_UTENTE_ACCETTAZIONE",
+                  "FIELD_VALUE": "VALUE",
+                  "FIELD_TEXT": "DESCRIZIONE",
+                  "FIELD_HTML": "DESCRIZIONE",
+                  "SEARCH_PARAM_GET": "descr"
+                },
+                "ALLOW_MULTIPLE": false
+              },
+              {
+                "ID": "MEDICO_DIMETTENTE",
+                "TYPE": "AUTOCOMPLETE",
+                "TYPE_DATA": "INTEGER",
+                "LABEL": "Medico Dimettente",
+                "DETAIL": {
+                  "URL": "api/personale/medici?",
+                  "TYPE": "FIELD",
+                  "NAME": "IDEN_UTENTE_DIMISSIONE",
+                  "FIELD_VALUE": "VALUE",
+                  "FIELD_TEXT": "DESCRIZIONE",
+                  "FIELD_HTML": "DESCRIZIONE",
+                  "SEARCH_PARAM_GET": "descr"
+                },
+                "ALLOW_MULTIPLE": false
+              },
+              {
+                "ID": "MEDICO_PROPONENTE",
+                "TYPE": "AUTOCOMPLETE",
+                "TYPE_DATA": "INTEGER",
+                "LABEL": "Medico Proponente",
+                "DETAIL": {
+                  "URL": "api/personale/medici?",
+                  "TYPE": "FIELD",
+                  "NAME": "MEDICO_PROPONENTE_IDEN",
+                  "FIELD_VALUE": "VALUE",
+                  "FIELD_TEXT": "DESCRIZIONE",
+                  "FIELD_HTML": "DESCRIZIONE",
+                  "SEARCH_PARAM_GET": "descr"
+                },
+                "ALLOW_MULTIPLE": false
+              }
+    ]
+  },
+  "GRID" : {
+    "COL_MODEL" : [
+      {"name":"IDEN_CONTATTO","index":"IDEN_CONTATTO","width":75,"search":false,"sorttype":"int"},
+      {"name":"IDEN_ANAGRAFICA","index":"IDEN_ANAGRAFICA","width":75,"search":false,"sorttype":"int"},
+      {"name":"NOSOLOGICO","index":"NOSOLOGICO","width":100,"search":false,"sorttype":"JQGridFormatter.normalizeNosologico"},
+      {"name":"REGIME","index":"REGIME","width":100,"search":false},
+      {"name":"TIPO_RICOVERO","index":"TIPO_RICOVERO","width":100,"search":false},
+      {"name":"MOTIVO_RICOVERO","index":"MOTIVO_RICOVERO","width":100,"search":false},
+      {"name":"STATO_CARTELLA","index":"STATO_CARTELLA","width":100,"search":false,"sorttype":"text"},
+      {"name":"DATA_STATO_CARTELLA_ISO","index":"DATA_STATO_CARTELLA_ISO","width":100,"search":false,"formatter":"JQGridFormatter.dateFromISO","sorttype":"int"},
+      {"name":"PRESIDIO_DIMISSIONE","index":"PRESIDIO_DIMISSIONE","width":125,"search":false},
+      {"name":"ANNO","index":"ANNO","width":100,"search":false,"sorttype":"int"},
+      {"name":"NOME","index":"NOME","width":125,"search":false},
+      {"name":"COGNOME","index":"COGNOME","width":125,"search":false},
+      {"name":"SESSO","index":"SESSO","width":100,"align":"right","formatter":"JQGridFormatter.formatSesso","search":false},
+      {"name":"CODICE_REGIONE_RESIDENZA","index":"CODICE_REGIONE_RESIDENZA","width":100,"search":false,"formatter":"JQGridFormatter.formatRegione"},
+      {"name":"DATA_NASCITA_ISO","index":"DATA_NASCITA_ISO","width": 100,"search":false,"formatter":"JQGridFormatter.dateFromISO","sorttype":"int"},
+      {"name":"ETA_PAZIENTE","index":"ETA_PAZIENTE","width":100,"search":false,"sorttype":"int"},
+      {"name":"ASL_RESIDENZA","index":"ASL_RESIDENZA","width":150,"search":false},
+      {"name":"DATA_INIZIO_ISO","index":"DATA_INIZIO_ISO","width":100,"search":false,"formatter":"JQGridFormatter.dateFromISO","sorttype":"int"},
+      {"name":"DATA_FINE_ISO","index":"DATA_FINE_ISO","width":100,"search":false,"formatter":"JQGridFormatter.dateFromISO","sorttype":"int"},
+      {"name":"MEDICO_ACCETTANTE","index":"MEDICO_ACCETTANTE", "width":175,"search":false},
+      {"name":"MEDICO_PROPONENTE_DESCR","index":"MEDICO_PROPONENTE_DESCR", "width":175,"search":false},
+      {"name":"MEDICO_BASE","index":"MEDICO_BASE", "width":175,"search":false},
+      {"name":"COMUNE_RESIDENZA","index":"COMUNE_RESIDENZA", "width":150,"search":false},
+      {"name":"DESCR_REPARTO_RICOVERO","index":"DESCR_REPARTO_RICOVERO", "width":200,"search":false},
+      {"name":"DESCR_REPARTO_DIMISSIONE","index":"DESCR_REPARTO_DIMISSIONE", "width":200,"search":false},
+      {"name":"ONERE","index":"ONERE", "width":100,"search":false},
+      {"name":"PROVENIENZA","index":"PROVENIENZA", "width":150,"search":false},
+      {"name":"MODALITA_DIMISSIONE","index":"MODALITA_DIMISSIONE", "width":200,"search":false},
+      {"name":"STATO_SCHEDA","index":"STATO_SCHEDA", "width":100,"search":false},
+      {"name":"DIAGNOSI_PRINCIPALE","index":"DIAGNOSI_PRINCIPALE", "width":100,"search":false},
+      {"name":"INTERVENTO_PRINCIPALE","index":"INTERVENTO_PRINCIPALE", "width":100,"search":false},
+      {"name":"STP","index":"STP", "width":50,"search":false,"sorttype":"int"},
+      {"name":"ACCESSI","index":"ACCESSI","width":100,"search":false,"sorttype":"int"},
+      {"name":"GIORNI_DEGENZA","index":"GIORNI_DEGENZA","width":100,"search":false,"formatter":"JQGridFormatter.formatGiorniDegenza","sorttype":"int"},
+      {"name":"CODICE_DRG","index":"CODICE_DRG", "width":100,"search":false},
+      {"name":"DRG","index":"DRG", "width":250,"search":false},
+      {"name":"ARCHIVIO_UBICAZIONE_CARTELLA","index":"ARCHIVIO_UBICAZIONE_CARTELLA", "width":250,"search":false},
+      {"name":"DIAGNOSI1","index":"DIAGNOSI1", "width":250,"search":false},
+      {"name":"DIAGNOSI2","index":"DIAGNOSI2", "width":250,"search":false},
+      {"name":"DIAGNOSI3","index":"DIAGNOSI3", "width":250,"search":false},
+      {"name":"INTERVENTO1","index":"INTERVENTO1", "width":250,"search":false},
+      {"name":"INTERVENTO2","index":"INTERVENTO2", "width":250,"search":false},
+      {"name":"INTERVENTO3","index":"INTERVENTO3", "width":250,"search":false}
+    ],
+    "COL_NAME":["Id",
+                "Id Anagrafica",
+                "Nosologico",
+                "Regime Ricovero",
+                "Tipo Ricovero",
+                "Motivo Ricovero",
+                "Stato Cartella",
+                "Data Stato Cartella",
+                "Struttura",
+                "Anno",
+                "Nome",
+                "Cognome",
+                "Sesso",
+                "Regione di Residenza",
+                "Data di nascita",
+                "Età",
+                "Asl Assistenza",
+                "Data Inizio",
+                "Data Fine",
+                "Medico Accettazione",
+                "Medico Proponente",
+                "Medico Base",
+                "Comune Residenza",
+                "Reparto Accettazione",
+                "Reparto Dimissione",
+                "Onere",
+                "Provenienza",
+                "Modalità Dimissione",
+                "Stato Scheda",
+                "Diagnosi Principale",
+                "Intervento Principale",
+                "STP",
+                "Accessi",
+                "Giorni Degenza",
+                "Codice DRG",
+                "DRG",
+                "Ubicazione Cartella",
+                "Diagnosi I",
+                "Diagnosi II",
+                "Diagnosi III",
+                "Intervento I",
+                "Intervento II",
+                "Intervento III"],
+    "FORMATTER_EXTENSION":"config/ADT/estrazioni/JQGridFormatterExtension.js",
+    "URL_DATA":"query/JQGridQuery?",
+    "SORT_NAME":"IDEN",
+    "SORT_ORDER":"ASC",
+    "CAPTION":"Estrazione"
+  }
+
+}

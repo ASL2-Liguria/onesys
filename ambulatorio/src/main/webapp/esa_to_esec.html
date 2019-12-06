@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href='std/css/textArea.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+
+<script type='text/javascript' src='std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/filterTable.css' type='text/css' rel='stylesheet'>
+
+<link rel="stylesheet" type="text/css" href="std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/button.css">
+<link rel="stylesheet" type="text/css" href="std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>ESAMI DA ESEGUIRE</title>
+<script>
+	
+	function riempiCombo(){
+		
+var oMyObject = window.dialogArguments;
+var arrayReparti = oMyObject.arrRep;
+
+
+	
+		List=arrayReparti.split('@');
+
+		for (contatore = 0; contatore < List.length ; contatore++)
+		{
+		ab=List[contatore]
+		NewList=ab.split('*');
+		document.all.PAZ.options[contatore]=new Option('',escape(NewList[1]),false,false);	
+		document.all.PAZ.options[contatore].innerHTML = NewList[1];
+		document.all.ESA.options[contatore]=new Option('',escape(NewList[2]),false,false);	
+		document.all.ESA.options[contatore].innerHTML = NewList[2];
+		document.all.SAL.options[contatore]=new Option('',escape(NewList[0]),false,false);	
+		document.all.SAL.options[contatore].innerHTML = NewList[0];
+		document.all.ORA.options[contatore]=new Option('',escape(NewList[4]),false,false);	
+		document.all.ORA.options[contatore].innerHTML = NewList[4];
+		document.all.STA.options[contatore]=new Option('',escape(NewList[3]),false,false);	
+		document.all.STA.options[contatore].innerHTML = NewList[3];
+		}
+		
+		}
+	function setta_valori()
+	{
+		
+		window.close();
+	}
+	
+	var arrayLabelName = new Array('bt');
+	var arrayLabelValue = new Array('OK');
+</script>
+</head>
+<body onLoad='fillLabels(arrayLabelName,arrayLabelValue);'>
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>LISTA ESAMI ANCORA DA ESEGUIRE</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' cols="5" class='classTabHeader'>
+		<tr>
+			<td  width="20%" class='classTdLabelNoWidth'>PAZIENTE</td>
+			<td  width="20%" class='classTdLabelNoWidth'>ESAME</td>
+			<td  width="20%" class='classTdLabelNoWidth'>SALA</td>
+			<td  width="20%" class='classTdLabelNoWidth'>ORA PREVISTA ESECUZIO</td>
+			<td  width="20%" class='classTdLabelNoWidth'>STATO</td>
+		</tr>
+<tr>
+<td  width="20%" class='classTdField'><select name="PAZ" size="10"></select></td>
+	<td  width="20%" class='classTdField'><select name="ESA" size="10"></select>
+	<td  width="20%" class='classTdField'><select name="SAL" size="10"></select></td>
+	<td  width="20%" class='classTdField'><select name="ORA" size="10"></select></td>
+	<td  width="20%" class='classTdField'><select name="STA" size="10"></select></td>
+</tr>
+	</table>
+<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+	
+	
+		
+	    <table cellpadding='0' cols="5" cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+			<td class='classTabHeaderMiddle'> </td>
+			<td class='classButtonHeader'><div f class='pulsante' id='bt' onclick="javascript:setta_valori();"></div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+	<script>riempiCombo()</script>
+</body>
+</html>

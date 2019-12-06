@@ -1,0 +1,137 @@
+<PAGINA key_id="INAIL">
+    <HEADER_PAGE key_id="INAIL" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,INAIL#DEFAULT,PS_INAIL" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="INAIL" valore="INAIL#lblTitolo#butFirma,butChiudi" evento="START">
+        	<INPUT.HIDDEN key_id="hDiagnosi" valore="hDiagnosi###" evento="START">
+			</INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hEsitoVerbale" valore="hEsitoVerbale###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hEsitoOBI" valore="hEsitoOBI###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hCodice" valore="hCodice###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hIdenPer" valore="hIdenPer###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hRiservata" valore="hRiservata###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hDomCivico" valore="hDomCivico###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hResCivico" valore="hResCivico###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hDomIndirizzo" valore="hDomIndirizzo###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hResIndirizzo" valore="hResIndirizzo###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hStrutturaPAziente" valore="hStrutturaPAziente###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hGiorniPrognosi" valore="hGiorniPrognosi###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hIDEN" valore="hIDEN" evento="START">
+            </INPUT.HIDDEN>
+
+                <ROW key_id="rowRichieste2" valore="rowRichieste2" evento="START">
+                    <COLUMN_FREE key_id="colWkSel4" valore="colWkSel4" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldDati0" valore="fldDati0"	evento="START">
+                            <TR_TD_LABEL_RADIO key_id="radTipologia" valore="lblTipologia##radTipologia#radTipologia#{width:180}#N#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+            	<ROW key_id="rowRichieste0" valore="rowRichieste0" evento="START">
+					<COLUMN_FREE key_id="colWkSel" valore="colWkSel" evento="START">
+						<FIELD_HEADER_TABLE key_id="fldDati" valore="fldDati"	evento="START">
+							<TR_TD_LABEL_TEXT key_id="txtProgr" valore="lblProgr##txtProgr####S###" evento="START">
+							</TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_TEXT key_id="txtInfortunato" valore="lblInfortunato##txtInfortunato####S###" evento="START">
+                            </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_TEXT key_id="txtCodFiscale" valore="lblCodFiscale##txtCodFiscale####S###" evento="START">
+                            </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_TEXT key_id="txtIndirizzo" valore="lblIndirizzo##txtIndirizzo####S###" evento="START">
+                            </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_TEXT key_id="txtCivico" valore="lblCivico##txtCivico#######" evento="START">
+                            </TR_TD_LABEL_TEXT>
+							<TR_TD_LABEL_COMBO key_id="cmbSettoreLav" valore="lblSettoreLav##cmbSettoreLav#cmbSettoreLav#N##S#" evento="START">
+		                    </TR_TD_LABEL_COMBO>
+		                    <TR_TD_LABEL_TEXT key_id="taDescrCauseInf" valore ="lblDescrCauseInf##taDescrCauseInf###" evento ="START">
+		                    </TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_DATA key_id="txtDataEvento" valore="lblDataEvento##txtDataEvento#DataEvento#readonly_element: false, format: 'd/m/Y'###" evento="START">
+                            </TR_TD_LABEL_DATA >
+                            <TR.INIT key_id="trSpazio3" valore="" evento="START">
+                                <TD_AUTOCOMPLETE key_id="ComuneEv" valore="lblComuneEv#acComuneEv#ComuneEv#txtComuneEv#Comuni" evento="START">
+                                </TD_AUTOCOMPLETE>
+                            </TR.INIT>
+							<TR_TD_LABEL_DATA key_id="txtDataAbb" valore="lblDataAbb##txtDataAbb#DataAbb#readonly_element: false, format: 'd/m/Y'###" evento="START">
+							</TR_TD_LABEL_DATA >
+							<TR_TD_LABEL_ORA key_id="txtOraAbb" valore="lblOraAbb##txtOraAbb#N" evento="START">
+							</TR_TD_LABEL_ORA>
+                            <TR_TD_LABEL_RADIO key_id="radPostumiMala" valore="lblPostumiMala##radPostumiMala#radPostumiMala#{width:50}#S#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                            <TR.INIT key_id="trSpazio4" valore="" evento="START">
+                                <TD key_id="tdPostumi" valore="" evento="START">
+                                </TD>
+                                <TD_TEXTAREA key_id="taPostumiMala" valore="taPostumiMala#taPostumiMala#N#N#15#N" evento="START">
+                                </TD_TEXTAREA>
+                            </TR.INIT>
+                            <TR_TD_LABEL_TEXT key_id="txtCodMedico" valore="lblCodMedico##txtCodMedico####S###" evento="START">
+                            </TR_TD_LABEL_TEXT>
+						</FIELD_HEADER_TABLE>
+					</COLUMN_FREE>
+					<COLUMN_FREE key_id="colWkSel1" valore="colWkSel1" evento="START">
+						<FIELD_HEADER_TABLE key_id="fldDati2" valore="fldDati2"	evento="START">
+                            <TR_TD_LABEL_RADIO key_id="radPrognosi" valore="lblPrognosi##radPrognosi#radPrognosi#{width:140}#N#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                            <TR_TD_LABEL_RADIO key_id="radPericoloV" valore="lblPericoloV##radPericoloV#radPericoloV#{width:50}#S#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                            <TR_TD_LABEL_RADIO key_id="radInvalidPerma" valore="lblInvalidPerma##radInvalidPerma#radInvalidPerma#{width:50}#S#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                            <TR_TD_LABEL_RADIO key_id="radRicaduta" valore="lblRicaduta##radRicaduta#radRicaduta#{width:50}#S#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                            <TR_TD_LABEL_TEXT key_id="txtDataProg" valore="lblDataProg##txtDataProg####S#" evento="START">
+							</TR_TD_LABEL_TEXT>
+							<TR_TD_LABEL_TEXT key_id="txtProgGiorni" valore="lblProgGiorni##txtProgGiorni#######" evento="START">
+							</TR_TD_LABEL_TEXT>
+							<TR_TD_LABEL_TEXT key_id="txtDataFino" valore="lblDataFino##txtDataFino####S#" evento="START">
+							</TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_RADIO key_id="radRicovero" valore="lblRicovero##radRicovero#radRicovero#{width:50}#S#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                            <TR_TD_LABEL_TEXTAREA key_id="taRicovero" valore ="lbltaRicovero##taRicovero###" evento ="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR.INIT key_id="trSpazio3" valore="" evento="START">
+                                <TD_AUTOCOMPLETE key_id="LuogoRil" valore="lblLuogoRil#acLuogoRil#LuogoRil#txtLuogoRil#Comuni" evento="START">
+                                </TD_AUTOCOMPLETE>
+                            </TR.INIT>
+                            <TR_TD_LABEL_DATA key_id="txtDataRila" valore="lblDataRila##txtDataRila#DataRila#startWithToday:true, readonly_element: false, format: 'd/m/Y'###" evento="START">
+                            </TR_TD_LABEL_DATA>
+		            	</FIELD_HEADER_TABLE>
+		       		</COLUMN_FREE>
+                </ROW>
+				<ROW key_id="rowRichieste1" valore="rowRichieste1" evento="START">
+					<COLUMN_FREE key_id="colWkSel3" valore="colWkSel3" evento="START">
+						<FIELD_HEADER_TABLE key_id="fldDatiClinici" valore="fldDatiClinici"	evento="START">
+                            <TR_TD_LABEL_TEXTAREA key_id="taEsameObi" valore ="lblEsameObi##taEsameObi###" evento ="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taEsamiSpec" valore ="lblEsamiSpec##taEsamiSpec###" evento ="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taRefertiAcc" valore ="lblRefertiAcc##taRefertiAcc###" evento ="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taDiagnosi" valore ="lblDiagnosi##taDiagnosi###" evento ="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taOssMedico" valore ="lblOssMedico##taOssMedico###" evento ="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taEvOsservazioni" valore ="lblEvOsservazioni##taEvOsservazioni###" evento ="START">
+                            </TR_TD_LABEL_TEXTAREA>
+						</FIELD_HEADER_TABLE>
+					</COLUMN_FREE>
+				</ROW>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

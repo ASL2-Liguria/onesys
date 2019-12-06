@@ -1,0 +1,12 @@
+#MALATTIE_RARE, #INS_MALATTIE_RARE, #ORGANISMI_MULTIRESISTENTI{
+	height: 400px;
+    width: 960px;
+    display: block;
+    margin: 100px auto auto;
+}
+.contentTabs {
+    height: 350px !important;
+}
+.clsDetailContainer, .clsDetailContainer .clsWk{
+    height: 150px !important;
+}

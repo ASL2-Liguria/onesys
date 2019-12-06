@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Medico/insMedPrescr.css" />
+	<JS path="js/MMG/Medico/insMedPrescr.js" />
+</INCLUDE>

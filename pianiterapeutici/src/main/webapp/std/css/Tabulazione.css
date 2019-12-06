@@ -1,0 +1,49 @@
+
+/*	STILI TAB	*/
+ul#nav{
+	margin-left:0px;
+	margin-bottom:0px;
+	height:23px;
+	width: 100%;
+	list-style: none;
+	border-bottom: 1px solid #85c8fb;
+	}
+	ul#nav li{float: left;margin: 0 0.2em 0 0;padding: 0;}
+	ul#nav a{
+		float: left;
+		padding: 0 0 0 1.0em;
+		background: url(../../imagexPix/tabulator/tab.png) no-repeat top left;
+		text-decoration: none;
+		color: #184D8A;
+		font-weight:bold;
+		font-size:12px;
+		border-bottom:1px solid #d1ebff;
+		}
+		ul#nav span{
+			float: left;
+			padding: 0.4em 1.0em 0.4em 0;
+			background: url(../../imagexPix/tabulator/tab.png) no-repeat top right;
+			cursor: pointer;
+		}
+	ul#nav li#active a,ul#nav a:hover{
+		background: url(../../imagexPix/tabulator/tab2.png) no-repeat top left;
+		border-bottom:1px solid #b9e0ff;
+		z-index:999;
+		}
+		ul#nav li#active span,ul#nav a:hover span{
+			background: url(../../imagexPix/tabulator/tab2.png) no-repeat top right;
+			color: #251f9f;
+			}
+				
+div.tab{
+	border-right:1px solid #85c8fb;
+	border-left:1px solid #85c8fb;
+	border-bottom:1px solid #85c8fb;
+	background:#f2feff;
+	background:#b9e0ff;
+	}
+	
+	div.tabhide{
+		display:none;
+		}
+	

@@ -1,0 +1,21 @@
+<PAGINA key_id="VISUALIZZATORE">
+	
+	<HEADER_PAGE key_id="VISUALIZZATORE" valore="DEFAULT_MMG,SCHEDA,VISUALIZZATORE#DEFAULT_MMG,VISUALIZZATORE" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="Visualizzatore#lblTitolo#butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabVisualizzatore" valore="tabVisualizzatore" evento="START">
+				
+				<IFRAME key_id="iDocument" valore="iDocument" evento="START">
+				</IFRAME>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>

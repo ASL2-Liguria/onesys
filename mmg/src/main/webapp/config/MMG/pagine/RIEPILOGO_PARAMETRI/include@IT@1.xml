@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Riepilogo/RiepilogoParametri.css" />
+	<JS path="js/MMG/Riepilogo/RiepilogoParametri.js" />
+</INCLUDE>

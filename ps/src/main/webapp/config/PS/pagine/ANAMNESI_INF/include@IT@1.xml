@@ -1,0 +1,5 @@
+<INCLUDE>
+    <JS path="js/PS/AnamnesiInf/AnamnesiInf.js"/>
+    <JS path="js/PS/DialogPS/DialogPS.js"/>
+    <CSS path="css/PS/AnamnesiInf/AnamnesiInf.css" />
+</INCLUDE>

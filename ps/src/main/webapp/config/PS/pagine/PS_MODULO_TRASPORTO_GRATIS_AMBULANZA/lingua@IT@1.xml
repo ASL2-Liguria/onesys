@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+
+       <lblTitolo>TRASPORTO GRATIS AMBULANZA</lblTitolo>
+       <fldDati>Dati</fldDati>
+        <fldMotivo>Si certifica che il trasporto, impossibile con altro mezzo, risulta assolutamente necessario per i seguenti motivi</fldMotivo>
+       <lblMotivo>Motivo</lblMotivo>
+       <lblSpecifica>Specificare</lblSpecifica>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

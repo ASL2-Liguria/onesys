@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link type="text/css" rel="stylesheet" href="../../std/css/calendario/jquery.datepick.css">
+<script type="text/javascript" src="js/jQuery183.js"></script>
+<script type="text/javascript" src="../../std/jscript/calendario/jquery.datepick.js"></script>
+<script type="text/javascript" src="../../dwr/engine.js"></script>
+<script type="text/javascript" src="../../dwr/util.js"></script>
+<script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+<script type="text/javascript" src="../../std/jscript/json/json2.js"></script>
+<script type='text/javascript' src='../../std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<script type='text/javascript' src='../NS_MIDDLEWARE.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/sird.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/consolle.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/wkPlugin.js' language='JavaScript'></script>
+<!--<script type='text/javascript' src='js/dateFormat.js' language='JavaScript'></script>!-->
+<script type='text/javascript' src='flexigrid/js/flexigrid.js' language='JavaScript'></script>
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/button.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<link type='text/css' rel='stylesheet' href='../../std/css/filterTable.css'>
+<link type='text/css' rel='stylesheet' href='../../std/css/textArea.css'>
+<link type='text/css' rel='stylesheet' href='flexigrid/css/flexigrid.css'>
+<link type='text/css' rel='stylesheet' href='css/scarica_prestazione_sole.css'>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+
+<title>Visualizza Documenti</title>
+</head>
+<body>
+<form id="formVisuale">
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Visualizza Documenti Sole</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td  width="30%" class='classTdLabelNoWidth'>Codice Fiscale Paziente</td>
+			<td  width="30%" class='classTdField'><input name='codiceFiscalePaziente' id='codiceFiscalePaziente' maxlength='16'  size='20' type='text' ></td>
+
+			<td  width="25%" class='classTdLabelNoWidth'>Documento da Ricercare</td>
+                        <td  width="25%" class='classTdField'>
+                            <select id="cmbTipoRicerca" name="cmbTipoRicerca">
+                                <option value="">Tutti i documenti</option>
+                                <!--<option value="BS">Bilanci di salute</option>
+                                <option value="BS1">Bilancio di salute 1-3 mesi</option>
+                                <option value="BS2">Bilancio di salute 4-5 mesi</option>
+                                <option value="BS3">Bilancio di salute 10-11 mesi</option>
+                                <option value="BS4">Bilancio di salute a 22-24 mesi</option>
+                                <option value="BS5">Bilancio di salute a 33-39 mesi</option>
+                                <option value="BS6">Bilancio di salute al 5°-6° anno</option>
+                                <option value="BS7">Bilancio di salute al 11°-12° anno</option>
+                                <option value="00">Buoni</option>
+                                <option value="01">Buono celiachia</option>
+                                <option value="CCL">Cartella clinica</option>
+                                <option value="LC">Lettera celiachia</option>-->
+                                <option value="LED">Lettera dimissione</option>
+                                <!--<option value="ACI">Report Assistenza Domiciliare</option>-->
+                                <option value="LAB">Ref. laboratorio</option>
+                                <!--<option value="ADT">Ricoveri</option>-->
+                                <option value="PSS">Profilo sanitario sintetico</option>
+                                <!--<option value="PSU">Profilo sanitario sintetico</option>-->
+                                <option value="RAD">Ref. radiologia</option>
+                                <!--<option value="SATPE">Prescrizione di specialistica</option>
+                                <option value="SATPEF">Prescrizione farmaceutica</option>-->
+                                <option value="SPS">Ref. specialistica</option>
+                                <!--<option value="REG">Ref. generico</option>-->
+                                <option value="RPS">Ref. pronto soccorso</option>
+                                <option value="REF">Tutti i referti</option>
+                                <!--<option value="PRE">Tutte le prescrizioni</option>-->
+                            </select>
+                        </td>
+                </tr>
+		<tr>
+			<td width="25%" class='classTdLabelNoWidth'>Dalla data (generazione)</td>
+                        <td width="25%" class='classTdField'><input id='oDaData'  name="oDaData" maxlength='10'  value='' size='10' type='text'></td>
+			<td width="25%" class='classTdLabelNoWidth'>Alla data (generazione)</td>
+                        <td width="25%" class='classTdField'><input id='oAData'  name="oAData" maxlength='10'  value='' size='10' type='text'></td>
+		</tr>
+		<tr>
+			<td width="25%" class='classTdLabelNoWidth' >Aziende disponibili</td>
+                        <td width="25%" class='classTdField'>
+                                <!--<option value="080999">AUSL LABORATORIO</option>-->
+								<select id='cmbAziende'  name="cmbAziende" multiple onClick="javascript:NS_LISTBOX.spostaElemento('cmbAziende','cmbAziendeSel')" style="width:180px;height:150px">
+                                <option value="080908">Bologna AOSP</option>
+                                <option value="080105">Bologna AUSL</option>
+                                <option value="080960">Bologna Rizzoli -II.OO.R.</option>
+                                <option value="080112">Cesena AUSL</option>
+                                <option value="080111">Forlì AUSL</option>
+                                <option value="080106">Imola AUSL</option>
+                                <option value="080904">Modena AOSP</option>
+                                <option value="080104">Modena AUSL</option>
+                                <option value="080902">Parma AOSP</option>
+                                <option value="080102">Parma AUSL</option>
+                                <option value="080101">Piacenza AUSL</option>
+                                <option value="080110">Ravenna AUSL</option>
+                                <option value="080903">Reggio AOSP</option>
+                                <option value="080103">Reggio AUSL</option>
+                                <option value="080113">Rimini AUSL</option>
+                            </select>
+							</td>
+							<td width="25%" class='classTdLabelNoWidth' colspan='1'>Aziende Selezionate</td>
+                            <td>
+                            <select id='cmbAziendeSel'  name="cmbAziendeSel" multiple onClick="javascript:NS_LISTBOX.spostaElemento('cmbAziendeSel','cmbAziende')"style="width:180px;height:150px">
+							    <option value="080909">Ferrara AOSP</option>
+                                <option value="080109">Ferrara AUSL</option>
+                            </select>
+							 </td>
+                        </tr>
+
+                <tr>
+                    	<td width="25%" class='classTdLabelNoWidth'>Testo da ricercare</td>
+                        <td width="25%" class='classTdField' colspan='3'><textarea id='txtTesto'  name="txtTesto" style="height:50px;width:100%"></textarea></td>
+                </tr>
+		</tr>
+	</table>
+	
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+                        <td class='classTabHeaderMiddle'> <img id='imgLoader' src='img/loader.gif' style='width:20px;display:none'/> </td>
+			<td class='classButtonHeader'><div class='pulsante buttonSole' id='btRicerca' onclick="NS_SIRD.Ricerca();" style="cursor:pointer">Ricerca</div></td>
+                        <td class='classButtonHeader'><div class='pulsante buttonSole' id='btClose' onclick="NS_SIRD.Chiudi();" style="cursor:pointer">Chiudi</div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+       <!-- <table id="oTablePresc" style="display:none"></table>-->
+</form>	
+	<form accept-charset='UNKNOWN'  name='formPDF' enctype='application/x-www-form-urlencoded'>
+	<input type="hidden" id="Hpdf" name="Hpdf" value=""/>
+	</form>
+        <script>LOGGER.init();NS_SIRD.setDati();
+        var JSON_AZIENDE = {
+                "080999": "AUSL LABORATORIO",
+                "080908": "Bologna AOSP",
+                "080105": "Bologna AUSL",
+                "080960": "Bologna Rizzoli -II.OO.R.",
+                "080112": "Cesena AUSL",
+                "080909": "Ferrara AOSP",
+                "080109": "Ferrara AUSL",
+                "080111": "Forlì AUSL",
+                "080106": "Imola AUSL",
+                "080904": "Modena AOSP",
+                "080104": "Modena AUSL",
+                "080902": "Parma AOSP",
+                "080102": "Parma AUSL",
+                "080101": "Piacenza AUSL",
+                "080110": "Ravenna AUSL",
+                "080903": "Reggio AOSP",
+                "080103": "Reggio AUSL",
+                "080113": "Rimini AUSL"
+        };
+        var JSON_DOCUMENTI = {
+                "LED": "LETTERA DIMISSIONE",
+                "LAB": "REFERTO LABORATORIO",
+                "RAD": "REFERTO RADIOLOGIA",
+                "SPS": "REFERTO SPECIALISTICA",
+                "RPS": "REFERTO P.S.",
+				"PSS": "PROFILO SANIT. SINTET."
+        };
+        </script>
+<script>jQuery('#oDaData').datepick({onClose: function(){jQuery(this).focus();}, showOnFocus: false,  showTrigger: '<img class="trigger" src="../../imagexPix/calendario/cal20x20.gif" class="trigger"></img>'});</script>
+<script>jQuery('#oAData').datepick({onClose: function(){jQuery(this).focus();}, showOnFocus: false,  showTrigger: '<img class="trigger" src="../../imagexPix/calendario/cal20x20.gif" class="trigger"></img>'});</script>
+</body>
+
+</html>
+

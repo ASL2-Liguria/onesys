@@ -1,0 +1,26 @@
+<MENU>
+    <ID>MENU_WK_TRASFERIMENTI_PAZIENTE</ID>
+    <TITLE>"Menu trasferimenti paziente"</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>ANNULLA_RICHIESTA_TRASFERIMENTO</ID>
+            <LINK><![CDATA[function(rec){NS_WK_TRASFERIMENTI.richiediAnnullamentoRichiestaTrasferimento(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if ( rec[0].STATO_CODICE === "REQUESTED"){ return true; } else {return false;}}]]></WHERE>
+            <OUTPUT>"Annulla richiesta trasferimento"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>ANNULLA_TRASFERIMENTO</ID>
+            <LINK><![CDATA[function(rec){NS_WK_TRASFERIMENTI.richiediAnnullamentoTrasferimento(rec[0].IDEN_CONTATTO, rec[0].IDEN_ACCESSO_CARTELLA);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[ function(rec){ if( rec[0].STATO_CODICE === "ADMITTED" && NS_WK_TRASFERIMENTI.isLastTrasferimento(rec[0].IDEN_CONTATTO_ASSISTENZIALE) ){ return true; } else { return false; }}]]></WHERE>
+            <OUTPUT>"Annulla trasferimento"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

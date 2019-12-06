@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabInserimentoLista>Informazioni</tabInserimentoLista>
+    	<tabAttivitaLista>Attività</tabAttivitaLista>
+    	<tabRiepilogoLista>Riepilogo</tabRiepilogoLista>
+    	<fldSceltaLista>Scelta Lista Attesa</fldSceltaLista>
+        <lblInsLista>Data prenotazione</lblInsLista>
+        <IdInsLista>Dati prenotazione</IdInsLista>
+        <lblOraPrenotazione>Ora prenotazione</lblOraPrenotazione>
+        <lblNumeroTelefono>Numero di Telefono</lblNumeroTelefono>
+        <lblPazienteName>Nome</lblPazienteName>
+        <lblPazienteSurname>Cognome</lblPazienteSurname>
+        <lblDataNascita>Data di nascita</lblDataNascita>
+        <lblSesso>Sesso</lblSesso>
+        <lblCodFiscale>Codice fiscale</lblCodFiscale>
+        <IdLivelloUrgenza>Livello Priorità</IdLivelloUrgenza>
+        <lblReparto>Reparto</lblReparto>
+        <lblNote>Note</lblNote>
+        <lblMotivoPriorita>Motivo Priorita</lblMotivoPriorita>
+        <lblPZOncologico>PZ Oncologico</lblPZOncologico>
+        <lblPatConcomitanti>Patologie concomitanti</lblPatConcomitanti>
+        <lblLista>Elenco liste</lblLista>
+        <lblInfoModifiche>Motivazione Modifiche</lblInfoModifiche>
+        <IdInfoModifiche>Modifiche</IdInfoModifiche>
+        <tableAttivita>Attività</tableAttivita>
+        <lblDataAttivita>Data</lblDataAttivita>
+        <lblOraAttivita>Ora</lblOraAttivita>
+        <lblAttivita>Attivita</lblAttivita>
+        <lblUteAttivita>Utente</lblUteAttivita>
+        <lblNoteAttivita>Note</lblNoteAttivita> 
+        <tableWkAttivita>Worklist Attività</tableWkAttivita>
+        <tableWkRiepilogo>Worklist Riepilogo</tableWkRiepilogo> 
+        <lblInterPreno>Intervento prenotato</lblInterPreno>
+        <lblIChirurgo>Chirurgo</lblIChirurgo>
+        <lblAnestesista>Anestesista</lblAnestesista>
+        <lblMateriale>Materiale</lblMateriale>
+        <lblDurata>Durata (min)</lblDurata>
+        <lblDiagnosi>Diagnosi</lblDiagnosi>
+        <lblMedicoProponente>Medico Proponente</lblMedicoProponente>
+        <lblMedicoPrimoChirurgo>Primo Chirurgo</lblMedicoPrimoChirurgo>
+        <lblMedico>Medico</lblMedico>
+        <lbltaDiagnosi>Specificazione diagnosi</lbltaDiagnosi>
+        <lbltaIntervento>Note intervento</lbltaIntervento>
+        <lbltaMateriale>Materiale</lbltaMateriale>
+        <lblChirurgoI>Primo Chirurgo</lblChirurgoI>
+        <lblNProgr>N. Progr.</lblNProgr>
+        <lblDataPrenotazione>Data Prenotazione</lblDataPrenotazione>
+        <lblDataPrescrizione>Data richiesta</lblDataPrescrizione>
+        <lblMotCambioPrior>Motivo Cambio Priorità</lblMotCambioPrior>
+        <lblSituazione>Situazione</lblSituazione>
+        <lblListaAttesaDescrizione>Lista di Attesa</lblListaAttesaDescrizione>
+        <lblModAccesso>Modalità Accesso</lblModAccesso>
+        <lblRegimeRico>Regime Ricovero</lblRegimeRico>
+        <lblLiberaProfessione>Libera Professione</lblLiberaProfessione>
+        <lblRepartoDeg>Reparto Degenza</lblRepartoDeg>
+        <lblListaInter>Lista</lblListaInter>
+        <lblLateralita>Lateralità</lblLateralita>
+        <lblTipoAnestesia>Tipo Anestesia</lblTipoAnestesia>
+        <lblPredeposito>Predeposito (unità)</lblPredeposito>
+ 		<lblTipoIntervento>Specificazione intervento</lblTipoIntervento>
+ 		<lblNoteModifica>Note Modifica</lblNoteModifica>
+ 		<lblPrevisioneRicovero>Previsione Ricovero</lblPrevisioneRicovero>
+ 		<lblDaDataPrevisione>Da Data</lblDaDataPrevisione>
+ 		<lblADataPrevisione>A Data</lblADataPrevisione>
+        <lblMateriale>Predeposito (unità)</lblMateriale>
+    </ROW>
+</ROWSET>

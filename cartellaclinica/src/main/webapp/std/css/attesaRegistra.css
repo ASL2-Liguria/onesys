@@ -1,0 +1,90 @@
+#divAttesa
+{
+	position:absolute;
+}
+body > div#divAttesa
+{
+	position:fixed;
+}
+
+div#divAttesa
+{
+	left:expression(((ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft)) + 'px');
+	top:expression(((ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop)) + 'px');
+}
+
+#divRichiesta
+{
+	position:absolute;
+}
+body > div#divRichiesta
+{
+	position:fixed;
+}
+
+div#divRichiesta
+{
+	left:expression(((ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft + ((document.body.offsetWidth / 2) - 170): document.body.scrollLeft + ((document.body.offsetWidth / 2) - 170))) + 'px');
+	top:expression(((ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop + ((document.body.offsetHeight / 2) - 100): document.body.scrollTop + ((document.body.offsetHeight / 2) - 100))) + 'px');
+}
+
+.clsDivBlackOpacity
+{
+	filter:alpha(opacity=74);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	position:absolute;
+	width:100%;
+	top:0;
+	left:0;
+	background-color:black;
+	display:none;
+	z-index:10;
+}
+
+.clsDivAttesaRegistra
+{
+	filter:alpha(opacity=100);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	position:absolute;
+	width:200px;
+	height:80px;
+	background-color:white;
+	vertical-align:middle;
+	border:ridge;
+	border-color:#999999;
+	z-index:11;
+	overflow: hidden;
+}
+
+.clsImgAttesaRegistra
+{
+	position:absolute;
+	width:160px;
+	left:16px;
+}
+
+.clsSpanAttesaRegistra
+{
+	font-style:oblique;
+	font-weight: bold;
+	font-size:16px;
+	text-align:center;
+	text-shadow:#00CCFF;
+	position:absolute;
+	width:160px;
+	left:16px;
+	top:10px;
+}
+
+.clsdivRichiestaPassword
+{
+	position:absolute;
+	width:340px;
+	height:2000px;
+	/*left:expression(((document.body.offsetWidth / 2) - 170) + 'px' );
+	top:expression(((document.body.offsetHeight / 2) - 100) + 'px' );*/
+	vertical-align:middle;
+	z-index:11;
+}

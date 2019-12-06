@@ -1,0 +1,14 @@
+body{
+	padding:5px;
+	}
+
+.oraLabel{font-size:12px;font-weight:bold;padding:0 5px 0 25px;}
+
+.butActive{background:#FE4747;text-decoration:none;}
+.butHover{cursor:hand;}
+
+input#inValMedico, input#inValInf, input#inValAmm, input#inValTSRM{background:#ddd;width:250px;}
+input#rilValMedico, input#rilValInf, input#rilValAmm, input#rilValTSRM{width:250px;}
+
+
+.titC{background:#f1eeee;}

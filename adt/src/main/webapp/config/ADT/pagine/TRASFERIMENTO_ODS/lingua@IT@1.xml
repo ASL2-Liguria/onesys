@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <tabTrasferimento>Trasferimento ODS</tabTrasferimento>
+        <butSalva>Salva</butSalva>
+        <butChiudi>Chiudi</butChiudi>
+        <lbloraInizioRicovero>Ora inizio</lbloraInizioRicovero>
+        <fldDatiTrasferimento>Dati Trasferimento</fldDatiTrasferimento>
+        <lblDataRicovero>Data ricovero</lblDataRicovero>
+        <lblOraRicovero>Ora ricovero</lblOraRicovero>
+        <lblRepartoAttuale>Reparto attuale</lblRepartoAttuale>
+        <lblRepDestinazione>Reparto Giuridico</lblRepDestinazione>
+        <lblDataInizio>Data inizio</lblDataInizio>
+        <lblRepartoAssistenziale>Reparto assistenziale</lblRepartoAssistenziale>
+        <fldDatiRicovero>Dati accettazione ricovero</fldDatiRicovero>
+        <lblCartella>N. Cartella</lblCartella>
+        <lblRepartoAttualeGiuridico>Reparto giuridico</lblRepartoAttualeGiuridico>
+        <lblRepartoAttualeAssistenziale>Reparto assistenziale</lblRepartoAttualeAssistenziale>
+    </ROW>
+</ROWSET>

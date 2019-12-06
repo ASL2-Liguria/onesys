@@ -1,0 +1,269 @@
+td.classTdBianco{
+	border: 1px solid #83E2BC;
+	background-color:#FFFFFF;
+	padding-left:5px;
+	width:100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdCopySelect{
+	border: 1px solid #83E2BC;
+	background-color:#0CF;
+	padding-left:5px;
+	width:100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdVerde{
+	border: 1px solid #83E2BC;
+	background-color:#00FF00;
+	padding-left:5px;
+	width: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdGiallo{
+	border: 1px solid #83E2BC;
+	background-color:#FFFF00;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdBiancoSCR{
+	border: 1px solid #83E2BC;
+	background-color:#FFFFFF;
+	padding-left:5px;
+	width: 30px;
+	height: 25px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdVerdeSCR{
+	border: 1px solid #83E2BC;
+	background-color:#00FF00;
+	padding-left:5px;
+	width: 30px;
+	height: 25px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdGialloSCR{
+	border: 1px solid #83E2BC;
+	background-color:#FFFF00;
+	padding-left:5px;
+	width: 30px;
+	height: 25px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+
+
+td.classTdRosso{
+	border: 1px solid #83E2BC;
+	background-color:#FF0000;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdGrigio{
+	border: 1px solid #83E2BC;
+	background-color:#999999;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+}
+
+td.classTdSelect{
+	border: 1px solid #83E2BC;
+	background-color:#00CCFF;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+}
+
+td.classTdBiancoSel{
+	border: 1px solid #83E2BC;
+	background-color:#FFFFFF;
+	padding-left:5px;
+	width:100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdCopySelectSel{
+	border: 2px solid #FF0;
+	background-color:#FFFFFF;
+	padding-left:5px;
+	width:100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdVerdeSel{
+	border: 1px solid #83E2BC;
+	background-color:#79FF79;
+	padding-left:5px;
+	width: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdGialloSel{
+	border: 1px solid #83E2BC;
+	background-color:#FFFF82;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdRossoSel{
+	border: 1px solid #83E2BC;
+	background-color:#FF9393;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdGrigioSel{
+	border: 1px solid #83E2BC;
+	background-color:#F5F5F5;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+}
+
+td.classTdBiancoIll{
+	border: 1px solid #83E2BC;
+	background-color:#FFFFFF;
+	padding-left:5px;
+	width:100%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdVerdeIll{
+	border: 1px solid #83E2BC;
+	background-color:#00BF00;
+	padding-left:5px;
+	width: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdGialloIll{
+	border: 1px solid #83E2BC;
+	background-color:#EAEA00;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdRossoIll{
+	border: 1px solid #83E2BC;
+	background-color:#E80000;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	cursor:hand;
+	color:#000000;
+}
+
+td.classTdGrigioIll{
+	border: 1px solid #83E2BC;
+	background-color:#CCCCCC;
+	padding-left:5px;
+	width:auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#000000;
+}
+
+iframe.classIFrame
+{
+	border:solid;
+	border-color:#C2FAFE;
+	height:455;
+	width:100%;
+}
+
+th.GiornoEvidenziato
+{
+	background: white !important;
+	border: 1px red solid !important;
+}
+
+th.TestataEvidenziata
+{
+	background: white !important;
+	border: 1px red solid !important;
+}
+
+th span.refresh
+{
+	background-image: url(../../imagexPix/button/mini/spostatamini.png);
+	cursor:hand;
+	float: right;
+	height: 15px;
+	width: 12px;
+}
+
+th span.infoSala
+{
+	background-image: url(../../imagexPix/button/mini/info.png);
+	cursor:hand;
+	float: left;
+	height: 20px;
+	width: 20px;
+}

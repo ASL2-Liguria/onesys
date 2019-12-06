@@ -1,0 +1,30 @@
+<PAGINA key_id="STORICO_CONSENSO">
+	<HEADER_PAGE key_id="STORICO_CONSENSO"
+		valore="DEFAULT_MMG,SCHEDA,STORICO_CONSENSO#DEFAULT_MMG,STORICO_CONSENSO" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#####" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabStorico" valore="tabStorico#lblTitolo#butChiudi" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabMain" valore="tabMain" evento="START">
+				<FIELDSET_TABLE key_id="fldDate" valore="fldDate" evento="START">
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:false, readonly_element: false, format: 'd/m/Y'#disabled:false#lblDaData#DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false#lblAData#DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_BUTTON key_id="butApplica" valore="butApplica" evento="START"></TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldStoricoConsenso" valore="fldStoricoConsenso" evento="START_END">
+					<DIV.WORKLIST key_id="wk" valore="divWk" evento="START"></DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

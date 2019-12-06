@@ -1,0 +1,17 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_SEGNALAZIONI'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="TipoSegnalazione" configurazione_stato="begin :stato := 'E'; end;" db_valore="TIPO_SEGNALAZIONE" db_descrizione="" configurazione_multi_data="CMB_TIPO_SEGNALAZIONE" />
+	<DATO key_id="ErroreApplicativo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''SEGNALAZIONI'' and TIPO_DATO=''ERRORE_APPLICATIVO'''; end;" />
+	<DATO key_id="ProblemaAnagrafica" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''SEGNALAZIONI'' and TIPO_DATO=''PROBLEMA_ANAGRAFICA'''; end;" />
+	
+	<DATO key_id="Diagnosi1" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR_V2'' and TIPO_DATO=''Deambulare'''; end;" />
+	
+	<DATO key_id="PreferenzaContatto" configurazione_stato="begin :stato := 'E'; end;" db_valore="CONTATTO_PREFERITO" db_descrizione="CONTATTO_PREFERITO" configurazione_multi_data="R_PREFERENZA_CONTATTO" />
+	
+	<DATO key_id="Telefono" configurazione_stato="begin :stato := 'E'; end;" db_valore="CONTATTO_TELEFONO" db_descrizione="CONTATTO_TELEFONO" configurazione_multi_data="" />
+	
+	<DATO key_id="Email" configurazione_stato="begin :stato := 'E'; end;" db_valore="CONTATTO_MAIL" db_descrizione="CONTATTO_MAIL" configurazione_multi_data="" />
+	
+	<DATO key_id="Testo" configurazione_stato="begin :stato := 'E'; end;" db_valore="TESTO" db_descrizione="TESTO" configurazione_multi_data="" />
+		
+</DATI>

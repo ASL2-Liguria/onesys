@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>TIPI</ID>
+    <ID-QUERY connection="PS">WORKLIST.TIPI</ID-QUERY>
+    <TITLE>"Worklist Tipi"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_TABELLE_INS_MOD</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>		<COLUMNS>
+        <LIST>
+            <COLUMN>
+                <ID>
+                    <COL>IDEN</COL>
+                    <DB>IDEN</DB>
+                </ID>
+                <DESCRIPTOR>traduzione.lblTipiIden</DESCRIPTOR>
+                <PROCESS/>
+                <WIDTH>80px</WIDTH>
+                <VISIBLE>N</VISIBLE>
+                <SORTABLE>N</SORTABLE>
+                <MOVEABLE>N</MOVEABLE>
+                <RESIZABLE>N</RESIZABLE>
+            </COLUMN>
+            <COLUMN>
+                <ID>
+                    <COL>CODICE_DECODIFICA</COL>
+                    <DB>CODICE_DECODIFICA</DB>
+                </ID>
+                <DESCRIPTOR>traduzione.lblTipiCodice</DESCRIPTOR>
+                PROCESS/>
+                <WIDTH>200px</WIDTH>
+                <VISIBLE>S</VISIBLE>
+                <SORTABLE>S</SORTABLE>
+                <MOVEABLE>S</MOVEABLE>
+                <RESIZABLE>S</RESIZABLE>
+            </COLUMN>
+            <COLUMN>
+                <ID>
+                    <COL>TIPO</COL>
+                    <DB>TIPO</DB>
+                </ID>
+                <DESCRIPTOR>traduzione.lblTipiTipo</DESCRIPTOR>
+                <PROCESS/>
+                <WIDTH>250px</WIDTH>
+                <VISIBLE>S</VISIBLE>
+                <SORTABLE>S</SORTABLE>
+                <MOVEABLE>S</MOVEABLE>
+                <RESIZABLE>S</RESIZABLE>
+            </COLUMN>
+            <COLUMN>
+                <ID>
+                    <COL>ORDINE</COL>
+                    <DB>ORDINE</DB>
+                </ID>
+                <DESCRIPTOR>traduzione.lblTipiOrdine</DESCRIPTOR>
+                <PROCESS/>
+                <WIDTH>80px</WIDTH>
+                <VISIBLE>S</VISIBLE>
+                <SORTABLE>S</SORTABLE>
+                <MOVEABLE>S</MOVEABLE>
+                <RESIZABLE>S</RESIZABLE>
+            </COLUMN>
+            <COLUMN>
+                <ID>
+                    <COL>DESCRIZIONE</COL>
+                    <DB>DESCRIZIONE</DB>
+                </ID>
+                <DESCRIPTOR>traduzione.lblTipiDescrizione</DESCRIPTOR>
+                <PROCESS/>
+                <WIDTH>350px</WIDTH>
+                <VISIBLE>S</VISIBLE>
+                <SORTABLE>S</SORTABLE>
+                <MOVEABLE>S</MOVEABLE>
+                <RESIZABLE>S</RESIZABLE>
+            </COLUMN>
+        </LIST>
+        <SORT>
+            <COLUMN id="TIPO">ASC</COLUMN>
+            <COLUMN id="DESCRIZIONE">ASC</COLUMN>
+        </SORT>
+    </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,10 @@
+form{margin:0px;}
+div#versionNavigator{width:100%;height:25px;;display:block;clear:both;}
+span.menu{float:left;}
+span.filtro{float:left;}
+span.dati{float:right;text-align:right;}
+
+label.progresissivo{border:1px solid;font-size:20px;padding:0px 3px;}
+label.personale{font:14px bold;}
+
+div#versionNavigator ul li a.firmato{background:url(../../../imagexPix/bar/btLightRed.jpg);}

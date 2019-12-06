@@ -1,0 +1,14 @@
+<ROWSET>
+    <ROW>
+        <lblTitolo>Lista terapie</lblTitolo>
+        <fldLista>Terapie</fldLista>
+                <!-- wk farmaci utilizzati -->
+        <lblCodice>CODICE</lblCodice>
+        <lblPrincipioAttivo>PRINCIPIO ATTIVO</lblPrincipioAttivo>
+        <lblDescrizione>DESCRIZIONE</lblDescrizione>
+                <!-- MENU_TERAPIE_ASSOCIATE -->
+        <lblRipetiSomministrazione>Ripeti Somministrazione</lblRipetiSomministrazione>
+        <lblEliminaTerapia>Elimina Terapia</lblEliminaTerapia>
+        <lblMenu>Menu</lblMenu>
+    </ROW>
+</ROWSET>

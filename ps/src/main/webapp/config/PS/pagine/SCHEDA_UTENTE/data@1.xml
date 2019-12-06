@@ -1,0 +1,97 @@
+<DATI configurazione="begin :stato_pagina := 'I';
+        if('#STATO_PAGINA#' ='I')then
+            :key_query := 'Q_EMPTY';
+        else
+            :key_query := 'ADT.Q_DATI_UTENTE@ADT';
+        end if;
+        :where := null; :campo_xml := null; end;">
+
+    <DATO
+            key_id="Username"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="USERNAME"
+            db_descrizione="USERNAME"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="password"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="PASSWORD"
+            db_descrizione="PASSWORD"
+            configurazione_multi_data=""
+            />
+
+    <DATO
+            key_id="txtUte"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="UTENTE"
+            db_descrizione="UTENTE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="h-txtUte"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_PER"
+            db_descrizione="IDEN_PER"
+            configurazione_multi_data=""
+            />
+
+    <DATO
+            key_id="MedicoInfermiere"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="VALUE"
+            db_descrizione="DESCR"
+            configurazione_multi_data="PS.R_TIPO_PERSONALE@PS"
+            />
+    <DATO
+            key_id="Context_Menu_Default"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CONTEXT_MENU"
+            db_descrizione="CONTEXT_MENU"
+            configurazione_multi_data="R_SI_NO"
+            />
+    <DATO
+            key_id="Lingua"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="LINGUA"
+            db_descrizione="LINGUA"
+            configurazione_multi_data="CMB_LINGUE"
+            />
+    <DATO
+            key_id="ComboInGruppiUtente"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="CMB_GRUPPI_UTENTE_NOT_SEL@CONFIG_WEB"
+            />
+    <DATO
+            key_id="ComboInGruppiCDC"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="CCE.CMB_CDC_NOT_SEL@WHALE"
+            />
+    <!--<DATO-->
+    <!--key_id="ComboInGruppiCDC"-->
+    <!--configurazione_stato="begin :stato := 'E'; end;"-->
+    <!--db_valore=""-->
+    <!--db_descrizione=""-->
+    <!--configurazione_multi_data="DATI.CMB_CDC_NOT_SEL@WHALE"-->
+    <!--/>-->
+    <DATO
+            key_id="ComboOutGruppiUtente"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="CMB_GRUPPI_UTENTE_SEL@CONFIG_WEB"
+            />
+    <DATO
+            key_id="ComboOutGruppiCDC"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore=""
+            db_descrizione=""
+            configurazione_multi_data="CCE.CMB_CDC_SEL@WHALE"
+            />
+
+</DATI>
+

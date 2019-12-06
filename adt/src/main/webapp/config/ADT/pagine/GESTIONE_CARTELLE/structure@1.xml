@@ -1,0 +1,107 @@
+<PAGINA key_id="GESTIONE_CARTELLE">
+	<HEADER_WK key_id="GESTIONE_CARTELLE" valore="DEFAULT,WK,GESTIONE_CARTELLE#DEFAULT,GESTIONE_CARTELLE" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+    	<TABULAZIONE.CREA_TAB_FILTRO key_id="filtroCartelle" valore="filtroCartelle#ADT_WK_GESTIONE_CARTELLE" evento="START">
+	    	<TABELLA.INIT key_id="tableCartelle" valore="" evento="START">
+	            <TR.INIT key_id="rigaCartelle1" valore="" evento="START">
+					<FILTRO_TAG key_id="Reparto" valore="lblArchivioReparto#titRep#ELENCOREPARTI#txtReparto#txtReparto#{width:'230px'}#N##FILTRO_ARCHIVIO_REPARTO#N" evento="START">
+                    </FILTRO_TAG>
+	                <FILTRO_TAG key_id="StatoCartella" valore="lblStatoCartella#titStatoCartella#STATO_CARTELLA#txtStatoCartella#txtStatoCartella#{width:'430px'}#N##FILTRO_STATO_CARTELLA#N" evento="START">
+	                </FILTRO_TAG>
+                    <FILTRO_TEXT key_id="Struttura" valore="lblStruttura#txtStrutturaMovimenti#c_struttura##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Anno" valore="lblAnno#txtAnnoMovimenti#c_anno##N" evento="START">
+                    </FILTRO_TEXT>
+	                <FILTRO_TEXT key_id="NCartella" valore="lblNCartella#txtNCartella#c_cartella##N" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaCartelle2" valore="" evento="START">
+                	<FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_DATA key_id ="daData" valore ="lblDaData#txtDaData#DaData#readonly_element: false, format: 'd/m/Y', view: 'month'##lblDaData#da_data##N" evento="START">
+                    </FILTRO_DATA>
+                    <FILTRO_DATA key_id ="aData" valore ="lblAData#txtAData#AData#readonly_element: false, format: 'd/m/Y', view: 'month'##lblAData#a_data##N" evento="START">
+                    </FILTRO_DATA>
+                    <TD.INIT key_id="ResetCampiMovimentiCartelle" valore="" evento="START">
+                        <BUTTON key_id="ResetCampiMovimentiCartelle" valore="lblCampiMovimentiCartelle" evento="START"></BUTTON>
+                    </TD.INIT>
+                </TR.INIT>
+	         </TABELLA.INIT>
+	     </TABULAZIONE.CREA_TAB_FILTRO>
+	     <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroGrouper" valore="filtroGrouper#ADT_WK_GESTIONE_CARTELLE_GROUPER" evento="START">
+	     	<TABELLA.INIT key_id="tableRichiesteGrouper" valore="" evento="START">
+	            <TR.INIT key_id="rigaRichiesteGrouper1" valore="" evento="START">
+	            	<FILTRO_TAG key_id="RepartoGrouper" valore="lblRepGrouper#titRepGrouper#REP_GROUPER#tagRepGrouper#txt#{width:'230px'}#N##GROUPER_FILTRO_REPARTO#N#N" evento="START">
+	                </FILTRO_TAG>
+	                <FILTRO_TEXT key_id="Struttura" valore="lblStruttura#txtStrutturaGrouper#c_struttura##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Anno" valore="lblAnno#txtAnnoGrouper#c_anno##N" evento="START">
+                    </FILTRO_TEXT>
+	                <FILTRO_TEXT key_id="NCartellaGrouper" valore="lblNCartella#txtNCartellaGrouper#c_cartella##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TAG key_id="StatoCartellaGrouper" valore="lblStatoCartellaGrouper#titStatoCartellaGrouper#STATO_CARTELLA#txtStatoCartellaGrouper#txtStatoCartellaGrouper#{width:'430px'}#N##FILTRO_STATO_CARTELLA_GROUPER#N#N" evento="START">
+	                </FILTRO_TAG>
+	            </TR.INIT>
+	            <TR.INIT key_id="rigaRichiesteGrouper2" valore="" evento="START">
+	            	<FILTRO_TEXT key_id="CognomeListaRichiesteGrouper" valore="lblCognome#txtCognomeListaRichiesteGrouper#cognome##T" evento="START">
+	                </FILTRO_TEXT>
+	                <FILTRO_TEXT key_id="NomeListaRichiesteGrouper" valore="lblNome#txtNomeListaRichiesteGrouper#nome##T" evento="START">
+	                </FILTRO_TEXT>
+	                <FILTRO_DATA key_id ="daDataGrouper" valore ="lblDaDataGrouper#txtDaDataGrouper#DaDataGrouper#readonly_element: false, format: 'd/m/Y', view: 'month'##lblDaDataGrouper#da_data##N" evento="START">
+	                </FILTRO_DATA>
+                    <FILTRO_DATA key_id ="aDataGrouper" valore ="lblADataGrouper#txtADataGrouper#ADataGrouper#readonly_element: false, format: 'd/m/Y', view: 'month'##lblADataGrouper#a_data##N" evento="START">
+                    </FILTRO_DATA>
+                    <TD.INIT key_id="Reset_CampiGrouper" valore="" evento="START">
+                    <BUTTON key_id="Reset_CampiGrouper" valore="lblResetCampiGrouper" evento="START"></BUTTON>
+                    </TD.INIT>
+	            </TR.INIT>
+        	</TABELLA.INIT>
+	     </TABULAZIONE.CREA_TAB_FILTRO>
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRichiesteCartelle" valore="filtroRichiesteCartelle#ADT_WK_GESTIONE_RICHIESTE_CARTELLE" evento="START">
+            <TABELLA.INIT key_id="tableCartelle" valore="" evento="START">
+                <TR.INIT key_id="rigaCartelle1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Struttura" valore="lblStruttura#txtStruttura#struttura##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Anno" valore="lblAnno#txtAnno#anno##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NCartellaRich" valore="lblNCartella#txtNCartellaRich#cartella##N" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaCartelle2" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognomeRichieste#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNomeRichieste#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_DATA key_id="DataNasc" valore="lblDataNasc#DataNasc##readonly_element: false, format: 'd/m/Y', view: 'month'##S#data_nascita##N" evento="START">
+                    </FILTRO_DATA>
+                    <FILTRO_DATA key_id="daData" valore="lblDaDataA#txtDaDataA##readonly_element: false, format: 'd/m/Y', view: 'month'##lblDaDataA#da_data##N" evento="START">
+                    </FILTRO_DATA>
+                    <FILTRO_DATA key_id="aData" valore="lblADataA#txtADataA##readonly_element: false, format: 'd/m/Y', view: 'month'##lblADataA#a_data##N" evento="START">
+                    </FILTRO_DATA>
+                </TR.INIT>
+                    <TR.INIT key_id="rigaCartelle3" valore="" evento="START">
+                            <FILTRO_TAG key_id="StatoCartellaRich" valore="lblStatoCartellaRich#titStatoCartellaRich#STATO_CARTELLA_RICHIESTA#txtStatoCartellaRich#txtStatoCartellaRich#{width:'430px'}#N##FILTRO_STATO_CARTELLA_RICHIESTA#N#N" evento="START">
+                            </FILTRO_TAG>
+                            <FILTRO_TEXT key_id="iden_richiesta" valore="lblIdenRichiesta#txtIdenRichiesta#iden_richiesta##N" evento="START">
+                            </FILTRO_TEXT>
+                            <TD.INIT key_id="Reset_Campi" valore="" evento="START">
+                    			<BUTTON key_id="Reset_Campi" valore="lblResetCampi" evento="START"></BUTTON>
+                    		</TD.INIT>
+                    </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroEstrazioneCartelle" valore="filtroEstrazioneCartelle#" evento="START">
+        	<TABELLA.INIT key_id="tableEstrazioneCartelle" valore="" evento="START">
+	        	<TR.INIT key_id="rigaEstrazioneCartelle" valore="" evento="START">
+		        	<TD_LABEL_COMBO key_id="cmbQueryEstrazioni" valore="lblQueryEstrazione##cmbQueryEstrazione#cmbQueryEstrazione#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+		        	<TD.INIT key_id="tdEstrazioneCartelle" valore="1" evento="START">
+                    	<BUTTON key_id="butApriEstrazione" valore="butApriEstrazione" evento="START"></BUTTON>
+                  	</TD.INIT>
+				</TR.INIT>
+        	</TABELLA.INIT>
+         </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+</PAGINA>

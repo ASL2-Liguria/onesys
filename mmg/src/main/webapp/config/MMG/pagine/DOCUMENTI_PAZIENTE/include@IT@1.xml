@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Documenti/DocumentiRepository.css" />
+	<JS path="js/MMG/Documenti/DocumentiRepository.js" />
+</INCLUDE>

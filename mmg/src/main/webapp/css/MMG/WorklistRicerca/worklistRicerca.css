@@ -1,0 +1,8 @@
+
+#txtCognome, #txtNome, #txtCodiceFiscale { width: 335px; }
+
+.butUltimiAccessi.selected {
+	background: #fdf692 !important;
+}
+
+

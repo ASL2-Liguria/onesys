@@ -1,0 +1,8 @@
+body { width: 960px; }
+
+#fldRicerca .btn { width: 170px;}
+
+i.icon-ok {
+	float:right;
+	margin-left: 5px;
+}

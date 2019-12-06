@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<ID>MENU_STORICO_CONSENSO</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+
+		<ITEM>
+			<ID>MSF.CN</ID>
+			<LINK><![CDATA[function(rec){WK_STORICO_CONSENSO.visualizza(rec);}]]></LINK>
+			<ICON_CLASS>anteprima</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblVisualizza</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

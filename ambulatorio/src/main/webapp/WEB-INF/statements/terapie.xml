@@ -1,0 +1,79 @@
+<root>
+	<statements_list>
+		
+		<statement name="set_dati_farmacie">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+				declare					
+					vReparto varchar2(5000):= ?;
+				begin 
+					cc_terapia.setDatiFarmacie(vReparto); 
+				end;
+			]]>
+			</sql>
+		</statement>
+	
+		<statement name="filtri.getTipoFarmaco">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+				Select t.iden,t.descrizione from CC_TERAPIE_REPARTO r
+				inner join  CC_TERAPIE_TYPE t on(t.iden=r.iden_terapia)
+				where codice_reparto=? and r.attivo='S' order by r.ordine
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="filtri.getConfScheda">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+				Select * from VIEW_CC_TERAPIE_CONF_SCHEDA where codice_reparto=? and stato_terapia=?
+			]]>
+			</sql>
+		</statement>
+	
+		<statement name="domiciliari.precedenti">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+				<![CDATA[
+					Select /*+first_rows(20)*/ IDEN_LETTERA,STATO_LETTERA,to_char(DATA_INSERIMENTO,'dd/mm/yyyy hh24:mi') data_inserimento,
+					 CASE
+					  WHEN PRIMO_CICLO is null 
+					  THEN 'N'
+						  ELSE PRIMO_CICLO
+						END AS PRIMO_CICLO,
+					FARMACO,IDEN_FARMACO,COD_DEC,IDEN_SOSTANZA,IDEN_TIPO_TERAPIA,DOSE,UDM,ORARI,DURATA,NUM_SCATOLE,CATEGORIA
+					from radsql.VIEW_WK_LETTERA_FARMACI w where iden_visita in
+					(select iden from nosologici_paziente where iden_anag=? and cod_cdc=?) order by w.data_inserimento desc,farmaco
+				]]>
+			</sql>
+		</statement>
+		
+		<statement name="domiciliari.farmaci_lettera">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+				<![CDATA[
+					Select /*+first_rows(20)*/ * from radsql.VIEW_WK_LETTERA_FARMACI where iden_lettera=? and attivo = 'S'
+				]]>
+			</sql>
+		</statement>
+		
+<!--	<statement name="domiciliari.farmaci_ricovero">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+				<![CDATA[
+					Select /*+first_rows(20)*/ * from radsql.VIEW_WK_LETTERA_TERAPIE where iden_visita in (select iden from nosologici_paziente where num_nosologico=?) and stato in ('P','A') order by ORDINE, FARMACO
+				]]>
+			</sql>
+		</statement> -->
+		
+	</statements_list>
+</root>

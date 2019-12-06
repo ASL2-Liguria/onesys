@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <!-- INS_TERAPIA -->
+        <lblTitolo>Inserisci Terapia</lblTitolo>
+        <fldWkRicFarmaci>Ricerca Farmaci</fldWkRicFarmaci>
+        <lblUnitaMisura>Formulazione</lblUnitaMisura>
+        <lblEliminaTerapia>Elimina Terapia</lblEliminaTerapia>
+        <lblRipetiSomministrazione>Duplica Terapia</lblRipetiSomministrazione>
+            <lblradFiltroWk>Parametri ricerca</lblradFiltroWk>
+            <lblfiltroText>Filtro Testuale</lblfiltroText>
+            <butCerca>Cerca</butCerca>
+        <fldTerapiaSel>Terapia selezionata</fldTerapiaSel>
+            <lblDosaggio>Dosaggio</lblDosaggio>
+            <lblVSomministraz>V.Somministraz.</lblVSomministraz>
+            <lblVeicolo>Veicolo</lblVeicolo>
+            <lblDiluizione>Diluizione</lblDiluizione>
+            <lblVelocita>Velocita</lblVelocita>
+            <lblPosologia>Posologia</lblPosologia>
+        <fldDatiTerapia>Dati Terapia</fldDatiTerapia>
+            <lblVieSomministra>Vie di somministrazione</lblVieSomministra>
+            <lblVeicolo>Veicolo</lblVeicolo>
+            <lblDiluizione>Diluizione</lblDiluizione>
+            <lblPosologia>Posologia</lblPosologia>
+        <fldCompetenze>Competenza</fldCompetenze>
+            <lblmedico1>Medico</lblmedico1>
+            <lblDataIns>Data</lblDataIns>
+            <lblOraIns>Ora</lblOraIns>
+            <lblvelocitaInf>Velocita (ml/ora)</lblvelocitaInf>
+        <!-- TERAPIA -->
+
+    </ROW>
+</ROWSET>

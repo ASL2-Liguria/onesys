@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>3</minChars>
+		<onSelect type="js">
+			<![CDATA[function(ret){AC.selectNazione(ret);}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>300</width>
+		<zIndex>9999</zIndex>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_NAZIONI</storedQuery>
+		<maxResults>40</maxResults>
+		<datasource>MMG_DATI</datasource>
+	</AJAX> 
+	<LIST>
+	    <title>Nazione</title>
+	    <id_wk>AC_NAZIONI</id_wk>
+	    <onSelect type="js">
+			<![CDATA[function(ret){AC.selectNazione(ret);}]]>
+		</onSelect>
+	</LIST>
+
+</AUTOCOMPLETE>	 
+    

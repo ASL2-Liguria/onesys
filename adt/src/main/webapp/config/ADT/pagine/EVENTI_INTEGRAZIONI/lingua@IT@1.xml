@@ -1,0 +1,21 @@
+<ROWSET>
+    <ROW>
+        <Mesi>Gennaio,Febbraio,Marzo,Aprile,Maggio,Giugno,Luglio,Agosto,Settembre,Ottobre,Novembre,Dicembre</Mesi>
+        <Giorni>Domenica,Lunedì,Martedì,Mercoledì,Giovedì,Venerdì,Sabato</Giorni>
+        <lunedi>Lun</lunedi>
+        <martedi>Mar</martedi>
+        <mercoledi>Mer</mercoledi>
+        <giovedi>Gio</giovedi>
+        <venerdi>Ven</venerdi>
+        <sabato>Sab</sabato>
+        <domenica>Dom</domenica>
+
+        <filtroEventiIntegrazioni>Gestione Eventi Integrazioni</filtroEventiIntegrazioni>
+
+        <lblTipoEvento>Tipo Evento</lblTipoEvento>
+        <lblDaDataEventiIntegrazioni>Da data</lblDaDataEventiIntegrazioni>
+        <lblADataEventiIntegrazioni>A data</lblADataEventiIntegrazioni>
+        <lblResetCampiEventiIntegrazioni>Reset Filtri</lblResetCampiEventiIntegrazioni>
+        <butApplica>Applica</butApplica>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,12 @@
+<PAGINA key_id="IMMAGINE">
+	<HEADER_PAGE key_id="IMMAGINE" valore="DEFAULT_MMG,SCHEDA,IMMAGINE#DEFAULT_MMG,IMMAGINE" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#IMMAGINE#IDEN#IDEN" evento="START_END">
+	<TABULAZIONE.INIT key_id="tabber" valore="Immagine#lblTitolo#butChiudi" evento="START">
+	<TABULAZIONE.CREA_TAB key_id="tabDocumento" valore="tabDocumento" evento="START">
+	<IFRAME key_id="ifrload" valore="ifrload" evento="START">
+	</IFRAME>
+	</TABULAZIONE.CREA_TAB>
+	</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

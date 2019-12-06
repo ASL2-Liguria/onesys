@@ -1,0 +1,11 @@
+<root>
+	<statements_list>
+		<statement name="getDisponibilita">
+			<sql>
+			<![CDATA[
+			SELECT '<div style="float:left;width:20%;">' || DISPONIBILITA_FARMACO || '</div>' || '<div style="float:left;width:75%;">' || descr || '</div>' FARMACO FROM VIEW_CC_TER_MODELLI_FARMACI WHERE iden=to_number(?)
+			]]>
+			</sql>
+		</statement>			
+	</statements_list>
+</root>

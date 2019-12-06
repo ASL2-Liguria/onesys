@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblSceltaOperabile" TYPE="label" TEXT="Operabilità" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="radSceltaOperabile" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="0" TEXT="IDONEO"/>
+            <OPTIONVAL VALUE="1" TEXT="NON IDONEO"/>
+            <OPTIONVAL VALUE="2" TEXT="TEMPORAN. NON IDONEO"/>
+        </CAMPO>
+        <!--CAMPO KEY_CAMPO="txtMotivoOperabile" TYPE="textarea"/-->
+        <!--CAMPO KEY_CAMPO="txtDataOperabile"     TYPE="input" TYPEINPUT="text"  /-->
+    </CAMPI>
+</PAGINA>

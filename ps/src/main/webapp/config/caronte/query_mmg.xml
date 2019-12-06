@@ -1,0 +1,156 @@
+<QUERIES>
+    <QUERY_GROUP id="DATI">
+        <QUERY id="Q_DATI_PROBLEMA">
+            <SQL>
+                select
+                    iden,
+                    (select t.descr from mmg.tab_per t where iden = IDEN_MED) descr_ute_ins,
+                    IDEN_MED,
+                    ute_ins,
+                    data,
+                    DESCRIZIONE,
+					NOTE,
+                    CODICE_ICD9,
+                    DESCR_ICD9
+                from
+                mmg.mmg_problemi
+                where
+                    IDEN = :IDEN
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_INS_PROBLEMA">
+            <SQL>
+                select
+				NULL note,
+                NULL descrizione,
+                NULL CODICE_ICD9,
+                NULL DESCR_ICD9
+                from
+                DUAL
+
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_HAS_MALATTIA_RARA">
+            <SQL>
+                select
+                    iden
+                    from
+                    mmg.mmg_problemi
+                where
+                iden_anag = :iden_anag
+                and deleted = 'N'
+                and (chiuso  = 'N' or rilevante = 'S')
+                and sito = 'PS'
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="Q_DATI_INPS_MEDICO">
+            <SQL>
+                select 
+                    USERNAME,
+                    decode(PWD,null, null, utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw( PWD )))) PWD, 
+                    decode(PINCODE,null, null, utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw( PINCODE )))) PINCODE
+                from 
+                    mmg.MMG_INFO_MEDICO
+                where 
+                    iden_per = :iden_per
+            </SQL>              
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY> 
+      
+        <QUERY id="Q_LOAD_INPS_E">
+            <SQL>
+               SELECT 
+                    iden as IDEN,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtNominativoRepe"]') NOMINATIVO,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtIndirizzoRepe"]') IND_REPE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtComuneRepe"]') COMUNE_REPE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-txtComuneRepe"]') IDEN_COMUNE_REPE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtCapRepe"]') CAP_REPE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtCodFisc"]') CODICE_FISCALE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtIndirizzo"]') INDIRIZZO,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtCivico"]') CIVICO,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtComune"]') COMUNE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-txtComune"]') IDEN_COMUNE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtCAP"]') CAP,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtProvincia"]') PROVINCIA,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-radRuolo"]') RUOLO,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-radTipoVisita"]') TIPO_VISITA,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-radTipoCertificato"]') TIPO_CERTIFICATO,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-radAgevolazione"]') AGEVOLAZIONE,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtDiagnosiDescrittiva"]') DIAGNOSI_DESCRITTIVA,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtDataRilascio"]') DATA_RILASCIO,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-txtDataRilascio"]') DATA_RILASCIO_ISO,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtDataInizioMalattia"]') DATA_MALATTIA,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-txtDataInizioMalattia"]') DATA_MALATTIA_ISO,
+                    nvl(extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-radGiornataLavorativa"]'),'N') GIORNATA_LAVORATIVA,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtDataTerminePrognosi"]') DATA_TERMINE_PROGNOSI,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-txtDataTerminePrognosi"]') DATA_TERMINE_PROGNOSI_ISO,
+                    nvl(extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-radTrauma"]'),'N') TRAUMA,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="txtDiagnosiICD9"]') DESCR_DIAGNOSI_ICD9,
+                    extractvalue(xml_certificato, '//CAMPO[@KEY_CAMPO="h-txtDiagnosiICD9"]') IDEN_DIAGNOSI_ICD9,  
+                    null as giorni_prognosi
+                FROM MMG_CERTIFICATI 
+                WHERE          
+                    sito = 'PS'
+                    and iden_accesso = :iden_contatto
+                    and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>                
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY> 
+        <QUERY id="EXIST_PAGINA_INPS">
+            <SQL>
+               SELECT 
+                  DECODE(COUNT(1),'0','I','1','E') STATO_PAGINA
+                FROM MMG_CERTIFICATI 
+                WHERE          
+                    sito = 'PS'
+                    and iden_accesso = :iden_contatto
+                    and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_contatto" value="#IDEN_CONTATTO#" type="N"></BIND>                
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>  
+        <QUERY id="CHECK_ID_CERTIFICATO">
+            <SQL>
+               SELECT 
+                  ID_CERTIFICATO
+                FROM MMG_CERTIFICATI 
+                WHERE          
+                    sito = 'PS'
+                    and iden_accesso = :IDEN_CONTATTO
+                    and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_CONTATTO" value="IDEN_CONTATTO" type="N"></BIND>                
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>       
+    </QUERY_GROUP>
+
+
+</QUERIES>

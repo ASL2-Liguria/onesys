@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href='std/css/jquery-ui-1.8.19.custom_cupertino.css' type='text/css' rel='stylesheet'>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>Programma riabilitativo</title>
+   <style>
+#divPrimario {
+    float:left;
+    width:35%;
+}
+#divStorico {
+    float:left;
+}
+#divWrapper{
+    float:left;
+    width:64%;
+    overflow-x:scroll;
+}
+.frameStorico{
+float:left;
+}
+</style>
+</head>
+<body onbeforeunload="gestBloccoAree.unlock();">
+<div id="divPrimario">
+</div>
+<div id="divWrapper">
+<div id="divStorico">
+</div>
+</div>
+</body>
+<script type='text/javascript' language='JavaScript' src='std/jscript/engine/jquery1_7.js' ></script>
+ <script type='text/javascript' src='std/jscript/Schede_xml/programmaRiabilitativo/programmaRiabMain.js' language='JavaScript'></script>
+ <script type='text/javascript' src='std/jscript/engine/jquery-ui-1.8.19.custom.min.js' language='JavaScript'></script>
+</html>

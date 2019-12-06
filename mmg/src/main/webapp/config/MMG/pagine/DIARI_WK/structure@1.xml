@@ -1,0 +1,18 @@
+<PAGINA key_id="DIARI_WK">
+	<HEADER_PAGE key_id="DIARI_WK"
+		valore="DEFAULT_MMG,SCHEDA,DIARI_WK#DEFAULT_MMG,DIARI_WK" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="filtri" valore="GestioneDiari#lblTitolo#butFiltraDiari,butInserisci,butInserisciVisita" evento="START">
+			<TABLE key_id="tableFiltri" valore="tableFiltri" evento="START">	
+				<TR.INIT key_id="t9" valore="t9" evento="START">
+					<TD_CHECK key_id="FiltriNoteDiario12" valore="FiltriNoteDiario#chkFiltriNoteDiario#N#{width:'auto',ctrl:false,idxDefault:4}##FILTRI_NOTE_DIARIO" evento="START"></TD_CHECK>
+				</TR.INIT>
+			</TABLE>
+			<INPUT.HIDDEN key_id="h-dadata" valore="h-dadata" evento="START"></INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="h-adata" valore="h-adata" evento="START"></INPUT.HIDDEN>
+			<DIV.WORKLIST key_id="wk" valore="divWk" evento="START"></DIV.WORKLIST>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

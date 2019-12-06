@@ -1,0 +1,48 @@
+.classButtonValida {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/button/icon/validaUtente.gif);
+	text-align: center;
+	
+}
+
+.classButtonValida A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValida A:hover {
+	background-image:url(../../../../imagexPix/button/icon/validaUtente_over.gif);
+}
+/* pulsante di validazione con lucchetto */
+.classButtonValidaLock {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/button/icon/validaUtenteLock.gif);
+	text-align: center;
+	
+}
+
+.classButtonValidaLock A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValidaLock A:hover {
+	background-image:url(../../../../imagexPix/button/icon/validaUtenteLock_over.gif);
+}
+
+/* ****************************** */
+
+
+#idImgSecMed{
+width:32px;
+height:32px;
+display:inline;
+}

@@ -1,0 +1,54 @@
+<root>
+	<statements_list>
+		<statement name="caricaDati">
+			<sql>
+			<![CDATA[
+			select
+				iden,
+				sezione,
+				key_campo,
+				testo,
+				ute_ins uteIns,
+				descr_ute_ins descrUteIns,
+				to_char(data_ins, 'DD/MM/YYYY HH24:MI') dataIns,
+				to_char(data_mod, 'DD/MM/YYYY HH24:MI') dataMod,
+				deleted
+			from view_sezioni_addendum
+			where funzione=? and iden_visita=? and key_campo in(select column_value from table(split(?)))
+			order by data_mod
+			]]>
+			</sql>
+		</statement>
+		<statement name="inserisci">
+			<sql>
+			<![CDATA[
+			insert into radsql.sezioni_addendum
+			(funzione, sezione, key_campo, iden_visita, testo, ute_ins, data_ins, data_mod)
+			values (?, ?, ?, ?, ?, ?, sysdate, sysdate)
+			]]>
+			</sql>
+		</statement>
+		<statement name="modifica">
+			<sql>
+			<![CDATA[
+			update radsql.sezioni_addendum
+			set
+				testo=?,
+				data_mod=sysdate
+			where iden=? and deleted='N'
+			]]>
+			</sql>
+		</statement>
+		<statement name="elimina">
+			<sql>
+			<![CDATA[
+			update radsql.sezioni_addendum
+			set
+				deleted='S',
+				data_mod=sysdate
+			where iden=? and deleted='N'
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

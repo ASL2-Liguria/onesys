@@ -1,0 +1,86 @@
+body{background:#b9e0ff;padding-right:10px; padding-left: 10px;}
+
+#divElencoDestinatario {
+	background:#b9e0ff;
+	width:30%;
+	margin:0 auto;
+	height:100px;
+	padding-bottom:15px;
+	z-index:1;
+	float:left;
+}
+
+/* #divElencoEsami { */
+/* 	background:#b9e0ff; */
+/* 	width:50%; */
+/* 	margin:0 auto; */
+/* 	height:300px; */
+/* 	padding-bottom:15px; */
+/* 	z-index:1; */
+/* 	float:left; */
+/* } */
+
+#divElencoUrgenza {
+	background:#b9e0ff;
+	width:20%;
+	margin:0 auto;
+	height:100px;
+	padding-bottom:15px;
+	z-index:1;
+	float:left;
+}
+
+/* #divElencoStrutture { */
+/* 	background:#b9e0ff; */
+/* 	width:50%; */
+/* 	margin:0 auto; */
+/* 	height:300px; */
+/* 	padding-bottom:15px; */
+/* 	float:left; */
+/* 	z-index:1; */
+/* } */
+
+#divElencoReparti {
+	
+	background:#b9e0ff;
+	width:50%;
+	margin:0 auto;
+	height:100px;
+	padding-bottom:15px;
+	z-index:1;
+ 	float:left; 
+}
+
+#divRiepilogo{
+	background:#b9e0ff;
+	width:100%;
+	margin:0 auto;
+	height:300px;
+	padding-bottom:15px;
+	z-index:1;
+	overflow-y: scroll; 
+}
+
+.trRiep{
+	background-color:white;
+	text-align: center;		
+}
+
+
+.tdRiep{
+	border:1px solid black;
+}
+
+.tdRiepImp{
+	border:3px solid red;
+}
+
+.tdRiepSel{
+	border:3px solid green;
+}
+
+.thRiep{
+	text-align: center;
+	border:1px solid black;
+}
+

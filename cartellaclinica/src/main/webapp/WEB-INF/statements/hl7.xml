@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <statements_list>
+        <statement name="cdcPosizionePaziente">
+            <sql>
+                <![CDATA[
+                    SELECT cod_cdc 
+                    FROM radsql.CENTRI_DI_COSTO cdc 
+                    JOIN radsql.TAB_PRO tp ON tp.COD_DEC = cdc.COD_DEC 
+                    where tp.IDEN = ?
+                ]]>
+            </sql>
+        </statement>
+        <statement name="webuser">
+            <sql>
+                <![CDATA[
+                    SELECT webuser 
+                    FROM imagoweb.WEB 
+                    WHERE iden_per = ?
+                ]]>
+            </sql>
+        </statement>
+        <statement name="descrizioneMedicoOrdinante">
+            <sql>
+                <![CDATA[
+                    SELECT descr 
+                    FROM radsql.TAB_PER 
+                    WHERE iden = ?
+                ]]>
+            </sql>
+        </statement>
+        <statement name="decodeCdcRepartoDestinatario">		
+            <sql>
+		<![CDATA[
+                    SELECT cod_cdc, descr, sito, struttura 
+                    FROM radsql.CENTRI_DI_COSTO 
+                    WHERE cod_dec = ?
+                ]]>
+            </sql>
+        </statement>
+        <statement name="decodeIdenAnagID1">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id1 = ?
+                ]]>
+            </sql>
+        </statement>
+        <statement name="decodeIdenAnagID2">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id2 = ?
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="decodeIdenAnagID3">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id3 = ?
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="decodeIdenAnagID4">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id4 = ?
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="decodeIdenAnagID5">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id5 = ?
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="decodeIdenAnagID6">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id6 = ?
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="decodeIdenAnagID7">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id7 = ?
+                ]]>
+            </sql>
+        </statement>  
+        <statement name="decodeIdenAnagID8">		
+            <sql>
+		<![CDATA[
+                    SELECT iden_anag 
+                    FROM radsql.COD_EST_ANAG 
+                    WHERE id8 = ?
+                ]]>
+            </sql>
+        </statement>
+        <statement name="decodeElencoEsami">
+            <sql>
+		<![CDATA[
+                    DECLARE
+                        pMittente               VARCHAR2(100)  := ?;
+                        pElencoIdenEsami        VARCHAR2(4000) := ?;
+                        pElencoLateralitaEsami  VARCHAR2(4000) := ?;
+                        
+                        vArrayElencoEsami       ARRAY_VALUE;
+                        vElencoIdenEsami        VARCHAR2(4000) := '';
+                        vElencoMetodicheEsami   VARCHAR2(4000) := '';
+                        vElencoTipologieEsami   VARCHAR2(4000) := '';
+                        
+                        vKey                    VARCHAR2(100)  := '';
+
+                        -- Funzione di recupero dei dati degli esami direttamente da TAB_ESA
+                        FUNCTION getEsamiFromTabEsa(pElencoIdenEsami VARCHAR2) RETURN ARRAY_VALUE IS
+                            vArrayIdenEsami         ARRAY_NUMBER;
+                            
+                            vElencoIdenEsami        VARCHAR2(4000)  := '';
+                            vElencoMetodicheEsami   VARCHAR2(4000)  := '';
+                            vTipologiaEsami         VARCHAR2(20)    := '';
+                        BEGIN
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromTabEsa]','SPLIT2ARRAY_NUMBER');
+                            vArrayIdenEsami := SPLIT2ARRAY_NUMBER(pElencoIdenEsami, '#');
+
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromTabEsa]','FOR');
+                            FOR i IN
+                            (SELECT metodica, tipologia_richiesta
+                            FROM radsql.TAB_ESA
+                            WHERE iden IN (SELECT column_value FROM TABLE(vArrayIdenEsami)))
+                            LOOP
+
+                                IF vElencoMetodicheEsami IS NULL THEN
+                                    vElencoMetodicheEsami := i.metodica;
+                                ELSE
+                                    vElencoMetodicheEsami := vElencoMetodicheEsami || '#' || i.metodica;
+                                END IF;
+                                
+                                -- Teoricamente la prima TIPOLOGIA che trova è quella associata alla richiesta fatta
+                                -- (gli esami devono appartenere tutti alla stessa tipologia)                                
+                                IF vTipologiaEsami IS NULL THEN
+                                    IF i.tipologia_richiesta IS NOT NULL THEN
+                                        vTipologiaEsami := i.tipologia_richiesta;
+                                    END IF;
+                                END IF;       
+
+                            END LOOP;
+
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromTabEsa]','ELENCO METODICHE ESAMI: '||vElencoMetodicheEsami);
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromTabEsa]','TIPOLOGIA ESAMI: '||vTipologiaEsami);
+                            RETURN ARRAY_VALUE(pElencoIdenEsami, vElencoMetodicheEsami, vTipologiaEsami);
+
+                            EXCEPTION
+                                WHEN OTHERS THEN 
+                                    radsql.GEST_LOGS.ERROR('hl7.xml [decodeElencoEsami][getEsamiFromTabEsa]',sqlerrm);
+                                    RETURN ARRAY_VALUE('','','');
+                        END getEsamiFromTabEsa;
+                        
+                        -- Funzione di recupero dei dati degli esami passando da CUP_TAB_ESA
+                        FUNCTION getEsamiFromCupTabEsa(pElencoIdenEsami VARCHAR2, pElencoLateralitaEsami VARCHAR2) RETURN ARRAY_VALUE IS
+                            vArrayIdenEsami         ARRAY_VALUE;
+                            vArrayLateralitaEsami   ARRAY_VALUE;
+                            
+                            vCount                  PLS_INTEGER;
+                            vIdenEsame              PLS_INTEGER;
+                            vMetodicaEsame          VARCHAR2(8);
+                            vTipologiaEsame         VARCHAR2(20);
+                            
+                            vElencoIdenEsami        VARCHAR2(4000)  := '';
+                            vElencoMetodicheEsami   VARCHAR2(4000)  := '';
+                            vTipologiaEsami         VARCHAR2(20)    := '';
+                        BEGIN
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]','SPLIT2ARRAY');
+                            vArrayIdenEsami := SPLIT2ARRAY(pElencoIdenEsami, '#');
+                            vArrayLateralitaEsami := SPLIT2ARRAY(pElencoLateralitaEsami, '#');
+
+                            vCount := vArrayIdenEsami.count;
+                            
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]','FOR');
+                            FOR j IN 1 .. vCount
+                            LOOP
+                                --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]','ISES: '||vArrayIdenEsami(j));
+                                --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]','LATERALITA: '||vArrayLateralitaEsami(j));
+
+                                -- RECUPERO IDEN, METODICA e TIPOLOGIA_RICHIESTA
+                                SELECT te.IDEN, te.METODICA, te.TIPOLOGIA_RICHIESTA INTO vIdenEsame, vMetodicaEsame, vTipologiaEsame
+                                FROM radsql.TAB_ESA TE
+                                JOIN radsql.CUP_TAB_ESA CTE ON (cte.COD_ESA = te.COD_ESA)
+                                WHERE cte.ISES = vArrayIdenEsami(j) 
+                                AND (cte.COD_LAT = vArrayLateralitaEsami(j) OR vArrayLateralitaEsami(j) IS NULL);
+
+                                IF vElencoIdenEsami IS NULL THEN
+                                    vElencoIdenEsami := vIdenEsame;
+                                ELSE
+                                    vElencoIdenEsami := vElencoIdenEsami || '#' || vIdenEsame;
+                                END IF;
+                                
+                                IF vElencoMetodicheEsami IS NULL THEN
+                                    vElencoMetodicheEsami  := vMetodicaEsame;
+                                ELSE
+                                    vElencoMetodicheEsami := vElencoMetodicheEsami || '#' || vMetodicaEsame;
+                                END IF;
+
+                                -- Teoricamente la prima TIPOLOGIA che trova è quella associata alla richiesta fatta
+                                -- (gli esami devono appartenere tutti alla stessa tipologia)
+                                IF vTipologiaEsami IS NULL THEN
+                                    IF vTipologiaEsame IS NOT NULL THEN
+                                        vTipologiaEsami := vTipologiaEsame;
+                                    END IF;
+                                END IF;
+                                
+                            END LOOP;
+
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]','ELENCO IDEN ESAMI: '||vElencoIdenEsami);
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]','ELENCO METODICHE ESAMI: '||vElencoMetodicheEsami);
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]','TIPOLOGIA ESAMI: '||vTipologiaEsami);
+                            RETURN ARRAY_VALUE(vElencoIdenEsami, vElencoMetodicheEsami, vTipologiaEsami);
+
+                            EXCEPTION 
+                                WHEN OTHERS THEN 
+                                    radsql.GEST_LOGS.ERROR('hl7.xml [decodeElencoEsami][getEsamiFromCupTabEsa]',sqlerrm);
+                                    RETURN ARRAY_VALUE('','','');
+                        END getEsamiFromCupTabEsa;
+                        
+                    BEGIN
+                        --radsql.GEST_LOGS.SET_LEVEL_DEBUG;
+                        --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami]','START');   
+
+                        BEGIN
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami]','SELECT');   
+                            -- Controllo come recuperare i dati degli esami richiesti:
+                            -- 1) da TAB_ESA via CUP_TAB_ESA tramite ISES e LATERALITA'
+                            -- 2) da TAB_ESA tramite IDEN
+                            SELECT valore INTO vKey
+                            FROM imagoweb.CONFIGURA_MODULI
+                            WHERE modulo = 'OE.SERVER' AND variabile = 'DECODIFICA.PRESTAZIONI.'||pMittente;
+                            --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami]','KEY: '||vKey);
+                            
+                            EXCEPTION 
+                                WHEN NO_DATA_FOUND THEN 
+                                    radsql.GEST_LOGS.ERROR('hl7.xml [decodeElencoEsami]','MISSING CONFIGURATION radsql.CONFIGURA_MODULI');
+                                WHEN OTHERS THEN 
+                                    radsql.GEST_LOGS.ERROR('hl7.xml [decodeElencoEsami]',sqlerrm);                                
+                        END;
+                        
+                        CASE vKey
+                            WHEN 'ISES' THEN vArrayElencoEsami := getEsamiFromCupTabEsa(pElencoIdenEsami, pElencoLateralitaEsami);
+                            WHEN 'IDEN' THEN vArrayElencoEsami := getEsamiFromTabEsa(pElencoIdenEsami);
+                            ELSE vArrayElencoEsami := ARRAY_VALUE('','','');
+                        END CASE;  
+                        
+                        vElencoIdenEsami        := vArrayElencoEsami(1);
+                        vElencoMetodicheEsami   := vArrayElencoEsami(2);
+                        vElencoTipologieEsami   := vArrayElencoEsami(3);                        
+                        
+                        --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami]','ELENCO IDEN ESAMI: '||vElencoIdenEsami);   
+                        --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami]','ELENCO METODICHE ESAMI: '||vElencoMetodicheEsami); 
+                        --radsql.GEST_LOGS.DEBUG('hl7.xml [decodeElencoEsami]','TIPOLOGIA ESAMI: '||vElencoTipologieEsami); 
+
+                        ? := vElencoIdenEsami;
+                        ? := vElencoMetodicheEsami;
+                        ? := vElencoTipologieEsami;
+                    END;
+                ]]>
+            </sql>
+        </statement> 
+        <statement name="decodeIdenNosologico">		
+            <sql>
+		<![CDATA[
+                    SELECT iden 
+                    FROM radsql.NOSOLOGICI_PAZIENTE 
+                    WHERE num_nosologico = ? AND iden_anag = ? AND accesso = 0
+                ]]>
+            </sql>
+        </statement>                                                                                               
+        <statement name="salvaRichiesta">
+            <sql>
+                <![CDATA[
+                    DECLARE
+                        pContenutoXML VARCHAR2(4000) := ?;
+                        vXml xmltype := XMLTYPE(pContenutoXML);	
+                        
+                        vCdcRichiedente centri_di_costo.cod_cdc%type;
+                        vCdcDestinatario centri_di_costo.cod_cdc%type;
+                        vTipologiaRichiesta varchar2(5000);  
+                        vMetodica varchar2(5000);  
+                        vKeyLegame varchar2(5000);         
+                        vIdenTestata pls_integer;
+                    BEGIN 
+                    
+                        select cdc.cod_cdc into vCdcRichiedente 
+                        from    
+                            centri_di_costo cdc 
+                            join tab_pro tp on tp.cod_dec = cdc.cod_dec 
+                        where 
+                            tp.iden = to_number(vXml.extract('//CAMPO[@KEY_CAMPO="Hiden_pro"]/text()').getStringVal());
+                        
+                        vCdcDestinatario := vXml.extract('//CAMPO[@KEY_CAMPO="HcmbRepDest"]/text()').getStringVal();
+                        
+                        vTipologiaRichiesta := vXml.extract('//CAMPO[@KEY_CAMPO="TIPOLOGIA_RICHIESTA"]/text()').getStringVal();
+                        
+                        vMetodica := substr(vXml.extract('//CAMPO[@KEY_CAMPO="HelencoMetodiche"]/text()').getStringVal(),1,1);
+                        
+                        vKeyLegame := infoweb.oe_richieste.get_key_legame(vCdcRichiedente, vCdcDestinatario, vTipologiaRichiesta, vMetodica);
+                        
+                        if(vKeyLegame is not null) then
+                            select 
+                                insertchildxml(vXml, '/PAGINA/CAMPI', 'CAMPO',XMLType('<CAMPO KEY_CAMPO="KEY_LEGAME">' || vKeyLegame || '</CAMPO>'))
+                            into vXml from dual;
+                        end if;
+                        
+                        INSERT INTO radsql_bck.RICHIESTE_XML (CONTENUTO_XML) VALUES (vXml) returning iden_testata into vIdenTestata;
+                        ? := vIdenTestata;
+                    END;
+                ]]>
+            </sql>
+        </statement>
+    </statements_list> 
+</root>

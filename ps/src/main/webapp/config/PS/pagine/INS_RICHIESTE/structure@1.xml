@@ -1,0 +1,176 @@
+<PAGINA key_id="INS_RICHIESTE">
+	<HEADER_REFERTAZIONE key_id="INS_RICHIESTE" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,INS_RICHIESTE#DEFAULT,PS_INS_RICHIESTE"
+		evento="START_END">
+	</HEADER_REFERTAZIONE>
+	<FORM key_id="dati" valore="dati#FX$SALVA_ESAMI.SALVA_ESAMI#PS###" evento="START_END">
+		<TABULAZIONE.INIT key_id="dati"	valore="INS_RICHIESTE#lblTitolo#butInvia" evento="START">
+
+                <INPUT.HIDDEN key_id="hAnagIden" valore="hAnagIden###" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hAnagNome" valore="hAnagNome###" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hAnagCognome" valore="hAnagCognome###" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hAnagSesso" valore="hAnagSesso###" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hAnagCodFisc" valore="hAnagCodFisc###" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hAnagDataNasc" valore="hAnagDataNasc###" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hContCodice" valore="hContCodice###" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hStruttura" valore="hStruttura###" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hProblemaPrinc" valore="hProblemaPrinc###" evento="START">
+				</INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hDescrProblemaPrinc" valore="hDescrProblemaPrinc###" evento="START">
+                </INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hCodCdc" valore="hCodCdc###" evento="START">
+				</INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hCodDec" valore="hCodDec###" evento="START">
+                </INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hCatena" valore="hCatena###" evento="START">
+				</INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hEsamiForensi" valore="hEsamiForensi###" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUtenteResponsabile" valore="hUtenteResponsabile" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hDataAperturaCartella" valore="hDataAperturaCartella" evento="START">
+                </INPUT.HIDDEN>
+
+                <ROW key_id="rowUrgenzaRichieste" valore="rowUrgenzaRichieste" evento="START">
+                    <COLUMN_FREE key_id="colUrgenza" valore="colUrgenza" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldUrgenza" valore="fldUrgenza"	evento="START">
+                            <TR.INIT key_id="trTemplate1" valore="" evento="START">
+                                <TD.INIT key_id="tdTemplate1" valore="1" evento="START">
+                                    <TEMPLATE key_id="template" valore ="URGENZA_RICHIESTE/UrgenzaRichiesta.ftl#URGENZA_RICHIESTE/UrgenzaRichiesta.ftl" evento = "START">
+                                    </TEMPLATE>
+                                </TD.INIT>
+                            </TR.INIT>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+                <ROW key_id="rowRichieste0" valore="rowRichieste0" evento="START">
+					<COLUMN_FREE key_id="colWkSel" valore="colWkSel" evento="START">
+						<FIELD_HEADER_TABLE key_id="fldDati" valore="fldDati"	evento="START">
+							<TR_TD_RADIO key_id="radRichieste" valore="radRichieste#radRichieste#{width:200}#N#" evento="START">
+							</TR_TD_RADIO>
+						</FIELD_HEADER_TABLE>
+					</COLUMN_FREE>
+				</ROW>
+
+				<ROW key_id="rowRichieste1" valore="rowRichieste1" evento="START">
+                    <COLUMN_FREE key_id="colFiltriProfili" valore="colFiltriProfili" evento="START">
+                        <DIV key_id="divContainer2" valore="divContainer2" evento="START">
+                            <!-- Div che compare per la selezione del reparto dove richiedere le consulenze e per i reparti preferiti -->
+                            <FIELD_HEADER key_id="fldFiltriProfili" valore="fldFiltriProfili"	evento="START">
+                            </FIELD_HEADER>
+							<DIV key_id="divRepartoCons" valore="divRepartoCons#showHide" evento="START">
+                                <!--<DIV key_id="divlblRepartoCons" valore="divlblRepartoCons" evento="START">
+                                    <LABEL key_id="lblStrutturaCons" valore="lblStrutturaCons" evento="START">
+                                    </LABEL>
+                                </DIV>
+								<COMBO key_id="cmbStrutturaCons" valore="cmbStrutturaCons#cmbStrutturaCons#N##S" evento="START">
+								</COMBO>-->
+								<DIV key_id="spanConsulenze" valore="spanConsulenze#" evento="START">
+                                    <DIV key_id="divLblRepartoCons" valore="divLblRepartoCons" evento="START">
+									    <LABEL key_id="lblRepartoConsulenze" valore="lblRepartoConsulenze" evento="START">
+									    </LABEL>
+                                    </DIV>
+                                    <DIV key_id="divCmbRepartoCons" valore="divCmbRepartoCons" evento="START">
+                                        <COMBO key_id="cmbRepartoConsulenze" valore="cmbRepartoConsulenze#cmbRepartoConsulenze#N##S"
+                                            evento="START">
+                                        </COMBO>
+                                    </DIV>
+								</DIV>
+							</DIV>
+							<DIV key_id="divPreferitiCons" valore="divPreferitiCons#showHide" evento="START">
+								<DIV key_id="spanLblPrefCons" valore="spanLblPrefCons" evento="START">
+									<LABEL key_id="lblPreferitiCons" valore="lblPreferitiCons" evento="START">
+									</LABEL>
+								</DIV>
+								<DIV key_id="spanButPrefCons" valore="spanButPrefCons" evento="START">
+								</DIV>
+							</DIV>
+							<!--***************** Div con Filtri e Profili *****************************************-->
+							<DIV key_id="divProfili" valore="divProfili#showHide" evento="START">
+								<DIV key_id="spanLblProfili" valore="spanLblProfili" evento="START">
+									<LABEL key_id="lblProfili" valore="lblProfili" evento="START">
+									</LABEL>
+								</DIV>
+								<DIV key_id="spanButProfili" valore="spanButProfili" evento="START">
+								</DIV>
+							</DIV>
+							<DIV key_id="divFiltri" valore="divFiltri#showHide" evento="START">
+								<DIV key_id="spanLblFiltri" valore="spanLblFiltri" evento="START">
+									<LABEL key_id="lblFiltri" valore="lblFiltri" evento="START">
+									</LABEL>
+								</DIV>
+								<DIV key_id="spanButFiltri" valore="spanButFiltri" evento="START">
+								</DIV>
+							</DIV>
+						</DIV>
+					</COLUMN_FREE>
+
+
+				</ROW>
+
+                <ROW key_id="rowRichieste2" valore="rowRichieste1" evento="START">
+
+                    <!--<COLUMN_FREE key_id="colProfiliMulti" valore="colProfiliMulti" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldProfiliMulti" valore="fldProfiliMulti"	evento="START">
+                            <TR.INIT key_id="trProfiliMulti" valore=""	evento="START">
+                                <TD.INIT key_id="tdProfiliMulti" valore="3"	evento="START">
+                                    <DIV key_id="divProfiliMulti" valore="divProfiliMulti#" evento="START">
+                                    </DIV>
+                                </TD.INIT>
+                            </TR.INIT>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>-->
+
+                    <COLUMN_FREE key_id="colWkRichieste" valore="colWkRichieste" evento="START">
+                        <DIV key_id="divContainer" valore="divContainer" evento="START">
+                            <FIELD_HEADER key_id="fldHeaderWk" valore="fldHeaderWk"	evento="START">
+                            </FIELD_HEADER>
+                            <DIV key_id="divHeader" valore="divHeader" evento="START">
+                                <FILTRO_TEXT key_id="txtFiltroText" valore="lblFiltroText#txtFiltroText#descr##N" evento="START">
+                                </FILTRO_TEXT>
+                                <BUTTON key_id="butCerca" valore="butCerca#CERCA" evento="START">
+                                </BUTTON>
+                                <!--<BUTTON key_id="butCancellaTesto" valore="butCancellaTesto#CANCELLA" evento="START">
+                                </BUTTON>-->
+                            </DIV>
+                            <DIV key_id="divWk" valore="divWk" evento="START">
+                            </DIV>
+                        </DIV>
+                    </COLUMN_FREE>
+
+                    <COLUMN_FREE key_id="colWkSelezionati" valore="colWkSelezionati" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldWkSelezionati" valore="fldWkSelezionati"	evento="START">
+                            <TR_TD_COMBO_LIST key_id="cmbRichSel" valore="cmbRichSel#cmbRichSel#N#" evento="START">
+                            </TR_TD_COMBO_LIST>
+                            <TR.INIT key_id="trButton1" valore="" evento="START">
+                                <TD.INIT key_id="tdButton1" valore="2" evento="START">
+                                    <!--<BUTTON key_id="butPulisciCombo" valore="butPulisciCombo#CANCELLA" evento="START">
+                                    </BUTTON>-->
+                                    <BUTTON key_id="butSeleziona" valore="butSeleziona#SELEZIONA" evento="START">
+                                    </BUTTON>
+                                </TD.INIT>
+                            </TR.INIT>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+				<ROW key_id="rowRichieste3" valore="rowRichieste2" evento="START">
+					<COLUMN_FREE key_id="colAltriDati" valore="colAltriDati" evento="START">
+						<FIELD_HEADER_TABLE key_id="fldAltriDati" valore="fldAltriDati"	evento="START">
+						</FIELD_HEADER_TABLE>
+					</COLUMN_FREE>
+				</ROW>
+
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

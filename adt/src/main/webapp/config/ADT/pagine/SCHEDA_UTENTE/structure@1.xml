@@ -1,0 +1,64 @@
+<PAGINA key_id="SCHEDA_UTENTE">
+    <HEADER_PAGE key_id="SCHEDA_UTENTE" valore="DEFAULT,SCHEDA,SCHEDA_UTENTE#DEFAULT,SCHEDA_UTENTE" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#CREATEUSER#ADT#####" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaUtente" valore="SchedaUtente#lblTitolo#butSalva,butChiudi" evento="START_END">
+            <TABULAZIONE.CREA_TAB key_id="tabDatiUtente" valore="tabDatiUtente" evento="START">
+                <FIELDSET_TABLE key_id="fldDatiUtente" valore="fldDatiUtente" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="Username" valore="lblUsername##txtUsername###USERNAME##N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="password" valore="lblpassword##txtpassword###PASSWORD##N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <!--<TR_TD_LABEL_COMBO key_id="Utente" valore="lblUtente##Utente#cmbUtente#N#IDEN_PER#S" evento="START">-->
+                    <!--</TR_TD_LABEL_COMBO>-->
+                    <TD_AUTOCOMPLETE key_id="MedicoAcc" valore="lblUtente#acUteAttivita#UteAttivita#txtUte#Personale#" evento="START"></TD_AUTOCOMPLETE>
+                    <!--<TR_TD_LABEL_RADIO key_id="Attivo" valore="lblAttivo##Attivo#radAttivo#{idxDefault:0}#S#ATTIVO" evento="START">-->
+                    <!--</TR_TD_LABEL_RADIO>-->
+                    <TR_TD_LABEL_RADIO key_id="MedicoInfermiere" valore="lblMedInf##MedicoInfermiere#radmedinf#{idxDefault:0}#S#MEDICOINFERMIERE" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR.INIT key_id="trInit" valore="" evento="START">
+                        <TD.INIT key_id="tdInit" valore="" evento="START">
+                        </TD.INIT>
+                    </TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldGruppoUtente" valore="fldGruppoUtente" evento="START">
+                    <EXCHANGE_LISTS key_id="GruppoUtente" valore="excGruppiUtente#ComboInGruppiUtente#ComboOutGruppiUtente#N#btnControls#{
+                        onlySingleTransfert: true,
+                        removeFirstListItems:true,
+                        listHeaders:{
+                            listFrom:{
+                                title:'Gruppi Disponibili'
+
+                                       },
+                            listTo:{
+                                title:'Gruppi Associati',
+                                     }
+                            }
+                        }#GRUPPI_ASSOCIATI" evento="START">
+                    </EXCHANGE_LISTS>
+                    <TR_TD_LABEL_COMBO key_id="Lingua" valore="lblLingua##Lingua#cmbLingua#N#LINGUA" evento="START">
+                    </TR_TD_LABEL_COMBO>
+                    <TR_TD_LABEL_RADIO key_id="Context_Menu_Default" valore="lblContext_Menu_Default##Context_Menu_Default#radContext_Menu_Default#{width:80}#S" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldGruppoCDC" valore="fldGruppoCDC" evento="START">
+                    <EXCHANGE_LISTS key_id="GruppoCDC" valore="excGruppiCDC#ComboInGruppiCDC#ComboOutGruppiCDC#N#btnControls#{
+onlySingleTransfert: true,
+removeFirstListItems:true,
+listHeaders:{
+	listFrom:{
+		title:'CDC disponibili'
+
+	           },
+	listTo:{
+		title:'CDC Associati',
+	         }
+	}
+}#GRUPPI_CDC" evento="START">
+                    </EXCHANGE_LISTS>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

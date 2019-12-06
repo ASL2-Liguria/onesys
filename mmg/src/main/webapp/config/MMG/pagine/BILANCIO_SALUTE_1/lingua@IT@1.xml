@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Bilancio di salute n.1 (10°-45° giorno di vita)</lblTitolo>
+        
+        <tabBilancioSalute>Bilancio di salute</tabBilancioSalute>
+        <tabEsameClinico>Esame clinico</tabEsameClinico>
+        <tabSviluppoPsicomotorio>Sviluppo psicomotorio</tabSviluppoPsicomotorio>
+        
+        <fldDatiGenerali>Dati generali</fldDatiGenerali>
+        <fldDatiAuxometrici>Dati auxometrici</fldDatiAuxometrici>
+        <fldEsameClinico>Esame clinico</fldEsameClinico>
+        <fldEsameClinicoOsservazioni>Osservazioni</fldEsameClinicoOsservazioni>
+        <fldSviluppoPsicomotorio>Sviluppo psicomotorio</fldSviluppoPsicomotorio>
+        <fldSonno>Sonno</fldSonno>
+        <fldAllattamento>Allattamento</fldAllattamento>
+        
+        <lblData>Data compilazione</lblData>
+        <lblEtaMesi>Mesi</lblEtaMesi>
+        <lblEtaGiorni>Giorni</lblEtaGiorni>
+        <lblProblemiMadre>Problemi riferiti alla madre</lblProblemiMadre>
+        <lblPeso>Peso (kg)</lblPeso>
+        <lblPesoCentile>...</lblPesoCentile>
+        <lblAltezza>Lunghezza (cm)</lblAltezza>
+        <lblAltezzaCentile>...</lblAltezzaCentile>
+        <lblBMI>BMI</lblBMI>
+        <lblCirconferenza_Cranica>Circ. cranica (cm)</lblCirconferenza_Cranica>
+        <lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+        <lblNoteSonno>Note</lblNoteSonno>
+        <lblAllattamento>Allattamento</lblAllattamento>
+        <lblNoteAllattamento>Note</lblNoteAllattamento>
+        
+        <lblFontanellaAnteriore>Fontanella anteriore (cm)</lblFontanellaAnteriore>
+        <lblFontanellaPosteriore>Fontanella posteriore: chiusa</lblFontanellaPosteriore>
+        <lblSuturaSaggitale>Sutura saggitale: chiusa</lblSuturaSaggitale>
+        <lblCute>Cute: rosea</lblCute>
+        <lblIttero>Ittero</lblIttero>
+        <lblAngiomi>Angiomi</lblAngiomi>
+        <lblAltriRilieviCranici>Eventuali altri rilievi cranici</lblAltriRilieviCranici>
+        <lblAltriRilieviCutanei>Eventuali altri rilievi cutanei</lblAltriRilieviCutanei>
+        
+        <lblAR_Si_No>AR: nella norma</lblAR_Si_No>
+		<lblACV_Si_No>ACV: nella norma</lblACV_Si_No>
+		<lblAddome_Si_No>Addome: nella norma</lblAddome_Si_No>
+		<lblOrganiIpocondriaci_Si_No>Organi ipocondriaci: nella norma</lblOrganiIpocondriaci_Si_No>
+		<lblMonconeOmbelicale_Si_No>Moncone ombelicale: caduto</lblMonconeOmbelicale_Si_No>
+		<lblPolsiFemorali_Si_No>Polsi femorali: nella norma</lblPolsiFemorali_Si_No>
+		<lblGenitali_Si_No>Genitali esterni normoconformati</lblGenitali_Si_No>
+		<lblScheletro_Si_No>App. scheletrico: nella norma</lblScheletro_Si_No>
+		<lblManovraOrtolani_Si_No>Manovra di Ortolani: nella norma</lblManovraOrtolani_Si_No>
+		<lblRiflessoPupillare_Si_No>Riflesso pupillare: presente</lblRiflessoPupillare_Si_No>
+		
+		<lblRiflessoMoro_Si_No>Riflesso di Moro</lblRiflessoMoro_Si_No>
+		<lblTonoMuscolare_Si_No>Tono muscolare: nella norma</lblTonoMuscolare_Si_No>
+		<lblRiflessoPrensione_Si_No>Riflesso di prensione palmo-plantare</lblRiflessoPrensione_Si_No>
+		<lblSoluzioneValida_Si_No>Suzione valida</lblSoluzioneValida_Si_No>
+		<lblReagisceRumori_Si_No>Reagisce ai rumori</lblReagisceRumori_Si_No>
+		<lblFissaSguardo_Si_No>Fissa lo sguardo</lblFissaSguardo_Si_No>
+        
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <butSalva>Salva</butSalva>
+        <butStampa>Salva e Stampa</butStampa>
+        <butChiudi>Chiudi</butChiudi>
+        <PD></PD>
+        
+    </ROW>
+</ROWSET>

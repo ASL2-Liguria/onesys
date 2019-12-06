@@ -1,0 +1,14 @@
+<PAGINA key_id="ARCHIVIO_ESTRAZIONE_FILTRO_STD">
+    <HEADER_PAGE key_id="ARCHIVIO_ESTRAZIONE_FILTRO_STD" valore="DEFAULT,WK,ARCHIVIO_ESTRAZIONE_FILTRO_STD#DEFAULT,ARCHIVIO_ESTRAZIONE_FILTRO_DRG_ANOMALI" evento="START_END"></HEADER_PAGE>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica,butChiudiEstrazione##divWk#divWorklist" evento="START_END">
+	    <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroEstrazione" valore="filtroEstrazione#WK_ARCHIVIO_ESTRAZIONE_STD" evento="START">
+	    	<TABELLA.INIT key_id="tableEstrazione" valore="" evento="START">
+	            <TR.INIT key_id="rigaEstrazione1" valore="" evento="START">
+	            	<FILTRO_DATA key_id ="daDataEstrazione" valore ="lblDaDataEstrazione#txtDaDataEstrazione#DaDataEstrazione#readonly_element: false, format: 'd/m/Y', view: 'month'##lblDaDataEstrazione#da_data##N" evento="START"></FILTRO_DATA>
+                    <FILTRO_DATA key_id ="aDataEstrazione" valore ="lblADataEstrazione#txtADataEstrazione#ADataEstrazione#readonly_element: false, format: 'd/m/Y', view: 'month'##lblADataEstrazione#a_data##N" evento="START"></FILTRO_DATA>
+                    <FILTRO_TAG key_id="strutturaEstrazione" valore="lblStrutturaEstrazione#titStrutturaEstrazione#STRUTTURE_ESTRAZIONE#txtStrutturaEstrazione#txtStrutturaEstrazione#{width:'350px'}#N##STRUTTURE_ESTRAZIONE#V#N" evento="START"></FILTRO_TAG>
+	            </TR.INIT>
+        	</TABELLA.INIT>
+	    </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+</PAGINA>

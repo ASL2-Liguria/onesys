@@ -1,0 +1,7 @@
+body{ width: 960px; }
+
+#fldSezioniStampabili tr{ 
+	height: 40px;	
+}
+
+#txtTesto { background: #fff; padding: 5px; min-height: 150px; border: 1px solid #e8e8e8;}

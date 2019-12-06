@@ -1,0 +1,86 @@
+<Terapia stile="liv0" a_ereditabili="">
+
+    <UserInput tipo="text" name="FarmaciSelezionati" a_globali="obligatory=S;None" descr=""/>
+    <UserInput tipo="text" name="dataInizioTerapia" a_globali="None" a_inserimento="Default=TODAY;"/>
+
+    <GruppoFarmaciDescrizione classe="Label" a_globali="Intestazione"
+        >Farmaci</GruppoFarmaciDescrizione>
+    <GruppoFarmaci tipo="1"
+        a_globali="obligatory=S;obligatory_modello=S;obligatory_anamnesi=S;minimo=1;massimo=1"
+        key="tipo">
+        <Template file="Farmaci.xml" i="farmaco"/>
+    </GruppoFarmaci>
+
+    <GruppoPrescrizioniDescrizione classe="Label" a_globali="Intestazione"
+        >Prescrizioni</GruppoPrescrizioniDescrizione>
+    <GruppoPrescrizioni classe="Gruppo">
+
+        <Riga classe="Gruppo">
+
+            <UserInput classe="Options" tipo="radio" name="TipoPrescrizione" value=""
+                a_globali="obligatory=S;msg=Tipo prescrizione;">
+                <OPTION value="0" a_globali="Obbliga=Frequenza,TipoFrequenza">Frequenza</OPTION>
+                <OPTION value="1" a_globali="Obbliga=timeline,GiorniSelezionati">Oraria</OPTION>
+                <OPTION value="4" a_globali="Obbliga=ValoreSoglia">Al bisogno</OPTION>
+                <OPTION value="7" a_globali="Obbliga=ValueTAO">TAO</OPTION>
+            </UserInput>
+
+        </Riga>
+
+
+        <Riga classe="Gruppo">
+
+            <UserInput tipo="text" name="DataInizio"
+                a_globali="obligatory=S;msg=Data inizio;Calendario=S;Disable"
+                a_inserimento="Default=TODAY;CopyValueTo=dataInizioTerapia;"
+                a_modifica="Default=TODAY" descr="Data inizio"/>
+            <UserInput tipo="text" name="OraInizio"
+                a_globali="obligatory=S;msg=Ora inserimento; Orario=S" a_inserimento="Default=NOW"
+                a_modifica="Default=NOW" descr="Ora inizio"/>
+
+            <Button a_globali="Refresh;None;name=btnRefresh" onclick="timelines.btnRefreshClick();"/>
+
+            <UserInput tipo="text" name="NumeroGiorni"
+                a_globali="Positive;obligatory=S;msg=Numero giorni" descr="Numero giorni"/>
+            <UserInput tipo="checkbox" name="chkNoDataFine" a_globali=""
+                descr="Fino a fine ricovero"/>
+
+            <Button a_globali="Refresh;None;name=btnRefreshTao"
+                onclick="prescrizione.tao.btnRefreshClick();"/>
+
+
+            <UserInput classe="Options" tipo="radio" name="RadioNumeroGiorni" value=""
+                a_globali="None">
+                <OPTION value="1">1</OPTION>
+                <OPTION value="2">2</OPTION>
+                <OPTION value="3">3</OPTION>
+                <OPTION value="4">4</OPTION>
+            </UserInput>
+
+            <UserInput tipo="text" name="DataFine" descr="Data fine" a_globali="None"/>
+            <UserInput tipo="text" name="OraFine" descr="Ora fine" a_globali="None"/>
+
+        </Riga>
+
+        <Template file="Prescrizioni.xml" i="frequenza"/>
+        <Template file="Prescrizioni.xml" i="oraria_cambiadose"/>
+        <Template file="Prescrizioni.xml" i="albisogno"/>
+        <Template file="Prescrizioni.xml" i="tao"/>
+        <Template file="Prescrizioni.xml" i="notemodifica"/>
+
+    </GruppoPrescrizioni>
+
+    <SettingDescrizione classe="Label" a_globali="Intestazione">Note</SettingDescrizione>
+    <Setting classe="Gruppo">
+        <Riga classe="Gruppo" a_globali="h=2">
+            <UserInput tipo="textarea" name="Note" descr="" rows="3" cols="30"/>
+        </Riga>
+    </Setting>
+    <GruppoDatiInserimentoDescrizione classe="Label" a_inserimento="None" a_globali="Intestazione"
+        >Dati Inserimento</GruppoDatiInserimentoDescrizione>
+    <Template file="Setting.xml" i="DatiSistema" a_inserimento="None"/>
+    <HtmlContent>
+        <script> ModelloTerapia.init(); </script>
+    </HtmlContent>
+
+</Terapia>

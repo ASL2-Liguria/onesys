@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+    
+	<display-name>MMG</display-name>
+    
+	<distributable />
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<session-config>
+		<session-timeout>180</session-timeout>
+	</session-config>
+
+	<!-- filtri -->
+
+	<filter>
+		<filter-name>ElcoLoggerFilter</filter-name>
+		<filter-class>
+			it.elco.logger.ElcoLoggerFilter
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ElcoLoggerFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>ExpiresFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.ExpiresFilter</filter-class>
+		<init-param>
+			<param-name>ExpiresByType image</param-name>
+			<param-value>access plus 1 month</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExpiresByType text/css</param-name>
+			<param-value>access plus 1 month</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExpiresByType application/javascript</param-name>
+			<param-value>access plus 1 month</param-value>
+		</init-param>
+		<init-param>
+			<param-name>ExpiresByType text/cache-manifest</param-name>
+			<!-- 1 secondo e non zero perche' IE10 e' simpatico -->
+			<param-value>access plus 1 seconds</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>ExpiresFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+    
+	<filter>
+		<filter-name>IECompatibilityFilter</filter-name>
+		<filter-class>it.elco.filter.IECompatibilityFilter</filter-class>
+		<init-param>
+			<param-name>X-UA-Compatible</param-name>
+			<param-value>IE=11; IE=10</param-value>
+			<!--
+				<param-value>IE=5</param-value> Quirks mode
+				<param-value>IE=7</param-value> Forza IE7 anche senza doctype
+				<param-value>IE=8</param-value> Forza IE8 anche senza doctype
+				<param-value>IE=9</param-value> Forza IE9 anche senza doctype
+				<param-value>IE=Edge</param-value> Versione corrente
+				<param-value>IE=EmulateIE7</param-value> Emula IE7
+				<param-value>IE=EmulateIE8</param-value> Emula IE8
+				<param-value>IE=EmulateIE9</param-value> Emula IE9
+			-->
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>IECompatibilityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!--
+	<filter>
+		<filter-name>RegexFilterJnlp</filter-name>
+		<filter-class>it.elco.filter.RegexFilter</filter-class>
+		<init-param>
+			<param-name>contentType</param-name>
+			<param-value>application/x-java-jnlp-file</param-value>
+		</init-param>
+		<init-param>
+			<param-name>search1</param-name>
+			<param-value>#CODEBASE#</param-value>
+		</init-param>
+		<init-param>
+			<param-name>replace1</param-name>
+			<param-value>#REQUEST.getRequestURL-file#</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>RegexFilterJnlp</filter-name>
+		<url-pattern>*.jnlp</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+		<init-param>
+			<param-name>cors.allowed.origins</param-name>
+			<param-value>*</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.allowed.methods</param-name>
+			<param-value>GET,POST,HEAD,OPTIONS,PUT</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.allowed.headers</param-name>
+			<param-value>Content-Type,X-Requested-With,accept,Origin,Access-Control-Request-Method,Access-Control-Request-Headers</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.exposed.headers</param-name>
+			<param-value>Access-Control-Allow-Origin,Access-Control-Allow-Credentials</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.support.credentials</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.preflight.maxage</param-name>
+			<param-value>10</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+ -->
+ 
+	<listener>
+		<listener-class>it.elco.auth.SessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>it.elco.listener.ElcoListenerPool</listener-class>
+	</listener>
+    
+	<!-- security -->
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Manager</web-resource-name>
+			<url-pattern>/Manager.jsp</url-pattern>
+			<url-pattern>/manager/*</url-pattern>
+			<url-pattern>/manager/*/*</url-pattern>
+		</web-resource-collection>
+		<web-resource-collection>
+			<web-resource-name>config</web-resource-name>
+			<url-pattern>/config/caronte/*</url-pattern>
+			<url-pattern>/config/ldap/*</url-pattern>
+			<url-pattern>/config/sdj/*</url-pattern>
+			<url-pattern>/config/system/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>manager</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>Tomcat Manager Application</realm-name>
+	</login-config>
+
+	<security-role>
+		<description></description>
+		<role-name>manager</role-name>
+	</security-role>
+    
+	<!-- servlet -->
+
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+		<init-param>
+			<param-name>jsonpEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>activeReverseAjaxEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>pollAndCometEnabled</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>scriptSessionCheckTime</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>crossDomainSessionSecurity</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<servlet-class>it.elco.auth.login.Login</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Autologin</servlet-name>
+		<servlet-class>it.elco.auth.login.Autologin</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Autologin</servlet-name>
+		<url-pattern>/Autologin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>page</servlet-name>
+		<servlet-class>sdj.servlet.page</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>page</servlet-name>
+		<url-pattern>/page</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>pageWorklistStructure</servlet-name>
+		<servlet-class>it.elco.worklist.page.pageWorklistStructure</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>pageWorklistStructure</servlet-name>
+		<url-pattern>/pageWorklistStructure</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>proxy</servlet-name>
+		<servlet-class>sdj.servlet.proxy.proxy</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>proxy</servlet-name>
+		<url-pattern>/proxy</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>pageWorklistData</servlet-name>
+		<servlet-class>it.elco.worklist.page.pageWorklistData</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>pageWorklistData</servlet-name>
+		<url-pattern>/pageWorklistData</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Logout</servlet-name>
+		<servlet-class>it.elco.auth.logout.Logout</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Logout</servlet-name>
+		<url-pattern>/Logout</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>managerWeb</servlet-name>
+		<servlet-class>sdj.servlet.managerWeb</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>managerWeb</servlet-name>
+		<url-pattern>/managerWeb</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>pageDB</servlet-name>
+		<servlet-class>sdj.servlet.pageDB</servlet-class>
+		<init-param>
+			<param-name>CHECK_SESSION</param-name>
+			<param-value>S</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>pageDB</servlet-name>
+		<url-pattern>/pageDB</url-pattern>
+	</servlet-mapping>
+
+</web-app>

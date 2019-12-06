@@ -1,0 +1,68 @@
+body { width: 960px; }
+
+.tdNota{ width:40%;	border:1px solid grey; cursor:pointer; background:white; font-size: 14px;}
+
+.tdFarmaco{	width:60%;}
+
+.tdNotaSel{	background: #ffd700 url(../../../../img/menuDD/confirm.png) center right no-repeat;}
+
+.tdFarmacoAll{ width:50%; background:white	}
+
+.tdFarmacoVuoto{ width:60%;}
+
+#tableNote{	width:100%;	font-weight: bold;}
+
+#tableNote td{ height: 25px; padding: 5px;	padding-left: 20px;}
+
+#tableNote .trPrima{ margin-top:15px; padding-top:10px; border-top:3px solid #FF9626;}
+
+.tdAllergia{	width:50%;	border:1px solid grey; cursor:pointer; background:white; font-size: 12px;}
+
+#tableInterazioni{	width:100%;	font-weight: bold;}
+#tableInterazioni td{ height: 25px; padding: 5px; padding-left: 20px;}
+#tableInterazioni .trPrima{	margin-top:15px; padding-top:10px; border-top:3px solid #ED0000;}
+
+#tableNoInterazioni{	width:100%;	font-weight: bold;}
+#tableNoInterazioni td{ height: 25px; padding: 5px; padding-left: 20px;}
+#tableNoInterazioni .trPrima{	margin-top:15px; padding-top:10px; border-top:3px solid #FFBABA;}
+
+.iconFloat{	float:left;	color:blue;margin-right:  20px;}
+
+.trVuota{height:20px;}
+
+.iconFloat{float:left;color:blue;margin-right:  20px;}
+
+.fldAllergieFarmaco { border: 4px solid #FFF500; background:#ED0000;}
+.fldAllergieFarmaco legend{background:#FFF500;}
+
+.tr_HeaderTbl {background:#FFF500;} 
+
+#fldNoteCuf{background:#FAF9B4;}
+
+#th_Intolleranza{ width:50%; background:#FFBABA; }
+#th_Farmaco{ width:50%; background:#FFBABA; border-left:1px solid grey;}
+
+#butInserisci{float: right;}
+
+#txtDiagnosi{height:40px;}
+
+#fldRiepilogo input {
+	width:95%;
+	padding-left:5px;
+	height: 25px;
+}
+
+#fldRiepilogo table td {
+	text-align: center;
+}
+
+#fldRiepilogo table th {
+	font-weight: bold;
+	border-bottom: 1px solid  #aaa;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#fldRiepilogo td {
+	margin-top:10px;
+}

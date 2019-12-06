@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>INCIDENTE INTRAOSPEDALIERO</lblTitolo>
+        <butFirma>Firma</butFirma>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <tabInfermieristica>SEZIONE 1 A COMPILAZIONE INFERMIERISTICA</tabInfermieristica>
+            <lblDataEvento>Data evento</lblDataEvento>
+            <lblOraEvento>Ora evento</lblOraEvento>
+            <lblTurno>Turno</lblTurno>
+            <lblNomeCompilatore>Nome</lblNomeCompilatore>
+            <lblCognomeCompilatore>Cognome</lblCognomeCompilatore>
+            <lblLuogoEvento>Luogo evento</lblLuogoEvento>
+            <lblLuogoAltro>Altro</lblLuogoAltro>
+            <lblSedeEvento>Sede evento</lblSedeEvento>
+            <lblPresenza>Presente</lblPresenza>
+            <lblLuogoAltro>Altro</lblLuogoAltro>
+            <lblModalita>Modalità</lblModalita>
+            <lblModalitaAltro>Altro</lblModalitaAltro>
+            <lblMotivo>Motivo</lblMotivo>
+            <lblMotivoAltro>Altro</lblMotivoAltro>
+            <lblFacente>Facente</lblFacente>
+            <lblCalzatura>Calzatura</lblCalzatura>
+            <lblAltroCalzatura>Altro</lblAltroCalzatura>
+            <lblDataCompilazione>Data compilazione</lblDataCompilazione>
+        <tabMedicaPrima>SEZIONE 2 A COMPILAZIONE MEDICA</tabMedicaPrima>
+            <lblBreveDescrEvento>Breve Descrizione Evento</lblBreveDescrEvento>
+            <lblTipoLesione>Tipo Lesione</lblTipoLesione>
+            <lblSedeLesione>Sede Lesione</lblSedeLesione>
+            <lblAccDiagnostici>Accertamenti diagnostici richiesti</lblAccDiagnostici>
+            <lblAccRX>RX</lblAccRX>
+            <lblAccTAC>TAC</lblAccTAC>
+            <lblAccAltro>Altro</lblAccAltro>
+            <lblTerapieInAtto>Terapie In Atto</lblTerapieInAtto>
+            <lblPrognosiGiorniPrima>Prognosi di giorni</lblPrognosiGiorniPrima>
+        <tabMedicaDopo>SEZIONE 3 A COMPILAZIONE MEDICA(dopo esecuzione esami)</tabMedicaDopo>
+            <lblReferti>Referti</lblReferti>
+            <lblRefertiRX>RX</lblRefertiRX>
+            <lblRefertiTAC>TAC</lblRefertiTAC>
+            <lblRefertiAltro>Altro</lblRefertiAltro>
+        <lblPrognosiGiorniDopo>Prognosi di giorni(effettivo dopo esecuzione esami)</lblPrognosiGiorniDopo>
+
+        <labelVuota>yyyyyyyyyy</labelVuota>
+    </ROW>
+</ROWSET>

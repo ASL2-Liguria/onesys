@@ -1,0 +1,11 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+
+	<DATO key_id="chkProposte" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_AMMISSIONE_RETE_SERVIZI'' and TIPO_DATO=''Proposte'''; end;" />
+	<DATO key_id="radLivello" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_LIVELLO_RIFERITO" />
+	<DATO key_id="Riferito" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="cmbProblemiPaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="CMB_PROBLEMI_MODULI" />
+</DATI>

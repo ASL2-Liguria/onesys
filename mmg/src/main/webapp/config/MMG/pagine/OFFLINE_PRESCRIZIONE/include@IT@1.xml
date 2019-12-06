@@ -1,0 +1,24 @@
+<INCLUDE>
+
+	<!-- DEFAULT_MMG -->
+	<CSS path="css/MMG/mmg.css?vOffline=14" cache="true" />
+	
+	<JS path="MMG/offline/js/LIB.js?vOffline=14" cache="true" />
+	<JS path="js/MMG/LIB.js?vOffline=14" cache="true" />
+	<JS path="js/MMG/NS_MMG_UTILITY.js?vOffline=14" cache="true" />
+	<JS path="js/Base/NS_FENIX.js?vOffline=14" cache="true" />
+	
+	<!-- SCHEDA -->
+	
+	<JS path="js/Base/NS_FENIX_SCHEDA.js?vOffline=14" cache="true" />
+	<JS path="js/MMG/NS_FENIX_SCHEDA_OVERRIDE.js?vOffline=14" cache="true" />
+	
+	<!-- OFFLINE -->
+	
+	<CSS path="MMG/offline/css/style.css?vOffline=14" cache="true" />
+	
+	<JS path="MMG/offline/js/NS_OFFLINE_ALL.js?vOffline=14" cache="true" />
+	<JS path="MMG/offline/js/PRESCRIZIONE.js?vOffline=14" cache="true" />
+	
+</INCLUDE>
+

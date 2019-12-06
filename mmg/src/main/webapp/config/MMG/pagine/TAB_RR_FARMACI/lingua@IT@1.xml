@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+		<butPT>Piani Terapeutici</butPT>
+		<lblTitolo>Farmaci, presidi, integratori, ...</lblTitolo>
+		<tabRicettaFarmaci>Ricetta Farmaci</tabRicettaFarmaci>
+		
+		<!-- MENU -->
+		<lblDuplicaPosologia>Sostituzione farmaco con stessa posologia</lblDuplicaPosologia>
+		<lblPosTerCronica>Calendario della posologia</lblPosTerCronica>
+		<lblTerapieGiornaliere>Prospetto giornaliero della terapia</lblTerapieGiornaliere>
+		<lblCronica>Terapia Cronica</lblCronica>
+		<lblTemporanea>Terapia Temporanea</lblTemporanea>
+		<lblPeriodica>Terapia Periodica</lblPeriodica>
+		<lblRimuoviBlocco>Rimuovi il blocco</lblRimuoviBlocco>
+		<lblStorico>Storico delle prescrizioni</lblStorico>
+		<lblAzzeraContatore>Azzera Contatore Farmaco</lblAzzeraContatore>
+		<lblPT>Piano Terapeutico</lblPT>
+		
+		<lblMonografia>Monografia Farmaco</lblMonografia>
+		<lblInterazioni>Interazioni Farmaco</lblInterazioni>
+		<lblInfo>Informazioni Farmaco</lblInfo>
+		<lblInfoPrescrizione>Dettagli Prescrizione</lblInfoPrescrizione>
+		<lblPTScaduto>La terapia richiede la presenza di un piano terapeutico in corso di validità</lblPTScaduto>
+		<msg_1>L'operazione richiesta non risulta possibile su una prescrizione cancellata</msg_1>
+		<msg_2>L'operazione richiesta non risulta possibile in quanto la prescrizione risulta non cancellata</msg_2>
+		<lblFarmacoNonEsente>Il farmaco selezionato non é concedibile esente</lblFarmacoNonEsente>
+		<lblStampaAutomatica>Stampa Automatica</lblStampaAutomatica>
+		<btnStampaRapida>Stampa Rapida</btnStampaRapida>
+		<dialogInfoStampa>Informazioni stampa rapida ricetta</dialogInfoStampa>
+		<msgDialogStampa1>Se il pulsante viene selezionato (</msgDialogStampa1>
+		<msgDialogStampa2>) si effettua direttamente la stampa della prescrizione senza accedere alla schermata di presalvataggio per selezionare urgenza, eventuali note AIFA e informazioni quali il suggerito, Ricovero, Altro.
+		Nel caso sia presente una nota associata (o associabile) al farmaco, la stampa rapida non viene effettuata, ma è obbligatorio accedere alla schermata di presalvataggio</msgDialogStampa2>
+		
+		<!-- CALCOLO DELLA RIMANENZA DEL FARMACO -->
+		<lblNonCalcolabile>Non risulta possibile calcolare la rimanenza del farmaco senza la posologia</lblNonCalcolabile>
+		<lblFarmacoTerminato>Il farmaco dovrebbe essere terminato (Rimanenza </lblFarmacoTerminato>
+		<lblRimanenza>Rimanenza in base al principio attivo: </lblRimanenza>
+		<lblRimanenzaFarmaco>Rimanenza in base al farmaco: </lblRimanenzaFarmaco>
+		<lblRimanenzagg>Giorni di terapia per principio attivo ( con questa posologia ): </lblRimanenzagg>
+		<lblRimanenzaggFarmaco>Giorni di terapia per farmaco ( con questa posologia ): </lblRimanenzaggFarmaco>
+		<lblQtaScatola>Quantità totale di questa confezione: </lblQtaScatola>
+		<lblInfoRimanenza>ATTENZIONE!!! La rimanenza viene calcolata SOLAMENTE se una posologia è associata alla prescrizione</lblInfoRimanenza>
+		<lblInfoRimanenza2>Attenzione allo storico delle prescrizioni all'interno dell'icona della clessidra</lblInfoRimanenza2>
+		
+		<!-- label dei dialog -->
+		<dialogMotivazioneAzzeramento>Inserire una motivazione per l'azzeramento del contatore.</dialogMotivazioneAzzeramento>
+		
+		<lblNoPrescrSelezionata>Nessun farmaco selezionato</lblNoPrescrSelezionata>
+		<lblInsValNum>Inserire un valore numerico</lblInsValNum>
+		
+		<lblObbligoPosologia>A fronte di un'esenzione per terapia del dolore, è OBBLIGATORIO inserire la posologia</lblObbligoPosologia>
+		<lblTitleObbligoPosologia>OBBLIGATORIETA' DELLA POSOLOGIA</lblTitleObbligoPosologia>
+
+    </ROW>
+</ROWSET>

@@ -1,0 +1,60 @@
+<MENU>
+	<id>MENU_SCREENING</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>WK_SCREENING</ID>
+			<LINK><![CDATA[function(rec){home.SCREENING.cancellaScreening(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_SCREENING");}]]></WHERE>
+			<!-- <WHERE><![CDATA[function(rec){return true;}]]></WHERE> -->
+			<OUTPUT>"Cancella Screening"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>WK_P_SUMMARY</ID>
+			<LINK><![CDATA[function(rec){NS_MMG_PATIENT_SUMMARY.cancellaScreening(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'MOD');}]]></WHERE>
+			<OUTPUT>"Cancella Screening"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>VUOTO</ID>
+			<LINK><![CDATA[function(){}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'VIS');}]]></WHERE>
+			<OUTPUT>"Nessuna voce di menù disponibile"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>OSCURA</ID>
+			<LINK><![CDATA[function(rec){NS_PRIVACY.WK.oscuraRecord(rec, 'S', "MMG_SCREENING", NS_MMG_PATIENT_SUMMARY.wkScreening);}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (home.ASSISTITO.IDEN_MED_BASE == home.baseUser.IDEN_PER && rec[0].OSCURATO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>DISOSCURA</ID>
+			<LINK><![CDATA[function(rec){NS_PRIVACY.WK.oscuraRecord(rec, 'N', "MMG_SCREENING", NS_MMG_PATIENT_SUMMARY.wkScreening);}]]></LINK>
+			<ICON_CLASS>utente</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (home.ASSISTITO.IDEN_MED_BASE == home.baseUser.IDEN_PER &&  rec[0].OSCURATO == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblDisoscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

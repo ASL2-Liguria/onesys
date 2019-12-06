@@ -1,0 +1,42 @@
+<root>
+	<statements_list>
+		<statement name="menu">				
+			<sql>
+			<![CDATA[
+				select * from (
+				select m.*,rank() over (partition by PROCEDURA,FUNZIONE order by priorita desc) RANK from imagoweb.VIEW_MENU m
+					where applicazione in ('ALL',:applicazione)
+					and opener in ('ALL',:opener)
+					and modalita in ('ALL',:modalita)
+					and procedura=:menu
+					and radsql.CDC.checkreparti(CODICE_REPARTO,:reparti) >= 1
+					and (TIPO_ute is null or TIPO_UTE=:tipo_ute)
+					and (LIVELLO in ('1', :livello))
+					and checkutente(CODICE_UTENTE,:webuser) >= 1
+					and PARENT is null)
+				where RANK=1 and ATTIVO='S' order by ordine
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		<statement name="menuChildren">				
+			<sql>
+			<![CDATA[
+				select * from (
+				select m.*,rank() over (partition by PROCEDURA,FUNZIONE order by priorita desc) RANK from imagoweb.VIEW_MENU m
+					where applicazione in ('ALL',:applicazione)
+					and opener in ('ALL',:opener)
+					and modalita in ('ALL',:modalita)
+					and procedura=:menu
+					and radsql.CDC.checkreparti(CODICE_REPARTO,:reparti) >= 1
+					and (TIPO_ute is null or TIPO_UTE=:tipo_ute)
+					and (LIVELLO in ('1', :livello))
+					and checkutente(CODICE_UTENTE,:webuser) >= 1
+					and PARENT=:parent)
+				where RANK=1 and ATTIVO='S' order by ordine
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+	</statements_list>
+</root>

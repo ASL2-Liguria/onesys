@@ -1,0 +1,13 @@
+body#page { width: 960px; }
+
+#fld1 .tdLbl { text-align: left; width: 150px; }
+
+#fld3 { float: right; width: 45%; }
+
+#fld4 { float: left; width: 45%; }
+
+#fld5 { clear: both; }
+
+#fld7 >table.campi tr td.tdButton { width: 180px; }
+
+#butCerca {	float: right; }

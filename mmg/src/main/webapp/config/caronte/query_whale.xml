@@ -1,0 +1,76 @@
+<?xml version = "1.0"?>
+<QUERIES>
+    <QUERY_GROUP id="PIANI_TERAPEUTICI">
+    	<QUERY id="ELENCO_PIANI_PAZIENTE">
+    		<SQL>select 
+				W.Iden_Anag,
+				W.Iden_Testata,
+				w.MEDICO_DESCR,
+				w.ASL_INSERIMENTO,
+				PL.DESCRIZIONE as FARMACO,
+				pl.descrizione || ' (Principio attivo: ' || w.principio_attivo || ')' as farmaco_pa,
+				w.PRINCIPIO_ATTIVO,
+				w.DATA_ATTIVAZIONE,
+				w.DATA_SCADENZA,
+				w.CHIUSO, 
+				w.posologia, 
+				w.durata, 
+				w.TIPOLOGIA_SOMMINISTRAZIONE, 
+				w.posologia || '  ' || w.tipologia_somministrazione as posologia_inserita ,
+				W.CODICE_FARMACO
+				FROM VIEW_PT_WK w
+				join FARMADATI$V_PRODOTTI_LIGHT pl on PL.CODICE_PRODOTTO = W.CODICE_FARMACO
+				WHERE IDEN_ANAG=:iden_anag
+			</SQL>
+		</QUERY>
+		<QUERY id="VISUALIZZA_PDF">
+    		<SQL>select 'application/pdf' as MIME_TYPE,
+				cfp.PDF_FIRMATO as DOCUMENTO,
+				'piano_terapeutico.pdf' as NOME_FILE
+				from CC_FIRMA_PDF cfp where iden_tab= :iden and funzione = 'PIANO_TERAPEUTICO' and progr =(
+				select max(progr) from CC_FIRMA_PDF where iden_tab = :iden and funzione = 'PIANO_TERAPEUTICO' and deleted='N')
+			</SQL>
+		</QUERY>
+    </QUERY_GROUP>
+    <QUERY_GROUP id="RICERCA_REMOTA">
+        <QUERY id="CONFIGURAZIONE">
+            <SQL>SELECT * FROM IMAGOWEB.CONFIGURA_MODULI WHERE MODULO = 'RICERCA_REMOTA_WHALE'</SQL>
+        </QUERY>
+    </QUERY_GROUP>
+	<QUERY_GROUP id="WHALE">
+		<QUERY id="STORICO_RICOVERI">
+			<SQL>
+				select
+				np.IDEN,np.NUM_NOSOLOGICO,datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy
+				hh24:mi') DATA_INIZIO,
+				case when (np.dimesso='S') then
+				datetimeconverter(np.data_fine_ricovero||np.ora_fine_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy
+				hh24:mi')
+				else
+				''
+				END DATA_FINE,
+				cdc.descr REPARTO,
+				cdc.COD_CDC,CC_RICOVERI.getLinkVisita(np.iden, np.accesso)
+				LINK_ACCESSO,ttr.descr TIPOLOGIA
+				from
+				nosologici_paziente np
+				join
+				centri_di_costo cdc on (cdc.cod_cdc = np.cod_cdc)
+				join
+				tab_tipo_ricovero ttr on (ttr.iden= np.iden_tipo_ricovero)
+				WHERE
+				np.iden_anag=to_number(:iden_anag) and accesso=0 and deleted='N'
+				AND
+				(SELECT COUNT(*) FROM NOSOLOGICI_PAZIENTE WHERE PARENT=NP.IDEN
+				AND
+				ACCESSO=0 AND DELETED='N') = 0
+				AND IDEN_TIPO_RICOVERO IN (
+				SELECT IDEN
+				FROM TAB_TIPO_RICOVERO
+				WHERE CODICE IN('ORD','URG')
+				) order by
+				np.data_ricovero Desc,np.ora_ricovero Desc
+			</SQL>
+		</QUERY>
+	</QUERY_GROUP>
+</QUERIES>

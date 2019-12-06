@@ -1,0 +1,34 @@
+
+BODY{
+
+	background:#b9e0ff;
+}
+
+fieldset{
+	margin:10px;
+	border:4px solid #FFF;
+	padding:5px;
+	}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+#lblSelezionati{
+	width:300px;
+}
+
+div.classDivTestiStd{
+/*    background:url(../../../imagexPix/button/mini/mini_plus.png) no-repeat;*/
+    margin: 5px;
+    PADDING-LEFT:15PX;
+    background:url(../../../imagexPix/icoTxtStd_ultimo.png) no-repeat;
+ 	width:45px;
+ 	HEIGHT: 20PX;
+	cursor:pointer;
+}
+
+

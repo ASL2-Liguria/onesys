@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>4</minChars>
+		<onSelect type="js">
+			<![CDATA[function(data){AC.select(data, 'CODICE');}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>700</width>
+		<zIndex>9999</zIndex>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_CODICE_PROBLEMA</storedQuery>
+		<maxResults>15</maxResults>
+		<datasource>MMG_DATI</datasource>
+	</AJAX> 
+	<LIST>
+	    <title>Problema ICD9</title>
+	    <id_wk>AC_CODICE_PROBLEMA</id_wk>
+	    <onSelect type="js">
+			<![CDATA[function(data){AC.select(data, 'CODICE');}]]>
+		</onSelect>
+	</LIST>  
+</AUTOCOMPLETE>	 
+    

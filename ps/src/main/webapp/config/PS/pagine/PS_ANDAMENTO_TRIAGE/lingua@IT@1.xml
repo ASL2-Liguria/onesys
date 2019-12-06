@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Triage</lblTitolo>
+        <tableWkTriage>Triage</tableWkTriage>
+        <tableWkRiepilogoTriage>Rivalutazioni</tableWkRiepilogoTriage>
+        <tableWkAnamnesi>Anamnesi Infermieristiche</tableWkAnamnesi>
+        <tabAndamentoTriage>Andamento Triage</tabAndamentoTriage>
+        <fldAndamentoTriage>Andamento Triage</fldAndamentoTriage>
+        <lblvuota1>aaaa</lblvuota1>
+        <lblvuota2>bbbb</lblvuota2>
+        <lblvuota3>cccc</lblvuota3>
+    </ROW>
+</ROWSET>

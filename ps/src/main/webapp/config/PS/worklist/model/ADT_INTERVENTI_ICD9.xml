@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ADT_INTERVENTI_ICD9</ID>
+    <ID-QUERY connection="ADT">AUTOCOMPLETE.ADT_INTERVENTI_ICD9</ID-QUERY>
+    <TITLE>"Interventi ICD9"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>CODICE</COL>
+                        <DB>CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCodice</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+                    <WIDTH>40px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>           
+                <COLUMN>
+                    <ID>
+                        <COL>DESCR</COL>
+                        <DB>DESCR</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDescr</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>400px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                </LIST>
+            <SORT>
+                <!-- <COLUMN id="PAZIENTE">ASC</COLUMN>
+                <COLUMN id="CODICE_FISCALE">DESC</COLUMN> -->
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

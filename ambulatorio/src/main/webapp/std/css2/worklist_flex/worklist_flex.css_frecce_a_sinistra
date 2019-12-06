@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+body
+{
+	overflow:hidden;
+	background: url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+}
+
+div.clsWorklist
+{
+	position:relative;
+	display:block;
+}
+
+div.clsWorklist table
+{
+	table-layout:fixed;
+}
+
+/*	Header fisso	*/
+div.clsWorklist div.clsHeaderFixed
+{
+	position:absolute;
+	z-index:98;
+	width:100%;
+	background:url(../../../imagexPix/worklistFlex/sf-th.png) repeat-x;
+}
+
+/*	Header fisso, stili testo	*/
+div.clsWorklist div.clsHeaderFixed th
+{
+	color:#fff;
+	font-size:12px;
+	padding:0 3px;
+	height:25px;
+	line-height:25px;
+}
+
+div.clsWorklist div.clsHeaderFixed table
+{
+	z-index:99;
+}
+
+div.clsWorklist div.clsTableScroll
+{
+	position:relative;
+	overflow-y:scroll;
+	top:26px;
+	z-index:98;
+}
+
+div.clsWorklist table tr
+{
+	height:26px;
+}
+
+div.clsWorklist table tr td
+{
+	border-left:1px solid #1e60b8;
+	border-bottom:1px solid #1e60b8;
+	white-space:nowrap;
+	overflow:hidden;
+	text-align:left;
+	height:26px;
+	line-height:26px;
+	padding:0 3px;
+	font-size:14px;
+	color:#000;
+	/*	Sfondo celle pari	*/
+	background:#fff;
+}
+
+div.clsWorklist table tr.clsOdd td
+{
+	/*	Sfondo celle dispari	*/
+	background:#f0fafb;
+}
+
+/*	Colore righe HOVER	*/
+div.clsWorklist table tr.clsOver td
+{
+	background:#fbfaa3;
+}
+
+div.clsWorklist table tr th
+{
+	white-space: nowrap;
+	border:1px solid #1e60b8;
+	overflow:hidden;
+	cursor:pointer;
+}
+
+div.clsWorklist table tr th div
+{
+	display:block;
+}
+
+
+div.clsWorklist table tr th.clsOrder_asc
+{
+	background:url(../../../imagexPix/worklistFlex/arrow_up.gif) no-repeat 5px center;
+}
+
+div.clsWorklist table tr th.clsOrder_desc
+{
+	background:url(../../../imagexPix/worklistFlex/arrow_down.gif) no-repeat 5px center;
+}
+
+div.clsWorklist table tr th.clsOverMove
+{
+	border-left:5px solid yellow;
+}
+
+div.clsWorklist div.clsWorklistResize
+{
+	position:relative;
+	z-index:99;
+}
+
+div.clsWorklist div.clsWorklistResize div
+{
+	position:absolute;
+	left:0px;
+	width:6px;
+	background:none;
+	cursor:e-resize;
+}
+
+div.clsWorklist div.clsWorklistResize div.cls_resize
+{
+	border:1px dashed;
+	width:1px;
+}
+
+div.clsWorklist div.clsWorklistResize div.cls_move
+{
+	position:absolute;
+	display:table-cell;
+	text-align:center;
+	background:url(../../../imagexPix/worklistFlex/sf-th.png) repeat-x;
+	color:#fff;
+	font-size:12px;
+	font-weight:bold;
+	height:25px;
+	line-height:25px;
+	cursor:move;
+	overflow:hidden;
+	top:0;
+}

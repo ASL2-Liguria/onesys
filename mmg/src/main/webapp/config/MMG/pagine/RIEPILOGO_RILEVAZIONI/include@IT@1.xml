@@ -1,0 +1,6 @@
+<INCLUDE>
+	<JS path="plugin/jqplot/jquery.jqplot.min.js" />
+	<CSS path="plugin/jqplot/jquery_jqplot_min.css" />
+	<CSS path="css/MMG/Rilevazioni/riepilogoRilevazioni.css" />
+	<JS path="js/MMG/Rilevazioni/riepilogoRilevazioni.js" />
+</INCLUDE>

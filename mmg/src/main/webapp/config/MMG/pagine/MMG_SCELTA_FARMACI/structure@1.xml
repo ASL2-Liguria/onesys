@@ -1,0 +1,80 @@
+<PAGINA key_id="MMG_SCELTA_FARMACI">
+	<HEADER_PAGE key_id="MMG_SCELTA_FARMACI"
+		valore="DEFAULT_MMG,SCHEDA,MMG_SCELTA_FARMACI#DEFAULT_MMG,MMG_SCELTA_FARMACI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabSceltaFarmaci"
+			valore="sceltaFarmaci#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabScelta" valore="tabScelta" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="rigaRicerca" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Ricerca" valore="lblRicerca##txtRicerca"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<INPUT.HIDDEN key_id="hRicerca" valore="hRicerca"
+							evento="START">
+						</INPUT.HIDDEN>
+						<TD_BUTTON key_id="butDescrizione" valore="butDescrizione"
+							evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butPA" valore="butPA" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butCodice" valore="butCodice" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldFarmaco" valore="fldFarmaco"
+					evento="START">
+					<DIV.WORKLIST key_id="wkSceltaFarmaci" valore="divWk"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldSostituti" valore="fldSostituti"
+					evento="START">
+					<TR.INIT key_id="trBtnSostituti" valore="" evento="START">
+						<TD_BUTTON key_id="butSameATC" valore="butSameATC"
+							evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butSameConf" valore="butSameConf"
+							evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butSamePA" valore="butSamePA" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+					<TR.INIT key_id="trWkSostituti" valore="" evento="START">
+						<TD.INIT key_id="tdWkSostituti" valore="3" evento="START">
+							<DIV key_id="divWkSostituti" valore="divWkSostituti" evento="START">
+							</DIV>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabSceltaPresidi" valore="tabSceltaPresidi" evento="START">
+				<FIELDSET_TABLE key_id="fldRicercaPresidi" valore="fldRicercaPresidi"
+					evento="START">
+					<TR.INIT key_id="rigaRicercaPresidi" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="RicercaPresidi"
+							valore="lblRicercaPresidi##txtRicercaPresidi" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_BUTTON key_id="butRicerca" valore="butRicerca"
+							evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butRicercaCodice" valore="butRicercaCodice"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldPresidi" valore="fldPresidi"
+					evento="START">
+					<DIV.WORKLIST key_id="wkPresidi" valore="divWkPresidi"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

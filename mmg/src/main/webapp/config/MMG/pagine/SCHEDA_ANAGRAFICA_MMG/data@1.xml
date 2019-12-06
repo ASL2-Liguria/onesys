@@ -1,0 +1,94 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_SCHEDA_ANAGRAFICA'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Cognome" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COGN" db_descrizione="COGN" configurazione_multi_data="" />
+	<DATO key_id="Sesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="SESSO" db_descrizione="SESSO" configurazione_multi_data="R_SESSO" />
+	<DATO key_id="Nome" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOME" db_descrizione="NOME" configurazione_multi_data="" />
+	<DATO key_id="ConsensoPrivacyMMG" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CONSENSO_PRIVACY_MMG" db_descrizione="CONSENSO_PRIVACY_MMG" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Prof" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN_PRF" db_descrizione="PROFESSIONE" configurazione_multi_data="" />
+	<DATO key_id="LuogoNasc" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COM_NASC" db_descrizione="DESCR_NASC" configurazione_multi_data="" />
+	<DATO key_id="DataNasc" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA" db_descrizione="DATA" configurazione_multi_data="" />
+	<DATO key_id="DataDec" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_MORTE" db_descrizione="DATA_MORTE" configurazione_multi_data="" />	
+		<DATO key_id="CausaDecesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CAUSA_DECESSO" db_descrizione="CAUSA_DECESSO" configurazione_multi_data="" />
+	<DATO key_id="Eta" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ETA" db_descrizione="ETA" configurazione_multi_data="" />
+	<DATO key_id="CodFisc" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_FISC" db_descrizione="COD_FISC" configurazione_multi_data="" />
+	<DATO key_id="taNote" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOTE" db_descrizione="NOTE" configurazione_multi_data="" />
+	<DATO key_id="nTesseraSanitaria" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TESSERA_SANITARIA" db_descrizione="TESSERA_SANITARIA" configurazione_multi_data="" />
+	<DATO key_id="Telefono" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TEL" db_descrizione="TEL" configurazione_multi_data="" />
+	<DATO key_id="Mail" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="EMAIL" db_descrizione="EMAIL" configurazione_multi_data="" />
+	<DATO key_id="MailPEC" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PEC" db_descrizione="PEC" configurazione_multi_data="" />
+	<DATO key_id="LocRes" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COM_RES" db_descrizione="DESCR_RES" configurazione_multi_data="" />
+	<DATO key_id="IndRes" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDIR" db_descrizione="INDIR" configurazione_multi_data="" />
+	<DATO key_id="LocDom" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DOM_COMUNE" db_descrizione="DESCR_DOM" configurazione_multi_data="" />
+	<DATO key_id="IndDom" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DOM_INDIR" db_descrizione="DOM_INDIR" configurazione_multi_data="" />
+	<!-- <DATO key_id="CivRes" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RES_CIVICO" db_descrizione="RES_CIVICO" configurazione_multi_data="" /> -->
+	<!-- <DATO key_id="CivDom" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DOM_CIVICO" db_descrizione="DOM_CIVICO" configurazione_multi_data="" /> -->
+	<DATO key_id="CAPDom" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CAP_DOM" db_descrizione="CAP_DOM" configurazione_multi_data="" />
+	<DATO key_id="CAPRes" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CAP_RES" db_descrizione="CAP_RES" configurazione_multi_data="" />
+	<DATO key_id="ProvDom" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROV_DOM" db_descrizione="PROV_DOM" configurazione_multi_data="" />
+	<DATO key_id="ProvRes" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROV_RES" db_descrizione="PROV_RES" configurazione_multi_data="" />
+	<DATO key_id="Cellulare" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CELL" db_descrizione="CELL" configurazione_multi_data="" />
+	<!-- <DATO key_id="CivRV" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NUM_CIVICO_VISITA" db_descrizione="NUM_CIVICO_VISITA" configurazione_multi_data="" /> -->
+		<DATO key_id="NominativoRV" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOMINATIVO_VISITA" db_descrizione="NOMINATIVO_VISITA" configurazione_multi_data="" />
+	<DATO key_id="CAPRV" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CAP_VISITA" db_descrizione="CAP_VISITA" configurazione_multi_data="" />
+	<DATO key_id="IndRV" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDIR_VISITA" db_descrizione="INDIR_VISITA" configurazione_multi_data="" />
+	<DATO key_id="ProvRV" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROV_VISITA" db_descrizione="PROV_VISITA" configurazione_multi_data="" />
+	<DATO key_id="LocRV" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN_VISITA_DOM" db_descrizione="COMUNE_VISITA" configurazione_multi_data="" />
+	<DATO key_id="RegDom" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="REGIONE_DOM" db_descrizione="REGIONE_DOM" configurazione_multi_data="" />
+	<DATO key_id="RegRes" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="REGIONE_RES" db_descrizione="REGIONE_RES" configurazione_multi_data="" />
+	<DATO key_id="RegRV" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="REGIONE_VIS" db_descrizione="REGIONE_VIS" configurazione_multi_data="" />
+	<DATO key_id="hIdAAC" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ID_AAC" db_descrizione="ID_AAC" configurazione_multi_data="" />
+	<DATO key_id="StatoEstero" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_NAZIONE" db_descrizione="DESCR_NAZ" configurazione_multi_data="" />
+	<DATO key_id="IDTessera" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ID_TESSERA" db_descrizione="ID_TESSERA" configurazione_multi_data="" />
+	<DATO key_id="IDPersonale" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ID_PERSONALE" db_descrizione="ID_PERSONALE" configurazione_multi_data="" />
+	<DATO key_id="IDIstituzione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ID_ISTITUZIONE" db_descrizione="ID_ISTITUZIONE" configurazione_multi_data="" />
+	<DATO key_id="DataScadenza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="SCADENZA_RETRO_RICETTA" db_descrizione="SCADENZA_RETRO_RICETTA" configurazione_multi_data="" />
+	<DATO key_id="CodStatoEstero" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_NAZIONE" db_descrizione="COD_NAZIONE" configurazione_multi_data="" />
+	<DATO key_id="IdenStatoEstero" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN_NAZIONE" db_descrizione="IDEN_NAZIONE" configurazione_multi_data="" />
+	<DATO key_id="MedBase" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="MEDICO_BASE" db_descrizione="MEDICO_BASE" configurazione_multi_data="" />
+</DATI>
+

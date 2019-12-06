@@ -1,0 +1,57 @@
+body{ width: 960px; }
+
+
+/*#fldFasceOrarie, #fldRiepilogo {
+	display: none;
+}*/
+
+#fldFasceOrarie table.campi tr td.tdLbl {
+	text-align: center;
+	width: auto;
+}
+
+#fldFasceOrarie table.campi tr td:first-child.tdLbl {
+	text-align: right;
+}
+
+
+#fldFasceOrarie td.tdText {
+	text-align: center;	
+}
+
+#fldFasceOrarie td.tdText input {
+	text-align: center;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+	
+	#fldFasceOrarie td.tdText input[id^='txtPosti']
+	{
+		width: 30%;
+		margin-left: 35%;
+		margin-right: 35%;
+	}
+
+
+#fldFasceOrarie td.tdText input.error {
+	border-left-color: #e74c3c;
+	border-bottom-color: #e74c3c;
+}
+
+#riepilogo {
+	padding: 5px 20px;
+}
+
+#riepilogo p {
+	margin: 3px 0;
+	line-height: 150%;
+}
+
+#riepilogo p b {
+	font-weight: 700; 
+}
+
+#riepilogoLunedi, #riepilogoMartedi, #riepilogoMercoledi, #riepilogoGiovedi, #riepilogoVenerdi, #riepilogoSabato, #riepilogoDomenica {
+	margin-left: 10px;
+}

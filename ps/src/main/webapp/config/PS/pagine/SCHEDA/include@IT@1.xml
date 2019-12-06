@@ -1,0 +1,5 @@
+<INCLUDE>
+    <JS path="js/Base/NS_FENIX_SCHEDA_PS.js" />
+	<JS path="js/Base/NS_FENIX_SCHEDA.js" />
+</INCLUDE>
+

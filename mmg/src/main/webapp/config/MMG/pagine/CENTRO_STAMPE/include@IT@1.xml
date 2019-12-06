@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Stampe/CentroStampe.css" />
+	<JS path="js/MMG/Stampe/CentroStampe.js" />
+</INCLUDE>

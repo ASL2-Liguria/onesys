@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<ID>MENU_PROBLEMI_CARTELLA</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MP.IN</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.inserimentoProblema(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "");}]]></WHERE>
+			<OUTPUT>traduzione.lblInserisci</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.MP</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.modificaProblema(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "");}]]></WHERE>
+			<OUTPUT>traduzione.lblModifica</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>CANCELLA_PROBLEMA_PS</ID>
+			<LINK><![CDATA[function(rec){NS_MMG_PATIENT_SUMMARY.nascondiProblema(rec, 'DEL')}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'MOD');}]]></WHERE>
+			<OUTPUT>traduzione.lblCancella</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>VUOTO</ID>
+			<LINK><![CDATA[function(rec){}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'VIS');}]]></WHERE>
+			<OUTPUT>"Nessuna voce di menù disponibile"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.DEL</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.nascondiProblema(rec, 'DEL')}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "" );}]]></WHERE>
+			<OUTPUT>traduzione.lblCancella</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.ROP</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.riapriProblema(rec);}]]></LINK>
+			<ICON_CLASS>bloccaverde</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "" && rec[0].CHIUSO == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblRiapertura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+		<ITEM>
+			<ID>MP.CP</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.chiusuraProblema(rec);}]]></LINK>
+			<ICON_CLASS>blocca</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "" && rec[0].CHIUSO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblChiusura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+		<ITEM>
+			<ID>MP.CR</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.chiusuraRapida(rec, 'N')}]]></LINK>
+			<ICON_CLASS>bloccaverde</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "" && rec[0].CHIUSO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblChiusuraRapida</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.CRR</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.chiusuraRapida(rec, 'S')}]]></LINK>
+			<ICON_CLASS>blocca</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "" && rec.CHIUSO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblChiusuraRilevanteRapida</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<!-- 
+		<ITEM>
+			<ID>MP.ADP</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.allega_documento(rec)}]]></LINK>
+			<ICON_CLASS>documentipaziente</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY");}]]></WHERE>
+			<OUTPUT>traduzione.lblAllega</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM> 
+		-->
+		
+		<ITEM>
+			<ID>MP.NASCONDI</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.nascondiProblema(rec, 'HIDE')}]]></LINK>
+			<ICON_CLASS>chiudi</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY") && rec[0].NASCOSTO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblNascondi</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.SHOW</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.nascondiProblema(rec, 'SHOW')}]]></LINK>
+			<ICON_CLASS>apri-scheda</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY") && rec[0].NASCOSTO == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblRendiVisibile</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		
+		<ITEM>
+			<ID>MP.APRI</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.apriRiepilogoProblema(rec)}]]></LINK>
+			<ICON_CLASS>apri-scheda</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY");}]]></WHERE>
+			<OUTPUT>traduzione.lblRiepilogoProblema</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.MPS</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.mostraInPatSummary(rec, 'S');}]]></LINK>
+			<ICON_CLASS>esegui</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "" && rec[0].PAT_SUMMARY != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblMostrainPS</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.ELPS</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.mostraInPatSummary(rec, 'N');}]]></LINK>
+			<ICON_CLASS>elimina</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY" && home.ASSISTITO.DATA_MORTE == "" && rec[0].PAT_SUMMARY == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblEliminainPS</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.OSCURA</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.oscura(rec, 'S');}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (rec[0].OSCURATO != 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.DISOSCURA</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.oscura(rec, 'N');}]]></LINK>
+			<ICON_CLASS>utente</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (rec[0].OSCURATO == 'S');}]]></WHERE>
+			<OUTPUT>traduzione.lblDisoscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.ACCORPA</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.accorpa(rec, 'S');}]]></LINK>
+			<ICON_CLASS>copia</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (rec[0].IDEN_PARENT == null);}]]></WHERE>
+			<OUTPUT>traduzione.lblAccorpa</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MP.DISACCORPA</ID>
+			<LINK><![CDATA[function(rec){WK_PROBLEMI.accorpa(rec, 'N');}]]></LINK>
+			<ICON_CLASS>deseleziona-tutti</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].IDEN_PARENT != '')}]]></WHERE>
+			<OUTPUT>traduzione.lblDisaccorpa</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

@@ -1,0 +1,22 @@
+# DEFAULT CACHE REGION
+jcs.default=
+jcs.default.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+jcs.default.cacheattributes.MaxObjects=1000
+jcs.default.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
+jcs.default.cacheattributes.UseMemoryShrinker=true
+jcs.default.cacheattributes.ShrinkerIntervalSeconds=3600
+jcs.default.elementattributes=org.apache.jcs.engine.ElementAttributes
+jcs.default.elementattributes.IsEternal=false
+jcs.default.elementattributes.MaxLifeSeconds=2592000
+
+# TAB_EXT_FILES CACHE REGION
+jcs.region.tabExtFiles=
+jcs.region.tabExtFiles.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+jcs.region.tabExtFiles.cacheattributes.MaxObjects=500
+jcs.region.tabExtFiles.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
+	
+# LINGUE CACHE REGION
+jcs.region.lingue=
+jcs.region.lingue.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+jcs.region.lingue.cacheattributes.MaxObjects=500
+jcs.region.lingue.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>SELEZIONE FARMACI E PRESIDI</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butConferma>Conferma</butConferma>
+		<butPA>Principio Attivo</butPA>
+		<butDescrizione>Nome Farmaco</butDescrizione>
+		<butCodice>Codice AIC</butCodice>
+		<butRicerca>Descrizione</butRicerca>
+		<butRicercaCodice>Codice</butRicercaCodice>
+		<tabScelta>Farmaci</tabScelta>
+		<tabSceltaPresidi>Parafarmaci, Presidi, Integratori, Bombole, Pannoloni...</tabSceltaPresidi>
+		
+		<tabSceltaFarmaci>SCELTA_FARMACI</tabSceltaFarmaci>
+		<fldSostituti>Ricerca sostituti</fldSostituti>
+		<butSameATC>Farmaco con stessa A.T.C. Anatomica Terapeutica Chimica </butSameATC>
+		<butSameConf>Farmaco Equivalente (Stesso Confezionamento e P.A.)</butSameConf>
+		<butSamePA>Farmaco con stesso Principio Attivo</butSamePA>
+		<fldPresidi>Presidi</fldPresidi>
+		<fldFarmaco>Farmaci</fldFarmaco>
+		<fldRicerca>Ricerca</fldRicerca>
+		<fldRicercaPresidi>Ricerca</fldRicercaPresidi>
+		<fldTipoRicerca>Tipo</fldTipoRicerca>
+		<lblRicerca>Ricerca Farmaco</lblRicerca>
+		<lblRicercaPresidi>Ricerca Presidio</lblRicercaPresidi>
+		<lblTipoRicerca></lblTipoRicerca>
+		<lblCaricaEquivalenti>Carica equivalenti</lblCaricaEquivalenti>
+		<lblVisMonografia>Visualizza Monografia</lblVisMonografia>
+		<lblVisInfo>Informazioni sul farmaco</lblVisInfo>
+		<lblVisNoteCUF>Visualizza Note AIFA</lblVisNoteCUF>
+		<lblNoScelta>Scegliere almeno un farmaco dalla lista dei farmaci</lblNoScelta>
+		<lblFarmacoPT>Il farmaco selezionato è soggetto a Piano Terapeutico. Per confermare, inserire la data di fine del piano</lblFarmacoPT>
+		<lblConfermaPT>Conferma farmaco con P.T.</lblConfermaPT>
+		<lblProcediPT>Procedi senza P.T.</lblProcediPT>
+		<lblDeniedNotaCuf>Impossibile visualizzare la Nota CUF. Errore: Parametro URL_NOTE_CUF non configurato. Contattare il servizio di assistenza</lblDeniedNotaCuf>
+		<lblChoiceNotaCuf>Quale nota CUF si desidera visualizzare?</lblChoiceNotaCuf>
+		<lblVisNotaCuf>Impossibile visualizzare la Nota CUF.\n\nErrore: Parametro URL_NOTE_CUF non configurato. Contattare il servizio di assistenza</lblVisNotaCuf>
+		
+		<phFarmaci>Inserisci il farmaco</phFarmaci>
+		<phPresidi>Inserisci Parafarmaci, Presidi, Integratori, Bombole, Pannoloni...</phPresidi>
+		
+    </ROW>
+</ROWSET>

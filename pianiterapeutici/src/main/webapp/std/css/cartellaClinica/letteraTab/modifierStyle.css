@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+.evidenzaAllergia{
+	background-color:red;
+	color:white;
+	font-weight:bold;
+	width:100%;
+	font-size:14px;
+}
+

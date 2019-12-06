@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>SCELTA ACCERTAMENTI e ALTRE PRESCRIZIONI</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butConferma>Conferma</butConferma>
+		
+		<butRicerca>Ricerca</butRicerca>
+		<butRicercaEsatta>Ricerca esattamente il testo</butRicercaEsatta>
+		<butCodice>Codice</butCodice>
+		
+		<butDescrizione>Descrizione</butDescrizione>
+		<butCreaProfili>Crea Gruppo di Accertamenti</butCreaProfili>
+		<butInserisci>Salva</butInserisci>
+		<tabScelta>Accertamenti / Altre prescrizioni</tabScelta>
+		<tabSceltaProfili>Profili</tabSceltaProfili>
+		<tabRiepilogo>Riepilogo</tabRiepilogo>
+		<fldRiepilogo>Riepilogo (è possibile modificare manualmente la descrizione della prescrizione)</fldRiepilogo>
+		
+		<fldListaAccertamenti>Accertamenti / Altre prescrizioni</fldListaAccertamenti>
+		<fldDettaglioGruppi>Dettaglio del gruppo (eliminazione di un esame dalla lista esame con doppio clic o con il tasto destro)</fldDettaglioGruppi>
+		<fldAccertamentiScelti>Accertamenti selezionati per la scelta (eliminazione dell'accertamento dalla lista con doppio clic o con il tasto destro)</fldAccertamentiScelti>
+		<fldRicerca>Ricerca Accertamenti / Altre prescrizioni</fldRicerca>
+		<fldListaAccertamennti>Lista Accertamenti</fldListaAccertamennti>
+		<fldRicercaGruppi>Ricerca nella lista dei profili di scelta</fldRicercaGruppi>
+		<fldDataAcc>Data accertamenti</fldDataAcc>
+		<fldAttributi>Opzioni Ricerca</fldAttributi>
+		<lblData>Data</lblData>
+		<lblRicerca>Ricerca</lblRicerca>
+		<lblRicercaGruppi>Ricerca</lblRicercaGruppi>
+		<fldGruppi>Profili</fldGruppi>
+		<lblTitoloProfili>GRUPPI (Selezionare con doppio clic)</lblTitoloProfili>
+		<lblTitoloDettagli>DETTAGLIO DEL GRUPPO (Eliminare con tasto destro o doppio clic)</lblTitoloDettagli>
+		
+		<lblAccertamentiUguali>Non è possibile scegliere due accertamenti uguali</lblAccertamentiUguali>
+		<lblTitoloAccertamentiUguali>Attenzione</lblTitoloAccertamentiUguali>
+		<lblRimuovi>Rimuovi</lblRimuovi>
+		
+		<lblSinonimi>Sinonimi</lblSinonimi>
+		
+		<!-- PopUp informazioni -->
+		<lblNota>Se si utilizza questo tasto, verrà ricercato esattamente il testo inserito escludendo aventuali risultati parziali (Es.: se si ricercherà VES, non usciranno risultati come ,ad esempio, VESCICALE)</lblNota>
+		<lblInfoData>Se viene modificata la data gli accertamenti verranno riportati nella schermata principale con la data selezionata</lblInfoData>
+		<lblInfoOrdinaFreq>Se viene selezionato il Si i risultati vengono ordinati per frequenza di prescrizione discendente, da quello prescritto più volte a quello meno frequentemente</lblInfoOrdinaFreq>
+		
+		<lblFrequenza>Ordina per frequenza</lblFrequenza>
+		
+		<lblConfirmChiudi>Attenzione! Se si chiude la pagina senza salvare verranno persi i dati inseriti.Continuare?</lblConfirmChiudi>
+		
+		<lblWarningMsg>Nessun esame selezionato! Per selezionare l'esame fare doppio clic sull'accertamento che si intende prescrivere e poi cliccare sul pulsante Salva</lblWarningMsg>
+		<lblWarningTitle>Attenzione!</lblWarningTitle>
+		
+		<phAccertamenti>Inserisci Accertamento, prestazione, ...</phAccertamenti>
+		<phProfili>Inserisci il nome del profilo ...</phProfili>
+		
+		
+    </ROW>
+</ROWSET>

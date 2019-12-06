@@ -1,0 +1,9 @@
+<DATI configurazione="
+    begin :stato_pagina := 'I';
+        :key_query := 'PS.Q_EMPTY@PS';
+        :where := null;
+        :campo_xml := null;
+    end;
+    ">
+</DATI>
+

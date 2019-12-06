@@ -1,0 +1,27 @@
+<ROWSET>
+    <ROW>
+        <lblData>Data Nascita</lblData>
+        <filtroAnagrafica>Ricerca anagrafica genitoriale</filtroAnagrafica>
+        <lblResetCampi>Reset Filtri</lblResetCampi>
+        <butInserisci>Inserisci</butInserisci>
+        <lblInsert>Assegna</lblInsert>
+        <lblTitolo>RICERCA ANAGRAFICA GENITORIALE</lblTitolo>
+
+        <!-- Intestazioni WK -->
+        <lblCognomeWK>COGNOME</lblCognomeWK>
+        <lblNomeWK>NOME</lblNomeWK>
+        <lblCodiceFiscaleWK>CODICE FISCALE</lblCodiceFiscaleWK>
+        <lblIden>IDEN</lblIden>
+        <lblSesso>SESSO</lblSesso>
+        <lblDataNascita>DATA NASCITA</lblDataNascita>
+        <lblCodDecodifica>CODICE_DECODIFICA</lblCodDecodifica>
+        <lblIdenProvenienza>IDEN_PROVENIENZA</lblIdenProvenienza>
+        <lblIdenContatto>IDEN_CONTATTO</lblIdenContatto>
+        <lblCertificata>CERTIFICATA</lblCertificata>
+        <lblPaziente>PAZIENTE</lblPaziente>
+        <lblDataMorte>DECEDUTO IL</lblDataMorte>
+        <lblInfo>INFO</lblInfo>
+
+
+    </ROW>
+</ROWSET>

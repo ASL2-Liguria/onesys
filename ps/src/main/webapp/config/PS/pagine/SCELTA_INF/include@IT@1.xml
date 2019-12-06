@@ -1,0 +1,5 @@
+<INCLUDE>
+    <JS path="config/PS/validator/model/V_SCELTA_INF.js"/>
+    <JS path="js/PS/SceltaInf/SceltaInf.js"/>
+    <CSS path="css/PS/SceltaInfermiere/SceltaInf.css"/>
+</INCLUDE>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<ID>MENU_DIARI</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+
+		<ITEM>
+			<ID>MD.MN</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.modifica(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblModifica</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+		<ITEM>
+			<ID>MD.CN</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.cancella(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblCancella</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+		<ITEM>
+			<ID>MD.EV</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.apriElencoVisite(rec);}]]></LINK>
+			<ICON_CLASS>avanti</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblElencoVisite</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MD.IN</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.inserisci(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblInserisci</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+				
+		<ITEM>
+			<ID>MD.IV</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.inserisciVisita(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblInserisciVisita</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MD.OS</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.oscura(rec);}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MD.ST</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.stampa(rec);}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){
+				return true;
+			}]]></WHERE>
+			<OUTPUT>traduzione.lblStampaNota</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+		<ITEM>
+			<ID>MD.MI</ID>
+            <LINK/>
+			<ICON_CLASS>visualizza-n-archivio</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){
+				return (home.ASSISTITO.MEDICINA_INIZIATIVA == 'S' && rec[0].MEDICINA_INIZIATIVA == 'N');
+			}]]></WHERE>
+			<OUTPUT>traduzione.lblMedicinadIniziativa</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+			<LIST>
+                <ITEM>
+                    <ID>MD.BPCO</ID>
+                    <LINK><![CDATA[function(rec){MEDICINA_INIZIATIVA.setMI(rec,'BPCO');}]]></LINK>
+                    <ICON_CLASS>visualizza-n-archivio</ICON_CLASS>
+                    <WHERE><![CDATA[function(rec){
+						return (home.ASSISTITO.MEDICINA_INIZIATIVA == 'S' && rec[0].MEDICINA_INIZIATIVA == 'N');
+					}]]></WHERE>
+                    <OUTPUT>traduzione.BPCO</OUTPUT>
+                    <CONCEALING>true</CONCEALING>
+                    <SEPARATOR>false</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                </ITEM>
+                
+                <ITEM>
+                    <ID>MD.SCCARD</ID>
+                    <LINK><![CDATA[function(rec){MEDICINA_INIZIATIVA.setMI(rec,'SCOMPENSO_CARDIACO');}]]></LINK>
+                    <ICON_CLASS>visualizza-n-archivio</ICON_CLASS>
+                    <WHERE><![CDATA[function(rec){
+						return (home.ASSISTITO.MEDICINA_INIZIATIVA == 'S' && rec[0].MEDICINA_INIZIATIVA == 'N');
+					}]]></WHERE>
+                    <OUTPUT>traduzione.scompensoCardiaco</OUTPUT>
+                    <CONCEALING>true</CONCEALING>
+                    <SEPARATOR>false</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                </ITEM>
+                
+                <ITEM>
+                    <ID>MD.DIAB</ID>
+                    <LINK><![CDATA[function(rec){MEDICINA_INIZIATIVA.setMI(rec,'DIABETE');}]]></LINK>
+                    <ICON_CLASS>visualizza-n-archivio</ICON_CLASS>
+                    <WHERE><![CDATA[function(rec){
+						return (home.ASSISTITO.MEDICINA_INIZIATIVA == 'S' && rec[0].MEDICINA_INIZIATIVA == 'N');
+					}]]></WHERE>
+                    <OUTPUT>traduzione.diabete</OUTPUT>
+                    <CONCEALING>true</CONCEALING>
+                    <SEPARATOR>false</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                </ITEM>
+            </LIST>
+		</ITEM>
+				
+		<ITEM>
+			<ID>MD.RMI</ID>
+            <LINK><![CDATA[function(rec){MEDICINA_INIZIATIVA.removeMI(rec);}]]></LINK>
+			<ICON_CLASS>visualizza-n-archivio</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){
+				return (home.ASSISTITO.MEDICINA_INIZIATIVA == 'S' && rec[0].MEDICINA_INIZIATIVA == 'S');
+			}]]></WHERE>
+			<OUTPUT>traduzione.lblRemoveMedicinadIniziativa</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

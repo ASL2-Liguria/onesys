@@ -1,0 +1,55 @@
+<PAGINA key_id="RIEPILOGO_RILEVAZIONI">
+	<HEADER_PAGE key_id="RIEPILOGO_RILEVAZIONI"
+		valore="DEFAULT_MMG,SCHEDA,RIEPILOGO_RILEVAZIONI#DEFAULT_MMG,RIEPILOGO_RILEVAZIONI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SP_SAVE_INSERIMENTO_RILEVAZIONI#MMG#MMG_ACCERT_RILEVAZIONI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabRilevazioni"
+			valore="riepilogoRilevazioni#lblTitolo#butInserisci,butGrafico,butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabRiepilogoRilevazioni"
+				valore="tabRiepilogoRilevazioni" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL key_id="lableTipoRilevazione" valore="lableTipoRilevazione"
+							evento="START">
+						</TD_LABEL>
+						<TD_BUTTON key_id="but_BMI" valore="but_BMI" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_Cuore" valore="but_Cuore" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_Pressione" valore="but_Pressione" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_Temperatura" valore="but_Temperatura" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_Alcol" valore="but_Alcol" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_Fumo" valore="but_Fumo" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="but_Altro" valore="but_Altro" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="ElencoWork" valore="ElencoWork"
+					evento="START_END">
+				</DIV.WORKLIST>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

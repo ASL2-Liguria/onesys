@@ -1,0 +1,171 @@
+<root>
+	<statements_list>
+
+		
+		<statement name="getEsaByDescr">
+			<schema>RADSQL</schema>	
+			<sql>
+			<![CDATA[
+					select iden, cod_dec, descr descrizione from tab_esa where attivo   ='S' and descr Like Upper('%' || ? || '%') order by descr
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="getCdcByDescr">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+					select iden, cod_cdc cod_dec, descr descrizione from centri_di_costo where attivo   ='S' and descr Like Upper('%' || ? || '%') order by descr
+			]]>
+			</sql>
+		</statement>		
+
+		<statement name="getSalaByDescr">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+					select iden, cod_dec, descr descrizione from tab_sal where attivo   ='S' and descr Like Upper('%' || ? || '%') order by descr
+			]]>
+			</sql>
+		</statement>	
+
+		<statement name="getSalaByDescrFilteredByCdc">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+					select iden, cod_dec, descr descrizione from tab_sal where attivo   ='S' and reparto = ? order by descr
+			]]>
+			</sql>
+		</statement>					
+		
+		<statement name="getAllFormat">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+					select distinct modulo from moduli_console where iden_esa is null and iden_esa is null and reparto is null order by MODULO			
+			]]>
+			</sql>
+		</statement>	
+		
+		
+		<statement name="getNumOfFormatInUse">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+					select count(iden_esa) numero_moduli from VIEW_DESCR_MODULI_CONSOLE where iden_esa IS NOT NULL
+			]]>
+			</sql>
+		</statement>			
+		
+		<statement name="getFormatInUse">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+					select iden_esa, iden_sal, cod_cdc, descr_esa, descr_cdc, descr_sal, modulo from VIEW_DESCR_MODULI_CONSOLE where iden_esa IS NOT NULL
+			]]>
+			</sql>
+		</statement>				
+		
+		<statement name="getExistedFormat_by_Esa">
+		<schema>RADSQL</schema>			
+		<sql>
+		<![CDATA[	
+			select modulo  from moduli_console where iden_esa=?
+		]]>
+		</sql>
+		</statement>	
+		
+		<statement name="getExistedFormat_by_Esa_Cdc">
+		<schema>RADSQL</schema>			
+		<sql>
+		<![CDATA[	
+			select modulo  from moduli_console where iden_esa=? and reparto = ?
+		]]>
+		</sql>
+		</statement>	
+
+		<statement name="getExistedFormat_by_Esa_Cdc_Sala">
+		<schema>RADSQL</schema>			
+		<sql>
+		<![CDATA[	
+			select modulo  from moduli_console where iden_esa=? and reparto = ? and iden_sal = ?
+		]]>
+		</sql>
+		</statement>
+		
+		<statement name="creaAssocizioneFormat">				
+			<sql>
+			<![CDATA[
+				declare
+					vIdenEsa MODULI_CONSOLE.IDEN_ESA%type := ?;
+					vReparto MODULI_CONSOLE.REPARTO%type := ?;
+					vIdenSal MODULI_CONSOLE.REPARTO%type := ?;
+					vModulo MODULI_CONSOLE.MODULO%type := ?;
+				begin
+					Insert into radsql.MODULI_CONSOLE (IDEN_ESA,REPARTO,IDEN_SAL,MODULO) values (vIdenEsa,vReparto,vIdenSal,vModulo);	
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="updateXslOnFormat">				
+			<sql>
+			<![CDATA[
+				declare
+					vModulo MODULI_CONSOLE.MODULO%type := ?;
+				begin
+					UPDATE moduli_console
+					SET xslt_4_writing =
+					  (SELECT xslt_4_writing
+					  FROM moduli_console
+					  WHERE iden_esa IS NULL
+					  AND reparto    IS NULL
+					  AND iden_sal   IS NULL
+					  AND modulo      = vModulo
+					  ),
+					 xslt_4_writing_txt =
+					  (SELECT xslt_4_writing_txt
+					  FROM moduli_console
+					  WHERE iden_esa IS NULL
+					  AND reparto    IS NULL
+					  AND iden_sal   IS NULL
+					  AND modulo      = vModulo
+					  )
+					WHERE xslt_4_writing IS NULL and xslt_4_writing_txt is null
+					AND iden_esa         IS NOT NULL
+					AND modulo            = vModulo;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="deleteAssocizioneFormat">				
+			<sql>
+			<![CDATA[
+				declare
+					vIdenEsa MODULI_CONSOLE.IDEN_ESA%type := ?;
+					vReparto MODULI_CONSOLE.REPARTO%type := ?;
+					vIdenSal MODULI_CONSOLE.IDEN_SAL%type := ?;
+					vModulo MODULI_CONSOLE.MODULO%type := ?;
+				begin
+					IF (vReparto is null and vIdenSal is null) THEN 
+					   delete from radsql.MODULI_CONSOLE where iden_esa = vIdenEsa and modulo = vModulo;
+					ELSIF (vReparto is not null and vIdenSal is null) THEN 
+					   delete from radsql.MODULI_CONSOLE where iden_esa = vIdenEsa and modulo = vModulo and reparto = vReparto;	
+					ELSIF (vReparto is not null and vIdenSal is not null) THEN 					   
+					   delete from radsql.MODULI_CONSOLE where iden_esa = vIdenEsa and modulo = vModulo and reparto = vReparto and iden_sal = vIdenSal ;
+					END IF;
+					  EXCEPTION
+					   WHEN OTHERS THEN
+						dbms_output.put_line('Error not handled');
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>					
+	
+		
+	</statements_list>
+</root>		

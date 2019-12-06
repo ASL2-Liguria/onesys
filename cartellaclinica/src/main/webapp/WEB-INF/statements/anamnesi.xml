@@ -1,0 +1,355 @@
+<root>
+	<statements_list>
+		<statement name="updateDeleted">				
+			<sql>
+			<![CDATA[
+				select dummy from dual;
+				update radsql.CC_SCHEDA_INTERVENTO set deleted = 'N' where iden in (?);
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDatiAnamnesi">
+			<sql>
+			<![CDATA[
+				select
+					ute_ins,
+					to_char(data_ins,'yyyyMMdd') data,
+					to_char(data_ins,'hh24:mi') ora
+				from cc_schede_xml where funzione = 'ANAMNESI' and iden_visita = ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="listAlerts">
+			<sql>
+			<![CDATA[
+				select max(iden) IDEN
+				from view_cc_allerte_ricovero
+				where TIPO IN ('ALLERGIA', 'INTOLLERANZA', 'REAZIONE_AVVERSA') AND IDEN_ANAG = ? AND UTE_INS = ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="getNoteNosologico">
+			<sql>
+			<![CDATA[
+				select note from nosologici_paziente where iden = ?
+			]]>
+			</sql>
+		</statement>
+		<!-- da rimuovere il prima possibile -->
+		<statement name="getIdenAllertaInserita">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPer pls_integer := to_number(?);
+					pIdenVisita pls_integer := to_number(?);
+					vIdenInserito pls_integer;
+				begin
+					for cur in (select iden from cc_allerte_ricovero where ute_ins = pIdenPer and iden_visita = pIdenVisita and data_ins > (sysdate-(1/20/24)) order by data_ins desc)
+					loop
+						vIdenInserito := cur.iden;
+						exit;
+					end loop;
+
+					? := vIdenInserito;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="contaAllerte">
+			<sql>
+			<![CDATA[
+				declare
+					ret pls_integer := 0;
+				begin
+					begin
+						-- Conta le allerte salvate per quell'iden visita o accesso
+						select count(iden) into ret from radsql.view_cc_allerte_ricovero where TIPO IN ('ALLERGIA','INTOLLERANZA','REAZIONE_AVVERSA') AND IDEN_ANAG=? AND (IDEN_RICOVERO = ? OR IDEN_VISITA = ?);
+					exception when others then
+						null;
+					end;
+					? := ret;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaAllerta">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenAllerta pls_integer := to_number(?);
+					pUteCanc pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+					pVisibile varchar2(1) := to_char(?);
+					vNow date := sysdate;
+				begin
+					if pIdenVisitaRegistrazione is null or pIdenAnag is null then
+						if pVisibile = 'S' then
+							update radsql.cc_allerte_ricovero set deleted='S', ute_canc=pUteCanc,data_canc=vNow where iden = pIdenAllerta;
+						else
+							update radsql.cc_allerte_ricovero set visibile='N' where iden = pIdenAllerta;
+						end if;
+					Else
+						-- Importa tutte le allergie del paziente attive non duplicate, tranne quella che sta per essere cancellata
+						CC_IMP_ALLERTE (pIdenAnag, pIdenVisitaRegistrazione, pUteCanc, pIdenAllerta, vNow);
+						
+						-- Cancello l'allergia (non la importo)
+						Update radsql.cc_allerte_ricovero set visualizza_in_altri_ricoveri='N' where iden = pIdenAllerta;
+					End if;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="duplicaAllerte">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenAllerta pls_integer := to_number(?);
+					pUteIns pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+				begin
+					-- Importa tutte le allergie del paziente attive non duplicate, tranne quella appena inserita
+					CC_IMP_ALLERTE (pIdenAnag, pIdenVisitaRegistrazione, pUteIns, pIdenAllerta, sysdate);
+				end;
+			]]>
+			</sql>
+		</statement>
+		<!-- da rimuovere il prima possibile -->
+		<statement name="getIdenInterventoInserito">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPer pls_integer := to_number(?);
+					pIdenVisita pls_integer := to_number(?);
+					vIdenInserito pls_integer;
+				begin
+					for cur in (select iden from cc_scheda_intervento where arrivato_da = 'INTERFACCIA' and ute_ins = pIdenPer and iden_visita = pIdenVisita and data_ins > (sysdate-(1/20/24)) order by data_ins desc)
+					loop
+						vIdenInserito := cur.iden;
+						exit;
+					end loop;
+
+					? := vIdenInserito;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="contaInterventi">
+			<sql>
+			<![CDATA[
+				declare
+					ret pls_integer := 0;
+				begin
+					begin
+						-- Conta gli interventi salvati (da interfaccia) per quell'iden visita o accesso
+						select count(iden) into ret from radsql.view_cc_wk_interventi where ARRIVATO_DA='INTERFACCIA' AND IDEN_ANAG=? AND (IDEN_RICOVERO = ? OR IDEN_VISITA = ?);
+					exception when others then
+						null;
+					end;
+					? := ret;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaIntervento">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenIntervento pls_integer := to_number(?);
+					pUteCanc pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+					pVisibile varchar2(1) := to_char(?);
+					vNow date := sysdate;
+				begin
+					if pIdenVisitaRegistrazione is null or pIdenAnag is null then
+						if pVisibile = 'S' then
+							update radsql.cc_scheda_intervento set deleted='S', ute_canc=pUteCanc,data_canc=vNow where iden = pIdenIntervento;
+						else
+							update radsql.cc_scheda_intervento set visibile='N' where iden = pIdenIntervento;
+						end if;
+					Else
+						-- Importa tutti gli interventi (salvati da interfaccia) del paziente attivi non duplicati, tranne quello che sta per essere cancellato
+						CC_IMP_INTERVENTI (pIdenAnag, pIdenVisitaRegistrazione, pUteCanc, pIdenIntervento, vNow);
+						
+						-- Cancello l'intervento (non lo importo)
+						Update radsql.cc_scheda_intervento set visualizza_in_altri_ricoveri='N' where iden = pIdenIntervento;
+					End if;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="duplicaInterventi">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenIntervento pls_integer := to_number(?);
+					pUteIns pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+				begin
+					-- Importa tutti gli interventi (salvati da interfaccia) del paziente attivi non duplicati, tranne quello appena inserito
+					CC_IMP_INTERVENTI (pIdenAnag, pIdenVisitaRegistrazione, pUteIns, pIdenIntervento, sysdate);
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="contaPatologie">
+			<sql>
+			<![CDATA[
+				declare
+					ret pls_integer := 0;
+				begin
+					begin
+						-- Conta le patologie salvate per quell'iden visita o accesso
+						select count(iden) into ret from radsql.view_cc_patologie_ricovero where IDEN_ANAG=? AND (IDEN_RICOVERO = ? OR IDEN_VISITA = ?);
+					exception when others then
+						null;
+					end;
+					? := ret;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="modificaDettagliPatologia">
+			<sql>
+			<![CDATA[
+				update cc_patologie_ricovero SET contenuto =
+					UPDATEXML(contenuto,
+					'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAnno"]', '<CAMPO KEY_CAMPO="txtAnno">'||?||'</CAMPO>',
+					'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNote"]', '<CAMPO KEY_CAMPO="txtNote">'||?||'</CAMPO>'
+					)
+				where iden = ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaPatologia">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPatologia pls_integer := to_number(?);
+					pUteCanc pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+					pVisibile varchar2(1) := to_char(?);
+					vNow date := sysdate;
+				begin
+					if pIdenVisitaRegistrazione is null or pIdenAnag is null then
+						if pVisibile = 'S' then
+							update radsql.cc_patologie_ricovero set deleted='S', ute_canc=pUteCanc,data_canc=vNow where iden = pIdenPatologia;
+						else
+							update radsql.cc_patologie_ricovero set visibile='N' where iden = pIdenPatologia;
+						end if;
+					Else
+						-- Importa tutte le patologie del paziente attive non duplicate, tranne quella che sta per essere cancellata
+						CC_IMP_PATOLOGIE (pIdenAnag, pIdenVisitaRegistrazione, pUteCanc, pIdenPatologia, vNow);
+						
+						-- Cancello la patologia (non la importo)
+						Update radsql.cc_patologie_ricovero set visualizza_in_altri_ricoveri='N' where iden = pIdenPatologia;
+					End if;
+				Exception when DUP_VAL_ON_INDEX then
+				    raise_application_error(-20001, 'Impossibile cancellare nuovamente una patologia già cancellata in precedenza.');
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="duplicaPatologie">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPatologia pls_integer := to_number(?);
+					pUteIns pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+				begin
+					-- Importa tutte le patologie del paziente attive non duplicate, tranne quella appena inserita
+					CC_IMP_PATOLOGIE (pIdenAnag, pIdenVisitaRegistrazione, pUteIns, pIdenPatologia, sysdate);
+				end;
+			]]>
+			</sql>
+		</statement>
+		<!-- da rimuovere il prima possibile -->
+		<statement name="getIdenPositivitaInserita">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPer pls_integer := to_number(?);
+					pIdenVisita pls_integer := to_number(?);
+					vIdenInserito pls_integer;
+				begin
+					for cur in (select iden from cc_positivita_ricovero where ute_ins = pIdenPer and iden_visita = pIdenVisita and data_ins > (sysdate-(1/20/24)) order by data_ins desc)
+					loop
+						vIdenInserito := cur.iden;
+						exit;
+					end loop;
+
+					? := vIdenInserito;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="contaPositivita">
+			<sql>
+			<![CDATA[
+				declare
+					ret pls_integer := 0;
+				begin
+					begin
+						-- Conta le positività salvate per quell'iden visita o accesso
+						select count(iden) into ret from radsql.view_cc_positivita_ricovero where IDEN_ANAG=? AND (IDEN_RICOVERO = ? OR IDEN_VISITA = ?);
+					exception when others then
+						null;
+					end;
+					? := ret;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaPositivita">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPositivita pls_integer := to_number(?);
+					pUteCanc pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+					pVisibile varchar2(1) := to_char(?);
+					vNow date := sysdate;
+				begin
+					if pIdenVisitaRegistrazione is null or pIdenAnag is null then
+						if pVisibile = 'S' then
+							update radsql.cc_positivita_ricovero set deleted='S', ute_canc=pUteCanc,data_canc=vNow where iden = pIdenPositivita;
+						else
+							update radsql.cc_positivita_ricovero set visibile='N' where iden = pIdenPositivita;
+						end if;
+					Else
+						-- Importa tutte le positività del paziente attive non duplicate, tranne quella che sta per essere cancellata
+						CC_IMP_POSITIVITA (pIdenAnag, pIdenVisitaRegistrazione, pUteCanc, pIdenPositivita, vNow);
+						
+						-- Cancello la positività (non la importo)
+						Update radsql.cc_positivita_ricovero set visualizza_in_altri_ricoveri='N' where iden = pIdenPositivita;
+					End if;
+				Exception when DUP_VAL_ON_INDEX then
+				    raise_application_error(-20001, 'Impossibile cancellare nuovamente una positività già cancellata in precedenza.');
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="duplicaPositivita">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPositivita pls_integer := to_number(?);
+					pUteIns pls_integer := to_number(?);
+					pIdenVisitaRegistrazione pls_integer := to_number(?);
+					pIdenAnag pls_integer := to_number(?);
+				begin
+					-- Importa tutte le positività del paziente attive non duplicate, tranne quella appena inserita
+					CC_IMP_POSITIVITA (pIdenAnag, pIdenVisitaRegistrazione, pUteIns, pIdenPositivita, sysdate);
+				end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

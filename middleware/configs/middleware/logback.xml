@@ -1,0 +1,35 @@
+<included>
+<!--  	<appender name="IN_MESSAGES" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/in_messages.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d: %level - %logger -> %msg%n</pattern>
+		</encoder>
+	</appender>
+ -->
+<!-- 	<logger name="IN_MESSAGES" additivity="false">
+		<appender-ref ref="IN_MESSAGES"/>
+	</logger>
+ -->
+<!-- 
+	<appender name="ACTIVEMQ" class="elco.logback.appenders.ActivemqAppender">
+	    <param name="bean" value="activemqlog"/>
+	    <param name="queues" value="LOG.T1,LOG.T2"/>
+		<encoder>
+			<pattern>%d: %level - %logger - %marker -> %msg%n</pattern>
+		</encoder>
+	</appender>
+
+    <appender name="ASYNCACTIVEMQ" class="ch.qos.logback.classic.AsyncAppender">
+	    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+	    </filter>
+        <appender-ref ref="ACTIVEMQ" />
+    </appender>
+
+	<root level="DEBUG">
+		<appender-ref ref="ELCO_MIDDLEWARE_ASYNC_STDOUT" />
+	</root>
+ -->
+</included>

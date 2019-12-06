@@ -1,0 +1,206 @@
+<PAGINA key_id="MODULO_PATENTE">
+	<HEADER_PAGE key_id="MODULO_PATENTE"
+		valore="DEFAULT_MMG,SCHEDA,MODULO_PATENTE#DEFAULT_MMG,MODULO_PATENTE" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MODULO_PATENTE#IDEN#IDEN"
+		evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab"
+			valore="Patente#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabCondizioniPsicofisiche" valore="tabCondizioniPsicofisiche" evento="START">
+				
+				<LABEL key_id="lblInformativaCertificato" valore="lblInformativaCertificato" evento="START"></LABEL>
+				
+				<FIELDSET_TABLE key_id="fldDatiModulo" valore="fldDatiModulo" evento="START">
+					 
+					<TR_TD_LABEL_DATA key_id="DataCompilazione" valore="lblDataCompilazione##txtDataCompilazione#DataCompilazione#direction:false, startWithToday:true, format: 'd/m/Y'#disabled:false##DATA_COMPILAZIONE" evento="START"></TR_TD_LABEL_DATA>
+					 
+					<TR_TD_LABEL_TEXT key_id="txtComune" valore="lbltxtComune##txtComune###COMUNE" evento="START"></TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldDatiPaziente" valore="fldDatiPaziente" evento="START">
+					 
+					<!-- <TR_TD_LABEL_TEXT key_id="txtNomeCognome" valore="lblNomeCognome##txtNomeCognome" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtLuogoNascita" valore="lblLuogoNascita##txtLuogoNascita" evento="START"></TR_TD_LABEL_TEXT>
+				 
+				 	<TR_TD_LABEL_TEXT key_id="txtDataNascita" valore="lblDataNascita##txtDataNascita" evento="START"></TR_TD_LABEL_TEXT>
+					
+				 	<TR_TD_LABEL_TEXT key_id="txtCodiceFiscale" valore="lblCodiceFiscale##txtCodiceFiscale" evento="START"></TR_TD_LABEL_TEXT> -->
+				 	
+				 	<TR_TD_LABEL_TEXT key_id="txtDocumento" valore="lblDocumento##txtDocumento###IDENTIFICAZIONE" evento="START"></TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldPresenta" valore="fldPresenta" evento="START">
+				
+					<TR_TD_LABEL_RADIO 
+						key_id="radAffezioniCardioVascolari" 
+						valore="lblAffezioniCardioVascolari##radAffezioniCardioVascolari#radAffezioniCardioVascolari#{width:100, idxDefault: 1}#S#AFFEZIONI_CARDIO" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtAffezioniCardioVascolari" valore="lblSpecificaAffezioniCardioVascolari##txtAffezioniCardioVascolari###DETTAGLIO_AFFEZIONI_CARDIO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radApparatoRespiratorio" 
+						valore="lblApparatoRespiratorio##radApparatoRespiratorio#radApparatoRespiratorio#{width:100, idxDefault: 1}#S#APPARATO_RESPIRATORIO" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtApparatoRespiratorio" valore="lblSpecificaApparatoRespiratorio##txtApparatoRespiratorio###DETTAGLIO_APPARATO_RESPIRATORIO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radApneeNotturne" 
+						valore="lblApneeNotturne##radApneeNotturne#radApneeNotturne#{width:100, idxDefault: 1}#S#APNEE_NOTTURNE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radOssigenoTerapia" 
+						valore="lblOssigenoTerapia##radOssigenoTerapia#radOssigenoTerapia#{width:100, idxDefault: 1}#S#02_TERAPIA" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radDiabete" 
+						valore="lblDiabete##radDiabete#radDiabete#{width:100, idxDefault: 1}#S#DIABETE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtDettaglioDiabete" valore="lblSpecificaMalattieEndocrine##txtDettaglioDiabete###DETTAGLIO_DIABETE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radInsulina" 
+						valore="lblInsulina##radInsulina#radInsulina#{width:100, idxDefault: 1}#S#TERAPIA_DIABETE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radMalattieEndocrine" 
+						valore="lblMalattieEndocrine##radMalattieEndocrine#radMalattieEndocrine#{width:100, idxDefault: 1}#S#MALATTIE_ENDOCRINE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtMalattieEndocrine" valore="lblSpecificaMalattieEndocrine##txtMalattieEndocrine###DETTAGLIO_MALATTIE_ENDOCRINE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radApparatoOsteoarticolare" 
+						valore="lblApparatoOsteoarticolare##radApparatoOsteoarticolare#radApparatoOsteoarticolare#{width:100, idxDefault: 1}#S#APPARATO_OSTEOARTICOLARE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtApparatoOsteoarticolare" valore="lblSpecificaApparatoOsteoarticolare##txtApparatoOsteoarticolare###DETTAGLIO_APPARATO_OSTEOARTICOLARE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radMalattieSangue" 
+						valore="lblMalattieSangue##radMalattieSangue#radMalattieSangue#{width:100, idxDefault: 1}#S#MALATTIE_SANGUE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtMalattieSangue" valore="lblSpecificaMalattieSangue##txtMalattieSangue#DETTAGLIO_MALATTIE_SANGUE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radInsufficienzaRenale" 
+						valore="lblInsufficienzaRenale##radInsufficienzaRenale#radInsufficienzaRenale#{width:100, idxDefault: 1}#S#INSUFFICIENZA_RENALE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtInsufficienzaRenale" valore="lblSpecificaInsufficienzaRenale##txtInsufficienzaRenale###DETTAGLIO_INSUFFICIENZA_RENALE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radTrapiantoOrgano" 
+						valore="lblTrapiantoOrgano##radTrapiantoOrgano#radTrapiantoOrgano#{width:100, idxDefault: 1}#S#TRAPIANTO_ORGANO" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtTrapiantoOrgano" valore="lblSpecificaTrapiantoOrgano##txtTrapiantoOrgano###DETTAGLIO_TRAPIANTO_ORGANO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radApparatoVisivo" 
+						valore="lblApparatoVisivo##radApparatoVisivo#radApparatoVisivo#{width:100, idxDefault: 1}#S#APPARATO_VISIVO" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtApparatoVisivo" valore="lblSpecificaApparatoVisivo##txtApparatoVisivo###DETTAGLIO_APPARATO_VISIVO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtSogg_Monocolo" valore="lbltxtSogg_Monocolo#littleright#txtSogg_Monocolo##lettura#SOGG_MONOCOLO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radApparatoUditivo" 
+						valore="lblApparatoUditivo##radApparatoUditivo#radApparatoUditivo#{width:100, idxDefault: 1}#S#APPARATO_AUDITIVO" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtApparatoUditivo" valore="lblSpecificaApparatoUditivo##txtApparatoUditivo###DETTAGLIO_APPARATO_AUDITIVO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radMalattieSistemaNervoso" 
+						valore="lblMalattieSistemaNervoso##radMalattieSistemaNervoso#radMalattieSistemaNervoso#{width:100, idxDefault: 1}#S#SISTEMA_NERVOSO" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtCentrale" valore="lblCentrale##txtCentrale###CENTRALE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtDecadimentoCognitivo" valore="lblDecadimentoCognitivo##txtDecadimentoCognitivo###DECA_COGNITIVO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtEpilessia" valore="lblEpilessia##txtEpilessia###EPILESSIA" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtPeriferico" valore="lblPeriferico##txtPeriferico###PERIFERICO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radInfermitaPsichica" 
+						valore="lblInfermitaPsichica##radInfermitaPsichica#radInfermitaPsichica#{width:100, idxDefault: 1}#S#INFERMITA_PSICHICA" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtInsufficienzaMentale" valore="lblInsufficienzaMentale##txtInsufficienzaMentale###DETTAGLIO_INFERMITA_PSICHICA" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtPsicosiDisturbi" valore="lblPsicosiDisturbi##txtPsicosiDisturbi###PSICOSI" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtDepressione" valore="lblDepressione##txtDepressione###DEPRESSIONE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtAltreInfermita" valore="lblAltreInfermita##txtAltreInfermita###ALTRE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radInCuraPsichiatrica" 
+						valore="lblInCuraPsichiatrica##radInCuraPsichiatrica#radInCuraPsichiatrica#{width:100, idxDefault: 1}#S#STRUTT_TERRITORIALI" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radSostanzePsicoattive" 
+						valore="lblSostanzePsicoattive##radSostanzePsicoattive#radSostanzePsicoattive#{width:100, idxDefault: 1}#S#SOSTANZE_PSICOATTIVE" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtEtilismo" valore="lblEtilismo##txtEtilismo###ETILISMO" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtTossicofilie" valore="lblTossicofilie##txtTossicofilie###TOSSICOFILIE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtSostanzePsicotrope" valore="lblSostanzePsicotrope##txtSostanzePsicotrope###SOS_PSICOTROPE" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radInCuraSERT" 
+						valore="lblInCuraSERT##radInCuraSERT#radInCuraSERT#{width:100, idxDefault: 1}#S#SERT_NOA" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO 
+						key_id="radProtesi" 
+						valore="lblProtesi##radProtesi#radProtesi#{width:100, idxDefault: 1}#S#PROTESI" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="txtProtesi" valore="lblSpecificaProtesi##txtProtesi###DETTAGLIO_PROTESI" evento="START"></TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+							
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+</PAGINA>

@@ -1,0 +1,66 @@
+<PAGINA key_id="GESTIONE_LISTA_ATTESA">
+    <HEADER_PAGE key_id="GESTIONE_LISTA_ATTESA" valore="DEFAULT,SCHEDA,GESTIONE_LISTA_ATTESA#DEFAULT,PANN_AMM_ADT" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#PAG_ASS_PRERICOVERO#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="GESTIONE_LISTA_ATTESA#lblTitleLista#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabGestLista" valore="tabGestLista" evento="START">
+                <FIELDSET_TABLE key_id="tableGestLista" valore="tableGestLista" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome#####w200px#N" evento="START">
+                        <TD_LABEL_TEXT key_id="txtIdWk" valore="lblIdWk##txtIdWk#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="txtCodiceOrma" valore="lblCodiceOrma##txtCodiceOrma#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtNumeroPazienti" valore="lblNumeroPazienti##txtNumeroPazienti#####w200px#N" evento="START">
+                        <TD_LABEL_TEXT key_id="txtIdTemplate" valore="lblIdTemplate##txtIdTemplate#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_RADIO key_id="radSiNoListaChiamata" valore="lblradSiNoChiamata##radSiNoListaChiamata#radSiNoListaChiamata#{idxDefault:2}##" evento="START">
+                            <TD_LABEL_RADIO key_id="radSiNoRicovero" valore="lblradSiNoRicovero##radSiNoRicovero#radSiNoRicovero###" evento="START">
+                            </TD_LABEL_RADIO>
+                        </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="idReparti" valore="idReparti#repartiLista" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto1" valore="lblReparto1#acReparto1#Reparto1#Reparto1#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto2" valore="lblReparto2#acReparto2#Reparto2#Reparto2#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto3" valore="lblReparto3#acReparto3#Reparto3#Reparto3#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto4" valore="lblReparto4#acReparto4#Reparto4#Reparto4#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto5" valore="lblReparto5#acReparto5#Reparto5#Reparto5#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto6" valore="lblReparto6#acReparto6#Reparto6#Reparto6#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto7" valore="lblReparto7#acReparto7#Reparto7#Reparto7#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto8" valore="lblReparto8#acReparto8#Reparto8#Reparto8#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Reparto9" valore="lblReparto9#acReparto9#Reparto9#Reparto9#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="cdcPreRicovero" valore="cdcPreRicovero#repartiPre" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre1" valore="lblCdcPre1#acCdcPre1#cdcPre1#cdcPre1#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre2" valore="lblCdcPre2#acCdcPre2#cdcPre2#cdcPre2#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre3" valore="lblCdcPre3#acCdcPre3#cdcPre3#cdcPre3#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre4" valore="lblCdcPre4#acCdcPre4#cdcPre4#cdcPre4#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre5" valore="lblCdcPre5#acCdcPre5#cdcPre5#cdcPre5#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre6" valore="lblCdcPre6#acCdcPre6#cdcPre6#cdcPre6#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre7" valore="lblCdcPre7#acCdcPre7#cdcPre7#cdcPre7#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre8" valore="lblCdcPre8#acCdcPre8#cdcPre8#cdcPre8#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="cdcPre9" valore="lblCdcPre9#acCdcPre9#cdcPre9#cdcPre9#ADT_Reparti#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

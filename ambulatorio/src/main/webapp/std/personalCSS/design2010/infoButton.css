@@ -1,0 +1,44 @@
+/* CSS Document */
+.classInfoIcon {
+	width:11px;
+	height:25px;
+	font-size: 12px;
+	font-weight: bold;
+	background:url(../../../imagexPix/button/icon/bw/ico_info.gif) no-repeat center;
+}
+
+.classInfoIcon A{
+	TEXT-DECORATION: none;
+}
+
+.classInfoIcon A:hover {
+	width:13px;
+	height:27px;	
+	background-image:url(../../../imagexPix/button/icon/bw/ico_info_over.gif);
+}
+
+
+div.boxInfoLayer{
+	width:400px;
+	height:250px;
+    background:#999;
+	font-size:12px;
+	font-weight: bold;
+	z-index:3;
+}
+
+div.boxInfoLayer-inner{
+	height: 245px;
+	overflow:auto;
+    margin:1px;
+	font-size:12px;
+	font-weight: bold;
+	z-index:2;
+	background:#fff;
+}
+
+div.boxInfoLayerShadow{
+	width:400px;
+	height:250px;
+	z-index:0;
+}

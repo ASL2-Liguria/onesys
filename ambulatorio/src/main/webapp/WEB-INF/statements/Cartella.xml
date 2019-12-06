@@ -1,0 +1,60 @@
+<root>
+	<statements_list>
+		<statement name="getDatoCartella">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			select get_json_scheda(IDEN)
+			from cc_schede_xml where funzione=?
+				and iden_visita in (?,(select parent from NOSOLOGICI_PAZIENTE where IDEN=?)) order by iden desc
+					]]>
+			</sql>
+		</statement>
+		<statement name="getFromIdenEsame"> <!-- forse non serve -->
+			<sql>
+			<![CDATA[
+			select IDEN_ANAG, REPARTO, DAT_ESA from ESAMI where IDEN=?
+					]]>
+			</sql>
+		</statement>
+		<statement name="getDatiRichiestaAssociata">
+			<sql>
+			<![CDATA[
+			declare
+				vFieldIden varchar2(100);
+				vFieldStato varchar2(100);
+				nIdenEsame number := ?;
+			begin
+				select VALORE into vFieldIden from IMAGOWEB.GES_CONFIG_PAGE where pagina='SNODO' and parametro='COD_EST_ESAMI.COD_IDEN_RICHIESTA' and ATTIVO='S';
+				select VALORE into vFieldStato from IMAGOWEB.GES_CONFIG_PAGE where pagina='SNODO' and parametro='COD_EST_ESAMI.COD_STATO_RICHIESTA' and ATTIVO='S';
+				execute immediate 'select cee.' || vFieldIden || ', cee.' || vFieldStato || ', e.DAT_ESA, e.ORA_ESA from COD_EST_ESAMI cee join ESAMI e on cee.IDEN_ESAME=e.IDEN where cee.IDEN_ESAME=:"uno"' into ?, ?, ?, ? using nIdenEsame;
+			end;
+					]]>
+			</sql>
+		</statement>
+		<statement name="setPrelievoEffettuato">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+				update INFOWEB.TESTATA_RICHIESTE set PRELIEVO_EFFETTUATO='S' where IDEN=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="setPrelievoEffettuatoLocale">
+			<sql>
+			<![CDATA[
+			declare
+				vFieldStato varchar2(100);
+				nIdenEsame number := ?;
+			begin
+				select VALORE into vFieldStato from IMAGOWEB.GES_CONFIG_PAGE where pagina='SNODO' and parametro='COD_EST_ESAMI.COD_STATO_RICHIESTA' and ATTIVO='S';
+				execute immediate 'update COD_EST_ESAMI set ' || vFieldStato || '=''E'' where IDEN_ESAME=:1' using nIdenEsame;
+				update ESAMI set ACCETTATO='1', ESEGUITO='1', stato=substr(stato,1,1) || 'AE' || substr(stato,4) where IDEN=nIdenEsame;
+			end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

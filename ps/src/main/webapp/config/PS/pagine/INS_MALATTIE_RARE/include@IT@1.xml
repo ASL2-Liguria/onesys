@@ -1,0 +1,5 @@
+<INCLUDE>
+    <JS path="js/PS/MalattieRare/InsMalattieRare.js" />
+    <JS path="config/PS/validator/model/V_INS_MALATTIE_RARE.js" />
+    <CSS path="css/PS/MalattieRare/MalattieRare.css"/>
+</INCLUDE>

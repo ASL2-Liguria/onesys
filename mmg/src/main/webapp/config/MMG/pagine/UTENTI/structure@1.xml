@@ -1,0 +1,187 @@
+<PAGINA key_id="UTENTI">
+
+	<HEADER_PAGE key_id="UTENTI" valore="DEFAULT_MMG,SCHEDA,UTENTI#DEFAULT_MMG,UTENTI" evento="START_END"></HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_CONFIGURAZIONE_UTENTI#MMG_DATI#UTENTI#IDEN#IDEN" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="Utenti#lblTitolo#butSalva,butChiudi" evento="START_END">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabParametri" valore="tabParametri" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldOpzioniStampa" valore="fldOpzioniStampa" evento="START">
+				
+					<TR_TD_LABEL_RADIO key_id="StampaPrincipioAttivo" valore="lblStampaPrincipioAttivo##StampaPrincipioAttivo#radStampaPrincipioAttivo#{width:180,idxDefault:1}#S#SHOW_FARMACO_ORIGINALE" evento="START">
+					</TR_TD_LABEL_RADIO>
+	
+					<TR_TD_LABEL_RADIO key_id="AnteprimaStampa" valore="lblAnteprimaStampa##AnteprimaStampa#radAnteprimaStampa#{width:180,idxDefault:1}#S#ANTEPRIMA_STAMPA_MODULI" evento="START">
+					</TR_TD_LABEL_RADIO>
+				
+					<TR_TD_LABEL_RADIO key_id="StampaAutomatica" valore="lblStampaAutomatica##StampaAutomatica#radStampaAutomatica#{width:180,idxDefault:1}#S#SALVATAGGIO_RAPIDO_RR" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="PosologiaRR" valore="lblPosologiaRR##PosologiaRR#radPosologiaRR#{width:180,idxDefault:1}#S#POSOLOGIA_RR" evento="START">
+					</TR_TD_LABEL_RADIO>
+				
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldOpzioniCartellaAssistito" valore="fldOpzioniCartellaAssistito" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="MostraNuovoAccesso" valore="lblMostraNuovoAccesso##MostraNuovoAccesso#radMostraNuovoAccesso#{width:180,idxDefault:1}#S#MOSTRA_NUOVO_ACCESSO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="Layout" valore="lblLayout##Layout#radLayout#{width:180,idxDefault:2}#N#LAYOUT" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="chiediSettaggioProblema" valore="lblChiediSettaggioProblema##chiediSettaggioProblema#radChiediSettaggioProblema#{width:180,idxDefault:1}#S#CHIEDI_SETTAGGIO_PROBLEMA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="descrizioneProblema" valore="lblDescrizioneProblema##descrizioneProblema#radDescrizioneProblema#{width:180,idxDefault:1}#S#DESCRIZIONE_PROBLEMA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_TEXT key_id="persistenzaPrivacy" valore="lblPersistenzaPrivacy##txtPersistenzaPrivacy###PRIVACY_PERSISTENZA_AVVISO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="persistenzaAllergie" valore="lblPersistenzaAllergie##txtPersistenzaAllergie###ALLERGIE_PERSISTENZA_AVVISO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<!--  <TR_TD_LABEL_TEXT key_id="posologiaDefault" valore="lblPosologiaDefault##txtPosologiaDefault###POSOLOGIA_DEFAULT" evento="START">
+					</TR_TD_LABEL_TEXT> -->
+					
+					<TR_TD_AUTOCOMPLETE key_id="posologiaDefault"
+						valore="lblPosologiaDefault#acPosologiaDefault#posologiaDefault#txtPosologiaDefault#AC_POSOLOGIA#POSOLOGIA_DEFAULT"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					
+				</FIELDSET_TABLE>
+				
+				
+				<FIELDSET_TABLE key_id="fldOpzioniPrescrizione" valore="fldOpzioniPrescrizione" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="MedicoPrescrittoreCurante" valore="lblMedicoPrescrittoreCurante##MedicoPrescrittoreCurante#radMedicoPrescrittoreCurante#{width:80,idxDefault:1}#S#PRESCRITTORE_UGUALE_CURANTE" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="InvioRRSAL" valore="lblInvioRRSAL##InvioRRSAL#radInvioRRSAL#{width:180,idxDefault:0}#S#INVIO_RR_SAL" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="sinonimiAccertamenti" valore="lblSinonimiAccertamenti##sinonimiAccertamenti#radSinonimiAccertamenti#{width:80,idxDefault:0}#S#SINONIMI_ACCERTAMENTI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="frequenzaAccertamenti" valore="lblFrequenzaAccertamenti##frequenzaAccertamenti#radFrequenzaAccertamenti#{width:80,idxDefault:0}#S#FREQUENZA_ACCERTAMENTI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="avvisoEsenzioniAperte" valore="lblAvvisoEsenzioniAperte##avvisoEsenzioniAperte#radAvvisoEsenzioniAperte#{width:80,idxDefault:0}#S#AVVISO_ESENZIONI_APERTE" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="avvisoPrescrNonCroniche" valore="lblAvvisoPrescrNonCroniche##avvisoPrescrNonCroniche#radAvvisoPrescrNonCroniche#{width:80,idxDefault:1}#S#AVVISO_PRESCR_NON_CRONICHE" evento="START">
+					</TR_TD_LABEL_RADIO>
+										
+				</FIELDSET_TABLE>
+			
+			
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabOffline" valore="tabOffline" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldOffline" valore="fldOffline" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="Offline" valore="lblOffline##Offline#radOffline#{width:180,idxDefault:1}#S#OFFLINE_ATTIVO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="AutoSyncOffline" valore="lblAutoSyncOffline##AutoSyncOffline#radAutoSyncOffline#{width:180,idxDefault:0}#S#OFFLINE_AUTOSYNC" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="SincronizzaGruppoOffline" valore="lblSincronizzaGruppoOffline##SincronizzaGruppoOffline#radSincronizzaGruppoOffline#{width:180,idxDefault:0}#S#OFFLINE_SINCRONIZZA_GRUPPO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="SinonimiAccertamentiOffline" valore="lblSinonimiAccertamentiOffline##SinonimiAccertamentiOffline#radSinonimiAccertamentiOffline#{width:180,idxDefault:1}#S#OFFLINE_IMPORTA_SIN_ACC" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+		
+			<TABULAZIONE.CREA_TAB key_id="tabUtenti" valore="tabUtenti" evento="START">
+
+				<FIELDSET_TABLE key_id="fldUtente" valore="fldUtente" evento="START">
+				
+					<TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome###NOME" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome###COGNOME" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale##txtCodiceFiscale###CODICE_FISCALE" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="Indirizzo" valore="lblIndirizzo##txtIndirizzo###INDIRIZZO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="IndirizzoSecondario" valore="lblIndirizzoSecondario##txtIndirizzoSecondario###INDIRIZZO2" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="IndirizzoTerziario" valore="lblIndirizzoTerziario##txtIndirizzoTerziario###INDIRIZZO3" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="Telefono" valore="lblTelefono##txtTelefono###TELEFONO" evento="START">
+					</TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_TEXT key_id="Cellulare" valore="lblCellulare##txtCellulare###CELLULARE" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="Email" valore="lblEmail##txtEmail###EMAIL" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="EmailPEC" valore="lblEmailPEC##txtEmailPEC###PEC" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="Fax" valore="lblFax##txtFax###FAX" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+
+			<TABULAZIONE.CREA_TAB key_id="tabDatiINPS" valore="tabDatiINPS" evento="START">
+
+				<FIELDSET_TABLE key_id="fldINPS" valore="fldINPS" evento="START">
+
+					<TR_TD_LABEL_TEXT key_id="Username" valore="lblUsername##txtUsername###USERNAME_INPS" evento="START">
+					</TR_TD_LABEL_TEXT>
+
+					<TR_TD_LABEL_TEXT key_id="PIN" valore="lblPIN##txtPIN###PIN_INPS" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR.INIT key_id="trPassword" valore="" evento="START">
+
+						<TD_LABEL_PASSWORD key_id="Password" valore="lblPassword##txtPassword###PASSWORD_INPS" evento="START">
+						</TD_LABEL_PASSWORD>
+						
+						<TD_LABEL_RADIO key_id="MostraPassword" valore="lblMostraPassword##MostraPassword#radMostraPassword#{width:80,idxDefault:1}#S" evento="START">
+						</TD_LABEL_RADIO>
+						
+					</TR.INIT>
+
+				</FIELDSET_TABLE>
+
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabTimbri" valore="tabTimbri" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldTimbri" valore="fldTimbri" evento="START">
+
+					<TR_TD_LABEL_TEXTAREA key_id="TimbroRicettaRossa" valore="lblTimbroRicettaRossa#txtTimbroRicettaRossa" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					
+					<TR_TD_LABEL_TEXTAREA key_id="TimbroRicettaBianca" valore="lblTimbroRicettaBianca#txtTimbroRicettaBianca" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					
+					<TR_TD_LABEL_TEXTAREA key_id="TimbroCertificato" valore="lblTimbroCertificato#txtTimbroCertificato" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

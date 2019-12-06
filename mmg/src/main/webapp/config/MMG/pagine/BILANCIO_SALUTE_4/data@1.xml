@@ -1,0 +1,23 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_LAST'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+
+	<DATO key_id="CapoAsse_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="PassaOggetti_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Sgambetta_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RiflessoParacadute_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="AfferraAnello_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="IniziaGattonare_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Lallazione_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="CercaOggetto_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ImitaVoci_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="TestAmbliopia_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="TestBoel_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Allattamento" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_ALLATTAMENTO" />
+	<DATO key_id="Presa_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="SiAlza_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RiconosceFamigliari_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MantienePosizione_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RicercaSuono_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="hIden" configurazione_stato="begin :stato := 'E'; end;" db_valore="IDEN" db_descrizione="IDEN" configurazione_multi_data="" /> 
+</DATI>
+

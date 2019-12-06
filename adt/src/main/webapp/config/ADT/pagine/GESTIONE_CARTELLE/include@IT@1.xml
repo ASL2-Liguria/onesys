@@ -1,0 +1,12 @@
+<INCLUDE>
+	<CSS path="css/ADT/GestioneCartelle/GestioneCartelle.css"/>
+    <!-- JS path="js/ADT/GestioneCartelle/gestioneCartelle.js"/ -->
+    <JS path="js/ADT/TabHomeArchivio/TabHomeArchivioWK.js"/>
+    <JS path="js/ADT/TabHomeArchivio/TabHomeArchivioCalcoloDRG.js"/>
+    <JS path="js/ADT/TabHomeArchivio/TabHomeArchivioOperazioniCartella.js"/>
+    <JS path="js/ADT/TabHomeArchivio/TabHomeArchivioRichiestaCartella.js"/>
+    <JS path="js/ADT/TabHomeArchivio/TabHomeArchivioEstrazioneCartelle.js"/>
+    <JS path="js/ADT/TabHomeArchivio/TabHomeArchivio.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/Base/NS_FENIX_FILTRI.js"/>
+</INCLUDE>

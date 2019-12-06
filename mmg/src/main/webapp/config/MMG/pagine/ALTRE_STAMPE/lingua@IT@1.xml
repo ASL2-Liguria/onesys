@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<tabAltreStampe>Inserimento di un testo</tabAltreStampe>
+		<tabLista>Lista certificati</tabLista>
+		<lblTitolo>Creazione di un testo</lblTitolo>
+		
+       	<fldDatiPaziente>Dati del paziente</fldDatiPaziente>
+       	<lblCognome>Cognome</lblCognome>
+       	<lblNome>Nome</lblNome>
+       	<lblDataDiNascita>Data di nascita</lblDataDiNascita>
+        <lblCodiceFiscale>Cod. Fiscale</lblCodiceFiscale>
+        <lblLuogoNascita>Luogo di nascita</lblLuogoNascita>
+        <lblIndirizzoResidenza>Residenza</lblIndirizzoResidenza>
+        
+        <fldDatiCertificato>Dati del certificato</fldDatiCertificato>
+        <lblTitoloCertificato>Titolo</lblTitoloCertificato>
+        <lblDataInserimento>Data inserimento</lblDataInserimento>
+        <lblIntestazioneMedico>Intestazione medico</lblIntestazioneMedico>
+        <lblTimbroMedico>Timbro medico</lblTimbroMedico>
+        <lblGiorniPrognosi>Giorni di prognosi</lblGiorniPrognosi>
+        <lblDataScadenza>Data scadenza</lblDataScadenza>
+        
+        <fldTesto>Inserire il testo da stampare</fldTesto>
+        <fldTestiStandard>Testi standard da inserire</fldTestiStandard>
+        
+        <fldLista>Lista dei certificati esistenti</fldLista>
+        <lblTestoCertificato>Testo</lblTestoCertificato>
+        <lblCertificatoRelativo>Certificato relativo</lblCertificatoRelativo>
+        <lblInserisci>Inserisci</lblInserisci>
+        <lblModifica>Modifica</lblModifica>
+        <lblCancella>Cancella</lblCancella>
+        <lblStampa>Stampa</lblStampa>
+        
+        <butSalvaStampa>Salva e Stampa</butSalvaStampa>
+        <butImporta>Importa dati paziente nel certificato</butImporta>
+        
+        <selezionareRiga>Selezionare almeno una riga nella sezione Testi standard per poter effettuare un'operazione su di essa.</selezionareRiga>
+        <cancella>Sei sicuro di voler cancellare il certificato selezionato?</cancella>
+        <numeroIntero>Il valore del campo Giorni prognosi deve essere un numero intero.</numeroIntero>
+        <titleFormato>Formato carta</titleFormato>
+        <titleConfirm>Chiusura</titleConfirm>
+        <lblDialogFormato>Scegliere il formato della carta sulla quale verrà effettuata la stampa</lblDialogFormato>
+        <lblA4>A4</lblA4>
+        <lblA5>A5</lblA5>
+        <lblAnnulla>Annulla</lblAnnulla>
+        <lblChiusura>Tornare alla schermata dei certificati?</lblChiusura>
+        <lblNoDeleteTestiSTD>Non è possibile cancellare modelli che sono Testi Standard del Sistema</lblNoDeleteTestiSTD>
+        
+    </ROW>
+</ROWSET>

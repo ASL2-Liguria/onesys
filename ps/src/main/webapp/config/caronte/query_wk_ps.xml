@@ -1,0 +1,1825 @@
+<QUERIES>
+    <!--************************************************WORKLIST*****************************************************-->
+    <QUERY_GROUP id="WORKLIST">
+        <QUERY id="ANAGRAFICA_RIASSOCIA">
+            <SQL>
+                SELECT
+                decode(cea.id4, null, 'N','S') certificata,
+                anag.iden IDEN_ANAG,
+                anag.nome, anag.cognome,
+                anag.cognome||' '||anag.nome paziente,
+                anag.sesso, anag.data_nascita data_nascita,
+                anag.codice_fiscale, anag.iden_comune_nascita,
+                anag.iden_comune_residenza, anag.iden_comune_domicilio,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_nascita)
+                comune_nascita,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_residenza)
+                comune_residenza,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_domicilio)
+                comune_domicilio,
+                anag.tessera_sanitaria, TO_CHAR(TO_DATE(anag.data_morte,'yyyyMMdd'), 'dd/mm/yyyy') data_morte,
+                anag.res_indirizzo, anag.res_numero_civico,
+                anag.res_cap, anag.res_provincia,
+                anag.res_telefono, anag.res_cellulare,
+                anag.USL_res, anag.res_cod_regione,
+                anag.dom_indirizzo, anag.dom_numero_civico,
+                anag.dom_provincia, anag.dom_cap,
+                anag.dom_telefono, anag.email,
+                anag.iden_nazione, anag.cod_nazione,
+                anag.cittadinanza, anag.iden_medico_base,
+                anag.iden_stato_civile
+                FROM fx$anagrafica anag
+                join fx$cod_est_anag cea on cea.iden_anag = anag.iden
+                WHERE ANAG.NOME LIKE  :nome||'%'
+                AND ANAG.cognome LIKE :cognome||'%'
+                AND ((:codice_fiscale is null) OR (ANAG.codice_fiscale=:codice_fiscale))
+                AND anag.deleted='N' {#ORDER#}
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="ANAGRAFICA">
+            <SQL>
+                SELECT
+                decode(cea.id4, null, 'N','S') certificata,
+                cea.id4 PIN_AAC,
+                anag.iden IDEN_ANAG,
+                anag.nome, anag.cognome,
+                anag.cognome||' '||anag.nome paziente,
+                anag.sesso, anag.data_nascita data_nascita,
+                anag.codice_fiscale, anag.iden_comune_nascita,
+                anag.iden_comune_residenza, anag.iden_comune_domicilio,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_nascita)
+                comune_nascita,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_residenza)
+                comune_residenza,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_domicilio)
+                comune_domicilio,
+                anag.tessera_sanitaria, TO_CHAR(TO_DATE(anag.data_morte,'yyyyMMdd'), 'dd/mm/yyyy') data_morte,
+                anag.res_indirizzo, anag.res_numero_civico,
+                anag.res_cap, anag.res_provincia,
+                anag.res_telefono, anag.res_cellulare,
+                anag.USL_res, anag.res_cod_regione,
+                anag.dom_indirizzo, anag.dom_numero_civico,
+                anag.dom_provincia, anag.dom_cap,
+                anag.dom_telefono, anag.email,
+                anag.iden_nazione, anag.cod_nazione,
+                anag.cittadinanza, anag.iden_medico_base,
+                anag.iden_stato_civile
+                FROM fx$anagrafica anag
+                join fx$cod_est_anag cea on cea.iden_anag = anag.iden
+                WHERE
+                (:data_nascita is null or anag.data_nascita = :data_nascita)
+                and ANAG.NOME LIKE  :nome||'%'
+                AND ANAG.cognome LIKE :cognome||'%'
+                AND :codice_fiscale is null
+                AND anag.deleted='N'
+                ORDER BY
+					certificata DESC
+					, anag.cognome, anag.nome ,anag.data_morte nulls FIRST,anag.data_nascita
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="ANAGRAFICA_COD_FISC">
+            <SQL>
+                SELECT
+                decode(cea.id4, null, 'N','S') certificata,
+                anag.iden IDEN_ANAG,
+                cea.id4 PIN_AAC,
+                anag.nome, anag.cognome,
+                anag.cognome||' '||anag.nome paziente,
+                anag.sesso, anag.data_nascita data_nascita,
+                anag.codice_fiscale, anag.iden_comune_nascita,
+                anag.iden_comune_residenza, anag.iden_comune_domicilio,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_nascita)
+                comune_nascita,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_residenza)
+                comune_residenza,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_domicilio)
+                comune_domicilio,
+                anag.tessera_sanitaria, TO_CHAR(TO_DATE(anag.data_morte,'yyyyMMdd'), 'dd/mm/yyyy') data_morte,
+                anag.res_indirizzo, anag.res_numero_civico,
+                anag.res_cap, anag.res_provincia,
+                anag.res_telefono, anag.res_cellulare,
+                anag.USL_res, anag.res_cod_regione,
+                anag.dom_indirizzo, anag.dom_numero_civico,
+                anag.dom_provincia, anag.dom_cap,
+                anag.dom_telefono, anag.email,
+                anag.iden_nazione, anag.cod_nazione,
+                anag.cittadinanza, anag.iden_medico_base,
+                anag.iden_stato_civile
+                FROM fx$anagrafica anag
+                join fx$cod_est_anag cea on cea.iden_anag = anag.iden
+                WHERE
+                ANAG.codice_fiscale = :codice_fiscale
+                AND (:data_nascita is null or anag.data_nascita = :data_nascita)
+                AND ANAG.NOME LIKE  :nome||'%'
+                AND ANAG.cognome LIKE :cognome||'%'
+                AND anag.deleted='N'
+                and data_morte is null
+              ORDER BY
+					certificata DESC
+					, anag.cognome, anag.nome ,anag.data_morte nulls FIRST,anag.data_nascita
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">2</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="ANAGRAFICA_DATA_NASCITA">
+            <SQL>
+                SELECT
+                decode(cea.id4, null, 'N','S') certificata,
+                cea.id4 PIN_AAC,
+                anag.iden IDEN_ANAG,
+                anag.nome, anag.cognome,
+                anag.cognome||' '||anag.nome paziente,
+                anag.sesso, anag.data_nascita data_nascita,
+                anag.codice_fiscale, anag.iden_comune_nascita,
+                anag.iden_comune_residenza, anag.iden_comune_domicilio,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_nascita)
+                comune_nascita,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_residenza)
+                comune_residenza,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_domicilio)
+                comune_domicilio,
+                anag.tessera_sanitaria, TO_CHAR(TO_DATE(anag.data_morte,'yyyyMMdd'), 'dd/mm/yyyy') data_morte,
+                anag.res_indirizzo, anag.res_numero_civico,
+                anag.res_cap, anag.res_provincia,
+                anag.res_telefono, anag.res_cellulare,
+                anag.USL_res, anag.res_cod_regione,
+                anag.dom_indirizzo, anag.dom_numero_civico,
+                anag.dom_provincia, anag.dom_cap,
+                anag.dom_telefono, anag.email,
+                anag.iden_nazione, anag.cod_nazione,
+                anag.cittadinanza, anag.iden_medico_base,
+                anag.iden_stato_civile
+                FROM fx$anagrafica anag
+                join fx$cod_est_anag cea on cea.iden_anag = anag.iden
+                WHERE
+                anag.data_nascita = :data_nascita
+                AND ANAG.NOME LIKE  :nome||'%'
+                AND ANAG.cognome LIKE :cognome||'%'
+                and (:codice_fiscale is null or ANAG.codice_fiscale = :codice_fiscale)
+                AND anag.deleted='N'
+                and data_morte is null
+                 ORDER BY
+					certificata DESC
+					, anag.cognome, anag.nome ,anag.data_morte nulls FIRST,anag.data_nascita
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="ANAM_ESA_OBIETTIVO_PRECEDENTI">
+            <SQL>
+                SELECT
+                CONTANAG.iden iden_contatto,
+                psxml.IDEN,
+                TO_CHAR(psxml.DATA_INS,'yyyymmdd')AS DATA,
+                TO_CHAR(psxml.DATA_INS,'hh24:mi')AS ORA,
+                (select DESCRIZIONE from fx$personale where iden = psxml.ute_ins and attivo='S') AS UTENTE,
+                CONTANAG.codice AS NUMERO_PRATICA,
+                REGEXP_REPLACE( GETVALUE(psxml.CONTENUTO_XML,'txtEsameObiettivo_addendum') ,'(\chr(38)pos;)|(\chr(38)mp;apos;)', '''') ESAME_OBIETTIVO,
+                psxml.ute_ins,
+                ((sysdate - psxml.data_ins)*24) diff
+                FROM adt$contatti cont
+                INNER JOIN ADT$CONTATTI CONTANAG ON (CONT.IDEN_ANAGRAFICA = CONTANAG.IDEN_ANAGRAFICA AND CONTANAG.STATO= ADT$CODIFICHE.decodeStato('DISCHARGED','PS'))
+                inner join PS_SCHEDE_XML psxml on (psxml.iden_contatto= CONTANAG.IDEN aND psxml.scheda='ESAME_OBIETTIVO' AND psxml.DELETED= 'N' AND psxml.ATTIVO='S')
+                WHERE cont.deleted ='N' AND cont.assigning_authority_area='PS'
+                AND CONT.IDEN=:iden_contatto
+                ORDER BY DATA DESC
+                {#ORDER#}
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="ANAMNESI_PRECEDENTI">
+            <SQL>
+                SELECT
+                psxml.IDEN,
+                TO_CHAR(psxml.DATA_INS,'yyyymmdd')AS DATA,
+                TO_CHAR(psxml.DATA_INS,'hh24:mi')AS ORA,
+                (SELECT descrizione FROM FX$PERSONALE WHERE IDEN = psxml.UTE_INS )AS UTENTE,
+                GETVALUE(psxml.CONTENUTO_XML,'txtTerInCorso')AS  TERAPIE,
+                GETVALUE(psxml.CONTENUTO_XML,'txtMalattie')AS  MALATTIE,
+                GETVALUE(psxml.CONTENUTO_XML,'txtAllergie')AS  ALLERGIE,
+                GETVALUE(psxml.CONTENUTO_XML,'txtUltimoPasto')AS  ULTIMO_PASTO,
+                GETVALUE(psxml.CONTENUTO_XML,'txtInterventoSubito')AS  INTERVENTI,
+                psxml.ute_ins,
+                (SELECT DESCRIZIONE FROM fx$personale WHERE iden = psxml.ute_ins AND attivo='S')AS descr_utente,
+                cont.codice AS numero_pratica,
+                ((sysdate - psxml.data_ins)*24)AS diff
+                FROM adt$contatti cont
+                inner join PS_SCHEDE_XML psxml on (psxml.iden_contatto in (select iden from adt$contatti where iden_anagrafica = cont.iden_anagrafica) AND psxml.scheda='ANAMNESI' AND psxml.DELETED= 'N' AND psxml.ATTIVO='S')
+                WHERE cont.deleted ='N' AND cont.assigning_authority_area='PS' AND cont.iden=:iden_contatto
+                {#ORDER#}
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="CDC">
+            <SQL>
+                SELECT IDEN, ORDINE, CODICE, DESCRIZIONE, STRUTTURA, COD_CDC, TIPOLOGIA
+                FROM FX$CENTRI_DI_COSTO
+                WHERE DESCRIZIONE like :descr AND CODICE like :codice and attivo = 'S'{#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="DIARI">
+            <SQL>
+                SELECT
+                IDEN,
+                REGEXP_REPLACE( NOTE ,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS NOTE ,
+                IDEN_CONTATTO,
+                UTE_INS AS IDEN_UTE_INS,
+                UTE_MOD AS IDEN_UTE_MOD,
+                TO_CHAR(data_ins, 'HH24:MI dd/mm/yyyy') AS DATA_INS,
+                decode(UTE_MOD, null, null,TO_CHAR(DATA_MODIFICA, 'HH24:MI dd/mm/yyyy')) AS DATA_MOD,
+                (select descrizione from FX$PERSONALE where iden=UTE_INS) AS UTENTE_INS,
+                (select descrizione from FX$PERSONALE where iden=UTE_MOD) AS UTENTE_MOD,
+                (select iden_provenienza from adt$contatti_giuridici where iden = (select segmento_ultimo_giuridico from adt$contatti where iden =diari.iden_contatto )) AS IDEN_PROVENIENZA,
+                deleted
+                FROM diari
+                WHERE diari.iden_contatto = :iden_contatto
+                AND TIPO_PER = 'M'
+                ORDER BY diari.data_ins desc
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">15</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="DIARI_INF">
+            <SQL>
+                SELECT
+                IDEN,
+                REGEXP_REPLACE( NOTE ,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS NOTE ,
+                IDEN_CONTATTO,
+                UTE_INS AS IDEN_UTE_INS,
+                UTE_MOD AS IDEN_UTE_MOD,
+                TO_CHAR(data_ins, 'HH24:MI dd/mm/yyyy') AS DATA_INS,
+                decode(UTE_MOD, null, null,TO_CHAR(DATA_MODIFICA, 'HH24:MI dd/mm/yyyy')) AS DATA_MOD,
+                (select descrizione from FX$PERSONALE where iden=UTE_INS) AS UTENTE_INS,
+                (select descrizione from FX$PERSONALE where iden=UTE_MOD) AS UTENTE_MOD,
+                (select iden_provenienza from adt$contatti_giuridici where iden = (select segmento_ultimo_giuridico from adt$contatti where iden =diari.iden_contatto )) AS IDEN_PROVENIENZA,
+                deleted
+                FROM diari
+                WHERE diari.iden_contatto = :iden_contatto
+
+                AND TIPO_PER = 'I'
+                ORDER BY diari.data_ins desc
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">15</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="FARMACI_UTILIZZATI">
+            <SQL>
+                SELECT
+                FX$FARMACI.IDEN,
+                FX$FARMACI.DESCRIZIONE,
+                FX$FARMACI.CODICE,
+                FX$FARMACI.principio_attivo
+                from PS_FARMACI_UTILIZZATI FARMUT
+                JOIN FX$FARMACI ON FX$FARMACI.IDEN = FARMUT.IDEN_FARMACO
+                WHERE FARMUT.IDEN_PROVENIENZA = :IDEN_PROVENIENZA
+            </SQL>
+        </QUERY>
+        <QUERY id="GESTIONE_ESITO_BY_DATI_ANAGRAFICI">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR(PSXMLVERBALE.CONTENUTO_XML,'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                FROM
+                FX$ANAGRAFICA ANAG
+                INNER JOIN  ADT$CONTATTI CONTATTI ON (CONTATTI.IDEN_ANAGRAFICA = ANAG.IDEN)
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N' AND CONTATTI.STATO = ADT$CODIFICHE.DECODESTATO('DISCHARGED','PS') )
+                WHERE
+                ANAG.NOME LIKE :nome || '%'
+                AND ANAG.COGNOME LIKE :cognome || '%'
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="GESTIONE_ESITO_BY_DATI_ANAGRAFICI_DATA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR(PSXMLVERBALE.CONTENUTO_XML,'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                FROM
+                FX$ANAGRAFICA ANAG
+                INNER JOIN  ADT$CONTATTI CONTATTI ON (CONTATTI.IDEN_ANAGRAFICA = ANAG.IDEN)
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N' AND CONTATTI.STATO = ADT$CODIFICHE.DECODESTATO('DISCHARGED','PS') )
+                WHERE
+                ANAG.NOME LIKE :nome || '%'
+                AND ANAG.COGNOME LIKE :cognome || '%'
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                and (contatti.data_inizio &gt;= (select to_date(codice_number, 'YYYYMMDD')  from fx$filtri where id_filtro = 'GESTIONE_ESITO_DA_DATA' and sito = 'PS' and username = :username))
+                and (contatti.data_inizio &lt;= (select to_date(codice_number , 'YYYYMMDD') + 1  from fx$filtri where id_filtro = 'GESTIONE_ESITO_A_DATA' and sito = 'PS' and username = :username))
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="GESTIONE_ESITO_BY_CARTELLA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR(PSXMLVERBALE.CONTENUTO_XML,'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                FROM
+                ADT$CONTATTI CONTATTI
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN FX$ANAGRAFICA ANAG ON (ANAG.IDEN = CONTATTI.IDEN_ANAGRAFICA)
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N' AND CONTATTI.STATO = ADT$CODIFICHE.DECODESTATO('DISCHARGED','PS') )
+                WHERE
+                CONTATTI.CARTELLA = :cartella
+                AND (:anno IS NULL OR CONTATTI.ANNO = :anno)
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+		<QUERY id="GESTIONE_ESITO_BY_CARTELLA_DATA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR(PSXMLVERBALE.CONTENUTO_XML,'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                FROM
+                ADT$CONTATTI CONTATTI
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN FX$ANAGRAFICA ANAG ON (ANAG.IDEN = CONTATTI.IDEN_ANAGRAFICA)
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N' AND CONTATTI.STATO = ADT$CODIFICHE.DECODESTATO('DISCHARGED','PS') )
+                WHERE
+                CONTATTI.CARTELLA = :cartella
+                AND (:anno IS NULL OR CONTATTI.ANNO = :anno)
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                and (contatti.data_inizio &gt;= (select to_date(codice_number, 'YYYYMMDD')  from fx$filtri where id_filtro = 'GESTIONE_ESITO_DA_DATA' and sito = 'PS' and username = :username))
+                and (contatti.data_inizio &lt;= (select to_date(codice_number , 'YYYYMMDD') + 1  from fx$filtri where id_filtro = 'GESTIONE_ESITO_A_DATA' and sito = 'PS' and username = :username))
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="GESTIONE_ESITO_DATA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR(PSXMLVERBALE.CONTENUTO_XML,'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                FROM
+                FX$ANAGRAFICA ANAG
+                INNER JOIN  ADT$CONTATTI CONTATTI ON (CONTATTI.IDEN_ANAGRAFICA = ANAG.IDEN)
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N' AND CONTATTI.STATO = ADT$CODIFICHE.DECODESTATO('DISCHARGED','PS') )
+                WHERE
+                LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                and (contatti.data_inizio &gt;= (select to_date(codice_number, 'YYYYMMDD')  from fx$filtri where id_filtro = 'GESTIONE_ESITO_DA_DATA' and sito = 'PS' and username = :username))
+                and (contatti.data_inizio &lt;= (select to_date(codice_number , 'YYYYMMDD') + 1  from fx$filtri where id_filtro = 'GESTIONE_ESITO_A_DATA' and sito = 'PS' and username = :username))
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="GESTIONE_ESITO_GIORNATA">
+          <SQL>
+            WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+              SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR(PSXMLVERBALE.CONTENUTO_XML,'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+              FROM
+                FX$ANAGRAFICA ANAG
+                INNER JOIN  ADT$CONTATTI CONTATTI ON (CONTATTI.IDEN_ANAGRAFICA = ANAG.IDEN)
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N'  AND CONTATTI.STATO = ADT$CODIFICHE.DECODESTATO('DISCHARGED','PS') )
+              WHERE
+                LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                and (contatti.data_inizio &gt;= (select to_date(codice_number, 'YYYYMMDD')  from fx$filtri where id_filtro = 'GESTIONE_ESITO_DA_DATA' and sito = 'PS' and username = :username))
+                and (contatti.data_inizio &lt;= (select to_date(codice_number , 'YYYYMMDD') + 1  from fx$filtri where id_filtro = 'GESTIONE_ESITO_A_DATA' and sito = 'PS' and username = :username))
+              ORDER BY
+                ANAG.COGNOME
+          </SQL>
+        </QUERY>
+
+        <QUERY id="CARTELLE_INAIL_BY_DATI_ANAGRAFICI">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                ,(GETVALUE((PSXMLINAIL.CONTENUTO_XML),'txtDataRila')) as DATA_RILASCIO
+                ,PSXMLINAIL.STATO AS STATO_INAIL
+                ,PSXMLINAIL.IDEN AS IDEN_INAIL
+                FROM
+                FX$ANAGRAFICA ANAG
+                INNER JOIN  ADT$CONTATTI CONTATTI ON (CONTATTI.IDEN_ANAGRAFICA = ANAG.IDEN)
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                INNER JOIN PS_SCHEDE_XML PSXMLINAIL ON (PSXMLINAIL.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLINAIL.SCHEDA = 'INAIL' AND PSXMLINAIL.ATTIVO = 'S' AND PSXMLINAIL.DELETED = 'N')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N')
+                WHERE
+                ANAG.NOME LIKE :nome || '%'
+                AND ANAG.COGNOME LIKE :cognome || '%'
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                AND CONTATTI.CARTELLA &lt; '500000'
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="CARTELLE_INAIL_BY_DATI_ANAGRAFICI_DATA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                ,(GETVALUE((PSXMLINAIL.CONTENUTO_XML),'txtDataRila')) as DATA_RILASCIO
+                ,PSXMLINAIL.STATO AS STATO_INAIL
+                ,PSXMLINAIL.IDEN AS IDEN_INAIL
+                FROM
+                FX$ANAGRAFICA ANAG
+                INNER JOIN  ADT$CONTATTI CONTATTI ON (CONTATTI.IDEN_ANAGRAFICA = ANAG.IDEN)
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                INNER JOIN PS_SCHEDE_XML PSXMLINAIL ON (PSXMLINAIL.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLINAIL.SCHEDA = 'INAIL' AND PSXMLINAIL.ATTIVO = 'S' AND PSXMLINAIL.DELETED = 'N')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N')
+                WHERE
+                ANAG.NOME LIKE :nome || '%'
+                AND ANAG.COGNOME LIKE :cognome || '%'
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                AND CONTATTI.CARTELLA &lt; '500000'
+                and (contatti.data_inizio &gt;= (select to_date(codice_number, 'YYYYMMDD')  from fx$filtri where id_filtro = 'CARTELLE_INAIL_DA_DATA' and sito = 'PS' and username = :username))
+                and (contatti.data_inizio &lt;= (select to_date(codice_number , 'YYYYMMDD') + 1  from fx$filtri where id_filtro = 'CARTELLE_INAIL_A_DATA' and sito = 'PS' and username = :username))
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="CARTELLE_INAIL_BY_CARTELLA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                ,(GETVALUE((PSXMLINAIL.CONTENUTO_XML),'txtDataRila')) as DATA_RILASCIO
+                ,PSXMLINAIL.STATO AS STATO_INAIL
+                ,PSXMLINAIL.IDEN AS IDEN_INAIL
+                FROM
+                ADT$CONTATTI CONTATTI
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN FX$ANAGRAFICA ANAG ON (ANAG.IDEN = CONTATTI.IDEN_ANAGRAFICA)
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                INNER JOIN PS_SCHEDE_XML PSXMLINAIL ON (PSXMLINAIL.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLINAIL.SCHEDA = 'INAIL' AND PSXMLINAIL.ATTIVO = 'S' AND PSXMLINAIL.DELETED = 'N')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N')
+                WHERE
+                CONTATTI.CARTELLA = :cartella
+                AND (:anno IS NULL OR CONTATTI.ANNO = :anno)
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                AND CONTATTI.CARTELLA &lt; '500000'
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="CARTELLE_INAIL_BY_CARTELLA_DATA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                ,(GETVALUE((PSXMLINAIL.CONTENUTO_XML),'txtDataRila')) as DATA_RILASCIO
+                ,PSXMLINAIL.STATO AS STATO_INAIL
+                ,PSXMLINAIL.IDEN AS IDEN_INAIL
+                FROM
+                ADT$CONTATTI CONTATTI
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN FX$ANAGRAFICA ANAG ON (ANAG.IDEN = CONTATTI.IDEN_ANAGRAFICA)
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                INNER JOIN PS_SCHEDE_XML PSXMLINAIL ON (PSXMLINAIL.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLINAIL.SCHEDA = 'INAIL' AND PSXMLINAIL.ATTIVO = 'S' AND PSXMLINAIL.DELETED = 'N')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N')
+                WHERE
+                CONTATTI.CARTELLA = :cartella
+                AND (:anno IS NULL OR CONTATTI.ANNO = :anno)
+                AND LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                AND CONTATTI.CARTELLA &lt; '500000'
+                and (contatti.data_inizio &gt;= (select to_date(codice_number, 'YYYYMMDD')  from fx$filtri where id_filtro = 'CARTELLE_INAIL_DA_DATA' and sito = 'PS' and username = :username))
+                and (contatti.data_inizio &lt;= (select to_date(codice_number , 'YYYYMMDD') + 1  from fx$filtri where id_filtro = 'CARTELLE_INAIL_A_DATA' and sito = 'PS' and username = :username))
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+        <QUERY id="CARTELLE_INAIL_DATA">
+            <SQL>
+                WITH
+                Q_STATI_LISTA AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'LISTA_ATTESA_STATO' AND CODICE_DECODIFICA IN ('INSERITO','CHIUSO','COMPLETO') AND ATTIVO = 'S' AND  ASSIGNING_AUTHORITY_AREA = 'PS')
+                SELECT
+                ANAG.IDEN IDEN_ANAG, ANAG.COGNOME, ANAG.DATA_NASCITA,
+                ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| to_char(to_date(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') PAZIENTE,
+                CONTATTI.IDEN IDEN_CONTATTO, CONTATTI.CARTELLA, CONTATTI.CODICE NUMERO_PRATICA, CONTATTI.UTENTE_DIMISSIONE,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') DATA_INS, TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') DATA_INIZIO,
+                TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS')) FROM DUAL)AS TIPO,
+                (SELECT (ADT$CODIFICHE.ENCODETIPO(CONTATTI.STATO,'PS')) FROM DUAL) AS STATO_CONTATTO,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = LA.URGENZA)AS CODICE_LISTA,
+                LA.NOTE, LA.IDEN IDEN_LISTA,
+                CONTATTI.CDC_ULTIMO_ASSISTENZIALE,
+                CONTASS.DATA_FINE,
+                ((SYSDATE - CONTASS.DATA_FINE)*24) AS DIFF,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = CONTASS.UTENTE_INSERIMENTO) AS UTE_INS_ASS,
+                (EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                (ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,CONTASS.STATO),NULL,'PS'))) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(CONTASS.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(CONTASS.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO AND ATTIVO='S') AS AREA,
+                PSXMLVERBALE.IDEN AS IDEN_SCHEDA_VERBALE,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AS COD_ESITO,
+                (GETDESCR((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS ESITO_OBI,
+                (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-radOBI')) AS COD_ESITO_OBI,
+                CONTATTI_SON.CODICE AS CODICE_RICOVERO,
+                CONTATTI_SON.IDEN AS IDEN_CONTATTO_RICOVERO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE_ESAME_OBIETTIVO,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'h-UrgenzaPs')) AS CODICE,
+                (GETVALUE((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N'),'txtrepRicovero')) AS REPARTO_RICOVERO,
+                (SELECT descrizione FROM adt$tipi WHERE iden = (EXTRACtvalue((SELECT metadati FROM adt$contatti WHERE iden = CONTATTI.iden),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                case  when
+                GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito') is null and CONTATTI.deleted = 'S'  then  'CHIUSURA AMMINISTRATIVA'  else
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE CODICE_DECODIFICA= (GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'hEsito')) AND TIPO='ESITO_DA_PS' AND ATTIVO='S') end AS ESITO,
+                (SELECT DESCRIZIONE FROM ICD9_PS WHERE CODICE=(GETVALUE((PSXMLVERBALE.CONTENUTO_XML),'h-txtDiagnosiICD91')) ) AS DIAGNOSI_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT STATO FROM ADT$MOVIMENTI_CARTELLA WHERE IDEN_CONTATTO = CONTATTI.IDEN AND ATTIVO = 'S')) STATO_CARTELLA,
+                PSXMLVERBALE.STATO
+                ,GET_VALUE(PSXMLVERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(PSXMLVERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                ,(GETVALUE((PSXMLINAIL.CONTENUTO_XML),'txtDataRila')) as DATA_RILASCIO
+                ,PSXMLINAIL.STATO AS STATO_INAIL
+                ,PSXMLINAIL.IDEN AS IDEN_INAIL
+                FROM
+                FX$ANAGRAFICA ANAG
+                INNER JOIN  ADT$CONTATTI CONTATTI ON (CONTATTI.IDEN_ANAGRAFICA = ANAG.IDEN)
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI contass on (CONTASS.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE)
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.DELETED = 'N' AND LA.ATTIVO = 'S' AND LA.ASSIGNING_AUTHORITY_AREA = 'PS')
+                INNER JOIN PS_SCHEDE_XML PSXMLINAIL ON (PSXMLINAIL.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLINAIL.SCHEDA = 'INAIL' AND PSXMLINAIL.ATTIVO = 'S' AND PSXMLINAIL.DELETED = 'N')
+                LEFT OUTER JOIN PS_SCHEDE_XML PSXMLVERBALE ON (PSXMLVERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND PSXMLVERBALE.SCHEDA = 'VERBALE' AND PSXMLVERBALE.ATTIVO = 'S' AND PSXMLVERBALE.DELETED = 'N')
+                WHERE
+                LA.STATO IN (SELECT IDEN FROM Q_STATI_LISTA)
+                AND CONTATTI.CARTELLA &lt; '500000'
+                and (contatti.data_inizio &gt;= (select to_date(codice_number, 'YYYYMMDD')  from fx$filtri where id_filtro = 'CARTELLE_INAIL_DA_DATA' and sito = 'PS' and username = :username))
+                and (contatti.data_inizio &lt;= (select to_date(codice_number , 'YYYYMMDD') + 1  from fx$filtri where id_filtro = 'CARTELLE_INAIL_A_DATA' and sito = 'PS' and username = :username))
+                ORDER BY
+                CONTATTI.DATA_INIZIO DESC
+            </SQL>
+        </QUERY>
+
+        <QUERY id="GET_CODICI_MISSIONE">
+            <SQL>
+                select
+                IDEN,
+                CODICE_MISSIONE,
+                TO_CHAR(DATA_INS,'DD/MM/YYYY HH24:MI') DATA_INSERIMENTO,
+                UTE_INS,
+                STRUTTURA,
+                IDEN_CONTATTO,
+                (select codice from adt$contatti where iden = IDEN_CONTATTO) as PRATICA,
+                replace(replace(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/MissionData/Vehicle/Code'), chr(10), ''), chr(9), '') as CODICE_AMBU,
+                replace(replace(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/MissionData/Vehicle/StationPointDescription'), chr(10), ''), chr(9), '') as STAZIONAMENTO,
+                decode(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/HealthData/Triage'), 'B' , 'CBcolorDefault', 'V', 'CBcolorGreen', 'G', 'CBcolorYellow', 'R', 'CBcolorRed') as URGENZA_CODICE,
+                decode(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/HealthData/Triage'), 'B' , 'Bianco', 'V', 'Verde', 'G', 'Giallo', 'R', 'Rosso') as URGENZA,
+                extractvalue(contenuto_xml, '//HealthData//Pathology[1]/PathologyCode') || ' - ' || extractvalue(contenuto_xml, '//HealthData//Pathology[1]/Description') AS PATOLOGIA,
+                decode(EXISTSNODE(contenuto_xml, '//HealthData/AdditionalInformation/MSA'), '0','','1','S') as AUTOMEDICA
+                from CODICI_MISSIONE_BETA_80
+                where DATA_INS &gt; TO_DATE(:data, 'YYYYMMDDHH24MI') - 2/24
+                AND DATA_INS &lt; TO_DATE(:data, 'YYYYMMDDHH24MI') + 2/24
+                AND extractvalue(contenuto_xml,'/CO118_To_PS/Patient/MissionData/Vehicle/Code') like :codiceAmbulanza||'%'
+                AND STRUTTURA  = (select sub_codice_struttura FROM FX$CENTRI_DI_COSTO WHERE IDEN = (SELECT ADT$CONTATTI.CDC_ACCETTAZIONE_GIURIDICO from adt$contatti where iden = :idenContatto))
+                and deleted='N'
+                and (data_associazione &gt; sysdate - 1/48 or data_associazione is null)
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="GET_CODICI_MISSIONE_HOME">
+            <SQL>
+                select
+                IDEN,
+                CODICE_MISSIONE,
+                (select count(1) from CODICI_MISSIONE_BETA_80 where codice_missione = missioni.codice_missione and deleted='N' and iden_contatto is not null) PRATICHE_ASSOCIATE,
+                TO_CHAR(DATA_INS,'DD/MM/YYYY HH24:MI') DATA_INSERIMENTO,
+                UTE_INS,
+                STRUTTURA,
+                IDEN_CONTATTO,
+                (select codice from adt$contatti where iden = IDEN_CONTATTO) as PRATICA,
+                replace(replace(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/MissionData/Vehicle/Code'), chr(10), ''), chr(9), '') as CODICE_AMBU,
+                replace(replace(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/MissionData/Vehicle/StationPointDescription'), chr(10), ''), chr(9), '') as STAZIONAMENTO,
+                decode(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/HealthData/Triage'), 'B' , 'CBcolorDefault', 'V', 'CBcolorGreen', 'G', 'CBcolorYellow', 'R', 'CBcolorRed') as URGENZA_CODICE,
+                decode(extractvalue(contenuto_xml,'/CO118_To_PS/Patient/HealthData/Triage'), 'B' , 'Bianco', 'V', 'Verde', 'G', 'Giallo', 'R', 'Rosso') as URGENZA,
+                extractvalue(contenuto_xml, '//HealthData//Pathology[1]/PathologyCode') || ' - ' || extractvalue(contenuto_xml, '//HealthData//Pathology[1]/Description') AS PATOLOGIA,
+                decode(EXISTSNODE(contenuto_xml, '//HealthData/AdditionalInformation/MSA'), '0','','1','S') as AUTOMEDICA
+                from CODICI_MISSIONE_BETA_80 missioni
+                where DATA_INS &gt; TO_DATE(:data||:ora, 'YYYYMMDDHH24MI') - 2/24
+                AND DATA_INS &lt; TO_DATE(:data||:ora, 'YYYYMMDDHH24MI') + 2/24
+                AND extractvalue(contenuto_xml,'/CO118_To_PS/Patient/MissionData/Vehicle/Code') like :codiceAmbulanza||'%'
+                AND STRUTTURA  = :subCodiceStruttura
+                and deleted='N'
+                and (select count(1) from CODICI_MISSIONE_BETA_80 where codice_missione = missioni.codice_missione and deleted='N' and iden_contatto is not null) &lt; 3
+                and (data_associazione &gt; sysdate - 1/48 or data_associazione is null)
+                order by 3, data_ins desc
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="INFO_ANAGRAFICA">
+            <SQL>
+                SELECT
+                anag.iden, anag.nome, anag.cognome, anag.nome ||' '|| anag.cognome paziente,
+                anag.sesso, to_char(to_date(anag.data_nascita,'yyyyMMdd'), 'dd/MM/yyyy') data_nascita,
+                anag.data_morte, anag.codice_fiscale, anag.email, anag.tessera_sanitaria, anag.cittadinanza,
+                (select descr from FX$NAZIONI where iden = anag.iden_nazione and attivo='S') nazione,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_nascita and attivo='S')
+                comune_nascita,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_residenza and attivo='S')
+                comune_residenza,
+                anag.res_indirizzo, anag.res_numero_civico, anag.res_cap, anag.res_provincia,
+                anag.res_telefono, anag.res_cellulare, anag.res_cod_regione,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_domicilio and attivo='S')
+                comune_domicilio,
+                anag.dom_indirizzo, anag.dom_numero_civico, anag.dom_provincia, anag.dom_cap, anag.dom_telefono,
+                (select descrizione from FX$PERSONALE where iden=anag.iden_medico_base AND ATTIVO='S') medico_di_base,
+                (select descrizione from adt$tipi where iden = iden_stato_civile AND tipo ='STATO_CIVILE' AND
+                ATTIVO='S') stato_civile
+                FROM fx$anagrafica anag
+                WHERE anag.deleted='N'
+                AND anag.iden=:iden_anag {#ORDER#}
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="LISTA_APERTI">
+            <SQL>
+              WITH
+                Q_REGIMI AS (SELECT IDEN FROM ADT$TIPI WHERE CODICE_DECODIFICA IN ('PS','OBI')  AND TIPO='ADT_REGIME_CONTATTO' AND ASSIGNING_AUTHORITY_AREA='PS' AND ATTIVO='S'),
+                Q_AREE AS (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE ID_FILTRO = 'FILTRO_AREE_APERTI' AND USERNAME = :username),
+                Q_UTENTE_RESPONSABILE AS (SELECT codice_number  FROM FX$FILTRI WHERE id_filtro = 'UTENTE_LISTA_APERTI' AND USERNAME = :username and sito = 'PS' and attivo = 'S')
+              SELECT
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(ASSISTENZIALE.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTENTE_RESPONSABILE_MEDICO,
+                EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="AREAPS"]') AS AREA_PS_IDEN,
+                ((SYSDATE - CONTATTI.DATA_MODIFICA)*24) DIFF,
+                ADT$CODIFICHE.ENCODETIPO(SINTESI.REGIME_ULTIMO_GIURIDICO,'PS') AS REGIME,
+                TO_CHAR(ASSISTENZIALE.DATA_INIZIO, 'YYYYMMDDhh24mi') AS DATA_INIZIO_ASS,
+                (SELECT  GETVALUE(CONTENUTO_XML,'txtDataIngresso') FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = SINTESI.IDEN_CONTATTO AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N' and rownum=1) AS DATA_INGRESSO,
+                (SELECT  GETVALUE(CONTENUTO_XML,'txtOraIngresso') FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = SINTESI.IDEN_CONTATTO AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N' and rownum=1) AS ORA_INGRESSO,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA, CONTATTI.CDC_ULTIMO_GIURIDICO AS IDEN_CDC,
+                GETSTEPS(SINTESI.IDEN_CONTATTO, SINTESI.CODICE) AS STEPS,
+                SINTESI.IDEN_CONTATTO AS IDEN_CONTATTO, SINTESI.CARTELLA, SINTESI.CODICE AS NUMERO_PRATICA,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') AS DATA_INS,
+                TO_CHAR(SINTESI.DATA_INIZIO,'dd/MM/yyyy') AS DATA_INIZIO,
+                (SELECT GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = SINTESI.IDEN_CONTATTO AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S' AND DELETED='N' and rownum=1),'h-UrgenzaPs') FROM DUAL) AS CODICE,
+                (GETORDINEURGENZA(SINTESI.IDEN_CONTATTO)) AS ORDINE,
+                (SELECT DESCRIZIONE FROM VIEW_AREE WHERE IDEN=(SELECT TO_NUMBER(EXTRACTVALUE(CONTATTI.METADATI,'/METADATI/DATO[@KEY="UBICAZIONE"]/text()')) FROM DUAL)) AS UBICAZIONE,
+                (SELECT GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = SINTESI.IDEN_CONTATTO AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'  and rownum=1),'cmbProbPrinc') FROM DUAL) AS PROBLEMA_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = to_number(EXTRACTVALUE(CONTATTI.METADATI,'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID'))) AS STATO_PAZIENTE,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN=LA.URGENZA ) AS CODICE_LISTA,
+                LA.IDEN AS IDEN_LISTA,
+                TO_CHAR(LA.DATA_FINE, 'dd/MM/YYYY HH24:mi') AS DATA_FINE_LISTA,
+                (select NOTE from ADT$LISTA_ATTESA where iden_contatto=sintesi.iden_contatto and deleted='N' and note is not null and progressivo = 0) AS NOTE,
+                SINTESI.IDEN_ANAGRAFICA AS IDEN_ANAG, SINTESI.NOME, SINTESI.COGNOME, (SINTESI.COGNOME || ' ' || SINTESI.NOME) AS PAZIENTE, SINTESI.DATA_NASCITA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = ASSISTENZIALE.UTENTE_INSERIMENTO ) AS UTE_INS_ASS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(ASSISTENZIALE.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) ) AS UTE_RIFERIMENTO,
+                (EXTRACTVALUE(ASSISTENZIALE.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS ID_UTE_RIFERIMENTO,
+                (EXTRACTVALUE(ASSISTENZIALE.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_INFERMIERE"]')) AS ID_UTE_RIFERIMENTO_INFERMIERE,
+                (EXTRACTVALUE(ASSISTENZIALE.METADATI, '/METADATI/DATO[@KEY="PRIMA_PRESA_IN_CARICO_MEDICA"]')) AS PRIMA_PRESA_IN_CARICO_MEDICA,
+                (SELECT ADT$GETKEY(ADT$CODIFICHE.COMPLETEENTRY('STATO',ADT$NUMBERENTRY(NULL,ASSISTENZIALE.STATO),NULL,'PS')) FROM DUAL) AS CONTASS_STATO,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) AS AREAPS,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = GIURIDICO.UTENTE_INSERIMENTO) AS UTE_INS_GIU,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO) AS AREA,
+                (SELECT IDEN_CDC FROM AREE WHERE IDEN = (EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="AREAPS"]'))) AS IDEN_AREA,
+                (SELECT (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE (LA.METADATI, '/METADATI/DATO[@KEY="UTENTE_COMPLETAMENTO"]'))) FROM ADT$LISTA_ATTESA LA WHERE PROGRESSIVO = 0 AND IDEN_CONTATTO = SINTESI.IDEN_CONTATTO)AS UTENTE_COMPLETAMENTO  ,
+                (SELECT max(TO_CHAR(DATA_INS,'YYYYMMDDhh24miss'))  FROM DIARI where DIARI.IDEN_CONTATTO = SINTESI.IDEN_CONTATTO  )  as LAST_DIARIO_OBI,
+                TO_CHAR(GIURIDICO.DATA_INS, 'YYYYMMDDhh24miss') as DATA_ULTIMO_GIU
+              FROM
+                ADT$CONTATTI_SINTESI SINTESI
+                INNER JOIN ADT$CONTATTI CONTATTI ON CONTATTI.IDEN = SINTESI.IDEN_CONTATTO AND CONTATTI.DELETED = 'N'
+                INNER JOIN ADT$LISTA_ATTESA  LA ON (LA.IDEN_CONTATTO = SINTESI.IDEN_CONTATTO  AND LA.ASSIGNING_AUTHORITY_AREA='PS'   and LA.deleted = 'N' AND LA.ATTIVO='S' )
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI ASSISTENZIALE ON  ASSISTENZIALE.IDEN = CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE
+                INNER JOIN ADT$CONTATTI_GIURIDICI GIURIDICO on GIURIDICO.IDEN = CONTATTI.SEGMENTO_ULTIMO_GIURIDICO
+              WHERE
+                LA.STATO = ADT$CODIFICHE.DECODETIPO('LISTA_ATTESA_STATO','CHIUSO',NULL,'PS')
+                AND SINTESI.ASSIGNING_AUTHORITY_AREA = 'PS'
+                AND SINTESI.NOME LIKE  :nome||'%'
+                AND SINTESI.COGNOME LIKE :cognome|| '%'
+                AND SINTESI.REGIME_ULTIMO_GIURIDICO IN (SELECT IDEN FROM Q_REGIMI)
+                AND SINTESI.DELETED ='N' AND CONTATTI.DELETED = 'N'
+                and (EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="AREAPS"]') in (select CODICE_NUMBER FROM Q_AREE) OR EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="AREAPS"]') IS NULL)
+                and (EXTRACTVALUE(ASSISTENZIALE.METADATI, '/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') = (SELECT codice_number  FROM Q_UTENTE_RESPONSABILE) or ((SELECT codice_number  FROM Q_UTENTE_RESPONSABILE) = 0))
+              ORDER BY COGNOME, NOME ASC
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">50</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="LISTA_ATTESA">
+            <SQL>
+                WITH
+                    CDC_AREE AS (SELECT IDEN_CDC FROM AREE WHERE IDEN IN (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE ID_FILTRO = 'FILTRO_AREE_ATTESA'  AND USERNAME = :username)),
+                    LISTA_ATTESA_URGENZA AS (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE ID_FILTRO='FILTRO_URGENZA_ATTESA' AND USERNAME = :username AND ATTIVO='S')
+                SELECT
+                    DISTINCT
+                    CONTATTI.CARTELLA,
+                    SINTESI.DATA_INIZIO,
+                    CONTATTI.IDEN AS IDEN_CONTATTO,
+                    CONTATTI.CODICE AS NUMERO_PRATICA,
+                    TO_CHAR(CONTATTI.DATA_INIZIO,'dd/mm/yyyy HH24:mi') AS DATA_APERTURA_CARTELLA,
+                    CONTATTI.CDC_ULTIMO_GIURIDICO AS CONTGIU_CDC,
+                    (SELECT descrizione FROM aree WHERE iden_cdc = CONTATTI.CDC_ULTIMO_GIURIDICO )AS AREAPS,
+                    (select IDEN_PROVENIENZA from FX$CENTRI_DI_COSTO where iden= CONTATTI.CDC_ULTIMO_GIURIDICO and attivo='S')AS CONTGIU_PROV,
+                    (SELECT descrizione FROM ADT$TIPI WHERE iden=(TO_NUMBER(EXTRACtvalue((CONTATTI.metadati),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID')))) AS STATO_PAZIENTE,
+                    (SELECT DESCRIZIONE FROM VIEW_AREE WHERE IDEN=(TO_NUMBER(EXTRACTVALUE(CONTATTI.METADATI,'/METADATI/DATO[@KEY="UBICAZIONE"]/text()')))) AS UBICAZIONE,
+                    (GETDESCR((SELECT contenuto_xml FROM PS_SCHEDE_XML WHERE iden_contatto = CONTATTI.IDEN AND SCHEDA='INTERVISTA' AND attivo='S' AND DELETED='N'  and rownum=1),'cmbProbPrinc'))AS PROBLEMA_PRINCIPALE,
+                    (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN=(SELECT DECODE(EXTRACTVALUE(METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'), NULL, EXTRACTVALUE(METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_INFERMIERE"]'), EXTRACTVALUE(METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') ) FROM ADT$CONTATTI_ASSISTENZIALI WHERE IDEN=CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE))AS UTENTE_RESPONSABILE,
+                    (SELECT DECODE(EXTRACTVALUE(METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'), NULL, EXTRACTVALUE(METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_INFERMIERE"]'), EXTRACTVALUE(METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') )  FROM ADT$CONTATTI_ASSISTENZIALI WHERE IDEN=CONTATTI.SEGMENTO_ULTIMO_ASSISTENZIALE ) AS ID_UTENTE_RESPONSABILE,
+                    SINTESI.COGNOME,
+                    SINTESI.DATA_NASCITA,
+                    (SELECT CODICE_FISCALE FROM FX$ANAGRAFICA WHERE IDEN = SINTESI.IDEN_ANAGRAFICA) AS CODICE_FISCALE,
+                    SINTESI.IDEN_ANAGRAFICA AS IDEN_ANAG,
+                    (SINTESI.COGNOME||' '|| SINTESI.NOME) AS PAZIENTE,
+                    (ADT$CODIFICHE.ENCODETIPO(LISTA_ATTESA.STATO,'PS')) AS STATO_LISTA_ATTESA,
+                    LISTA_ATTESA.PROGRESSIVO AS PROGRESSIVO,
+                    (select NOTE from ADT$LISTA_ATTESA where iden_contatto=sintesi.iden_contatto and deleted='N' and note is not null) AS NOTE,
+                    LISTA_ATTESA.IDEN AS IDEN_LISTA,
+                    (EXTRACTVALUE(LISTA_ATTESA.METADATI,'/METADATI/DATO[@KEY="UTENTE_COMPLETAMENTO"]')) AS UTE_INS_LISTA,
+                    ((SYSDATE - LISTA_ATTESA.DATA_INSERIMENTO)*24) AS DIFF,
+                    CASE WHEN LISTA_ATTESA.DATA_MODIFICA >   (SELECT NVL(MAX(DATA_INS), SYSDATE -100) DATA_PARAMETRI FROM PS_PARAMETRI WHERE IDEN_CONTATTO = CONTATTI.IDEN)    THEN
+                    (SYSDATE - LISTA_ATTESA.DATA_MODIFICA) * 24*60
+                    ELSE
+                    (SYSDATE - (SELECT MAX(DATA_INS) DATA_PARAMETRI FROM PS_PARAMETRI WHERE IDEN_CONTATTO = CONTATTI.IDEN) )*24*60
+                    END DIFF_MODIFICA,
+                    TO_CHAR(LISTA_ATTESA.DATA_INSERIMENTO,'yyyyMMddhh24:mi')AS DATA_INS,
+                    TO_CHAR(LISTA_ATTESA.DATA_MODIFICA, 'dd/MM/yyyy hh24:mi')AS DATA_ULTIMA_MOD,
+                    LISTA_ATTESA.CDC AS IDEN_CDC,
+                    (SELECT COD_CDC FROM FX$CENTRI_DI_COSTO WHERE IDEN = LISTA_ATTESA.CDC AND ATTIVO='S') AS COD_CDC,
+                    (SELECT STRUTTURA FROM FX$CENTRI_DI_COSTO WHERE IDEN = LISTA_ATTESA.CDC AND ATTIVO='S') AS STRUTTURA,
+                    LISTA_ATTESA.PROVENIENZA AS IDEN_PROVENIENZA,
+                    (SELECT DESCRIZIONE FROM FX$PROVENIENZE WHERE IDEN = LISTA_ATTESA.PROVENIENZA AND ATTIVO='S') AS PROVENIENZA,
+                    LISTA_ATTESA.URGENZA AS URGENZA,
+                    (SELECT CODICE_DECODIFICA FROM FX$PROVENIENZE WHERE IDEN  = LISTA_ATTESA.PROVENIENZA AND ATTIVO='S') AS CODICE_DECODIFICA,
+                    (SELECT ORDINE FROM ADT$TIPI WHERE IDEN=LISTA_ATTESA.URGENZA) AS ORDINE,
+                    (select DESCRIZIONE from ADT$TIPI where iden=LISTA_ATTESA.URGENZA) AS CODICE
+                FROM
+                    ADT$CONTATTI_SINTESI SINTESI
+                    INNER JOIN ADT$CONTATTI contatti ON CONTATTI.IDEN = SINTESI.IDEN_CONTATTO AND SINTESI.ASSIGNING_AUTHORITY_AREA='PS'
+                    INNER JOIN ADT$LISTA_ATTESA LISTA_ATTESA ON (LISTA_ATTESA.IDEN_CONTATTO = SINTESI.IDEN_CONTATTO AND LISTA_ATTESA.ASSIGNING_AUTHORITY_AREA = 'PS' AND LISTA_ATTESA.DELETED = 'N' and LISTA_ATTESA.ATTIVO = 'S')
+                WHERE
+                    SINTESI.DELETED='N' AND SINTESI.NOME LIKE :nome || '%' AND SINTESI.COGNOME LIKE :cognome  ||'%'
+                    AND (LISTA_ATTESA.STATO IN (ADT$CODIFICHE.DECODETIPO('LISTA_ATTESA_STATO','INSERITO',NULL,'PS'), ADT$CODIFICHE.DECODETIPO('LISTA_ATTESA_STATO','COMPLETO',NULL,'PS')))
+                    AND(LISTA_ATTESA.URGENZA IN (SELECT CODICE_NUMBER FROM LISTA_ATTESA_URGENZA) OR LISTA_ATTESA.URGENZA IS NULL)
+                    AND SINTESI.CDC IN (SELECT IDEN_CDC FROM CDC_AREE WHERE REGEXP_INSTR('[EG]', SINTESI.SCOPE_CDC) > 0)
+                ORDER BY
+                    ORDINE DESC NULLS LAST, SINTESI.DATA_INIZIO
+                </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">100</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="LISTA_CANCELLATI">
+            <SQL>
+                SELECT
+                    ANAG.IDEN AS IDEN_ANAG,
+                    CONT.IDEN AS IDEN_CONTATTO,
+                    LISTA_ATTESA.IDEN AS IDEN_LISTA,
+                    CONT.CARTELLA,
+                    CONT.CODICE AS NUMERO_PRATICA,
+                    CONT.CDC_ULTIMO_GIURIDICO AS CONTGIU_CDC,
+                    TO_CHAR(CONT.DATA_INIZIO,'dd/mm/yyyy HH24:mi') AS DATA_APERTURA_CARTELLA,
+                    (ANAG.COGNOME||' '|| ANAG.NOME) AS PAZIENTE,
+                    ANAG.DATA_NASCITA,
+                    ANAG.COGNOME,
+                    ANAG.CODICE_FISCALE,
+                    (SELECT descrizione FROM aree WHERE iden_cdc = CONT.CDC_ULTIMO_GIURIDICO )AS AREAPS,
+                    (select IDEN_PROVENIENZA from FX$CENTRI_DI_COSTO where iden= CONT.CDC_ULTIMO_GIURIDICO and attivo='S')AS CONTGIU_PROV,
+                    (SELECT descrizione FROM ADT$TIPI WHERE iden=(TO_NUMBER(EXTRACtvalue((CONT.metadati),'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID')))) AS STATO_PAZIENTE,
+                    (SELECT DESCRIZIONE FROM VIEW_AREE WHERE IDEN=(TO_NUMBER(EXTRACTVALUE(CONT.METADATI,'/METADATI/DATO[@KEY="UBICAZIONE"]/text()')))) AS UBICAZIONE,
+                    (GETDESCR((SELECT contenuto_xml FROM PS_SCHEDE_XML WHERE iden_contatto = CONT.IDEN AND SCHEDA='INTERVISTA' AND attivo='S' AND DELETED='N'),'cmbProbPrinc'))AS PROBLEMA_PRINCIPALE,
+                    (SELECT descrizione FROM FX$PERSONALE WHERE iden=(select extractvalue(metadati,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') from adt$contatti_assistenziali where iden=cont.SEGMENTO_ULTIMO_ASSISTENZIALE))AS UTENTE_RESPONSABILE
+                FROM ADT$CONTATTI CONT
+                INNER JOIN FX$ANAGRAFICA ANAG ON (CONT.IDEN_ANAGRAFICA = ANAG.IDEN AND ANAG.DELETED='N')
+                INNER JOIN ADT$LISTA_ATTESA LISTA_ATTESA ON(LISTA_ATTESA.IDEN_CONTATTO=CONT.IDEN  AND LISTA_ATTESA.ASSIGNING_AUTHORITY_AREA = 'PS' AND LISTA_ATTESA.deleted= 'N' AND LISTA_ATTESA.attivo= 'S')
+                WHERE CONT.DELETED='S'
+                    AND CONT.ASSIGNING_AUTHORITY_AREA='PS'
+                    AND CONT.STATO=ADT$CODIFICHE.decodeStato('NULLIFIED','PS')
+                    AND ANAG.NOME LIKE :nome  ||'%'
+                    AND ANAG.cognome LIKE :cognome  ||'%'
+                    AND (:cartella is null OR  cont.cartella=:cartella)
+                    AND (:anno is null OR CONT.ANNO=:anno)
+                    AND cont.cdc_ultimo_giuridico IN
+                    (select iden_cdc from aree where iden in (SELECT CODICE_NUMBER FROM fx$filtri WHERE ID_FILTRO = 'FILTRO_AREE_ATTESA'))
+                ORDER BY cont.data_inizio desc nulls last
+            </SQL>
+        </QUERY>
+
+        <QUERY id="LISTA_CHIUSI">
+            <SQL>
+                WITH
+                Q_ESITI AS (SELECT IDEN FROM ADT$TIPI WHERE TIPO = 'ADT_DIMISSIONE_TIPO' AND CODICE_DECODIFICA IN (SELECT CODICE_VARCHAR FROM FX$FILTRI WHERE ID_FILTRO = 'FILTRO_ESITO' AND username = :username) AND ADT.HASTAGVALUE(PARAMETRI,'PS','tipo_esito') > 0),
+                Q_CDC_UTENTE AS (SELECT IDEN FROM FX$CENTRI_DI_COSTO WHERE COD_CDC IN (SELECT REPARTO FROM FX$WEB_CDC WHERE WEBUSER = :username))
+                SELECT
+                ANAG.SESSO
+                ,ANAG.COGNOME
+                ,ANAG.CODICE_FISCALE
+                ,ANAG.IDEN AS IDEN_ANAG
+                ,ANAG.DATA_NASCITA
+                ,ANAG.IDEN_COMUNE_RESIDENZA
+                ,((sysdate - CONTASS.DATA_FINE)*24) AS DIFF
+                ,ANAG.COGNOME||' '|| ANAG.NOME || CHR(13)|| TO_CHAR(TO_DATE(ANAG.DATA_NASCITA, 'yyyyMMdd'),'dd/MM/yyyy') AS PAZIENTE
+                ,CONTATTI.IDEN AS IDEN_CONTATTO
+                ,ADT$CODIFICHE.ENCODETIPO(CONTATTI.TIPO,'PS') AS TIPO
+                ,TO_CHAR(CONTATTI.DATA_FINE, 'dd/mm/yyyy HH24:mi') AS DATA_CHIUSURA
+                ,CONTATTI.CARTELLA
+                ,CONTATTI.CDC_ULTIMO_ASSISTENZIALE AS IDEN_CDC
+                ,CONTATTI.UTENTE_DIMISSIONE
+                ,CONTATTI_SON.IDEN as IDEN_CONTATTO_RICOVERO
+                ,(SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (CONTATTI.UTENTE_DIMISSIONE)) AS UTENTE_DIMETTENTE
+                ,TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') AS DATA_INS
+                ,TO_CHAR(CONTATTI.DATA_INIZIO,'dd/MM/yyyy') AS DATA_INIZIO
+                ,CONTATTI.DATA_FINE AS DATA_FINE
+                ,LA.NOTE
+                ,LA.IDEN AS IDEN_LISTA
+                ,ADT$REPARTI.DECODEIDENCDCFUNCT(CONTATTI.CDC_ULTIMO_ASSISTENZIALE) AS IDEN_PROVENIENZA
+                ,SCHEDA_VERBALE.iden AS IDEN_SCHEDA_VERBALE
+                ,GETORDINEURGENZA(CONTATTI.IDEN) AS ORDINE
+                ,GETDESCR(SCHEDA_VERBALE.CONTENUTO_XML,'h-radOBI') AS ESITO_OBI
+                ,ADT$CODIFICHE.DESCRIBETIPO(LA.URGENZA) AS CODICE_LISTA
+                ,GET_VALUE((SCHEDA_VERBALE.contenuto_xml),'taDiagnosiICD9') AS DIAGNOSI_PRINCIPALE
+                ,ADT$CODIFICHE.DESCRIBETIPO(ADT$CODIFICHE.DECODETIPO('ESITO_DA_PS',GET_VALUE(SCHEDA_VERBALE.contenuto_xml,'hEsito'),NULL,CONTATTI.ASSIGNING_AUTHORITY_AREA)) AS ESITO
+                ,GET_VALUE(SCHEDA_VERBALE.CONTENUTO_XML,'txtrepRicovero') AS REPARTO_RICOVERO
+                ,GETDESCR(SCHEDA_VERBALE.CONTENUTO_XML,'h-UrgenzaPs') AS CODICE
+                ,GET_VALUE(SCHEDA_VERBALE.CONTENUTO_XML,'hEsito') AS ID_ESITO
+                ,GETVALUE(SCHEDA_VERBALE.CONTENUTO_XML,'h-radOBI') AS ID_ESITO_OBI
+                ,SCHEDA_VERBALE.STATO,
+                CONTATTI_SON.CODICE AS CODICE_CONTATTO_FIGLIO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI_SON.CDC_ULTIMO_GIURIDICO) AS REPARTO_GIURIDICO_FIGLIO,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI_SON.CDC_ULTIMO_ASSISTENZIALE) AS REPARTO_ASSISTENZIALE_FIGLIO
+                FROM
+                ADT$CONTATTI CONTATTI
+                LEFT OUTER JOIN ADT$CONTATTI CONTATTI_SON ON CONTATTI_SON.IDEN_PARENT = CONTATTI.IDEN AND CONTATTI_SON.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI CONTASS ON (contass.iden = CONTATTI.segmento_ultimo_assistenziale)
+                INNER JOIN FX$ANAGRAFICA ANAG ON ANAG.IDEN = CONTATTI.IDEN_ANAGRAFICA
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.ASSIGNING_AUTHORITY_AREA = 'PS' AND LA.DELETED = 'N' AND LA.ATTIVO = 'S')
+                INNER JOIN PS_SCHEDE_XML SCHEDA_VERBALE ON (SCHEDA_VERBALE.IDEN_CONTATTO = CONTATTI.IDEN AND SCHEDA_VERBALE.SCHEDA = 'VERBALE' AND SCHEDA_VERBALE.ATTIVO = 'S' AND SCHEDA_VERBALE.DELETED = 'N')
+                WHERE
+                CONTATTI.ASSIGNING_AUTHORITY_AREA = 'PS' AND CONTATTI.DELETED = 'N'
+                AND CONTATTI.STATO = ADT$CODIFICHE.DECODESTATO('DISCHARGED','PS')
+                AND ANAG.NOME LIKE :nome || '%' AND ANAG.COGNOME LIKE :cognome || '%'
+                AND CONTATTI.TIPO_DIMISSIONE IN (SELECT IDEN FROM Q_ESITI)
+                AND CONTATTI.DATA_FINE >= sysdate-1
+                AND CONTATTI.CDC_ULTIMO_GIURIDICO IN (SELECT IDEN FROM Q_CDC_UTENTE)
+                ORDER BY
+                ORDINE DESC NULLS LAST, ANAG.COGNOME ASC
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">150</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="LISTA_OBI">
+            <SQL>
+                WITH CDC_UTENTE AS (SELECT IDEN_CDC FROM AREE WHERE IDEN IN (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE ID_FILTRO = 'FILTRO_AREE_OBI'  AND USERNAME = :username)),
+                Q_UTENTE_RESPONSABILE AS (SELECT codice_number  FROM FX$FILTRI WHERE id_filtro = 'UTENTE_LISTA_OBI' AND USERNAME = :username and sito = 'PS' and attivo = 'S')
+                SELECT * FROM
+                (
+                SELECT
+                DISTINCT
+                SINTESI.IDEN_CONTATTO AS IDEN_CONTATTO,
+                SINTESI.CARTELLA,
+                SINTESI.CODICE NUMERO_PRATICA,
+                TO_CHAR(CONTATTI.DATA_INS,'dd/MM hh24:mi') AS DATA_INS,
+                TO_CHAR(SINTESI.DATA_INIZIO,'dd/MM/yyyy') AS DATA_INIZIO,
+                (FX$ITG_PS_EVENTI.GET_LETTO(CONTATTI.STRUTTURA, CONTATTI.ANNO, SINTESI.CARTELLA, SINTESI.IDEN_ANAGRAFICA)) AS LETTO,
+                ((SYSDATE - CONTATTI.DATA_MODIFICA)*24) DIFF,
+                (SELECT DESCRIZIONE FROM VIEW_AREE WHERE IDEN=( TO_NUMBER(EXTRACTVALUE(CONTATTI.METADATI,'/METADATI/DATO[@KEY="UBICAZIONE"]/text()'))) ) AS UBICAZIONE,
+                SINTESI.IDEN_ANAGRAFICA AS IDEN_ANAG, SINTESI.NOME, SINTESI.COGNOME, (SINTESI.COGNOME || ' ' || SINTESI.NOME) AS PAZIENTE, SINTESI.DATA_NASCITA,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN=LA.URGENZA)AS CODICE_LISTA,
+                LA.IDEN IDEN_LISTA,
+                LA.NOTE,
+                (SELECT IDEN_PROVENIENZA FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO ) AS IDEN_PROVENIENZA,
+                CONTATTI.CDC_ULTIMO_GIURIDICO AS IDEN_CDC,
+                GETSTEPS(SINTESI.IDEN_CONTATTO, SINTESI.CODICE) STEPS,
+                (GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = SINTESI.IDEN_CONTATTO AND SCHEDA='ESAME_OBIETTIVO' AND ATTIVO='S'),'h-UrgenzaPs')) CODICE,
+                (GETORDINEURGENZA(SINTESI.IDEN_CONTATTO)) AS ORDINE,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = ASSISTENZIALE.UTENTE_INSERIMENTO ) UTE_INS_ASS,
+                (SELECT IDEN FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = SINTESI.IDEN_CONTATTO AND SCHEDA='VERBALE' AND ATTIVO='S' AND DELETED='N') AS IDEN_SCHEDA_VERBALE,
+                (SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = (SELECT IDEN_CDC FROM ADT$CONTATTI_GIURIDICI WHERE IDEN = CONTATTI.SEGMENTO_ULTIMO_GIURIDICO ) AND ATTIVO='S' ) AS AREA,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = (EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]'))) AS UTE_RIFERIMENTO,
+                (EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS IDEN_UTE_RIFERIMENTO,
+                ADT$CODIFICHE.ENCODETIPO(ASSISTENZIALE.STATO,'PS') AS CONTASS_STATO,
+                ( GETDESCR((SELECT CONTENUTO_XML FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = LA.IDEN_CONTATTO AND SCHEDA='INTERVISTA' AND ATTIVO='S' AND DELETED='N'),'cmbProbPrinc')) AS PROBLEMA_PRINCIPALE,
+                (SELECT DESCRIZIONE FROM AREE WHERE IDEN = EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="AREAPS"]')) as  AREAPS,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = (SELECT EXTRACTVALUE(CONTATTI.METADATI,'/METADATI/DATO[@KEY="STATO_PAZIENTE"]/@ID') FROM dual)) AS STATO_PAZIENTE,
+                (EXTRACTVALUE(ASSISTENZIALE.METADATI,'/METADATI/DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')) AS ID_UTE_RIFERIMENTO,
+                (SELECT max(TO_CHAR(DATA_INS,'YYYYMMDDhh24miss'))  FROM DIARI where DIARI.IDEN_CONTATTO = SINTESI.IDEN_CONTATTO  )  as LAST_DIARIO_OBI,
+                TO_CHAR(ASSISTENZIALE.DATA_INS, 'YYYYMMDDhh24miss')  as DATA_ULTIMO_ASS
+                FROM
+                ADT$CONTATTI_SINTESI SINTESI
+                INNER JOIN ADT$CONTATTI CONTATTI ON CONTATTI.IDEN = SINTESI.IDEN_CONTATTO AND SINTESI.ASSIGNING_AUTHORITY_AREA = 'PS' AND SINTESI.DELETED = 'N' AND CONTATTI.DELETED = 'N'
+                INNER JOIN ADT$CONTATTI_ASSISTENZIALI ASSISTENZIALE ON (ASSISTENZIALE.iden = CONTATTI.segmento_ultimo_assistenziale )
+                INNER JOIN ADT$LISTA_ATTESA LA ON (LA.IDEN_CONTATTO = CONTATTI.IDEN AND LA.STATO = ADT$CODIFICHE.decodetipo('LISTA_ATTESA_STATO','CHIUSO',NULL,'PS') AND LA.ASSIGNING_AUTHORITY_AREA='PS' AND LA.IDEN_CONTATTO IS NOT NULL  AND LA.DELETED = 'N' AND LA.ATTIVO='S')
+                LEFT OUTER JOIN DIARI  on (DIARI.IDEN_CONTATTO = SINTESI.IDEN_CONTATTO )
+                WHERE
+                SINTESI.NOME LIKE :nome||'%'
+                AND SINTESI.REGIME_ULTIMO_GIURIDICO = ADT$CODIFICHE.DECODETIPO('ADT_REGIME_CONTATTO','OBI',NULL,'PS')
+                AND SINTESI.cognome LIKE :cognome||'%'
+                AND SINTESI.CDC IN (SELECT IDEN_CDC FROM CDC_UTENTE WHERE REGEXP_INSTR('[EG]', SINTESI.SCOPE_CDC) > 0)
+                )
+                WHERE
+                (IDEN_UTE_RIFERIMENTO  = (SELECT codice_number  FROM Q_UTENTE_RESPONSABILE) or ((SELECT codice_number  FROM Q_UTENTE_RESPONSABILE) = 0))
+                ORDER BY
+                ORDINE DESC NULLS LAST, DATA_INIZIO ASC
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">200</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="MONITOR">
+            <SQL>
+                SELECT
+                LISTA_ATTESA.IDEN progressivo,
+                to_char(DATA_INSERIMENTO,'dd/MM/YYYY') DATA_INS,
+                to_char(DATA_INSERIMENTO,'hh24:mi') ORA_INS,
+                TIPI.DESCRIZIONE CODICE,
+                TIPI.ordine ORDINE,
+                CON.CODICE NUMERO_PRATICA,
+                PROV.IDEN IDEN_PROVENIENZA,
+                ANAG.IDEN IDEN_ANAG,
+                LISTA_ATTESA.IDEN_CONTATTO
+                FROM ADT$LISTA_ATTESA LISTA_ATTESA
+                JOIN ADT$TIPI TIPI ON LISTA_ATTESA.URGENZA = TIPI.IDEN
+                JOIN FX$ANAGRAFICA ANAG ON LISTA_ATTESA.IDEN_ANAGRAFICA = ANAG.IDEN
+                JOIN ADT$CONTATTI CON ON LISTA_ATTESA.IDEN_CONTATTO = CON.IDEN
+                JOIN FX$PROVENIENZE PROV ON LISTA_ATTESA.PROVENIENZA = PROV.IDEN
+                WHERE LISTA_ATTESA.ASSIGNING_AUTHORITY_AREA = 'PS'
+                AND LISTA_ATTESA.STATO =(SELECT ADT$CODIFICHE.decodeStato('REQUESTED','PS') FROM DUAL )
+                AND ANAG.NOME LIKE :nome
+                AND anag.cognome like :cognome
+                AND prov.descrizione like '%'||:provenienza
+                AND LISTA_ATTESA.URGENZA IN (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE ID_FILTRO =
+                'WK_RIC_TRIAGE_URGENZA' AND USERNAME = :username AND ATTIVO = 'S')
+                AND LISTA_ATTESA.iden_contatto is not null
+                ORDER BY DATA_INS desc, ordine desc
+            </SQL>
+        </QUERY>
+        <QUERY id="PRECEDENTI">
+            <SQL>
+                SELECT
+                to_char(to_date(valore1,'yyyyMMddhh24:mi'),'yyyyMMdd') data,
+                to_char(to_date(valore1,'yyyyMMddhh24:mi'),'hh24:mi') ora,
+                decode(valore2, null, '', '['||valore2||','||valore3||']') PRESSIONE,
+                valore4 FQ_CARDIO_TIPO,
+                valore6 FQ_CARDIO,
+                valore9 FQ_RESPIRATORIA,
+                valore10 SATURAZIONE,
+                valore11 TEMPERATURA,
+                valore12 SPO2,
+                valore13 GLASGOW,
+                valore14 RTS,
+                valore15 HGT,
+                valore16 STICK_URINARIO,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = valore17) UTE_INS,
+                valore17 IDEN_PER,
+                valore18 DOLORE,
+                valore19||','||valore20 IDEN_PRESSIONE,
+                valore21 IDEN_FQ_CARDIO,
+                valore22 IDEN_FQ_RESPIRATORIA,
+                valore23 IDEN_SATURAZIONE,
+                valore24 IDEN_TEMPERATURA,
+                valore25 IDEN_SPO2,
+                valore26 IDEN_GLASGOW,
+                valore27 IDEN_RTS,
+                valore28 IDEN_HGT,
+                valore29 IDEN_STICK_URINARIO,
+                valore30 IDEN_DOLORE,
+                valore31 NOTE
+                FROM TABLE (GET_STORICO_PARAMETRI_NEW(:IDEN_CONTATTO))
+                order by valore1 desc
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_CONTATTO" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">30</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="PRESTAZIONI_INTERNE_PS">
+            <SQL>
+                SELECT
+                ET.IDEN_MEDICO_INVIANTE, ET.IDEN IDEN_TESTATA, ET.IDEN_ANAGRAFICA,
+                ET.IDEN_PROVENIENZA, ET.IDEN_CDC, ET.IDEN_CONTATTO, ET.QUADRO_CLINICO QUADRO,
+                ET.QUESITO_CLINICO QUESITO, ET.NOTE, ED.IDEN IDEN_DETTAGLIO, ED.DATA_ESAME,
+                ED.ORA_ESAME, NOM.IDEN IDEN_NOMENCLATORE, NOM.DESCRIZIONE PRESTAZIONE, NOM.CODICE_DECODIFICA,
+                (select descrizione from fx$provenienze where iden = ET.IDEN_PROVENIENZA and attivo='S')as provenienza,
+                (select descrizione from FX$PERSONALE where iden = ET.IDEN_MEDICO_INVIANTE)as richiedente,
+                ed.deleted
+                FROM polaris_dati.ESAMI_TESTATA ET
+                INNER JOIN polaris_dati.ESAMI_DETTAGLIO ED ON(ED.IDEN_TESTATA=ET.IDEN)
+                INNER JOIN FX$NOMENCLATORE NOM ON(NOM.IDEN=ED.IDEN_NOMENCLATORE)
+                INNER JOIN FX$CENTRI_DI_COSTO CDC ON (CDC.IDEN = ET.IDEN_CDC)
+                WHERE et.iden_contatto=:iden_contatto
+                AND CDC.TIPOLOGIA = '8'
+                ORDER BY
+                ED.DATA_ESAME desc, ED.ORA_ESAME desc
+            </SQL>
+        </QUERY>
+        <QUERY id="PRESTAZIONI_INTERNE_ATTIVE">
+            <SQL>
+                SELECT
+                    ET.IDEN_MEDICO_INVIANTE, ET.IDEN IDEN_TESTATA, ET.IDEN_ANAGRAFICA,
+                    ET.IDEN_PROVENIENZA, ET.IDEN_CDC, ET.IDEN_CONTATTO, ET.QUADRO_CLINICO QUADRO,
+                    ET.QUESITO_CLINICO QUESITO, ET.NOTE, ED.IDEN IDEN_DETTAGLIO, ED.DATA_ESAME,
+                    ED.ORA_ESAME, NOM.IDEN IDEN_NOMENCLATORE, NOM.DESCRIZIONE PRESTAZIONE, NOM.CODICE_DECODIFICA,
+                    (select descrizione from fx$provenienze where iden = ET.IDEN_PROVENIENZA and attivo='S')as provenienza,
+                    (select descrizione from FX$PERSONALE where iden = ET.IDEN_MEDICO_INVIANTE)as richiedente,
+                    ed.deleted
+                FROM polaris_dati.ESAMI_TESTATA ET
+                    INNER JOIN polaris_dati.ESAMI_DETTAGLIO ED ON(ED.IDEN_TESTATA=ET.IDEN and ed.deleted='N')
+                    INNER JOIN FX$NOMENCLATORE NOM ON(NOM.IDEN=ED.IDEN_NOMENCLATORE)
+                    INNER JOIN FX$CENTRI_DI_COSTO CDC ON (CDC.IDEN = ET.IDEN_CDC AND CDC.TIPOLOGIA = '8')
+                WHERE et.iden_contatto=:iden_contatto and et.deleted='N'
+                ORDER BY ED.DATA_ESAME desc, ED.ORA_ESAME desc
+            </SQL>
+        </QUERY>
+        <QUERY id="RICONCILIA_ACCESSI">
+            <SQL>
+                SELECT
+                anag.iden iden_anag,
+                anag.nome, anag.cognome,
+                anag.cognome||' '||anag.nome||' '||anag.data_nascita paziente,
+                anag.data_nascita,
+                anag.codice_fiscale,
+                anag.certificato,
+                anag.readonly,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_nascita and attivo='S'
+                ) comune_nascita,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_residenza and attivo='S'
+                ) comune_residenza,
+                (select descrizione from fx$comuni where iden_comune = anag.iden_comune_domicilio and attivo='S'
+                ) comune_domicilio
+                FROM fx$anagrafica anag
+                WHERE anag.nome LIKE :nome
+                AND anag.cognome LIKE :cognome
+                AND ANAG.DATA_NASCITA like :data_nascita
+                AND anag.deleted='N' {#ORDER#}
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="RIEPILOGO_LISTA_ATTESA">
+            <SQL>
+                SELECT
+                la.iden,
+                REGEXP_REPLACE(la.NOTE,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''')as NOTE,
+                la.NOTE_MODIFICA,
+                la.utente_inserimento,
+                TO_CHAR(LA.DATA_INSERIMENTO,'dd/MM/yyyy hh24:mi') as DATA,
+                extractvalue(la.metadati,'METADATI/DATO[@KEY="NOTE_BRACCIALETTO"]') as NOTE_BRACCIALETTO,
+                (select descrizione from Fx$personale where iden = la.utente_inserimento) as UTENTE,
+                (select tipo_personale from Fx$personale where iden = la.utente_inserimento) as TIPO_UTENTE,
+                (select descrizione from ADT$TIPI where iden = la.urgenza AND ASSIGNING_AUTHORITY_AREA = 'PS') as URGENZA,
+                (select CODICE_DECODIFICA from ADT$TIPI where iden = la.stato AND ASSIGNING_AUTHORITY_AREA = 'PS') as stato
+                FROM adt$lista_attesa la
+                WHERE LA.IDEN_CONTATTO = :iden_contatto
+                and la.deleted='N'  and la.progressivo  >0
+                AND la.ASSIGNING_AUTHORITY_AREA = 'PS'
+                ORDER BY LA.DATA_INSERIMENTO desc
+            </SQL>
+        </QUERY>
+        <QUERY id="RIEPILOGO_TRIAGE">
+            <SQL>
+                SELECT
+                la.iden,
+                REGEXP_REPLACE(la.NOTE,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS NOTE,
+                la.NOTE_MODIFICA,
+                la.utente_inserimento,
+                TO_CHAR(LA.DATA_INSERIMENTO,'dd/MM/yyyy hh24:mi') as DATA,
+                extractvalue(la.metadati,'METADATI/DATO[@KEY="NOTE_BRACCIALETTO"]') as NOTE_BRACCIALETTO,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN=( extractvalue(la.metadati,'/METADATI/DATO[@KEY="UTENTE_COMPLETAMENTO"]/text()'))) UTENTE,
+                (select tipo_personale from Fx$personale where iden = la.utente_inserimento) as TIPO_UTENTE,
+                (select descrizione from ADT$TIPI where iden = la.urgenza AND ASSIGNING_AUTHORITY_AREA = 'PS') as URGENZA,
+                (select CODICE_DECODIFICA from ADT$TIPI where iden = la.stato AND ASSIGNING_AUTHORITY_AREA = 'PS') as stato
+                FROM adt$lista_attesa la
+                WHERE LA.IDEN_CONTATTO = :iden_contatto
+                and la.deleted='N'  and la.progressivo=0
+                and urgenza is not null
+                AND la.ASSIGNING_AUTHORITY_AREA = 'PS'
+                ORDER BY LA.DATA_INSERIMENTO desc
+            </SQL>
+        </QUERY>
+        <QUERY id="STORIA_CONTATTO">
+            <SQL>
+                SELECT
+                (SELECT descrizione  FROM fx$personale WHERE iden = to_number(extractvalue(ca.METADATI,'//DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]')))AS UTENTE_RIFERIMENTO,
+                (select descrizione  from aree where iden = (select (extractvalue(ca.METADATI,'//DATO[@KEY="AREAPS"]')) from dual))AS AREA,
+                TO_CHAR(ca.data_inizio, 'hh24:mi dd/mm')AS data_inizio,
+                NVL(TO_CHAR(ca.data_fine, 'hh24:mi dd/mm'),'ATTUALE')AS data_fine
+                FROM adt$contatti cont
+                INNER JOIN adt$contatti_assistenziali ca ON (ca.iden_contatto = cont.iden AND ca.deleted='N')
+                WHERE CONT.DELETED='N' and extractvalue(ca.METADATI,'//DATO[@KEY="UTENTE_RESPONSABILE_MEDICO"]') is not null
+                AND CONT.IDEN = :iden_contatto order by CA.data_ins desc
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">30</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="STORICO_PAZIENTE">
+            <SQL>
+                select
+                cont.iden,
+                IDEN_ANAGRAFICA,
+                (select iden from adt$lista_attesa where iden_contatto = cont.iden and deleted='N' and attivo='S' and  ASSIGNING_AUTHORITY_AREA = 'PS') iden_lista,
+                :template,
+                (select iden_provenienza from adt$contatti_giuridici where iden = cont.segmento_ultimo_giuridico) IDEN_PROVENIENZA,
+                (select iden_cdc from adt$contatti_giuridici where iden = cont.segmento_ultimo_giuridico) IDEN_CDC,
+                to_char(data_inizio, 'hh24:mi dd/MM/yyyy') DATA_INIZIO,
+                (select struttura from FX$CENTRI_DI_COSTO where iden = cdc_accettazione_giuridico) CDC_ACCETTAZIONE,
+                (select getvalue(CONTENUTO_XML, 'txtDiagnosiICD91') from PS_SCHEDE_XML where IDEN_CONTATTO = cont.iden  and scheda = 'VERBALE' and deleted = 'N' and attivo = 'S') DIAGNOSI,
+                (select getvalue(CONTENUTO_XML, 'taDiagnosiICD9') from PS_SCHEDE_XML where IDEN_CONTATTO = cont.iden  and scheda = 'VERBALE' and deleted = 'N' and attivo = 'S') DIAGNOSI_TESTUALE,
+                (select STATO from PS_SCHEDE_XML where IDEN_CONTATTO = cont.iden  and scheda = 'VERBALE' and deleted = 'N' and attivo = 'S') STATO
+                from adt$CONTATTI cont
+                where
+                IDEN_ANAGRAFICA = :iden_anagrafica and
+                ASSIGNING_AUTHORITY_AREA = 'PS' and
+                deleted = 'N' and
+                stato = adt$codifiche.decodeTipo(pTipo =&gt; 'STATO', pCodice =&gt; 'DISCHARGED',pAssigningAuthorityArea =&gt; 'PS')
+                order by CONT.DATA_INIZIO desc
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">50</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="TERAPIE_ASSOCIATE">
+            <SQL>
+                SELECT
+                TS.IDEN,
+                TS.STATO,
+                TS.SOSPESO,
+                TS.VELOCITA,
+                TS.POSOLOGIA,
+                TS.PREVISTO_PROTOCOLLO,
+                TO_CHAR(ts.data_ins, 'HH24:MI') AS ORA_INS,
+                TS.UTENTE_COMPETENTE AS IDEN_UTENTE_COMPETENTE,
+                (select descrizione from FX$PERSONALE where iden = ts.UTENTE_COMPETENTE) AS UTENTE_COMPETENTE,
+                TO_CHAR(ts.data_somministrazione, 'dd/mm/yyyy') || ' ' || TO_CHAR(ts.data_somministrazione,'HH24:MI') AS DATA_SOMM,
+                (select descrizione from adt$tipi where iden=TS.VEICOLO and attivo='S' and ASSIGNING_AUTHORITY_AREA='PS') AS VEICOLO,
+                (select descrizione from adt$tipi where iden=TS.DILUIZIONE and attivo='S' and ASSIGNING_AUTHORITY_AREA='PS') AS DILUIZIONE,
+                (select descrizione from adt$tipi where iden=TS.VIE_SOMMINISTRAZIONE and attivo='S' and ASSIGNING_AUTHORITY_AREA='PS') AS VIE_SOMMINISTRAZIONE,
+                LISTAGG(FARMACI.iden,',') WITHIN GROUP (ORDER BY TS.IDEN) AS IDEN_FARMACI,
+                (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = FA.UNITA_MISURA) AS UNITA_MISURA,
+                LISTAGG(FA.POSOLOGIA_VARCHAR ||' '|| FARMACI.DESCRIZIONE,'&lt;br/&gt;') WITHIN GROUP (ORDER BY TS.IDEN) AS FARMACI,
+                ts.deleted
+                from TERAPIE_SOMMINISTRAZIONE TS
+                INNER JOIN FARMACI_ASSOCIATI FA ON (TS.IDEN = FA.IDEN_TERAPIA AND fa.deleted = 'N')
+                INNER JOIN FX$FARMACI FARMACI ON (FA.IDEN_FARMACO = FARMACI.IDEN)
+                WHERE TS.IDEN_CONTATTO = :iden_contatto
+                GROUP BY TS.IDEN, TS.VIE_SOMMINISTRAZIONE, TS.POSOLOGIA, TS.DILUIZIONE,
+                TS.VEICOLO, TS.VELOCITA,TS.UTE_INS,ts.data_somministrazione,TS.STATO,ts.data_ins,
+                TS.SOSPESO, TS.PREVISTO_PROTOCOLLO, ts.UTENTE_COMPETENTE,UTE_INS, UNITA_MISURA, ts.deleted
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">10</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="TERAPIE_ASSOCIATE_ATTIVE">
+            <SQL>
+                SELECT
+                    TS.IDEN, TS.STATO, TS.SOSPESO, TS.VELOCITA, TS.POSOLOGIA, TS.PREVISTO_PROTOCOLLO,
+                    TO_CHAR(ts.data_ins, 'HH24:MI') AS ORA_INS, TS.UTENTE_COMPETENTE AS IDEN_UTENTE_COMPETENTE,
+                    (select descrizione from FX$PERSONALE where iden = ts.UTENTE_COMPETENTE) AS UTENTE_COMPETENTE,
+                    TO_CHAR(ts.data_somministrazione, 'dd/mm/yyyy') || ' ' || TO_CHAR(ts.data_somministrazione,'HH24:MI') AS DATA_SOMM,
+                    (select descrizione from adt$tipi where iden=TS.VEICOLO and attivo='S' and ASSIGNING_AUTHORITY_AREA='PS') AS VEICOLO,
+                    (select descrizione from adt$tipi where iden=TS.DILUIZIONE and attivo='S' and ASSIGNING_AUTHORITY_AREA='PS') AS DILUIZIONE,
+                    (select descrizione from adt$tipi where iden=TS.VIE_SOMMINISTRAZIONE and attivo='S' and ASSIGNING_AUTHORITY_AREA='PS') AS VIE_SOMMINISTRAZIONE,
+                    LISTAGG(FARMACI.iden,',') WITHIN GROUP (ORDER BY TS.IDEN) AS IDEN_FARMACI,
+                    (SELECT DESCRIZIONE FROM ADT$TIPI WHERE IDEN = FA.UNITA_MISURA) AS UNITA_MISURA,
+                    LISTAGG(FA.POSOLOGIA_VARCHAR ||' '|| FARMACI.DESCRIZIONE,'&lt;br/&gt;') WITHIN GROUP (ORDER BY TS.IDEN) AS FARMACI, ts.deleted
+                FROM TERAPIE_SOMMINISTRAZIONE TS
+                    INNER JOIN FARMACI_ASSOCIATI FA ON (TS.IDEN = FA.IDEN_TERAPIA AND fa.deleted = 'N')
+                    INNER JOIN FX$FARMACI FARMACI ON (FA.IDEN_FARMACO = FARMACI.IDEN)
+                WHERE TS.IDEN_CONTATTO = :iden_contatto and TS.deleted='N'
+                GROUP BY TS.IDEN, TS.VIE_SOMMINISTRAZIONE, TS.POSOLOGIA, TS.DILUIZIONE,
+                    TS.VEICOLO, TS.VELOCITA,TS.UTE_INS,ts.data_somministrazione,TS.STATO,ts.data_ins,
+                    TS.SOSPESO, TS.PREVISTO_PROTOCOLLO, ts.UTENTE_COMPETENTE,UTE_INS, UNITA_MISURA, ts.deleted
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">10</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="TIPI">
+            <SQL>
+                SELECT IDEN,CODICE_DECODIFICA,DESCRIZIONE,TIPO,ORDINE,ATTIVO
+                from ADT$TIPI
+                WHERE DESCRIZIONE like :descr AND CODICE_DECODIFICA like :codice
+                AND ASSIGNING_AUTHORITY_AREA IN ('PS') {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="VERSIONI_ANAMNESI">
+            <SQL>
+                SELECT
+                PS_SCHEDE_XML.IDEN,
+                TO_CHAR(DATA_INS,'yyyymmdd') DATA,
+                TO_CHAR(DATA_INS,'hh24:mi') ORA,
+                (select descrizione from FX$PERSONALE WHERE IDEN = UTE_INS ) UTENTE,
+                REGEXP_REPLACE( GETVALUE(CONTENUTO_XML,'txtTerInCorso') ,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS TERAPIE ,
+                REGEXP_REPLACE( GETVALUE(CONTENUTO_XML,'txtMalattie') ,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS MALATTIE ,
+                REGEXP_REPLACE( GETVALUE(CONTENUTO_XML,'txtAllergie') ,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS ALLERGIE ,
+                REGEXP_REPLACE( GETVALUE(CONTENUTO_XML,'txtUltimoPasto') ,'(\chr(38)apos;)|(\chr(38)amp;apos;)', '''') AS ULTIMO_PASTO ,
+                GETVALUE(CONTENUTO_XML,'txtInterventoSubito') INTERVENTI,
+                ute_ins,
+                ((sysdate - data_ins)*24) diff
+                FROM PS_SCHEDE_XML WHERE IDEN_CONTATTO = :iden_contatto
+                and scheda = 'ANAMNESI' and DELETED = 'N' order by iden desc
+            </SQL>
+        </QUERY>
+        <QUERY id="PRIMA_VALUTAZIONE_MEDICA">
+            <SQL>
+                <![CDATA[
+                    SELECT
+                    iden,
+                    TESTO AS TESTO_ESAME_OBIETTIVO
+                    , IDEN_PER
+                    , (select descrizione from FX$PERSONALE where iden = IDEN_PER) UTE_REGISTRAZIONE
+                    , to_char(to_date(dataIns, 'yyyyMMddhh24:mi:ss'), 'yyyymmdd') DATA
+                    , to_char(to_date(dataIns, 'yyyyMMddhh24:mi:ss'), 'hh24:mi') ORA
+                    ,(SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = UTE_INS) UTENTE
+                    ,ute_ins
+                    ,ESAME_OBIETTIVO.progressivo
+                    ,(select descrizione from adt$tipi where iden = ESAME_OBIETTIVO.urgenza) urgenza
+                    FROM
+                    ps_schede_xml,
+                    XMLTABLE('/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtEsameObiettivo_addendum"]'
+                    PASSING contenuto_xml
+                    COLUMNS
+                    progressivo number PATH '@PROGRESSIVO',
+                    IDEN_PER number PATH '@UTEINS',
+                    dataIns varchar2(20) PATH '@DATAINS',
+                    dataMod varchar2(20) PATH '@DATAMOD',
+                    urgenza varchar2(20) PATH '@URGENZA',
+                    testo varchar2(4000) PATH 'text()')
+                    ESAME_OBIETTIVO
+                    where
+                    scheda = 'ESAME_OBIETTIVO' and iden_contatto=:IDEN_CONTATTO and attivo='S'
+                    and  ESAME_OBIETTIVO.progressivo = 0
+                    order by
+                    progressivo desc
+                ]]>
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">1</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="VERSIONI_ESAME_OBIETTIVO">
+            <SQL>
+                <![CDATA[
+                    SELECT
+                        iden,
+                        TESTO AS TESTO_ESAME_OBIETTIVO
+                        , IDEN_PER
+                        , (select descrizione from FX$PERSONALE where iden = IDEN_PER) UTE_REGISTRAZIONE
+                        , to_char(to_date(dataIns, 'yyyyMMddhh24:mi:ss'), 'yyyymmdd') DATA
+                        , to_char(to_date(dataIns, 'yyyyMMddhh24:mi:ss'), 'hh24:mi') ORA
+                        ,(SELECT DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = UTE_INS) UTENTE
+                        ,ute_ins
+                        ,ESAME_OBIETTIVO.progressivo
+                        ,(select descrizione from adt$tipi where iden = ESAME_OBIETTIVO.urgenza) urgenza
+                        FROM
+                        ps_schede_xml,
+                        XMLTABLE('/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtEsameObiettivo_addendum"]'
+                        PASSING contenuto_xml
+                        COLUMNS
+                        progressivo number PATH '@PROGRESSIVO',
+                        IDEN_PER number PATH '@UTEINS',
+                        dataIns varchar2(20) PATH '@DATAINS',
+                        dataMod varchar2(20) PATH '@DATAMOD',
+                        urgenza varchar2(20) PATH '@URGENZA',
+                        testo varchar2(4000) PATH 'text()')
+                        ESAME_OBIETTIVO
+                    where
+                        scheda = 'ESAME_OBIETTIVO' and iden_contatto=:IDEN_CONTATTO and attivo='S'
+                        and  ESAME_OBIETTIVO.progressivo > 0
+                    order by
+                    progressivo desc
+            	]]>
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+
+        <QUERY id="VERSIONE_INTERVISTA">
+            <SQL>
+                SELECT
+                schede.IDEN,
+                TO_CHAR(data_ins,'yyyyMMdd') data,
+                TO_CHAR(DATA_INS,'hh24:mi')ora,
+                PER.descrizione utente,
+                SCHEDE.UTE_INS,
+                ((sysdate - data_ins)*24) diff
+                from PS_SCHEDE_XML schede
+                join fx$personale per
+                on SCHEDE.UTE_INS = per.iden
+                where IDEN_CONTATTO = :IDEN_CONTATTO and schede.deleted = 'N'
+            </SQL>
+        </QUERY>
+        <QUERY id="VERSIONI_PATOLOGIA_PROSSIMA">
+            <SQL>
+                SELECT
+                ps_schede_xml.IDEN,
+                TO_CHAR(DATA_INS,'yyyyMMdd') DATA ,
+                TO_CHAR(data_ins,'hh24:mi') ORA ,
+                (SELECT descrizione FROM fx$personale WHERE iden = UTE_INS)UTENTE,
+                UTE_INS,
+                GETVALUE(CONTENUTO_XML, 'txtPatologiaP') PATOLOGIA_PROSSIMA,
+                ((sysdate - data_ins)*24) diff
+                FROM ps_schede_xml
+                WHERE SCHEDA = 'PATOLOGIA_PROSSIMA'
+                AND IDEN_CONTATTO = :IDEN_CONTATTO
+                AND attivo = 'S'
+            </SQL>
+        </QUERY>
+
+        <QUERY id="GESTIONE_UTENTI">
+            <SQL>
+                select
+                UTE.IDEN ID,
+                UTE.USERNAME USERNAME,
+                web.lingua LINGUA,
+                PER.DESCRIZIONE DESCR,
+                PER.TIPO_PERSONALE TIPO
+                from FX$UTENTI_FENIX ute
+                inner join FX$WEB web on (UTE.USERNAME=web.webuser)
+                inner join FX$PERSONALE per on (UTE.IDEN_PER=per.iden)
+                where ute.sito in ('PS','ALL')
+                and UTE.USERNAME like :utente
+                and UTE.ATTIVO like :attivo
+            </SQL>
+        </QUERY>
+        <QUERY id="CARTELLE_LOCK">
+            <SQL>
+                select
+                    TABELLA_IDEN,
+                    rows_lock.username USERNAME_LOCK,
+                    cont.cartella NUMERO_PRATICA,
+                    (anag.COgnome || ' ' || anag.nome ) PAZIENTE,
+                    (select descrizione from fx$personale where iden =  (select iden_per from fx$utenti where USERNAME = rows_lock.username and  attivo = 'S') and attivo = 'S') UTE_LOCK ,
+                    ip PC_LOCK,
+                    to_char(DATA_LOCK,'YYYYMMDDhh24:mi') DATA_LOCK
+                from POLARIS_DATI.ROWS_LOCK
+                join adt$contatti cont on cont.iden = tabella_iden
+                join FX$ANAGRAFICA anag on anag.iden = cont.iden_anagrafica
+                where
+                    tabella_nome = 'CONTATTI'
+                    and anag.cognome like :cognome || '%'
+                    and anag.nome like :nome || '%'
+                    and (:cartella is null or cont.cartella = :cartella)
+            </SQL>
+        </QUERY>
+        <QUERY id="PS_INSPECTOR">
+            <SQL>
+                select ANAG.NOME, ANAG.COGNOME,CONT.CARTELLA, CONT.IDEN, PS_INSPECTOR(CONT.IDEN) AS ERRORI
+                from ADT$CONTATTI CONT
+                inner join FX$ANAGRAFICA ANAG on (CONT.IDEN_ANAGRAFICA = ANAG.IDEN)
+                where CONT.STATO = 1221
+                and CONT.DELETED = 'N'
+                and CONT.ASSIGNING_AUTHORITY_AREA = 'PS'
+            </SQL>
+        </QUERY>
+        <QUERY id="PS_INSPECTOR_CHIUSI">
+            <SQL>
+                select ANAG.NOME, ANAG.COGNOME,CONT.CARTELLA, CONT.IDEN, PS_INSPECTOR(CONT.IDEN) AS ERRORI
+                from ADT$CONTATTI CONT
+                inner join FX$ANAGRAFICA ANAG on (CONT.IDEN_ANAGRAFICA = ANAG.IDEN)
+                where CONT.STATO = 1222
+                and CONT.DELETED = 'N'
+                AND CONT.DATA_FINE >= sysdate-1
+                and CONT.ASSIGNING_AUTHORITY_AREA = 'PS'
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+</QUERIES>

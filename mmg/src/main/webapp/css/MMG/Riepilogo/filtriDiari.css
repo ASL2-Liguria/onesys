@@ -1,0 +1,45 @@
+body#page {
+	padding: 0;
+	background: transparent;
+}
+
+
+div.clsWk div.clsWkScroll table tr td {
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.ulTabs {
+	display: none !important;
+}
+
+.contentTabs {
+	padding: 5px;
+}
+
+/*
+div.clsWk div.clsWkHdFix,div.clsWk div.clsWkHdFix table thead tr,div.clsWk div.clsTR24 table tr
+	{
+	height: 30px;
+}*/
+
+div.headerTabs .icon-spin3 {
+	display: none;
+}
+
+#divWk {
+	margin: 5px 10px;
+}
+
+#tableFiltri {
+	margin: 0 auto;
+	
+}
+
+#tableFiltri .tdCheck .CBcolorDefault {
+	border-color: #bbb;
+}
+
+.icon-lamp {
+	display: none !important;
+}

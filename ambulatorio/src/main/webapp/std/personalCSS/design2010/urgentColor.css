@@ -1,0 +1,63 @@
+.bianco{
+	background:'white';
+}
+
+.verde{
+	background:'green';
+}
+
+.giallo{
+	background: 'yellow';
+}
+
+.rosso{
+	background: 'red';
+}
+
+/* ****************** MEDICINA NUCLEARE **************************** */
+.preparato{
+	background:#FFFFA8;
+}
+.somministrato{
+	background:#FF8080;
+}
+
+
+/* ****************** SCREENING **************************** */
+.screening_no{
+	background:#FFFFCC;
+}
+
+.screening_tecnico{
+	background:#DFF0FD;
+}
+
+.screening_primo_radiologo{
+	/*background-color:#9AC6FC;*/
+	background:'yellow';
+}
+
+.screening_non_negativo{
+	/*background-color:#50A4F8;*/
+	background:'red';
+}
+
+.screening_approfondimenti{
+	background:#0C84E7;
+}
+
+.screening_negativo{
+	/*background-color:#0743B1;*/
+	background:'green';
+}
+
+.screening_discordante{
+	background:#FF0000;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+.butStato {
+	border:1px solid #6aa8f2;
+	background: #3C9CFF;
+	width: 14%;
+	font-size: 12px;
+	font-weight: bold;
+	height:30px;
+	padding:5px;
+	text-align:center;
+	text-decoration:underline;
+	color:#efefef;
+}
+
+.butStato:hover {
+	background:red;
+}
+	
+.butActive {
+	background:#FE4747;
+	text-decoration:none;
+}
+
+.urgente {
+	background-color: red;
+}

@@ -1,0 +1,155 @@
+<root>
+	<statements_list>	
+		<statement name="inserisciReparto">
+			<sql>
+			<![CDATA[
+				declare
+					vStruttura		 varchar2(4000) := ?;
+					vCodStruttura    varchar2(4000) := ?;
+					vCodPresidio 	 varchar2(4000) := ?;
+					vSubCodStruttura varchar2(4000) := ?;
+					vTipologia  	 varchar2(4000) := ?;
+					vCodiceSez		 varchar2(4000) := ?;
+					vSubCodSezione   varchar2(4000) := ?;
+					vCodProgr  	 	 varchar2(4000) := ?;
+					vCodCdc  	 	 varchar2(4000) := ?;
+					vDescr 			 varchar2(4000) := ?;
+					vAttivo 		 varchar2(4000) := ?;
+					vAbilitaCons 	 varchar2(4000) := ?;
+					vCodLabo 		 varchar2(4000) := ?;
+					vCodFarma 		 varchar2(4000) := ?;
+					vCodParifica 	 varchar2(4000) := ?;
+					vCodArea 		 varchar2(4000) := ?;
+					vCodSts11 		 varchar2(4000) := ?;
+					vCount pls_integer;
+					vCoddec 		 varchar2(4000);
+					vOrdine			 varchar2(4000);
+					vAbilitaOrd varchar2(4000):='N';
+          			vAbilitaDh varchar2(4000):='N';
+          			vAbilitaAmb varchar2(4000):='N';
+					vOut			 varchar2(4000):=' ';
+							
+				begin
+				
+					--controllo esistenza cod_cdc
+					  select count(1) into vCount from centri_di_costo where cod_cdc=vCodCdc;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, codifica interna reparto già esistente';
+					    goto FINE;
+					  end if;
+					  
+					  vCoddec:=vCodiceSez||vSubCodSezione||vCodProgr;
+					  if(vTipologia='ORD') then
+					    vAbilitaOrd:='S';
+					    vCoddec:=vCoddec||'1';
+					  elsif(vTipologia='DH' OR vTipologia='DS') then
+					    vAbilitaDh:='S';
+					    vCoddec:=vCoddec||'2';
+					  elsif(vTipologia='AMB') then
+					    vAbilitaAmb:='S';
+					    vCoddec:=vCoddec||'3';
+					  end if;
+					  
+					--controllo esistenza cod_dec					
+					select count(1) into vCount from centri_di_costo where cod_dec=vCoddec;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, il cod_dec ricavato è  già esistente';
+					    goto FINE;
+					  end if;
+					  
+					  	  --controllo esistenza codice laboratorio	su tab_pro (vincolo unique su cod_pro)				
+					select count(1) into vCount from tab_pro where cod_pro=vCodLabo;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, è già presente un reparto con la stessa codifica laboratorio';
+					    goto FINE;
+					  end if;
+					  
+					  --controllo esistenza codice laboratorio					
+				/*	select count(1) into vCount from dfelco.trascreparti where codice_reparto=vCodLabo;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, codifica laboratorio non presente su db labo';
+					    goto FINE;
+					  end if;
+					  
+					  --controllo esistenza codice farmacia					
+					select count(1) into vCount from wfarmaelco.fa_anag_reparti where rep_id=vCodFarma;
+					  if (vCount>0) then
+					  	vOut:='Attenzione, codifica farmacia non presente su db farmacia';
+					    goto FINE;
+					  end if;  */
+					 
+					 select max(ordine)+1 into vOrdine from centri_di_costo; 
+					 select case when (vAbilitaCons='S') then '1' else '0' end a into vAbilitaCons from dual;
+					 
+					 insert into CENTRI_DI_COSTO(cod_cdc,sito,descr,ordine,cod_dec,codice_presidio,attivo,struttura,consulenze,codice_struttura,codice_sezione,sub_codice_sezione,codice_progressivo,codice_ccd,codice_afo,sub_codice_struttura,abilita_ordinario,abilita_day_hospital,abilita_ambulatoriale,codice_sts11)
+					 	VALUES(vCodCdc,'ASL2',vDescr,vOrdine,vCoddec,vCodPresidio,vAttivo,vStruttura,vAbilitaCons,vCodStruttura,vCodiceSez,vSubCodSezione,vCodProgr,vCodParifica,vCodArea,vSubCodStruttura,vAbilitaOrd,vAbilitaDh,vAbilitaAmb,vCodSts11);
+					 
+					 insert into TAB_PRO(descr,cod_dec,int_est,attivo,cod_pro,codice_esterno_1)
+					 values(vDescr,vCoddec,'I',vAttivo,vCodLabo,vCodFarma);
+					 
+					 PCK_CONFIGURA_REPARTO.inserisciConfReparto(vCodCdc,vStruttura,vTipologia); 
+				
+					<<FINE>> null;
+				? := vOut;						
+				end;				
+			]]>
+			</sql>
+		</statement>	
+		<statement name="modificaReparto">
+			<sql>
+			<![CDATA[
+				declare
+					vCodCdc  	 	 varchar2(4000) := ?;
+					vDescr 			 varchar2(4000) := ?;
+					vAttivo 		 varchar2(4000) := ?;
+					vAbilitaCons 	 varchar2(4000) := ?;
+					vCodDec			 varchar2(4000);
+					vOut			 varchar2(4000):=' ';
+							
+				begin
+				
+					 select cod_dec into vCodDec from centri_di_costo where cod_cdc=vCodCdc;	 
+					 select case when (vAbilitaCons='S') then '1' else '0' end a into vAbilitaCons from dual;
+					 
+					 delete imagoweb.attributi where tabella='CENTRI_DI_COSTO' and valore_campo_filtro=vCodCdc and attributo='CONSULENZA';
+					 if (vAbilitaCons='1') then
+					 	 insert into imagoweb.attributi(tabella,valore_campo_filtro,attributo) values('CENTRI_DI_COSTO',vCodCdc,'CONSULENZA');
+					 end if;
+					 
+					 update CENTRI_DI_COSTO set attivo=vAttivo,descr=vDescr where cod_cdc=vCodCdc; 
+					 update TAB_PRO set attivo=vAttivo,descr=vDescr where cod_dec=vCodDec;
+				? := vOut;	
+				end;				
+			]]>
+			</sql>
+		</statement>	
+		<statement name="caricaReparto">
+			<sql>
+			<![CDATA[
+			SELECT cdc.struttura,
+			  cdc.codice_struttura,
+			  cdc.codice_presidio,
+			  cdc.sub_codice_struttura,
+			  cdc.codice_sezione,
+			  cdc.sub_codice_sezione,
+			  cdc.codice_progressivo,
+			  cdc.attivo,
+			  case cdc.consulenze when '1' then 'S' else 'N' end consulenze,
+			  tp.cod_pro,
+			  tp.codice_esterno_1,
+			  cdc.descr,
+			  cdc.codice_ccd,
+			  cdc.codice_afo,
+			  cdc.codice_sts11,
+			  cdc.abilita_ambulatoriale,
+			  Cdc.Abilita_Ordinario,
+			  Cdc.Abilita_Day_Hospital
+			FROM centri_di_costo cdc
+			JOIN tab_pro tp
+			ON (cdc.cod_dec  =tp.cod_dec)
+			WHERE cdc.cod_cdc=?				
+			]]>
+			</sql>
+		</statement>	
+	</statements_list>
+</root>

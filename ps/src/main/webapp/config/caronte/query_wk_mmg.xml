@@ -1,0 +1,49 @@
+<QUERIES>
+    <!--************************************************WORKLIST*****************************************************-->
+    <QUERY_GROUP id="WORKLIST">
+        <QUERY id="MALATTIE_RARE">
+            <SQL>
+                select
+                    iden,
+                    (select t.descr from mmg.tab_per t where iden = IDEN_MED) descr_ute_ins,
+                    IDEN_MED,
+                    ute_ins,
+                    data,
+                    note,
+                    descrizione,
+                    CODICE_ICD9,
+                    DESCR_ICD9
+                from
+                    mmg.mmg_problemi
+                where
+                iden_anag = :iden_anag
+                and deleted = 'N'
+                and (chiuso  = 'N' or rilevante = 'S')
+                and sito = 'PS'
+                {#ORDER#}
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+        <QUERY id="DIARI_MMG">
+            <SQL>
+                select
+                iden,
+                (select descr from tab_per where iden = ute_ins) UTE_INS_DESCR,
+                UTE_INS,
+                note,
+                IDEN_PROBLEMA,
+                DATA_INS_DATE,
+                TO_CHAR(DATA_INS_DATE,'HH24:MI DD/MM/YYYY') DATA_INS
+                from mmg_diario
+                where
+                deleted = 'N' and IDEN_PROBLEMA = :iden_problema and sito = 'PS'
+                {#ORDER#}
+            </SQL>
+            <PROPERTIES_CONNECTION>
+                <PROPERTY id="defaultRowPrefetch">20</PROPERTY>
+            </PROPERTIES_CONNECTION>
+        </QUERY>
+    </QUERY_GROUP>
+</QUERIES>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="RICETTA_NOTE_CUF">
+        <OBJ classe_id="PATH::div">
+            <PROC id="setId">
+                <PAR value="tabNoteCuf"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.mmg.extNoteCuf}">
+            <PROC id="generaTable">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

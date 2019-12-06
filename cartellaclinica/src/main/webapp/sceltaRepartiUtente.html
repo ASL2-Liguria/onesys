@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href='std/css/textArea.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/Libreria/pageModal.js' language='JavaScript'></script>
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+
+<script type='text/javascript' src='std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/filterTable.css' type='text/css' rel='stylesheet'>
+
+<link rel="stylesheet" type="text/css" href="std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/button.css">
+<link rel="stylesheet" type="text/css" href="std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Reparti</title>
+<script>
+var arrayLabelName  = new Array('bt');
+var arrayLabelValue = new Array('Chiudi');
+
+
+function visualizza_elenco()
+{
+	var oMyObject = opener.objRepartiUtente;
+	
+	var elenco_cod_dec = oMyObject.cod_dec;
+	var elenco_reparti = oMyObject.reparti;
+
+	//alert(oMyObject.cod_dec);
+	//alert(oMyObject.reparti);
+	
+	var List_codice = elenco_cod_dec.split('@');
+	var List_descr = elenco_reparti.split('?');
+	
+	for (contatore = 0; contatore < List_descr.length ; contatore++)
+	{
+		document.all.reparti.options[contatore] = new Option(List_descr[contatore], List_codice[contatore], false, false);	
+	}
+}
+
+
+function chiudi()
+{
+	window.close();
+}
+	
+function selezionaRepartoRicovero()
+{
+	opener.salvaRepartoRicovero(document.all.reparti.options[document.all.reparti.selectedIndex].value);
+}		
+
+</script>
+</head>
+<body onLoad='fillLabels(arrayLabelName,arrayLabelValue);'>
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>ELENCO REPARTI ABILITATI</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+      <tr>
+	  <select name="reparti" size="10" style="width:100%" onClick = "javascript:selezionaRepartoRicovero();"></select></td>
+      </tr>
+    </table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+<tr>
+	
+	
+		
+	    <table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+			<td class='classTabHeaderMiddle'> </td>
+			<td class='classButtonHeader'><div  class='pulsante' id='bt' onclick="javascript:chiudi();"></div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+	<script>visualizza_elenco(); 
+	setPage(document);</script>
+</body>
+</html>
+

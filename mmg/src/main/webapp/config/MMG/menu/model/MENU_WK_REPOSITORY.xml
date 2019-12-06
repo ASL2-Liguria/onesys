@@ -1,0 +1,17 @@
+<MENU>
+	<ID>MENU_WK_REPOSITORY</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWR.VD</ID>
+			<LINK><![CDATA[function(rec){DOCUMENTI_PAZIENTE.apriDocRep(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<!-- <WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE> -->
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Visualizza documento"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

@@ -1,0 +1,48 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'DATI.Q_DATI_PC@CONFIG_WEB'; :where := null; :campo_xml := null; end;">
+
+    <DATO
+            key_id="StampanteBraccialetto"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="STAMPANTE_BRACCIALETTO"
+            db_descrizione="STAMPANTE_BRACCIALETTO"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="TriageDefault"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="TRIAGE_DEFAULT"
+            db_descrizione="TRIAGE_DEFAULT"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="StampanteConfigurazione"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="STAMPANTE_CONFIGURAZIONE"
+            db_descrizione="STAMPANTE_CONFIGURAZIONE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="StampanteReferto"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="STAMPANTE_REFERTO"
+            db_descrizione="STAMPANTE_REFERTO"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="StampanteEtichette"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="STAMPANTE_ETICHETTE"
+            db_descrizione="STAMPANTE_ETICHETTE"
+            configurazione_multi_data=""
+            />
+
+    <DATO
+            key_id="IP"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IP"
+            db_descrizione="IP"
+            configurazione_multi_data=""
+            />
+
+</DATI>
+

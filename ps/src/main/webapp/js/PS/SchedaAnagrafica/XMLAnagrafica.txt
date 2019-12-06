@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<REQUEST>
+	<MANAGE_DELETED>S</MANAGE_DELETED>
+	<MITTENTE/>
+	<DATI_SENS>S</DATI_SENS>
+	<METODO>{{:metodo}}</METODO>	
+	<PAZIENTE>
+		{{if identificativoRemoto}}
+			<IDENTIFICATIVI_REMOTI><ID position="4" search="false" search_order="1" update="true">{{:identificativoRemoto}}</ID></IDENTIFICATIVI_REMOTI>
+		{{/if}}
+		{{if idRis}}	
+			<ID_RIS>{{:idRis}}</ID_RIS>
+		{{/if}}
+		<ID_PAZ_DICOM/>
+		<COGNOME>{{:cognome}}</COGNOME>
+		<NOME>{{:nome}}</NOME>
+		<SESSO>{{:sesso}}</SESSO>
+		<DATA_NASCITA>{{:data}}</DATA_NASCITA>
+		<COMUNE_NASCITA>{{:comuneNascita}}</COMUNE_NASCITA>
+		<CODICE_FISCALE>{{:codiceFiscale}}</CODICE_FISCALE>		
+                {{if cittadinanza != ''}}     
+                    <CITTADINANZA>           
+                        <![CDATA[<DATI>
+                        {{for cittadinanza}}
+                            <ITEM DESCR="{{:descrizione}}">{{:codice}}</ITEM>
+                        {{/for}}
+                        </DATI>]]> 
+                    </CITTADINANZA>              
+                {{else}}
+                    <CITTADINANZA></CITTADINANZA>  
+                {{/if}}                               
+		<RESIDENZA>
+			<INDIRIZZO>{{:indirizzoRes}}</INDIRIZZO>
+			<CIVICO>{{:civicoRes}}</CIVICO>
+			<COMUNE>{{:comuneRes}}</COMUNE>
+			<PROVINCIA>{{:provinciaRes}}</PROVINCIA>
+			<CAP>{{:capRes}}</CAP>
+			<TELEFONO>{{:telefonoRes}}</TELEFONO>
+		</RESIDENZA>
+		<DOMICILIO>
+			<INDIRIZZO>{{:indirizzoDom}}</INDIRIZZO>
+			<CIVICO>{{:civicoDom}}</CIVICO>
+			<COMUNE>{{:comuneDom}}</COMUNE>
+			<PROVINCIA>{{:provinciaDom}}</PROVINCIA>
+			<CAP>{{:capDom}}</CAP>
+			<TELEFONO/>
+		</DOMICILIO>
+		<TESSERA_SANITARIA>
+			<NUMERO>{{:numeroTesseraSanitaria}}</NUMERO>
+			<CODICE_REGIONE/>
+			<SCADENZA>{{:scadenzaTesseraSanitaria}}</SCADENZA>
+		</TESSERA_SANITARIA>
+		<CODICE_REGIONALE_RES>{{:codRegRes}}</CODICE_REGIONALE_RES>
+		<CODICE_REGIONALE>{{:codReg}}</CODICE_REGIONALE>
+		<CUSL_RES>{{:codUsl}}</CUSL_RES>
+		<CODICE_REGIONALE_DOM>{{:codRegDom}}</CODICE_REGIONALE_DOM>
+		<CUSL_DOM>{{:cuslDom}}</CUSL_DOM>
+		<MEDICO_BASE>{{:medicoBase}}</MEDICO_BASE>
+		<NAZIONE/>
+		<CELLULARE>{{:cellulare}}</CELLULARE>
+		<EMAIL>{{:email}}</EMAIL>
+		<STATO_CIVILE>{{:statoCivile}}</STATO_CIVILE>
+		<LIVELLO_ISTRUZIONE>{{:livelloIstruzione}}</LIVELLO_ISTRUZIONE>
+		<PROFESSIONE>{{:professione}}</PROFESSIONE>
+		<ANAMNESI/>
+		<DATA_MORTE/>
+		<CONSENSO/>
+		<PESO/>
+		<ALTEZZA/>
+		<NOTE/>
+	</PAZIENTE>
+</REQUEST>

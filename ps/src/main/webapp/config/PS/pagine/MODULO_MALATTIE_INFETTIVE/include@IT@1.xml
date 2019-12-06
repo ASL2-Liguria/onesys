@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/PS/SchedeModulistica/ModuloMalattieInfettive/ModuloMalattieInfettive.css"/>
+    <JS path="js/PS/SchedeModulistica/ModulisticaFunzioniComuni.js"/>
+    <JS path="js/PS/SchedeModulistica/ModuloMalattieInfettive/ModuloMalattieInfettive.js"/>
+</INCLUDE>

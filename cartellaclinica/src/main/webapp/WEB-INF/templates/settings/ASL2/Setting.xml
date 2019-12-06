@@ -1,0 +1,57 @@
+<Template seconds="10">
+
+    <Setting i="DatiSistema" classe="Gruppo">
+        <Riga classe="Gruppo">
+            <UserInput tipo="text" name="uteIns" a_globali="w=10;Disable"
+                a_inserimento="Default=USERDESCR;" a_modifica="Default=USERDESCR;"
+                descr="Prescritto da"/>
+            <UserInput tipo="text" name="dtaIns" a_globali="w=2;Disable"
+                a_inserimento="Default=TODAY;" a_modifica="Default=TODAY;" descr="Data Prescrizione"/>
+            <UserInput tipo="text" name="oraIns" a_globali="Disable" a_inserimento="Default=NOW;"
+                a_modifica="Default=NOW;" descr="Ora Prescrizione"/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput tipo="text" name="uteChiusa" a_inserimento="Default=;"
+                a_globali="w=10;Disable" descr="Chiusa da"/>
+            <UserInput tipo="text" name="dtaChiusa" a_inserimento="Default=;"
+                a_globali="w=2;Disable" descr="Data Chiusura"/>
+            <UserInput tipo="text" name="oraChiusa" a_inserimento="Default=;" a_globali="Disable"
+                descr="Ora Chiusura"/>
+        </Riga>
+        <Riga classe="Gruppo" a_globali="h=2">
+            <UserInput tipo="textarea" name="motChiusa" a_inserimento="Default=;"
+                a_globali="Disable" descr="Motivazione Chiusura"/>
+        </Riga>
+    </Setting>
+
+    <Setting i="Altarnabilita" classe="Gruppo">
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="radio" name="TipoAltarnabilita"
+                a_globali="obligatory=S;msg=Alternabilità" value="UNIQUE">
+                <OPTION value="PRIMARY" a_globali="Obbliga=TipoPrescrizione;">Primaria</OPTION>
+                <OPTION value="SECONDARY">Accessioria</OPTION>
+                <OPTION value="UNIQUE" a_globali="Obbliga=TipoPrescrizione;">Non
+                    alternabile</OPTION>
+            </UserInput>
+        </Riga>
+    </Setting>
+
+    <Setting i="Velocita" classe="Gruppo">
+        <Riga classe="Gruppo">
+            <UserInput tipo="text" name="VolumeTotale" a_globali="obligatory=S;Positive=S"
+                descr="Volume totale:"/>
+            <UserInput tipo="text" name="Velocita"
+                a_globali="obligatory=S;msg=Velocita&apos; di infusione"
+                a_modifica="Disable=S" descr="Velocita':"/>
+            <UserInput classe="Options" tipo="select" descr="" name="UdmVelocita">
+                <OPTION value="60">ml/ora</OPTION>
+            </UserInput>
+            <UserInput tipo="text" name="Durata" a_globali="None" descr="Durata:"/>
+            <UserInput classe="Options" tipo="select" descr="" name="UdmDurata" a_globali="None">
+                <OPTION value="60">ore</OPTION>
+                <OPTION value="1">minuti</OPTION>
+            </UserInput>
+            <UserInput tipo="text" name="VelocitaMinuti" a_globali="None" descr=""/>
+        </Riga>
+    </Setting>
+</Template>

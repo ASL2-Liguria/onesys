@@ -1,0 +1,88 @@
+<MENU>
+    <ID>MENU_WK_RIC_PAZ</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>DETTAGLIO_ANAG</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ANAGRAFICA.apriDettaglioAnagrafica(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec.length != 0){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuDettaglioAnag</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Funzione di modifica anagrafica"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>TRIAGE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ANAGRAFICA.triage(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_dati_prontosoccorso.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec.length != 0 && rec[0].DATA_MORTE == null){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuTriage</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Apertura cartella triage"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERIMENTO_PAZ_PS</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ANAGRAFICA.insPaziente();}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserimento_nuovo_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuInsPaziente</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Inserimento nuovo paziente"</INFO>
+        </ITEM>
+        <!--<ITEM>
+            <ID>RICONCILIA_ANAG</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({
+            url:'page?KEY_LEGAME=RICONCILIA_ACCESSI&WK_APERTURA=ANAGRAFICA&IDEN_ANAG='+rec[0].IDEN_ANAG+'&COGNOME='+rec[0].COGNOME+'&NOME='+rec[0].NOME,
+             id:'riconciliaAnag', fullscreen:false}
+            )}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_nomi_utenti_orari_modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[
+                function(rec){
+                    if( home.basePermission.hasOwnProperty('SUPERUSER') ){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            ]]></WHERE>
+            <OUTPUT>traduzione.lblMenuRiconcilia</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Riconcilia anagrafica"</INFO>
+        </ITEM>-->
+        <ITEM>
+            <ID>PAZ_SCONOSCIUTO</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ANAGRAFICA.insPazienteSconosciuto();}]]></LINK>
+            <URL_IMAGE>./img/CMenu/appropriatezza.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuPazSconosciuto</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Inserimento paziente sconosciuto"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>STORICO_PAZIENTE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ANAGRAFICA.storicoPaziente(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/storico.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec.length != 0){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>traduzione.lblStorico</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Visualizza storico paziente"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ALLINEA_AAC</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_ANAGRAFICA.allineaAAC(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/storico.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PERSONALE_DEBUGGER(rec);}]]></WHERE>
+            <OUTPUT>"DEBUGGER - ALLINEA ANAGRAFICA"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>""</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

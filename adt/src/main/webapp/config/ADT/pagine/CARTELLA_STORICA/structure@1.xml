@@ -1,0 +1,63 @@
+<PAGINA key_id="CARTELLA_STORICA">
+    <HEADER_PAGE key_id="CARTELLA_STORICA" valore="DEFAULT,SCHEDA,CARTELLA_STORICA#DEFAULT,CARTELLA_STORICA" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="CARTELLA_STORICA#lblTitolo#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabRicovero" valore="tabRicovero" evento="START">
+                <FIELDSET_TABLE key_id="fldUrgenza" valore="lblLivelloUrg" evento="START">
+                    <TR.INIT key_id="rowUrgenza" valore="rowUrgenza" evento="START">
+                        <TD_CHECK key_id="LIVELLO_URGENZA" valore="cmbLivelloUrgenza#cmbLivelloUrgenza#N#{width:'200px',single_val:true}##URGENZA" evento="START"></TD_CHECK>
+                    </TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldCodice" valore="lblCodice" evento="START">
+                    <TR.INIT key_id="rowCodice" valore="rowCodice" evento="START">
+                        <TD_LABEL_TEXT key_id="STRUTTURA" valore="lblStruttura##txtStruttura####N#w80px#N" evento="START"></TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="ANNO" valore="lblAnno##txtAnno####N#w80px#N" evento="START"></TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="CARTELLA" valore="lblCartella##txtCartella####N#w100px#N" evento="START"></TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="CODICE" valore="lblCodice##txtCodice####S#w120px#S" evento="START"></TD_LABEL_TEXT>
+                    </TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldDatiRicovero" valore="fldDatiRicovero" evento="START">
+                    <TR_TD_LABEL_DATA key_id="DATA_INIZIO_RICOVERO" valore="lblDataRicovero#maskData#txtDataRicovero##readonly_element:false,format:'d/m/Y',view:'month',onSelect:function(data){ NS_CARTELLA_STORICA.checkDataAccettazioneInserita(moment(data,'DD/MM/YYYY')); NS_CARTELLA_STORICA.bindACReparto(moment(data,'DD/MM/YYYY')); NS_CARTELLA_STORICA.completaCodiceContatto()}#separatorIn:'/',separatorOut:'/',formatIn:'d m Y',formatOut:'d m Y',disabled:true##DATA_RICOVERO" evento="START">"
+                        <TD_LABEL_ORA key_id="ORA_INIZIO_RICOVERO" valore="lblOraRicovero##txtOraRicovero#N" evento="START"></TD_LABEL_ORA>
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_COMBO key_id="REGIME_RICOVERO" valore="lblRegimeRicovero##cmbRegimeRicovero#cmbRegimeRicovero#N#SALVA#S#" evento="START">
+                        <TD_LABEL_COMBO key_id="TIPO_RICOVERO" valore="lblTipoRicovero##cmbTipoRicovero#cmbTipoRicovero#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                    </TR_TD_LABEL_COMBO>
+                    <TR.INIT  key_id="rowRepartoGiuridico" valore="" evento="START" >
+                        <TD_AUTOCOMPLETE key_id="REPARTO_GIURIDICO" valore="lblRepartoGiuridico#acRepartoGiuridico#repartoGiuridico#txtRepartoGiuridico#RepartoFromValidita#" evento="START"></TD_AUTOCOMPLETE>
+                        <TD_LABEL_COMBO key_id="PROVENIENZA" valore="lblProvenienza##cmbProvenienzaRicovero#cmbProvenienzaRicovero#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                    </TR.INIT>
+                    <TR_TD_AUTOCOMPLETE key_id="MEDICO_ACCETTAZIONE" valore="lblMedicoAccettazione#acMedicoAccettazione#MedicoAccettazione#txtMedicoAccettazione#Medici#" evento="START">
+                        <TD_LABEL_COMBO key_id="MEDICO_PRESCRIVENTE" valore="lblTipoMedicoPrescrivente##cmbTipoMedicoPrescrivente#cmbTipoMedicoPrescrivente#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_COMBO key_id="ONERE" valore="lblOnere##cmbOnere#cmbOnere#N#SALVA#S#" evento="START">
+                        <TD_LABEL_COMBO key_id="SUB_ONERE" valore="lblSubOnere##cmbSubOnere#cmbSubOnere#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                    </TR_TD_LABEL_COMBO>
+                    <TR.INIT  key_id="rowDiagnosiICD" valore="rowDiagnosiICD" evento="START">
+                        <TD_AUTOCOMPLETE key_id="DIAGNOSI_ICD9" valore="lblDiagnosiIcd9#acDiagnosiICD9#DiagnosiICD9#txtDiagnosiICD9#AccRicoveroDiagnosiICD9#" evento="START"></TD_AUTOCOMPLETE>
+                        <TD_LABEL_COMBO key_id="POSIZIONE_TICKET" valore="lblTicket##cmbTicket#cmbTicket#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                    </TR.INIT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldDatiDimissione" valore="fldDatiDimissione" evento="START">
+                    <TR_TD_LABEL_DATA key_id="DATA_TRASFERIMENTO" valore="lblDataTrasferimento#maskData#txtDataTrasferimento##readonly_element:false,format:'d/m/Y',view:'month',onSelect:function(data){}#separatorIn:'/',separatorOut:'/',formatIn:'d m Y',formatOut:'d m Y',disabled:true##DATA_TRASFERIMENTO" evento="START">"
+                        <TD_LABEL_ORA key_id="ORA_TRASFERIMENTO" valore="lblOraTrasferimento##txtOraTrasferimento#N" evento="START"></TD_LABEL_ORA>
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_DATA key_id="DATA_FINE_RICOVERO" valore="lblDataFineRicovero#maskData#txtDataFineRicovero##readonly_element:false,format:'d/m/Y',view:'month',onSelect:function(data){}#separatorIn:'/',separatorOut:'/',formatIn:'d m Y',formatOut:'d m Y',disabled:true##DATA_FINE_RICOVERO" evento="START">"
+                        <TD_LABEL_ORA key_id="ORA_FINE_RICOVERO" valore="lblOraFineRicovero##txtOraFineRicovero#N" evento="START"></TD_LABEL_ORA>
+                    </TR_TD_LABEL_DATA>
+                    <TR.INIT  key_id="rowRepartoGiuridicoDimissione" valore="" evento="START" >
+                        <TD_AUTOCOMPLETE key_id="REPARTO_GIURIDICO_DIMISSIONE" valore="lblRepartoGiuridicoDimissione#acRepartoGiuridicoDimissione#repartoGiuridicoDimissione#txtRepartoGiuridicoDimissione#RepartoFromValidita#" evento="START"></TD_AUTOCOMPLETE>
+                        <TD_LABEL_COMBO key_id="TIPO_DIMISSIONE" valore="lblTipoDimissione##cmbTipoDimissione#cmbTipoDimissione#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                    </TR.INIT>
+                    <TR_TD_AUTOCOMPLETE key_id="MEDICO_DIMISSIONE" valore="lblMedicoDimissione#acMedicoDimissione#MedicoDimissione#txtMedicoDimissione#Medici#" evento="START"></TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldDatiAccessoDH" valore="fldDatiAccessoDH" evento="START">
+                    <TR_TD_LABEL_DATA key_id="txtDataFineAccesso" valore="lblDataFineAccesso#maskData#txtDataFineAccesso##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START">"
+                        <TD_LABEL_ORA key_id="txtOraFineAccesso" valore="lblOraFineAccesso##txtOraFineAccesso#N" evento="START"></TD_LABEL_ORA>
+                    </TR_TD_LABEL_DATA>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

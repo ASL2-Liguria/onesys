@@ -1,0 +1,88 @@
+/* DATI ANAGRAFICI */
+#txtCognome,#txtNome,#txtSesso,#txtDataNasc,#txtCodFisc{
+	font-weight: bold;
+	color: blue;
+}
+#idAssistito legend,#idAccRico legend{
+	font-weight: bold;
+}
+#lblNome,#lblCognome,#txtOraRico{
+	width: 50px;
+}
+
+#lblSesso{
+	width: 40px;
+}
+#txtSesso{
+	width: 25px;
+}
+#txtCodFisc{
+	width: 140px;
+}
+#txtCognome,#txtNome{
+	width: 200px;
+}
+#lblCodiceFiscale,#lblDataNascita,#lblTitoloStudio{
+	width: 100px;
+}
+#cmbTitoloStudio{
+	width: 170px;
+}
+/* DATI RICOVERO */
+#txtDiagnosiAcc{
+	width: 300px;
+}
+#cmbLivelloUrg div{
+	display:inline-block; 
+}
+#cmbTipoNeonato{
+	width:220px;
+}
+#idDatiNeonato{
+	width:60%;
+}
+#txtDescrDRG{
+    width:600px;
+}
+#idPrimoAccessoDh{
+	float:right;
+	width:35%;
+	height:85px;
+}
+#idDatiNeonato{
+	float:left;
+	width:60%;
+	height:85px;
+}
+#cmbMotivoRico,#cmbTipoRico{
+	width:350px;
+}
+
+#txtMadreCartella {
+	background: #F3FA9E !important;
+}
+
+.fldSintesiPazienteClose {background-color:#F3F781;}
+.fldSintesiPazienteClose > legend {background-color:#F3F781; font-size:larger !important;}
+.fldSintesiPazienteClose span.spICD {width:80px; height:24px; line-height:24px; text-align:center; display:inline-block;cursor:pointer;background-color:#D7DF01;}
+.fldSintesiPazienteOpen {background-color:#FA8258;}
+.fldSintesiPazienteOpen > legend {background-color:#FA8258; font-size:larger !important;}
+.fldSintesiPazienteOpen span.spICD {width:80px; height:24px; line-height:24px; text-align:center; display:inline-block;cursor:pointer; background-color:#FE642E}
+.tblSintesiPaziente {width:100%;}
+.tblSintesiPaziente tr {height: 28px;}
+.tdLblSintesiPaziente, .tdIntestazioneICD {font-weight: 700; height: 24px; width: 120px; margin-left:0 !important; padding: 0;}
+span.spICDSelected {background-color:#FFBF00 !important;}
+.w500px > input{width:100% !important;overflow-x:visible;}
+.w150px > input{width:200px !important;}
+
+#fldDP,#fldInfoPaz{
+	width:450px;
+	float:left;
+	margin:10px;
+}
+
+#fldRes,#fldDom{
+	width:450px;
+	float:left;
+    margin:10px;
+}

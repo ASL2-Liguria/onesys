@@ -1,0 +1,103 @@
+<PAGINA key_id="BILANCIO_SALUTE_6">
+	<HEADER_PAGE key_id="BILANCIO_SALUTE_6"
+		valore="DEFAULT_MMG,SCHEDA,BILANCIO_SALUTE_6#DEFAULT_MMG,BILANCIO_SALUTE_6"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_BILANCIO_SALUTE#MMG_DATI#BILANCIO_SALUTE_6#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="BilancioSalute#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabBilancioSalute"
+				valore="tabBilancioSalute" evento="START">
+				<FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtData" valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA" evento="START"></TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDatiGenerali" valore="fldDatiGenerali" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtEtaMesi" valore="lblEtaMesi##txtEtaMesi###ETAMESI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtEtaAnni" valore="lblEtaAnni##txtEtaAnni###ETAANNI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtEtaGiorni" valore="lblEtaGiorni##txtEtaGiorni###ETAGIORNI" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXTAREA key_id="txtRaccordoAnamnestico" valore="lblRaccordoAnamnestico#txtRaccordoAnamnestico#RACCORDOANAMNESTICO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDatiAuxometrici" valore="fldDatiAuxometrici" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtPeso" valore="lblPeso##txtPeso###PESO" evento="START">
+						<TD_LABEL key_id="PesoCentile" valore="lblPesoCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtAltezza" valore="lblAltezza##txtAltezza###ALTEZZA" evento="START">
+						<TD_LABEL key_id="AltezzaCentile" valore="lblAltezzaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtBMI" valore="lblBMI##txtBMI###BMI###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCirconferenza_Cranica" valore="lblCirconferenza_Cranica##txtCirconferenza_Cranica###CIRCONFERENZA_CRANICA" evento="START">
+						<TD_LABEL key_id="txtCirconferenza_CranicaCentile" valore="lblCirconferenza_CranicaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<!-- <TR_TD_LABEL_TEXT key_id="hIden" valore="lblTemp##hIden###" evento="START"></TR_TD_LABEL_TEXT> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldEsameClinico" valore="fldEsameClinico" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="txtNoteEsameClinico" valore="lblNoteEsameClinico#txtNoteEsameClinico#NOTEESAMECLINICO" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtVista" valore="lblVista#txtVista#VISTA" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtUdito" valore="lblUdito#txtUdito#UDITO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldSviluppoPsicomotorio" valore="fldSviluppoPsicomotorio" evento="START">
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="CamminaSolo_Si_No" valore="lblCamminaSolo_Si_No##CamminaSolo_Si_No#radCamminaSolo_Si_No#{width: 100}#S#CAMMINASOLO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtCamminaSolo" valore="txtCamminaSolo###CAMMINASOLO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="MangiaSolo_Si_No" valore="lblMangiaSolo_Si_No##MangiaSolo_Si_No#radMangiaSolo_Si_No#{width: 100}#S#MANGIASOLO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtMangiaSolo" valore="txtMangiaSolo###MANGIASOLO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="ImpilaCubi_Si_No" valore="lblImpilaCubi_Si_No##ImpilaCubi_Si_No#radImpilaCubi_Si_No#{width: 100}#S#IMPILACUBI_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtImpilaCubi" valore="txtImpilaCubi###IMPILACUBI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="GiocattoloPreferito_Si_No" valore="lblGiocattoloPreferito_Si_No##GiocattoloPreferito_Si_No#radGiocattoloPreferito_Si_No#{width: 100}#S#GIOCATTOLOPREFERITO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtGiocattoloPreferito" valore="txtGiocattoloPreferito###GIOCATTOLOPREFERITO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr5" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="IndicaPartiCorpo_Si_No" valore="lblIndicaPartiCorpo_Si_No##IndicaPartiCorpo_Si_No#radIndicaPartiCorpo_Si_No#{width: 100}#S#INDICAPARTICORPO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtIndicaPartiCorpo" valore="txtIndicaPartiCorpo###INDICAPARTICORPO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr6" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="RispondeComandi_Si_No" valore="lblRispondeComandi_Si_No##RispondeComandi_Si_No#radRispondeComandi_Si_No#{width: 100}#S#RISPONDECOMANDI_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtRispondeComandi" valore="txtRispondeComandi###RISPONDECOMANDI" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr7" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="SviluppoPosturaleMotorio_Si_No" valore="lblSviluppoPosturaleMotorio_Si_No##SviluppoPosturaleMotorio_Si_No#radSviluppoPosturaleMotorio_Si_No#{width: 100}#S#SVILUPPOPOSTURALEMOTORIO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtSviluppoPosturaleMotorio" valore="txtSviluppoPosturaleMotorio###SVILUPPOPOSTURALEMOTORIO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr8" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Linguaggio_Si_No" valore="lblLinguaggio_Si_No##Linguaggio_Si_No#radLinguaggio_Si_No#{width: 100}#S#LINGUAGGIO_SI_NO" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtLinguaggio" valore="txtLinguaggio###LINGUAGGIO" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXTAREA key_id="txtVitaRelazione" valore="lblVitaRelazione#txtVitaRelazione#VITARELAZIONE" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldSonno" valore="fldSonno" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="txtNoteSonno" valore="lblNoteSonno#txtNoteSonno#NOTESONNO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDentizioneCompleta" valore="fldDentizioneCompleta" evento="START">
+					<TR.INIT key_id="trlabelsup" valore="" evento="START">
+						<TD_LABEL key_id="labelsupDX" valore="labelsupDX" evento="START"></TD_LABEL>
+						<TD_LABEL key_id="labelsupSX" valore="labelsupSX" evento="START"></TD_LABEL>
+					</TR.INIT>
+					<TR.INIT key_id="trdentsup" valore="" evento="START">
+						<TD_CHECK key_id="DentizioneSuperioreDX" valore="DentizioneSuperioreDX#chkDentizioneSuperioreDX#N#{width:30,ctrl:false}##DENTIZIONESUPERIOREDX" evento="START"></TD_CHECK>
+						<TD_CHECK key_id="DentizioneSuperioreSX" valore="DentizioneSuperioreSX#chkDentizioneSuperioreSX#N#{width:30,ctrl:false}##DENTIZIONESUPERIORESX" evento="START"></TD_CHECK>
+					</TR.INIT>
+					<TR.INIT key_id="trdentinf" valore="" evento="START">
+						<TD_CHECK key_id="DentizioneInferioreDX" valore="DentizioneInferioreDX#chkDentizioneInferioreDX#N#{width:30,ctrl:false}##DENTIZIONEINFERIOREDX" evento="START"></TD_CHECK>
+						<TD_CHECK key_id="DentizioneInferioreSX" valore="DentizioneInferioreSX#chkDentizioneInferioreSX#N#{width:30,ctrl:false}##DENTIZIONEINFERIORESX" evento="START"></TD_CHECK>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteControlloStomatologico" valore="fldNoteControlloStomatologico" evento="START">
+					<TR_TD_TEXTAREA key_id="txtNoteControlloStomatologico" valore="txtNoteControlloStomatologico#NOTECONTROLLOSTOMATOLOGICO" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNotizieAlimentazione" valore="fldNotizieAlimentazione" evento="START">
+					<TR_TD_TEXTAREA key_id="txtNotizieAlimentazione" valore="txtNotizieAlimentazione#NOTIZIEALIMENTAZIONE" evento="START"></TR_TD_TEXTAREA>
+					<INPUT.HIDDEN key_id="hIden" valore="hIden" evento="START"></INPUT.HIDDEN>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

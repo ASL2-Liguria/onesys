@@ -1,0 +1,52 @@
+body {
+	width: 960px;
+}
+
+#txtRicerca{
+	margin-right:150px;
+}
+
+.btnRicerca{
+	width:100px;
+	height:25px;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+#butCercaCodice, #butCercaPersonale{
+	margin-left:20px;
+}
+
+#ComboOut, #ComboIn {
+	height:260px;
+	width:250px;
+	border:1px solid grey;
+	padding:10px;
+}
+
+#excGruppo .buttons {
+	margin-top:100px;
+	height:260px;
+	padding-left:20px;
+	width:60px;
+}
+
+#excGruppo .btn  {
+	width: 70px;
+	margin-top:20px;
+	margin-bottom:20px;
+	height:30px;
+	line-height:30px;
+}
+
+.butAddOne{
+	background:#b3f0ba;
+}
+
+.butRemOne{
+	background: #ffcece;
+}
+
+#fldExchangeLists{
+	border:0px;
+}

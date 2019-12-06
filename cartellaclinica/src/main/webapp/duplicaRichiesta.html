@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/standard.css' type='text/css' rel='stylesheet'>
+<link href='std/css/Richiesta/schedaRichiesta.css' type='text/css' rel='stylesheet'>
+<link href='std/css/calendario/jquery.datepick.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='std/jscript/engine/jquery.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/calendario/jquery.datepick.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/engine/toolkit_pagina.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/Richiesta/schedaRichiesta.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/Libreria/checkDate.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/Richiesta/duplicaRichiesta.js' language='JavaScript'></script>
+
+
+<title>DUPLICAZIONE RICHIESTA</title>
+<script>
+
+	var arrayLabelName = new Array('btRegistra','btChiudi','lblDataProposta','lblOraProposta');
+	var arrayLabelValue = new Array('Registra','Chiudi', 'Data programmata prelievo','Orario programmata prelievo');
+
+
+</script>
+</head>
+<body onLoad='fillLabels(arrayLabelName,arrayLabelValue);'>
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Duplicazione Richiesta</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	
+
+	<div id='groupDatiRichiestaLabo'>
+		<fieldset>
+			<legend id=''>Dati Richesta</legend>
+			<div id='divGroupDatiRichiestaLabo'>
+				<table class='classDataEntryTable'>
+					<tr>
+						<td  class='classTdLabelLink_O'><label id='lblDataProposta' onclick="javascript:document.getElementById('txtDataProposta').value=getToday();"></label></td>
+						<td class='classTdField_O_O'><input id='txtDataProposta'  name='txtDataProposta' maxlength='10' max_length='10' length='10' value='' size='10' type='text'>
+						<IMG class="trigger datepick-trigger" src="http://localhost:8080/whale/imagexPix/calendario/cal20x20.gif" ></IMG class=datepick-trigger></input></td>
+						<td class='classTdLabel_O_O'><label id='lblOraProposta'></label></td>
+						<td class='classTdField_O_O'><input id='txtOraProposta' value='' name='txtOraProposta' type='text'>
+						</input></td>
+						<td colspan='9' class='classTdLabel'><label name='btPlus' id='btPlus'></label></td>
+					</tr>
+				</table>
+			</div>
+		</fieldset>
+	</div>
+
+	
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+			<td class='classTabHeaderMiddle'>&nbsp;</td>
+			<td class='classButtonHeader'><div class='pulsante' id='btRegistra' onclick="javascript:registra();"></div></td>
+			<td class='classButtonHeader'><div class='pulsante' id='btChiudi' 	onclick="javascript:chiudi();"></div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+
+</body>
+</html>

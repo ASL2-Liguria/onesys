@@ -1,0 +1,140 @@
+@charset "utf-8";
+/* CSS Document */
+body{background:#b9e0ff;}
+
+/* css per la tabella di dati, come ad esempio la worklist */
+
+	fieldset{
+		margin:10px;
+		border:2px solid #fff;
+		padding:5px;
+		}
+		fieldset #ListaEsami{
+			background:#fff;
+			padding:5px;
+			}
+		fieldset legend{
+			font-weight:bold;
+			margin-bottom:10px;
+			}
+
+div#ListaEsami table.TableProfilo
+{
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:left;
+	border: 1px solid #6AA8F2;
+	background-color:#FFC;	
+	border-collapse : collapse;
+	width:100%;	
+}
+
+div#ListaEsami div
+{
+	table-layout:fixed;
+	font: Arial;
+	font-size:12px;
+	text-align:left;
+	width:100%;
+	padding-bottom:1px;
+	padding-top:1px;
+	padding-left:1px;
+	padding-right:1px;
+}
+
+div#ListaEsami div table{
+	
+	font-size:12px;
+	border: 1px solid #729ECF;
+	width:100%;
+
+}
+
+div#ListaEsami div table td
+{
+	width:20%;
+	font-stretch:condensed;
+}
+
+div#ListaEsami div table th
+{
+	width:20%;
+	font-size: 12px;
+    font-weight:bold;
+	padding-left:28px;
+	text-align:left;
+	border-right: 1px #729ECF;
+	text-decoration:underline;
+	cursor: hand;
+
+}
+
+div#ListaEsami div tr
+{
+	height:5px;
+	cursor: hand;
+
+}
+
+div#ListaEsami div.7 table 
+{
+	background:#DEE0FA ;
+
+}
+
+div#ListaEsami div.8 table
+{
+	background:#F4EBDF ;
+
+	
+}
+
+div#ListaEsami div.9 table
+{
+	background-color:#D5FFEA;	
+	background:#D5FFEA ;
+}
+
+div#ListaEsami div.10 table 
+{
+	background:#FFF0D9 ;
+}
+
+div#ListaEsami div.11 table
+{
+	background:#F7E4FA ;
+}
+
+
+
+div#ListaEsami div.esamiMedNuc table{
+	
+	font-size:12px;
+	border: 1px solid #729ECF;
+	background:#EEFAFB ;
+	width:100%;
+
+}
+
+div#ListaEsami .nonUrgente {
+
+	color: #CCC;
+
+}
+	
+.pulsante {
+	
+	text-align:  center;
+	line-height:  18px;
+	width:  105px;
+	background-repeat:  repeat-x;
+	font-family:  Verdana, Arial, Helvetica, sans-serif;
+	float:  right;
+	height:  21px;
+	font-size:  12px;
+	font-weight:  bold;
+	
+}
+
+

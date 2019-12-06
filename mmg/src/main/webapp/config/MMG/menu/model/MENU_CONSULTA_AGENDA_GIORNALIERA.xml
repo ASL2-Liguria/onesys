@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<MENU>
+    <ID>MENU_CONSULTA_AGENDA_GIORNALIERA</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>MCAG_PRENOTA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.prenota(rec, 'N'); }]]></LINK>
+            <ICON_CLASS>prenotazione</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.wherePrenota(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblPrenota</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+		<!--         
+		<ITEM>
+            <ID>MCAG_PRENOTA_FORZATURA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.prenota(rec, 'F'); }]]></LINK>
+            <ICON_CLASS>prenotazione</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.wherePrenota(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblPrenotaForzatura</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MCAG_PRENOTA_ESPLOSIONE</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.prenota(rec, 'E'); }]]></LINK>
+            <ICON_CLASS>prenotazione</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.wherePrenota(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblPrenotaEsplosione</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM> 
+        <ITEM>
+            <ID>MCAG_TAGLIA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.taglia(rec); }]]></LINK>
+            <ICON_CLASS>taglia</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereTaglia(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblTaglia</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MCAG_COPIA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.copia(rec); }]]></LINK>
+            <ICON_CLASS>copia</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereCopia(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblCopia</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>N</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MCAG_INCOLLA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.incolla(rec); }]]></LINK>
+            <ICON_CLASS>incolla</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereIncolla(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblIncolla</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        -->
+        <ITEM>
+            <ID>MCAG_CANCELLA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.cancella(rec); }]]></LINK>
+            <ICON_CLASS>cestino</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereCancella(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblCancella</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MCAG_SOSPENDI</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.sospendi(rec) }]]></LINK>
+            <ICON_CLASS>chiudi</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereSospendi(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblSospendi</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <!--
+        <ITEM>
+            <ID>MCAG_NOTE</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.note(rec) }]]></LINK>
+            <ICON_CLASS>nota</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereNote(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblNote</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        -->
+        <ITEM>
+            <ID>MCAG_ANNULLA_NOTE</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.annullaNote(rec) }]]></LINK>
+            <ICON_CLASS>deseleziona-tutti</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereAnnullaNote(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblAnnullaNote</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MCAG_ANNULLA_SOSPENDI_AGENDA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONSULTA_AGENDA_GIORNALIERA.annullaSospendiAgenda(rec) }]]></LINK>
+            <ICON_CLASS>deseleziona-tutti</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_CONSULTA_AGENDA_GIORNALIERA.whereAnnullaSospendiAgenda(rec); } ]]></WHERE>
+            <OUTPUT>traduzione.lblAnnullaSospendiAgenda</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

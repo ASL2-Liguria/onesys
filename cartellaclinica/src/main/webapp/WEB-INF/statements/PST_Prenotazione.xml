@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<statements_list>		
+		<statement name="getIdentificativiAmbulatorio">		
+			<sql>
+			<![CDATA[
+				declare
+					pIdenAnag pls_integer := to_number(?);
+					pCodDecReparto varchar2(5000) := ?;
+					
+					vOut varchar2(5000);
+					vOuts ARRAY_VALUE;
+				begin
+					radsql.GET_IDENTIFICATIVI_AMBULATORIO (pIdenAnag, pCodDecReparto, vOut);
+					select split2array(vOut,'@') into vOuts from dual;
+					? := vOuts(1);
+					? := vOuts(2);
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="sendXmlEsamiRequest">
+			<pool>elcoPool_ambulatorio</pool>	
+            <params>
+                <param index="1" type="CLOB"/>
+                <param index="2" type="VARCHAR"/>
+            </params>  			
+			<sql>
+			<![CDATA[
+				declare
+					pXmlRequest	clob := ?;
+					vResult varchar2(5000);			
+				begin
+					GEST_ESAMI.ESAMI_START(pXmlRequest, vResult);
+					? := vResult;
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="accettaEsame">
+			<pool>elcoPool_ambulatorio</pool>	
+			<sql>
+			<![CDATA[
+				declare
+					pIdenEsame pls_integer := to_number(?);
+					pIdenPer pls_integer := to_number(?);
+					pDataAccettazione varchar2(5000) := ?;
+					pOraAccettazione varchar2(5000) := ?;					
+				begin
+					update 
+						esami 
+					set
+						accettato=1
+						,ute_acc = pIdenPer
+						,data_ins_acc = sysdate
+						,dat_acc = to_char(sysdate,'yyyyMMdd')
+						,ora_acc = to_char(sysdate,'hh24:mi')
+					where 
+						iden = pIdenEsame;
+						
+					SP_AGGIUSTA_STATO_ESAME (pIdenEsame,pIdenEsame);	
+				end;
+			]]>
+			</sql>
+		</statement>		
+		
+		<statement name="eseguiEsame">
+			<pool>elcoPool_ambulatorio</pool>	
+			<sql>
+			<![CDATA[
+				declare
+					pIdenEsame pls_integer := to_number(?);
+					pIdenPer pls_integer := to_number(?);
+					pDataEsecuzione varchar2(5000) := ?;
+					pOraEsecuzione varchar2(5000) := ?;					
+				begin
+					update 
+						esami 
+					set
+						eseguito=1
+						,fine_esecuzione = 1
+						,ute_ese = pIdenPer
+						,data_ins_ese = sysdate
+						,dat_esa = to_char(sysdate,'yyyyMMdd')
+						,ora_esa = to_char(sysdate,'hh24:mi')
+					where 
+						iden = pIdenEsame;
+						
+					SP_AGGIUSTA_STATO_ESAME (pIdenEsame,pIdenEsame);						
+				end;
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="getSale">
+			<pool>elcoPool_ambulatorio</pool>	
+			<sql>
+			<![CDATA[
+				select 
+				  iden ,
+				  descr,
+				  cod_dec,
+				  default_container
+				from 
+				  tab_sal 
+				 where 
+				 	reparto = ? 
+				  and cod_gruppo= ?
+				  and attivo='S'
+				order by ordine	
+			]]>
+			</sql>
+		</statement>	
+		
+        <statement name="getConfigurazioneSala">
+			<pool>elcoPool_ambulatorio</pool>
+            <params>
+                <param index="1" type="VARCHAR"/>
+                <param index="2" type="CLOB"/>
+            </params>
+            <sql>
+            <![CDATA[
+                    declare
+                            vOut clob;
+                    begin
+                            vOut :=getXmlFromQuery('
+                                                    select 
+                                                            S.iden "@iden_sal",
+															S.cod_dec "@cod_sal",
+															S.default_container "@default",
+															S.pattern_descrizione "@pattern_descrizione",														
+															G.giorno_num_sett "@giorno",
+                                                            sum(G.minuti) "@minuti",
+                                                            min(G.apre) "@apre",
+                                                            max(G.chiude) "@chiude",
+															G.slot "@slot"
+                                                    from 
+                                                            tab_sal S 
+                                                            join tab_mac M on (M.iden_sal = S.iden)
+                                                            join tab_are A on (A.iden_mac = M.iden)
+                                                            join tab_giorno_area G on (G.iden_are = A.iden and G.deleted=''N'')
+                                                    where 
+                                                        S.cod_dec=:pCodSal
+                                                    group by
+                                                       	S.iden,S.cod_dec,S.default_container,S.pattern_descrizione,
+														G.giorno_num_sett,G.slot
+                                            '
+                                            ,ARRAY_VALUE('pCodSal')
+                                            ,ARRAY_VALUE(?)
+                                            ,'SALE' 
+                                            ,'SALA'
+                                    );
+
+                            ? := vOut;
+
+                    end;
+            ]]>
+            </sql>
+        </statement>		
+		
+        <statement name="getConsultazioneTerapieSalaGG">	
+            <pool>elcoPool_whale</pool>
+            <catalogo>dati</catalogo>
+            <params>
+                <param index="1" type="VARCHAR"/>
+				<param index="2" type="VARCHAR"/>
+                <param index="3" type="CLOB"/>
+                <param index="4" type="VARCHAR"/>               
+            </params>                        
+            <sql>
+            <![CDATA[
+                    select
+                            VALORE1 DATAISO,
+							VALORE2 DATA,
+							VALORE4 CLASS,
+							VALORE10 COD_CDC,
+							VALORE11 TEXT
+                    from
+                            table(
+                                    radsql.GEST_AGENDA.getConsultazioneTerapieSalaGG(? ,? ,?,split2array(?,'|'))
+                            ) tab_work
+                    order by
+                            tab_work.PROGRESSIVO
+            ]]>
+            </sql>
+        </statement>				
+		
+	</statements_list>	
+</root>

@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Riepilogo/filtriDiari.js" />
+	<CSS path="css/MMG/Riepilogo/filtriDiari.css" />
+</INCLUDE>

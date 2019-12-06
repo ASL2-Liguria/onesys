@@ -1,0 +1,22 @@
+<PAGINA key_id="SCHEDA_TIPO">
+    <HEADER_PAGE key_id="SCHEDA_TIPO" valore="DEFAULT,SCHEDA,SCHEDA_TIPO#DEFAULT,SCHEDA_TIPO" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SAVE_DATA#POLARIS_DATI#TIPI#IDEN#IDEN##V_TIPI" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaTipo" valore="SchedaTipo#lblTitolo#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabDatiTipo" valore="tabDatiTipo" evento="START">
+                <FIELDSET_TABLE key_id="fldDatiTipo" valore="fldDatiTipo" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="CodiceDecodifica" valore="lblCodiceDecodifica##txtCodiceDecodifica###CODICE_DECODIFICA" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Descrizione" valore="lblDescr##txtDescr###DESCRIZIONE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Ordine" valore="lblOrdine##txtOrdine###ORDINE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_COMBO key_id="Gruppo" valore="lblGruppo##Gruppo#cmbGruppo#N#TIPO" evento="START">
+                    </TR_TD_LABEL_COMBO>
+                    <TR_TD_LABEL_RADIO key_id="Attivo" valore="lblAttivo##Attivo#radAttivo#{width:80}#S#ATTIVO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

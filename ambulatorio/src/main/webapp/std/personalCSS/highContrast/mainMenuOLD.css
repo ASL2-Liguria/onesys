@@ -1,0 +1,130 @@
+body{
+	margin:0px;
+	padding:0px;
+	height:100%;
+	background-image: url(../../../../imagexPix/top_menu_bar/pattern_sfondo.gif);	
+}
+
+#menuSX {
+	width:250px;
+	height:100%;	
+	padding:5px;
+	background-image: url(../../../../imagexPix/top_menu_bar/menusx.gif);
+}
+
+#userBox {
+	height:20px;
+	top:0px;
+	margin:0 0 0 12px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+#buttonBox{
+	height:30px;
+	top:0px;
+	margin:0 0 0 12px;
+	color: #FFFFFF;
+}
+
+#infoBox{
+	height:15px;
+	top:0px;
+	margin:0 0 0 12px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+}
+
+#menuDX {
+	position:absolute;
+	height:100%;
+	left:250px; 
+	top:0px;
+	background-color:#00CC00;
+	background-image: url(../../../../imagexPix/top_menu_bar/pattern_sfondo.gif);		
+}
+
+/* Menu di primo livello */
+#menuLevel1{
+	height:25px;
+	background-image: url(../../../../imagexPix/top_menu_bar/patternMn1.jpg);
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;	
+}
+/* menu di secondo livello */
+#menuLevel2{
+	height : 25px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;	
+}
+
+
+
+/* menu delle tabelle */
+#subMenu1{
+	height : 25px;
+}
+
+/* menu delle utilita*/
+#subMenu2{
+	height : 25px;
+}
+
+
+/* menu delle stampe */
+#subMenuS1{
+	height : 25px;
+}
+
+
+
+/* ********** PULSANTI del menu di 1 LIVELLO ************* */
+
+#pulsanteLev1 {
+	float:right;
+	background-image:url(../../../../imagexPix/top_menu_bar/patternMn1.jpg);
+	text-align:center;
+	padding:2px;
+}
+
+#pulsanteLev1 A{
+	TEXT-DECORATION: none;
+	COLOR: #000099;
+	display:block;
+}
+
+#pulsanteLev1 A:Hover {
+	TEXT-DECORATION: none;
+	BACKGROUND-COLOR: #ffff66;
+	background-image:url(../../../../imagexPix/top_menu_bar/button_over.jpg);
+}
+
+/* ********** PULSANTI del menu di 2 LIVELLO ************* */
+#pulsanteLev2 {
+	float:right;
+	height:25px;
+	background-image:url(../../../../imagexPix/top_menu_bar/patternMn2.jpg);
+	text-align:center;
+	padding:2px;
+}
+
+#pulsanteLev2 A{
+	TEXT-DECORATION: none;
+	COLOR: #000099;
+	display:block;
+}
+
+
+#pulsanteLev2 A:Hover {
+	TEXT-DECORATION: none;
+	BACKGROUND-COLOR: #ffff66;
+	background-image:url(../../../../imagexPix/top_menu_bar/button_over.jpg);
+}
+
+

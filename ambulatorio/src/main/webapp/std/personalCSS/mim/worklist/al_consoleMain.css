@@ -1,0 +1,124 @@
+/*  css per la gestione dei dati nella consolle */
+
+table.classDataEntryTable {
+	table-layout:fixed;
+	text-align: left;
+	width: 100%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+}
+
+td.classTdLabelNoWidth{
+	border: 1px solid #83E2BC;
+	background-color:#E3D8F1;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;	
+}
+td.classTdText{
+	border: 1px solid #83E2BC;
+	background-color:#E3D8F1;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:14px;	
+        text-align:right;
+        text-decoration: underline;
+        border-bottom:1px;
+}
+
+td.classTdLabel{
+	border: 1px solid #83E2BC;
+	background-color:#E3D8F1;
+	padding-left:2px;
+	width:70px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;	
+	white-space:nowrap;
+}
+
+td.classTdField{
+	border: 1px solid #83E2BC;
+/*	background-color:#F9F0FF; */
+	background-color:#F9F0FF;
+	white-space:nowrap;	
+	font-size:10px;		
+}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+input.smallTextBox{
+	font:Arial, Helvetica, sans-serif;
+	font-size:9px;
+}
+
+
+/* imposto info primo layer */
+#divFirstLayout{
+	display:block;
+	height:60px;
+}
+/* imposto info secondo layer */
+#divSecondLayout{
+	display:block;
+	height:200px;
+}
+/* imposto info terzo layer */
+#divThirdLayout{
+	display:block;
+}
+
+div.classQuesito{
+	width:100%;
+    height:60px;
+    overflow:auto;padding: 4px;
+    border:2px solid #83E2BC;
+	background:url(../../../../imagexPix/button/gradient/gradient_mim.png);
+	background-repeat:repeat-x;
+}
+
+div.classDescrEsameQuesito{
+	color:#0000FF;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;	
+}
+
+div.classTestoQuesito{
+	margin-top:0px;
+	color:#000000;
+	text-align:justify;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;
+	overflow:auto;
+	
+}
+
+/* */
+
+div.classQuadro{
+	width:100%;
+    height:60px;
+    overflow:auto;padding: 4px;
+    border:2px solid #83E2BC;
+	background:url(../../../../imagexPix/button/gradient/gradient_mim.png);
+	background-repeat:repeat-x;
+}
+div.classDescrEsameQuadro{
+	color:#0000FF;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;	
+}
+
+div.classTestoQuadro{
+	margin-top:0px;
+	color:#000000;
+	text-align:justify;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;		
+	
+}
+

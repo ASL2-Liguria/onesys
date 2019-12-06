@@ -1,0 +1,96 @@
+<root>
+	<statements_list>
+		<statement name="salva_terapia_domiciliare">
+			<sql>
+			<![CDATA[
+				DECLARE	  
+					pFunzione 		varchar2(4000):=?;
+  					pIdenVisita 	pls_integer := to_number(?);
+  					pIdenVisitaReg 	pls_integer:= to_number(?);
+  					pIdenPer 		pls_integer:= to_number(?);
+					pDaFirmare 		varchar2(4000):=?;
+				    
+				  	vIdenFar		varchar2(4000):=?;
+				  	vScatole		varchar2(4000):=?;
+				  	vPrimoCiclo		varchar2(4000):=?;
+				  	vDose			varchar2(4000):=?;
+				  	vDurata			varchar2(4000):=?;
+				  	vTipoTer		varchar2(4000):=?;
+				  	vStatoTer		varchar2(4000):=?;
+				  	vCategoria		varchar2(4000):=?;
+				  	pTerapiaDomiciliareHtml	clob:=?;
+				  	pPrimoCicloHtml 		clob:=?;
+				  					  
+				  	pIdenFar		ARRAY_VALUE := new ARRAY_VALUE();
+				  	pScatole		ARRAY_VALUE := new ARRAY_VALUE();
+				  	pPrimoCiclo	ARRAY_VALUE := new ARRAY_VALUE();
+				  	pDose			ARRAY_VALUE := new ARRAY_VALUE();
+				  	pDurata		ARRAY_VALUE := new ARRAY_VALUE();
+				  	pTipoTer		ARRAY_VALUE := new ARRAY_VALUE();
+				  	pStatoTer		ARRAY_VALUE := new ARRAY_VALUE();
+				  	pCategoria	ARRAY_VALUE := new ARRAY_VALUE();
+				  
+				  pReturn 		varchar2(4000);
+				BEGIN
+					pIdenFar 	:= RADSQL.SPLIT2ARRAY(vIdenFar,'|');
+					pScatole 	:= RADSQL.SPLIT2ARRAY(vScatole,'|');
+					pPrimoCiclo := RADSQL.SPLIT2ARRAY(vPrimoCiclo,'|');					
+					pDose 		:= RADSQL.SPLIT2ARRAY(vDose,'|');
+					pDurata 	:= RADSQL.SPLIT2ARRAY(vDurata,'|');
+					pTipoTer 	:= RADSQL.SPLIT2ARRAY(vTipoTer,'|');
+					pStatoTer 	:= RADSQL.SPLIT2ARRAY(vStatoTer,'|');
+					pCategoria 	:= RADSQL.SPLIT2ARRAY(vCategoria,'|');
+					
+					radsql.terapia_domiciliare.registraTerapia(
+									pFunzione,
+				  					pIdenVisita,
+				  					pIdenVisitaReg,
+  									pIdenPer,
+									pDaFirmare,
+									pIdenFar,
+									pScatole,
+									pPrimoCiclo,
+									pDose,
+									pDurata,
+									pTipoTer,
+									pStatoTer,
+									pCategoria,
+									pTerapiaDomiciliareHtml,
+									pPrimoCicloHtml,
+									pReturn);
+					
+					?:=pReturn;				  
+				END;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getTerapiaDomiciliareFirmata">		
+			<sql>
+			<![CDATA[
+				 Select iden,stato from cc_lettera_versioni where iden_visita = to_number(?) and iden_visita_registrazione =to_number(?) and attivo='S' and funzione=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="getTerapiaDomiciliareSezioni">		
+			<sql>
+			<![CDATA[
+				 Select id_elemento,testo_html from cc_lettera_sezione where iden_versione = to_number(?)
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getTerapiaDomiciliareDati">		
+			<sql>
+			<![CDATA[
+				 Select iden_farmaco,primo_ciclo,num_scatole,dose,durata,tipo_terapia,stato_terapia,categoria from cc_lettera_farmaci where iden_lettera = to_number(?)
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getLetteraFirmata">		
+			<sql>
+			<![CDATA[
+				 Select iden,iden_terapia_associata from cc_lettera_versioni where iden_visita = to_number(?) and funzione IN ('LETTERA_STANDARD','VISITA_ANESTESIOLOGICA') and attivo='S'
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

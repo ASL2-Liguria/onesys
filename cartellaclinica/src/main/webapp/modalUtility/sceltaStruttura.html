@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Scelta struttura</title>
+        <link type='text/css' rel='stylesheet' href='../std/css/attesaRegistra.css' />
+        <link type='text/css' rel='stylesheet' href='../std/css/calendario/calendarview.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/dataEntryTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/dataTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/headerTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/normalBody.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/tabulatore.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/headerTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/normalBody.css'/>
+        <link type='text/css' rel='stylesheet' href='../std/css/button.css'/>    
+    </head>
+    <body>
+        <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%"  >
+            <tr>
+                <td class='classTabHeaderSx'></td>
+                <td class='classTabHeaderMiddle'>Scelta struttura</td>
+                <td class='classTabHeaderDx'></td>
+            </tr>
+        </table>
+        <table width="100%" border="1" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="50%" class='classTdLabel'>
+                    <label id='lblStruttura'>Struttura</label>
+                </td>
+                <td width="50%">
+                    <select id="cmbStruttura">
+                     <option value=''></option>
+                     <option value='REP_MET_AL'>Albenga</option>
+                     <option value='REP_MET_CA'>Cairo Montenotte</option>
+                     <option value='REP_MET_PL'>Pietra Ligure</option>
+                     <option value='REP_MET_SV'>Savona</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+            <tr>
+                <td class='classTabFooterSx'>&nbsp;</td>     
+                <td class='classTabHeaderMiddle'>&nbsp;</td> 
+                <td class='classButtonHeader'><div class='pulsante' id='btnChiudi' onclick='okModal();'>OK</div></td>
+                <td class='classButtonHeader'><div class='pulsante' id='btnAnnulla' onclick='self.close();'>Annulla</div></td>            
+                <td class='classTabFooterDx'>&nbsp;</td>
+            </tr>
+        </table>
+    </body>
+    <script type='text/javascript' language='JavaScript' src='../std/jscript/engine/jquery1_7.js' ></script>
+     <script>    
+function okModal()
+{
+	resp = new Object();
+	if($('#cmbStruttura').val()==''){
+	 return alert('Attenzione, selezionare una struttura.');
+	}
+	resp.struttura =$('#cmbStruttura').val();
+	window.returnValue = resp; 	
+	self.close();	
+}
+
+</script>
+</html>

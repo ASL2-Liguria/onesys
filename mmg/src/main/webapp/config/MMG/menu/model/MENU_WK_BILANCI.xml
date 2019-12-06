@@ -1,0 +1,27 @@
+<MENU>
+	<id>MENU_WK_BILANCI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWB.AB</ID>
+			<LINK><![CDATA[function(rec){NS_RIEPILOGO_BILANCIO_SALUTE.apriBilancio(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Apri Bilancio"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MWB_SB</ID>
+			<LINK><![CDATA[function(rec){NS_RIEPILOGO_BILANCIO_SALUTE.stampaBilancio(rec);}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Stampa Bilancio"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

@@ -1,0 +1,516 @@
+<PAGINA key_id="MMG_PATIENT_SUMMARY">
+	<HEADER_PAGE key_id="MMG_PATIENT_SUMMARY"
+		valore="DEFAULT_MMG,SCHEDA,MMG_PATIENT_SUMMARY#DEFAULT_MMG,MMG_PATIENT_SUMMARY"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_PATIENT_SUMMARY#MMG_DATI#PATIENTI_SUMMARY#IDEN_ANAG#IDEN_ANAG"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabMMGPatientSummary"
+			valore="MMGPatientSummery#lblTitolo#butOldVersion,butAnagrafica,butStampa,butSalva,butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabDatiGenerali"
+				valore="tabDatiGenerali" evento="START">
+				<FIELDSET_TABLE key_id="fldDatiGenerali" valore="fldDatiGenerali"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtRetiPatologia"
+						valore="lblRetiPatologia##txtRetiPatologia###RETI_PATOLOGIA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtAttivitaLavorativa"
+						valore="lblAttivitaLavorativa##txtAttivitaLavorativa###ATTIVITA_LAVORATIVA" evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE><FIELDSET_TABLE key_id="fldConsensoOrgani" valore="fldConsensoOrgani"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="ConsensoDonazioneOrgani"
+						valore="lblConsensoDonazioneOrgani##ConsensoDonazioneOrgani#radConsensoDonazioneOrgani#{width:80}#S#CONSENSO_DONAZIONE_ORGANI" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAmministratore" valore="fldAmministratore"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtAmmSostegno"
+						valore="lblAmmSostegno##txtAmmSostegno###AMM_SOSTEGNO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtTelAmmSostegno"
+						valore="lblTelAmmSostegno##txtTelAmmSostegno###AMM_TEL_SOSTEGNO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRiferimenti" valore="fldRiferimenti"
+					evento="START">
+					<TR.INIT key_id="riga1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtNominativo1"
+							valore="lblNominativo1##txtNominativo1##myCssNominativo1#NOMINATIVO_1"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtTelefono1"
+							valore="lblTelefono1##txtTelefono1###TELEFONO_1" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_COMBO key_id="Parentela1"
+							valore="lblParentela1##Parentela1#cmbParentela1#N#PARENTELA_1"
+							evento="START">
+						</TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="riga2" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtNominativo2"
+							valore="lblNominativo2##txtNominativo2##myCssNominativo2#NOMINATIVO_2"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtTelefono2"
+							valore="lblTelefono2##txtTelefono2###TELEFONO_2" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_COMBO key_id="Parentela2"
+							valore="lblParentela2##Parentela2#cmbParentela2#N#PARENTELA_2"
+							evento="START">
+						</TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="riga3" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtNominativo3"
+							valore="lblNominativo3##txtNominativo3##myCssNominativo3#NOMINATIVO_3"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtTelefono3"
+							valore="lblTelefono3##txtTelefono3###TELEFONO_3" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_COMBO key_id="Parentela3"
+							valore="lblParentela3##Parentela3#cmbParentela3#N#PARENTELA_3"
+							evento="START">
+						</TD_LABEL_COMBO>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNote" valore="fldNote"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="taNoteDatiGenerali"
+						valore="taNoteDatiGenerali#NOTE_GENERALI" evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabAnamnesi"
+				valore="tabAnamnesi" evento="START">
+				<FIELDSET_TABLE key_id="fldAnamnesiFamiliare" valore="fldAnamnesiFamiliare"
+					evento="START">
+					<DIV.WORKLIST key_id="divWkGravidanze" valore="divWkGravidanze"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAnamnesiFamiliare" valore="fldAnamnesiFamiliare"
+					evento="START">
+					<TR.INIT key_id="rigaFamiliarita" valore="" evento="START">
+						<TD_LINK key_id="Familiarita" valore="lblFamiliarita#Familiarita"
+							evento="START">
+						</TD_LINK>
+						<TD_COMBO_LIST key_id="FamiliaritaResult"
+							valore="ComboListFamiliaritaResult#cmbFamiliaritaResult#N"
+							evento="START">
+						</TD_COMBO_LIST>
+						<INPUT.HIDDEN key_id="hiddenFamiliaritaSave"
+							valore="hiddenFamiliaritaSave###FAMILIARITA" evento="START">
+						</INPUT.HIDDEN>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXTAREA key_id="taAltreFamiliarita" valore="lblAltreFamiliarita#taAltreFamiliarita#ALTRE_FAMILIARITA" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldMalformazioni" valore="fldMalformazioni"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtMalformazioni"
+						valore="lblMalformazioni##txtMalformazioni###MALFORMAZIONI" evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAbitudiniDiVita" valore="fldAbitudiniDiVita"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="Fumo"
+						valore="lblFumo##Fumo#radFumo#{width:120}#S#FUMO" evento="START">
+						<TD_LABEL_TEXT key_id="txtQtaSigarette"
+							valore="lblQtaSigarette##txtQtaSigarette###QTA_SIGARETTE" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="ExFumo"
+						valore="lblExFumo##ExFumo#radExFumo#{width:120}#S#EX_FUMATORE" evento="START">
+						<TD_LABEL_DATA key_id="DataFineFumo"
+							valore="lblDataFineFumo##txtDataFineFumo#DataFineFumo#startWithToday:false, format: 'd/m/Y',direction:false#disabled:false##DATA_FINE_FUMO"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_COMBO key_id="Alcol"
+						valore="lblAlcol##Alcol#cmbAlcol#N#ALCOL" evento="START">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_TEXT key_id="txtAttivitaFisicaExtraLavorativa"
+						valore="lblAttivitaFisicaExtraLavorativa##txtAttivitaFisicaExtraLavorativa###ATTIVITA_FISICA"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_COMBO key_id="CapacitaMotoria"
+						valore="lblCapacitaMotoria##CapacitaMotoria#cmbCapacitaMotoria#N#CAPACITA_MOTORIA" evento="START">
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNote" valore="fldNote"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="taNoteAnamnesi"
+						valore="taNoteAnamnesi#NOTE_ANAMNESI" evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabAnamnesiClinica"
+				valore="tabAnamnesiClinica" evento="START">
+				<FIELDSET_TABLE key_id="fldAnamnesiPatologicaRemota"
+					valore="fldAnamnesiPatologicaRemota" evento="START">
+					<TR_TD_TEXTAREA key_id="taNotePatologia"
+						valore="taNotePatologia#NOTE_PATOLOGIA" evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldOrgani" valore="fldOrgani"
+					evento="START">
+						<TR_TD_LABEL_RADIO key_id="Organi"
+							valore="lblOrganiMancanti##OrganiMancanti#radOrganiMancanti#{width:40}#S#ORGANI_MANCANTI"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteOrgani" valore="lbltaNoteOrgani#taNoteOrgani#NOTE_ORGANI"
+							evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+						<TR_TD_LABEL_RADIO key_id="Trapianti"
+							valore="lblTrapianti##Trapianti#radTrapianti#{width:40}#S#TRAPIANTI"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteTrapianti" valore="lbltaNoteTrapianti#taNoteTrapianti#NOTE_TRAPIANTI"
+							evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+
+						<TR_TD_LABEL_RADIO key_id="Espianti"
+							valore="lblEspianti##Espianti#radEspianti#{width:40}#S#ESPIANTI"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteEspianti" valore="lbltaNoteEspianti#taNoteEspianti#NOTE_ESPIANTI"
+							evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldProtesi" valore="fldProtesi"
+					evento="START">
+
+						<TR_TD_LABEL_RADIO key_id="Protesi"
+							valore="lblProtesi##Protesi#radProtesi#{width:40}#S#PROTESI"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteProtesi" valore="lbltaNoteProtesi#taNoteProtesi#NOTE_PROTESI"
+							evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+
+						<TR_TD_LABEL_RADIO key_id="Impianti"
+							valore="lblImpianti##Impianti#radImpianti#{width:40}#S#IMPIANTI"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteImpianti" valore="lbltaNoteImpianti#taNoteImpianti#NOTE_IMPIANTI"
+							evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+
+						<TR_TD_LABEL_RADIO key_id="Ausili"
+							valore="lblAusili##Ausili#radAusili#{width:40}#S#AUSILI" evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteAusili" valore="lbltaNoteAusili#taNoteAusili#NOTE_AUSILI"
+							evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldFattoriRischi" valore="fldFattoriRischi"
+					evento="START">
+
+						<TR_TD_LABEL_RADIO key_id="Dipendenze"
+							valore="lblDipendenze##Dipendenze#radDipendenze#{width:40}#S#DIPENDENZE"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteDipendenze" valore="lbltaNoteDipendenze#taNoteDipendenze#NOTE_DIPENDENZE"
+							evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+
+						<TR_TD_LABEL_RADIO key_id="SostanzeTossiche"
+							valore="lblSostanzeTossiche##SostanzeTossiche#radSostanzeTossiche#{width:40}#S#SOSTANZE_TOSSICHE"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+						<TR_TD_LABEL_TEXTAREA key_id="taNoteSostanzeTossiche"
+							valore="lbltaNoteSostanzeTossiche#taNoteSostanzeTossiche#NOTE_SOSTANZE_TOSSICHE" evento="START">
+						</TR_TD_LABEL_TEXTAREA>
+
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabAllergie"
+				valore="tabAllergie" evento="START">
+				<FIELDSET_TABLE key_id="fldInserimentoAllergie"
+					valore="fldInserimentoAllergie" evento="START">
+					<TR_TD_LABEL_RADIO key_id="TipoAllergia"
+						valore="lblTipoAllergia##TipoAllergia#radTipoAllergia#{width:150}#N#TIPO_ALLERGIA"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="TipoSostanza"
+						valore="lblTipoSostanza##TipoSostanza#radTipoSostanza#{width:150, idxDefault:0}#N#"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="tr0" valore="tr0" evento="START">
+						<TD_AUTOCOMPLETE key_id="farmaco" valore="lblFarmaco#acFarmaco#Farmaco#Farmaco#AC_FARMACI#FARMACO" evento="START"></TD_AUTOCOMPLETE>
+						<TD_LABEL_COMBO key_id="atcLivello" valore="lblLivello#cmbLivello#cmbLivello#cmbLivello###cmbLivello#cmbLivello" evento="START"></TD_LABEL_COMBO> 
+					</TR.INIT>
+					<TR_TD_AUTOCOMPLETE key_id="PrincipioAttivo"
+						valore="lblPrincipioAttivo#acPrincipioAttivo#PrincipioAttivo#PrincipioAttivo#AC_PRINCIPI_ATTIVI#PRINCIPIO_ATTIVO" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="Allergia"
+						valore="lblAllergia##txtAllergia###ALLERGIA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="TipoReazAllergica"
+						valore="lblTipoReazAllergica##txtTipoReazAllergica###TIPO_REAZIONE_ALLERGICA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR.INIT key_id="trAllergie" valore="trAllergie" evento="START">
+						
+						<TD_LABEL_CHECK key_id="Assenza_Allergie"
+							valore="lblAssenza_Allergie##Assenza_Allergie#chkAssenza_Allergie#N#{width:400,ctrl:false}##ASSENZA_ALLERGIE"
+							evento="START">
+						</TD_LABEL_CHECK>
+						
+						<TD.INIT key_id="tidi0" valore="1#1" evento="START">
+						</TD.INIT>
+						
+						<TD_BUTTON key_id="buttonInsAllergie" valore="buttonInsAllergie"
+							evento="START">
+						</TD_BUTTON>
+						
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAllergie" valore="fldAllergie"
+					evento="START">
+					<DIV.WORKLIST key_id="wkAllergie" valore="divWkAllergie"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabInterventi"
+				valore="tabInterventi" evento="START">
+				<FIELDSET_TABLE key_id="fldInserimentoIntervento"
+					valore="fldInserimentoIntervento" evento="START">
+					<TR_TD_LABEL_DATA key_id="DataIntervento"
+						valore="lblDataIntervento##txtDataIntervento#DataIntervento#startWithToday:false, format: 'd/m/Y',direction:false#disabled:false##DATA_INTERVENTO"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_AUTOCOMPLETE key_id="CodiceIntervento"
+						valore="lblInterventi#acCodiceInterventi#CodiceIntervento#CodiceIntervento#AC_CODICE_INTERVENTI#COD_INTERVENTO"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Intervento"
+						valore="lblDescrInterventi#acInt#Intervento#Intervento#AC_DESCR_INTERVENTI#INTERVENTO"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_CHECK key_id="InsNotaCont"
+							valore="lblInsNotaCont##InsNotaCont#chkInsNotaCont#N#{width:400,ctrl:false}##INSERIMENTO_CONTESTUALE_NOTA" evento="START">
+						</TD_LABEL_CHECK>
+						<TD key_id="tdButtonIns" valore="" evento="START">
+							<TD_BUTTON key_id="buttonIns" valore="buttonIns"
+								evento="START">
+							</TD_BUTTON>
+						</TD>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldInterventiChirurgici"
+					valore="fldInterventiChirurgici" evento="START">
+					<DIV.WORKLIST key_id="wkInterventi" valore="divWkInterventi"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabProblemi"
+				valore="tabProblemi" evento="START">
+				<FIELDSET_TABLE key_id="fldWkProblemi" valore="fldWkProblemi"
+					evento="START">
+					<DIV.WORKLIST key_id="wkProblemi" valore="divWk"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabTerapieCroniche"
+				valore="tabTerapieCroniche" evento="START">
+				<FIELDSET_TABLE key_id="fldTerapieCroniche" valore="fldTerapieCroniche"
+					evento="START">
+					<DIV.WORKLIST key_id="wkTerapie" valore="divWkTerapie"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabAccertamenti"
+				valore="tabAccertamenti" evento="START">
+				<FIELDSET_TABLE key_id="fldAccertamenti" valore="fldAccertamenti"
+					evento="START">
+					<DIV.WORKLIST key_id="wkAccertamenti" valore="divWkAccertamenti"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabScreening"
+				valore="tabScreening" evento="START">
+				<FIELDSET_TABLE key_id="fldScreening" valore="fldScreening"
+					evento="START">
+					<DIV.WORKLIST key_id="wkScreening" valore="divWkScreening"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabEsenzioni"
+				valore="tabEsenzioni" evento="START">
+				<FIELDSET key_id="fldEsenzioni" valore="fldEsenzioni"
+					evento="START">
+					<DIV key_id="divWkEsenzioni" valore="divWkEsenzioni" evento="START">
+					</DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabVaccinazioni"
+				valore="tabVaccinazioni" evento="START">
+				<FIELDSET key_id="fldVaccinazioni" valore="fldVaccinazioni"
+					evento="START">
+					<DIV key_id="divWkVaccinazioni" valore="divWkVaccinazioni"
+						evento="START">
+					</DIV>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabDatiMedico"
+				valore="tabDatiMedico" evento="START">
+				<FIELDSET_TABLE key_id="fldInfo" valore="fldInfo"
+					evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="txtAltreInfo"
+						valore="lblAltreInfo#txtAltreInfo#INFO" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldMedico" valore="fldMedico"
+					evento="START">
+					<TR.INIT key_id="trMedico1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="NomeMedico" valore="lblNomeMedico##txtNomeMedico"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="CognomeMedico"
+							valore="lblCognomeMedico##txtCognomeMedico" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="trMedico2" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="CodiceFiscaleMedico"
+							valore="lblCodiceFiscaleMedico##txtCodiceFiscaleMedico" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="IndirizzoMedico"
+							valore="lblIndirizzoMedico##txtIndirizzoMedico" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="trMedico3" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="IndirizzoSecondarioMedico"
+							valore="lblIndirizzoSecondarioMedico##txtIndirizzoSecondarioMedico" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="IndirizzoTerziarioMedico"
+							valore="lblIndirizzoTerziarioMedico##txtIndirizzoTerziarioMedico" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="trMedico4" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="TelefonoMedico"
+							valore="lblTelefonoMedico##txtTelefonoMedico" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="CellulareMedico"
+							valore="lblCellulareMedico##txtCellulareMedico" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					
+					<TR.INIT key_id="trMedico5" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="EmailMedico"
+							valore="lblEmailMedico##txtEmailMedico" evento="START">
+						</TD_LABEL_TEXT>
+							
+						<TD_LABEL_TEXT key_id="EmailPEC"
+							valore="lblEmailPEC##txtEmailPEC" evento="START">
+						</TD_LABEL_TEXT>
+							
+						<TD_LABEL_TEXT key_id="FaxMedico"
+							valore="lblFaxMedico##txtFaxMedico" evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabOldVersion" valore="tabOldVersion"
+				evento="START">				
+				<FIELDSET_TABLE key_id="fldIntestazione" valore="fldIntestazione" evento="START"></FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDatiGenerali" valore="fldDatiGenerali"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtRecapitoTelefonico"
+						valore="lblRecapitoTelefonico#classLblMMG#txtRecapitoTelefonico###RECAPITO_TELEFONICO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtStatoCivile"
+						valore="lblStatoCivile##txtStatoCivile###STATO_CIVILE" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtComposizioneNucleoFam"
+						valore="lblComposizioneNucleoFam##txtComposizioneNucleoFam###COMPOSIZIONE_FAMILIARE"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtOrientamentoReligioso"
+						valore="lblOrientamentoReligioso##txtOrientamentoReligioso###ORIENTAMENTO_RELIGIOSO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRadio" valore="fldRadio"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="ViveSolo"
+						valore="lblViveSolo##ViveSolo#radViveSolo#{width:120}#S#VIVE_SOLO"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="ViveStruttura"
+						valore="lblViveStruttura##ViveStruttura#radViveStruttura#{width:120}#S#VIVE_STRUTTURA"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="UtilizzoServiziSociali"
+						valore="lblUtilizzoServiziSociali##UtilizzoServiziSociali#radUtilizzaServiziSociali#{width:120}#S#SERVIZI_SOCIALI"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="PersonaInterdetta"
+						valore="lblPersonaInterdetta##PersonaInterdetta#radPersonaInterdetta#{width:120}#S#PERSONA_INTERDETTA"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="PersonaInabilitata"
+						valore="lblPersonaInabilitata##PersonaInabilitata#radPersonaInabilitata#{width:120}#S#PERSONA_INABILITATA"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE><FIELDSET_TABLE key_id="fldAnamnesiFisiologica"
+					valore="fldAnamnesiFisiologica" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtEta" valore="lblEta##txtEta##"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_COMBO key_id="NatoDa"
+						valore="lblNatoDa##NatoDa#cmbNatoDa#N#NATO_DA" evento="START">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO key_id="Parto"
+						valore="lblParto##Parto#cmbParto#N#PARTO" evento="START">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_TEXT key_id="txtMenarcaAnni"
+						valore="lblMearcaAnni##txtMenarcaAnni###MENARCA_ANNI" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR.INIT key_id="riga1" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Mestruazioni"
+							valore="lblMestruazioni##Mestruazioni#radMestruazioni#{width:120}#S#MESTRUAZIONI"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_COMBO key_id="ComboMestruazioni"
+							valore="ComboMestruazioni#cmbMestruazioni#N#TIPO_MESTRUAZIONI"
+							evento="START">
+						</TD_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="rigaGruppo" valore="" evento="START">
+					</TR.INIT>
+					<TR_TD_LABEL_RADIO key_id="Menopausa"
+						valore="lblMenopausa##Menopausa#radMenopausa#{width:120}#S#MENOPAUSA"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_COMBO key_id="GruppoSanguigno"
+						valore="lblgruppoSanguigno##GruppoSanguigno#GruppoSanguigno#N#GRUPPO_SANGUIGNO"
+						evento="START">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO key_id="RHSanguigno"
+						valore="lblRHSanguigno##RHSanguigno#cmbRHSanguigno#N#RH" evento="START">
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

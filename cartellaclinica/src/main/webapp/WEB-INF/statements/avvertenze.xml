@@ -1,0 +1,1011 @@
+<root>
+<statements_list>
+<statement name="getTabAvvertenze">
+			<sql>
+			<![CDATA[
+			with ELENCO as (select to_number(regexp_substr(x, '[^,]+', 1, level)) IDEN_VISITA
+            from(select ? x from dual)
+            connect by level <= length(x) - length(replace(x, ',')) + 1)            
+          select AVVERTENZA,VALORE,NUM_NOSOLOGICO
+	        from radsql.TAB_AVVERTENZE 
+	        where IDEN_VISITA in (select IDEN_VISITA from elenco)
+	        order by num_nosologico
+			]]>
+			</sql>
+</statement>
+ <statement name="nuovi_risultati_laboratorio">
+  <sql>
+   <![CDATA[
+   declare
+        pNosologico varchar2(4000):=?;
+        pIdRemoto varchar2(4000):=?;
+        pIdenPer pls_integer:=to_number(?);
+		vTot pls_integer;
+		vClass varchar2(4000);
+		vTitle varchar2(4000);
+		begin
+		vTot:=0;
+		select /*+first_rows(1)*/ max(dsl.BYTSTATORICHIESTA) into vTot from infoweb.DATI_STRUTT_LABORATORIO dsl where dsl.strcodnosologico=pNosologico  and stridpazienteesterno=pIdRemoto and (dsl.STRRISULTATOESAMECORTO NOT IN ('AN','XX','X','NS') OR dsl.STRRISULTATOESAMECORTO IS NULL)  AND (SELECT COUNT(*) FROM radsql.ESITI_CONSULTATI EC WHERE EC.IDEN_TESTATA_RICHIESTE=dsl.iden_whale AND EC.iden_per=pIdenPer AND PRESENZA_ULTERIORI_VERSIONI='N' AND rownum=1)=0;
+		if (vTot>=8) then
+		    vClass:='datiLaboratorioDefinitiviPresenti';
+		    vTitle:='Sono presenti dati di laboratorio definitivi non letti';
+		elsif (vTot>0) then
+			vClass:='datiLaboratorioPresenti';
+			vTitle:='Sono presenti dati di laboratorio provvisori non letti';	
+        else
+			vClass:='datiLaboratorioNonPresenti';
+			vTitle:='Apri dati laboratorio';		 
+		end if;
+		?:= vClass;
+		?:= vTitle;		
+		end;
+		  ]]>
+      </sql>
+       </statement>
+  <statement name="nuovi_risultati_laboratorio_accessiDH">
+  <sql>
+   <![CDATA[
+      declare
+        pIdenAnag pls_integer:=to_number(?);
+        pReparto varchar2(4000):=?;
+        pIdenPer pls_integer:=to_number(?);
+		vTot pls_integer;
+		vClass varchar2(4000);
+		vTitle varchar2(4000);
+		begin
+		vTot:=0;
+		select /*+first_rows(1)*/ max(dsl.BYTSTATORICHIESTA) into vTot from infoweb.DATI_STRUTT_LABORATORIO dsl where  dsl.strcodnosologico in ( select distinct(num_nosologico) from nosologici_paziente where iden_anag=pIdenAnag and cod_cdc=pReparto) and dsl.DTMDATAACCETTAZIONE>=to_date(to_char(sysdate,'YYYY')||'0101','YYYYMMDD') and (dsl.STRRISULTATOESAMECORTO NOT IN ('AN','XX','X','NS') OR dsl.STRRISULTATOESAMECORTO IS NULL) AND (SELECT COUNT(*) FROM radsql.ESITI_CONSULTATI EC WHERE EC.IDEN_TESTATA_RICHIESTE=dsl.iden_whale AND EC.iden_per=pIdenPer AND PRESENZA_ULTERIORI_VERSIONI='N' AND rownum=1)=0;		      
+		if (vTot>=8) then
+		    vClass:='datiLaboratorioDefinitiviPresenti';
+		    vTitle:='Sono presenti dati di laboratorio definitivi non letti';
+		elsif (vTot>0) then
+			vClass:='datiLaboratorioPresenti';
+			vTitle:='Sono presenti dati di laboratorio provvisori non letti';	
+        else
+			vClass:='datiLaboratorioNonPresenti';
+			vTitle:='Apri dati laboratorio';		 
+		end if;		
+		?:= vClass;
+		?:= vTitle;		
+		end;
+      ]]>
+      </sql>
+       </statement>
+  
+      <statement name="nuovi_risultati_laboratorio_letti_da_nessuno">
+  <sql>
+   <![CDATA[
+      declare
+        pNosologico varchar2(4000):=?;
+        pIdRemoto varchar2(4000):=?;
+        pIdenPer pls_integer:=to_number(?);
+		vTot pls_integer;
+		vClass varchar2(4000);
+		vTitle varchar2(4000);
+		begin
+		vTot:=0;
+		select count(*) into vTot from infoweb.DATI_STRUTT_LABORATORIO dsl where dsl.strcodnosologico=pNosologico  and stridpazienteesterno=pIdRemoto and (dsl.STRRISULTATOESAMECORTO NOT IN ('AN','XX','X','NS') OR dsl.STRRISULTATOESAMECORTO IS NULL) AND (SELECT COUNT(*) FROM radsql.ESITI_CONSULTATI EC join TAB_PER TP on (ec.iden_per=tp.iden and tp.tipo='M') WHERE EC.IDEN_TESTATA_RICHIESTE=dsl.iden_whale AND rownum=1)=0;		      
+		if (vTot>0) then
+		  vClass:='datiLaboratorioNonVisionati';
+		  vTitle:='Risultati presenti ancora da visionare';
+		  goto fine;
+		end if;
+		vClass:='';
+		vTitle:='';		 
+		<<fine>>		
+		?:= vClass;
+		?:= vTitle;		
+		end;
+      ]]>
+      </sql>
+       </statement>
+  <statement name="esami_laboratorio_odierni">
+  <sql>
+   <![CDATA[
+      declare
+        pIdenVisita pls_integer:=to_number(?);
+		vTot pls_integer;
+		vClass varchar2(4000);
+		vTitle varchar2(4000);
+		begin
+		vTot:=0;
+		select count(*)  into vTot from infoweb.TESTATA_RICHIESTE where iden_visita=pIdenVisita and data_proposta=to_char(sysdate,'yyyyMMdd') and ((tipologia_richiesta='0' and stato_richiesta ='I' and prelievo_effettuato ='N') or (tipologia_richiesta in ('3') and stato_richiesta  in ('I','P','A') and prelievo_effettuato = 'N')) and rownum=1;
+		if (vTot>0) then
+		  vClass:='esamiOdierni_labo';
+		  vTitle:='Previsti esami di laboratorio per la giornata odierna';
+		  goto fine;
+		end if;
+		vClass:='';
+		vTitle:='';		 
+		<<fine>>		
+		?:= vClass;
+		?:= vTitle;		
+		end;
+      ]]>
+      </sql>
+       </statement>
+       <statement name="esami_strumentali_odierni">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select count(*)  into vTot from infoweb.TESTATA_RICHIESTE where  iden_visita in (select iden from radsql.nosologici_paziente where parent =pIdenRicovero) and data_filtro=to_char(sysdate,'yyyyMMdd') and ((prenotazione_diretta ='S' and stato_richiesta in ('P','A')) or (tipologia_richiesta in ('1','2') and stato_richiesta  in ('P','A'))) and rownum=1;
+			if (vTot>0) then
+			  vClass:='esamiOdierni';
+			  vTitle:='Previsti esami strumentali per la giornata odierna';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="esami_strumentali_odierni_ds">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select count(*)  into vTot from infoweb.TESTATA_RICHIESTE where  iden_visita=pIdenRicovero and data_filtro=to_char(sysdate,'yyyyMMdd') and ((prenotazione_diretta ='S' and stato_richiesta in ('P','A')) or (tipologia_richiesta in ('1','2') and stato_richiesta  in ('P','A'))) and rownum=1;
+			if (vTot>0) then
+			  vClass:='esamiOdierni';
+			  vTitle:='Previsti esami strumentali per la giornata odierna';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="esami_strumentali_odierni_ds">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select count(*)  into vTot from infoweb.TESTATA_RICHIESTE where  iden_visita=pIdenRicovero and data_filtro=to_char(sysdate,'yyyyMMdd') and ((prenotazione_diretta ='S' and stato_richiesta in ('P','A')) or (tipologia_richiesta in ('1','2') and stato_richiesta  in ('P','A'))) and rownum=1;
+			if (vTot>0) then
+			  vClass:='esamiOdierni';
+			  vTitle:='Previsti esami strumentali per la giornata odierna';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+       <statement name="esami_odierni">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenVisita pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select count(*) into vTot from infoweb.TESTATA_RICHIESTE where iden_visita=pIdenVisita and data_esecuzione=to_char(sysdate,'yyyyMMdd') and ((tipologia_richiesta='0' and stato_richiesta ='I') or (tipologia_richiesta in ('1','2','3') and stato_richiesta in ('P','A'))) and rownum=1;
+			if (vTot>0) then
+			  vClass:='esamiOdierni';
+			  vTitle:='Previsti esami per la giornata odierna';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="esami_nuovi_documenti">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenVisita pls_integer:=to_number(?);
+        	pIdenPer pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			SELECT  /*+first_rows(1)*/ count(*) into vTot FROM INFOWEB.TESTATA_RICHIESTE tr WHERE tr.IDEN_VISITA =pIdenVisita and ((tr.tipologia_richiesta<>5 and tr.STATO_RICHIESTA='R') or (tr.tipologia_richiesta=5 and tr.stato_richiesta='R' and tr.stato_referto=1)) AND (SELECT  /*+first_rows(1)*/ COUNT(*) FROM ESITI_CONSULTATI EC WHERE EC.iden_per=pIdenPer AND EC.PRESENZA_ULTERIORI_VERSIONI='N' AND EC.iden_testata_richieste=TR.iden) =0;
+			if (vTot>0) then
+			  vClass:='esitiPresenti';
+			  vTitle:='Esiti non consultati';
+			  goto fine;
+			end if;
+			vClass:='esitiDefault';
+			vTitle:='Apri Esami/Consulenze';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+         <statement name="stick_glicemici">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenVisita pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select count(*) into vTot from cc_parametri_ricovero pr where pr.iden_visita=pIdenVisita and iden_parametro =1 and pr.stato='P' and valore_1 is null and pr.validita_inizio<sysdate and pr.validita_inizio>=(sysdate-(3/24));
+			if (vTot>0) then
+			  vClass:='StickPassato';
+			  vTitle:='Stick Glicemici non eseguiti nelle 3 ore precedenti';
+			  goto fine;
+			end if;			
+			 select count(*) into vTot from cc_parametri_ricovero pr where pr.iden_visita=pIdenVisita and iden_parametro =1 and pr.stato='P' and valore_1 is null and pr.validita_inizio>=sysdate and pr.validita_inizio<(sysdate+(12/24));
+			if (vTot>0) then
+			  vClass:='StickProssimo';
+			  vTitle:='Stick Glicemici da eseguiere nelle prossime 12 ore';
+			  goto fine;
+			end if;			
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="controllo_terapie">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select ((select count(*) from cc_terapie_dettagli TD join cc_terapie_ricovero TR on (TR.iden=TD.iden_terapia) where TR.iden_visita in (select iden from nosologici_paziente where parent =pIdenRicovero) and TR.deleted='N' and TD.sospesa='N'  and td.esito is null  and td.validita_inizio<sysdate and td.validita_inizio>=(sysdate-(3/24))) + (select count(*) from cc_parametri_ricovero pr where pr.iden_visita in (select iden from nosologici_paziente where parent =pIdenRicovero) and stato='P' and valore_1 is null and pr.validita_inizio<sysdate and pr.validita_inizio>=(sysdate-(3/24)))) into vTot from dual;
+			if (vTot>0) then
+			  vClass:='terapiePassate';
+			  vTitle:='Pianificazioni non eseguite nelle 3 ore precedenti';
+			  goto fine;
+			end if;			
+			select ((select count(*) from cc_terapie_dettagli TD join cc_terapie_ricovero TR on (TR.iden=TD.iden_terapia) where TR.iden_visita in (select iden from nosologici_paziente where parent =pIdenRicovero) and TR.deleted='N' and TD.sospesa='N'  and td.esito is null  and td.validita_inizio>=sysdate and td.validita_inizio<(sysdate+(3/24))) + (select count(*) from cc_parametri_ricovero pr where pr.iden_visita in (select iden from nosologici_paziente where parent =pIdenRicovero) and stato='P' and valore_1 is null and pr.validita_inizio>=sysdate and pr.validita_inizio<(sysdate+(3/24)))) into vTot from dual;
+			if (vTot>0) then
+			  vClass:='terapieProssime';
+			  vTitle:='Pianificazioni da eseguiere nelle prossime 3 ore';
+			  goto fine;
+			end if;	
+			select COUNT(*) into vTot from nosologici_paziente where Iden_Tipo_Ricovero in (1,2,3,4,5) and iden =pIdenRicovero;		
+			if (vTot>0) then
+				vClass:='terapieDefault';
+				vTitle:='Apri piano giornaliero';
+			goto fine;
+			end if;	
+			vClass:='';
+			vTitle:='';	 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+       <statement name="controllo_terapie_accessiDH">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select ((select count(*) from cc_terapie_dettagli TD join cc_terapie_ricovero TR on (TR.iden=TD.iden_terapia) where TR.iden_visita=pIdenRicovero and TR.deleted='N' and TD.sospesa='N'  and td.esito is null  and td.validita_inizio<sysdate and td.validita_inizio>=(sysdate-(3/24))) + (select count(*) from cc_parametri_ricovero pr where pr.iden_visita=pIdenRicovero and stato='P' and valore_1 is null and pr.validita_inizio<sysdate and pr.validita_inizio>=(sysdate-(3/24)))) into vTot from dual;
+			if (vTot>0) then
+			  vClass:='terapiePassate';
+			  vTitle:='Pianificazioni non eseguite nelle 3 ore precedenti';
+			  goto fine;
+			end if;			
+			select ((select count(*) from cc_terapie_dettagli TD join cc_terapie_ricovero TR on (TR.iden=TD.iden_terapia) where TR.iden_visita=pIdenRicovero and TR.deleted='N' and TD.sospesa='N'  and td.esito is null  and td.validita_inizio>=sysdate and td.validita_inizio<(sysdate+(3/24))) + (select count(*) from cc_parametri_ricovero pr where pr.iden_visita=pIdenRicovero and stato='P' and valore_1 is null and pr.validita_inizio>=sysdate and pr.validita_inizio<(sysdate+(3/24)))) into vTot from dual;
+			if (vTot>0) then
+			  vClass:='terapieProssime';
+			  vTitle:='Pianificazioni da eseguiere nelle prossime 3 ore';
+			  goto fine;
+			end if;	
+			select COUNT(*) into vTot from nosologici_paziente where Iden_Tipo_Ricovero in (1,2,3,4,5) and iden =pIdenRicovero;		
+			if (vTot>0) then
+				vClass:='terapieDefault';
+				vTitle:='Apri piano giornaliero';
+			goto fine;
+			end if;	
+			vClass:='';
+			vTitle:='';	 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+       <statement name="controllo_intervista">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			Select count(*) into vTot from radsql.CC_SCHEDE_XML where funzione in ('ANAMNESI','QUESTIONARIO_ANAMNESTICO') and iden_visita=pIdenRicovero;
+			if (vTot=0) then
+			  vClass:='intervistaNonCompilata';
+			  vTitle:='Intervista non completa';
+			  goto fine;
+			end if;
+			vClass:='intervistaCompilata';
+			vTitle:='Apri anamnesi';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="controllo_intervista_ds">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			Select count(*) into vTot from radsql.CC_SCHEDE_XML where funzione ='QUESTIONARIO_ANAMNESTICO' and iden_visita=pIdenRicovero;
+			if (vTot=0) then
+			  vClass:='intervistaNonCompilata';
+			  vTitle:='Intervista non completa';
+			  goto fine;
+			end if;
+			vClass:='intervistaCompilata';
+			vTitle:='Apri anamnesi';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="richieste_non_refertate">
+	  <sql>
+	   <![CDATA[
+	      declare
+	         pNosologico varchar2(4000):=?;
+	         pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+				select count(*) into vTot from infoweb.TESTATA_RICHIESTE T, RADSQL.NOSOLOGICI_PAZIENTE P where P.IDEN = T.IDEN_VISITA AND P.NUM_NOSOLOGICO=pNosologico and (p.iden =pIdenRicovero or p.parent=pIdenRicovero)  and T.deleted ='N' and (T.STATO_RICHIESTA<>'X' and T.STATO_RICHIESTA<>'R') and rownum=1;
+				if (vTot>0) then
+			  vClass:='richiesteInviate';
+			  vTitle:='Richieste non refertate';
+			  goto fine;
+			end if;
+			vClass:='richiesteDefault';
+			vTitle:='Apri Esami/Consulenze';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+         <statement name="richieste_non_refertate_dh">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenVisita pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+				select count(*) into vTot from infoweb.TESTATA_RICHIESTE T  where iden_visita=pIdenVisita and T.deleted ='N' and (T.STATO_RICHIESTA<>'X' and T.STATO_RICHIESTA<>'R') and rownum=1;
+				if (vTot>0) then
+			  vClass:='richiesteInviate';
+			  vTitle:='Richieste non refertate';
+			  goto fine;
+			end if;
+			vClass:='richiesteDefault';
+			vTitle:='Apri Esami/Consulenze';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+         <statement name="compilazione_lettera_dim">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+				Select count(*) into vTot from radsql.CC_LETTERA_VERSIONI where funzione in ('LETTERA_STANDARD','LETTERA_DIMISSIONI_DH') and attivo ='S' and  IDEN_VISITA=pIdenRicovero and stato ='F' and rownum=1;
+				if (vTot>0) then
+			  vClass:='letteraCompilata_F';
+			  vTitle:='Lettera di dimissione firmata digitalmente';
+			  goto fine;
+			end if;
+			Select count(*) into vTot from radsql.CC_LETTERA_VERSIONI where funzione in ('LETTERA_STANDARD','LETTERA_DIMISSIONI_DH') and attivo ='S' and  IDEN_VISITA=pIdenRicovero and stato ='R' and rownum=1;
+			 if (vTot>0) then
+			  vClass:='letteraCompilata';
+			  vTitle:='Lettera di dimissione non firmata digitalmente';
+			  goto fine;
+			end if;
+			vClass:='letteraNonCompilata';
+			vTitle:='Apri lettera di dimissione';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+       <statement name="modifica_prericovero">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenVisita pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			    begin
+					select 1 into vTot from nosologici_paziente where iden=pIdenVisita and iden_tipo_ricovero in(select iden from tab_tipo_ricovero where cod_dec in ('PRE','PRE-DH','PRE-DS')) and (PRE_OPERATORIO is null or PRE_OPERATORIO<>'VAL_PREOP')  and dimesso='N';
+				exception when no_data_found then null;
+				end;
+				if (vTot>0) then
+			  vClass:='gestPrericovero';
+			  vTitle:='Prericovero';
+			  goto fine;
+			end if;
+			 begin
+				 select 1 into vTot from nosologici_paziente where iden=pIdenVisita and iden_tipo_ricovero in(select iden from tab_tipo_ricovero where cod_dec in ('PRE','PRE-DH','PRE-DS'))  and  PRE_OPERATORIO='VAL_PREOP'  and dimesso='N';
+				exception when no_data_found then null;
+				end;
+				if (vTot>0) then
+			  vClass:='gestPrericoveroVPO';
+			  vTitle:='Prericovero';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+         <statement name="dati_ps">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+				select count(*) into vTot from radsql.nosologici_paziente where iden =pIdenRicovero and dea_cartella is not null and rownum=1;
+				if (vTot>0) then
+			  vClass:='apriDatiPS';
+			  vTitle:='apri dati ps';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="rischio_gravidanza">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenVisita pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+				select count(*) into vTot from radsql.cc_schede_xml where key_legame = 'ANAMNESI' and iden_visita =pIdenVisita and extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radRischioGravidanza"]') in('1','2') and rownum=1;
+				if (vTot>0) then
+			  vClass:='esamiOdierni';
+			  vTitle:='Rischio gravidanza';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="notifica_diario_medico">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenVisita pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+				select count(*) into vTot from notifiche n join cc_diario d on (n.iden_tabella=d.iden) where n.tabella='CC_DIARIO' and n.deleted='N' and n.attivo='S' and iden_visita =pIdenVisita;
+				if (vTot>0) then
+			  vClass:='diarioMedicoNotificato';
+			  vTitle:='Diario medico notificato';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="germi_multiresistenti">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdRemoto varchar2(4000):=?;
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			   select count(*) into vTot from (select * from table(infoweb.verificaAllerteLabo(pIdRemoto))) where positivita='S';
+				if (vTot>0) then
+			  vClass:='germePositivo';
+			  vTitle:='Positività a microrganismi multiresistenti';
+			  goto fine;
+			end if;
+				select count(*) into vTot from (select * from table(infoweb.verificaAllerteLabo(pIdRemoto))) where positivita='N' and positivita_pregressa='S';
+				if (vTot>0) then
+			  vClass:='germePosPregressa';
+			  vTitle:='Positività pregressa a microrganismi multiresistenti';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+          <statement name="gruppi_studio">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenAnag pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			   select count(*) into vTot from gruppi_membri m join gruppi g on g.iden=m.iden_gruppo where m.iden_membro=pIdenAnag and m.tabella_membro='ANAG' and g.tipo='GRUPPO_STUDIO' and m.validita_inizio<=sysdate and coalesce(m.validita_fine,sysdate)>=sysdate and rownum=1;
+				if (vTot>0) then
+			  vClass:='gruppoAssociato';
+			  vTitle:='Paziente associato a gruppi di studio';
+			  goto fine;
+			end if;
+			vClass:='gruppoNonAssociato';
+			vTitle:='Paziente non associato a gruppi di studio';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+      <statement name="rivedi_esame_obiettivo">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			  SELECT COUNT(*) into vTot FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='ESAME_OBIETTIVO' AND IDEN_VISITA=pIdenRicovero AND DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkRivedibile"]/text()').Getstringval(), 1) = 'S' AND ROWNUM = 1;
+				if (vTot>0) then
+			  vClass:='esameObiettivoRivedibile';
+			  vTitle:='Rivedi Esame obiettivo all''ingresso';
+			  goto fine;
+			end if;
+			vClass:='esameObiettivoRivedibileOff';
+			vTitle:='Apri Esame obiettvo all''ingresso';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="accertamento_inf_screening">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			  SELECT COUNT(*) into vTot FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='ACCERTAMENTO_INFERMIERISTICO' AND IDEN_VISITA=pIdenRicovero AND NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbScreeningMet"]/text()').Getstringval(), 1),'N') <> 'E' AND (SELECT 24*(SYSDATE - TO_DATE(NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDataParto"]/text()').Getstringval(), 1),TO_CHAR(SYSDATE, 'DD/MM/YYYY' ))||' '||NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtOraParto"]/text()').Getstringval(), 1), TO_CHAR(SYSDATE, 'HH24:MI')), 'DD/MM/YYYY HH24:MI')) NATO_DA_ORE FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='PARTOGRAMMA_PARTO' AND IDEN_VISITA=pIdenRicovero) >= 48.0; 
+				if (vTot>0) then
+			  vClass:='screeningMetabolico';
+			  vTitle:='Eseguire screening metabolico';
+			  goto fine;
+			end if;
+			vClass:='screeningMetabolicoOff';
+			vTitle:='Apri Accertamento infermieristico';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="accertamento_inf_profilassi">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			 SELECT COUNT(*) FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='ACCERTAMENTO_INFERMIERISTICO' AND IDEN_VISITA=pIdenRicovero AND (DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtProfilassiO"]/text()').Getstringval(), 1) is null OR DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtProfilassiA"]/text()').Getstringval(), 1) is null) AND (SELECT 24*(SYSDATE - TO_DATE(NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDataParto"]/text()').Getstringval(), 1),TO_CHAR(SYSDATE, 'DD/MM/YYYY' ))||' '||NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtOraParto"]/text()').Getstringval(), 1), TO_CHAR(SYSDATE, 'HH24:MI')), 'DD/MM/YYYY HH24:MI')) NATO_DA_ORE FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='PARTOGRAMMA_PARTO' AND IDEN_VISITA=pIdenRicovero) >= 3.0 AND ROWNUM = 1;
+				if (vTot>0) then
+			  vClass:='eseguireProfilassi';
+			  vTitle:='Eseguire profilassi oculare e antiemorragica';
+			  goto fine;
+			end if;
+			vClass:='eseguireProfilassiOff';
+			vTitle:='Apri Accertamento infermieristico';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+      <statement name="esameObiettivoRivedibile">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			 SELECT COUNT(*) into vTot FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='ESAME_OBIETTIVO' AND IDEN_VISITA=pIdenRicovero AND DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkRivedibile"]/text()').Getstringval(), 1) = 'S' AND ROWNUM = 1;
+				if (vTot>0) then
+			  vClass:='esameObiettivoRivedibile';
+			  vTitle:='Rivedi Esame obiettivo all''ingresso';
+			  goto fine;
+			end if;
+			vClass:='esameObiettivoRivedibileOff';
+			vTitle:='Apri Esame obiettivo all''ingresso';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="accertamentoInfProfilassi">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			 SELECT COUNT(*) into vTot FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='ACCERTAMENTO_INFERMIERISTICO' AND IDEN_VISITA=pIdenRicovero AND (DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtProfilassiO"]/text()').Getstringval(), 1) is null OR DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtProfilassiA"]/text()').Getstringval(), 1) is null) AND (SELECT 24*(SYSDATE - TO_DATE(NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDataParto"]/text()').Getstringval(), 1),TO_CHAR(SYSDATE, 'DD/MM/YYYY' ))||' '||NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtOraParto"]/text()').Getstringval(), 1), TO_CHAR(SYSDATE, 'HH24:MI')), 'DD/MM/YYYY HH24:MI')) NATO_DA_ORE FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='PARTOGRAMMA_PARTO' AND IDEN_VISITA=pIdenRicovero) >= 3.0 AND ROWNUM = 1;
+			if (vTot>0) then
+			  vClass:='eseguireProfilassi';
+			  vTitle:='Eseguire profilassi oculare e antiemorragica';
+			  goto fine;
+			end if;
+			vClass:='eseguireProfilassiOff';
+			vTitle:='Apri Accertamento infermieristico';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+          <statement name="accertamentoInfScreening">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			 SELECT COUNT(*) into vTot FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='ACCERTAMENTO_INFERMIERISTICO' AND IDEN_VISITA=pIdenRicovero AND NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbScreeningMet"]/text()').Getstringval(), 1),'N') <> 'E' AND (SELECT 24*(SYSDATE - TO_DATE(NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDataParto"]/text()').Getstringval(), 1),TO_CHAR(SYSDATE, 'DD/MM/YYYY' ))||' '||NVL(DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtOraParto"]/text()').Getstringval(), 1), TO_CHAR(SYSDATE, 'HH24:MI')), 'DD/MM/YYYY HH24:MI')) NATO_DA_ORE FROM RADSQL.CC_SCHEDE_XML WHERE FUNZIONE='PARTOGRAMMA_PARTO' AND IDEN_VISITA=pIdenRicovero) >= 48.0 AND ROWNUM = 1;
+			if (vTot>0) then
+			  vClass:='screeningMetabolico';
+			  vTitle:='Eseguire screening metabolico';
+			  goto fine;
+			end if;
+			vClass:='screeningMetabolicoOff';
+			vTitle:='Apri Accertamento infermieristico';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+      <statement name="gruppiStudio">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenAnag pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			 select count(*) into vTot from gruppi_membri m join gruppi g on g.iden=m.iden_gruppo where m.iden_membro=pIdenAnag and m.tabella_membro='ANAG' and g.tipo='GRUPPO_STUDIO' and m.validita_inizio<=sysdate and coalesce(m.validita_fine,sysdate)>=sysdate and rownum=1;
+			if (vTot>0) then
+			  vClass:='gruppoAssociato';
+			  vTitle:='Paziente associato a gruppi di studio';
+			  goto fine;
+			end if;
+			vClass:='gruppoNonAssociato';
+			vTitle:='Paziente non associato a gruppi di studio';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+       <statement name="associaPrecedenti">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+	        pReparto varchar2(4000):=?;
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			 SELECT COUNT(*) into vTot FROM RADSQL.VIEW_CC_APP_PRECEDENTI WHERE iden_ricovero =pIdenRicovero and (COD_CDC =pReparto or COD_SPECIALITA=(select cod_specialita from view_cdc_specialita where cod_cdc=pReparto)) and rownum=1;
+			if (vTot>0) then
+			  vClass:='associaPrecedenti';
+			  vTitle:='Appuntamenti precedenti da associare';
+			  goto fine;
+			end if;
+			SELECT COUNT(*) into vTot FROM RADSQL.VIEW_CC_RICH_PRECEDENTI WHERE iden_ricovero =pIdenRicovero and (COD_CDC =pReparto or COD_SPECIALITA=(select cod_specialita from view_cdc_specialita where cod_cdc=pReparto)) and rownum=1;
+			if (vTot>0) then
+			  vClass:='associaPrecedenti';
+			  vTitle:='Richieste precedenti da associare';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+       <statement name="rimuoviPianificazioni">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			 SELECT COUNT(*) into vTot FROM RADSQL.VIEW_CC_APP_FUTURI WHERE iden_ricovero =pIdenRicovero and rownum=1;
+			if (vTot>0) then
+			  vClass:='rimuoviFuturi';
+			  vTitle:='Appuntamenti futuri da rimuovere';
+			  goto fine;
+			end if;
+			SELECT COUNT(*) into vTot FROM RADSQL.VIEW_CC_RICH_FUTURE WHERE iden_ricovero =pIdenRicovero and rownum=1;
+			if (vTot>0) then
+			  vClass:='rimuoviFuturi';
+			  vTitle:='Richieste future da rimuovere';
+			  goto fine;
+			end if;
+			SELECT COUNT(*) into vTot FROM RADSQL.VIEW_CC_ACC_FUTURI WHERE iden_ricovero =pIdenRicovero and rownum=1;
+			if (vTot>0) then
+			  vClass:='rimuoviFuturi';
+			  vTitle:='Accessi futuri da rimuovere';
+			  goto fine;
+			end if;
+			vClass:='';
+			vTitle:='';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="diagnosiPrimaria">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenAnag pls_integer:=to_number(?);
+	        pReparto varchar2(4000):=?;
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			SELECT COUNT(*) into vTot FROM radsql.view_cc_problemi_ricovero pr JOIN radsql.tab_codifiche tc ON (pr.priorita=tc.iden) WHERE tc.tipo_scheda='SCHEDA_DIAGNOSI' and tc.codice='T1' and  pr.iden_anag=pIdenAnag and pr.cod_specialita in (select cod_specialita from view_cdc_specialita where cod_cdc=pReparto);
+			if (vTot=0) then
+			  vClass:='diagnosiInserimento';
+			  vTitle:='Inserimento diagnosi primaria';
+			  goto fine;
+			end if;
+			vClass:='diagnosi';
+			vTitle:='Diagnosi';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+         <statement name="apriLetteraAccessiDH">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+	        pData pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			SELECT COUNT(*) into vTot FROM cc_lettera_versioni lv JOIN nosologici_paziente np ON (np.iden = lv.iden_visita) WHERE (np.parent =pIdenRicovero OR np.iden=pIdenRicovero) AND lv.attivo='S' AND to_char(lv.data_inserimento,'YYYYMMDD')=pData AND lv.FUNZIONE='LETTERA_PRIMO_CICLO' and lv.stato='F'; 
+			if (vTot>0) then
+			  vClass:='letteraPrimoCicloCompilata_F';
+			  vTitle:='Lettera di primo ciclo firmata digitalmente';
+			  goto fine;
+			end if;
+			SELECT COUNT(*) into vTot FROM cc_lettera_versioni lv JOIN nosologici_paziente np ON (np.iden = lv.iden_visita) WHERE (np.parent =pIdenRicovero OR np.iden=pIdenRicovero) AND lv.attivo='S' AND to_char(lv.data_inserimento,'YYYYMMDD')=pData AND lv.FUNZIONE='LETTERA_AL_CURANTE' and lv.stato='F'; 
+			if (vTot>0) then
+			  vClass:='letteraAlCuranteCompilata_F';
+			  vTitle:='Lettera al curante compilata';
+			  goto fine;
+			end if;
+			vClass:='letteraNonCompilata';
+			vTitle:='Visualizza lettere paziente';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+         <statement name="diarioInfermieristico">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select count(*) into vTot from CC_DIARIO where TIPO_DIARIO='INFERMIERE' AND DELETED='N' AND IDEN_VISITA=pIdenRicovero AND DATA_REGISTRAZIONE>=trunc(SYSDATE); 
+			if (vTot>0) then
+			  vClass:='DiarioComp';
+			  vTitle:='Diario infermieristico compilato';
+			  goto fine;
+			end if;
+			vClass:='Diario';
+			vTitle:='Diario infermieristico';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+        <statement name="diarioMedico">
+	  <sql>
+	   <![CDATA[
+	      declare
+	        pIdenRicovero pls_integer:=to_number(?);
+			vTot pls_integer;
+			vClass varchar2(4000);
+			vTitle varchar2(4000);
+			begin
+			vTot:=0;
+			select count(*) into vTot from CC_DIARIO where TIPO_DIARIO='MEDICO' AND DELETED='N' AND IDEN_VISITA=pIdenRicovero AND DATA_REGISTRAZIONE>=trunc(SYSDATE); 
+			if (vTot>0) then
+			  vClass:='DiarioComp';
+			  vTitle:='Diario medico compilato';
+			  goto fine;
+			end if;
+			vClass:='Diario';
+			vTitle:='Diario medico';		 
+			<<fine>>		
+			?:= vClass;
+			?:= vTitle;		
+			end;
+	      ]]>
+	      </sql>
+       </statement>
+		</statements_list>
+</root>

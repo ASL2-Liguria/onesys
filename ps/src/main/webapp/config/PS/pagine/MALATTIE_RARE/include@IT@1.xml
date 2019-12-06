@@ -1,0 +1,14 @@
+<INCLUDE>
+	<!--<CSS path="css/mix.css" />-->
+    <!--<CSS path="css/PS/Cartella/CartellaInfo.css" />-->
+    <JS path="js/PS/TabHomePS/WhereMenuWk.js" />
+    <JS path="js/Base/jquery.plugin/jquery.tooltipster.js"/>
+    <CSS path="css/base/jquery.plugin/tooltipster.css"/>
+    <JS path="js/PS/MalattieRare/MalattieRare.js" />
+    <JS path="js/PS/MalattieRare/NS_MALATTIE_RARE.js" />
+    <CSS path="css/PS/MalattieRare/MalattieRare.css"/>
+</INCLUDE>
+
+
+
+

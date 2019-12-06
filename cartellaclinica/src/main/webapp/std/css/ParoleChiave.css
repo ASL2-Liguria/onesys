@@ -1,0 +1,24 @@
+html body { background:#b9e0ff; overflow: hidden; padding: 0px; margin:0px; }
+
+div.header,div.footer{width:100%;background:url(../../imagexPix/bar/sf_turni.jpg) repeat-x;
+	font-weight:bold; font-style:normal;color:#FFF; text-align: center;}
+	
+div.footer {position:absolute; bottom:0px;}
+/*div.footer div.btn{float:right;width:25px;height:25px;cursor:hand;}
+div.footer div.btn:hover{background-color:#FF0;}*/
+/*div.chiudi{background:url(../../imagexPix/button/cross.png);}
+div.registra{background:url(../../imagexPix/RichiesteModifica/modifica_valida.png);}*/
+
+div.button{float:right;margin-right:10px;font-weight:bold;color:white;cursor: pointer;}
+
+
+div.Properties{width:98%;margin:3px;border:1px solid #1b519a;padding:2px;background:#f0f9fe;}
+div.Properties input{width:50%}
+div.Ambito{width:98%;margin:3px;border:1px solid #1b519a;padding:2px;background:#f0f9fe;}
+
+div.Ambito div{margin-right:2px;border:1px solid #6fa1d4;float:left;width:150px;background:#e4eef5;}
+div.Properties span{border:1px solid #6fa1d4;background:#e4eef5;padding:2px;}
+div.Properties label{margin-right:2px;}
+
+iframe{border:0px;}
+

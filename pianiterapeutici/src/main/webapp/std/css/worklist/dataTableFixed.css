@@ -1,0 +1,95 @@
+table.classDataTable 
+{
+	
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+
+}
+/*
+table.classDataTable td
+{
+	border: 1px solid #83E2BC;
+}
+
+table.classDataTable th
+{
+	background-color:#E0FEFB;
+	border: 1px solid #83E2BC;
+}
+*/
+table.classDataTable td{
+	border: 1px solid #6AA8F2;
+}
+
+table.classDataTable th {
+	background-color:#C2FAFE;
+	border: 1px solid #6AA8F2;
+}
+
+div.classHeaderTabella
+{
+	white-space:nowrap;
+	font-size:12px;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+div.classDatiTabella
+{
+	white-space:nowrap;
+}
+
+div.classDatiTabellaRossi
+{
+	white-space:nowrap;
+	color:red;
+}
+
+table.classTDLabelFiltroWK
+{
+	margin: 0 20px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	width: 300px;
+	padding: 10px;
+	
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	font-size:14px;
+}
+
+label.classLabeViewlFiltro
+{
+	margin: 0 20px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	
+	padding: 10px;
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	font-size:14px;
+}
+
+#fixme
+{
+  position: relative;
+}
+
+body > div#fixme
+{
+  position: fixed;
+}
+
+div#fixme
+{
+  left: expression( ( ( ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft ) ) + 'px' );
+  top: expression( ( ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+}

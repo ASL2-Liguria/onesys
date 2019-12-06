@@ -1,0 +1,106 @@
+/* CSS Document */
+.classInfoIcon {
+	width:25px;
+	height:25px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../imagexPix/button/icon/ico_info.gif);
+}
+
+.classInfoIcon A{
+	TEXT-DECORATION: none;
+}
+
+.classInfoIcon A:hover {
+	background-image:url(../../imagexPix/button/icon/ico_info_over.gif);
+}
+
+
+div.boxInfoLayer{width:380px;height:230px;
+    background:url(../../imagexPix/wallpaper/examInfoLayer.png) no-repeat top left;
+    padding:1px 0;font-size:12px;
+	z-index:3;
+}
+
+div.boxInfoLayer-inner{height: 200px;overflow:auto;
+    margin:15px ;padding-right:3px; padding-left:3px;font-size:12px;
+	z-index:2;
+}
+
+div.boxInfoLayerShadow{width:400px;height:250px;
+    /*background:url(../../imagexPix/wallpaper/examInfoLayerShadow.png) no-repeat top left;*/
+    padding:1px 0;font-size:12px;
+	z-index:0;
+}
+
+/*
+.TitoloSezione {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+	line-height:16px;
+	color:#FFFFFF;
+	border: 1px solid #3399FF;
+	background-color:#3399FF;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+}
+*/
+
+.TitoloSezione {
+	BORDER-BOTTOM: #3399ff 1px solid;
+	TEXT-ALIGN: center;
+	font-weight:bold;
+	BORDER-LEFT: #3399ff 1px solid;
+	BACKGROUND-COLOR: #3399ff;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: collapse;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	COLOR: #ffffff;
+	FONT-SIZE: 12px;
+	line-height:12px;
+	OVERFLOW: hidden;
+	BORDER-TOP: #3399ff 1px solid;
+	BORDER-RIGHT: #3399ff 1px solid
+}
+
+TD.tdLabel{
+	background-color:#0CF;
+	font-weight:bold;
+}
+
+TD.tdField{
+	background-color:#D7F9FF;
+}
+
+table#tabellaEsami {
+  border-collapse: collapse;
+  border: 1px solid #666666;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  color: #363636;
+ background: #c2fafe;
+  text-align:left;
+  margin-left: 20px; 
+  margin-right: 20px;
+  margin-top:5px;
+width:280px;
+  }
+
+table#tabellaEsami thead th {
+text-align:center;
+}
+
+table#tabellaEsami thead tr {
+text-align:center;
+}
+
+/*table#tabellaEsami tr.rigaDispari td{
+	background-color: #eee;		
+	color: #eee;
+	}*/
+table#tabellaEsami tbody th/*, tbody td */{
+padding:4px;
+}

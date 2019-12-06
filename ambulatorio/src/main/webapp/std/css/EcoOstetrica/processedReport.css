@@ -1,0 +1,146 @@
+table.eco_classDataEntryTable {
+	text-align: left;
+	width: 100%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+	table-layout:fixed;
+}
+
+table.eco_classDataEntryTableMiddle {
+	text-align: left;
+	width: 50%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+	
+}
+table.eco_classDataEntryTableMiddleRight {
+	text-align: Right;
+	width: 30;
+	border: 0;
+	height:25px;
+	margin: 5px;
+	white-space: nowrap;
+	right: 0;
+}
+
+td.eco_classTdLabelNoWidth{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	right: 0px;
+}
+
+td.eco_classTdLabel{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.eco_classTdLabelObb{
+	border: 1px solid #6AA8F2;
+	background-color:#00D235;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.eco_classTdLabelOpt{
+	border: 1px solid #6AA8F2;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.eco_classTdLabelMiddle{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:50%;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.eco_classTdField{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	white-space:normal;
+	padding-left:3px;
+}
+td.eco_classTdFieldBigBord{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	border-right-style:double;
+	border-left-style:double;
+	padding-left:3px;	
+	
+}
+
+.eco_Titolo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFFFF;
+	border: 1px solid #3399FF;
+	background-color:#3399FF;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+}
+
+.eco_TitoloFeto {
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFCC;
+	white-space: nowrap;
+}
+
+
+.classTitFlussiMaterno{
+	background-color:#ADE0FC;
+	text-align:center;
+	color:blue;
+	font-size:14px;	
+	font-weight:bold;
+}
+.warnPercentile{
+	margin-left:10px;
+/*	cursor:pointer;*/
+}
+
+warnPercentileEmpty{
+	margin-left:10px;	
+}
+
+.warnPercentile_over{
+	background-color:red;
+	margin-left:10px;
+/*	cursor:pointer;	*/
+}
+
+.warnPercentile_under{
+	margin-left:10px;
+	background-color:green;
+/*	cursor:pointer;	*/
+}
+

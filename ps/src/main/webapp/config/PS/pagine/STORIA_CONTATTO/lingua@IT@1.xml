@@ -1,0 +1,13 @@
+<ROWSET>
+    <ROW>
+        <lblTitStoriaContatto>Storico del contatto</lblTitStoriaContatto>
+        <lblDataInizio>Data Inizio</lblDataInizio>
+        <lblDataFine>Data Fine</lblDataFine>
+        <lblUtenteRiferimento>Utente Riferimento</lblUtenteRiferimento>
+        <lblDiagnosi>Diagnosi</lblDiagnosi>
+        <lblStrutturaAccettazione>Struttura accettazione</lblStrutturaAccettazione>
+        <lblArea>Area</lblArea>
+        <lblDiagnosiTestuale>Diagnosi Testuale</lblDiagnosiTestuale>
+        <lblTitolo>Iter Paziente</lblTitolo>
+    </ROW>
+</ROWSET>

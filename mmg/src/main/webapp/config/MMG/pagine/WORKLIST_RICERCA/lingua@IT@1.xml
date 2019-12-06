@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	
+    	<filtroWk>Worklist di ricerca anagrafica</filtroWk>
+		<lblCognome>Cognome</lblCognome>
+		<lblNome>Nome</lblNome>
+		<lblData>Data di nascita</lblData>
+		<lblCodiceFiscale>Codice Fiscale</lblCodiceFiscale>
+		<lblAnagrafe>Anagrafe</lblAnagrafe>
+		<lblTipoAssistito>Tipo di assistito</lblTipoAssistito>
+		
+		<lblAssistiti>ASSISTITI</lblAssistiti>
+		<lblSanitaria>SANITARIA</lblSanitaria>
+		<lblSSN>SSN</lblSSN>
+		<lblLP>LP</lblLP>
+		<lblMEDGRUP>Med Gruppo</lblMEDGRUP>
+		<lblSPEC>Speciali</lblSPEC>
+		<lblREV>Revocati</lblREV>
+		<lblDEC>Deceduti</lblDEC>
+		<lblTUT>Tutti</lblTUT>
+		
+		<lblPaziente>Paziente</lblPaziente>
+		<lblDataAccesso>Data accesso</lblDataAccesso>
+		
+		<butAzzeraFiltri>Reset</butAzzeraFiltri>
+		<butInserisci>Nuovo assistito</butInserisci>
+		<butUltimiAccessi>Ultime 20 cartelle assistito</butUltimiAccessi>
+		<butLastVal>Ultima ricerca effettuata</butLastVal>
+		
+		<!-- dialog regime di apertura -->
+		<butRegimeLP>LP (Libera Professione)</butRegimeLP>
+		<butRegimeAC>AC (Attività Convenzionata)</butRegimeAC>
+		<butRegimeSSN>SSN (Solo amministratori)</butRegimeSSN>
+		<butAnnulla>Annulla</butAnnulla>
+		<lblMsgRegimeApertura>L'Assistito risulta associato ad un altro medico. Scegliere con quale regime aprire la cartella dell'assistito:</lblMsgRegimeApertura>
+		<lblMsgRegimeAperturaFunzioneND>ATTENZIONE! FUNZIONE NON DISPONIBILE PER UN PAZIENTE NON ASSISTITO!!L'Assistito risulta associato ad un altro medico. Scegliere con quale regime aprire la cartella dell'assistito: </lblMsgRegimeAperturaFunzioneND>
+		<regimeApertura>Regime di apertura cartella</regimeApertura>
+				
+		<!-- menu della worklist -->
+		<lblCartellaAssistito>Cartella assistito</lblCartellaAssistito>
+		<lblDocumentiPaziente>Documenti paziente</lblDocumentiPaziente>
+		<lblDatiStrutturati>Dati strutturati</lblDatiStrutturati>
+		<lblSchedaAnagrafica>Scheda anagrafica</lblSchedaAnagrafica>
+		
+		<!-- messaggi di errore della ricerca -->
+		<lblSelAnagrafica>Selezionare l'anagrafe su cui effettuare la ricerca</lblSelAnagrafica>
+		<lblSelTipoAssistito>Selezionare il tipo di assistito per effettuare la ricerca</lblSelTipoAssistito>
+		<lblSelCognomePaziente>Specificare cognome del paziente ( almeno 2 lettere ) o il Codice Fiscale</lblSelCognomePaziente>
+		
+    </ROW>
+</ROWSET>

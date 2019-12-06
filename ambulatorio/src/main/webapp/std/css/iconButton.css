@@ -1,0 +1,40 @@
+/* CSS Document */
+
+.pulsanteCalendario32 {
+	width:32px;
+	height:32px;
+	background-image:url(../../imagexPix/calendario/cal32x32.gif);
+	display:inline;
+}
+
+.pulsanteCalendario32 A{
+	height:32px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsanteCalendario32 A:hover {
+	background-image:url(../../imagexPix/calendario/cal32x32.gif);
+	color: yellow;
+}
+
+
+.pulsanteCalendario20 {
+	width:20px;
+	height:20px;
+	background-image:url(../../imagexPix/calendario/cal20x20.gif);
+	display:inline;
+}
+
+.pulsanteCalendario20 A{
+	height:20px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsanteCalendario20 A:hover {
+	background-image:url(../../imagexPix/calendario/cal20x20.gif);
+	color: yellow;
+}

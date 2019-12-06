@@ -1,0 +1,15 @@
+<PAGINA key_id="INFO_TER_GIORN">
+	<HEADER_PAGE key_id="INFO_TER_GIORN"
+		valore="DEFAULT_MMG,SCHEDA,INFO_TER_GIORN#DEFAULT_MMG,INFO_TER_GIORN"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#INFO_TER_GIORN#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="InfoTerGiorn#lblTitolo#butStampa,butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabInfoTerGiorn" valore="tabInfoTerGiorn" evento="START">
+				<FIELDSET_TABLE key_id="fldInfoTerGiorn" valore="fldInfoTerGiorn" evento="START"></FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

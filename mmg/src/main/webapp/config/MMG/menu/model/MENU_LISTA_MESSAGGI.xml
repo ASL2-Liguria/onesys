@@ -1,0 +1,47 @@
+<MENU>
+	<id>MENU_LISTA_MESSAGGI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>LMR</ID>
+			<LINK><![CDATA[function(rec){CENTRO_MESSAGGI.worklist.rispondi(rec)}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return true;}]]></WHERE>
+			<OUTPUT>"Rispondi"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>LMI</ID>
+			<LINK><![CDATA[function(rec){CENTRO_MESSAGGI.worklist.inoltra(rec)}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return true;}]]></WHERE>
+			<OUTPUT>"Inoltra"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>LMC</ID>
+			<LINK><![CDATA[function(rec){CENTRO_MESSAGGI.worklist.cancella(rec)}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return true;}]]></WHERE>
+			<OUTPUT>"Cancella"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<!-- <ITEM>
+			<ID>LML</ID>
+			<LINK><![CDATA[function(rec){CENTRO_MESSAGGI.worklist.setDaLeggere(rec);}]]></LINK>
+			<ICON_CLASS>nonurgenza</ICON_CLASS>
+			<WHERE><![CDATA[function(){return true;}]]></WHERE>
+			<OUTPUT>"Segna come da leggere"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>  -->
+		
+	</LIST>
+</MENU>

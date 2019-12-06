@@ -1,0 +1,26 @@
+<MENU>
+    <ID>MENU_WK_ACCESSI_DH_TRASFERIMENTI</ID>
+    <TITLE>"Menu Accessi"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>CANCELLA_TRASFERIMENTO_ODS</ID>
+            <LINK><![CDATA[function(rec){ NS_ACCESSI_DH.cancellaTrasferimentoODS(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Bidone.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return (rec[0].STATO_ACCESSO_CODICE == "ADMITTED");}]]></WHERE>
+            <OUTPUT>"Cancellazione Trasferimento ODS"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CHIUDI_TRASFERIMENTO_ODS</ID>
+            <LINK><![CDATA[function(rec){NS_ACCESSI_DH.chiudiAccessoDH(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if( rec[0].STATO_ACCESSO_CODICE == "ADMITTED" && rec[0].ACCESSO == "N" && rec[0].IS_ODS === "S"){ return true; } else { return false; }}]]></WHERE>
+            <OUTPUT>"Chiudi Trasferimento ODS"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

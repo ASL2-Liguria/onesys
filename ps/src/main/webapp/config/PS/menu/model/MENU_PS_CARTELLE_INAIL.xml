@@ -1,0 +1,36 @@
+<MENU>
+    <ID>MENU_PS_CARTELLE_INAIL</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>DETTAGLIO_ANAG</ID>
+            <LINK><![CDATA[function(rec){ CARTELLE_INAIL.apriAnagrafica(rec); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true; }]]></WHERE>
+            <OUTPUT>"Anagrafica"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Funzione di modifica anagrafica"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CERTIFICATO_INAIL</ID>
+            <LINK><![CDATA[function(rec){ CARTELLE_INAIL_STAMPE.stampaInail(rec[0].IDEN_CONTATTO,'N','','',rec[0].STATO_INAIL, rec[0].IDEN_INAIL); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true; }]]></WHERE>
+            <OUTPUT>"Visualizza certificato INAIL"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Funzione di visualizzazione certificato inail"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>VERBALE</ID>
+            <LINK><![CDATA[function(rec){ CARTELLE_INAIL_STAMPE.stampaVerbale(rec[0].IDEN_CONTATTO,'N','','{"N_COPIE":"1"}',rec[0].STATO); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true; }]]></WHERE>
+            <OUTPUT>"Visualizza referto medico"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Funzione di visualizzazione referto medico"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

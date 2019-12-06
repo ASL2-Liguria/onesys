@@ -1,0 +1,39 @@
+<MENU>
+    <ID>MENU_DIARI</ID>
+    <TITLE>traduzione.Menu</TITLE>
+    <LIST>
+
+
+        <ITEM>
+            <ID>MODIFICA_DIARI</ID>
+            <LINK><![CDATA[function(rec){home.PANEL.NS_REFERTO.apriModificaDiariInf(rec[0].IDEN);}]]></LINK>
+            <URL_IMAGE>img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+            if(top.name != 'schedaRicovero' && $("#READONLY").val()!=='S' && (home.baseUser.TIPO_PERSONALE === "I" || home.baseUser.TIPO_PERSONALE === "OST") && rec[0].IDEN_UTE_INS == home.baseUser.IDEN_PER){
+                return true;
+            }else{
+                return false;
+            }}]]></WHERE>
+            <OUTPUT>traduzione.lblModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Modifica Diari"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>DELETE_DIARI</ID>
+            <LINK><![CDATA[function(rec){NS_DIARI.eliminaDiario(rec[0].IDEN)}]]></LINK>
+            <URL_IMAGE>img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+                if($("#READONLY").val()!=='S' && (home.baseUser.TIPO_PERSONALE === "I" || home.baseUser.TIPO_PERSONALE === "OST") && rec[0].IDEN_UTE_INS == home.baseUser.IDEN_PER){
+                    return true;
+                }
+                else{
+                    return false;
+            }}]]></WHERE>
+            <OUTPUT>traduzione.lblElimina</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Cancella Diari"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

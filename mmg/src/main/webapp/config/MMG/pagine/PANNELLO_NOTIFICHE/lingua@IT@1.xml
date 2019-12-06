@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROWSET>
+
+    <ROW>
+    
+   		<lblTitolo>Pannello Notifiche</lblTitolo>
+        
+        <tabNotificheInvio>Invio Notifiche</tabNotificheInvio>
+        
+        <fldFiltriMessaggio>Si ricorda che gli utenti che NON SONO ONLINE riceveranno il messaggio SOLO AL MOMENTO DEL LORO PROSSIMO LOGIN</fldFiltriMessaggio>
+        
+        <fldRicercaUtenti></fldRicercaUtenti>
+        <lblRicercaUtenti>Ricerca destinatario</lblRicercaUtenti>
+        <butCerca>Ricerca</butCerca>
+		<butFiltraOnline>Utenti online</butFiltraOnline>
+        
+        <fldTipoMessaggio>Tipo Messaggio</fldTipoMessaggio>
+        <lblChiamataFunzione>Chiamata Funzione</lblChiamataFunzione>
+        <lblNotifica>Notifica</lblNotifica>
+        <fldProprietaNotifica>Proprietà Notifica</fldProprietaNotifica>
+        <fldProprietaMessaggio>Proprietà Messaggio</fldProprietaMessaggio>
+        <lblPriorita>Priorità</lblPriorita>
+        <lblTTL>Time To Live (ms)</lblTTL>
+
+        <lblTitoloMsg>Titolo</lblTitoloMsg>
+        <lblDurataMsg>Durata del messaggio (in secondi)</lblDurataMsg>
+        <lblMessaggio>Testo del messaggio</lblMessaggio>
+        <fldProprietaFunzione>Proprietà Funzione</fldProprietaFunzione>
+        <lblFunzioneJS>Funzione JS</lblFunzioneJS>
+        <lblparamfunzioneJS>Parametri Funzione</lblparamfunzioneJS>
+        <butSalva>Invia</butSalva>
+        
+        <lblNota>Il valore inserito in questo campo corrisponde ai secondi di persistenza del messaggio sullo schermo del destinatario</lblNota>
+        <lblInsValNum>Inserire un valore numerico</lblInsValNum>
+        
+    </ROW>
+    
+</ROWSET>

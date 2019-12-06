@@ -1,0 +1,1 @@
+document.write('<iframe width="95%" height="550px" src="moduloConsole/URO_DIAGN_REF.html" id = "objReportControl"></iframe>');

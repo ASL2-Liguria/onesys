@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Elenco report da stampare</lblTitolo>
+        <fldModuli>Moduli</fldModuli>
+        <lblModuli>Selezionare i moduli da stampare</lblModuli>
+        <butStampa>Stampa</butStampa>
+        <fldModInail>Inail</fldModInail>
+        <fldModTrasporto>Trasporto</fldModTrasporto>
+        <lblModulo>Modulo</lblModulo>
+        <lblData>Data Stampa</lblData>
+        <fldModDecesso>Decesso</fldModDecesso>
+        <fldModTSO>Trattamento Sanitario Obbligatorio</fldModTSO>
+        <fldModTraumaCranico>Trauma Cranico</fldModTraumaCranico>
+        <fldModDichiarazioni>Dichiarazioni</fldModDichiarazioni>
+        <fldModVari>Vari</fldModVari>
+        <lblDataInvio>Data Invio</lblDataInvio>
+    </ROW>
+</ROWSET>

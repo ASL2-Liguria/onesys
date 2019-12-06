@@ -1,0 +1,147 @@
+<PAGINA key_id="MMG_ANAMNESI_PRE_NEONATALE">
+	<HEADER_PAGE key_id="MMG_ANAMNESI_PRE_NEONATALE"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ANAMNESI_PRE_NEONATALE#DEFAULT_MMG,MMG_ANAMNESI_PRE_NEONATALE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_ANAMNESI_PLS#MMG_DATI#MMG_ANAMNESI_PRE_NEONATALE#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="AnamnesiPreNeo#lblTitolo#butInserisciRilevazioni,butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabDati" valore="tabDati" evento="START">
+				<FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtData" valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA" evento="START"></TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAllergie" valore="fldAllergie" evento="START">
+					<TR_TD_TEXTAREA key_id="txtAllergie" valore="txtAllergie#ALLERGIE" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldMalattieFam" valore="fldMalattieFam" evento="START">
+					<TR.INIT key_id="tr0" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radAnca" valore="lblAnca##radAnca#radAnca#{width:110}#S#ANCA" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettAnca" valore="txtDettAnca##lettura#DETT_ANCA" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radMalAllergiche" valore="lblMalAllergiche##radMalAllergiche#radMalAllergiche#{width:110}#S#MAL_ALLERGICHE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettMalAllergiche" valore="txtDettMalAllergiche##lettura#DETT_MAL_ALLERGICHE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radMalformCongenite" valore="lblMalformCongenite##radMalformCongenite#radMalformCongenite#{width:110}#S#MALFORM_CONGENITE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettMalformCongenite" valore="txtDettMalformCongenite##lettura#DETT_MALFORM_CONGENITE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radMalGenetiche" valore="lblMalGenetiche##radMalGenetiche#radMalGenetiche#{width:110}#S#MAL_GENETICHE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettMalGenetiche" valore="txtDettMalGenetiche##lettura#DETT_MAL_GENETICHE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radDiabete" valore="lblDiabete##radDiabete#radDiabete#{width:110}#S#DIABETE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettDiabete" valore="txtDettDiabete##lettura#DETT_DIABETE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr5" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radSordita" valore="lblSordita##radSordita#radSordita#{width:110}#S#SORDITA" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettSordita" valore="txtDettSordita##lettura#DETT_SORDITA" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr6" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radMalNervose" valore="lblMalNervose##radMalNervose#radMalNervose#{width:110}#S#MAL_NERVOSE" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettMalNervose" valore="txtDettMalNervose##lettura#DETT_MAL_NERVOSE" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr7" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="radEmofilia" valore="lblEmofilia##radEmofilia#radEmofilia#{width:110}#S#EMOFILIA" evento="START"></TD_LABEL_RADIO>
+						<TD_TEXT key_id="txtDettEmofilia" valore="txtDettEmofilia##lettura#DETT_EMOFILIA" evento="START"></TD_TEXT>
+					</TR.INIT>
+					<TR_TD_LABEL_TEXTAREA key_id="txtAltreMalFam" valore="lblAltreMalFam#txtAltreMalFam#ALTRO_MAL_FAM" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldPrenatale" valore="fldPrenatale" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtGravidanzePrecedenti" valore="lblGravidanzePrecedenti##txtGravidanzePrecedenti###GRAVIDANZE_PRECEDENTI" evento="START">
+						<TD_LABEL_TEXT key_id="txtAborti" valore="lblAborti##txtAborti###ABORTI" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtNatiVivi" valore="lblNatiVivi##txtNatiVivi###NATI_VIVI" evento="START">
+						<TD_LABEL_TEXT key_id="txtNatiMorti" valore="lblNatiMorti##txtNatiMorti###NATI_MORTI" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtGSangueRH" valore="lblGSangueRH##txtGSangueRH###G_SANGUE_RH" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="radGravidanza" valore="lblGravidanza##radGravidanza#radGravidanza#{width:110}#N#GRAVIDANZA" evento="START">
+						<TD_TEXT key_id="txtDettGravidanza" valore="txtDettGravidanza##lettura#DETT_GRAVIDANZA" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="txtInfezioni" valore="lblInfezioni#txtInfezioni#INFEZIONI" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtFarmaci" valore="lblFarmaci#txtFarmaci#FARMACI" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtRx" valore="lblRx#txtRx#RX" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNascita" valore="fldNascita" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtOspedale" valore="lblOspedale##txtOspedale###OSPEDALE" evento="START">
+						<TD_LABEL_TEXT key_id="txtGenitura" valore="lblGenitura##txtGenitura###GENITURA" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="radParto_I" valore="lblParto_I##radParto_I#radParto_I#{width:110}#N#PARTO_I" evento="START">
+						<TD_LABEL_TEXT key_id="txtGemelli" valore="lblGemelli##txtGemelli###GEMELLI" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="radParto_II" valore="lblParto_II##radParto_II#radParto_II#{width:110}#N#PARTO_II" evento="START">
+						<TD_RADIO key_id="radParto_III" valore="radParto_III#radParto_III#{width:110}#N#PARTO_III" evento="START"></TD_RADIO>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="txtNoteParto" valore="lblNoteParto#txtNoteParto#NOTE_PARTO" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_RADIO key_id="radPresentazione" valore="lblPresentazione##radPresentazione#radPresentazione#{width:110}#N#PRESENTAZIONE" evento="START">
+						<TD_TEXT key_id="txtDettPresentazione" valore="txtDettPresentazione###DETT_PRESENTAZIONE" evento="START"></TD_TEXT>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtPeso" valore="lblPeso##txtPeso###PESO" evento="START">
+						<TD_LABEL key_id="PesoCentile" valore="lblPesoCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtAltezza" valore="lblAltezza##txtAltezza###ALTEZZA" evento="START">
+						<TD_LABEL key_id="AltezzaCentile" valore="lblAltezzaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCirconferenza_Cranica" valore="lblCirconferenza_Cranica##txtCirconferenza_Cranica###CIRCONFERENZA_CRANICA###small" evento="START">
+						<TD_LABEL key_id="txtCirconferenza_CranicaCentile" valore="lblCirconferenza_CranicaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtEtaGest" valore="lblEtaGest##txtEtaGest###ETA_GEST" evento="START">
+						<TD_LABEL_TEXT key_id="txtAPGAR_I" valore="lblAPGAR_I##txtAPGAR_I###APGAR_I" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtAPGAR_II" valore="lblAPGAR_II##txtAPGAR_II###APGAR_II" evento="START">
+						<TD_LABEL_TEXT key_id="txtAPGAR_X" valore="lblAPGAR_X##txtAPGAR_X###APGAR_X" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtMaxBT" valore="lblMaxBT##txtMaxBT###MAXBT" evento="START">
+						<TD_LABEL_TEXT key_id="txtMaxBTInd" valore="lblMaxBTInd##txtMaxBTInd###MAXBT_IND" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>	
+				<FIELDSET_TABLE key_id="fldManovre" valore="fldManovre" evento="START">
+					<TR_TD_LABEL_RADIO key_id="radScreening" valore="lblScreening##radScreening#radScreening#{width:110}#N#SCREENING" evento="START">
+						<TD_LABEL_RADIO key_id="radScreeningDX" valore="lblScreeningDX##radScreeningDX#radScreeningDX#{width:110}#N#SCREENING_DX" evento="START"></TD_LABEL_RADIO>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="radRedReflex" valore="lblRedReflex##radRedReflex#radRedReflex#{width:110}#S#RED_REFLEX" evento="START">
+						<TD_LABEL_RADIO key_id="radPolsiFemorali" valore="lblPolsiFemorali##radPolsiFemorali#radPolsiFemorali#{width:110}#S#POLSI_FEMORALI" evento="START"></TD_LABEL_RADIO>
+						</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="radManovraOrtolani" valore="lblManovraOrtolani##radManovraOrtolani#radManovraOrtolani#{width:110}#N#MAN_ORTOLANI" evento="START">
+						<TD_LABEL_RADIO key_id="radManItterica" valore="lblManItterica##radManItterica#radManItterica#{width:110}#S#MAN_ITTERICA" evento="START"></TD_LABEL_RADIO>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="radOssigenoterapia" valore="lblOssigenoterapia##radOssigenoterapia#radOssigenoterapia#{width:110}#S#OSSIGENOTERAPIA" evento="START">
+						<TD_LABEL_RADIO key_id="radFototerapia" valore="lblFototerapia##radFototerapia#radFototerapia#{width:110}#S#FOTOTERAPIA" evento="START"></TD_LABEL_RADIO>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="radTestCombs" valore="lblTestCombs##radTestCombs#radTestCombs#{width:110}#N#TEST_COMBS" evento="START">
+						<TD_LABEL_RADIO key_id="radLiquido" valore="lblLiquido##radLiquido#radLiquido#{width:110}#N#LIQUIDO" evento="START"></TD_LABEL_RADIO>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="radIncubatrice" valore="lblIncubatrice##radIncubatrice#radIncubatrice#{width:110}#S#INCUBATRICE" evento="START">
+						<TD_LABEL_RADIO key_id="radExanguino" valore="lblExanguino##radExanguino#radExanguino#{width:110}#S#EXANGUINO" evento="START"></TD_LABEL_RADIO>
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="txtManovre" valore="lblManovre#txtManovre#MANOVRE" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNeonatale" valore="fldNeonatale" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="txtTerapie" valore="lblTerapie#txtTerapie#TERAPIE" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="txtControlli" valore="lblControlli#txtControlli#CONTROLLI" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_DATA key_id="DataDimissione" valore="lblDataDimissione##txtDataDimissione#DataDimissione#format: 'd/m/Y'#disabled:false#lblDataDimissione#DATA_DIMISSIONE" evento="START">
+						<TD_LABEL_TEXT key_id="txtPesoDimissione" valore="lblPesoDimissione##txtPesoDimissione###PESO_DIMISSIONE" evento="START"></TD_LABEL_TEXT>
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAllattamento" valore="fldAllattamento" evento="START">
+					<TR_TD_RADIO key_id="radAllattamento" valore="radAllattamento#radAllattamento#{width:100, idxDefault:0}#N#ALLATTAMENTO" evento="START"></TR_TD_RADIO>
+					<TR_TD_TEXTAREA key_id="txtDettAllattamento" valore="txtDettAllattamento#DETT_ALLATTAMENTO" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteAgg" valore="fldNoteAgg" evento="START">
+					<TR_TD_TEXTAREA key_id="txtNoteAgg" valore="txtNoteAgg#NOTE_AGG" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<INPUT.HIDDEN key_id="hIden" valore="hIden" evento="START"></INPUT.HIDDEN>
+			</TABULAZIONE.CREA_TAB>
+			<!-- <TABULAZIONE.CREA_TAB key_id="tabCalendarioVaccinazioni"
+				valore="tabCalendarioVaccinazioni" evento="START">
+				<FIELDSET_TABLE key_id="fldCalVaccinazioni" valore="fldCalVaccinazioni" evento="START">
+					<IMG key_id="imgVaccinazioni"
+						valore="imgVaccinazioni#img/CalendarioVaccinazioni.jpg#800px#591px"
+						evento="START">
+					</IMG>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB> -->
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

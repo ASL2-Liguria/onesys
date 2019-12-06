@@ -1,0 +1,38 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'PS.Q_SCHEDA_TIPO@PS'; :where := null; :campo_xml := null; end;">
+    <DATO
+            key_id="Attivo"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ATTIVO"
+            db_descrizione="ATTIVO"
+            configurazione_multi_data="R_SI_NO"
+            />
+    <DATO
+            key_id="Descrizione"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DESCRIZIONE"
+            db_descrizione="DESCRIZIONE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="Ordine"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ORDINE"
+            db_descrizione="ORDINE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="CodiceDecodifica"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE_DECODIFICA"
+            db_descrizione="CODICE_DECODIFICA"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="Gruppo"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="TIPO"
+            db_descrizione="TIPO"
+            configurazione_multi_data="PS.CMB_GRUPPO_TIPI@PS"
+            />
+</DATI>
+

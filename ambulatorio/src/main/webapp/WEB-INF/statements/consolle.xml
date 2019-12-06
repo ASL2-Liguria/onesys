@@ -1,0 +1,101 @@
+<root>
+	<statements_list>
+		<statement name="getInfoAnagInConsolle">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+				SELECT * FROM VIEW_AMB_ANAG_X_CONSOLE where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getInfoDiario">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>		
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+				select * from view_diari where iden_visita in (select iden from nosologici_paziente where iden_anag=(select iden_anag from cod_est_anag where id1 = ?) and cod_cdc in (select column_value  from table (split(?))))
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="getInfoComboSale">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					select distinct ts.descr,ts.cod_dec , ts.reparto, ts.IDEN from tare_esa tare, tab_sal ts where tare.iden = (select iden_esa from esami where iden = ?) and tare.iden_sal = ts.iden and ts.attivo ='S' and ts.reparto = (select reparto  from esami where iden = to_number(?)) order by ts.descr
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getInfoSala">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					select ts.descr,ts.cod_dec , ts.reparto, ts.iden from tab_sal ts where ts.iden = (select iden_sal from esami where iden = ?) 
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="updateIdenSal">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+				update esami set iden_sal =? where iden in (select column_value  from table (split(?)))
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getDiarioMedInfo">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					select * from VIEW_DIARIO_MEDICO where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		
+		<statement name="updateStatoCiclo_NonAncoraEseguiti">				
+			<sql>
+			<![CDATA[
+				declare
+					idenEsame ESAMI.IDEN%type := to_number(?);
+					statoCiclo varchar2(50) := ?;
+					vCiclica tab_esa.CICLICA%type := '';
+					cod10Saved COD_EST_ESAMI.COD10%type := '';
+
+				begin
+					select ciclica into vCiclica from tab_esa where iden =(select iden_esa from esami where iden = idenEsame);
+					if (vCiclica ='S') then
+						select cod10 into cod10Saved from cod_est_esami where iden_esame = idenEsame;
+						if (cod10Saved is null) then
+							update COD_EST_ESAMI set COD10 = statoCiclo where IDEN_ESAME = idenEsame;
+							commit;
+						end if;
+					end if;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		<statement name="existFormat">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					Select * from VIEW_MODULI_CONSOLE WHERE iden_esa is null AND reparto is null AND iden_sal is null and modulo = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		
+	</statements_list>
+</root>

@@ -1,0 +1,19 @@
+#fldAnamnesiInf table.campi tr td.tdTextarea textarea{
+	height: 80px;
+}
+.tabledialog{
+    border: solid 1px black;
+    margin: auto;
+    width: 100%;
+}
+.tabledialog tr td{
+    padding: 5px;
+    border: solid 1px #000000;
+}
+.tabledialog tr th{
+    width: 70px;
+    height: 20px;
+}
+.tabledialog textarea{width: 100%;}
+.c-free { width: 100%;}
+.Edited { background-color: #8cfff2 !important;}

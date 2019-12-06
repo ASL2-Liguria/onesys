@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="HEADER">
+        <OBJ classe_id="PATH::">
+            <PROC id="setOutputHtmlCompressed">
+                <PAR value="N"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="LOADER::translator">
+            <PROC id="loadTranslation">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head">
+            <PROC id="VOID"/>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta@0">
+            <PROC id="addAttribute">
+                <PAR value="charset"/>
+                <PAR value="UTF-8"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta@1">
+            <PROC id="addAttribute">
+                <PAR value="content"/>
+                <PAR value="width=device-width, initial-scale=1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta@1">
+            <PROC id="addAttribute">
+                <PAR value="name"/>
+                <PAR value="viewport"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta@2">
+            <PROC id="addAttribute">
+                <PAR value="content"/>
+                <PAR value="yes"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta@2">
+            <PROC id="addAttribute">
+                <PAR value="name"/>
+                <PAR value="apple-mobile-web-app-capable"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head{.extHtmlHead@EXT_DEFAULT}">
+            <PROC id="set_origine">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head{.extHtmlHead@EXT_DEFAULT}">
+            <PROC id="work"/>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta@4">
+            <PROC id="addAttribute">
+                <PAR value="http-equiv"/>
+                <PAR value="X-UA-Compatible"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta@4">
+            <PROC id="addAttribute">
+                <PAR value="content"/>
+                <PAR value="IE=edge,chrome=1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@0">
+            <PROC id="addAttribute">
+                <PAR value="href"/>
+                <PAR value="img/ipad/ico.jpg"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@0">
+            <PROC id="addAttribute">
+                <PAR value="rel"/>
+                <PAR value="apple-touch-icon"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@1">
+            <PROC id="addAttribute">
+                <PAR value="href"/>
+                <PAR value="img/ipad/ico72.jpg"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@1">
+            <PROC id="addAttribute">
+                <PAR value="rel"/>
+                <PAR value="apple-touch-icon"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@1">
+            <PROC id="addAttribute">
+                <PAR value="sizes"/>
+                <PAR value="72x72"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@2">
+            <PROC id="addAttribute">
+                <PAR value="href"/>
+                <PAR value="img/ipad/ico114.jpg"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@2">
+            <PROC id="addAttribute">
+                <PAR value="rel"/>
+                <PAR value="apple-touch-icon"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@2">
+            <PROC id="addAttribute">
+                <PAR value="sizes"/>
+                <PAR value="114x114"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@3">
+            <PROC id="addAttribute">
+                <PAR value="href"/>
+                <PAR value="img/ipad/ico144.jpg"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@3">
+            <PROC id="addAttribute">
+                <PAR value="rel"/>
+                <PAR value="apple-touch-icon"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@3">
+            <PROC id="addAttribute">
+                <PAR value="sizes"/>
+                <PAR value="144x144"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@4">
+            <PROC id="addAttribute">
+                <PAR value="rel"/>
+                <PAR value="apple-touch-startup-image"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@4">
+            <PROC id="addAttribute">
+                <PAR value="sizes"/>
+                <PAR value="1024x748"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@4">
+            <PROC id="addAttribute">
+                <PAR value="href"/>
+                <PAR value="img/ipad/splash1024.jpg"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@5">
+            <PROC id="addAttribute">
+                <PAR value="rel"/>
+                <PAR value="apple-touch-startup-image"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@5">
+            <PROC id="addAttribute">
+                <PAR value="sizes"/>
+                <PAR value="768x1004"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@5">
+            <PROC id="addAttribute">
+                <PAR value="href"/>
+                <PAR value="img/ipad/splash1004.jpg"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@6">
+            <PROC id="addAttribute">
+                <PAR value="rel"/>
+                <PAR value="shortcut icon"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.link@6">
+            <PROC id="addAttribute">
+                <PAR value="href"/>
+                <PAR value="img/favicon.ico"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.title">
+            <PROC id="setTagValue">
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::body*">
+            <PROC id="VOID"/>
+        </OBJ>
+        <OBJ classe_id="PATH::body">
+            <PROC id="addAttribute">
+                <PAR value="id"/>
+                <PAR type="idx" value="3"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+    <ATTR ev="END" id="HEADER">
+        <OBJ classe_id="PATH::body{.extHtmlHead@EXT_DEFAULT}">
+            <PROC id="work"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

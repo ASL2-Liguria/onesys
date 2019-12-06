@@ -1,0 +1,29 @@
+@CHARSET "ISO-8859-1";
+
+SPAN.spanInfoPazEsame{
+	color:white;
+	font-weight:bold; 
+	font-size:14px; 
+	display:block; 
+	background-color:#3399FF;
+	width:100%; 
+	text-align:center;
+	padding-top:2px;
+	padding-bottom:2px;
+	display:none;
+	visibility:hidden;
+}
+
+
+input.campoErrato_redBorder, textarea.campoErrato_redBorder{
+  border: 2px solid #F00;
+}
+
+input.campoObbl, textarea.campoObbl{
+  border: 5px solid #090;
+}
+
+/* label per check inclusione medicina iniziativa */
+LABEL.lblChkMedIniz{
+	width:99%; height:25px;cursor:pointer;background-color:#E8FFFF;font-size:12px; color:blue;
+}

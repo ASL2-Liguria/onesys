@@ -1,0 +1,16 @@
+<MENU>
+	<id>MENU_WK_NOTE_CUF</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWNC.APRI</ID>
+			<LINK><![CDATA[function(rec){UTILITA.apriNota(rec);}]]></LINK>
+			<ICON_CLASS>esegui</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Apri Nota CUF"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

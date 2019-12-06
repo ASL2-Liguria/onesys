@@ -1,0 +1,55 @@
+<DATI configurazione="
+        begin
+            :stato_pagina := '';
+            :key_query :=  'PS.Q_LOAD_COD_COLORE@PS';
+            :where := null;
+            :campo_xml := null;
+        end;">
+
+    <DATO key_id="hIdenLista" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="iden_lista_attesa" db_descrizione="iden_lista_attesa" configurazione_multi_data="" />
+
+    <DATO key_id="hStatoListaAttesa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_LISTA_ATTESA" db_descrizione="STATO_LISTA_ATTESA" configurazione_multi_data="" />
+
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_CONTATTO" db_descrizione="STATO_CONTATTO" configurazione_multi_data="" />
+
+    <DATO key_id="hUrgenza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione="" configurazione_multi_data="PS.Q_COMBO_URGENZA_TRIAGE@PS" />
+
+    <DATO key_id="hUbicazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UBICAZIONE" db_descrizione="UBICAZIONE" configurazione_multi_data="" />
+
+    <DATO key_id="hSesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="sesso" db_descrizione="sesso" configurazione_multi_data="" />
+
+    <DATO key_id="hDataNascita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="data_nascita" db_descrizione="data_nascita" configurazione_multi_data="" />
+
+    <DATO key_id="hProgressivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="progressivo" db_descrizione="progressivo" configurazione_multi_data="" />
+
+    <DATO key_id="h-UrgenzaPs" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="urgenza" db_descrizione="urgenza" configurazione_multi_data="" />
+
+    <DATO key_id="hStruttura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STRUTTURA" db_descrizione="STRUTTURA" configurazione_multi_data="" />
+
+    <DATO key_id="cmbStatoPaziente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_PAZIENTE_ID" db_descrizione="STATO_PAZIENTE"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_ID_FIRST_NULL@PS'; :where := 'tipo = ''STATO_PAZIENTE'''; end;" />
+
+    <DATO key_id="cmbAreaPS" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="areaPS" db_descrizione="areaPS" configurazione_multi_data="PS.Q_AREE_PS@PS" />
+
+    <DATO key_id="taNote" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="note" db_descrizione="note" configurazione_multi_data="" />
+
+    <DATO key_id="taNoteBraccialetto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTE_BRACCIALETTO" db_descrizione="NOTE_BRACCIALETTO" configurazione_multi_data="" />
+
+    <DATO key_id="taNoteRivalutazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="note_rivalutazione" db_descrizione="note_rivalutazione" configurazione_multi_data="" />
+
+</DATI>

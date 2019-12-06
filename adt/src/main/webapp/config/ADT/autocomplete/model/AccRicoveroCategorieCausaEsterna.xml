@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(ret){ NS_ACC_RICOVERO.Events.valorizeComboCausaEsterna(); }]]>
+        </onSelect>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.CATEGORIA_CAUSA_ESTERNA</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Categorie cause esterne</title>
+        <id_wk>CATEGORIE_CAUSE_ESTERNE</id_wk>
+    </LIST>
+</AUTOCOMPLETE>

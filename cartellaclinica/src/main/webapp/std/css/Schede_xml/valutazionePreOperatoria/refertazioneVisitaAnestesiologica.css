@@ -1,0 +1,866 @@
+html{overflow:hidden;}
+
+body 
+{
+	overflow	: hidden;	
+}
+
+form 
+{
+	margin: 0px;
+}
+
+#divHeader 
+{
+	width	: 100%;
+}
+
+#divBody 
+{
+	width	: 100%;
+}
+
+#divIntestazione 
+{
+	width	: 100%;	
+}
+
+#headerLeft 
+{
+	width	: 52%;
+	float	: left;
+}
+
+#headerRight 
+{
+	width	: 45%;
+	float	: left;
+	
+}
+
+#sections 
+{
+	width		: 52%;
+	float		: left;	
+	background	: #E9F3FE;
+	border		: blue;
+ 	overflow-y	: scroll;
+ 	overflow-x	: hidden;	
+	padding-left: 5px;
+	margin-bottom: 20px;	
+}
+
+
+
+#infos 
+{
+	width		: 45%;
+	float		: left;
+	background	: #E9F3FE;
+ 	overflow-y	: scroll;
+ 	overflow-x	: hidden;	
+	border		: blue;
+	margin-bottom: 20px;
+}
+
+#divFrame{
+	width		: 100%;	
+	height		: 125px;
+}
+
+#idFrameConsenso{
+	width		: 100%;	
+	height		: 100%;	
+}
+
+
+#infos div.dataContainer 
+{
+	width	: 100%;
+	height	: 95%;
+	clear	: both; 
+}
+
+div.tabHide 
+{
+	display	: none;
+}
+
+div.tabShow 
+{
+	width	: 100%;
+	height	: 80%;
+	display	: block;
+}
+
+ul 
+{
+	margin	: 0px;
+	font: bold 12px Verdana, sans-serif;
+	padding	: 0px;	
+}
+
+ul li 
+{
+	display		: inline;
+	line-height	: 28px;
+}
+
+ul li span {
+	background: url(../../../../imagexPix/tabulator/normalTab.png) repeat-x;
+	COLOR: black;
+	text-decoration: none;
+	PADDING: 5px 10px;
+	BORDER: 1px solid #E9FEFE;
+}
+
+ul li.active span {
+	background: url(../../../../imagexPix/tabulator/selectedTab.png)
+		repeat-x;
+	COLOR: white;
+}
+
+ul li span:hover {
+	background: url(../../../../imagexPix/tabulator/hoverTab.png) repeat-x;
+	BORDER: 1px solid blue;
+	COLOR: black;
+	cursor:pointer;
+}
+
+textarea 
+{
+	width		: 100%;
+}
+
+.SubTitleSection{
+	width		: 90%;
+	height		: 22px;
+	float		: left;
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat-x;
+	color		: white;
+	font		: bold 12px Verdana, sans-serif;
+	padding-top	: 5px;
+	padding-left:5px;
+}
+
+div.row 
+{
+	width	: 100%;
+	clear	: both;
+}
+
+span.detail 
+{
+	width		: 60%;
+	float		: left;
+	padding		: 3px;
+	margin		: 2px;
+	border		: 1px solid #95BAFF;
+	background	: #FFF;
+	color		: #000;
+	font		: 10px Verdana, sans-serif;
+}
+
+span.detail:hover 
+{
+	background	: #FCFDC6;
+}
+
+.right 
+{
+	float	: right;
+}
+
+
+/***********************/
+/****divRicerca INFOS***/
+/***********************/
+
+
+div.ricerca 
+{
+	height	: 10%
+}
+
+
+
+div.ricerca input 
+{
+	margin	: 3px;
+}
+
+div.risultati 
+{
+	height		: 230px;
+	overflow-y	: scroll;
+	overflow-x	: hidden;
+}
+
+table.risultati 
+{
+	width	: 100%;
+}
+
+div.testo 
+{
+	height	: 40%;
+	overflow: hidden;
+	display	: none;
+	width	: 100%;
+}
+
+div.testo input 
+{
+	margin: 3px;
+}
+
+div.testoShow 
+{
+	height		: auto;
+	background	: #FFF;
+	overflow-x	: hidden;
+	overflow-y	: scroll;
+}
+
+a.btn 
+{
+	background		: url(../../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	color			: blue;
+	font-weight		: bold;
+	line-height		: 21px;
+	margin-top		: 3px;
+	padding			: 0px 10px;
+	text-decoration	: none;
+}
+
+a.btn:hover 
+{
+	background		: url(../../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color			: yellow;
+	text-decoration	: none;
+}
+
+table 
+{
+	table-layout	: auto;
+	white-space		: nowrap;
+}
+
+tr:hover th 
+
+{
+	background	: #FCFDC6;
+}
+
+tr:hover td 
+{
+	background	: #FCFDC6;
+}
+
+th 
+{
+	background	: #e5effd;	
+	border		: 1px solid #95BAFF;
+	color		: 000;
+	font		: bold 10px Verdana, sans-serif;
+	margin		: 2px;
+	padding		: 3px;	
+}
+
+
+div#infos td,div#divRisultati td,div#divTestoEdit td 
+{
+	background	: #FFF;
+	border		: 1px solid #95BAFF;	
+	color		: #000;
+	font		: 10px Verdana, sans-serif;
+	margin		: 2px;
+	padding		: 3px;
+}
+
+div.tableButton 
+
+{
+	width		: 15px;
+	border		: 1px solid #95BAFF;	
+	color		: #95BAFF;
+	cursor		: pointer;
+	float		: left;
+	margin		: 1px;
+	text-align	: center;
+}
+
+div.tableButton:hover 
+{
+	border-color: blue;
+	color		: blue;
+}
+
+/*
+<!-- ****************************************** -->
+<!-- ********* Footer  ************************ -->
+<!-- ****************************************** --> 
+*/
+div#footer 
+{
+	width		: 99%;
+	height		: 25px;
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat-x;
+	bottom		: 0;
+	clear		: both;
+	color		: #FFF;
+	overflow	: hidden;
+	padding		: 2px;
+	position	: absolute;
+}
+
+
+.pulsanteBarraFooter 
+{
+	width				: 120px;
+	float				: right;
+	display				: block;
+	background-image	: url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat	: repeat-x;
+	color				: blue;
+	font-weight			: bold;	
+	line-height			: 21px;
+	margin-left			: 3px;	
+	padding-left		: 2px;
+	padding-right		: 2px;
+	text-align			: center;
+	text-decoration		: none;
+}
+
+.pulsanteBarraFooter:hover 
+{
+	background-image	: url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat	: repeat-x;
+	color				: yellow;
+	font-weight			: bold;
+	cursor				: pointer;
+}
+
+/***********************/
+/****div Intestazione***/
+/***********************/
+span#spDatiAnagr
+{
+	width		: 100%;
+	float		: left;
+	padding		: 3px;
+	margin		: 2px;
+	border		: 1px solid #95BAFF;
+	/*background	: url(../../../../imagexPix/tabheader/top_tabella.gif) repeat-x;*/
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+}
+
+
+
+table.tabDataOra tr td.tdDataOra
+{
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+	border		: 1px solid #95BAFF;
+	color		: white;
+	font		: bold 12px Verdana, sans-serif;
+}
+
+table.tabDataOra tr td
+{
+	background	: url(../../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	font		: bold 12px Verdana, sans-serif;
+}
+
+
+.fieldset
+{
+    border		: 1px solid #03F;
+    margin-top	: 20px;
+    width		: 500px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+.fieldset span
+{
+    display		: inline;
+    border		: 1px solid #03F;
+    background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+    padding		: 5px 10px;
+    position	: relative;
+    top			: -1em;
+	left		: +0.5em;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+    text-align	: center;
+}
+
+.fieldsetDurata
+{
+    border		  	: 1px solid #03F;
+    width		  	: 800px;
+	padding			: 5px;
+}
+
+.fieldsetDurata legend
+{
+	margin-top	: 5px;
+    border		: 1px solid #03F;
+    background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+    padding		: 5px 5px;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+    text-align	: center;
+}
+
+.fieldsetDurata div.divDurataTrattamento
+{
+    padding		: 5px;
+}
+
+/* Visita Anestesiologica */
+
+label.titleLabel{
+   	margin-top	: 5px;
+    border		: 1px solid #03F;
+    background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+    padding		: 5px 5px;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+    text-align	: center; 
+}
+
+label.subTitleLabel{
+   	margin-top	: 5px;
+	color		: #000;
+	font		: bold 12px Verdana, sans-serif;
+    text-align	: center;
+}
+
+label.titleLabelSezione{
+   	margin-top	: 5px;
+    border		: 1px solid #03F;
+    background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+    padding		: 5px 5px;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+    text-align	: center;
+}
+
+div.divXmlObject{
+    padding		: 5px 5px;
+}
+
+
+
+/*html{overflow:hidden;}*/
+
+
+/*form {
+	margin: 0px;
+}
+
+#divHeader {
+	width: 100%;
+}
+
+#divBody {
+	width: 100%;
+	height: 661px;
+}
+
+#headerLeft {
+	float: left;
+	width: 55%;
+}
+
+#headerRight {
+	float: left;
+	width: 44%;
+}
+
+#sections {
+	background: #E9F3FE;
+	border: blue;
+	padding-left: 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 100%;
+	float: left;
+	width: 54%;
+}
+
+#infos {
+	background: #E9F3FE;
+	border: blue;
+	padding: 5px;
+	height: 97%;
+	overflow-y: auto;
+	float: left;
+	width: 44%;
+}
+*/
+
+/*#infos iframe{height:100%;width:100%;}*/
+#infos div.dataContainer {
+	height: 95%;
+	width: 100%;
+    overflow-x:visible;
+	clear: both; /*overflow-y:scroll;overflow-x:hidden;*/
+}
+
+#infos div.dataContainerRic {
+	height: 95%;
+	width: 600px;
+	overflow-x:visible;
+	clear: both; /*overflow-y:scroll;overflow-x:hidden;*/
+}
+
+
+div.row {
+	width: 100%;
+	clear: both;
+}
+
+
+
+.right {
+	float: right;
+}
+
+div.ricerca {
+	height: 10%
+}
+
+div.ricerca input {
+	margin: 3px;
+}
+
+div.risultati {
+	height: 230px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+table.risultati {
+	width: 100%;
+}
+
+div.testo {
+	height: 40%;
+	overflow: hidden;
+	display: none;
+	width: 100%;
+}
+
+div.testo input {
+	margin: 3px;
+}
+
+div.testoShow {
+	background: #FFF;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: auto;
+	padding: 5px;
+}
+
+a.btn {
+	line-height: 21px;
+	padding: 0px 10px;
+	margin-top: 3px;
+	text-decoration: none;
+	background: url(../../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	font-weight: bold;
+	color: blue;
+}
+
+a.btn:hover {
+	text-decoration: none;
+	background: url(../../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color: yellow;
+}
+
+table{
+	width: 98%;
+	table-layout: auto;
+	white-space: nowrap;
+}
+
+tr:hover th {
+	background: #FCFDC6;
+}
+
+tr:hover td {
+	background: #FCFDC6;
+}
+
+th {
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: 000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+div#infos td,div#divRisultati td,div#divTestoEdit td {
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+}
+
+div.tableButton {
+	margin: 1px;
+	border: 1px solid #95BAFF;
+	background: white;
+	font-weight:900; 
+	/*color: #95BAFF;*/
+	width: 15px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	padding:2px;
+}
+
+.tableButton:hover { border-color: blue; color: blue; background: green;}
+
+div.mod{ background: #FFF7B8; color:black; font-weight:900; }
+div.duplica{ background: #C2EAFF; color:black; font-weight: 900; }
+div.canc{ background: #FF9A8A; color:black; font-weight: 900; }
+div.imp { background: #278A00; color:white; font-weight: 900; padding:2px; }
+
+/* Filtro + Tabella contenente i dati di laboratorio */
+#wrapperFiltroDatiLabo{height:22px;line-height:22px;vertical-align:middle;}
+.vrapSezFiltroLabo{height:22px;display:inline-block;line-height:22px;float:left;}
+#wrapperFiltroDatiLabo span{height:22px;display:inline-block;line-height:22px;}
+#wrapperFiltroDatiLabo input{position:static;vertical-align:middle;}
+#btnAllegaDatiLabo{
+	display:inline-block;width:80px;height:20px;line-height:20px;margin-left:10px;vertical-align:middle;
+	background: url(../../../../imagexPix/bar/btLightCyan.jpg) repeat-x;color: blue;font-weight:bold;text-align:center;cursor:pointer;
+}
+#btnAllegaDatiLabo:hover{BACKGROUND: url(../../../../imagexPix/bar/btCyan.jpg) repeat-x;color:yellow;}
+
+.divFiltroLaboratorio { height: 5%; clear: both; }
+.divTabLaboratorio { height: 95%; overflow: auto; }
+
+#divTabLaboratorio{overflow:visible;}
+tr#head{height:20px;}
+#trNoDatiLabo{height:20px;}
+#tabRisultatiLabo th{height:20px;line-height:20px;vertical-align:middle;text-align:left;}
+#tabRisultatiLabo th label{vertical-align:middle;display:inline-block;padding-left:5px;float:left;}
+#tabRisultatiLabo th input{vertical-align:middle;display:inline-block;float:left;}
+#tabRisultatiLabo tr th,td { font-size: 9px; }
+
+.lblCheckPrestazione{display:inline-block;width:100px;}
+.lblCheckRichiesta{display:inline-block;width:75px;float:left;}
+
+#tabRisultatiLabo tr.gruppoEsami th {background-color: #06C; color: white;padding: 0p;margin-left:25px;}
+#tabRisultatiLabo tr.rigaAnalisiMulti td{background-color: #FC0;color:#039}
+#tabRisultatiLabo .rimosso { background: #DADADA; color: #BBB; }
+
+
+
+
+
+iframe#frmInserimentoTerapie { width: 99%; height: 99%; }
+
+#sections label { FONT: bold 12px Verdana, sans-serif; }
+
+#divTerapie { height: 600px; }
+
+#divDataFineRicovero{
+	height: 26px;
+	width: 245px;
+	display:block;
+	overflow:hidden;
+}
+	
+#divRicerca{ 
+	text-align: center; 
+	background: #e5effd;/*#95BAFF  #7AA9FF;*/ 
+	border-left: 2px solid #95BAFF;
+	border-right: 2px solid #95BAFF;
+}
+#divRicerca label{ font-weight:bold; height: 20px; }
+#divRicerca input{ margin-left: 10px; }
+
+#divRisultati, #divTestoEdit, #divTestoShow{
+	height: 230px;
+	background: E9F3FE;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	border-left: 2px solid #95BAFF;
+	border-right: 2px solid #95BAFF;
+	padding: 5px;
+}
+
+#txtShowTestoStd {
+	margin: 10px;
+	border: 2px solid #95BAFF;
+	border-top: 1px solid #95BAFF;
+	padding: 10px;
+}
+
+.labelRicerca{
+	font-size:12px;
+	padding-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 10px;
+	height: 25px;
+	line-height: 25px;
+	color:black;
+}
+
+input.textRic{
+	padding-left:10px;
+	margin-left: 15px;
+	border: 2px solid #95BAFF;
+	border-bottom: 2px solid #95BAFF;
+	border-right: 2px solid #95BAFF;
+	text-align:left;
+	width: 300px;
+}
+
+.SubTitleSectionSTD {
+	/*background: url(../../../../imagexPix/tabheader/top_tabella.gif) repeat-x;*/
+	background: #95BAFF;
+	text-align:center;
+	height: 22px;
+	color: black;
+	FONT: bold 12px Verdana, sans-serif;
+	padding-top: 5px;
+	margin-bottom: 5px;
+	width:100%;
+	height: 25px;
+}
+
+#divFiltroRicerca{ 
+	text-align: center; 
+	/*background: url(../../../../imagexPix/tabheader/top_tabella.gif) repeat-x;*/
+	background: #95BAFF;
+}
+#divFiltroRicerca label{ font-weight:bold; height: 20px; }
+#divFiltroRicerca input{ margin-left: 10px; }
+
+
+
+.rowDetail SPAN {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	width: 99%;
+	font-size: 12px;
+}
+
+.rowHead SPAN {
+	margin-bottom: 0px;
+	width: 99%;
+	text-align: center;
+	font-size: 12px;
+}
+span.header_title {
+	width: 98%;
+	display:inline-block; 
+	text-align:center;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+span.detail_title{
+	width: 98%;
+	display:inline-block; 
+	text-align:center;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+
+}
+
+span.header {
+	width: 30%;
+	float: left;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+span.detail,td.detail {
+	width: 60%;
+	float: left;
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+	display:block;
+}
+
+span.detail:hover,span.detail_title:hover{
+	background: #FCFDC6;
+}
+
+table#tableInfoFromRs{
+	width: 98%;
+	table-layout: auto;
+	white-space:normal;
+	padding: 3px;
+	margin: 5px;
+}
+
+#tableInfoFromRs tr.detail {
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+	display:block;
+}
+
+#tableInfoFromRs tr.detail td {
+	border: 1px solid #95BAFF;
+	background: #FFF;
+}
+
+#tableInfoFromRs tr.detail td:hover {
+	background: #FCFDC6;
+}
+
+#tableInfoFromRs .header_title_info {
+	width: 98%;
+	display:inline-block; 
+	text-align:center;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+
+input#txtInterventoEsame{
+   width: 95%;
+}
+
+label#lblInterventoEsame{
+    cursor: pointer;   
+}
+
+label#lblInterventoEsame:hover{
+	background	: #e5effd;
+    cursor: pointer;   
+}
+
+form#INTERVENTO_ESAME{
+	background	: #E9F3FE;
+}
+
+span.SubTitleSection {
+    width: 88%;
+}
+

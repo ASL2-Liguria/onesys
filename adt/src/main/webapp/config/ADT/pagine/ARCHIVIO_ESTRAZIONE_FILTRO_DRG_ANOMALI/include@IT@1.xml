@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/TabHomeArchivio/TabHomeArchivioCalcoloDRG.js"/>
+    <JS path="js/ADT/ArchivioEstrazioneFiltro/ArchivioEstrazioneFiltro.js"/>
+    <JS path="js/Base/NS_FENIX_FILTRI.js"/>
+</INCLUDE>

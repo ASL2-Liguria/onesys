@@ -1,0 +1,257 @@
+/* ********************************* */
+/* ****** Icona Gericos ************ */
+/* ********************************* */
+.classReqType {
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/icon/bw/ico_gericos.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqType A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqType A:hover {
+	color:red;
+	display:block;	
+}
+
+
+/* ********************************* */
+/* ****** Icona Gericos per prenotazioni ************ */
+/* ********************************* */
+
+.classReqTypeBooked {
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/icon/bw/ico_gericos_booked.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqTypeBooked A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqTypeBooked A:hover {
+	color:red;
+	display:block;	
+}
+
+/* ********************************* */
+/* ****** Icona Polaris per prenotazioni ************ */
+/* ********************************* */
+
+.classReqTypeBookedByPolaris {
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/icon/ico_polaris_booked.gif.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqTypeBookedByPolaris A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqTypeBookedByPolaris A:hover {
+	color:red;
+	display:block;	
+}
+
+
+/* ********************************* */
+/* ****** Icona Progetto sole ************ */
+/* ********************************* */
+
+
+.classProgettoSole {
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/icon/ico_sole.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classProgettoSole A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classProgettoSole A:hover {
+	color:red;
+	display:block;	
+}
+
+
+/* ********************************* */
+/* ****** Eco Ostetrica ************ */
+/* ********************************* */
+
+.classEcoOstInfo_malfo{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/icon/bw/ciuccio_rosso.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classEcoOstInfo_malfo A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classEcoOstInfo_malfo A:hover{
+	color:red;
+	display:block;
+}
+
+
+.classEcoOstInfo_no_malfo{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/icon/bw/ciuccio_verde.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classEcoOstInfo_no_malfo A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classEcoOstInfo_no_malfo A:hover{
+	color:red;
+	display:block;
+}
+
+/* ********************************* */
+/* **** Icona Richieste Assistenza * */
+/* ********************************* */
+
+.classRichAssist_SottoIndagine{
+	width:30px;
+	height:30px;
+	background-image:url(../../../../imagexPix/RichiesteModifica/richieste_modifica.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classRichAssist_SottoIndagine A{
+	cursor:pointer;	
+}
+
+.classRichAssist_SottoIndagine A:hover{
+	cursor:pointer;
+}
+
+
+/* ********************************* */
+/* **** Icona Carebox  ************* */
+/* ********************************* */
+
+.classCareboxComplete{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/carebox/complete.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classCareboxComplete A{
+	cursor:pointer;	
+}
+
+.classCareboxComplete :hover{
+	cursor:pointer;
+}
+
+.classCareboxApproved{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/carebox/approved.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classCareboxApproved A{
+	cursor:pointer;	
+}
+
+.classCareboxApproved :hover{
+	cursor:pointer;
+}
+
+
+.classCareboxRevoca{
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/carebox/revoca.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classCareboxRevoca A{
+	cursor:pointer;	
+}
+
+.classCareboxRevoca :hover{
+	cursor:pointer;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>2</minChars>
+		<onSelect type="js">
+            <![CDATA[function(data){;}]]>
+		</onSelect>
+		<datasource>ADT</datasource>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_ANAG_TITOLO_STUDIO</storedQuery>
+		<maxResults>40</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>Titolo di Studio</title>
+	    <id_wk>AC_ANAG_TITOLO_STUDIO</id_wk>
+	</LIST>  
+</AUTOCOMPLETE>	 
+    

@@ -1,0 +1,44 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_SEGNALA_GIUNTOCADAVERE_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_SEGNALA_GIUNTOCADAVERE_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+    <!-- Caricamento Dati -->
+
+
+    <!-- Query multidata -->
+    <DATO key_id="radSegnalazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''SEGNALAZIONE_GIUNTOCADAVERE'''; end;" />
+
+    <DATO key_id="h-radSegnalazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SEGNALAZIONE" db_descrizione="SEGNALAZIONE"
+          configurazione_multi_data="" />
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+</DATI>

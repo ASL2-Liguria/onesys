@@ -1,0 +1,103 @@
+<root>
+	<statements_list>
+		<statement name="menu">				
+			<sql>
+			<![CDATA[
+				select * from (
+				select m.*,rank() over (partition by PROCEDURA,FUNZIONE order by priorita desc) RANK from imagoweb.VIEW_MENU m
+					where applicazione in ('ALL',:applicazione)
+					and opener in ('ALL',:opener)
+					and modalita in ('ALL',:modalita)
+					and procedura=:menu
+					and RADSQL.CDC.checkreparti(CODICE_REPARTO,:reparti) >= 1
+					and (TIPO_ute is null or TIPO_UTE=:tipo_ute)
+					and (LIVELLO in ('1', :livello))
+					and UTENTI.checkAbilitazione(CODICE_UTENTE,:webuser) >= 1
+					and PARENT is null)
+				where RANK=1 and ATTIVO='S' order by ordine
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		<statement name="menuChildren">				
+			<sql>
+			<![CDATA[
+				select * from (
+				select m.*,rank() over (partition by PROCEDURA,FUNZIONE order by priorita desc) RANK from imagoweb.VIEW_MENU m
+					where applicazione in ('ALL',:applicazione)
+					and opener in ('ALL',:opener)
+					and modalita in ('ALL',:modalita)
+					and procedura=:menu
+					and RADSQL.CDC.checkreparti(CODICE_REPARTO,:reparti) >= 1
+					and (TIPO_ute is null or TIPO_UTE=:tipo_ute)
+					and (LIVELLO in ('1', :livello))
+					and UTENTI.checkAbilitazione(CODICE_UTENTE,:webuser) >= 1
+					and PARENT=:parent)
+				where RANK=1 and ATTIVO='S' order by ordine
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		<statement name="getMenuJs">				
+			<sql>
+			<![CDATA[
+				select label,link from menu where procedura=? and ATTIVO='S' and deleted='N' order by ordine
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		<statement name="menuAlbero.getConfigurazioneCdc">				
+			<sql>
+			<![CDATA[
+				select imagoweb.pck_configurazioni.getValueCdc(?,?) from dual
+			]]>
+			</sql>
+		</statement>
+		<statement name="menuAlbero.getConfigurazioneCdcRicovero">				
+			<sql>
+			<![CDATA[
+				select imagoweb.pck_configurazioni.getValueCdcRicovero(?,?,?) from dual
+			]]>
+			</sql>
+		</statement>
+		<statement name="menuAlbero.setMenuBisogni">				
+			<sql>
+			<![CDATA[
+				select   
+					TYPE.intestazione LABEL,   
+					'livello' || extractValue(contenuto, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkAssistenza"]') GRUPPO,   
+					' apriBisogniAssistenziali(''' || TYPE.FUNZIONE ||''','''');closeMenuActive();' FUNZIONE   
+				from    
+					CC_BISOGNI_REPARTO REP    
+					join CC_BISOGNI_TYPE TYPE on (TYPE.iden=REP.iden_bisogno)   
+					left outer join CC_BISOGNI_RICOVERO RICO on  (RICO.iden_bisogno=TYPE.iden and iden_visita=to_number(?))   
+				where REP.CODICE_REPARTO=?   
+				order by ordine
+			]]>
+			</sql>
+		</statement>
+		<statement name="menuAlbero.setMenuScale">				
+			<sql>
+			<![CDATA[
+			with ELENCO as (
+				select column_value CATEGORIA from table(split(:categorie))
+			)
+			select
+				TYPE.ordine ORDINE,
+				TYPE.intestazione LABEL,
+				'livello' || (CASE WHEN CC_SCALE.IDEN IS NOT NULL THEN '1' ELSE '' END) GRUPPO,
+				' apriScale(''' || TYPE.FUNZIONE ||''');closeMenuActive();' FUNZIONE,
+				TYPE.categoria CATEGORIA
+			from
+				IMAGOWEB.CONFIG_SCHEDE_REPARTO REP
+				join CC_SCALE_TYPE TYPE on (TYPE.FUNZIONE=REP.FUNZIONE)
+				left outer join CC_SCALE  on  (CC_SCALE.FUNZIONE=TYPE.FUNZIONE and iden_visita=:idenRicovero)
+				right join ELENCO on ELENCO.CATEGORIA = TYPE.CATEGORIA or ELENCO.CATEGORIA is null
+			where REP.CODICE_REPARTO=:codiceReparto
+			and REP.ATTIVO = 'S'
+			order by ordine
+			]]>
+			</sql>
+		</statement>
+    </statements_list>
+</root>

@@ -1,0 +1,241 @@
+<root>
+	<statements_list>
+		<statement name="ParametriGlobali.Stampa">
+			<sql>
+			<![CDATA[
+				declare
+					pWebUser 	varchar2(5000) := ?;
+					pIdenVisita pls_integer := to_number(?);
+					pReparto 	varchar2(5000) := ?;
+					pTipo 		varchar2(5000) := ?;					
+					pSingola 	varchar2(5000) := ?;
+				begin 
+					delete from radsql.tab_work where webuser = pWebUser and tipo = pTipo;
+					CC_REP_PARAMETRI_GLOBALI_NEW (pIdenVisita,pReparto,pTipo,pWebUser,pSingola);
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="TerapieGlobaliReparto.Stampa">
+			<timeout>1000</timeout>
+			<sql>
+			<![CDATA[
+				declare
+					pWebUser 		varchar2(5000) := ?;
+					pIdenRicovero 	pls_integer := to_number(?);
+					pIdenVisita 	pls_integer := to_number(?);
+					pReparto 		varchar2(5000) := ?;
+					pTipo 			varchar2(5000) := ?;					
+				begin 
+					delete from radsql.tab_work where webuser = pWebUser and tipo = pTipo;
+					radsql.rpt_terapie_globali (pIdenRicovero,pIdenVisita,pReparto,pTipo,pWebUser);
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+				<statement name="TerapieGlobaliDH.Stampa">
+			<timeout>1000</timeout>
+			<sql>
+			<![CDATA[
+				declare
+					pWebUser 		varchar2(5000) := ?;
+					pIdenRicovero 	pls_integer := to_number(?);
+					pIdenVisita 	pls_integer := to_number(?);
+					pReparto 		varchar2(5000) := ?;
+					pTipo 			varchar2(5000) := ?;					
+				begin 
+					delete from radsql.tab_work where webuser = pWebUser and tipo = pTipo;
+					radsql.rpt_terapie_globali_DH (pIdenRicovero,pIdenVisita,pReparto,pTipo,pWebUser);
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="StampaGlobale.Esegui">
+			<sql>
+			<![CDATA[
+			declare
+				pIdenRicovero pls_integer 	  := ?;
+				pKey 		  varchar2(32767) := ?;
+				pSito 		  varchar2(32767) := ?;
+				pStruttura 	  varchar2(32767) := ?;
+				pCdc 		  varchar2(32767) := ?;
+				pTipoFunzion  varchar2(32767) := ?;
+				pTipoParamet  varchar2(32767) := ?;
+				pIsFirmato	  varchar2(32767) := ?;
+                pCodRicovero  varchar2(32767) := ?;
+				pOutputFnz 	  varchar2(32767) := '';
+				pOutputSf 	  varchar2(32767) := '';
+          		pOutputRep 	  varchar2(32767) := '';
+          		pOutputFirm	  varchar2(32767) := '';
+          		pOutputCont   varchar2(32767) := '';
+          		pOutputDescr  varchar2(32767) := '';
+          		pOutputMod    varchar2(32767) := '';
+			begin 
+				CC_STAMPA_MULTI(pIdenRicovero,pKey,pSito,pStruttura,pCdc,pTipoFunzion,pTipoParamet,pIsFirmato,pCodRicovero,pOutputFnz,pOutputSf,pOutputRep,pOutputFirm,pOutputCont,pOutputDescr,pOutputMod); 
+				? := pOutputFnz;
+				? := pOutputSf;
+				? := pOutputRep;
+				? := pOutputFirm;
+				? := pOutputCont;
+				? := pOutputDescr;
+				? := pOutputMod;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="StampaGlobale.RecuperaNomiReport">
+			<sql>
+			<![CDATA[
+			declare
+				pFunzione	varchar2(4000) := ?;
+				pReparto 	varchar2(4000) := ?;
+				pOutput		varchar2(4000) := '';
+			begin 
+				select nome_report into pOutput from imagoweb.configura_stampe where funzione_chiamante=pFunzione and cdc=pReparto; 
+				? := pOutput;
+			end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="RecuperoCDC.Stampa">
+			<sql>
+			<![CDATA[
+			declare
+				pSito 		  varchar2(4000) := ?;
+				pStruttura 	  varchar2(4000) := ?;
+				pCdc 		  varchar2(4000) := ?;
+				pKey 		  varchar2(4000) := ?;
+				pOutputFnz 	  varchar2(4000) := '';
+			begin 
+				select imagoweb.PCK_CONFIGURAZIONI.getValue(pSito,pStruttura,pCdc,pKey)into pOutputFnz from dual;
+				? := pOutputFnz;
+			end;
+			]]>
+			</sql>
+		</statement>
+				<statement name="setConley">
+			<sql>
+			<![CDATA[
+				declare
+					pWebUser varchar2(4001) := ?;
+					pIdenVisita pls_integer := to_number(?);
+
+					type REC_WORK is table of radsql.tab_work.valore1%type index by pls_integer;
+					myRec REC_WORK;
+					pTipo varchar2(5000) := 'STAMPA_CONLEY';
+					idx pls_integer:=0;
+				begin 
+					delete from radsql.tab_work where webuser = pWebUser and tipo = pTipo;
+																	
+					for idx in 1..42
+					loop
+							myRec(idx) := '';					
+					end loop;
+				
+					idx := 0;
+					
+					for cur in (
+						select * from(
+  							select 
+     							cscbck.iden, to_char(cscbck.data_ultima_modifica, 'dd/MM/yyyy hh24:mi') data_valutazione
+     							,extractvalue(cscbck.contenuto,'//CAMPO[@KEY_CAMPO="chkConleyDom1"]') esito_domanda_1
+     							,extractvalue(cscbck.contenuto,'//CAMPO[@KEY_CAMPO="chkConleyDom2"]') esito_domanda_2
+     							,extractvalue(cscbck.contenuto,'//CAMPO[@KEY_CAMPO="chkConleyDom3"]') esito_domanda_3
+     							,extractvalue(cscbck.contenuto,'//CAMPO[@KEY_CAMPO="chkConleyDom4"]') esito_domanda_4
+     							,extractvalue(cscbck.contenuto,'//CAMPO[@KEY_CAMPO="chkConleyDom5"]') esito_domanda_5
+     							,extractvalue(cscbck.contenuto,'//CAMPO[@KEY_CAMPO="chkConleyDom6"]') esito_domanda_6
+                                ,(select titolo||' '||cognome||' '||nome from tab_per where iden = cscbck.ute_ins) ute_ins   
+  							from
+   								(select iden, iden_originale, contenuto, data_ultima_modifica,ute_ins from RADSQL.cc_scale_bck where iden_originale in (select iden from RADSQL.cc_scale where iden_visita = pIdenVisita and funzione = 'SCALA_CONLEY') order by iden desc) cscbck
+  							)
+  						where rownum <= 6
+					)
+					loop
+						
+						myRec(1+(idx*7)) := '<table width="100%"><tr style="text-align:center;font-size:10px;"><td><b>Valore al</b></td></tr><tr style="text-align:center;font-size:10px;"><td><b>'||cur.data_valutazione||'</b></td></tr><tr style="text-align:center;font-size:8px;"><td><b>'||cur.ute_ins||'</b></td></tr></table>';
+						myRec(2+(idx*7)) := cur.esito_domanda_1;
+						myRec(3+(idx*7)) := cur.esito_domanda_2;
+						myRec(4+(idx*7)) := cur.esito_domanda_3;
+						myRec(5+(idx*7)) := cur.esito_domanda_4;
+						myRec(6+(idx*7)) := cur.esito_domanda_5;
+						myRec(7+(idx*7)) := cur.esito_domanda_6;
+						
+						idx := idx +1;
+					end loop;
+					
+					
+					insert into tab_work (tipo,webuser,
+						valore1,valore2,valore3,valore4,valore5,valore6,valore7,valore8,valore9,valore10,
+						valore11,valore12,valore13,valore14,valore15,valore16,valore17,valore18,valore19,valore20,
+						valore21,valore22,valore23,valore24,valore25,valore26,valore27,valore28,valore29,valore30,
+						valore31,valore32,valore33,valore34,valore35,valore36,valore37,valore38,valore39,valore40,
+						valore41, valore42,valoren1
+					) values (pTipo,pWebUser,
+						myRec(1),myRec(2),myRec(3),myRec(4),myRec(5),myRec(6),myRec(7),myRec(8),myRec(9),myRec(10),
+						myRec(11),myRec(12),myRec(13),myRec(14),myRec(15),myRec(16),myRec(17),myRec(18),myRec(19),myRec(20),
+						myRec(21),myRec(22),myRec(23),myRec(24),myRec(25),myRec(26),myRec(27),myRec(28),myRec(29),myRec(30),
+						myRec(31),myRec(32),myRec(33),myRec(34),myRec(35),myRec(36),myRec(37),myRec(38),myRec(39),myRec(40),
+						myRec(41),myRec(42),pIdenVisita
+					);
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="StampaGlobale.RecuperaIdenLettereFirmate">
+			<sql>
+			<![CDATA[
+					select 
+						iden 
+					from cc_lettera_versioni 
+					where iden_visita in (select iden from nosologici_paziente where num_nosologico = ?) 
+						and attivo='S' and stato='F' and funzione = ? order by data_inserimento desc
+			]]>
+			</sql>
+		</statement>
+		<statement name="StampaGlobale.RecuperaIdenLettereFirmateReparto">
+			<sql>
+			<![CDATA[
+					select 
+						iden 
+					from cc_lettera_versioni 
+					where iden_visita in (select iden from nosologici_paziente where num_nosologico = ? and (iden=? or parent=?) and deleted='N') 
+						and attivo='S' and stato='F' and funzione = ? order by data_inserimento desc
+			]]>
+			</sql>
+		</statement>
+		<statement name="StampaGlobale.RecuperaClobLettereFirmate">
+			<sql>
+			<![CDATA[select PDF_FIRMATO from Radsql.CC_FIRMA_PDF where iden_tab=? and pdf_firmato_creato=? and deleted=?]]>
+			</sql>
+		</statement>
+		<statement name="StampaGlobale.getParametriStampaGlobale">
+			<sql>
+			<![CDATA[select valore1 report_funzioni,valore2 report_nomi,valore3 report_sf,valore4 report_firmato from Radsql.tab_work where webuser=? and valoren1=to_number(?) and tipo=?]]>
+			</sql>
+		</statement>								
+		<statement name="StampaGlobale.setParametriStampaGlobale">
+			<sql>
+			<![CDATA[
+				declare
+					pWebUser 		varchar2(5000) := ?;
+					pIdenRicovero 	pls_integer := to_number(?);
+					pTipo 			varchar2(5000) := ?;
+					poutputfnz		varchar2(5000) := ?;
+					poutputrep		varchar2(5000) := ?;
+					poutputsf		varchar2(5000) := ?;
+					poutputfirm		varchar2(5000) := ?;					
+				begin 
+					delete from radsql.tab_work where webuser = pWebUser and tipo = pTipo;
+					insert into radsql.tab_work (webuser,TIPO,valoreN1,valore1,valore2,valore3,valore4)
+    				values (pWebUser,'PARAMETRI_STAMPA_GLOBALE',pIdenRicovero,poutputfnz,poutputrep,poutputsf,poutputfirm);
+					
+				end;
+			]]>
+			</sql>
+		</statement>	
+	</statements_list>
+</root>

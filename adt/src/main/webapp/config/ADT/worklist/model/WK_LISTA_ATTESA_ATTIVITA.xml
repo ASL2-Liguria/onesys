@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WK_LISTA_ATTESA_ATTIVITA</ID>
+    <ID-QUERY connection="ADT">LISTA_ATTESA_WK.Q_ATTIVITA</ID-QUERY>
+    <TITLE>"Worklist Attività Lista Attesa"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_ATTIVITA</COL>
+                        <DB>DATA_ATTIVITA</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA"</DESCRIPTOR>
+                    <WIDTH>125PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCR_ATTIVITA</COL>
+                        <DB>DESCR_ATTIVITA</DB>
+                    </ID>
+                    <DESCRIPTOR>"ATTIVITA"</DESCRIPTOR>
+                    <WIDTH>175PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NOTE_ATTIVITA</COL>
+                        <DB>NOTE_ATTIVITA</DB>
+                    </ID>
+                    <DESCRIPTOR>"NOTE ATTIVITA"</DESCRIPTOR>
+                    <WIDTH>350PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTENTE</COL>
+                        <DB>UTENTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"UTENTE INSERIMENTO"</DESCRIPTOR>
+                    <WIDTH>150PX</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>               
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

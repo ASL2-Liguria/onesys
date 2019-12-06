@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type='text/javascript' src='../dwr/engine.js' language='JavaScript'></script>
+<script type='text/javascript' src='../dwr/util.js' language='JavaScript'></script>
+<script type='text/javascript' src='../dwr/interface/ajaxQueryCommand.js' language='JavaScript'></script>
+<link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+</head>
+<style>
+.pulsante {
+	width:100%;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	background-image:url(../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	float:right;
+
+}
+
+.pulsante A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsante A:hover {
+	background-image:url(../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+}
+body{
+	background:url(../imagexPix/wallpaper/pattern_sfondo.gif);
+	border:0;
+	padding:0 0 0 0;
+	overflow:hidden;
+	
+}
+</style>
+<body>
+<table class="classTabHeader" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+    	<td class="classTabHeaderSx"></td>
+    	<td class="classTabHeaderMiddle">Selezionare la sezione operativa</td>
+    	<td class="classTabHeaderDx"></td>                
+    </tr>
+</table>
+<table width="100%" style="font-size:24px">
+	<tr>
+    	<td width="50%" >
+        	<div class="pulsante">
+            	<a href="javascript:setSezioneWhale('INVIO_RICHIESTE','SL_RicercaPazienteFrameset?rf1=140&rf2=*&rf3=0&provenienza=FromMenuVerticalMenu');">Gestione Reparto</a>
+            </div>
+         </td>
+    	<td width="50%">
+        	<div class="pulsante">
+            	<a href="javascript:setSezioneWhale('GESTIONE_RICHIESTE','worklistInizio');">Gestione Ambulatoriale</a>
+            </div>
+        </td>        
+    </tr>
+    <tr>
+    	<td>
+        	<ul>
+            	<li>Allettamento</li>
+            	<li>Anamnesi</li>
+            	<li>Richiesta indagini</li>
+            	<li>Pianificazione giornaliera</li>                                                
+            </ul>
+        </td>
+        <td>
+        	<ul>
+            	<li>Prenotazione</li>
+            	<li>Accettazione</li>
+            	<li>Esecuzione</li>                                
+            	<li>Refertazione</li>                                                
+            </ul>        
+        </td>        
+    </tr>
+</table>
+<table class="classTabHeader" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+    	<td class="classTabFooterSx"></td>
+    	<td class="classTabHeaderMiddle">&nbsp;</td>
+    	<td class="classTabFooterDx"></td>                
+    </tr>
+</table>
+</body>
+<script>
+function setSezioneWhale(valore,loadOnstartup)
+{
+	sql ="update web set MENUONSTARTUP='"+valore+"',LOADONSTARTUP='"+loadOnstartup+"' where webuser='"+dialogArguments+"'";
+	alert(sql);
+	  dwr.engine.setAsync(false);
+	  ajaxQueryCommand.ajaxDoCommand('WEB',sql,callBack);
+	  
+	
+	function callBack(resp)
+	{
+		if (resp!='OK')
+			alert(resp);
+		dwr.engine.setAsync(true);
+		self.close();
+		
+	}
+}
+</script>
+</html>

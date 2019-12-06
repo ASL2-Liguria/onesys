@@ -1,0 +1,89 @@
+<PAGINA key_id="MMG_ASSISTENZA_PROGR">
+	<HEADER_PAGE key_id="MMG_ASSISTENZA_PROGR"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ASSISTENZA_PROGR#DEFAULT_MMG,MMG_ASSISTENZA_PROGR"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_ASSISTENZA_PROGR#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="MMGAssProgr#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabPartePrima"
+				valore="tabPartePrima" evento="START">
+				<!-- <FIELDSET_TABLE key_id="fld1" valore="fld1" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome##lettura#NOME" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome##txtCognome##lettura#COGNOME" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_DATA key_id="txtData_Nascita" valore="lblData_Nascita##txtData_Nascita#Data_Nascita#startWithToday:false, format: 'd/m/Y',direction:false#disabled:false##DATA_NASCITA" evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_RADIO key_id="Sesso" valore="lblSesso##Sesso#radSesso#{width:100}#S#SESSO" evento="START_END"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtIndirizzo" valore="lblIndirizzo##txtIndirizzo##lettura#INDIRIZZO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtC_F" valore="lblC_F##txtC_F##lettura#C_F" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Casa_Riposo" valore="lblCasa_Riposo##Casa_Riposo#radCasa_Riposo#{width:100}#S#CASA_RIPOSO" evento="START_END"></TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE> -->
+				<FIELDSET_TABLE key_id="fld2" valore="fld2" evento="START">
+					<TR_TD_LABEL_RADIO key_id="Casa_Riposo" valore="lblCasa_Riposo##Casa_Riposo#radCasa_Riposo#{width:100}#S#CASA_RIPOSO" evento="START_END"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtDettCasaRiposo" valore="lblDettCasaRiposo##txtDettCasaRiposo###DETT_CASA_RIPOSO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_DATA key_id="DataCompilazione" valore="lblDataCompilazione##txtDataCompilazione#DataCompilazione#direction:false,format: 'd/m/Y',startWithToday:true#disabled:false##DATA_COMPILAZIONE" evento="START"></TR_TD_LABEL_DATA>
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Coerenza" valore="lblCoerenza##Coerenza#Coerenza#N#COERENZA" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="Aiuto_Deamb" valore="lblAiuto_Deamb##Aiuto_Deamb#Aiuto_Deamb#N#AIUTO_DEAMB" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Orientamento" valore="lblOrientamento##Orientamento#Orientamento#N#ORIENTAMENTO" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="Abbigliamento" valore="lblAbbigliamento##Abbigliamento#Abbigliamento#N#ABBIGLIAMENTO" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Inserimento_Soc" valore="lblInserimento_Soc##Inserimento_Soc#Inserimento_Soc#N#INSERIMENTO_SOC" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="Tipo_Alim" valore="lblTipo_Alim##Tipo_Alim#Tipo_Alim#N#TIPO_ALIM" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Vista" valore="lblVista##Vista#Vista#N#VISTA" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="Aiuto_Alim" valore="lblAiuto_Alim##Aiuto_Alim#Aiuto_Alim#N#AIUTO_ALIM" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr5" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Udito" valore="lblUdito##Udito#Udito#N#UDITO" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="Continenza" valore="lblContinenza##Continenza#Continenza#N#CONTINENZA" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr6" valore="" evento="START">
+					<TD_LABEL_COMBO key_id="Parola" valore="lblParola##Parola#Parola#N#PAROLA" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="Mob_dal_Letto" valore="lblMob_dal_Letto##Mob_dal_Letto#Mob_dal_Letto#N#MOB_DAL_LETTO" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr7" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Igiene" valore="lblIgiene##Igiene#Igiene#N#IGIENE" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="Igiene_Posto_Letto" valore="lblIgiene_Posto_Letto##Igiene_Posto_Letto#Igiene_Posto_Letto#N#IGIENE_POSTO_LETTO" evento="START"></TD_LABEL_COMBO>
+					</TR.INIT>
+					<TR.INIT key_id="tr8" valore="" evento="START">
+						<TD_LABEL_COMBO key_id="Mob_Interna" valore="lblMob_Interna##Mob_Interna#Mob_Interna#N#MOB_INTERNA" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_TEXT key_id="txtValoreTotale" valore="lblValoreTotale##txtValoreTotale##lettura#VALORE_TOTALE" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabParteSeconda"
+				valore="tabParteSeconda" evento="START">
+				<FIELDSET_TABLE key_id="fld3" valore="fld3" evento="START">
+					<TR_TD_CHECK key_id="chkDiagnosi1" valore="Diagnosi1#chkDiagnosi1#N#{width:845,ctrl:false}##DIAGNOSI_1" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi2" valore="Diagnosi2#chkDiagnosi2#N#{width:845,ctrl:false}##DIAGNOSI_2" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi3" valore="Diagnosi3#chkDiagnosi3#N#{width:845,ctrl:false}##DIAGNOSI_3" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi4" valore="Diagnosi4#chkDiagnosi4#N#{width:845,ctrl:false}##DIAGNOSI_4" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi5" valore="Diagnosi5#chkDiagnosi5#N#{width:845,ctrl:false}##DIAGNOSI_5" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi11" valore="Diagnosi11#chkDiagnosi11#N#{width:845,ctrl:false}##DIAGNOSI_11" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi6" valore="Diagnosi6#chkDiagnosi6#N#{width:845,ctrl:false}##DIAGNOSI_6" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi7" valore="Diagnosi7#chkDiagnosi7#N#{width:845,ctrl:false}##DIAGNOSI_7" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi8" valore="Diagnosi8#chkDiagnosi8#N#{width:845,ctrl:false}##DIAGNOSI_8" evento="START"></TR_TD_CHECK>
+					<TR_TD_CHECK key_id="chkDiagnosi9" valore="Diagnosi9#chkDiagnosi9#N#{width:845,ctrl:false}##DIAGNOSI_9" evento="START"></TR_TD_CHECK>
+					<TR_TD_TEXT key_id="txtAltro" valore="txtAltro####ALTRO" evento="START"></TR_TD_TEXT>
+					<TR_TD_CHECK key_id="chkDiagnosi10" valore="Diagnosi10#chkDiagnosi10#N#{width:845,ctrl:false}##DIAGNOSI_10" evento="START"></TR_TD_CHECK>
+					<TR_TD_TEXT key_id="txtImp_Log" valore="txtImp_Log####IMP_LOG" evento="START"></TR_TD_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fld4" valore="fld4" evento="START">
+					<TR_TD_TEXTAREA key_id="txtDiagn_Dett" valore="txtDiagn_Dett#DIAGN_DETT" evento="START"> </TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fld5" valore="fld5" evento="START">
+					<TR_TD_TEXTAREA key_id="txtRich_Motiv" valore="txtRich_Motiv#RICH_MOTIV" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fld6" valore="fld6" evento="START">
+					<TR_TD_RADIO key_id="radAcc_Dom" valore="Acc_Dom#radAcc_Dom#{width:150}#N#ACC_DOM" evento="START_END"></TR_TD_RADIO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

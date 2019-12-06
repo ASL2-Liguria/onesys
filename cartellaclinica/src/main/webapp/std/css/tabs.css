@@ -1,0 +1,80 @@
+*{
+	margin:0px;
+	padding:0px;
+	/*border:0px;*/
+	font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+	background:url(../../imagexPix/img/sfBody.png) repeat-x;
+}
+
+div#tabs{
+	clear:both;
+}
+
+ul.ulTabs{
+	height:20px;
+	list-style: none;
+    margin:5px 5px 0 0;
+    padding:0;
+	overflow:hidden;
+	}
+	ul.ulTabs li {
+		background:url(../../imagexPix/img/sfTabs.png) ;
+		float: left;
+		margin: 0 1px 0 0;
+		padding-left: 10px;
+		margin-right: 4px;
+		}
+		ul.ulTabs li.tabActive{
+			background-position:0 -30px;
+			}
+			ul.ulTabs li.tabActive *{
+				background-position:100% -30px;
+				color:#fff;				
+			}
+	ul.ulTabs li * {
+		background: url(../../imagexPix/img/sfTabs.png) 100% 0;
+		color: #000;
+		float: left;
+		height: 20px;
+		line-height: 20px;
+		padding-right: 10px;
+		text-decoration: none;
+		display: block;
+		margin-right:-5px;	
+		text-transform:capitalize;
+		font-weight:bold;
+		cursor:pointer;
+		font-size:12px;
+	}
+
+	div.divtab{
+		background:url(../../imagexPix/img/sfTable.png) repeat-x #fff;
+		border:1px solid #666;
+		border-top:0;		
+		overflow:auto;
+	}
+	div#headerTabs,div.Header{background:url(../../imagexPix/img/bars.png) 0 0px repeat-x #ccc;border:1px solid #666;border-top:0;color:#000;height:24px;margin-top:-1px;padding:0 7px;}
+		div#headerTabs h2,div.Header h2{line-height:24px;font-weight:bold;font-size:12px;}
+	#contentTabs{margin-top:-1px;border-left:1px solid black;border-right:1px solid black;padding:0 3px;}
+	div#footerTabs{
+		background:url(../../imagexPix/img/bars.png) 0 0px repeat-x #ccc;
+		border-left:1px solid #666;
+		border-right:1px solid #666;
+		color:#fff;
+		height:24px;
+		margin-top:-1px;
+		padding:0 2px;
+		clear:both;
+		}
+
+div.buttons{float:right;}
+	a.button{margin: 3px 0 0 5px;width:90px;height:18px;line-height:18px;background:url(../../imagexPix/img/button.png) 0 0 no-repeat;display:block;float:left;color:#fff;
+	text-align:center;font-size:11px;text-decoration:none;font-weight:bold;text-transform:capitalize;cursor:pointer;}
+	a.button:hover{background:url(../../imagexPix/img/button.png) 0 -18px no-repeat;}
+
+div.Tab{
+	display:none;
+}

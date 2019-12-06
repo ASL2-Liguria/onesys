@@ -1,0 +1,34 @@
+<PAGINA key_id="PASSAGGIO_MEDICO">
+    <HEADER_REFERTAZIONE key_id="PASSAGGIO_MEDICO" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,PASSAGGIO_MEDICO#DEFAULT,PS_PASSAGGIO_MEDICO" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati####IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="PASSAGGIO_MEDICO#lblTitolo#butSalva" evento="START">
+
+                <INPUT.HIDDEN key_id="hStatoListaAttesa" valore="hStatoListaAttesa" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUtenteSorgente" valore="hUtenteSorgente" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hProvenienza" valore="hProvenienza" evento="START">
+                </INPUT.HIDDEN>
+                <ROW key_id="rowPassaggioMed" valore="rowPassaggioMed" evento="START">
+                    <COLUMN_FREE key_id="colPassaggioMed" valore="colPassaggioMed" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldPassaggioMed" valore="fldPassaggioMed"	evento="START">
+                            <TR_TD_LABEL_COMBO key_id="cmbRepDestinazione" valore="lblRepDestinazione##cmbRepDestinazione#cmbRepDestinazione#N#SALVA#S#" evento="START">
+                            </TR_TD_LABEL_COMBO>
+                            <TR_TD_LABEL_DATA key_id="dateData" valore="lblData##dateData#DataNasc#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblData#" evento="START">
+                            </TR_TD_LABEL_DATA>
+                            <TR_TD_LABEL_ORA key_id="txtOraInizio" valore="lbloraInizioRicovero##txtOraInizio#N" evento="START">
+                            </TR_TD_LABEL_ORA>
+                            <TR_TD_AUTOCOMPLETE key_id="Medico" valore="lblMedico#acMedico#medico#txtMedico#Medici" evento="START">
+                            </TR_TD_AUTOCOMPLETE>
+                            <TR_TD_LABEL_TEXTAREA key_id="txtNote" valore="lblNote#txtNote#txtNote#txtNote#N" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

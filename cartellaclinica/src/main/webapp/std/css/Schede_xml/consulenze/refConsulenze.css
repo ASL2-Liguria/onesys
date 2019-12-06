@@ -1,0 +1,421 @@
+html{overflow:hidden;}
+
+body 
+{
+	overflow	: hidden;	
+}
+
+form 
+{
+	margin: 0px;
+}
+
+#divHeader 
+{
+	width	: 100%;
+}
+
+#divBody 
+{
+	width	: 100%;
+}
+
+#divIntestazione 
+{
+	width	: 100%;	
+}
+
+#headerLeft 
+{
+	width	: 52%;
+	float	: left;
+}
+
+#headerRight 
+{
+	width	: 45%;
+	float	: left;
+	
+}
+
+#sections 
+{
+	width		: 52%;
+	float		: left;	
+	background	: #E9F3FE;
+	border		: blue;
+ 	overflow-y	: scroll;
+ 	overflow-x	: hidden;	
+	padding-left: 5px;
+	margin-bottom: 20px;	
+}
+
+
+
+#infos 
+{
+	width		: 45%;
+	float		: left;
+	background	: #E9F3FE;
+ 	overflow-y	: scroll;
+ 	overflow-x	: hidden;	
+	border		: blue;
+	margin-bottom: 20px;
+}
+
+#divFrame{
+	width		: 100%;	
+	height		: 125px;
+}
+
+#idFrameConsenso{
+	width		: 100%;	
+	height		: 100%;	
+}
+
+
+#infos div.dataContainer 
+{
+	width	: 100%;
+	height	: 95%;
+	clear	: both; 
+}
+
+div.tabHide 
+{
+	display	: none;
+}
+
+div.tabShow 
+{
+	width	: 100%;
+	height	: 80%;
+	display	: block;
+}
+
+ul 
+{
+	margin	: 0px;
+	font: bold 12px Verdana, sans-serif;
+	padding	: 0px;	
+}
+
+ul li 
+{
+	display		: inline;
+	line-height	: 28px;
+}
+
+ul li span {
+	background: url(../../../../imagexPix/tabulator/normalTab.png) repeat-x;
+	COLOR: black;
+	text-decoration: none;
+	PADDING: 5px 10px;
+	BORDER: 1px solid #E9FEFE;
+}
+
+ul li.active span {
+	background: url(../../../../imagexPix/tabulator/selectedTab.png)
+		repeat-x;
+	COLOR: white;
+}
+
+ul li span:hover {
+	background: url(../../../../imagexPix/tabulator/hoverTab.png) repeat-x;
+	BORDER: 1px solid blue;
+	COLOR: black;
+	cursor:pointer;
+}
+
+textarea 
+{
+	width		: 100%;
+}
+
+.SubTitleSection{
+	width		: 94%;
+	height		: 22px;
+	float		: left;
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat-x;
+	color		: white;
+	font		: bold 12px Verdana, sans-serif;
+	padding-top	: 5px;
+	padding-left:5px;
+}
+
+div.row 
+{
+	width	: 100%;
+	clear	: both;
+}
+
+span.detail 
+{
+	width		: 60%;
+	float		: left;
+	padding		: 3px;
+	margin		: 2px;
+	border		: 1px solid #95BAFF;
+	background	: #FFF;
+	color		: #000;
+	font		: 10px Verdana, sans-serif;
+}
+
+span.detail:hover 
+{
+	background	: #FCFDC6;
+}
+
+.right 
+{
+	float	: right;
+}
+
+
+/***********************/
+/****divRicerca INFOS***/
+/***********************/
+
+
+div.ricerca 
+{
+	height	: 10%
+}
+
+
+
+div.ricerca input 
+{
+	margin	: 3px;
+}
+
+div.risultati 
+{
+	height		: 230px;
+	overflow-y	: scroll;
+	overflow-x	: hidden;
+}
+
+table.risultati 
+{
+	width	: 100%;
+}
+
+div.testo 
+{
+	height	: 40%;
+	overflow: hidden;
+	display	: none;
+	width	: 100%;
+}
+
+div.testo input 
+{
+	margin: 3px;
+}
+
+div.testoShow 
+{
+	height		: auto;
+	background	: #FFF;
+	overflow-x	: hidden;
+	overflow-y	: scroll;
+}
+
+a.btn 
+{
+	background		: url(../../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	color			: blue;
+	font-weight		: bold;
+	line-height		: 21px;
+	margin-top		: 3px;
+	padding			: 0px 10px;
+	text-decoration	: none;
+}
+
+a.btn:hover 
+{
+	background		: url(../../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color			: yellow;
+	text-decoration	: none;
+}
+
+table 
+{
+	table-layout	: auto;
+	white-space		: nowrap;
+}
+
+tr:hover th 
+
+{
+	background	: #FCFDC6;
+}
+
+tr:hover td 
+{
+	background	: #FCFDC6;
+}
+
+th 
+{
+	background	: #e5effd;	
+	border		: 1px solid #95BAFF;
+	color		: 000;
+	font		: bold 10px Verdana, sans-serif;
+	margin		: 2px;
+	padding		: 3px;	
+}
+
+
+div#infos td,div#divRisultati td,div#divTestoEdit td 
+{
+	background	: #FFF;
+	border		: 1px solid #95BAFF;	
+	color		: #000;
+	font		: 10px Verdana, sans-serif;
+	margin		: 2px;
+	padding		: 3px;
+}
+
+div.tableButton 
+
+{
+	width		: 15px;
+	border		: 1px solid #95BAFF;	
+	color		: #95BAFF;
+	cursor		: pointer;
+	float		: left;
+	margin		: 1px;
+	text-align	: center;
+}
+
+div.tableButton:hover 
+{
+	border-color: blue;
+	color		: blue;
+}
+
+/*
+<!-- ****************************************** -->
+<!-- ********* Footer  ************************ -->
+<!-- ****************************************** --> 
+*/
+div#footer 
+{
+	width		: 99%;
+	height		: 25px;
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat-x;
+	bottom		: 0;
+	clear		: both;
+	color		: #FFF;
+	overflow	: hidden;
+	padding		: 2px;
+	position	: absolute;
+}
+
+
+.pulsanteBarraFooter 
+{
+	width				: 120px;
+	float				: right;
+	display				: block;
+	background-image	: url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat	: repeat-x;
+	color				: blue;
+	font-weight			: bold;	
+	line-height			: 21px;
+	margin-left			: 3px;	
+	padding-left		: 2px;
+	padding-right		: 2px;
+	text-align			: center;
+	text-decoration		: none;
+}
+
+.pulsanteBarraFooter:hover 
+{
+	background-image	: url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat	: repeat-x;
+	color				: yellow;
+	font-weight			: bold;
+	cursor				: pointer;
+}
+
+/***********************/
+/****div Intestazione***/
+/***********************/
+span.header 
+{
+	width		: 100%;
+	float		: left;
+	padding		: 3px;
+	margin		: 2px;
+	border		: 1px solid #95BAFF;
+	/*background	: url(../../../../imagexPix/tabheader/top_tabella.gif) repeat-x;*/
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+}
+
+
+
+table.tabDataOra tr td.tdDataOra
+{
+	background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+	border		: 1px solid #95BAFF;
+	color		: white;
+	font		: bold 12px Verdana, sans-serif;
+}
+
+table.tabDataOra tr td
+{
+	background	: url(../../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	font		: bold 12px Verdana, sans-serif;
+}
+
+
+.fieldset
+{
+    border		: 1px solid #03F;
+    margin-top	: 20px;
+    width		: 500px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+
+.fieldset span
+{
+    display		: inline;
+    border		: 1px solid #03F;
+    background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+    padding		: 5px 10px;
+    position	: relative;
+    top			: -1em;
+	left		: +0.5em;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+    text-align	: center;
+}
+
+.fieldsetDurata
+{
+    border		  	: 1px solid #03F;
+    width		  	: 800px;
+	padding			: 5px;
+}
+
+.fieldsetDurata legend
+{
+	margin-top	: 5px;
+    border		: 1px solid #03F;
+    background	: url(../../../../imagexPix/tabulator/selectedTab.png) repeat;
+    padding		: 5px 5px;
+	color		: #FFF;
+	font		: bold 12px Verdana, sans-serif;
+    text-align	: center;
+}
+
+.fieldsetDurata div.divDurataTrattamento
+{
+    padding		: 5px;
+}

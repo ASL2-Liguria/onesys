@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>Screening Colonscopia</title>
+        
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />    
+        <link rel="stylesheet" href="css/Screening.css" />            
+
+        <script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+		<script src="js/engineColloquio.js"></script>    
+        
+        <script type="text/javascript" src="../../dwr/engine.js"></script>
+        <script type="text/javascript" src="../../dwr/util.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/eventDWR.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+<!--    <script type="text/javascript" src="../../dwr/interface/toolKitUtility.js"></script>
+        <script type="text/javascript" src="../../std/jscript/engine/eventi.js"></script>
+        <script type="text/javascript" src="../../std/jscript/engine/prototype.js"></script>
+        <script type="text/javascript" src="../../std/jscript/engine/toolkit_pagina.js"></script>     -->
+        
+    </head>
+<body>
+<!----------------------------------------------------------------------------------------------------------------------->
+
+<div data-role="header" class="ui-bar-a ui-header" role="banner"  data-theme="b">
+<h1 id="titolo_scheda" class="ui-title"  role="heading" aria-level="1">Colloquio Infermieristico per:</h1>
+<h3 id="titolo_scheda_dett" class="ui-title"  role="heading" aria-level="1">Paziente</h3>
+<!--<input name="txtpaz" id="txtpaz" placeholder="" value="" type="text" />-->
+</div>
+   
+<div data-role="content" >
+<form>            
+<table width="100%" border="1">  
+    <tr>
+        <th scope="col" width="50%">      
+            <div id="groupNumEsa" data-role="fieldcontain">            
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">                
+                    <div id="mod_acc">Colonscopia:</div>
+                    <input id="chkPrimoS" name="primo_esame" type="checkbox" value="S" /><label for="chkPrimoS">1°Esame</label>
+                    <input id="chkPrimoN" name="primo_esame" type="checkbox" value="N" /><label for="chkPrimoN">Esame successivo al 1°</label>
+                </fieldset>
+            </div>
+        </th>
+        <th scope="col" width="50%" title="Selezionano 'Sì' verrà azzerata la selezione sulla sezione 'Motivo di non adesione'">      
+            <div id="groupNumEsa" data-role="fieldcontain">            
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">                
+                    <div id="mod_acc" >Il paziente ha aderito?</div>
+                    <input id="chkAdesioneS" name="abilita_adesione" type="checkbox" value="S" /><label for="chkAdesioneS">Sì</label>
+                    <input id="chkAdesioneN" name="abilita_adesione" type="checkbox" value="N" /><label for="chkAdesioneN">No</label>
+                </fieldset>
+            </div>
+        </th>            
+    </tr>
+        <th scope="col" width="50%">
+            <div id="groupL1" data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+                    <div id="mod_acc"> Modalità di Accesso</div>
+                    <input id="chkModAcc1" name="modalita_accesso" type="checkbox" value="01" /><label for="chkModAcc1">Screening FOBT positivo</label>
+                    <input id="chkModAcc2" name="modalita_accesso" type="checkbox" value="02" /><label for="chkModAcc2">CLISMA OPACO positivo</label>
+                    <input id="chkModAcc3" name="modalita_accesso" type="checkbox" value="03" /><label for="chkModAcc3">Familiarità</label>
+                    <input id="chkModAcc4" name="modalita_accesso" type="checkbox" value="04" /><label for="chkModAcc4">FollowUp</label>
+                    <input id="chkModAcc5" name="modalita_accesso" type="checkbox" value="05" /><label for="chkModAcc5">Ripetizione Esame</label>
+                    <input id="chkModAcc6" name="modalita_accesso" type="checkbox" value="06" /><label for="chkModAcc6">Procedura Terapeutica</label>
+                    <input id="chkModAcc7" name="modalita_accesso" type="checkbox" value="07" /><label for="chkModAcc7">Patologia</label>
+                    <input id="chkModAcc8" name="modalita_accesso" type="checkbox" value="09" /><label for="chkModAcc8">Altro</label>
+                    <input id="chkModAcc9" name="modalita_accesso" type="checkbox" value="04" /><label for="chkModAcc9">Early Recall</label>
+                    <input id="chkModAcc10" name="modalita_accesso" type="checkbox" value="26" /><label for="chkModAcc10">Colografia TC</label>
+                </fieldset>
+            </div>
+        </th>
+        <th scope="col" width="50%">      
+            <div id="groupL2" data-role="fieldcontain">            
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">                
+                    <div id="mod_acc">Motivo di non Adesione</div>
+                    <input id="chkRif1" name="motivo_rif" type="checkbox" value="01" /><label for="chkRif1">In attesa di eseguire colonscopia</label>
+                    <input id="chkRif2" name="motivo_rif" type="checkbox" value="02" /><label for="chkRif2">Rifiuto II livello</label>
+                    <input id="chkRif3" name="motivo_rif" type="checkbox" value="03" /><label for="chkRif3">Rifiuto Colonscopia</label>
+                    <input id="chkRif4" name="motivo_rif" type="checkbox" value="04" /><label for="chkRif4">Rifiuto per motivi tecnici/organizzativi</label>
+                    <input id="chkRif5" name="motivo_rif" type="checkbox" value="05" /><label for="chkRif5">Rifiuto per motivi personali</label>
+                    <input id="chkRif6" name="motivo_rif" type="checkbox" value="06" /><label for="chkRif6">Si rivolge ad altra struttura</label>
+                    <input id="chkRif7" name="motivo_rif" type="checkbox" value="07" /><label for="chkRif7">Endoscopia recente validata</label>
+                    <label id="lblData_RecVal" for="txtdata_RecVal">Data Endoscopia</label><input name="txtdata_RecVal" id="txtdata_RecVal" placeholder="" value="" type="text" />
+                    <input id="chkRif8" name="motivo_rif" type="checkbox" value="08" /><label for="chkRif8">Non eseguibile per motivi di salute</label>
+                    <input id="chkRif9" name="motivo_rif" type="checkbox" value="09" /><label for="chkRif9">Altro</label>
+                    <input id="chkRif10" name="motivo_rif" type="checkbox" value="99" /><label for="chkRif10">Non presentato al colloquio infermieristico</label>
+                </fieldset>
+            </div>
+        </th>
+    </tr>    <tr>
+          <th scope="row"><div id="groupDataDisp" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div> Data prima disponibilità Colonscopia</div>
+              <input name="data_disp" id="txtdata_disp" placeholder="" value="" type="text" />
+            </fieldset>
+          </div></th>
+          <th scope="row"><div id="7groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div> Data esecuzione Colonscopia</div>
+              <input name="data_esecuzione" id="txtdata_exe" placeholder="" value="" type="text" />
+            </fieldset>
+          </div></th>
+        </tr>
+    <tr>
+      <th colspan="2" scope="col">
+        <div id="groupDataExe" data-role="fieldcontain">
+          <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <div> Note </div>
+            <textarea name="txtnote" rows="4" id="txtnote" placeholder=""></textarea>
+            </fieldset>
+          </div>
+        </th>      
+    </tr>
+</table>
+<table width="100%" border="1">
+<tr>  </tr>
+</table>
+</form>
+<div data-theme="b" data-role="footer" data-position="fixed">
+                <h3>
+      </h3>
+                <a data-role="button" href="javascript:self.close();" class="ui-btn-right">
+                    Chiudi
+                </a>
+                <a data-role="button" href="javascript:salva();" class="ui-btn-left">
+                    Salva
+                </a>
+  </div>
+</div>
+</div>   
+<!----------------------------------------------------------------------------------------------------------------------->
+</body>
+<script>
+</script>
+</html>

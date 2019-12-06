@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>
+        <statement name="getTerapieReparto">
+            <sql>
+                <![CDATA[
+                    select ctt.cod_dec cod_terapia, ctt.descrizione descr_terapia, ctt.iden tipo_terapia, t.*
+                    from (
+                    	-- Terapie del paziente
+                        select
+                            ctr.iden iden_terapia,
+                            cts.iden iden_scheda,
+                            ctr.stato stato_terapia,
+                            ctr.data_ini data_ini,
+                            ctr.tipo_terapia tipo_t_terapia,
+                            (select descrizione from cc_terapie_conf_scheda where iden = cts.iden_conf_scheda) tipologia,
+                            to_char(cts.data_ini,'dd/mm/yyyy')||' '||to_char(cts.data_ini,'hh24:mi') ||'<br/>'||
+                            case
+                                when cts.data_fine is null then 'fino a fine ricovero'
+                                else   'fino al '||to_char(cts.data_fine,'dd/mm/yyyy')|| ' '||to_char(cts.data_fine,'hh24:mi') 
+                            end durata,
+                            extractvalue(cc_piano_giornaliero.getxmlscheda(cts.iden),'//UserInput[@name="VolumeTotale"]/@value') volumetotale,
+                            extractvalue(cc_piano_giornaliero.getxmlscheda(cts.iden),'//UserInput[@name="Velocita"]/@value')||' '||
+                            extractvalue(cc_piano_giornaliero.getxmlscheda(cts.iden),'//UserInput[@name="UdmVelocita"]/OPTION[@value=../@value]/text()') velocita,
+                            cc_visualizza_terapie_farmaci(cts.iden,ctr.tipo_terapia,'F','<br/>')farmaci,
+                            cc_visualizza_terapie_farmaci(cts.iden,ctr.tipo_terapia,'D','<br/>')dosaggio,
+                            cc_visualizza_terapie_farmaci(cts.iden,ctr.tipo_terapia,'O','<br/>')impostazioni,
+                            cc_visualizza_terapie_farmaci(cts.iden,ctr.tipo_terapia,'P','<br/>')posologia/*,
+                            extractvalue(cc_piano_giornaliero.getxmlscheda(cts.iden),'//UserInput[@name="CambiaDosi"]/@value') cambia_dosi*/
+                        from cc_terapie_ricovero ctr
+                            join cc_terapie_scheda cts on (ctr.iden = cts.iden_terapia and cts.stato <> 'X')
+                            join nosologici_paziente np on (np.iden = ctr.iden_visita and np.deleted='N')
+                            left join nosologici_paziente np2 on (np2.iden = np.parent and np2.deleted='N')
+                        where (np.iden=? or np.parent=?)
+                            /*and ctr.stato = 'P' */
+                            and ctr.deleted='N'
+                            and (
+                            	-- Periodo selezionato
+                            	(cts.data_ini <= to_date(?,'yyyyMMdd')+1
+                            	and (
+	                                cts.data_fine is null or cts.data_fine >= to_date(?,'yyyyMMdd')
+                            	)
+                            	and (
+	                            	np2.data_fine_ricovero is null or to_date(np2.data_fine_ricovero||np2.ora_fine_ricovero, 'yyyyMMddhh24:mi') >= sysdate
+    	                        ))
+    	                    	
+    	                    	-- Tutto l'episodio
+                            	or ?=1
+                            )
+                            and (
+                            	-- Non mostrare le terapie chiuse 
+                            	ctr.stato<>'C'
+                            	or ?=1
+                            )
+                        -- order by ctr.tipo_terapia, ctr.data_ini
+                    ) t
+                    right outer join
+                    
+                    -- Tipo di terapie configurate per il reparto
+                    cc_terapie_type ctt on ctt.iden = t.tipo_t_terapia
+                    inner join cc_terapie_reparto r on (ctt.iden=r.iden_terapia)
+                    where r.codice_reparto=? and r.attivo='S'
+                    order by r.ordine, tipo_terapia, data_ini
+			    ]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

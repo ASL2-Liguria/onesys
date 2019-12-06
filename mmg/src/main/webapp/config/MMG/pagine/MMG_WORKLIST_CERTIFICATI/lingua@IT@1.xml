@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabCertificato>Certificati</tabCertificato>
+        <lblTitolo>Lista dei certificati</lblTitolo>
+        <fldRicerca>Filtri</fldRicerca>
+        <fldLista>Lista Certificati</fldLista>
+        <lblNome>Nome</lblNome>
+        <lblCognome>Cognome</lblCognome>
+        <lblDataNascita>Data Nascita</lblDataNascita>
+        <lblDaData>Dal</lblDaData>
+		<lblAData>Al</lblAData>
+		
+		<lblRettifica>Rettifica/Annulla Certificato</lblRettifica>
+		<lblStampaCertificato>Stampa Certificato (modulo nuovo)</lblStampaCertificato>
+		<lblStampaOnlyOne>Stampa Certificato (solo copia paziente)</lblStampaOnlyOne>
+		<lblStampaPdf>Visualizza e Stampa certificato come PDF</lblStampaPdf>
+		<lblStampaOld>Stampa Certificato (modulo vecchio)</lblStampaOld>
+		<lblMail>Invio certificato via mail</lblMail>
+		<lblInserisciCertificato>Inserisci nuovo certificato</lblInserisciCertificato>
+		<lbltxtCampoA>Campo A</lbltxtCampoA>
+		<lbltxtCampoCC>Campo CC</lbltxtCampoCC>
+		<lbltxtOggettoMail>Oggetto Mail</lbltxtOggettoMail>
+		<lbltxtTestoMail>Testo Mail</lbltxtTestoMail>
+		
+		<butRicerca>Ricerca</butRicerca>
+		<butClose>Chiudi</butClose>
+		
+		<lblmailNonValida> non è una mail valida</lblmailNonValida>
+		
+		<lblNota_I>In questo campo va
+				   inserito l'indirizzo mail del destinatario (in caso di indirizzi multipli vanno
+			       separati da una virgola).
+		</lblNota_I>
+        <lblNota_II>In questo campo va
+					inserito l'indirizzo mail dei destinatari in Copia Conoscenza (in caso di
+					indirizzi multipli vanno separati da una virgola).
+		</lblNota_II>
+		
+		<butInserisci>Inserisci Nuovo Certificato</butInserisci>
+			
+    </ROW>
+</ROWSET>

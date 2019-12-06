@@ -1,0 +1,10 @@
+<INCLUDE>
+    <CSS path="css/PS/SchedaAnagrafica/SchedaAnagrafica.css" />
+    <JS path="js/ADT/Contatto/ContattoMethods.js" />
+    <JS path="js/PS/Xml/GestioneXml.js"/>
+    <JS path="plugin/jsrender/jsrender.js"/>
+    <JS path="js/PS/SchedaAnagrafica/ns_controllo_cod_fisc.js"/>
+    <JS path="js/PS/SchedaAnagrafica/SalvataggioAnagrafica.js"/>
+    <JS path="js/PS/SchedaAnagrafica/SchedaAnagrafica.js" />
+    <JS path="config/PS/validator/model/V_PS_ANAGRAFICA.js" />
+</INCLUDE>

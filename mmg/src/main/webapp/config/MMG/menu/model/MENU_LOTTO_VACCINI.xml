@@ -1,0 +1,16 @@
+<MENU>
+	<id>MENU_LOTTO_VACCINI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MP.CP</ID>
+			<LINK><![CDATA[function(rec){CONTEGGIO_VACCINI.cancellaLotto(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Cancella Lotto"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

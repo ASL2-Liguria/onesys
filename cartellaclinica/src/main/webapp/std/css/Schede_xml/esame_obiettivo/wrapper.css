@@ -1,0 +1,28 @@
+body,html{
+	height:100%;
+}
+
+fieldset{
+	margin-bottom:7px;
+	background:url(../../../../imagexPix/img/sfTable.png) repeat-x;
+}
+
+fieldset > div{
+	padding:5px;
+}
+
+iframe{
+	width:100%;
+}
+
+#contentTabs > div{
+	height:100%;
+	overflow-y:scroll;
+	padding:3px;
+}
+
+h2.Alert{
+	border:1px solid red;
+	background:yellow;
+	color:red;
+}

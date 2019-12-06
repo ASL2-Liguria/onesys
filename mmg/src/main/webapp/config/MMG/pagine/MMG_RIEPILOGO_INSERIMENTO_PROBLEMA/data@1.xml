@@ -1,0 +1,40 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+	
+	<DATO key_id="GravitaReazione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_REAZIONE_AVVERSA'' and TIPO_DATO=''Gravita Reazione'''; end;" />
+	<DATO key_id="DettGravitaReazione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_REAZIONE_AVVERSA'' and TIPO_DATO=''Dettaglio Grav Reazione'''; end;" />
+	<DATO key_id="Esito" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_REAZIONE_AVVERSA'' and TIPO_DATO=''Esito'''; end;" />
+	<DATO key_id="DettDecesso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_REAZIONE_AVVERSA'' and TIPO_DATO=''Decesso'''; end;" />
+	<DATO key_id="QualifSegnalatore" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_REAZIONE_AVVERSA'' and TIPO_DATO=''Qualifica Segnalatore'''; end;" />
+	
+	<DATO key_id="Sospesione1" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Reazione1" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Risomministrazione1" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Sintomi1" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="Sospesione2" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Reazione2" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Risomministrazione2" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Sintomi2" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="Sospesione3" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Reazione3" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Risomministrazione3" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Sintomi3" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+</DATI>

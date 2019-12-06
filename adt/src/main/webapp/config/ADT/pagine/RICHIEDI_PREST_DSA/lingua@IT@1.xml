@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Richiesta prestazioni DSA</lblTitolo>
+    	<tabPrest>Prenotazione prestazioni</tabPrest>
+    	<butInvia>Invia richieste a OneSys</butInvia>
+    	<idPrestazioniRicetteDSA>Elenco prestazioni da richiedere</idPrestazioniRicetteDSA>
+    	<idPrestazioniDsa>Erogatore - ricetta - Prestazioni Dsa</idPrestazioniDsa>
+    	<lblQuesito>Quesito</lblQuesito>
+    	<lblQuadro>Quadro clinico</lblQuadro>
+    	<colAltriDati>Tabella dati prestazioni</colAltriDati>
+    </ROW>
+</ROWSET>   

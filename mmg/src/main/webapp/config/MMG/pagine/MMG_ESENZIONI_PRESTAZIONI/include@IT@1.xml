@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Esenzioni/EsenzioniPrestazioni.js" />
+	<CSS path="css/MMG/Esenzioni/EsenzioniPrestazioni.css" />
+</INCLUDE>

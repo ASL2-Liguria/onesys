@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.buttonBox{
+	width:73px;
+}
+div.topButtonBox{
+	height:2px;
+	width:73px;
+	background-image:url(../../../../imagexPix/tabulator/top_buttonBox.png);
+	background-repeat:no-repeat;
+	line-height:2px;
+	padding:0;
+}
+div.middleButtonBox{
+	background-image:url(../../../../imagexPix/tabulator/middle_buttonBox.png);
+	background-repeat:repeat-y;
+	width:73px;
+	padding-left:3px;
+	/*padding-right:3px;*/
+	padding-top:1px;
+	padding-bottom:1px;
+	overflow:hidden;
+	margin:0;
+}
+div.bottomButtonBox{
+	height:18px;
+	width:73px;
+	background-image:url(../../../../imagexPix/tabulator/bottom_buttonBox.png);
+	background-repeat:no-repeat;
+	text-align:center;
+	font-size:10px;
+	font-weight:bold;
+	color:#30C;
+	line-height:18px;
+	
+}

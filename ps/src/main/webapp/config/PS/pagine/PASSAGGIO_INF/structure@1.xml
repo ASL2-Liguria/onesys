@@ -1,0 +1,34 @@
+<PAGINA key_id="PASSAGGIO_INF">
+    <HEADER_REFERTAZIONE key_id="PASSAGGIO_INF" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,PASSAGGIO_INF#DEFAULT,PS_PASSAGGIO_INF" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati###TRASF_GIU#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="PASSAGGIO_INF#lblTitolo#butSalva" evento="START">
+
+                <INPUT.HIDDEN key_id="hStatoListaAttesa" valore="hStatoListaAttesa" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUtenteSorgente" valore="hUtenteSorgente" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hProvenienza" valore="hProvenienza" evento="START">
+                </INPUT.HIDDEN>
+                <ROW key_id="rowPassaggioInf" valore="rowPassaggioInf" evento="START">
+                    <COLUMN_FREE key_id="colPassaggioInf" valore="colPassaggioInf" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldPassaggioInf" valore="fldPassaggioInf"	evento="START">
+                            <TR_TD_LABEL_COMBO key_id="cmbRepDestinazione" valore="lblRepDestinazione##cmbRepDestinazione#cmbRepDestinazione#N#cmbRepDestinazione#S#" evento="START">
+                            </TR_TD_LABEL_COMBO>
+                            <TR_TD_LABEL_DATA key_id="dataPassaggio" valore="lblDataPassaggio##dataPassaggio#dataPassaggio#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataPassaggio#" evento="START">
+                            </TR_TD_LABEL_DATA>
+                            <TR_TD_LABEL_ORA key_id="txtOraPassaggio" valore="lblOraPassaggio##txtOraPassaggio#N" evento="START">
+                            </TR_TD_LABEL_ORA>
+                            <TR_TD_AUTOCOMPLETE key_id="infermiere" valore="lblInfermiere#acInfermiere#infermiere#txtInfermiere#Infermieri#txtInfermiere#2#tdInfermieri" evento="START">
+                            </TR_TD_AUTOCOMPLETE>
+                            <TR_TD_LABEL_TEXTAREA key_id="txtNote" valore="lblNote#txtNote#txtNote#txtNote#N" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

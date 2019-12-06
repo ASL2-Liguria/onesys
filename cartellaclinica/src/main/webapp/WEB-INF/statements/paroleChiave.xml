@@ -1,0 +1,49 @@
+<root>
+	<statements_list>
+		<statement name="setKeyWords">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenTabella pls_integer := to_number(?);
+					pTabella varchar2(5000) := ?;
+					pIdenConcat varchar2(5000) := ?;
+					pSvuotaChar  varchar2(5000) := ?;
+					pSvuota boolean := true;
+					vCount pls_integer;
+					
+					pCampoDescrizione varchar2(5000) := ?;
+					pValoreDescrizione varchar2(5000) := ?;
+					
+					pCampoImpostazioni varchar2(5000) := ?;
+					pValoreImpostazioni varchar2(5000) := ?;
+
+					pCampoReparto varchar2(5000) := ?;
+					pValoreReparto varchar2(5000) := ?;
+				begin
+					if(pSvuotaChar = 'N') then
+						pSvuota := false;
+					end if;
+					set_keywords(pIdenTabella, pTabella ,pIdenConcat,pSvuota);
+					
+					if(pCampoDescrizione is not null) then
+						execute immediate 'update ' || pTabella || ' set ' || pCampoDescrizione || '=:pValoreDescrizione where iden=:pIdenTabella' using pValoreDescrizione,pIdenTabella;
+					end if;
+					
+					if(pCampoImpostazioni is not null) then
+						execute immediate 'update ' || pTabella || ' set ' || pCampoImpostazioni || '=xmltype(:pValoreImpostazioni) where iden=:pIdenTabella' using pValoreImpostazioni,pIdenTabella;
+					end if;					  
+
+					if(pCampoReparto is not null) then
+						execute immediate 'update ' || pTabella || ' set ' || pCampoReparto || '=:pValoreReparto where iden=:pIdenTabella' using pValoreReparto,pIdenTabella;
+						select count(*) into vCount from cc_terapie_modelli_reparti where iden_modello=pIdenTabella and cod_cdc=pValoreReparto;
+						if (vCount=0) then
+						insert into CC_TERAPIE_MODELLI_REPARTI(IDEN_MODELLO,COD_CDC) VALUES(pIdenTabella,pValoreReparto);
+						end if;
+					end if;					
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

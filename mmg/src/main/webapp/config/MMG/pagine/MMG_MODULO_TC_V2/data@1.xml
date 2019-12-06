@@ -1,0 +1,70 @@
+<DATI
+	configurazione="begin 
+
+   if '#IDEN#' is null then
+		   :stato_pagina := 'X';
+		   :key_query := 'INDAGINE_QUESITO_DATI';
+		   :where := null;
+		   :campo_xml := null;
+   else
+		   :stato_pagina := 'K';
+		   :key_query := 'Q_RICARICA_MODULO_TC';
+		   :where := null;
+		   :campo_xml := null;
+   end if;
+
+end;">
+	<DATO key_id="Collaborazione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COLLABORAZIONE" db_descrizione="COLLABORAZIONE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Collaborazione_bis" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COLLABORAZIONE_BIS" db_descrizione="COLLABORAZIONE_BIS" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_RM'' and TIPO_DATO=''Collaborazione_bis'''; end;" />
+	<DATO key_id="Anamnesi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ANAMNESI" db_descrizione="ANAMNESI" configurazione_multi_data="" />
+	<DATO key_id="Quesito" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="QUESITO" db_descrizione="QUESITO" configurazione_multi_data="" />
+	<DATO key_id="Indagine" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDAGINE" db_descrizione="INDAGINE" configurazione_multi_data="" />
+	<DATO key_id="Creatinenemia" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CREATINENEMIA" db_descrizione="CREATINENEMIA" configurazione_multi_data="" />
+	<DATO key_id="VFGF" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VFGF" db_descrizione="VFGF" configurazione_multi_data="" />
+	<DATO key_id="DataCreatinenemia" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_CREATINENEMIA" db_descrizione="DATA_CREATINENEMIA" configurazione_multi_data="" />
+	<DATO key_id="DataVFGF" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_VFGF" db_descrizione="DATA_VFGF" configurazione_multi_data="" />
+	<DATO key_id="Indagine" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDAGINE" db_descrizione="INDAGINE" configurazione_multi_data="" />
+	<DATO key_id="Peso" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PESO" db_descrizione="PESO" configurazione_multi_data="" />
+	<DATO key_id="Dett_Rischio_Allergico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DETTAGLIO_RISCHIO_ALLERGICO" db_descrizione="DETTAGLIO_RISCHIO_ALLERGICO" configurazione_multi_data="" />
+	<DATO key_id="Dett_Tratt_Farma" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DETTAGLIO_TRATT_FARMA" db_descrizione="DETTAGLIO_TRATT_FARMA" configurazione_multi_data="" />
+	<DATO key_id="Disturbi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DISTURBI" db_descrizione="DISTURBI" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Dettaglio_disturbi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DETTAGLIO_DISTURBI" db_descrizione="DETTAGLIO_DISTURBI" configurazione_multi_data="" />
+	<DATO key_id="Mdc_Iodato" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="MDC_IODATO" db_descrizione="MDC_IODATO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Insuff_Renale" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INSUFF_RENALE" db_descrizione="INSUFF_RENALE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Insuff_Epatica" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INSUFF_EPATICA" db_descrizione="INSUFF_EPATICA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Insuff_Cardio_Vasc" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INSUFF_CARDIO_VASC" db_descrizione="INSUFF_CARDIO_VASC" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Diabete" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DIABETE" db_descrizione="DIABETE" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Stato_Gravidanza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="STATO_GRAVIDANZA" db_descrizione="STATO_GRAVIDANZA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Ipertiroidismo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IPERTIROIDISMO" db_descrizione="IPERTIROIDISMO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Mieloma" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="MIELOMA" db_descrizione="MIELOMA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Tratt_Farma" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TRATT_FARMA" db_descrizione="TRATT_FARMA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Rischio_Allergico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RISCHIO_ALLERGICO" db_descrizione="RISCHIO_ALLERGICO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="cmbProblemiPaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="CMB_PROBLEMI_MODULI" />
+</DATI>
+

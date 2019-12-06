@@ -1,0 +1,44 @@
+body {
+	width: 960px;
+}
+
+.RBpuls {
+	margin-bottom: 5px;
+}
+
+label[id^="lblInformativa"], table.campi tr td.tdLbl[id^="lblSezione"], #lblDichiarazioneFinale, #lblDataDichiarazione
+{
+	width: auto !important;
+	height: auto !important;
+	padding: 5px 10px;
+	margin-top: 15px;
+	line-height: 150%;
+	display: block;
+	text-align: left;
+	color: #444;
+}
+
+label[id^="lblInformativa"] {
+	font-size: 12px;
+	font-weight: 700;
+}
+
+table.campi tr td.tdLbl[id^="lblScelta"]
+{
+	font-weight: 400;
+	padding-left: 35px;
+	text-align: left;
+}
+
+#fldTrattamentoDiBase .RadioBox, 
+#fldTrattamentoDiBase table.campi tr td.tdText,
+
+#fldTrattamentoStrumentiInformatici .RadioBox, 
+#fldTrattamentoStrumentiInformatici table.campi tr td.tdText
+{
+	padding-left: 35px;
+}
+
+td.tdData input {
+	margin-left: 10px;
+}

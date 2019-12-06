@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/MMG/Moduli/MMG_Priorita_Clinica.js" />
+	<CSS path="css/MMG/Moduli/MMG_Priorita_Clinica.css" />
+</INCLUDE>
+

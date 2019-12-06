@@ -1,0 +1,26 @@
+<PAGINA key_id="FRASI_STD_REFERTAZIONE">
+	<HEADER_PAGE key_id="FRASI_STD_REFERTAZIONE" valore="DEFAULT,SCHEDA,FRASI_STD_REFERTAZIONE#DEFAULT,FRASI_STD_REFERTAZIONE" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#POLARIS_DATI#FRASI_STD_REFERTAZIONE#IDEN#IDEN_DETTAGLIO" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="FRASI_STD_REFERTAZIONE#lblTitolo#butApplica,butChiudi" evento="START_END">	
+				<TABELLA.INIT key_id="tab1" valore="tab1" evento="START">
+					<TR.INIT key_id="trWk" valore="trWk" evento="START">
+						<TD_LABEL_TEXT key_id="txtGruppo" valore="lblGruppo##txtGruppo" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_RADIO key_id="radCodDescr" valore="radCodDescr#radCodDescr#{width:'auto',idxDefault:1}#N" evento="START">
+						</TD_RADIO>			
+						<TD_TEXT key_id="txtCodDescr" valore="txtCodDescr" evento="START">
+						</TD_TEXT>
+						<TD_BUTTON key_id="btnCerca" valore="btnCerca#btnCerca" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+					<!-- TR.INIT key_id="trSpazio" valore="" evento="START"></TR.INIT>
+					<TR.INIT key_id="trCerca" valore="" evento="START">	
+						<TD.INIT key_id="tdCerca" valore="" evento="START"></TD.INIT>
+					</TR.INIT-->
+				</TABELLA.INIT>	
+			<DIV key_id="divWkFrasi" valore="divWkFrasi" evento="START">
+			</DIV>				
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

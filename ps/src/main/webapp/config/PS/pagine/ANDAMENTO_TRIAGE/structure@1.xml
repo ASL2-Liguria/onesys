@@ -1,0 +1,25 @@
+<PAGINA key_id="ANDAMENTO_TRIAGE">
+    <HEADER_REFERTAZIONE key_id="ANDAMENTO_TRIAGE" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,ANDAMENTO_TRIAGE#DEFAULT,PS_ANDAMENTO_TRIAGE" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="AndamentoTriage" valore="ANDAMENTO_TRIAGE#lblTitolo#" evento="START">
+
+            <FIELDSET_TABLE key_id="tableWkTriage" valore="tableWkTriage" evento="START">
+                 <DIV key_id="divWkTriage" valore="divWkTriage##" evento="START">
+                 </DIV>
+            </FIELDSET_TABLE>
+
+            <FIELDSET_TABLE key_id="tableWkRiepilogoTriage" valore="tableWkRiepilogoTriage" evento="START">
+                <DIV key_id="divWkRiepilogoTriage" valore="divWkRiepilogoTriage##" evento="START">
+                </DIV>
+            </FIELDSET_TABLE>
+
+            <FIELDSET_TABLE key_id="tableWkAnamnesi" valore="tableWkAnamnesi" evento="START">
+                <DIV key_id="divWkAnamnesi" valore="divWkAnamnesi##" evento="START">
+                </DIV>
+            </FIELDSET_TABLE>
+
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

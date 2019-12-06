@@ -1,0 +1,44 @@
+<DATI
+	configurazione="begin 
+   if '#IDEN#' is null then
+		   :stato_pagina := 'R'; 
+		   :key_query := 'LOAD_SCHEDA_XML_LAST'; 
+		   :where := null; 
+		   :campo_xml := 'CONTENUTO'; 
+   else
+		   :stato_pagina := 'M'; 
+		   :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; 
+		   :where := null; 
+		   :campo_xml := 'CONTENUTO'; 
+   end if;
+end;">
+	<DATO key_id="Coerenza" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_COERENZA" />
+	<DATO key_id="Orientamento" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_ORIENTAMENTO" />
+	<DATO key_id="Vista" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_VISTA" />
+	<DATO key_id="Udito" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_UDITO" />
+	<DATO key_id="Parola" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_PAROLA" />
+	<DATO key_id="Igiene" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_IGIENE" />
+	<DATO key_id="Inserimento_Soc" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_INS_SOC" />
+	<DATO key_id="Mob_Interna" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_MOB_INTERNA" />
+	<DATO key_id="Aiuto_Deamb" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_AIUTO_DEAMB" />
+	<DATO key_id="Abbigliamento" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_ABBIGLIAMENTO" />
+	<DATO key_id="Tipo_Alim" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_ALIM" />
+	<DATO key_id="Aiuto_Alim" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_AIUTO_ALIM" />
+	<DATO key_id="Continenza" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_CONTINENZA" />
+	<DATO key_id="Mob_dal_Letto" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_MOB_LETTO" />
+	<DATO key_id="Igiene_Posto_Letto" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_IGIENE_LETTO" />
+	<DATO key_id="Acc_Dom" onfigurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Acc_Dom'''; end;" />
+	<DATO key_id="Diagnosi1" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi1'''; end;" />
+	<DATO key_id="Diagnosi2" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi2'''; end;" />
+	<DATO key_id="Diagnosi3" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi3'''; end;" />
+	<DATO key_id="Diagnosi4" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi4'''; end;" />
+	<DATO key_id="Diagnosi5" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi5'''; end;" />
+	<DATO key_id="Diagnosi6" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi6'''; end;" />
+	<DATO key_id="Diagnosi7" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi7'''; end;" />
+	<DATO key_id="Diagnosi8" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi8'''; end;" />
+	<DATO key_id="Diagnosi9" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi9'''; end;" />
+	<DATO key_id="Diagnosi10" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi10'''; end;" />
+	<DATO key_id="Diagnosi11" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_ASSISTENZA_PROGR'' and TIPO_DATO=''Diagnosi11'''; end;" />
+	<DATO key_id="Sesso" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SESSO" />
+	<DATO key_id="Casa_Riposo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+</DATI>

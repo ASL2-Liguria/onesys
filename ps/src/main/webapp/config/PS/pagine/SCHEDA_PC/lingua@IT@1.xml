@@ -1,0 +1,12 @@
+<ROWSET>
+    <ROW>
+		<lblIp>IP</lblIp>
+   		<lblStampanteBraccialetto>Stampante Bracialetto</lblStampanteBraccialetto>
+		<lblTriageDefault>Triage Default</lblTriageDefault>
+		<lblStampanteConfigurazione>Stampante Configurazione</lblStampanteConfigurazione>
+		<lblStampanteReferto>Stampante Referto</lblStampanteReferto>
+		<lblStampanteEtichette>Stampante Etichette</lblStampanteEtichette>
+		<fldDatiPC>Configurazione PC</fldDatiPC>
+		<tabDatiPC>PC</tabDatiPC>
+    </ROW>
+</ROWSET>

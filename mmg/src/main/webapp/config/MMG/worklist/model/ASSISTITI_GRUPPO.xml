@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>ASSISTITI_GRUPPO</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.ASSISTITI_GRUPPO</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	<STRUCTURE>
+	
+		<MENU>
+			<ID>MENU_ASSISTITI</ID>
+		</MENU>
+	
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+                <DBLCLICK>function(rec){ NS_MENU_WORKLIST_ASSISTITI.apriCartellaAssistito( rec ); }</DBLCLICK>
+                <TAPHOLD>function(rec){ NS_MENU_WORKLIST_ASSISTITI.apriCartellaAssistito( rec ); }</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>INFO</COL>
+					</ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                   	<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS_MMG.setMenuWorklistPrincipale( data ); }]]></PROCESS>
+					<WIDTH>170px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>PAZIENTE</COL>
+						<DB>PAZIENTE</DB>
+					</ID>
+                    <DESCRIPTOR>"PAZIENTE"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data){ return NS_PROCESS_CLASS_MMG.setMortePaziente( data ); }]]></PROCESS>
+					<WIDTH>350px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>COD_FISC</COL>
+						<DB>COD_FISC</DB>
+					</ID>
+                    <DESCRIPTOR>"Codice Fiscale"</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>MED_BASE_DESCR</COL>
+						<DB>MED_BASE_DESCR</DB>
+					</ID>
+                    <DESCRIPTOR>"Medico"</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>250px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DATA_SCADENZA_ASSISTENZA</COL>
+						<DB>DATA_SCADENZA_ASSISTENZA</DB>
+					</ID>
+					<DESCRIPTOR>"Scadenza assistenza"</DESCRIPTOR>  
+					<PROCESS type="java">.processData</PROCESS>         				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+			</LIST>
+			<SORT>
+				<!--<COLUMN id="COGN">ASC</COLUMN>-->
+				<COLUMN id="PAZIENTE">ASC</COLUMN>
+				<!--<COLUMN id="DATAORDER">ASC</COLUMN>-->
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

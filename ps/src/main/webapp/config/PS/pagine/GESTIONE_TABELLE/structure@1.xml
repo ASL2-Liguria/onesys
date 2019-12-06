@@ -1,0 +1,18 @@
+<PAGINA key_id="GESTIONE_TABELLE">
+    <HEADER_WK key_id="GESTIONE_TABELLE" valore="DEFAULT,WK,GESTIONE_TABELLE#DEFAULT,GESTIONE_TABELLE" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="filtri" valore="GestioneTabelle#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroGestTabelle" valore="filtroGestTabelle#WK_GENERIC" evento="START">
+            <TABELLA.INIT key_id="tabGestTabelle" valore="" evento="START">
+                <TR.INIT key_id="riga1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="FieldRicerca" valore="lblTabella#txtCampoTabella#ricerca#" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_RADIO key_id="FiltroCampo" valore="lblFiltroCampo#FiltroCampo#radCampo#{width:100,idxDefault:1}#S#campo" evento="START">
+                    </FILTRO_RADIO>
+                    <FILTRO_RADIO key_id="FiltroAttivo" valore="lblStato#FiltroAttivo#radAttivo#{width:100,idxDefault:0}#S#attivo" evento="START">
+                    </FILTRO_RADIO>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+</PAGINA>

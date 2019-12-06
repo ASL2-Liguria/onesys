@@ -1,0 +1,55 @@
+<PAGINA key_id="MMG_ALLERGIE_INTOLLERANZE">
+	<HEADER_PAGE key_id="MMG_ALLERGIE_INTOLLERANZE"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ALLERGIE_INTOLLERANZE#DEFAULT_MMG,MMG_ALLERGIE_INTOLLERANZE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#MMG_ALLERGIE_INTOLLERANZE#MMG_DATI#MMG_ALLERGIE_INTOLLERANZE#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabMMGAllergieIntolleranze"
+			valore="MMGAllergieIntolleranze#lblTitolo#butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabElencoAllergie"
+				valore="tabElencoAllergie" evento="START">
+				<FIELDSET_TABLE key_id="fldAllergie" valore="fldAllergie" evento="START">
+					<DIV.WORKLIST key_id="wkAllergie" valore="divWkAllergie" evento="START"></DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+
+			<TABULAZIONE.CREA_TAB key_id="tabInserimentoAllergie"
+				valore="tabInserimentoAllergie" evento="START">
+				<FIELDSET_TABLE key_id="fldInserimentoAllergie"
+					valore="fldInserimentoAllergie" evento="START">
+					<TR_TD_LABEL_RADIO key_id="TipoAllergia"
+						valore="lblTipoAllergia##TipoAllergia#radTipoAllergia#{width:150}#N#TIPO_ALLERGIA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="TipoSostanza"
+						valore="lblTipoSostanza##TipoSostanza#radTipoSostanza#{width:150, idxDefault:0}#N#" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="tr0" valore="tr0" evento="START">
+						<TD_AUTOCOMPLETE key_id="farmaco" valore="lblFarmaco#acFarmaco#Farmaco#Farmaco#AC_FARMACI#FARMACO" evento="START"></TD_AUTOCOMPLETE>
+						<TD_LABEL_COMBO key_id="atcLivello" valore="lblLivello#cmbLivello#cmbLivello#cmbLivello###cmbLivello#cmbLivello" evento="START"></TD_LABEL_COMBO> 
+					</TR.INIT>
+					<TR_TD_AUTOCOMPLETE key_id="PrincipioAttivo"
+						valore="lblPrincipioAttivo#acPrincipioAttivo#PrincipioAttivo#PrincipioAttivo#AC_PRINCIPI_ATTIVI#PRINCIPIO_ATTIVO" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="Allergia"
+						valore="lblAllergia##txtAllergia###ALLERGIA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="TipoReazAllergica"
+						valore="lblTipoReazAllergica##txtTipoReazAllergica###TIPO_REAZIONE_ALLERGICA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR.INIT key_id="trAllergie" valore="trAllergie" evento="START">
+						<TD_LABEL_CHECK key_id="Assenza_Allergie"
+							valore="lblAssenza_Allergie##Assenza_Allergie#chkAssenza_Allergie#N#{width:400,ctrl:false}##ASSENZA_ALLERGIE" evento="START">
+						</TD_LABEL_CHECK>
+					</TR.INIT>
+					
+					<TR_TD_BUTTON key_id="buttonInsAllergie" valore="buttonInsAllergie" evento="START"></TR_TD_BUTTON>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

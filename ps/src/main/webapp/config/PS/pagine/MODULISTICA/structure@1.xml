@@ -1,0 +1,14 @@
+<PAGINA key_id="MODULISTICA">
+	<HEADER_REFERTAZIONE key_id="MODULISTICA" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,MODULISTICA#DEFAULT,PS_MODULISTICA" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati###" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="MODULISTICA#lblTitolo#butStampa,butChiudi" evento="START">
+
+            <TEMPLATE key_id="template" valore ="MODULI/CheckModuli.ftl#MODULI/CheckModuli.ftl" evento = "START">
+            </TEMPLATE>
+
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

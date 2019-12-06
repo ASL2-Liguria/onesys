@@ -1,0 +1,11 @@
+<INCLUDE>
+	<JS path="js/ADT/GestioneDSA/AccessoDSA.js"/>
+	<JS path="js/ADT/Contatto/ContattoMethods.js"/>
+	<JS path="js/ADT/Contatto/Contatto.js"/>
+	<JS path="config/ADT/validator/model/V_ADT_ACCESSO_DSA.js"/>
+	<JS path="js/TimePicker/jquery.ptTimeSelect.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+	<CSS path="css/ADT/GestioneDSA/AccessoDSA.css"/>
+	<!--<CSS path="css/TimePicker/jquery.ptTimeSelect.css"/>-->
+</INCLUDE>

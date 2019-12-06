@@ -1,0 +1,36 @@
+<MENU>
+    <ID>MENU_WK_ACCESSI_DSA</ID>
+    <TITLE>"Menu Accessi DSA"</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>INS_ACCESSO_DSA</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACCESSO_DSA&IDEN_CONTATTO='+NS_GESTIONE_DSA.idContatto+'&IDEN_CONTATTO_GIURIDICO='+NS_GESTIONE_DSA.idContattiGiu+'&STATO_PAGINA=I',id:'AccessoDSA',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Inserimento Accesso DSA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>MOD_ACCESSO_DSA</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACCESSO_DSA&IDEN_CONTATTO='+NS_GESTIONE_DSA.idContatto+'&IDEN_CONTATTO_GIURIDICO='+NS_GESTIONE_DSA.idContattiGiu+'&IDEN_ACCESSO='+rec[0].IDEN+'&STATO_PAGINA=E',id:'AccessoDSA',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Modifica Accesso DSA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+        	<ID>CANC_ACCESSO_DSA</ID>
+            <LINK><![CDATA[function(rec){NS_GESTIONE_DSA.deleteAccessoDsa(rec[0].IDEN)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Bidone.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cancellazione Accesso DSA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

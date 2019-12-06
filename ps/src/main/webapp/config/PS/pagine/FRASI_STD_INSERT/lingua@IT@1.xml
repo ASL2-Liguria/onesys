@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Frasi Standard</lblTitolo>
+        <fldMain>Inserimento/Modifica Frase</fldMain>
+        <lblGruppo>Gruppo</lblGruppo>
+        <lblCodice>Codice</lblCodice>
+        <lblDescrBreve>Titolo della frase</lblDescrBreve>
+        <lblFrase>Testo della frase</lblFrase>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+   <script type='text/javascript' src='std/jscript/engine/jquery1_7.js' language='JavaScript'></script>
+</head>
+
+<body>
+
+    <h1>Pensi che Martino abbia qualcosa da nascondere?</h1>
+	
+    <input name="SN" value="SI" type="radio"/>Si<input name="SN" value="NO" type="radio"/>No
+        
+    <h2 style="display:none">Complimenti!!!! Hai indovinato</h2>
+    
+</body>
+
+<script>
+$(document).ready(function(){
+	$('input[name="SN"]').click(function(){
+		if($(this).val("SI")){
+			$('h2').show();
+		}else{
+			alert('Dai su, siamo seri');
+		}
+	});
+});
+</script>
+</html>

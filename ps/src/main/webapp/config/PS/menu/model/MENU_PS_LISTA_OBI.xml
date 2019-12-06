@@ -1,0 +1,110 @@
+<MENU>
+    <ID>MENU_PS_LISTA_OBI</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+
+        <ITEM>
+            <ID>APRI_CARTELLA</ID>
+            <LINK><![CDATA[function(rec){
+                   FNC_MENU_LISTA_OBI.apriCartella(rec);
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/anteprima.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_APERTI.APRI_CARTELLA(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuApriConsole</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Apre la cartella"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>APRI_CARTELLA_READ_ONLY</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_APERTI.apriCartellaReadOnly(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/anteprima.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_APERTI.APRI_CARTELLA_READONLY(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuConsultaCartella</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Apre la cartella in consultazione"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>PRESA_IN_CARICO</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_APERTI.presaInCaricoPagina(rec,'PRESA_IN_CARICO_LISTA_OBI');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/documenti_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_APERTI.PRESA_IN_CARICO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuPresaInCarico</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Funzione riservata al personale medico"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>PASSAGGIO_DI_CONSEGNA</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_APERTI.passaggioConsegnePagina(rec, 'PASSAGGIO_DI_CONSEGNE_LISTA_OBI');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/documenti_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_LISTA_APERTI.PASSAGGIO_DI_CONSEGNE(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuPassaggioDiConsegne</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Funzione riservata al personale medico"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>ASS_PAZ_SCONOSCIUTO</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_OBI.associaPazienteSconosciuto(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/appropriatezza.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PAZIENTE_SCONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuAssociaPaz</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Associa pazienti sconosciuti"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>RIASSOCIA_PAZIENTE</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_OBI.riassociaPazienteSconosciuto(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_nomi_utenti_orari_modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PAZIENTE_CONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuRiassociaPaz</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Riassocia paziente"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>DETTAGLIO_ANAG</ID>
+            <LINK><![CDATA[function(rec){ FNC_MENU_LISTA_OBI.apriSchedaAnagrafica(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica_paziente.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PAZIENTE_CONOSCIUTO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblMenuDettaglioAnag</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO>"Funzione di modifica anagrafica"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>SCELTA_ESITO_OBI</ID>
+            <LINK><![CDATA[function(rec){FNC_MENU_LISTA_OBI.sceltaEsitoOBI(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_datawharehouse.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_MENU_GENERALE.PERSONALE_MEDICO(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblSceltaEsitoOBI</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Modifica Esito"</INFO>
+        </ITEM>
+
+        <ITEM>
+            <ID>ELIMINA_DIMISSIONE</ID>
+            <LINK><![CDATA[function(rec){
+                    FNC_MENU_LISTA_OBI.eliminaEsitoPS(rec[0].IDEN_CONTATTO,null,rec[0].IDEN_SCHEDA_VERBALE,NS_WK_PS.caricaWk);
+            }]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_MENU_LISTA_OBI.ELIMINA_ESITO(rec); }]]></WHERE>
+            <OUTPUT>traduzione.lblEliminaObi</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Elimina l'esito del PS"</INFO>
+        </ITEM>
+
+    </LIST>
+</MENU>

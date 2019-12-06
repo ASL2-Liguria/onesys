@@ -1,0 +1,38 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'TAB.Q_IDEN_CONTATTO@ADT'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="cmbLivelloUrgenza" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="ADT.Q_FILL_COMBO_ADT_URG@ADT"
+			/>
+	<DATO key_id="cmbRegimeRicovero" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := ' attivo=''S'' and TIPO=''ADT_REGIME_CONTATTO'' and assigning_authority_area=''ADT'' and parametri = ''RICOVERO'''; end;"
+			/>
+	<DATO key_id="cmbTipoRicovero" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="ADT.Q_TIPO_RICO@ADT"
+			/>
+	<DATO key_id="cmbOnere" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+			/>
+	<DATO key_id="cmbSubOnere" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_SUB_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+			/>
+	<DATO key_id="cmbTicket" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_TICKET'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+			/>
+	<DATO key_id="cmbTipoMedicoPrescrivente" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_TIPO_MEDICO_PRESC'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+			/>
+	<DATO key_id="cmbProvenienzaRicovero" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''ADT_ACC_RICOVERO_PROVENIENZA'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;"
+			/>
+	<DATO key_id="cmbTipoDimissione" configurazione_stato="begin :stato := 'E'; end;"
+		  db_valore="" db_descrizione=""
+		  configurazione_multi_data="ADT.Q_TIPO_DIMI@ADT"
+			/>
+</DATI>

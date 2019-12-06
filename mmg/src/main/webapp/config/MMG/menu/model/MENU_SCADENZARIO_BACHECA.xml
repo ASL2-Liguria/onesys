@@ -1,0 +1,46 @@
+<MENU>
+	<id>MENU_SCADENZARIO_BACHECA</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MSM.S</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_BACHECA.setStato(rec[0], "S");}]]></LINK>
+			<ICON_CLASS>esegui</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (rec[0].ESEGUITO != 'S');}]]></WHERE>
+			<OUTPUT>"Segnala eseguita"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MSM.N</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_BACHECA.setStato(rec[0], "N");}]]></LINK>
+			<ICON_CLASS>calendario</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return (rec[0].ESEGUITO != 'N');}]]></WHERE>
+			<OUTPUT>"Segnala non eseguita"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MSM.MOSTRA</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_BACHECA.mostraCompletati("S");}]]></LINK>
+			<ICON_CLASS>calendario</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return true;}]]></WHERE>
+			<OUTPUT>"Mostra completati"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MSM.NASCONDI</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_BACHECA.mostraCompletati("N");}]]></LINK>
+			<ICON_CLASS>calendario</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return true;}]]></WHERE>
+			<OUTPUT>"Nascondi completati"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

@@ -1,0 +1,34 @@
+<PAGINA key_id="WK_CODICI_MISSIONE">
+    <HEADER_REFERTAZIONE key_id="WK_CODICI_MISSIONE" valore="DEFAULT,SCHEDA,WK_CODICI_MISSIONE#DEFAULT,WK_CODICI_MISSIONE" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati" evento="START_END">
+        <TABULAZIONE.INIT key_id="WkCodiciMissione" valore="WK_CODICI_MISSIONE#WkCodiciMissione#butChiudi" evento="START">
+
+                <TABELLA.INIT key_id="tableFiltri" valore="" evento="START">
+                    <TR.INIT key_id="riga0" valore="" evento="START">
+                    </TR.INIT>
+                    <TR.INIT key_id="riga1" valore="" evento="START">
+                        <TD_LABEL_TEXT key_id="CodiceAmbulanza" valore="lblCodiceAmbulanza#txtCodiceAmbulanza#CodiceAmbulanza##T" evento="START">
+                        </TD_LABEL_TEXT>
+                        <FILTRO_DATA key_id="dataMissione" valore="lblDataMissione#dataMissione##startWithToday: true, readonly_element: false, format: 'd/m/Y', view: 'month'##S#data_codice_missione##N" evento="START">
+                        </FILTRO_DATA>
+                        <TD_LABEL_ORA key_id="txtOraMissione" valore="lblOraMissione##txtOraMissione##ORA_MISSIONE" evento="START">
+                        </TD_LABEL_ORA>
+                        <TD.INIT key_id="td3" valore="1" evento="START">
+                            <BUTTON key_id="butApplica" valore="butApplica" evento="START">
+                            </BUTTON>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+                <TABELLA.INIT key_id="tableCodici" valore="" evento="START">
+                    <TR.INIT key_id="rigaCodici1" valore="" evento="START">
+                        <TD.INIT key_id="tdCodici" valore="" evento="START">
+                            <DIV key_id="divWk" valore="divWk" evento="START">
+                            </DIV>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

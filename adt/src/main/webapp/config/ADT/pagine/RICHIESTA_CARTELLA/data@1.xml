@@ -1,0 +1,144 @@
+<DATI configurazione="begin 
+					:stato_pagina := '#_STATO_PAGINA#'; 
+					if ('#_STATO_PAGINA#'='I') then
+						:key_query := 'ADT.DATI_PAZIENTE_BY_ID@ADT'; 
+					else
+						:key_query := 'ADT.DATI_PAZIENTE_RICHIESTA@ADT';
+					end if;
+					:where := null; 
+					:campo_xml := null; 
+					end;"
+>
+    <DATO key_id="txtCognome" configurazione_stato="begin :stato := 'E'; end;"
+   		db_valore="COGNOME" db_descrizione="COGNOME"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="txtNome" configurazione_stato="begin :stato := 'E'; end;"
+     	db_valore="NOME" db_descrizione="NOME"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="txtSesso" configurazione_stato="begin :stato := 'E'; end;"
+     	db_valore="SESSO" db_descrizione="SESSO"
+        configurazione_multi_data="" 
+    /> 
+    <DATO key_id="txtDataNasc" configurazione_stato="begin :stato := 'E'; end;"
+     	db_valore="DATA_NASCITA" db_descrizione="DATA_NASCITA"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="txtCodFisc" configurazione_stato="begin :stato := 'E'; end;"
+     	db_valore="CODICE_FISCALE" db_descrizione="CODICE_FISCALE"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="txtTelefono" configurazione_stato="begin :stato := 'E'; end;"
+     	db_valore="TELEFONO" db_descrizione="TELEFONO"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="cmbTipoRichiedente" configurazione_stato="begin :stato := 'E'; end;"
+     	db_valore="IDEN_TIPO_RICHIEDENTE" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'assigning_authority_area=''ADT'' and tipo=''ADT_RICHIEDENTE_CARTELLA'' and attivo=''S'''; end;"
+    />
+    <DATO key_id="cmbSpecRichiedente" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="IDEN_SPEC_RICHIEDENTE" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'assigning_authority_area=''ADT'' and tipo=''ADT_SPEC_RICHIEDENTE_CARTELLA'' and attivo=''S'''; end;"
+    />
+    <DATO key_id="txtSpec" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="PERSONA_REPARTO_RICHIEDENTE" db_descrizione="PERSONA_REPARTO_RICHIEDENTE"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="cmbModalitaConsegna" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="IDEN_TIPO_CONSEGNA" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'assigning_authority_area=''ADT'' and tipo=''ADT_TIPO_CONSEGNA_CARTELLA'' and attivo=''S'''; end;"
+    />
+    <DATO key_id="cmbModalitaRichiesta" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="IDEN_MODALITA_RICHIESTA" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'assigning_authority_area=''ADT'' and tipo=''ADT_MODALITA_RICHIESTA_CARTELLA'' and attivo=''S'''; end;"
+    />
+    <DATO key_id="cmbStatoRichiesta" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="IDEN_STATO" db_descrizione=""
+        configurazione_multi_data="ADT.Q_STATO_RICHIESTA@ADT" 
+  	/>
+    <DATO key_id="txtDataRichiesta" configurazione_stato="begin :stato := 'E'; end;"
+  		db_valore="DATA_INIZIO" db_descrizione="DATA_INIZIO"
+        configurazione_multi_data=""
+    />
+    <DATO key_id="h-txtDataRichiesta" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="HDATA_INIZIO" db_descrizione="HDATA_INIZIO"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="hOraRichiesta" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="ORA_INIZIO" db_descrizione="ORA_INIZIO"
+        configurazione_multi_data="" 
+  	/>
+    <DATO key_id="txtDataStato" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="DATA_STATO" db_descrizione="DATA_STATO"
+        configurazione_multi_data="" 
+  	/>
+    <DATO key_id="h-txtDataStato" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="HDATA_STATO" db_descrizione="HDATA_STATO"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="hOraStato" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="ORA_STATO" db_descrizione="ORA_STATO"
+        configurazione_multi_data="" 
+  	/>
+    <DATO key_id="txtIndirizzo" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="INDIRIZZO_CONSEGNA" db_descrizione="INDIRIZZO_CONSEGNA"
+        configurazione_multi_data=""
+   	/>
+    <DATO key_id="txtCap" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAP_CONSEGNA" db_descrizione="CAP_CONSEGNA"
+          configurazione_multi_data=""
+    />
+    <DATO key_id="txtNote" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTE" db_descrizione="NOTE"
+          configurazione_multi_data=""
+            />
+    <DATO key_id="txtCo" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="DESTINATARIO_CONSEGNA" db_descrizione="DESTINATARIO_CONSEGNA"
+        configurazione_multi_data=""
+    />
+    <DATO key_id="h-txtComune" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="COMUNE_CONSEGNA" db_descrizione="COMUNE_CONSEGNA"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="txtComune" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="COMUNE" db_descrizione="COMUNE"
+        configurazione_multi_data="" 
+    />
+    <DATO key_id="txtNumRichiesta" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="IDEN_RICHIESTA" db_descrizione="IDEN_RICHIESTA"
+        configurazione_multi_data="" 
+   	/>
+    <DATO key_id="chkUrgenza" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="URGENZA" db_descrizione="URGENZA"
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'assigning_authority_area=''ADT'' and tipo=''ADT_RICHIESTA_CARTELLA_URGENTE'' and attivo=''S'''; end;"
+	/>
+    <DATO key_id="txtAltroEnte" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="ALTRO_ENTE_RICHIEDENTE" db_descrizione="ALTRO_ENTE_RICHIEDENTE"
+        configurazione_multi_data="" 
+   	/>
+    <DATO key_id="ComRes" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="COMUNE_RESIDENZA" db_descrizione="COMUNE_RESIDENZA"
+        configurazione_multi_data="" 
+   	/>
+    <DATO key_id="IndirizzoResidenza" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="INDIRIZZO_RESIDENZA" db_descrizione="INDIRIZZO_RESIDENZA"
+        configurazione_multi_data="" 
+   	/>
+    <DATO key_id="ProvinciaResidenza" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="PROV_RESIDENZA" db_descrizione="PROV_RESIDENZA"
+        configurazione_multi_data="" 
+   	/>
+    <DATO key_id="ASLResidenza" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="ASL_RESIDENZA" db_descrizione="ASL_RESIDENZA"
+        configurazione_multi_data="" 
+   	/>
+    <DATO key_id="hComuneResCod" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="IDEN_COMUNE_RESIDENZA" db_descrizione="IDEN_COMUNE_RESIDENZA"
+        configurazione_multi_data="" 
+  	/>
+    <DATO key_id="hCap" configurazione_stato="begin :stato := 'E'; end;"
+    	db_valore="CAP_RESIDENZA" db_descrizione="CAP_RESIDENZA"
+        configurazione_multi_data="" 
+  	/>
+</DATI>

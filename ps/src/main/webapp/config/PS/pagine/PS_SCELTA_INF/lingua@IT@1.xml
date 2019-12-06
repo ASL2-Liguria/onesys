@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+       <Scelta_Inf>Scelta infermiere</Scelta_Inf>
+       <tabDati>Scelta infermiere</tabDati>
+       <lblInfermieri>Infermieri disponibili</lblInfermieri>
+        <fldInfermieri>Infermieri</fldInfermieri>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,25 @@
+<INCLUDE>
+	<CSS path="css/MMG/mmg.css" />
+	<CSS path="css/MMG/MainPage/MainPage.css" />
+	<JS path="js/Base/LIB.js" />
+	<JS path="js/MMG/LIB.js" />
+	<DWR path="dwr/engine.js" />
+	<DWR path="dwr/interface/toolKitDB.js" />
+	<DWR path="dwr/interface/dwrMMG.js" />
+	<DWR path="dwr/interface/dwrBaseFactory.js" />
+	<JS path="js/Base/NOAPPLET.js" />
+	<JS path="js/Base/NS_VOCAL.js" />
+    <JS path="js/Base/NS_FENIX_FIRMA.js" />
+	<JS path="js/Base/NS_FENIX_PRINT.js" />
+	<JS path="js/Base/NS_FENIX_TOP.js" />
+	<JS path="js/MMG/NS_FENIX_TOP_OVERRIDE.js" />
+	<JS path="js/MMG/NS_OBJECT_MANAGER.js" />
+	<JS path="js/MMG/NS_PRINT.js" />
+	<JS path="js/MMG/RicettaRossa/ricetta_utils.js" />
+	<JS path="js/MMG/NS_MMG.js" />
+	<JS path="js/MMG/NS_MMG_UTILITY.js" />
+	<JS path="js/MMG/MainPage/MainPage.js" />
+	<JS path="js/NS_APPLICATIONS.js" />
+	<JS path="js/MMG/MANUALE.js" />
+</INCLUDE>
+

@@ -1,0 +1,19 @@
+/* CSS Document */
+
+/* classi per evidenziare campi icompleti o sbagliati */
+.campoObbligatorio{
+	background-color:#FFFF99;
+}
+
+.campoErrato{
+	background-color:#F8B6BF;
+}
+
+.campoNormale{
+	background-color:white;
+}
+
+.classShowGraph{
+	color:#FFFFFF;
+	font-weight:bold;
+}

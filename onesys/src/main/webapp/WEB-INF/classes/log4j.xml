@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="ROLL" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="${catalina.home}/logs/onesys.%d{yyyy-MM-dd__HH}.log.gz"/>
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d --> %p %t %c - %m%n"/>
+		</layout>
+	</appender>
+
+	<root>
+		<appender-ref ref="ROLL"/>
+		<level value="info"/>
+	</root>
+</log4j:configuration>

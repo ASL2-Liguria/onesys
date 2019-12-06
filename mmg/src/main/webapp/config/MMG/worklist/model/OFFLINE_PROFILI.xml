@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+
+	<ID>OFFLINE_PROFILI</ID>
+	<ID-QUERY connection="MMG_DATI"></ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+	<WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	
+	<STRUCTURE>
+		
+		<!--  
+		<MENU>
+		
+			<ID></ID>
+			
+		</MENU>
+		-->
+		
+		<ROWS>
+		
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			
+			<HEIGHT>26px</HEIGHT>
+			
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('');}</CLICK>
+				<DBLCLICK>function(rec){PROFILI.chose(rec);}</DBLCLICK>
+				<TAPHOLD>function(rec){PROFILI.chose(rec);}</TAPHOLD>
+			</EVENTS>
+			
+		</ROWS>
+		
+		<COLUMNS>
+			
+			<LIST>
+				
+				<!-- <COLUMN>
+					<ID>
+						<COL>CODICE</COL>
+						<DB>CODICE</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblCodice</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN> -->
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblDescrizione</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			
+			<SORT />
+			
+		</COLUMNS>
+		
+	</STRUCTURE>
+	
+</WORKLIST>

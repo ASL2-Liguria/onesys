@@ -1,0 +1,7 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="SceltaScreening" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_SCREENING'' and TIPO_DATO=''SceltaScreening'''; end;" />
+</DATI>
+

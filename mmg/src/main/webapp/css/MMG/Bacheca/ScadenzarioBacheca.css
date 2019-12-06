@@ -1,0 +1,45 @@
+body#page {
+	padding: 0;
+	background: transparent;
+}
+
+div.tabs {
+	padding: 1px 0;
+	border-top: 1px solid #c5c5c5;
+}
+
+div.clsWk div.clsWkScroll table tr td {
+	text-overflow: ellipsis;
+	max-width: 100%;
+}
+
+.ulTabs {
+	display: none !important;
+}
+
+.contentTabs {
+	padding: 5px;
+}
+
+div.clsWk div.clsWkHdFix,div.clsWk div.clsWkHdFix table thead tr,div.clsWk div.clsTR24 table tr
+	{
+	height: 30px;
+}
+
+body#page div.headerTabs {
+	border-top: 1px solid #c5c5c5;
+}
+
+div.headerTabs .icon-spin3 {
+	display: none;
+}
+
+#divWk {
+	margin: 5px 10px;
+}
+
+.worklist-icon {cursor: auto !important; font-size: 16px !important; }
+.icon-ok, .icon-ok:hover { color: gray;}
+.icon-attention,.icon-attention:hover { color: orange;}
+.icon-alert,.icon-alert:hover { color: red;}
+.icon-calendar,.icon-calendar:hover { color: gray;}

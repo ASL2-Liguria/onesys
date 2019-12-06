@@ -1,0 +1,60 @@
+<root>
+	<statements_list>
+		<statement name="getSavedData">
+			<sql>
+			<![CDATA[
+				select cc_icd.iden, cc_icd.codice cod_dec, cc_icd.descrizione, cc_icd.categoria FROM cc_icd , cod_est_esami  where
+	    	      cod_est_esami.diagnosi_icd9 = cc_icd.codice
+    	    	  and cod_est_esami.iden_esame = to_number(?)				
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getICD9byIden">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>				
+			<sql>
+			<![CDATA[
+					SELECT iden, codice cod_dec, descrizione, categoria FROM cc_icd  where iden = to_number(?)
+			]]>
+			</sql>
+		</statement>		
+		
+		<statement name="getDiagnosiICD9ByDescr">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>				
+			<sql>
+			<![CDATA[
+					  SELECT iden, codice cod_dec, descrizione, categoria FROM cc_icd  WHERE tipo ='DIAGNOSI'  AND CATEGORIA='ICD9'  AND attivo   ='S' and descrizione Like Upper(? || '%')
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="getDiagnosiICD9ByCod">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>				
+			<sql>
+			<![CDATA[
+					  SELECT iden, codice cod_dec, descrizione, categoria FROM cc_icd  WHERE tipo ='DIAGNOSI'  AND CATEGORIA='ICD9'  AND attivo   ='S' and codice Like Upper(? || '%')
+			]]>
+			</sql>
+		</statement>	
+		
+		
+		<statement name="saveDiagnosiICD9">
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[		
+				declare					
+					nIdenEsame number := to_number(?);
+					vCodice COD_EST_ESAMI.diagnosi_icd9%type := ?;
+				begin
+					update COD_EST_ESAMI set diagnosi_icd9=vCodice where iden_esame = nIdenEsame;
+				end;		
+			]]>
+			</sql>
+		</statement>	
+		
+	</statements_list>
+</root>

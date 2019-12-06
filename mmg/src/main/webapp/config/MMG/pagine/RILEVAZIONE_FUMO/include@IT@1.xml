@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Rilevazioni/riepilogoRilevazioni.css" />
+	<JS path="js/MMG/Rilevazioni/riepilogoRilevazioni.js" />
+</INCLUDE>

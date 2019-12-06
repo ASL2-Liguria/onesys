@@ -1,0 +1,22 @@
+<root>
+	<statements_list>
+		<statement name="registraScale">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				declare					
+					pReparto varchar2(4000) := ?;
+					pScale varchar2(4000) := ?;
+					vArray ARRAY_VALUE := split2array(pScale);
+				begin
+					DELETE CONFIG_SCHEDE_REPARTO WHERE CODICE_REPARTO=pReparto AND FUNZIONE IN (SELECT FUNZIONE FROM RADSQL.CC_SCALE_TYPE);
+					for idx in vArray.first..vArray.last
+                    loop
+                        Insert into CONFIG_SCHEDE_REPARTO (FUNZIONE,CODICE_REPARTO,KEY_LEGAME,SITO,ATTIVO,VERSIONE,SINTESI) values (vArray(idx),pReparto,vArray(idx),null,'S','1',null);
+                    end loop;
+				end;			
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

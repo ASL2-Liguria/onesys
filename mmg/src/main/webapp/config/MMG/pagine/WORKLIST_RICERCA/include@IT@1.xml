@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/WorklistRicerca/worklistRicerca.css" />
+	<JS path="js/MMG/WorklistRicerca/worklistRicerca.js" />	
+</INCLUDE>

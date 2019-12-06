@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <!--  SCHEDA -->
+        <lblTitolo>Prescrizione di una ricetta</lblTitolo>
+        
+		<tabPrescrizione>Prescrizione ricetta</tabPrescrizione>
+			
+			<fldPrescrizione>Dati relativi alla ricetta</fldPrescrizione>
+				
+				<lblTipoRicetta>Tipo ricetta</lblTipoRicetta>
+				<lblRicettaRossa>Rossa</lblRicettaRossa>		
+				<lblRicettaBianca>Bianca</lblRicettaBianca>
+				<lblTipoPrescrizione>Prescrizione</lblTipoPrescrizione>
+				<lblFarmaci>Farmaci</lblFarmaci>
+				<lblAccertamenti>Accertamenti</lblAccertamenti>
+				<lblPrestazione>Prestazione</lblPrestazione>
+				<lblUrgenza>Urgenza</lblUrgenza>
+				<lblQuesito>Quesito</lblQuesito>
+				<maxLunghezzaQuesito>Diagnosi troncata al numero massimo di caratteri</maxLunghezzaQuesito>
+				<lblEsenzione>Esenzione</lblEsenzione>
+				<lblEsenzioneCercaPaziente>Solo esenzioni del paziente</lblEsenzioneCercaPaziente>
+				<lblEsenzioneCercaTutte>Ricerca nell'elenco esenzioni completo</lblEsenzioneCercaTutte>
+				
+			<fldFiltro>Inserisci la descrizione del farmaco o dell'accertamento da ricercare, quindi premi INVIO</fldFiltro>
+				
+				<lblFiltro>Ricerca:</lblFiltro>
+				<butRicercaDefault>Ricerca per nome</butRicercaDefault> <!-- Default, sovrascritto al caricamento per i farmaci -->
+				<butNuovaRicetta>Aggiungi ricetta</butNuovaRicetta>
+				<!-- Accertamenti -->
+				<butRicercaAccertamenti>Ricerca all'interno del nome</butRicercaAccertamenti>
+				<butRicercaEsatta>Ricerca esatta</butRicercaEsatta>
+				<butPrescrizioneLibera>Prescrizione libera</butPrescrizioneLibera>
+				<butRicercaProfili>Scegli gruppo di accertamenti</butRicercaProfili>
+				<!-- Farmaci -->
+				<butRicercaFarmaci>Ricerca per nome commerciale</butRicercaFarmaci>
+				<butRicercaPA>Ricerca per Principio attivo</butRicercaPA>
+				<butEsenzioniPaz>Ricerca Codice tra Esenzioni Paziente</butEsenzioniPaz>
+				<butEsenzioniTutte>Ricerca Codice tra tutte le esenzioni</butEsenzioniTutte>
+				<minLunghezzaFiltroRicerca>Ricercare un testo pi&amp;ugrave; lungo</minLunghezzaFiltroRicerca>
+			
+			<fldSceltaPrescrizione>Doppio click su una delle righe a sinistra per aggiungere, doppio click su una delle righe a destra per rimuovere </fldSceltaPrescrizione>
+			
+		<tabAnteprimaRicetta>Anteprima ricetta</tabAnteprimaRicetta>		
+				
+				<fldAnteprimaRicetta>Anteprima della ricetta</fldAnteprimaRicetta>
+				
+		<!--  PULSANTI -->		
+		<butReset>Resetta dati</butReset>		
+		<butPrescrivi>Prescrivi</butPrescrivi>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<!--  WORKLIST -->
+		<lblCodice>Codice</lblCodice>
+		<lblDescrizione>Descrizione</lblDescrizione>
+		<lblCodiceFarmaco>Codice</lblCodiceFarmaco>
+		<lblDescrizioneFarmaco>Descrizione</lblDescrizioneFarmaco>
+		<lblPrincipioAttivo>Principio attivo</lblPrincipioAttivo>
+    	<lblClasse>Classe</lblClasse>
+    	<lblPrezzo>Prezzo</lblPrezzo>
+		
+		<!--  NOTIFICHE -->
+		<selezionareMedicoPrescrittore>Selezionare il medico prescrittore prima di procedere</selezionareMedicoPrescrittore>
+		<compilaQuesito>Il quesito &amp;egrave; obbligatorio</compilaQuesito>
+		<prescrivereAlmenoUno>Inserire almeno una prescrizione</prescrivereAlmenoUno>
+    </ROW>
+</ROWSET>

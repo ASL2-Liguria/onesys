@@ -1,0 +1,1419 @@
+<?xml version = "1.0"?>
+<QUERIES>
+	<QUERY_GROUP id="TAB">
+        <QUERY id="Q_INTESTAZIONE_PAZIENTE">
+            <SQL>Select Cognome, Nome, Sesso, To_Char(To_Date(Data_Nascita, 'yyyyMMdd'),'dd/MM/yyyy') as Data_Nascita, DECODE(Codice_Fiscale,NULL,'N.D.',Codice_Fiscale) as Codice_Fiscale from fx$anagrafica where iden = :iden</SQL>
+        </QUERY>
+        <QUERY id="Q_IDEN_CONTATTO">
+            <SQL>SELECT :IDEN_CONTATTO AS IDEN_CONTATTO, NULL AS VALUE, NULL AS DESCR FROM DUAL</SQL>
+            <BINDS>
+            	<BIND id="IDEN_CONTATTO" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_DATI_ANAGRAFICI_CONSOLE">
+            <SQL>
+                select
+                    contatti.iden IDEN_CONTATTO,
+                    (select descrizione from adt$tipi where iden = extractvalue(metadati, '//DATO[@KEY="ADT_ACC_RICOVERO_TITOLO_STUDIO"]/@ID')) LIVELLO_ISTRUZIONE_DESCR,
+                    extractvalue(metadati, '//DATO[@KEY="ADT_ACC_RICOVERO_TITOLO_STUDIO"]/@ID') IDEN_LIVELLO_ISTRUZIONE,
+                    (select descrizione from adt$tipi where iden = extractvalue(metadati, '//DATO[@KEY="STATO_CIVILE"]/@ID')) STATO_CIVILE_DESCR,
+                    extractvalue(metadati, '//DATO[@KEY="STATO_CIVILE"]/@ID') IDEN_STATO_CIVILE,
+                    extractvalue(metadati, '//DATO[@KEY="ANAG_COMUNE_NASC"]') IDEN_COMUNE_NASCITA,
+                    (select descr from fx$tab_nazioni where iden= extractvalue(metadati, '//DATO[@KEY="ANAG_CITTADINANZA_ID"]')) NAZIONE_DESCR,
+                    (select cod from fx$tab_nazioni where iden= extractvalue(metadati, '//DATO[@KEY="ANAG_CITTADINANZA_ID"]')) NAZIONE_COD,
+                    (select descrizione from fx$comuni where iden_comune = extractvalue(metadati, '//DATO[@KEY="ANAG_COMUNE_NASC"]')) COMUNE_NASCITA,
+                    (select codice_regione from fx$comuni where IDEN_COMUNE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]') ) COD_REG,
+                    (SELECT ASL_DESCR FROM fx$TAB_ASL WHERE AZD_CODICE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_ASL"]') AND REG_CODICE =(select codice_regione from fx$comuni where IDEN_COMUNE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]') )) AS ASL_RESIDENZA_DESCR,
+                    extractvalue(metadati, '//DATO[@KEY="ANAG_RES_ASL"]') ASL_RESIDENZA,
+                    extractvalue(metadati, '//DATO[@KEY="CIVICO"]') RES_NUMERO_CIVICO,
+                    extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]') IDEN_COMUNE_RESIDENZA,
+                    (SELECT DESCRIZIONE FROM FX$COMUNI WHERE IDEN_COMUNE = extractvalue(metadati, '//DATO[@KEY="ANAG_RES_CODICE_ISTAT"]'))COMUNE_RESIDENZA,
+                    (select C.CODICE_COMUNE from fx$comuni c where iden_comune = extractvalue(metadati, '//DATO[@KEY="ANAG_COMUNE_NASC"]')) as COD_COM_NASCITA
+                    ,extractvalue(metadati, '//DATO[@KEY="ANAG_RES_PROV"]')  as RES_PROVINCIA
+                    ,extractvalue(metadati, '//DATO[@KEY="ANAG_RES_REGIONE"]')  as CODICE_REGIONE_RESIDENZA
+                    ,decode(extractvalue(metadati, '//DATO[@KEY="GIUBILEO"]'), '' ,'N','S') GIU
+                    ,extractvalue(metadati, '//DATO[@KEY="GIUBILEO"]') COD_GIU
+                    ,extractvalue(metadati, '//DATO[@KEY="SCADENZA_GIUBILEO"]') DATA_SCADENZA_GIU
+                    ,(select id4 from fx$cod_est_anag where iden_anag = CONTATTI.IDEN_ANAGRAFICA) ANAG_ID4
+                from contatti where iden = :IDEN_CONTATTO
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_CONTATTO" value="#IDEN_CONTATTO#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+	</QUERY_GROUP>
+	<QUERY_GROUP id="LISTA_ATTESA">
+        <QUERY id="Q_REPARTI_PRERICOVERO">
+            <SQL>
+            SELECT
+			  	IDEN_CDC VALUE,
+			  	CDC.COD_CDC AS CODICE_DECODIFICA,
+			  	CDC.DESCRIZIONE DESCR,
+			  	CDC.ABILITA_DAY_HOSPITAL,
+			  	CDC.ABILITA_ORDINARIO,
+			  	CDC.ABILITA_VPO
+			FROM
+			  	LISTA_ATTESA_CDC LA_CDC
+				JOIN FX$CENTRI_DI_COSTO CDC ON CDC.IDEN = LA_CDC.IDEN_CDC
+			WHERE
+			  	IDEN_CDC IN
+			  	(
+			    	SELECT
+			      		VALORE1
+			    	FROM
+			      		TABLE (FX$GET_CDC_PERSONALE(NULL,:USERNAME))
+			  	)
+				AND CDC_PRERICOVERO = 'S'
+                and LA_CDC.attivo = 'S'
+				AND IDEN_LISTA = :IDEN_LISTA
+            </SQL>
+            <BINDS>
+                <BIND id="USERNAME" value="#USERNAME#" type="V"></BIND>
+                <BIND id="IDEN_LISTA" value="#IDEN_LISTA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+	</QUERY_GROUP>
+    <QUERY_GROUP id="ADT">
+
+        <QUERY id="Q_NOTE_BRACCIALETTO_RICOVERO">
+            <SQL>
+                SELECT
+                EXTRACTVALUE(CONTATTI.metadati, '/METADATI/DATO[@KEY="NOTE_BRACCIALETTO_RICOVERO"]') as NOTA_BRACCIALETTO
+                FROM
+                CONTATTI
+                WHERE
+                IDEN = :idenContatto
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_CHECK_PRERICOVERO">
+            <SQL>
+                select iden, to_char( data_inizio,'yyyyMMddHH24:mi') AS DATA_INIZIO, codice from contatti
+                where tipo in (CODIFICHE.DECODETIPO('ADT_ACC_RICOVERO_TIPO','PRE-DS',null,'ADT'), CODIFICHE.DECODETIPO('ADT_ACC_RICOVERO_TIPO','PRE',null,'ADT'))
+                and CDC_ULTIMO_GIURIDICO in (select iden  from fx$centri_di_costo where COD_CDC in (select reparto from fx$web_cdc where webuser = :username) and attivo = 'S' )
+                and DELETED = 'N'
+                and stato = '1231'
+                and ASSIGNING_AUTHORITY_AREA = 'ADT'
+                and IDEN_ANAGRAFICA = :idenAnag
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_CHECK_LISTA_ATTESA">
+            <SQL>
+                select iden,
+                iden_lista,
+                iden_contatto,
+                to_char( data_prenotazione,'yyyyMMddHH24:mi') AS DATA_PRENOTAZIONE,
+                CODIFICHE.ENCODETIPO(stato,assigning_authority_area) as STATO,
+                (select descrizione from lista_attesa_elenco where iden = iden_lista and attivo = 'S' and assigning_authority_area = 'ADT') as LISTA_DESCRIZIONE,
+                note,
+                (select codice || ' - ' || descrizione from FX$ICD9 where CODICE = extractvalue(metadati, '/METADATI/DATO[@KEY="h-txtDiagnosiICD"]')) as DIAGNOSI
+                from lista_attesa
+                where
+                ATTIVO = 'S'
+                and iden_contatto is null
+                and DELETED = 'N'
+                and ASSIGNING_AUTHORITY_AREA = 'ADT'
+                and IDEN_ANAGRAFICA = :idenAnag
+                and CDC in (select iden  from fx$centri_di_costo where COD_CDC in (select reparto from fx$web_cdc where webuser = :username) and attivo = 'S' )
+            </SQL>
+        </QUERY>
+
+
+
+    	<QUERY id="VISUALIZZA_PDF_SDO">
+    		<SQL>
+    			SELECT
+    				'application/pdf' as MIME_TYPE,
+    				PDF as DOCUMENTO,
+    				'sdo.pdf' as NOME_FILE
+				FROM
+					FX$TBL_DOCUMENTI DOCUMENTI
+				WHERE
+					TABELLA = 'ADT.SDO_VERSIONI' AND TABELLA_IDEN = (SELECT IDEN FROM SDO_VERSIONI WHERE IDEN_CONTATTO = :iden AND STATO = 'F' AND ATTIVO = 'S')
+			</SQL>
+		</QUERY>
+        <QUERY id="Q_CAP_REGIONE_PROVINCIA_BY_COMUNE">
+            <SQL>
+                select codice_regione, cap, codice_provincia,descrizione
+				from FX$COMUNI where iden_comune = :IDEN_COMUNE
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_ARCHIVIO_ESTRAZIONE_FILTRI_WK">
+            <SQL>
+                SELECT DESCRIZIONE AS DESCR, IDEN AS VALUE, CODICE_DECODIFICA AS CODICE, PARAMETRI FROM TIPI WHERE TIPO = 'STATISTICHE_ARCHIVIO' and attivo = 'S' order by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_DATA_DIMISSIONE">
+            <SQL>
+                SELECT to_char(max(data_fine),'hh24:mi dd/MM/yyyy') data_fine FROM CONTATTI WHERE IDEN_ANAGRAFICA = :IDEN_ANAG and deleted = 'N'
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_ANAG" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_DATI_UTENTE">
+            <SQL>
+                select
+                    USERNAME ,
+                    PASSWORD ,
+                    (select descrizione from FX$PERSONALE where iden = iden_per) UTENTE,
+                    IDEN_PER ,
+                    LINGUA,
+                    (select valore from fx$parametri where id_gruppo = :username and nome = 'ABILITA_CONTEXT_MENU' and attivo ='S' and sito in ('ADT','ALL')) CONTEXT_MENU,
+                    (select tipo  from fx$utenti where webuser = username) tipo_ute
+                from  FX$UTENTI_ADT
+                where username = :username
+            </SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_IS_DESTINATARIO_FENIX">
+            <SQL>
+            	SELECT COUNT(1) AS DESTINATARIO_FENIX from ADTDFELCO.REPARTI_DA_LEGGERE WHERE IDEN_CDC = ADT_REPARTI.DECODEIDENPROVENIENZA(:IDEN_PROVENIENZA)
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_GRUPPI_UTENTE">
+            <SQL>
+                SELECT regexp_substr(x, '[^.]+', 1, level) IDEN FROM (   SELECT (select id_gRuppo from config_web.parametri_gruppo where tipo = 'UTENTI' and id = :username) X FROM DUAL ) connect by level &lt;= length(x) - length(replace(x,'.')) + 1;
+            </SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_SUB_STRUTTURA">
+            <SQL>
+                select /*+first_rows(10)*/ adt_reparti.decodeIdenCdcFunct(iden) value, descrizione descr
+                from  FX$CENTRI_DI_COSTO
+                where
+                sub_codice_struttura = (
+                select sub_CODICE_STRUTTURA from FX$CENTRI_DI_COSTO where  IDEN_PROVENIENZA = :iden_provenienza
+                )
+                and attivo = 'S'
+            </SQL>
+            <BINDS>
+                <BIND id="iden_provenienza" value="#IDEN_PROVENIENZA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_PERSONALE">
+            <SQL><![CDATA[
+            	    select /*+first_rows(1)*/ DESCRIZIONE AS DESCR, iden AS VALUE from fx$personale where rownum < 10
+            	]]></SQL>
+        </QUERY>
+		<QUERY id="Q_STATO_SDO">
+            <SQL> SELECT DESCRIZIONE DESCR, codice_decodifica VALUE FROM TIPI WHERE TIPO = 'ADT_STATO_CARTELLA_SDO' AND ASSIGNING_AUTHORITY_AREA='ADT' AND ATTIVO ='S'
+            </SQL>
+        </QUERY>
+
+        <QUERY id="Q_DATI_PAZ">
+            <SQL>select cognome,nome,sesso,substr(data_nascita,7,2) ||'/'||substr(data_nascita,5,2)||'/'||substr(data_nascita,1,4) data_nasc,data_nascita,codice_fiscale from fx$anagrafica where iden=:iden
+            </SQL>
+            <BINDS>
+                  <BIND id="iden" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+    	</QUERY>
+        <QUERY id="Q_DATI_LISTA">
+            <SQL>
+                SELECT PARAMETRI, DESCRIZIONE, (select WM_CONCAT(descrizione) from FX$PROVENIENZE where iden in (select column_value from  table(getNumberListFromTag(t.parametri,'iden_pro')) CONFIGURATI))DESCRIZIONE_PROV from tipi t where TIPO = 'ADT_LISTA_ATTESA' AND ATTIVO = 'S' and t.iden = :iden
+            </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_DATI_LISTA_GESTIONE">
+            <SQL>
+                select ID_WK ,
+                LISTA_ATTESA_ELENCO.CODICE CODICE_ORMA,
+                LISTA_CHIAMATA,
+                ABILITA_RICOVERO,
+                NUMERO_PAZIENTI,
+                LISTA_ATTESA_ELENCO.DESCRIZIONE,
+                ID_TEMPLATE
+                ,(SELECT WM_CONCAT(CDC.DESCRIZIONE) FROM LISTA_ATTESA_CDC lac join FX$CENTRI_DI_COSTO cdc on cdc.iden = lac.iden_cdc where iden_lista = :iden and lac.attivo = 'S' and LAC.CDC_PRERICOVERO = 'N' and LISTA_ATTESA_CDC.attivo = 'S') DESCRIZIONE_CDC
+                ,(SELECT WM_CONCAT(CDC.IDEN) FROM LISTA_ATTESA_CDC lac join FX$CENTRI_DI_COSTO cdc on cdc.iden = lac.iden_cdc where iden_lista = :iden and lac.attivo = 'S'  and LAC.CDC_PRERICOVERO = 'N' and LISTA_ATTESA_CDC.attivo = 'S') IDEN_CDC
+                ,(SELECT WM_CONCAT(CDC.DESCRIZIONE) FROM LISTA_ATTESA_CDC lac join FX$CENTRI_DI_COSTO cdc on cdc.iden = lac.iden_cdc where iden_lista = :iden and lac.attivo = 'S' and LAC.CDC_PRERICOVERO = 'S' and LISTA_ATTESA_CDC.attivo = 'S') DESCRIZIONE_CDC_PRE
+                ,(SELECT WM_CONCAT(CDC.IDEN) FROM LISTA_ATTESA_CDC lac join FX$CENTRI_DI_COSTO cdc on cdc.iden = lac.iden_cdc where iden_lista = :iden and lac.attivo = 'S'  and LAC.CDC_PRERICOVERO = 'S' and LISTA_ATTESA_CDC.attivo = 'S') IDEN_CDC_PRE
+                from LISTA_ATTESA_ELENCO
+                where LISTA_ATTESA_ELENCO.iden = :iden AND LISTA_ATTESA_ELENCO.ATTIVO = 'S'
+            </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_DATI_LISTA_CHIAMATA_GESTIONE">
+            <SQL>
+                select
+                ID_WK ,
+                CODICE CODICE_ORMA,
+                LISTA_CHIAMATA,
+                ABILITA_RICOVERO,
+                NUMERO_PAZIENTI,
+                DESCRIZIONE,
+                ID_TEMPLATE
+                , (select WM_CONCAT(descrizione) from lista_attesa_elenco where id_lista_chiamata  = lista_attesa.iden) DESCRIZIONE_LISTA
+                , (select WM_CONCAT(IDEN) from lista_attesa_elenco where id_lista_chiamata  = lista_attesa.iden) IDEN_LISTA
+                from LISTA_ATTESA_ELENCO lista_attesa
+                where iden = :iden AND ATTIVO = 'S'
+            </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="Q_LISTA_ELENCO_CDC">
+            <SQL>
+                select LISTA_ATTESA_ELENCO.iden,LISTA_ATTESA_ELENCO.id_wk NOME_TEMPLATE, LISTA_ATTESA_ELENCO.descrizione, LISTA_ATTESA_ELENCO.codice, LISTA_ATTESA_ELENCO.NUMERO_PAZIENTI, LISTA_ATTESA_CDC.IDEN_CDC from LISTA_ATTESA_ELENCO join LISTA_ATTESA_CDC on LISTA_ATTESA_ELENCO.iden = LISTA_ATTESA_CDC.IDEN_LISTA where LISTA_ATTESA_ELENCO.iden = :IDEN_LISTA AND  LISTA_ATTESA_CDC.ATTIVO = 'S' AND LISTA_ATTESA_ELENCO.ATTIVO = 'S'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_SPECIALITA_REPARTO">
+        	<SQL>
+        		select substr(codice_sezione,0,2) specialita from fx$centri_di_costo where iden=:idenCdc
+        	</SQL>
+        </QUERY>
+        <QUERY id="Q_MADRE_CARTELLA">
+            <SQL>
+                SELECT
+                	CONTATTI.CODICE, CONTATTI.IDEN,
+                	ANAG.NOME || ' ' || ANAG.COGNOME || ' ' || TO_CHAR(TO_DATE(ANAG.DATA_NASCITA,'yyyyMMdd'),'dd/MM/yyyy') || ' (' || CONTATTI.CODICE || ')' AS MADRE
+				FROM
+				  	CONTATTI
+				  	INNER JOIN FX$ANAGRAFICA ANAG ON ANAG.IDEN = CONTATTI.IDEN_ANAGRAFICA
+				WHERE
+					CONTATTI.CODICE = :CODICE AND
+                    CONTATTI.ASSIGNING_AUTHORITY_AREA = :ASSIGNING_AUTHORITY_AREA
+            </SQL>
+        </QUERY>
+        <QUERY id="GET_DRG_BY_CODICE">
+            <SQL>
+                SELECT DRG, MDC, TIPO, DESCRIZIONE FROM DRG24 WHERE DRG = :CODICE_DRG
+            </SQL>
+            <BINDS>
+                <BIND id="CODICE_DRG" value="CODICE_DRG" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONTATTO_ULTIMO_TITOLO_STUDIO">
+        	<SQL>
+                SELECT
+  					CASE
+    					WHEN IDEN_LIVELLO_ISTRUZIONE IS NOT NULL THEN
+      						IDEN_LIVELLO_ISTRUZIONE
+    					ELSE
+      						(SELECT TO_NUMBER(EXTRACTVALUE(METADATI, '/METADATI/DATO[@KEY="ADT_ACC_RICOVERO_TITOLO_STUDIO"]/@ID')) FROM CONTATTI WHERE IDEN = (select max(iden) from contatti where IDEN_ANAGRAFICA =  ANAGRAFICA.IDEN ))
+    					END TITOLO_STUDIO
+					FROM FX$ANAGRAFICA ANAGRAFICA
+					WHERE ANAGRAFICA.IDEN = :IDEN_ANAGRAFICA
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_ANAGRAFICA" value="IDEN_ANAGRAFICA" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="DATI_PAZIENTE_BY_ID">
+        	<SQL>
+                SELECT
+			  		ANAGRAFICA.IDEN, NOME, COGNOME, SESSO, TO_CHAR(TO_DATE(ANAGRAFICA.DATA_NASCITA,'yyyyMMdd'),'dd/MM/yyyy') AS DATA_NASCITA, CODICE_FISCALE,
+			  		DECODE(IDEN_LIVELLO_ISTRUZIONE,
+			 	 	NULL,(SELECT EXTRACT(METADATI, '/METADATI/DATO[@KEY="TITOLO_STUDIO"]/text()').GETSTRINGVAL() FROM CONTATTI WHERE IDEN = (SELECT MAX(IDEN) FROM CONTATTI WHERE IDEN_ANAGRAFICA =  :IDEN_ANAG )),IDEN_LIVELLO_ISTRUZIONE) AS TITOLO_STUDIO,
+			 		COMUNE_RESIDENZA.DESCRIZIONE COMUNE_RESIDENZA,
+			  		COMUNE_RESIDENZA.CODICE_PROVINCIA PROV_RESIDENZA,
+			  		ANAGRAFICA.IDEN_COMUNE_RESIDENZA,
+			  		COMUNE_RESIDENZA.CAP CAP_RESIDENZA,
+			  		ANAGRAFICA.RES_INDIRIZZO || ANAGRAFICA.RES_NUMERO_CIVICO as INDIRIZZO_RESIDENZA,
+			  		(SELECT ASL_DESCR FROM FX$TAB_ASL WHERE REG_CODICE = COMUNE_RESIDENZA.CODICE_REGIONE AND AZD_CODICE = COMUNE_RESIDENZA.CODICE_USL) as ASL_RESIDENZA,
+			  		NVL(ANAGRAFICA.RES_CELLULARE, ANAGRAFICA.RES_TELEFONO) AS TELEFONO,
+			  		NULL AS IDEN_RICHIESTA, NULL AS COMUNE, NULL AS IDEN_STATO, NULL AS IDEN_TIPO_RICHIEDENTE,NULL AS IDEN_TIPO_CONSEGNA,NULL AS IDEN_MODALITA_RICHIESTA,NULL AS DATA_INIZIO,NULL AS HDATA_INIZIO,NULL AS ORA_INIZIO,NULL AS DATA_STATO,NULL AS HDATA_STATO,NULL AS ORA_STATO,NULL AS INDIRIZZO_CONSEGNA,NULL AS DESTINATARIO_CONSEGNA,NULL AS COMUNE_CONSEGNA,NULL AS IDEN_SPEC_RICHIEDENTE,NULL AS ALTRO_ENTE_RICHIEDENTE,NULL AS URGENZA,NULL AS PERSONA_REPARTO_RICHIEDENTE
+			  	FROM
+			  		FX$ANAGRAFICA ANAGRAFICA
+			  		JOIN FX$COMUNI COMUNE_RESIDENZA ON ANAGRAFICA.IDEN_COMUNE_RESIDENZA = COMUNE_RESIDENZA.IDEN_COMUNE
+			  	WHERE ANAGRAFICA.IDEN = :IDEN_ANAG
+            </SQL>
+        	<BINDS>
+                <BIND id="IDEN_ANAG" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_STATO_RICHIESTE_DSA">
+        	<SQL>SELECT 'I' VALUE, 'Inviate' DESCR FROM DUAL UNION
+				 SELECT 'P' VALUE, 'Prenotate' DESCR FROM DUAL UNION
+				 SELECT 'A' VALUE, 'Accettate' DESCR FROM DUAL UNION
+				 SELECT 'E' VALUE, 'Eseguite' DESCR FROM DUAL UNION
+				 SELECT 'R' VALUE, 'Refertate' DESCR FROM DUAL UNION
+				 SELECT 'X' VALUE, 'Annullate' DESCR  FROM DUAL
+        	</SQL>
+        </QUERY>
+        <QUERY id="GET_DATI_ICD9">
+            <SQL>SELECT CONTICD.TIPO TIPOICD9, CONTICD.CODICE CODICEICD9, ICD9.DESCRIZIONE DESCRIZIONEICD9 FROM CONTATTI CONT JOIN CONTATTI_CODICI_ICD CONTICD   ON CONTICD.IDEN_CONTATTO = CONT.IDEN JOIN FX$ICD9 ICD9 ON ICD9.CODICE = CONTICD.CODICE where cont.iden = :IDEN</SQL>
+        </QUERY>
+        <QUERY id="GET_CODICE_FROM_CODDEC_ICD9">
+            <SQL> select cod_dec, codice from fx$icd9 where cod_dec in (:COD_DEC)</SQL>
+        </QUERY>
+        <QUERY id="FILTRO_STATO_CONTATTO">
+            <SQL>select /*+ first_rows(10)*/  descrizione as DESCR, IDEN as VALUE from tipi where tipo ='ADT_STATO_CONTATTO_WK' and attivo = 'S'  and descrizione not in 'DIMESSO' order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_COMBO_ADT_URG">
+            <SQL>select /*+ first_rows(10)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS VALUE,PARAMETRI AS CLASS FROM TIPI WHERE attivo='S' and TIPO='ADT_ACC_RICOVERO_LIVELLO_URG' and ASSIGNING_AUTHORITY_AREA='ADT' order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_COMBO_ADT_URG_IDEN">
+            <SQL>select /*+ first_rows(10)*/ DESCRIZIONE AS DESCR, IDEN AS VALUE,PARAMETRI AS CLASS FROM TIPI WHERE attivo='S' and TIPO='ADT_ACC_RICOVERO_LIVELLO_URG' and ASSIGNING_AUTHORITY_AREA='ADT' order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_MEDICO_PROPONENTE">
+            <SQL>select 'Interno' DESCR,'lblInterno' VALUE from dual union	select 'Esterno' DESCR,'lblEsterno' VALUE from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_MOTIVO_RICO">
+            <SQL>select /*+ first_rows(10)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS VALUE, DECODE(PARAMETRI,'1','ORD','2','DH',PARAMETRI) AS OPTGROUP FROM TIPI WHERE attivo='S' and TIPO='ADT_ACC_RICOVERO_MOTIVO' order by tipo,parametri,ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_REGIME_SOLVENTE">
+            <SQL>
+                select 'Libera professione' DESCR,'LP' VALUE from dual union select 'Solvente' DESCR,'SLV' VALUE from dual
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTI_ASSISTENZIALI">
+            <SQL>
+               select /*+ first_rows(10)*/ adt_reparti.decodeIdenCdcFunct(cdc.iden) value, cdc.sub_codice_struttura || ' ' || cdc.codice_sezione || ' ' || cdc.sub_codice_sezione || ' ' || cdc.codice_progressivo || ' ' || cdc.descrizione descr,cdc.codice_struttura,cdc.sub_codice_struttura
+                from FX$centri_di_costo cdc
+                where cdc.attivo='S' and cdc.codice_struttura=:CodiceStruttura and (abilita_ordinario='S' or abilita_day_hospital='S') order by descr
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTI_RICHIESTE_TRASFERIMENTO">
+            <SQL>select prov.iden as value, cdc.descrizione as descr from fx$provenienze prov join fx$centri_di_costo cdc on cdc.iden_provenienza = prov.iden where prov.iden not in (:idenProv) order by descr asc
+            </SQL>
+            <BINDS>
+                <BIND id="idenProv" value="#IDEN_PROV_GIU#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_PERSONALE">
+            <SQL>
+                select to_number(valore1) VALUE, valore2 CODICE_DECODIFICA, valore3 DESCR, valore7 abilita_day_hospital, valore6 abilita_ordinario from table(fx$get_cdc_personale(:idenPer, :webuser))  WHERE {1=1} order by valore3 asc
+            </SQL>
+            <BINDS>
+                <BIND id="idenPer" value="" type="N"></BIND>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="QUERY_REPARTI_PERSONALE">
+            <SQL>
+                SELECT
+			  		TO_NUMBER(VALORE1) AS VALUE,
+			  		VALORE2 AS CODICE_DECODIFICA,
+			  		VALORE3 AS DESCR,
+			  		VALORE7 AS ABILITA_DAY_HOSPITAL,
+			  		VALORE6 AS ABILITA_ORDINARIO,
+			  		VALORE12 AS ABILITA_VPO
+				FROM
+			  		TABLE(FX$GET_CDC_PERSONALE(:IDEN_PER, :USERNAME))
+				ORDER BY
+			  		VALORE3 ASC
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_PER" value="#IDEN_PER#" type="N"></BIND>
+                <BIND id="USERNAME" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_PERSONALE_ORD">
+            <SQL>select adt_reparti.decodeIdenCdcFunct(to_number(valore1)) VALUE, valore2 CODICE_DECODIFICA, valore5 || ' ' || valore9 || ' ' || valore10 || ' ' || valore11 || ' ' || valore3 DESCR,  valore4 codice_struttura , valore5 sub_codice_struttura, valore6 abilita_ordinario, valore7 abilita_day_hospital, valore1 iden_cdc  from table(fx$get_cdc_personale(:idenPer, :webuser)) where valore6 = 'S' order by valore3</SQL>
+            <BINDS>
+                <BIND id="idenPer" value="" type="N"></BIND>
+                <BIND id="webuser" value="webuser" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_PERSONALE_DH">
+            <SQL>select adt_reparti.decodeIdenCdcFunct(to_number(valore1)) VALUE, valore2 CODICE_DECODIFICA, valore5 || ' ' || valore9 || ' ' || valore10 || ' ' || valore11 || ' ' || valore3 DESCR,  valore4 codice_struttura , valore5 sub_codice_struttura, valore6 abilita_ordinario, valore7 abilita_day_hospital, valore1 iden_cdc  from table(fx$get_cdc_personale(:idenPer, :webuser)) where valore7 = 'S' order by valore3</SQL>
+            <BINDS>
+                <BIND id="idenPer" value="" type="N"></BIND>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_PERSONALE_DH_ORD">
+            <SQL> select to_number(valore1) VALUE, valore2 CODICE_DECODIFICA, valore3 DESCR, valore7 abilita_day_hospital, valore6 abilita_ordinario from table(fx$get_cdc_personale(:idenPer, :webuser)) where valore6 = 'S' or valore7 = 'S' or valore12 = 'S' order by valore3 </SQL>
+            <BINDS>
+                <BIND id="idenPer" value="" type="N"></BIND>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_PERSONALE_ALL">
+            <SQL>select adt_reparti.decodeIdenCdcFunct(to_number(valore1)) VALUE, valore2 CODICE_DECODIFICA, valore5 || ' ' || valore9 || ' ' || valore10 || ' ' || valore11 || ' ' || valore3 DESCR,  valore4 codice_struttura , valore5 sub_codice_struttura, valore6 abilita_ordinario, valore7 abilita_day_hospital, valore1 iden_cdc  from table(fx$get_cdc_personale(:idenPer, :webuser)) where valore6 = 'S' or valore7 = 'S' order by valore3</SQL>
+            <BINDS>
+                <BIND id="idenPer" value="" type="N"></BIND>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_PERSONALE_DSA">
+            <SQL>select adt_reparti.decodeIdenCdcFunct(to_number(valore1)) VALUE, valore2 CODICE_DECODIFICA, valore3 DESCR,  valore4 codice_struttura , valore5 sub_codice_struttura, valore6 abilita_ordinario, valore7 abilita_day_hospital from table(fx$get_cdc_personale(:idenPer, :webuser)) where valore8 = 'S' order by valore3</SQL>
+            <BINDS>
+                <BIND id="idenPer" value="#IDEN_PER#" type="N"></BIND>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPARTI_PERSONALE_PAC">
+            <SQL>SELECT ADT_REPARTI.DECODEIDENCDCFUNCT(TO_NUMBER(VALORE1)) VALUE, VALORE2 CODICE_DECODIFICA, VALORE3 DESCR,  VALORE4 CODICE_STRUTTURA , VALORE5 SUB_CODICE_STRUTTURA, VALORE6 ABILITA_ORDINARIO, VALORE7 ABILITA_DAY_HOSPITAL FROM TABLE(FX$GET_CDC_PERSONALE(:idenPer, :webuser)) WHERE VALORE13 = 'S' ORDER BY VALORE3</SQL>
+            <BINDS>
+                <BIND id="idenPer" value="#IDEN_PER#" type="N"></BIND>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+		<QUERY id="Q_STRUTTURE">
+        	<SQL>select codice_decodifica value, codice_decodifica || ' - ' || descrizione descr from tipi where tipo='ADT_STRUTTURE' and assigning_authority_area='ADT'
+        	</SQL>
+        </QUERY>
+        <QUERY id="Q_TITOLO_STUDIO">
+            <SQL> select (select iden FROM tipi where iden = A.IDEN_LIVELLO_ISTRUZIONE ) TITOLO_STUDIO from fx$anagrafica A where A.IDEN = :iden </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_STATO_RICHIESTA">
+            <SQL>select iden value, descrizione descr, codice_decodifica codice_stato from tipi where assigning_authority_area='ADT' and tipo='ADT_RICHIESTE_CARTELLA' and attivo='S' order by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_SESSO">
+            <SQL>select 'lblM' DESCR,'M' VALUE from dual union select 'lblF' DESCR,'F' VALUE from dual </SQL>
+        </QUERY>
+        <QUERY id="Q_TEMPLATE">
+	        <SQL>select
+	            ANAG.NOME,
+	            ANAG.COGNOME,
+	            to_char(to_date(ANAG.DATA_NASCITA,'yyyyMMdd'),'dd/mm/yyyy') DATA_NASCITA,
+	            (SELECT TRUNC(TRUNC(SYSDATE - TO_DATE(anag.data_nascita,'yyyyMMdd'))/365)from dual) eta,
+	            ANAG.CODICE_FISCALE,
+	            NULL AS URGENZA,
+	            anag.sesso,
+	            :template as template
+	            from
+	            FX$ANAGRAFICA anag
+	            where iden = :iden
+	        </SQL>
+	        <BINDS>
+	            <BIND id="iden" value="#IDEN_ANAG#" type="N"></BIND>
+	            <BIND id="template" value="#TEMPLATE#" type="V"></BIND>
+	        </BINDS>
+    	</QUERY>
+        <QUERY id="Q_TIPO_RICO">
+            <SQL>select /*+ first_rows(10)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS VALUE, DECODE(PARAMETRI,'1','ORD','2','DH',PARAMETRI) AS OPTGROUP FROM TIPI WHERE attivo='S' and TIPO='ADT_ACC_RICOVERO_TIPO' AND PARAMETRI IN ('1','2')order by tipo,PARAMETRI,ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_TIPO_DIMI">
+	        <SQL>
+	        	SELECT IDEN AS VALUE, DESCRIZIONE DESCR, CODICE_DECODIFICA AS CODICE FROM TIPI where tipo = 'ADT_DIMISSIONE_TIPO' AND HASTAGVALUE(PARAMETRI, 'S', 'SDO') > 0 AND ATTIVO = 'S' AND ASSIGNING_AUTHORITY_AREA = 'ADT'
+	        </SQL>
+        </QUERY>
+        <QUERY id="Q_ISTITUTO_TRASFERIMENTO">
+	        <SQL>
+	        	SELECT IDEN AS VALUE, DESCRIZIONE DESCR, CODICE_DECODIFICA AS CODICE FROM TIPI WHERE TIPO = 'ISTITUTO_TRASFERIMENTO_DIMISSIONE' AND ATTIVO = 'S' AND ASSIGNING_AUTHORITY_AREA = 'ADT'
+	        </SQL>
+        </QUERY>
+        <QUERY id="GET_TIPO_DIMI_DSA">
+            <SQL>select /*+ first_rows(1)*/ iden from tipi where tipo = 'ADT_DIMISSIONE_TIPO' and Hastagvalue(parametri,'D','tipo') > 0</SQL>
+        </QUERY>
+        <QUERY id = "Q_FILTRO_TIPO_TRASF">
+            <SQL>select DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS VALUE from tipi where tipo = 'ADT_TIPO_REPARTO_WORKLIST' and CODICE_DECODIFICA not in 'ENTR'</SQL>
+        </QUERY>
+        <QUERY id="Q_TIPOLOGIA_DSA_REPARTO">
+            <SQL>SELECT ' ' DESCR, '0000' AS CODICE, NULL VALUE FROM DUAL UNION select /*+ first_rows(10)*/ CODICE_DECODIFICA || ' - ' || DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS CODICE, IDEN AS VALUE FROM TIPI where attivo='S' and TIPO='ADT_TIPOLOGIA_DSA' and :idenPro in (select column_value from table(getNumberListFromTag(PARAMETRI,'iden_pro'))) order by descr</SQL>
+        </QUERY>
+        <QUERY id="Q_ESE_PAZ">
+            <SQL>select COD_ESENZIONE as value, substr(cod_esenzione,3) || ' - ' || DESCR descr from FX$ESENZIONI_PAZIENTE WHERE IDEN_ANAG=:idenAnag order by cod_esenzione</SQL>
+            <BINDS>
+                <BIND id="idenAnag" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="FRASI">
+            <SQL>SELECT * FROM FRASI_STD_REFERTAZIONE where gruppo like :gruppo
+                and codice like :codice and upper(frase) like :descrizione {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="Q_FRASE_STD">
+            <SQL>select   *  FROM FRASI_STD_REFERTAZIONE where IDEN  = :IDEN_FRASE</SQL>
+            <BINDS>
+                <BIND id="IDEN_FRASE" value="#IDEN_FRASE#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SEL_TIPOLOGIA_DSA">
+            <SQL>SELECT /* +first_rows(1)*/ DESCRIZIONE , CODICE_DECODIFICA FROM TIPI where  TIPO='ADT_TIPOLOGIA_DSA' AND IDEN=:iden</SQL>
+        </QUERY>
+        <QUERY id="Q_PREST_ACCESSO_DSA">
+            <SQL>SELECT /* +first_rows(8)*/ CODICE_MINISTERIALE VALUE,PRESTAZIONE DESCR FROM view_dsa_prestazioni_sia vdsa inner join FX$MMG_ACCERTAMENTI_DSA acc on (vdsa.codice_prestazione= acc.codice_accertamento) where progressivo= :codTipologiaSDA and iden_accesso=:idenContatto AND data_esecuzione=:dataEse order by prestazione
+            </SQL>
+            <BINDS>
+                <BIND id="codTipologiaSDA" value="#COD_TIPOLOGIA_DSA#" type="V"></BIND>
+                <BIND id="idenContatto" value="#IDEN_CONTATTO#" type="N"></BIND>
+                <BIND id="dataEse" value="#DATA_ESE#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_CDC_DESTINATARI">
+            <SQL>select col01 VALUE, col01 || '(' || col02 || ')' DESCR from table(GETREPARTIDESTINATARI_GV (:priorita, :codIsesPrest, :lateralita))</SQL>
+            <BINDS>
+                <BIND id="priorita" value="#PRIORITA#" type="V"></BIND>
+                <BIND id="codIsesPrest" value="#CODICI_PRESTAZIONI#" type="V"></BIND>
+                <BIND id="lateralita" value="#LATERALITA#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_CONTATTI_APERTI">
+            <SQL>
+				SELECT
+				  	SINTESI.IDEN_CONTATTO,
+				  	SINTESI.CODICE AS NOSOLOGICO,
+				  	CODIFICHE.ENCODETIPO(SINTESI.REGIME) AS REGIME,
+				  	TO_CHAR(SINTESI.DATA_INIZIO,'DD/MM/YYYY') AS DATA_INIZIO,
+				  	(SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = (SELECT CDC_ACCETTAZIONE_GIURIDICO FROM CONTATTI WHERE IDEN = SINTESI.IDEN_CONTATTO)) AS REPARTO,
+				  	(SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = (SELECT CDC_ULTIMO_GIURIDICO FROM CONTATTI WHERE IDEN = SINTESI.IDEN_CONTATTO)) AS REPARTO_ULTIMO
+				FROM
+				  	CONTATTI_SINTESI SINTESI
+				WHERE
+				  	SINTESI.IDEN_ANAGRAFICA = :idenAnag AND
+				  	SINTESI.STATO = CODIFICHE.DECODETIPO('STATO','ADMITTED',NULL,'ADT') AND
+				  	SINTESI.ASSIGNING_AUTHORITY_AREA = 'ADT' AND DELETED = 'N'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_CAUSA_ESTERNA">
+            <SQL>select IDEN value, descrizione descr from TIPI where TIPO='CAUSA_ESTERNA' and parametri=:codCategoria order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_SI_NO">
+        	<SQL>(select ' ' value, ' ' descr, 0 ordine from dual)
+						union
+						(select 'S' value, 'Si' descr, 1 ordine from dual)
+						union
+						(select 'N' value, 'No' descr, 2 ordine from dual)
+						order by ordine</SQL>
+        </QUERY>
+         <QUERY id="R_SESSO">
+            <SQL>select /*+first_rows(10)*/ &apos;M&apos; VALUE, &apos;lblMaschio&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;F&apos; VALUE, &apos;lblFemmina&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_RADIO_SI_NO">
+            <SQL>(select 'S' value, 'Si' descr, 1 ordine from dual)
+                union
+                (select 'N' value, 'No' descr, 2 ordine from dual)
+                order by ordine
+            </SQL>
+        </QUERY>
+         <QUERY id="Q_CONTATTO_SCONOSCIUTO">
+            <SQL>
+              SELECT
+                'ASSISTITO'|| fx$seq_nome_assistito_scon.nextval NOME,
+                'SCONOSCIUTO' COGNOME ,
+                'ONESYSADT' || TO_CHAR( lpad((FX$SEQ_COD_FISC_SCON.NEXTVAL),7,'0')) CODICE_FISCALE
+                from dual
+
+            </SQL>
+            <BINDS>
+                <BIND id="iden_anagrafica" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_ANAGRAFICA">
+            <SQL>
+                SELECT
+                ANAG.NOME,
+                ANAG.COGNOME,
+                ANAG.CODICE_FISCALE,
+                ANAG.SESSO,
+                ANAG.DATA_NASCITA,
+                ANAG.RES_INDIRIZZO,
+                ANAG.RES_COD_REGIONE,
+                ANAG.RES_NUMERO_CIVICO,
+                ANAG.RES_CAP,
+                ANAG.RES_TELEFONO,
+                ANAG.RES_PROVINCIA,
+                ANAG.IDEN_COMUNE_RESIDENZA,
+                ANAG.EMAIL,
+                ANAG.IDEN_PROFESSIONE,
+                ANAG.IDEN_COMUNE_DOMICILIO,
+                ANAG.DOM_NUMERO_CIVICO,
+                ANAG.DOM_INDIRIZZO,
+                ANAG.DOM_USL AS ASL_DOMICILIO,
+                ANAG.DOM_CAP,
+                ANAG.DOM_TELEFONO,
+                ANAG.DOM_COD_REGIONE,
+                ANAG.DOM_PROVINCIA,
+                ANAG.DOM_COD_REGIONE,
+                ANAG.DOM_USL,
+                anag.RES_NUMERO_CIVICO ,
+                ANAG.DOM_PRESSO,
+                ANAG.IDEN_COMUNE_DOMICILIO,
+                ANAG.IDEN_NAZIONE AS NAZIONE_CODICE,
+                ANAG.IDEN_STATO_CIVILE AS STATO_CIVILE,
+                ANAG.RES_TELEFONO, ANAG.RES_CELLULARE CELL_PAZIENTE,
+                ANAG.TESSERA_SANITARIA, ANAG.TESSERA_DATA_SCAD AS SCADENZA_TESSERA,
+                ANAG.IDEN_STATO_CIVILE,
+                ANAG.CITTADINANZA,
+                ANAG.IDEN_MEDICO_BASE,
+                ANAG.DATA_MORTE,
+                ANAG.ALTEZZA, ANAG.PESO,
+                ANAG.ANAMNESI,
+                COM_NASC.codice_comune cod_com_nascita,
+                COM_NASC.codice_regione cod_reg_nascita,
+                ANAG.NOTE,
+                (SELECT CASE WHEN IDEN_LIVELLO_ISTRUZIONE IS NOT NULL THEN IDEN_LIVELLO_ISTRUZIONE ELSE(SELECT TO_NUMBER(EXTRACTVALUE(METADATI, '/METADATI/DATO[@KEY="ADT_ACC_RICOVERO_TITOLO_STUDIO"]/@ID')) FROM CONTATTI WHERE IDEN = (select max(iden) from contatti where IDEN_ANAGRAFICA =  ANAGRAFICA.IDEN )) END TITOLO_STUDIO FROM FX$ANAGRAFICA ANAGRAFICA WHERE ANAGRAFICA.IDEN = :iden_anagrafica ) IDEN_LIVELLO_ISTRUZIONE ,
+                ANAG.USL_RES AS ASL_RESIDENZA,
+                ANAG.USL_ASSISTENZA AS ASL_ASSISTENZA,
+                ANAG.ASS_COD_REGIONE,
+                (SELECT ASL_DESCR FROM fx$TAB_ASL WHERE AZD_CODICE =  ANAG.USL_ASSISTENZA AND REG_CODICE = ANAG.ASS_COD_REGIONE) AS ASL_ASSISTENZA_DESCR,
+                (SELECT ASL_DESCR FROM fx$TAB_ASL WHERE AZD_CODICE =  ANAG.DOM_USL AND REG_CODICE = ANAG.DOM_COD_REGIONE) AS ASL_DOMICILIO_DESCR,
+                (SELECT ASL_DESCR FROM fx$TAB_ASL WHERE AZD_CODICE =  ANAG.USL_RES AND REG_CODICE = ANAG.RES_COD_REGIONE) AS ASL_RESIDENZA_DESCR,
+                (SELECT DESCRIZIONE  DESCR FROM TIPI WHERE  TIPO = 'STATO_CIVILE' AND IDEN = ANAG.IDEN_STATO_CIVILE AND ATTIVO = 'S' ) AS STATO_CIVILE_DESCR,
+                NAZ.DESCR AS NAZIONE_DESCR,
+                NAZ.COD AS NAZIONE_COD,
+                (SELECT DESCRIZIONE FROM FX$PERSONALE p WHERE IDEN  = ANAG.IDEN_MEDICO_BASE and p.attivo='S' and p.tipo_personale='M') MEDICO_BASE,
+                (SELECT DESCR FROM FX$TAB_PRF WHERE IDEN = ANAG.IDEN_PROFESSIONE) PROFESSIONE_DESCR,
+                (SELECT DESCRIZIONE FROM TIPI WHERE IDEN = ANAG.IDEN_LIVELLO_ISTRUZIONE) LIVELLO_ISTRUZIONE_DESCR,
+                (SELECT ID4 FROM FX$COD_EST_ANAG WHERE IDEN_ANAG = ANAG.IDEN) ANAG_ID4,
+                ANAG.IDEN_COMUNE_NASCITA, COM_NASC.DESCRIZIONE COMUNE_NASCITA, COM_NASC.CODICE_COMUNE CODICE_COMUNE_NASCITA, COM_NASC.CODICE_REGIONE AS CODICE_REGIONE_NASCITA, COM_NASC.CODICE_USL AS USL_NASCITA,
+                ANAG.IDEN_COMUNE_RESIDENZA,
+                COM_RES.DESCRIZIONE AS COMUNE_RESIDENZA,
+                COM_RES.codice_usl usl_residenza,
+                COM_RES.cap,
+                COM_RES.codice_regione cod_reg_residenza,
+                COM_RES.CODICE_COMUNE AS CODICE_COMUNE_RESIDENZA, COM_RES.CODICE_REGIONE CODICE_REGIONE_RESIDENZA, COM_DOM.DESCRIZIONE COMUNE_DOMICILIO, COM_DOM.CODICE_COMUNE CODICE_COMUNE_DOMICILIO, COM_DOM.CODICE_REGIONE CODICE_REGIONE_DOMICILIO, COM_DOM.CODICE_USL USL_DOMICILIO,
+                PROF.DESCR PROFESSIONE,
+                DECODE(ID9,NULL,'N','S') AS STP, CEA.ID9 COD_STP, TO_CHAR(TO_DATE(CEA.ID10,'yyyyMMdd'),'dd/MM/yyyy') AS DATA_SCADENZA_STP, CEA.ID10 AS DATA_SCADENZA_STP_ISO,
+                DECODE(ID11,NULL,'N','S') AS ENI, CEA.ID11 COD_ENI, TO_CHAR(TO_DATE(CEA.ID12,'yyyyMMdd'),'dd/MM/yyyy') AS DATA_SCADENZA_ENI, CEA.ID12 AS DATA_SCADENZA_ENI_ISO,
+                DECODE(ID13,NULL,'N','S') AS GIU, CEA.ID13 COD_GIU, TO_CHAR(TO_DATE(CEA.ID14,'yyyyMMdd'),'dd/MM/yyyy') AS DATA_SCADENZA_GIU , CEA.ID14 AS DATA_SCADENZA_GIU_ISO
+                FROM
+                FX$ANAGRAFICA ANAG
+                LEFT OUTER JOIN ADT.FX$COMUNI COM_NASC ON (COM_NASC.IDEN_COMUNE  =ANAG.IDEN_COMUNE_NASCITA)
+                LEFT OUTER JOIN ADT.FX$COMUNI COM_RES ON (COM_RES.IDEN_COMUNE = ANAG.IDEN_COMUNE_RESIDENZA) AND COM_RES.ATTIVO='S'
+                LEFT OUTER JOIN ADT.FX$COMUNI COM_DOM ON (COM_DOM.IDEN_COMUNE = ANAG.IDEN_COMUNE_DOMICILIO) AND COM_DOM.ATTIVO='S'
+                LEFT OUTER JOIN ADT.FX$TAB_PRF PROF ON (PROF.IDEN=ANAG.IDEN_PRF)
+                LEFT OUTER JOIN ADT.FX$NAZIONI NAZ ON (NAZ.IDEN=ANAG.IDEN_NAZIONE)
+                LEFT OUTER JOIN FX$COD_EST_ANAG CEA ON CEA.IDEN_ANAG = ANAG.IDEN
+                WHERE
+                ANAG.IDEN = :iden_anagrafica
+            </SQL>
+            <BINDS>
+                <BIND id="iden_anagrafica" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_ANAGRAFICA_PINNATA">
+            <SQL>
+                select ID4 from fx$cod_est_anag
+                where iden_anag = :idenAnag
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_ADT_CONTATTO_SCONOSCIUTO">
+            <SQL>select  'ASSISTITO'|| seq_nome_assistito.nextval NOME,'SCONOSCIUTO' COGNOME ,'ONESYSADT' ||  TO_CHAR( lpad(( SEQ_CODICE_FISCALE.NEXTVAL),8,'0'))  CODICE_FISCALE from dual
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_STATISTICHE_SALVATE">
+            <SQL>
+                SELECT ID_FILTRO VALUE, ID_FILTRO_PERSONALE AS DESCR, LISTAGG(CODICE_VARCHAR,'|') WITHIN GROUP (ORDER BY IDEN) CAMPI FROM FX$FILTRI WHERE GRUPPO_FILTRI = 'FILTRO_STATISTICHE_USER_DEFINED_' || :id_statistica AND USERNAME = :username GROUP BY (ID_FILTRO_PERSONALE,ID_FILTRO)
+            </SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_ARCHIVIO_REPARTI_FILTRO">
+            <SQL>select iden,descrizione archivio from fx$centri_di_costo
+				where archivio_cartelle='S' and cod_cdc in (select reparto from fx$web_cdc where webuser=:username)
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTI_ARCHIVIO">
+            <SQL>
+                select cdcRep.iden value ,cdcRep.cod_cdc codice_decodifica,cdcRep.descrizione descr,cdcRep.abilita_day_hospital,cdcRep.abilita_ordinario
+                from fx$centri_di_costo cdcRep
+                inner join fx$centri_di_costo cdcArchivio on (cdcrep.struttura = cdcarchivio.struttura and cdcArchivio.archivio_cartelle='S')
+                where
+                cdcArchivio.cod_cdc in (select reparto from fx$web_cdc where webuser=:webuser)
+                and cdcRep.attivo='S' and cdcRep.codice_struttura is not null and (cdcRep.abilita_pac='S' or cdcRep.abilita_ordinario='S' or cdcRep.abilita_day_hospital='S' or cdcRep.tipologia = 8)
+                order by descr
+            </SQL>
+            <BINDS>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_STRUTTURA_UTENTE_ARCHIVIO">
+            <SQL>
+                select codice_struttura from fx$centri_di_costo cdcArchivio
+                where archivio_cartelle='S' and cod_cdc in (select reparto from fx$web_cdc where webuser=:webuser)
+            </SQL>
+            <BINDS>
+                <BIND id="webuser" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_AUTORITA_CARTELLA_SEQ">
+            <SQL>select iden value, descrizione descr from TIPI where tipo='ADT_AUTORITA_SEQUESTRO_CARTELLA' and attivo='S' order by ordine
+            </SQL>
+        </QUERY>
+        <QUERY id="GET_DESCRIZIONE_PROV">
+            <SQL>select adt_reparti.decodeSezioneProvenienza(to_number(:idenprov)) descrprov  from dual
+            </SQL>
+        </QUERY>
+        <QUERY id="DATI_PAZIENTE_RICHIESTA">
+            <SQL>   select distinct a.cognome,a.nome,a.sesso, substr(a.DATA_NASCITA,7) ||'/'|| substr(a.DATA_NASCITA,5,2)||'/'|| substr(a.DATA_NASCITA,0,4)data_nascita,a.codice_fiscale,
+                rmv.iden iden_richiesta,rmv.iden_tipo_richiedente,rmv.iden_tipo_consegna,rmv.iden_modalita_richiesta,rmv.iden_stato,
+                to_char(rmv.data_inizio,'DD/MM/YYYY') data_inizio,
+                to_char(rmv.data_inizio,'YYYYMMDD') hdata_inizio,
+                to_char(rmv.data_inizio,'hh24:mi') ora_inizio,
+                to_char(rmv.data,'DD/MM/YYYY') data_stato,
+                to_char(rmv.data,'YYYYMMDD') hdata_stato,
+                to_char(rmv.data,'hh24:mi') ora_stato,
+                a.iden_comune_residenza,
+                comune_residenza.cap CAP_RESIDENZA,
+                cap_consegna,
+                indirizzo_consegna,destinatario_consegna,comune_consegna,com.comune,
+                rmv.iden_spec_richiedente,rmv.altro_ente_richiedente,rmv.urgenza,rmv.persona_reparto_richiedente,
+                comune_residenza.descrizione comune_residenza,
+                COMUNE_RESIDENZA.codice_provincia prov_residenza,
+                a.res_indirizzo || a.RES_NUMERO_CIVICO  INDIRIZZO_RESIDENZA,
+                (select asl_descr from FX$TAB_ASL where reg_codice = COMUNE_RESIDENZA.codice_regione and azd_codice =    COMUNE_RESIDENZA.codice_usl) ASL_RESIDENZA,
+                NVL(a.RES_TELEFONO,a.RES_CELLULARE) AS TELEFONO,
+                rmv.NOTE
+                from richieste_movimenti_cartella rmv
+                inner join richieste_mov_cartella_dett rmvd on (rmvd.iden_richiesta=rmv.iden)
+                inner join contatti c on (rmvd.iden_contatto=c.iden)
+                inner join fx$anagrafica a on (c.iden_anagrafica=a.iden)
+                left join fx$comuni Com on (comune_consegna=com.iden_comune)
+                join fx$comuni comune_residenza on a.iden_comune_residenza = comune_residenza.iden_comune
+                where rmv.iden=:IDEN_RICHIESTA and rmv.deleted='N'
+            </SQL>
+            <BINDS>
+                <BIND id="IDEN_RICHIESTA" value="#IDEN_RICHIESTA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_NUM_ACCESSI_ASS">
+            <SQL><![CDATA[
+        	select count(*) NACCESSI from view_contatti_assistenziali where iden_contatto=:idenContatto and deleted='N' and codice_stato<>'REFUSED'
+        	]]></SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTO_GIU_DH">
+            <SQL>select iden_provenienza, adt_reparti.decodeprovenienza(iden_provenienza) reparto_giu from contatti_giuridici where iden_contatto=:idenContatto
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTO_ASS_DH">
+            <SQL>select iden_provenienza, adt_reparti.decodeprovenienza(iden_provenienza) reparto_ass from contatti_assistenziali where iden_contatto=:idenContatto and attivo='S' and deleted='N'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTO">
+            <SQL>select  prov.IDEN value, cdc.sub_codice_struttura || ' ' || cdc.codice_sezione || ' ' || cdc.sub_codice_sezione || ' ' || cdc.codice_progressivo || ' ' || cdc.descrizione descr,
+                cdc.codice_struttura,cdc.sub_codice_struttura,
+                cdc.abilita_ordinario,cdc.abilita_day_hospital
+                from fx$provenienze prov inner join fx$centri_di_costo cdc on (prov.iden=cdc.iden_provenienza)
+                where prov.iden=:idenProvenienza</SQL>
+        </QUERY>
+        <QUERY id="Q_REPARTO_BY_CDC">
+            <SQL>
+            	SELECT  CDC.IDEN, CDC.DESCRIZIONE, CDC.CODICE_STRUTTURA, CDC.SUB_CODICE_STRUTTURA, CDC.ABILITA_ORDINARIO,CDC.ABILITA_DAY_HOSPITAL, CDC.ABILITA_VPO
+				FROM FX$CENTRI_DI_COSTO CDC
+				WHERE CDC.IDEN = :iden_cdc
+         	</SQL>
+        </QUERY>
+		<QUERY id="Q_TIPO_RICOVERO">
+            <SQL>
+                SELECT IDEN AS VALUE, DESCRIZIONE AS DESCR FROM ADT.TIPI WHERE TIPO = 'ADT_ACC_RICOVERO_TIPO' AND PARAMETRI IN (SELECT CODICE_DECODIFICA FROM TIPI WHERE IDEN IN (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE USERNAME = :username AND ID_FILTRO = 'CONTATTI_FILTRO_REGIME_RICOVERO'))
+            </SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_TIPO_RICOVERO_WK_ACCESSI_GIURIDICI_DIMESSI">
+            <SQL>
+                SELECT IDEN AS VALUE, DESCRIZIONE AS DESCR FROM ADT.TIPI WHERE TIPO = 'ADT_ACC_RICOVERO_TIPO' AND PARAMETRI IN (SELECT CODICE_DECODIFICA FROM TIPI WHERE IDEN IN (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE USERNAME = :username AND ID_FILTRO = 'ACCESSI_GIURIDICI_REGIME_DIMESSI'))
+            </SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_TIPO_RICOVERO_WK_TRASFERIMENTI_ASSISTENZIALI">
+            <SQL>
+                SELECT IDEN AS VALUE, DESCRIZIONE AS DESCR FROM ADT.TIPI WHERE TIPO = 'ADT_ACC_RICOVERO_TIPO' AND PARAMETRI IN (SELECT CODICE_DECODIFICA FROM TIPI WHERE IDEN IN (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE USERNAME = :username AND ID_FILTRO = 'TRASFERIMENTI_ASSISTENZIALI_REGIME'))
+            </SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="DOCUMENTI_ALLEGATI">
+            <SQL>
+                Select
+                to_char(data_inserimento,'YYYYMMDD') DATA ,
+                to_char(data_inserimento,'HH24:MI') ORA ,
+                IDEN,
+                NOME_FILE,
+                URL_DOCUMENTO,
+                MIME_TYPE
+                from FX$DOCUMENTI_ALLEGATI
+                WHERE
+                IDEN_ANAGRAFICA=:iden_anagrafica and IDEN_ESAMI_TESTATA IS NULL
+                AND DELETED ='N' {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="WK_RICHIESTE_DSA">
+        	<SQL>
+                SELECT
+                      np.num_nosologico ,
+                      SUBSTR(np.data_ricovero,7)  || '/'  || SUBSTR(np.data_ricovero,5,2)  || '/'  || SUBSTR(np.data_ricovero,0,4) data_inizio,
+                      np.iden_anag,
+                      anag.cogn  || ' '  || anag.nome  || ' '  || SUBSTR(ANAG.DATA,7)  ||'/'  || SUBSTR(ANAG.DATA,5,2)  ||'/'  || SUBSTR(ANAG.DATA,0,4) ASSISTITO ,
+                      cdc.descrizione reparto,
+                      cdcDest.descrizione cdc_descr_destinatario,
+                      SUBSTR(tr.data_richiesta,7)  || '/'  || SUBSTR(tr.data_richiesta,5,2)  || '/'  || SUBSTR(tr.data_richiesta,0,4) data_richiesta ,
+                      tr.ora_richiesta,
+                      SUBSTR(tr.data_proposta,7)  || '/'  || SUBSTR(tr.data_proposta,5,2)  || '/'  || SUBSTR(tr.data_proposta,0,4) data_proposta ,
+                      tr.ora_proposta,
+                      tr.iden ,
+                      tr.stato_richiesta ,
+                      tr.cdc cdc_destinatario,
+                      tr.metodica,
+                      tr.tipologia_richiesta,
+                      tr.id_richiesta,
+                      tr.prelievo_effettuato,
+                      (SELECT wm_concat(tab_esa.descr)  FROM tab_esa@whale tab_esa  INNER JOIN infoweb.dettaglio_richieste@whale dett  ON (dett.iden_tab_esa=tab_esa.iden)  WHERE iden_testata   =tr.iden  ) prestazioni
+                FROM nosologici_paziente@whale np
+                      INNER JOIN infoweb.testata_richieste@whale tr ON (np.iden=tr.iden_visita)
+                      INNER JOIN anag@whale ON (tr.iden_anag=anag.iden)
+                      INNER JOIN fx$centri_di_costo cdc ON (np.cod_cdc=cdc.cod_cdc)
+                      INNER JOIN fx$centri_di_costo cdcDest ON (tr.cdc =cdcDest.codice)
+                WHERE
+                      np.num_nosologico=:numNoso
+        	</SQL>
+        </QUERY>
+        <QUERY id="Q_PIN_AAC">
+        	<SQL>SELECT ID4 PIN_AAC FROM FX$COD_EST_ANAG WHERE IDEN_ANAG =:IDEN_ANAG
+        	</SQL>
+        </QUERY>
+        <QUERY id="Q_ASL">
+        	<SQL>select asl_descr from fx$tab_asl where reg_codice=:codReg and azd_codice=:codAsl
+        	</SQL>
+        </QUERY>
+        <QUERY id="Q_REGIONI">
+        	<SQL>SELECT CODICE_DECODIFICA VALUE, CODICE_DECODIFICA || ' - ' || DESCRIZIONE DESCR FROM TIPI WHERE TIPO='REGIONI_ITALIANE' ORDER BY CODICE_DECODIFICA</SQL>
+        </QUERY>
+        <QUERY id="Q_CONTRODEDUZIONI_SCHEDA">
+        	<SQL>SELECT IDEN,REGIONE_ADDEBITANTE,OSP_INVIANTE,CODICE_ISTITUTO,NUMERO_SCHEDA,
+        	COGNOME_UTENTE,NOME_UTENTE,NUMERO_SCHEDA_MADRE,CODICE_FISCALE_UTENTE,SESSO_UTENTE,DATA_NASCITA_UTENTE, DATA_NASCITA,STATO_CIVILE,STATO_CIVILE_DESCR,
+			COMUNE_RESIDENZA,COMUNE_RES,USL_RESIDENZA,CITTADINANZA,CITTADINANZA_DESCR,MEDICO_PRESCRITTORE,ID,POSIZIONE_CONTABILE,
+			REGIONE_INIZIALE_ADDEBITO,NUOVA_REGIONE_ADDEBITO,CODICE_FISCALE_UTENTE_SOGEI,REGIONE_RESIDENZA_SOGEI,USL_RESIDENZA_SOGEI,COMUNE_RESIDENZA_SOGEI,COMUNE_RES_SOGEI,
+			REGIONE_RESIDENZA_ASL,USL_RESIDENZA_ASL,REGIME_RICOVERO,DATA_RICOVERO,DATA_RICO,PROVENIENZA_PAZIENTE,REPARTO_AMMISSIONE,ONERE,TIPO_RICOVERO,TRAUMATISMI,
+			REPARTO_DIMISSIONE,DATA_DIMISSIONE,DATA_DIMI,MODALITA_DIMISSIONE,RISCONTRO_AUTOPTICO,SISTEMA_CODIFICA_DIAGNOSI,
+			DIAGNOSI_PRINCIPALE,DIAGNOSI_PRINCIPALE_DESCR,
+			DIAGNOSI_CONCOMITANTE_1,DIAGNOSI_CONCOMITANTE_1_DESCR,
+			DIAGNOSI_CONCOMITANTE_2,DIAGNOSI_CONCOMITANTE_2_DESCR,
+			DIAGNOSI_CONCOMITANTE_3,DIAGNOSI_CONCOMITANTE_3_DESCR,
+			DIAGNOSI_CONCOMITANTE_4,DIAGNOSI_CONCOMITANTE_4_DESCR,
+			DIAGNOSI_CONCOMITANTE_5,DIAGNOSI_CONCOMITANTE_5_DESCR,
+			DATA_INTERVENTO_PRINCIPALE,DATA_INT_PRINC,
+			INTERVENTO_PRINCIPALE, INTERVENTO_PRINCIPALE_DESCR,
+			ALTRO_INTERVENTO_1,ALTRO_INTERVENTO_1_DESCR,
+			ALTRO_INTERVENTO_2,ALTRO_INTERVENTO_2_DESCR,
+			ALTRO_INTERVENTO_3,ALTRO_INTERVENTO_3_DESCR,
+			ALTRO_INTERVENTO_4,ALTRO_INTERVENTO_4_DESCR,
+			ALTRO_INTERVENTO_5,ALTRO_INTERVENTO_5_DESCR,
+			MOTIVO_RICOVERO_DH,NUMERO_GIORNI_DH,DRG,IMPORTO,ERRORI_ANAGRAFICI,ERRORI_RESIDENZA,ERRORI_PRESTAZIONE,ERRORI_RICOVERO,ERRORI_CHIAVE_RECORD,ERRORI_IMPORTO,
+			ERRORI_DATA_PRESTAZIONE,ERRORI_ONERE,DRG_REG_RICEVENTE,DATA_PREN_RICOVERO,DATA_PREN_RICO,PESO_NASCITA,PRIORITA,IMPORTO_REG_RIC,REGIONE_CONTESTANTE,STATO
+			FROM VIEW_CONTRODEDUZIONI WHERE IDEN=:iden
+        	</SQL>
+        	<BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_IDEN_CONTATTO_BYCODICE">
+        	<SQL>SELECT IDEN,IDEN_ANAGRAFICA FROM CONTATTI WHERE CODICE=:codice AND DELETED='N' and ASSIGNING_AUTHORITY_AREA='ADT'
+        	</SQL>
+        </QUERY>
+        <QUERY id="Q_CODISTITUTI">
+        	<SQL>SELECT CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR FROM TIPI WHERE TIPO='ADT_CODICI_ISTITUTO' and ASSIGNING_AUTHORITY_AREA='ADT' and ATTIVO='S' ORDER BY CODICE_DECODIFICA</SQL>
+        </QUERY>
+        <QUERY id="Q_DATI_MORTE">
+            <SQL>
+                select
+                DATA_MORTE_CCE ,
+                ORA_MORTE_CCE,
+                IDEN_PER_MORTE_CCE ,
+                (select descrizione from fx$personale where iden = IDEN_PER_MORTE_CCE) MEDICO_DICHIARANTE
+                from fx$anagrafica where iden = :IDEN
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+    <QUERY_GROUP id="DSA">
+        <QUERY id="Q_LETTERE_FIRMATE">
+            <SQL>
+                SELECT NVL(COUNT(*),0) AS LETTERE_FIRMATE FROM LETTERA_VERSIONI WHERE IDEN_CONTATTO = :IDEN_CONTATTO AND FUNZIONE = :FUNZIONE AND STATO = 'F'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_LETTERA_ATTIVA">
+            <SQL>
+                SELECT NVL(IDEN,0) AS LETTERA_ATTIVA FROM ADT.LETTERA_VERSIONI WHERE FUNZIONE = :FUNZIONE AND IDEN_CONTATTO = :IDEN_CONTATTO AND ATTIVO = 'S' and DELETED = 'N'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_PROGRESSIVO_LETTERA">
+            <SQL>
+                SELECT (NVL(COUNT(IDEN_CONTATTO),-1)+1) AS PROGRESSIVO_LETTERA_FIRMATA FROM ADT.LETTERA_VERSIONI WHERE FUNZIONE = :FUNZIONE AND IDEN_CONTATTO = :IDEN_CONTATTO AND STATO = 'F'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_REGIME_TIPO_DSA">
+            <SQL>
+                SELECT
+                CODIFICHE.COMPLETEENTRY('ADT_REGIME_CONTATTO',NUMBERENTRY('AMB',NULL),NULL,'AMB').KEY AS CODICE_REGIME,CODIFICHE.COMPLETEENTRY('ADT_ACC_RICOVERO_TIPO',NUMBERENTRY('5',NULL),NULL,'AMB').KEY AS CODICE_TIPO FROM DUAL
+            </SQL>
+        </QUERY>
+        <QUERY id="ADT_WK_DSA_APERTI">
+            <SQL>
+            	<![CDATA[
+            		SELECT
+                		ANAGRAFICA.CODICE_FISCALE,
+						ANAGRAFICA.IDEN AS IDEN_ANAGRAFICA,
+						ANAGRAFICA.COGNOME ||' '|| ANAGRAFICA.NOME ||' ' || substr(ANAGRAFICA.DATA_NASCITA,7) ||'/'|| substr(ANAGRAFICA.DATA_NASCITA,5,2)||'/'|| substr(ANAGRAFICA.DATA_NASCITA,0,4) ASSISTITO,
+						ANAGRAFICA.SESSO SESSO,
+						CONTATTI.IDEN IDEN_CONTATTO,
+						CONTATTI.CODICE,
+						CASE WHEN TO_CHAR(CONTATTI.DATA_FINE) IS NULL THEN 'In corso' ELSE TO_CHAR(CONTATTI.DATA_FINE,'dd/MM/yyyy') END DATA_FINE,
+						TO_CHAR(CONTATTI.DATA_INIZIO,'yyyyMMdd') DATA_INIZIO,
+                		(SELECT DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO) AS REPARTO_GIURIDICO, SINTESI.CDC,
+						ROUND(SYSDATE-CONTATTI.DATA_INIZIO) GIORNI_APERTURA,
+						(select count(iden) from contatti_assistenziali where iden_contatto=contatti.iden and deleted='N') AS N_ACCESSI,
+            			codifiche.encodetipo(cg.percorso_cure,'AMB')  || ' - ' || codifiche.describetipo(cg.percorso_cure,'AMB') tipologia_dsa
+					FROM
+						ADT.CONTATTI CONTATTI
+						INNER JOIN FX$ANAGRAFICA ANAGRAFICA ON ANAGRAFICA.IDEN = CONTATTI.IDEN_ANAGRAFICA
+           				INNER JOIN CONTATTI_SINTESI SINTESI ON SINTESI.IDEN_CONTATTO = CONTATTI.IDEN
+           				inner join contatti_giuridici cg on (contatti.segmento_ultimo_giuridico=cg.iden)
+					WHERE
+                		SINTESI.DELETED = 'N'
+						AND CODIFICHE.ENCODETIPO(SINTESI.REGIME, SINTESI.ASSIGNING_AUTHORITY_AREA) = 'AMB'
+                		AND CODIFICHE.DESCRIBETIPO(SINTESI.TIPO, SINTESI.ASSIGNING_AUTHORITY_AREA) = 'DSA'
+                		AND SINTESI.CDC IN (SELECT CODICE_NUMBER FROM FX$FILTRI WHERE USERNAME = :username AND ID_FILTRO = 'DSA_FILTRO_REPARTO')
+						AND SINTESI.NOME LIKE :nome AND ANAGRAFICA.COGNOME LIKE :cognome
+                		AND (:cartella is null or CONTATTI.cartella = :cartella)
+						AND CODIFICHE.ENCODETIPO(SINTESI.STATO,SINTESI.ASSIGNING_AUTHORITY_AREA) = 'ADMITTED'
+					{#ORDER#}
+        	]]></SQL>
+        </QUERY>
+        <QUERY id="ADT_WK_DSA_CHIUSI">
+            <SQL>
+            	<![CDATA[
+       	           	SELECT
+               			ANAGRAFICA.CODICE_FISCALE,
+					    ANAGRAFICA.IDEN AS IDEN_ANAGRAFICA,
+					    ANAGRAFICA.COGNOME ||' '|| ANAGRAFICA.NOME ||' ' || substr(ANAGRAFICA.DATA_NASCITA,7) ||'/'|| substr(ANAGRAFICA.DATA_NASCITA,5,2)||'/'|| substr(ANAGRAFICA.DATA_NASCITA,0,4) ASSISTITO,
+					    ANAGRAFICA.SESSO SESSO,
+					    CONTATTI.IDEN IDEN_CONTATTO,
+					    CONTATTI.CODICE,
+					    TO_CHAR(CONTATTI.DATA_INIZIO,'yyyyMMdd') DATA_INIZIO,
+               			TO_CHAR(CONTATTI.DATA_FINE,'yyyyMMdd') DATA_FINE,
+					    GIURIDICO.IDEN_PROVENIENZA AS IDEN_PROVENIENZA_GIURIDICO,
+					    ADT_REPARTI.DECODEPROVENIENZA(GIURIDICO.IDEN_PROVENIENZA) AS REPARTO_GIURIDICO,
+					    TRUNC(CONTATTI.DATA_FINE,'DD')-TRUNC(CONTATTI.DATA_INIZIO,'DD') GIORNI_APERTURA,
+					    (select count(iden) from contatti_assistenziali where iden_contatto=contatti.iden and deleted='N' ) N_ACCESSI
+                   	FROM
+                       	ADT.CONTATTI CONTATTI
+                        JOIN FX$ANAGRAFICA ANAGRAFICA ON ANAGRAFICA.IDEN = CONTATTI.IDEN_ANAGRAFICA
+                        JOIN CONTATTI_GIURIDICI GIURIDICO ON GIURIDICO.IDEN_CONTATTO = CONTATTI.IDEN
+                 	WHERE
+                    	CONTATTI.DELETED = 'N'
+                        AND ADT.CODIFICHE.ENCODETIPO(CONTATTI.REGIME, CONTATTI.ASSIGNING_AUTHORITY_AREA)='AMB'
+                        AND ADT.CODIFICHE.DESCRIBETIPO(CONTATTI.TIPO, CONTATTI.ASSIGNING_AUTHORITY_AREA)='DSA'
+                        AND GIURIDICO.IDEN_PROVENIENZA IN (SELECT ADT_REPARTI.DECODEIDENCDCFUNCT(CODICE_NUMBER) FROM FX$FILTRI WHERE USERNAME = :username AND ID_FILTRO = 'DSA_CHIUSI_FILTRO_REPARTO')
+                        AND ANAGRAFICA.NOME LIKE :nome AND ANAGRAFICA.COGNOME LIKE :cognome AND (:cartella is null or CONTATTI.cartella = :cartella)
+                        AND ADT.CODIFICHE.ENCODETIPO(CONTATTI.STATO,CONTATTI.ASSIGNING_AUTHORITY_AREA)='DISCHARGED'
+                        AND TRUNC(CONTATTI.DATA_FINE) >= NVL(TO_DATE((SELECT CODICE_NUMBER FROM FX$FILTRI WHERE ID_FILTRO = 'FILTRO_DATA_DSA_DA' AND USERNAME = :username),'yyyyMMdd'),SYSDATE - 365)
+                        AND TRUNC(CONTATTI.DATA_FINE) <= NVL(TO_DATE((SELECT CODICE_NUMBER FROM FX$FILTRI WHERE ID_FILTRO = 'FILTRO_DATA_DSA_A' AND USERNAME = :username),'yyyyMMdd'),SYSDATE + 365)
+          			{#ORDER#}
+        		]]>
+        	</SQL>
+        </QUERY>
+    </QUERY_GROUP>
+    <QUERY_GROUP id="ARCHIVIO">
+         <QUERY id="VISUALIZZA_PDF_VERBALE_PS">
+            <SQL>
+                select * from PS$DOCUMENTI_VERBALE WHERE IDEN_CONTATTO = :iden
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+    <QUERY_GROUP id="SDJ">
+        <QUERY id="CMB_LINGUE">
+            <SQL>select /*+first_rows(10)*/   CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from TIPI WHERE TIPO=&apos;LINGUA&apos; ORDER BY ORDINE ASC</SQL>
+        </QUERY>
+        <QUERY id="R_ATTIVI_NONATTIVI_ENTRAMBI">
+            <SQL>select /*+first_rows(10)*/ 'S' VALUE, 'lblAttivi' DESCR from dual union all select /*+first_row(10)*/ 'N' VALUE, 'lblNonAttivi' DESCR from dual </SQL>
+        </QUERY>
+        <QUERY id="Q_EMPTY">
+            <SQL>select null VALUE, null DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT">
+            <SQL>select /*+first_rows(1)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA as CODICE, IDEN AS VALUE, PARAMETRI FROM ADT.TIPI WHERE {1=1} order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT_COD_DEC">
+            <SQL>select /*+first_rows(1)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA  VALUE FROM ADT.TIPI WHERE {1=1} order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT_FIRST_NULL">
+            <SQL>select /*+first_rows(1)*/ null DESCR, null VALUE FROM DUAL UNION ALL SELECT * FROM (SELECT DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS VALUE FROM ADT.TIPI WHERE {1=1} and attivo = 'S' order by ordine)</SQL>
+        </QUERY>
+        <QUERY id="Q_RECORD_TIPI">
+            <SQL>select IDEN, DESCRIZIONE, CODICE_DECODIFICA FROM ADT.TIPI WHERE IDEN = :IDEN</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_SELECT_PARAMETRI">
+            <SQL>select /*+first_rows(1)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA as CODICE, IDEN AS VALUE, replace(parametri,'"','''') AS PARAMETRI FROM ADT.TIPI WHERE {1=1} order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_CITTADINANZA">
+        	<SQL>select iden,descr,cod from fx$tab_nazioni where iden=:idCittadinanza
+        	</SQL>
+        </QUERY>
+    </QUERY_GROUP>
+    <QUERY_GROUP id="AUTOCOMPLETE">
+        <QUERY id="ADT_DIAGNOSI_ICD9">
+            <SQL>
+				SELECT * FROM
+				(
+				  	SELECT
+				    	/*+ first_rows(10)*/
+					    CODICE VALUE ,
+					    CODICE,
+					    CODICE || ' - ' || DESCRIZIONE DESCR,
+					    COD_DEC || ' - ' || DESCRIZIONE DESCRIZIONE_FILTRO,
+                        DESCRIZIONE,
+					    COMP_SESSO,
+             			COMP_ETA
+				  	FROM
+				    	FX$ICD9
+				  	WHERE
+				    	ATTIVO = 'S'
+				    	AND TIPO = 'DIAGNOSI'
+				    	AND CATEGORIA = 'ICD9'
+				)
+				WHERE
+			  		DESCRIZIONE_FILTRO LIKE REPLACE(:descr,'.','')
+            	{#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="ADT_DIAGNOSI_ICD9_LIKE">
+            <SQL>
+                SELECT * FROM
+                (
+                SELECT
+                /*+ first_rows(10)*/
+                CODICE VALUE ,
+                CODICE,
+                CODICE || ' - ' || DESCRIZIONE DESCR,
+                COD_DEC || ' - ' || DESCRIZIONE DESCRIZIONE_FILTRO,
+                DESCRIZIONE,
+                COMP_SESSO,
+                COMP_ETA
+                FROM
+                FX$ICD9
+                WHERE
+                ATTIVO = 'S'
+                AND TIPO = 'DIAGNOSI'
+                AND CATEGORIA = 'ICD9'
+                )
+                WHERE
+                DESCRIZIONE_FILTRO LIKE '%' || REPLACE(:descr,'.','')
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="ADT_DIAGNOSI_ICD9_CDD">
+        	<SQL>
+        	  	SELECT VALUE,DESCR,COMP_SESSO,COMP_ETA FROM
+					(SELECT
+				    	/*+ first_rows(10)*/
+					    CODICE VALUE ,
+					    COD_DEC || ' - ' || DESCRIZIONE DESCR,
+					    COMP_SESSO,
+             			COMP_ETA
+				  		FROM	FX$ICD9
+				  		WHERE
+				    	ATTIVO = 'S'
+				    	AND TIPO = 'DIAGNOSI'
+				    	AND CATEGORIA = 'ICD9')
+				WHERE DESCR LIKE '%' || :descr || '%'
+            	{#ORDER#}
+        	</SQL>
+        </QUERY>
+        <QUERY id="ADT_INTERVENTI_ICD9">
+            <SQL>
+            	SELECT *
+				FROM
+				(
+					SELECT
+				    	/*+ first_rows(10)*/
+				    	CODICE VALUE ,
+				      	CODICE,
+				      	CODICE || ' - ' || DESCRIZIONE AS DESCR,
+				      	COD_DEC || ' - ' || DESCRIZIONE AS DESCRIZIONE_FILTRO,
+                        DESCRIZIONE,
+				      	INTERVENTO_DS,
+			            COMP_SESSO,
+			            COMP_ETA,
+			            INTERVENTO_DS_ETA_PED,
+			            INTERVENTO_SALA_OPE
+				    FROM
+				      	FX$ICD9
+				    WHERE
+				      	ATTIVO = 'S'
+				    	AND TIPO = 'PROCEDURE'
+				)
+				WHERE
+				  	DESCRIZIONE_FILTRO LIKE '%' || REPLACE(:descr,'.','') || '%'
+				{#ORDER#}
+			</SQL>
+        </QUERY>
+        <QUERY id="ADT_INTERVENTI_ICD9_CDD">
+            <SQL>
+            	SELECT VALUE,DESCR,INTERVENTO_DS,COMP_SESSO,COMP_ETA,INTERVENTO_DS_ETA_PED,INTERVENTO_SALA_OPE
+				FROM
+				(
+					SELECT
+				    	/*+ first_rows(10)*/
+				    	CODICE VALUE ,
+				      	COD_DEC || ' - ' || DESCRIZIONE AS DESCR,
+				      	INTERVENTO_DS,
+			            COMP_SESSO,
+			            COMP_ETA,
+			            INTERVENTO_DS_ETA_PED,
+			            INTERVENTO_SALA_OPE
+				    FROM
+				      	FX$ICD9
+				    WHERE
+				      	ATTIVO = 'S'
+				    	AND TIPO = 'PROCEDURE'
+				)
+				WHERE
+				  	DESCR LIKE '%' || :descr || '%'
+				{#ORDER#}
+			</SQL>
+        </QUERY>
+        <QUERY id="Q_COMPLETA_CAMPI_DIAGNOSI">
+        	<SQL>
+        		SELECT COMP_SESSO, COMP_ETA FROM FX$ICD9 WHERE TIPO='DIAGNOSI' AND CATEGORIA='ICD9' AND ATTIVO='S' AND CODICE=:codDia
+        	</SQL>
+        </QUERY>
+        <QUERY id="Q_COMPLETA_CAMPI_INTERVENTO">
+        	<SQL>
+        		SELECT COMP_SESSO, COMP_ETA, INTERVENTO_DS, INTERVENTO_DS_ETA_PED, INTERVENTO_SALA_OPE FROM FX$ICD9 WHERE TIPO='PROCEDURE' AND ATTIVO='S' AND CODICE=:codInt
+        	</SQL>
+        </QUERY>
+        <!-- @TODO : gli interventi codificati da Ormaweb dovranno esser aggiunti in tabella cc_icd di whale con categoria='ORMAWEB' e tipo='PROCEDURE'
+                per cui questa query dovra' leggere  cambiare nome e leggere da fx$icd9 filtrando per i campi di cui sopra.
+                Anche la query di autocomplete ADT_INTERVENTI_ICD9 dovra' essere modificata per NON caricare questi codici interventi -->
+        <QUERY id="TMP_INTERVENTI_ORMA">
+        	<SQL>
+        		select * from
+          			(select  /*+ first_rows(10)*/
+            			laio.id value,
+            			laio.codice,
+            			intervento descr,
+            			laio.codice || ' - ' || intervento descrizione_filtro
+          				from lista_attesa_int_orma laio
+                  inner join lista_attesa_elenco lae on (lae.codice=laio.codreparto)
+          				where lae.iden=:IDEN_LISTA and attiva='1')
+        		 where
+				  	descrizione_filtro like '%' || :descr || '%'
+				  	{#ORDER#}
+        	</SQL>
+        </QUERY>
+        <QUERY id="ADT_ESENZIONI_PATOLOGIA">
+            <SQL>SELECT /*+ first_rows(100)*/ COD_ESENZIONE CODICE, DESCR, ESENZIONE TIPO_ESE from FX$TAB_ESENZIONI_PATOLOGIA WHERE ATTIVO='S' AND DELETED='N' AND (DESCR LIKE :descr OR COD_ESENZIONE LIKE :descr) {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="ADT_ESENZIONE_PROPOSTA_DSA">
+            <SQL>
+                SELECT VALUE, DESCR FROM
+                (
+                    SELECT /*+ first_rows(100)*/ COD_ESENZIONE VALUE, COD_ESENZIONE || ' - ' || DESCR  DESCR from FX$TAB_ESENZIONI_PATOLOGIA WHERE ATTIVO='S' AND DELETED='N'
+                )
+                WHERE DESCR LIKE '%' || :descr
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="ADT_PERSONALE">
+            <SQL>SELECT /*+ first_rows(10)*/ IDEN VALUE, DESCRIZIONE DESCR FROM FX$PERSONALE WHERE (:tipo_personale = 'ALL' or TIPO_PERSONALE = :tipo_personale) AND ATTIVO = 'S' AND DESCRIZIONE like :descr {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="ADT_PERSONALE_COD_FISC">
+            <SQL>SELECT /*+ first_rows(10)*/ IDEN VALUE, DESCRIZIONE DESCR, CODICE_FISCALE FROM FX$PERSONALE WHERE (:tipo_personale = 'ALL' or TIPO_PERSONALE = :tipo_personale) AND ATTIVO = 'S' AND DESCRIZIONE like :descr {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="PERSONALE_REPARTO">
+            <SQL>
+                SELECT PERSONALE.IDEN VALUE, PERSONALE.DESCRIZIONE DESCR, PERSONALE.CODICE_FISCALE	FROM FX$PERSONALE PERSONALE	INNER JOIN FX$UTENTI UTENTI ON UTENTI.IDEN_PER = PERSONALE.IDEN	INNER JOIN FX$WEB_CDC UTENTI_CDC ON UTENTI_CDC.WEBUSER = UTENTI.WEBUSER WHERE PERSONALE.ATTIVO  = 'S' AND PERSONALE.TIPO_PERSONALE = :TIPO_PERSONALE AND UTENTI_CDC.REPARTO IN (SELECT COD_CDC FROM FX$CENTRI_DI_COSTO WHERE IDEN = :IDEN_CDC)	GROUP BY (/*UTENTI.WEBUSER,*/PERSONALE.IDEN,PERSONALE.DESCRIZIONE,PERSONALE.CODICE_FISCALE)
+            </SQL>
+        </QUERY>
+        <QUERY id="ADT_REPARTI_CDC">
+            <SQL>SELECT IDEN VALUE, COD_CDC CODICE_DECODIFICA, DESCRIZIONE DESCR FROM FX$CENTRI_DI_COSTO WHERE ATTIVO = 'S' AND DESCRIZIONE LIKE '%'|| :descr {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="WK_REPARTI_DESTINAZIONE_VPO">
+            <SQL>
+            	SELECT VALUE, COD_CDC, DESCR FROM VIEW_CENTRI_DI_COSTO_ASSOCIATI WHERE TABELLA_IDEN = :iden_cdc AND DESCR LIKE '%'|| :descr {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="WK_REPARTI_FROM_VALIDITA">
+            <SQL>
+                <![CDATA[
+                    SELECT VALUE, DESCR, DATA_INIZIO_VALIDITA, DATA_FINE_VALIDITA, REGIME_ABILITATO FROM
+                    (
+                        SELECT
+                            IDEN AS VALUE,
+                            DESCR,
+                            CODICE_STRUTTURA,
+                            DECODE(ABILITA_ORDINARIO,'S','1','0') || DECODE(ABILITA_DAY_HOSPITAL,'S','2','0') AS REGIME_ABILITATO,
+                            DATA_INIZIO_VALIDITA,
+                            NVL(DATA_FINE_VALIDITA,TO_CHAR(SYSDATE,'yyyyMMdd')) AS DATA_FINE_VALIDITA
+                        FROM
+                            FX$CENTRI_DI_COSTO_SCADENZE CDC
+                        WHERE
+                            :data_ricovero >= DATA_INIZIO_VALIDITA
+                            AND (:data_ricovero <= DATA_FINE_VALIDITA OR DATA_FINE_VALIDITA IS NULL)
+                            AND DESCR LIKE '%' || :descr|| '%'
+                    )
+                    WHERE INSTR(REGIME_ABILITATO,:regime_abilitato) > 0
+                    {#ORDER#}
+                ]]>
+            </SQL>
+        </QUERY>
+        <QUERY id="A_REPARTI_STRUTTURA">
+            <SQL>
+                SELECT VALUE, DESCR, CODICE_SEZIONE FROM (
+                    SELECT
+                        ADT_REPARTI.DECODEIDENCDCFUNCT(VALORE1) VALUE,
+                        VALORE3 DESCRIZIONE, VALORE5 || ' ' || VALORE9 || ' ' || VALORE10 || ' ' || VALORE11 || ' ' || VALORE3 DESCR,
+                        VALORE9 CODICE_SEZIONE
+                    FROM TABLE(GET_REPARTI_TRASF(:iden_contatto))
+                )
+                WHERE DESCR LIKE '%' || :descr|| '%'
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+		<QUERY id="A_REPARTI_COD_STRUTTURA">
+            <SQL>
+                SELECT VALUE, DESCR, CODICE_SEZIONE FROM
+                (
+                    SELECT /*+ first_rows(10)*/ ADT_REPARTI.DECODEIDENCDCFUNCT(IDEN) VALUE, CDC.SUB_CODICE_STRUTTURA || ' ' || CDC.CODICE_SEZIONE || ' ' || CDC.SUB_CODICE_SEZIONE || ' ' || CDC.CODICE_PROGRESSIVO || ' ' || CDC.DESCRIZIONE AS DESCR, CODICE_SEZIONE
+                    FROM  FX$CENTRI_DI_COSTO CDC
+                    WHERE
+                        CODICE_STRUTTURA IN (SELECT CODICE_STRUTTURA FROM FX$CENTRI_DI_COSTO WHERE (:iden_provenienza = 0 OR IDEN_PROVENIENZA = :iden_provenienza)) AND
+                        ATTIVO = 'S' AND (ABILITA_ORDINARIO='S' OR ABILITA_DAY_HOSPITAL='S')
+                )
+                WHERE DESCR like '%' || :descr|| '%'
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="CATEGORIA_CAUSA_ESTERNA">
+            <SQL>
+                SELECT IDEN VALUE, DESCRIZIONE DESCR
+                FROM TIPI
+                WHERE
+                    TIPO = 'CATEGORIA_CAUSA_ESTERNA' AND ATTIVO = 'S' AND
+                    (DESCRIZIONE LIKE '%' || :descr || '%' OR CODICE_DECODIFICA LIKE '%' || :descr || '%')
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_COMUNE">
+            <SQL>Select IDEN_COMUNE AS VALUE,DESCRIZIONE AS DESCR, CAP,CODICE_PROVINCIA AS PROVINCIA ,CODICE_COMUNE,CODICE_REGIONE,CODICE_USL,asl_descr
+						from FX$COMUNI
+						left join fx$tab_asl on (fx$comuni.codice_usl=fx$tab_asl.azd_codice and fx$comuni.codice_regione=fx$tab_asl.reg_codice)
+						WHERE DESCRIZIONE like :descr  AND ATTIVO = 'S'
+						{#ORDER#}
+						</SQL>
+        </QUERY>
+         <QUERY id="AC_ANAG_COMUNE_NASC">
+            <SQL>Select IDEN_COMUNE AS VALUE,DESCRIZIONE AS DESCR, CAP,CODICE_PROVINCIA AS PROVINCIA ,CODICE_COMUNE,CODICE_REGIONE,CODICE_USL,asl_descr
+						from FX$COMUNI
+						left join fx$tab_asl on (fx$comuni.codice_usl=fx$tab_asl.azd_codice and fx$comuni.codice_regione=fx$tab_asl.reg_codice)
+						WHERE DESCRIZIONE like :descr
+						{#ORDER#}
+						</SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_MEDICO_BASE">
+            <SQL>SELECT IDEN VALUE, DESCRIZIONE DESCR FROM FX$PERSONALE  WHERE ATTIVO='S' AND TIPO_PERSONALE='M' AND TIPO_MEDICO='B' AND DESCRIZIONE LIKE :descr  {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_STATO_CIVILE">
+            <SQL>select iden value, descrizione  DESCR from tipi where  tipo = 'STATO_CIVILE' AND descrizione like :descr AND ATTIVO = 'S' {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_PROFESSIONI">
+            <SQL> select IDEN value, DESCR FROM ADT.FX$TAB_PRF where DESCR like :descr AND ATTIVO = 'S' {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_TITOLO_STUDIO">
+            <SQL>select /*+ first_rows(1)*/ upper(DESCRIZIONE) AS DESCR, iden AS VALUE FROM TIPI WHERE attivo='S' and TIPO='ADT_ACC_RICOVERO_TITOLO_STUDIO' AND  upper(DESCRIZIONE) like '%' || upper(:descr) {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_CITTADINANZA">
+            <SQL>Select IDEN VALUE, DESCR, COD from fx$NAZIONI WHERE attivo = 'S' and descr like :descr {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_ANAG_NAZIONI">
+            <SQL>SELECT IDEN VALUE, DESCR FROM FX$NAZIONI WHERE ATTIVO = 'S' AND DESCR LIKE :descr || '%' {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_LISTE_ATTESA">
+            <SQL> Select IDEN VALUE, DESCRIZIONE DESCR from LISTA_ATTESA_ELENCO WHERE attivo = 'S' AND LISTA_CHIAMATA = 'N' and DESCRIZIONE like :descr {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_ASL">
+            <SQL>SELECT AZD_CODICE AS VALUE, ASL_DESCR AS DESCR, REG_CODICE AS REGIONE_CODICE, REG_DESCR AS REGIONE_DESCR FROM FX$TAB_ASL WHERE ASL_DESCR LIKE :descr and (:reg_codice = 0 or REG_CODICE = :reg_codice) {#ORDER#}</SQL>
+        </QUERY>
+        <QUERY id="AC_MADRE_CARTELLA">
+            <SQL>
+                    WITH  REPARTI AS  (    SELECT      IDEN    FROM      FX$CENTRI_DI_COSTO    WHERE      CODICE_STRUTTURA in      (        SELECT          distinct(CODICE_STRUTTURA)        FROM          FX$CENTRI_DI_COSTO        WHERE          (:iden_cdc = 0 or IDEN = :iden_cdc )     )    AND CODICE_SEZIONE LIKE '37%'    AND attivo                              ='S'    AND FX$CENTRI_DI_COSTO.ABILITA_ORDINARIO='S'  )SELECT CONTATTI.IDEN AS VALUE,  CONTATTI.CODICE,  CONTATTI.DATA_INIZIO,  (    SELECT      DESCRIZIONE    FROM      FX$CENTRI_DI_COSTO    WHERE      IDEN = CONTATTI.CDC_ULTIMO_GIURIDICO  ) AS UBICAZIONE,  ANAG.COGNOME  ||' '  || ANAG.NOME  || ' '  || TO_CHAR(TO_DATE(ANAG.DATA_NASCITA,'yyyyMMdd'),'dd/mm/yyyy')  || ' ('  || CONTATTI.CODICE  || ')' AS DESCR FROM  CONTATTI INNER JOIN FX$ANAGRAFICA ANAG ON  ANAG.IDEN = CONTATTI.IDEN_ANAGRAFICA WHERE  CONTATTI.STATO = CODIFICHE.DECODETIPO('STATO','ADMITTED',NULL,  CONTATTI.ASSIGNING_AUTHORITY_AREA)  AND CONTATTI.DELETED = 'N' AND CONTATTI.ASSIGNING_AUTHORITY_AREA = 'ADT' AND CONTATTI.DATA_INIZIO > SYSDATE -5 AND  (ANAG.COGNOME  ||' '  || ANAG.NOME  || ' '  || TO_CHAR(TO_DATE(ANAG.DATA_NASCITA,'yyyyMMdd'),'dd/mm/yyyy')  || ' ('  || CONTATTI.CODICE  || ')'  LIKE upper(:descr)  )AND CONTATTI.CDC_ULTIMO_GIURIDICO IN  (    SELECT      *    FROM      reparti  ) {#ORDER#}
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+    <QUERY_GROUP id="API">
+        <QUERY id="GET_DIAGNOSI_BY_ID">
+            <SQL>SELECT CODICE AS VALUE, CODICE || ' - ' || DESCRIZIONE AS DESCRIZIONE FROM FX$ICD9 WHERE TIPO = 'DIAGNOSI' AND ATTIVO = 'S' AND IDEN LIKE :iden</SQL>
+        </QUERY>
+        <QUERY id="GET_DIAGNOSI_BY_CODICE">
+            <SQL>SELECT CODICE AS VALUE, CODICE || ' - ' || DESCRIZIONE AS DESCRIZIONE FROM FX$ICD9 WHERE TIPO = 'DIAGNOSI' AND ATTIVO = 'S' AND CODICE :codice</SQL>
+        </QUERY>
+        <QUERY id="GET_DIAGNOSI_BY_DESCRIZIONE">
+            <SQL>SELECT CODICE AS VALUE, CODICE || ' - ' || DESCRIZIONE AS DESCRIZIONE FROM FX$ICD9 WHERE TIPO = 'DIAGNOSI' AND ATTIVO = 'S' AND DESCRIZIONE LIKE '%' || upper(:descr) || '%' or codice like :descr || '%'</SQL>
+        </QUERY>
+
+        <QUERY id="GET_PROCEDURE_BY_ID">
+            <SQL>SELECT CODICE AS VALUE, CODICE || ' - ' || DESCRIZIONE AS DESCRIZIONE FROM FX$ICD9 WHERE TIPO = 'PROCEDURE' AND ATTIVO = 'S' AND IDEN LIKE :iden</SQL>
+        </QUERY>
+        <QUERY id="GET_PROCEDURE_BY_CODICE">
+            <SQL>SELECT CODICE AS VALUE, CODICE || ' - ' || DESCRIZIONE AS DESCRIZIONE FROM FX$ICD9 WHERE TIPO = 'PROCEDURE' AND ATTIVO = 'S' AND CODICE :codice</SQL>
+        </QUERY>
+        <QUERY id="GET_PROCEDURE_BY_DESCRIZIONE">
+            <SQL>SELECT CODICE AS VALUE, CODICE || ' - ' || DESCRIZIONE AS DESCRIZIONE FROM FX$ICD9 WHERE TIPO = 'PROCEDURE' AND ATTIVO = 'S' AND DESCRIZIONE LIKE '%' || upper(:descr) || '%' or codice like :descr || '%'</SQL>
+        </QUERY>
+
+        <QUERY id="GET_PERSONALE_BY_DESCRIZIONE">
+            <SQL>SELECT IDEN AS VALUE, CODICE_DECODIFICA, TIPO_PERSONALE, DESCRIZIONE FROM FX$PERSONALE WHERE DESCRIZIONE LIKE '%' || UPPER(:descr) || '%' AND ATTIVO = 'S'</SQL>
+        </QUERY>
+
+        <QUERY id="GET_PERSONALE_BY_CODICE">
+            <SQL>SELECT IDEN AS VALUE, CODICE_DECODIFICA, TIPO_PERSONALE, DESCRIZIONE FROM FX$PERSONALE WHERE CODICE_DECODIFICA = :codice AND ATTIVO = 'S'</SQL>
+        </QUERY>
+        <QUERY id="GET_PERSONALE_BY_ID">
+            <SQL>SELECT IDEN AS VALUE, CODICE_DECODIFICA, TIPO_PERSONALE, DESCRIZIONE FROM FX$PERSONALE WHERE IDEN = :iden AND ATTIVO = 'S'</SQL>
+        </QUERY>
+
+        <QUERY id="GET_MEDICO_BY_DESCRIZIONE">
+            <SQL>SELECT IDEN AS VALUE, CODICE_DECODIFICA, TIPO_PERSONALE, DESCRIZIONE FROM FX$PERSONALE WHERE TIPO_PERSONALE = 'M' AND DESCRIZIONE LIKE '%' || UPPER(:descr) || '%' AND ATTIVO = 'S'</SQL>
+        </QUERY>
+        <QUERY id="GET_MEDICO_BY_TIPO">
+            <SQL>SELECT IDEN AS VALUE, CODICE_DECODIFICA, TIPO_PERSONALE, DESCRIZIONE FROM FX$PERSONALE WHERE TIPO_PERSONALE = 'M' AND TIPO_MEDICO = :tipo AND ATTIVO = 'S'</SQL>
+        </QUERY>
+
+        <QUERY id="GET_INFERMIERE_BY_DESCRIZIONE">
+            <SQL>SELECT IDEN AS VALUE, CODICE_DECODIFICA, TIPO_PERSONALE, DESCRIZIONE FROM FX$PERSONALE WHERE TIPO_PERSONALE = 'I' AND DESCRIZIONE LIKE '%' || UPPER(:descr) || '%' AND ATTIVO = 'S'</SQL>
+        </QUERY>
+
+        <QUERY id="GET_NAZIONE_BY_DESCRIZIONE">
+            <SQL>SELECT IDEN AS VALUE, DESCRIZIONE FROM FX$NAZIONI WHERE ATTIVO = 'S' AND DESCRIZIONE LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+        <QUERY id="GET_NAZIONE_BY_ID">
+            <SQL>SELECT IDEN AS VALUE, DESCRIZIONE FROM FX$NAZIONI WHERE IDEN = :iden</SQL>
+        </QUERY>
+
+        <QUERY id="GET_CDC_BY_DESCRIZIONE">
+            <SQL>SELECT IDEN AS VALUE, DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE ATTIVO = 'S' AND DESCRIZIONE LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+        <QUERY id="GET_CDC_PS">
+            <SQL>SELECT IDEN AS VALUE, DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE ATTIVO = 'S' AND TIPOLOGIA = '8' AND DESCRIZIONE LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+        <QUERY id="GET_CDC_ORDINARIO">
+            <SQL>SELECT IDEN AS VALUE, DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE ATTIVO = 'S' AND ABILITA_ORDINARIO = 'S' AND DESCRIZIONE LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+        <QUERY id="GET_CDC_BY_ID">
+            <SQL>SELECT IDEN AS VALUE, DESCRIZIONE FROM FX$CENTRI_DI_COSTO WHERE IDEN = :iden</SQL>
+        </QUERY>
+
+        <QUERY id="GET_ASL_BY_DESCRIZIONE">
+            <SQL>SELECT REG_CODICE || AZD_CODICE AS VALUE, ASL_DESCR AS DESCRIZIONE FROM FX$TAB_ASL WHERE ASL_DESCR LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+        <QUERY id="GET_ASL_BY_REGIONE">
+            <SQL>SELECT REG_CODICE || AZD_CODICE AS VALUE, ASL_DESCR AS DESCRIZIONE FROM FX$TAB_ASL WHERE REG_CODICE = :reg_codice AND ASL_DESCR LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+
+        <QUERY id="GET_FARMACI_BY_DESCRIZIONE">
+            <SQL>SELECT IDEN, CODICE AS VALUE, DESCRIZIONE FROM PRONTO_SOCCORSO.FX$FARMACI WHERE DESCRIZIONE LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+        <QUERY id="GET_FARMACI_BY_CODICE">
+            <SQL>SELECT IDEN, CODICE AS VALUE, DESCRIZIONE FROM PRONTO_SOCCORSO.FX$FARMACI WHERE codice = :codice</SQL>
+        </QUERY>
+
+        <QUERY id="GET_DRG_BY_DESCRIZIONE">
+            <SQL>SELECT DRG AS VALUE, DESCRIZIONE FROM DRG24 WHERE UPPER(DESCRIZIONE) LIKE '%' || UPPER(:descr) || '%'</SQL>
+        </QUERY>
+        <QUERY id="GET_DRG_BY_CODICE">
+            <SQL>SELECT IDEN, CODICE AS VALUE, DESCRIZIONE FROM PRONTO_SOCCORSO.FX$FARMACI WHERE DRG = :codice</SQL>
+        </QUERY>
+
+    </QUERY_GROUP>
+</QUERIES>

@@ -1,0 +1,10 @@
+<INCLUDE>
+	<JS path="config/ADT/validator/model/V_LISTA_ATTESA_WRAPPER.js"/>
+    <JS path="config/ADT/validator/model/V_LISTA_ATTESA_ATTIVITA.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/LISTA_ATTESA/ListaAttesaGestione.js"/>
+    <JS path="js/ADT/LISTA_ATTESA/ListaAttesaInit.js"/>
+    <CSS path="css/ADT/LISTA_ATTESA_WRAPPER/ListaAttesaGestione.css"/>
+</INCLUDE>

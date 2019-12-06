@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<style>
+*{font-size:6px;padding:0;margin:0;}
+</style>
+
+<body>
+	Accesso in corso
+</body>
+<script>
+alert(dialogArguments.url)
+if(typeof dialogArguments.url == 'undefined' || typeof dialogArguments.jquery == 'undefined'){
+	closeMe({success:'KO'});
+}
+
+dialogArguments.jquery.getJSON(dialogArguments.url + "&callback=?",
+	function(data){
+		closeMe(data);
+	}
+)
+.error(function() {
+	alert('Login application['+dialogArguments.application+']'); 
+	closeMe({success:'KO'}); 
+})
+;
+	
+
+
+function closeMe(data){
+	window.returnValue = (data.success == 'OK');
+	self.close();
+}
+
+</script>
+</html>

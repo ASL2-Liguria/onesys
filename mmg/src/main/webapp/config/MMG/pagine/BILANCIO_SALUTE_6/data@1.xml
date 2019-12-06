@@ -1,0 +1,18 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_LAST'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+
+	<DATO key_id="DentizioneSuperioreDX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="DentizioneInferioreSX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="DentizioneInferioreDX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="DentizioneSuperioreSX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="CamminaSolo_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MangiaSolo_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ImpilaCubi_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="GiocattoloPreferito_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="IndicaPartiCorpo_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RispondeComandi_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="SviluppoPosturaleMotorio_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Linguaggio_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="hIden" configurazione_stato="begin :stato := 'E'; end;" db_valore="IDEN" db_descrizione="IDEN" configurazione_multi_data="" />
+</DATI>
+

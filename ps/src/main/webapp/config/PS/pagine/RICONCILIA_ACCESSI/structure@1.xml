@@ -1,0 +1,78 @@
+<PAGINA key_id="RICONCILIA_ACCESSI">
+    <HEADER_WK key_id="RICONCILIA_ACCESSI"
+               valore="DEFAULT,WK,RICONCILIA_ACCESSI#DEFAULT,RICONCILIA_ACCESSI" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="filtri" valore="RiconciliaAccessi#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRicercaPaz" valore="filtroRicercaPaz#WK_GENERIC" evento="START">
+            <TABELLA.INIT key_id="tabFiltroRicPaz" valore="" evento="START">
+                <TR.INIT key_id="riga1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeSorgente" valore="lblCognome#txtCognome#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeSorgente" valore="lblNome#txtNome#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_DATA key_id="DataNascita"
+                                 valore="lblDataNascita#txtDataNasc#DataNasc###lblDataNasc#data_nascita##T"
+                                 evento="START">
+                    </FILTRO_DATA>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+    <TABULAZIONE.INIT key_id="tabInfoPaz"
+                      valore="SchedaPazientiSelezionati#lblPazientiSelezionati#butInvertiSorgDest,butRiconciliaPaz,butSpostaAccessi"
+                      evento="START">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="PazSelezionati" valore="PazSelezionati" evento="START">
+            <FORM key_id="InfoPaz" valore="PazSelezionati#" evento="START">
+                <FIELDSET_TABLE key_id="fldPazSorgente" valore="fldPazSorgente" evento="START">
+                    <INPUT.HIDDEN key_id="PazSorgIdenAnag" valore="PazSorgIdenAnag" evento="START">
+                    </INPUT.HIDDEN>
+                    <TR_TD_LABEL_TEXT key_id="PazSorgId" valore="lblPazId##txtPazSorgId####S" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazSorgNome" valore="lblNome##txtPazSorgNome####S" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazSorgCognome" valore="lblCognome##txtPazSorgCognome####S"
+                                      evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazSorgDataNasc" valore="lblDataNascita##txtPazSorgDataNasc####S"
+                                      evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazSorgCodFisc" valore="lblCodiceFiscale##txtPazSorgCodFisc####S"
+                                      evento="START">
+                    </TR_TD_LABEL_TEXT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldPazDestinatario" valore="fldPazDestinatario" evento="START">
+                    <INPUT.HIDDEN key_id="PazDestIdenAnag" valore="PazDestIdenAnag" evento="START">
+                    </INPUT.HIDDEN>
+                    <TR_TD_LABEL_TEXT key_id="PazDestId" valore="lblPazId##txtPazDestId####S" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazDestNome" valore="lblNome##txtPazDestNome####S" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazDestCognome" valore="lblCognome##txtPazDestCognome####S"
+                                      evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazDestDataNasc" valore="lblDataNascita##txtPazDestDataNasc####S"
+                                      evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="PazDestCodFisc" valore="lblCodiceFiscale##txtPazDestCodFisc####S"
+                                      evento="START">
+                    </TR_TD_LABEL_TEXT>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldAccessi" valore="fldAccessi" evento="START">
+                    <EXCHANGE_LISTS key_id="exchangeAccessi" valore="exAccessi#ComboIn#ComboOut#N#btnControls#{listHeaders:{
+                            listFrom:{
+                                title:'Accessi Sorgente',
+                                buttons:null,
+
+                                       },
+                            listTo:{
+                                title:'Accessi Destinatario',
+                                buttons:null
+                                     }
+                            }}
+                        #ESAMI_PAZIENTI" evento="START">
+                    </EXCHANGE_LISTS>
+                </FIELDSET_TABLE>
+            </FORM>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.INIT>
+</PAGINA>

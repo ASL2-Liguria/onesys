@@ -1,0 +1,10 @@
+<ROWSET>
+    <ROW>
+        <lblICD9>Codice Malattia</lblICD9>
+        <lblMalattieRare>Descrizione Malattia</lblMalattieRare>
+        <InsMalattieRare>Inserimento Malattie Rare</InsMalattieRare>
+		<lblTerapie>Terapie</lblTerapie>
+		<lblDoseMinima>Dose minima in caso di emergenza</lblDoseMinima>
+        <lblTitolo>Inserimento Malattie Rare</lblTitolo>
+    </ROW>
+</ROWSET>

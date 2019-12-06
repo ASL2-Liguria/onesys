@@ -1,0 +1,85 @@
+*{outline:0;}
+html{height:100%;overflow:hidden;margin:0px;}
+body{overflow:hidden;height:100%;background:#E9F3FE;margin:0px;}
+
+#left{float:left;width:48%;height:100%;}
+#right{float:right;width:49%;height:100%;position:relative;overflow-y:scroll;}
+
+.objTrascinato{color:blue;background:transparent;border:1px solid blue;font-size:10px;}
+.objTrascinato span#esame{width:100%;background:transparent;}
+.objSelezionato{color:blue;}
+.objOver{color:blue;font:bold;background:#FF0;}
+
+.legend #legend{width:70%;float:right;padding-left:10px;margin:0px;}
+.legend{padding:2px;font-size:12px;background:#95BAFF;color:#FFF;margin:0px;height:18px;}
+.legend a{float:left;margin:2px;}
+
+.noEsami{text-align:center;font-size:10px;background:#E9F3FE;color:#000;clear:both;}
+
+.esami{margin-left:10px;padding-left:5px;padding-top:0px;margin:0px;position:relative;widht:95%;clear:both;}
+/*.esami *{margin:2px;padding:0px;}*/
+.esami div{position:absolute;width:90%;}
+#esame{padding-left:10px;padding-bottom:1px;font-size:10px;background:#FFF;border:1px solid #95BAFF;width:75%;float:right;margin-top:3px;}
+#esame.objOver{color:blue;font:bold;background:#FF0;}
+.esami a{font-size:10px;border:1px solid #95BAFF;color:#95BAFF;text-decoration:none;margin:2px;float:left;}
+.esami a:hover{border:1px solid blue;color:blue;}
+
+#gruppo{position:absolute;width:90%;font-size:10px bold;}
+
+.open{border:1px solid #95BAFF;margin:2px;background:#E9F3FE;font:bold;}
+.open .esami{display:block;}
+
+.close{border:1px solid #95BAFF;margin:2px;background:#95BAFF;color:#FFF;}
+.close .esami{display:none;}
+
+#lstEsamiContainer{overflow-y:scroll;overflow-x:hidden;height:80%;}
+.lstEsami{border:1px solid;padding:2px;margin:2px;}
+.lstEsami .esameSorg{width:90%;margin:2px;border:1px solid;}
+
+table.hide{visibility:hidden;}
+table.lstEsami{width:100%;margin:5px;border-color:#95BAFF;font-size:12px;}
+table.lstEsami tr{}
+table.lstEsami th{width:20%;border:1px solid #95BAFF;background:#95BAFF;color:#FFF;}
+table.lstEsami td{width:75%;border:1px solid #95BAFF;background:#FFF;padding-left:10px;}
+
+div.open div.legend a{padding:0px 6px;border:1px solid #FFF;color:#FFF;text-decoration:none;}
+div.open div.legend a:hover{border:1px solid blue;color:blue;}
+
+div.close div.legend a{padding:0px 6px;border:1px solid #FFF;color:#FFF;text-decoration:none;}
+div.close div.legend a:hover{border:1px solid blue;color:blue;}
+
+div#barraFooter{
+	color: #FFF;
+	height:25px;
+	background:url(../../../imagexPix/tabheader/top_tabella.gif) repeat-x;
+	width:99.9%;	
+	padding:2px;
+	clear:both;
+	overflow:hidden;
+	position:absolute;
+	bottom:10px;
+}
+
+
+.pulsanteBarra A{
+	width:120px;	
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:21px;
+	padding-left:2px;
+	padding-right:2px;
+	margin-left:3px;
+	float:right;
+	background:url(../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	text-align:center;
+	font-weight:bold;
+	displaY:block;
+	
+}
+
+.pulsanteBarra A:hover {
+	background:url(../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color: yellow;
+	font-weight:bold;
+
+}

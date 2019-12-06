@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ADT_DIAGNOSI_ICD9_CDD</ID>
+    <ID-QUERY connection="ADT">AUTOCOMPLETE.ADT_DIAGNOSI_ICD9_CDD</ID-QUERY>
+    <TITLE>"Flusso Controdeduzioni - Diagnosi ICD9"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>VALUE</COL>
+                        <DB>VALUE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCodice</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+                    <WIDTH>75px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>          
+                <COLUMN>
+                    <ID>
+                        <COL>DESCR</COL>
+                        <DB>DESCR</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblDescr</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>400px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>COMP_ETA</COL>
+                        <DB>COMP_ETA</DB>
+                    </ID>
+                    <DESCRIPTOR>"COMP_ETA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>20px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>COMP_SESSO</COL>
+                        <DB>COMP_SESSO</DB>
+                    </ID>
+                    <DESCRIPTOR>"COMP_SESSO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>20px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                </LIST>
+            <SORT>
+                <!-- <COLUMN id="PAZIENTE">ASC</COLUMN>
+                <COLUMN id="CODICE_FISCALE">DESC</COLUMN> -->
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

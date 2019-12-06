@@ -1,0 +1,5 @@
+<INCLUDE>
+	<JS path="js/MMG/Certificati/certificatoMalattia.js" />
+	<CSS path="css/MMG/Certificati/certificatoMalattia.css" />
+</INCLUDE>
+

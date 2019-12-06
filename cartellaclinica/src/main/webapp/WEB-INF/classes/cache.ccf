@@ -1,0 +1,33 @@
+# DEFAULT CACHE REGION
+jcs.default=DC
+jcs.default.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+# Numero massimo di oggetti allocabili in cache
+jcs.default.cacheattributes.MaxObjects=3000
+# Ogni oggetto in memoria viene contemporaneamente copiato/aggiornato sul disco
+jcs.default.cacheattributes.DiskUsagePatternName=UPDATE
+jcs.default.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
+# Rimuove le chiavi allocate in memoria che sono scadute o inattive e le sposta su disco, se configurato
+jcs.default.cacheattributes.UseMemoryShrinker=true
+# Intervallo di frequenza di esecuzione della procedura di shrink
+jcs.default.cacheattributes.ShrinkerIntervalSeconds=3600
+# Tempo massimo di vita di una chiave nella cache in memoria
+jcs.default.cacheattributes.MaxMemoryIdleTimeSeconds=36000
+jcs.default.elementattributes=org.apache.jcs.engine.ElementAttributes
+# Un oggetto indicato come eterno che eccede MaxLifeSeconds non viene rimosso
+jcs.default.elementattributes.IsEternal=true
+# Indica dopo quanto tempo un oggetto scade
+jcs.default.elementattributes.MaxLifeSeconds=-1
+# Gli oggetti non utilizzati vengono rimossi dalla memoria e dal disco
+jcs.default.elementattributes.IdleTime=2592000
+
+# DISK CACHE
+jcs.auxiliary.DC=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheFactory
+jcs.auxiliary.DC.attributes=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheAttributes
+jcs.auxiliary.DC.attributes.DiskPath=/usr/local/apache-tomcat/jcscache/whale
+jcs.auxiliary.DC.attributes.MaxPurgatorySize=5000
+jcs.auxiliary.DC.attributes.MaxKeySize=5000
+jcs.auxiliary.DC.attributes.MaxRecycleBinSize=5000
+jcs.auxiliary.DC.attributes.OptimizeAtRemoveCount=10000
+jcs.auxiliary.DC.attributes.OptimizeOnShutdown=true
+jcs.auxiliary.DC.attributes.ClearDiskOnStartup=false
+jcs.auxiliary.DC.attributes.ShutdownSpoolTimeLimit=60

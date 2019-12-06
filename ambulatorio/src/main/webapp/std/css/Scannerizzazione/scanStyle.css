@@ -1,0 +1,23 @@
+.bgndColorYellow{
+	background-color:yellow;
+}
+
+.ui-autocomplete-loading {
+	background: white
+		url('../../std/jscript/jQueryUI/1.9.1/themes/cupertino/images/ui-anim_basic_16x16.gif')
+		right center no-repeat;
+}
+
+
+.ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+     * we use height instead, but this forces the menu to always be this tall
+     */
+    * html .ui-autocomplete {
+        height: 100px;
+    }

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+	
+		<!-- Main Page -->	
+		<div id="MAIN_PAGE">
+			<div id="divInfo" data-arrow="top">
+				<div>Qui sopra si trovano le informazioni relative al paziente, se selezionato. In particolare:</div>
+				<ul>
+					<li><i class="icon-male"></i> oppure <i class="icon-female"></i> sesso</li>
+					<li><i class="icon-tag"></i>et&agrave;</li>
+					<li><i class="icon-vcard"></i>Codice Fiscale</li>
+					<li><i class="icon-stethoscope"></i>medico curante</li>
+					<li><i class="icon-pencil"></i>medico prescrittore (solo per utenti amministrativi)</li>
+					<li><i class="icon-h-sigh"></i>problema selezionato (eventuale)</li>
+					<li><i class="icon-euro"></i>Esenzioni del paziente</li>
+				</ul>
+			</div>
+			<div id="linkBacheca" data-arrow="top">
+				<div>Questo &egrave; il menu rapido di MMG. Tramite le icone qua sopra &egrave; possibile:</div>
+				<ul>
+					<li><i class="icon-clipboard"></i>Visualizzare la Bacheca</li>
+					<li><i class="icon-chart-bar"></i>Accedere ai Dati strutturati</li>
+					<li><i class="icon-doc"></i>Consultare i documenti del paziente</li>
+					<li><i class="icon-spin3"></i>Ricaricare la pagina</li>
+					<li><i class="icon-search"></i>Tornare alla ricerca paziente</li>
+					<li><i class="icon-cog-1"></i>Accedere al Menu rapido</li>
+					<li><i class="icon-cancel-squared"></i>Effettuare la Logout</li>
+				</ul>
+			</div>
+		</div>
+		<!-- End Main Page -->
+		
+		<!-- Consulta Agenda -->
+		<div id="CONSULTA_AGENDA">
+			<div id="contentGrid" data-arrow="bottom">
+				<p>Questa &egrave; la tabella della prenotazione.</p>
+				<p>Ogni cella indica il rapporto tra posti occupati e posti disponibili per la coppia Sala/Giorno.</p>
+				<p>Premendo sulla i circolettata si avranno informazioni dettagliate della disponibilit&agrave; delle singole aree relative alla sala osservata.</p>
+			</div>
+			<div class="timeline-buttons-container" data-arrow="left">
+				Questo box permette di aggiornare il calendario posto a destra. E' diviso in quattro parti che servono a:
+				<ul>
+					<li>avanzare o retrocedere di un mese tramite le frecce a fianco della scritta Mese</li>
+					<li>avanzare o retrocedere di una settimana tramite le frecce a fianco della scritta Settimana</li>
+					<li>selezionare tutte le occorrenze di un giorno della settimana premendo sull'iniziale del giorno voluto.</li>
+					<li>deselezionare tutte le occorrenze di un giorno della settimana premendo sull'iniziale del giorno voluto.</li>
+					<li>avanzare o retrocedere di un giorno tramite le frecce a fianco della scritta Giorno</li>
+				</ul>
+			</div>
+		</div>
+		<!-- End Consulta Agenda -->
+		
+		<!-- Filtri -->
+		<div id="FILTRI">
+			<div id="Filtri" data-arrow="top">
+				<p>Per effettuare una selezione multipla premere il tasto CTRL (Control), quindi selezionare le opzioni desiderate.</p>
+				<p>Per deselezionare un'opzione premere nuovamente su di essa.</p>
+			</div>
+		</div>
+		<!-- End Filtri -->
+		
+		<!-- Altre Stampe -->
+		<div id="ALTRE_STAMPE">
+			<div class="icons" data-arrow="top">
+				<div>Tramite queste icone &egrave; possibile:</div>
+				<ul>
+					<li><i class="icon-left-circled"></i>inserire nel testo qui a sinistra il contenuto del certificato selezionato</li>
+					<li><i class="icon-pencil"></i>modificare il testo del certificato selezionato</li>
+					<li><i class="icon-trash"></i>eliminare il certificato selezionato</li>
+					<li><i class="icon-search"></i>filtrare i certificati tramite un testo</li>
+				</ul>
+				<p>Cliccando con il tasto sx su un certificato, questo verr&agrave; selezionato e colorato in giallo. A questo punto &egrave; possibile effettuare le operazioni di cui sopra.</p>
+				<p>Con il doppio click su un certificato, questo verr&agrave; importato nel campo testuale posto a sx.</p>
+			</div>
+		</div>
+		<!-- End Altre Stampe -->
+		
+		<!-- Anagrafica Certificati -->
+		<div id="ANAGRAFICA_CERTIFICATI">
+			<div id="lblSegnaposto" data-arrow="left">
+				<p>Selezionando uno di questi segnaposti verr&agrave; inserito nel testo sottostante il relativo tag del tipo <strong>&lt;tag_selezionato&gt;</strong></p>
+				<p>Nella sezione <b>Altre Stampe</b> il tag verr&agrave; automaticamente sostituito con il relativo dato del paziente su cui si sta operando.</p>
+				<p>Ad esempio per il Sig. Mario Rossi, il tag &lt;nome&gt; verr&agrave; riempito con il testo Mario, il tag &lt;cognome&gt; con Rossi e cos&igrave; via.</p>
+			</div>
+		</div>
+		<!-- End Anagrafica Certificati -->
+		
+		<!-- Inserimento Rilevazioni PLS -->
+		<div id="INSERIMENTO_RILEVAZIONI_PLS">
+			<div id="lblPesoCentile" data-arrow="right">
+				Compila tutti i campi e le caselle grigie verranno popolate con un valore dipendente da quelli inseriti nel modulo.
+			</div>
+		</div>
+		<!-- End Inserimento Rilevazioni PLS -->
+		
+		<!-- Centro Stampe -->
+		<div id="CENTRO_STAMPE">
+			<div id="tabStampe" data-arrow="top">
+				Seleziona <b>S&igrave;</b> per le includere una o pi&ugrave; nella stampa, quindi premi <b>Stampa</b> per avviare la stessa.
+				<br>
+				E' anche possibile scegliere un periodo ( campi Dal-Al ) per il quale filtrare i dati relativi ad una singola sezione.
+			</div>
+		</div>
+		<!-- End Centro Stampe -->
+		
+		<!-- Gruppi Familiari -->
+		<div id="GRUPPI_FAMILIARI">
+			<div id="divWk" data-arrow="bottom">
+				<p>Tramite il doppio click su una riga di questa worklist, il paziente selezionato verr&agrave; aggiunto nella lista sottostante.</p>
+				<p>A questo punto &egrave; possibile scegliere il grado di parentela con il paziente di cui si sta visualizzando la cartella clinica.</p>
+			</div>
+		</div>
+		<!-- End Gruppi Familiari -->
+		
+		<!-- Riepilogo Problemi -->
+		<div id="RIEP_ACCESSI_PROBLEMI">
+			<div id="butGravidanza" data-arrow="top">
+				<p>Tramite questo pulsante &egrave: possibile accedere alla gestione delle gravidanze.</p>
+				<p>Nel primo tab della pagina che si aprir&agrave; vi &egrave: la lista delle gravidanze della paziente</p>
+				<p>Nel secondo tab si inserisce/modifica la gravidanza, che inserir&agrave; a sua volta problema e nota di diario</p>
+				<p>Dalla lista si possono modificare le gravidanze inserite tramite il tasto destro del mouse, cliccando sopra la rig desiderata</p>
+			</div>
+		</div>
+		<!-- End Riepilogo Problemi -->
+		
+		<!-- Gravidanze -->
+		<div id="GRAVIDANZA">
+			<div id="divWk" data-arrow="bottom">
+				<p>Dalla lista si possono modificare le gravidanze inserite tramite il tasto destro del mouse, cliccando sopra la rig desiderata</p>
+			</div>
+			<div id="li-tabInserimentoGravidanza" data-arrow="bottom">
+				<p>In questo tab si possono inserire le gravidanze della paziente</p>
+			</div>
+		</div>
+		<!-- End Gravidanze -->
+		
+		<!-- Sezione Diari -->
+		<div id="DIARI_WK">
+			<div id="divWk" data-arrow="bottom">
+				<p>Nella prima colonna sono state inserite le icone di accesso rapido per le sezione relative alla nota stessa</p>
+			</div>
+		</div>
+		<!-- End Sezione Diari -->
+		
+		<!-- Sezione Moduli -->
+		<div id="MMG_MODULO_RM">
+			<div id="butCerca" data-arrow="top">
+				<p>Tramite questo tasto &egrave; possibile cercare ed inserire gli accertamenti prescritti al paziente</p>
+			</div>
+			<div id="cmbProblemiPaziente" data-arrow="top">
+				<p>Questo men&ugrave; a tendina permette di scegliere tra le diagnosi effettuate per il paziente. Cliccando sul tasto 'Inserisci' la diagnosi scelta viene inserita nel campo sovrastante</p>
+			</div>
+			<div id="butInserisci" data-arrow="left">
+				<p>Cliccando su questo tasto la diagnosi scelta nel men&ugrave; a tendina 'Diagnosi effettuate per il paziente' viene inserita nel campo sovrastante</p>
+			</div>
+		</div>
+		<div id="MMG_MODULO_TC">
+			<div id="butCerca" data-arrow="top">
+				<p>Tramite questo tasto &egrave; possibile cercare ed inserire gli accertamenti prescritti al paziente</p>
+			</div>
+			<div id="cmbProblemiPaziente" data-arrow="top">
+				<p>Questo men&ugrave; a tendina permette di scegliere tra le diagnosi effettuate per il paziente. Cliccando sul tasto 'Inserisci' la diagnosi scelta viene inserita nel campo sovrastante</p>
+			</div>
+			<div id="butInserisci" data-arrow="left">
+				<p>Cliccando su questo tasto la diagnosi scelta nel men&ugrave; a tendina 'Diagnosi effettuate per il paziente' viene inserita nel campo sovrastante</p>
+			</div>
+		</div>
+		<div id="MMG_PRIORITA_CLINICA">
+			<div id="Q_Clinico" data-arrow="bottom">
+				<p>Facendo doppio click sulle voci di questo elenco quelle selezionate verrano inserite nel riquadro sottostante</p>
+			</div>
+			<div id="butCerca" data-arrow="top">
+				<p>Cliccando su questo tasto &egrave; possibile cercare ed inserire gli accertamenti prescritti al paziente</p>
+			</div>
+		</div>
+		<div id="MMG_MODULO_RSA">
+			<div id="cmbProblemiPaziente" data-arrow="top">
+				<p>Questo men&ugrave; a tendina permette di scegliere tra le diagnosi effettuate per il paziente. Cliccando sul tasto 'Inserisci' la diagnosi scelta viene inserita nel campo sovrastante</p>
+			</div>
+			<div id="butInserisci" data-arrow="left">
+				<p>Cliccando su questo tasto la diagnosi scelta nel men&ugrave; a tendina 'Diagnosi effettuate per il paziente' viene inserita nel campo sovrastante</p>
+			</div>
+		</div>
+		<!-- End Sezione Moduli -->
+		
+		<!-- Sezione Vaccini -->
+		<div id="MMG_INSERIMENTO_VACCINO">
+			<div id="lblTipoVaccino" data-arrow="top">
+				<p>Cliccando su questo testo &egrave; possibile visualizzare la lista dei vaccini e sceglierne uno</p>
+			</div>
+		</div>
+		<!-- End Sezione Vaccini -->
+		
+		<!-- Sezione Stampe -->
+		<div id="MMG_STAMPANTE">
+			<div id="but_ConfigurazioniStampa" data-arrow="top">
+				<p>Aggiungere una configurazione di stampa se &egrave; necessario usare profili di stampa diversi (es.portatile usato in studi diversi).</br>ATTENZIONE! La nuova configurazione non verr&agrave; salvata finch&egrave; non verr&agrave; cliccato il tasto <b>Salva</b></p>
+			</div>
+			<div id="but_CancellaImpostazioniUtente" data-arrow="left">
+				<p>Questo tasto permette di eliminare una configurazione di stampa.</br>ATTENZIONE! La configurazione non verr&agrave; eliminata definitivamente finch&egrave; non verr&agrave; cliccato il tasto <b>Salva</b></p>
+			</div>
+			<div id="Avviso_Conferma_Stampa" data-arrow="top">
+				<p>Se impostato su "Attivo" verr&agrave; segnalato quando si sta per stampare una ricetta rossa o una ricetta bianca</p>
+			</div>
+			<div id="ImpostaUtente" data-arrow="top">
+				<p>Modificare le impostazioni specifiche di un medico quando:</p>
+				<ul>
+					<li>pi&ugrave; medici stampano su stampanti con diversi vassoi</li>
+					<li>un utente amministrativo indirizza le ricette di medici diversi su stampanti diverse o con pi&ugrave; vassoi</li>
+				</ul>
+				<p>ATTENZIONE! Le modifiche ad una configurazione non verranno salvate finch&egrave; non verr&agrave; cliccato il tasto <b>Salva</b></p>
+			</div>
+			<div id="txtMarLeft" data-arrow="top">
+				<p>Aumentare questo valore significa spostare il margine (sinistro) verso destra</p>
+				<p>Diminuire questo valore significa spostare il margine (sinistro) verso sinistra</p>
+			</div>
+			<div id="fld3" data-arrow="left">
+				<p>Da usare (come punto di partenza) nel caso in cui la stampante supporti misure personalizzate</p>
+			</div>
+			<!-- <div id="but_Impost_Predef_RR" data-arrow="top">
+				<p>Imposta i valori dei parametri predefiniti per una ricetta rossa</p>
+			</div>
+			<div id="but_Impost_Predef_RR_A4" data-arrow="bottom">
+				<p>Imposta i valori dei parametri predefiniti per una ricetta rossa da stampare su un foglio A4</p>
+			</div>
+			<div id="but_Impost_Predef_RR_A4_LS" data-arrow="left">
+				<p>Imposta i valori dei parametri predefiniti per una ricetta rossa da stampare su un foglio A4 ruotato</p>
+			</div> -->
+		</div>
+		<!-- End Sezione Stampe -->
+		
+		<!-- Sezione Posologie -->
+		<div id="MMG_SCELTA_POSOLOGIA">
+			<div id="lblposologiaCompleta" data-arrow="top">
+				<p>Mentre la pagina viene riempita di dati il testo di questa label si modifica.</br>Cliccando su questo testo il suo contenuto verr&agrave; copiato nel riquadro "Descrizione Posologia" dove sar&agrave; possibile modificarlo a piacimento.</p>
+			</div>
+			<div id="txtQuantitaMisura" data-arrow="bottom">
+				<p>Questo campo deve essere riempito con la quantit&agrave; di farmaco da assumere ad ogni somministrazione</p>
+			</div>
+			<div id="radVolte" data-arrow="top">
+				<p>Frequenza della somministrazione</p>
+			</div>
+			<div id="butInserisci" data-arrow="top">
+				<p>Cliccando su questo tasto verr&agrave; creata una nuova posologia la cui descrizione sar&agrave; il testo contenuto in "Descrizione Posologia". Tale testo verr&agrave; inoltre inserito nella posologia del farmaco selezionato nel riquadro "FARMACI RELATIVI ALLA RICETTA".</p>
+			</div>
+		</div>
+		
+		<!-- End Sezione Posologie -->
+		
+		<!-- Sezione Certificati Malattia -->
+		<div id="MMG_CERTIFICATO_MALATTIA">
+			<div id="txtPin" data-arrow="left">
+				<p>Il pincode per l'invio telematico &egrave; reperibile sul sito 
+					<a href="http://www.sistemats.it" target="_blank">www.sistemats.it</a></br>
+					Dal sito accedere tramite la sezione 'Accesso con credenziali' e, una volta
+					fatto l'accesso, cliccare  prima sul tasto 'Profilo utente' e in seguito sul
+					tasto 'Stampa pincode', in alto sulla destra.</br> Entrati nella sezione cliccare
+					sull'immagine del documento disponibile della lista. All'interno si trover&agrave; il
+					pincode.</p>
+			</div>
+		</div>
+		
+		<!-- End Sezione Certificati Malattia -->
+		
+		<!-- Sezione Configurazioni Utente -->
+		<div id="UTENTI">
+			<div id="txtPIN" data-arrow="top">
+				<p>Il pincode per l'invio telematico &egrave; reperibile sul sito 
+					<a href="http://www.sistemats.it" target="_blank">www.sistemats.it</a></br>
+					Dal sito accedere tramite la sezione 'Accesso con credenziali' e, una volta
+					fatto l'accesso, cliccare  prima sul tasto 'Profilo utente' e in seguito sul
+					tasto 'Stampa pincode', in alto sulla destra.</br> Entrati nella sezione cliccare
+					sull'immagine del documento disponibile della lista. All'interno si trover&agrave; il
+					pincode.</p>
+			</div>
+			<div id="radStampaPrincipioAttivo_N" data-arrow="bottom">
+				<p>Se impostato sul 'Si' sulle ricette verr&agrave; stampato ESCLUSIVAMENTE il principio attivo del farmaco, senza il nome commerciale del farmaco.</p>
+			</div>
+			<div id="radAnteprimaStampa_N" data-arrow="left">
+				<p>Se impostato sul 'Si' per ogni stampa richiesta, tranne quelle della ricetta rossa, verr&agrave; visualizzata l'anteprima di stampa.</p>
+			</div>
+			<div id="radStampaAutomatica_N" data-arrow="left">
+				<p>Se impostato sul 'Si' alla stampa di una ricetta non verr&agrave; visualizzata la pagina di presalvataggio.</p>
+			</div>
+			<div id="radMedicoPrescrittoreCurante_N" data-arrow="top">
+				<p>Solo per utenti amministrativi. Se impostato sul 'Si' il medico prescrittore viene impostato uguale al curante.</p>
+			</div>
+		</div>
+		
+		<!-- End Sezione Configurazioni Utente -->
+		
+		<!-- Sezione Diari nel riepilogo -->
+		<div id="DIARI_WK">
+			<div class="butFiltra" data-arrow="top">
+				<p>Con questi pulsanti puoi accedere alla schermata dei filtri della lista dei diari, puoi inserire una nuova visita o una nuova nota</p>
+			</div>
+			<div id="lblTitolo" data-arrow="top">
+				<p>In questa lista verranno visualizzate le note e le visite inserite. Con il tasto destro potrai accedere a diverse funzionalit&agrave;</p>
+			</div>
+		</div>
+		
+		<!-- End Sezione Problemi nel riepilogo -->
+		
+		<!-- Sezione Diari nel riepilogo -->
+		<div id="RIEPILOGO">
+			<div id="GestioneDiari\@butInserisci" data-arrow="bottom">
+				<p>Con questi pulsanti puoi accedere alla schermata per inserire una gravidanza, puoi filtrare la lista dei problemi e puoi inserire un nuovo problema</p>
+			</div>
+			<div id="lblTitolo" data-arrow="bottom">
+				<p>In questa lista verranno visualizzati le diagnosi, i sospetti diagnostici e i problemi del paziente. Con il tasto destro potrai accedere a diverse funzionalit&agrave; con le quali potrai nascondere 
+				alcuni problemi, inserirne dei nuovi, cancellare dei problemi, e altre funzionalit&agrave;</p>
+			</div>
+		</div>
+		
+		<!-- Sezione Diari nel riepilogo -->
+		
+		<!-- Sezione Prescrizione farmaci -->
+		<div id="TAB_RR_FARMACI" style="overflow:auto;">
+			<div id="iCommonFunctions" data-arrow="bottom">
+				<p>Con questo pulsante si pu&ograve; accedere ad un menu per le operazioni da effettuare su prescrizioni multiple</p>
+			</div>
+			<div id="lblTitolo" data-arrow="top">
+				<div>
+					<p>Sezione per le prescrizioni di farmaci effettuate per il paziente corrente.</p>
+					<ul>
+					<li>Attraverso le icone 
+					
+					<i class="tdRRFarmaci icon-cog-1"></i>
+					<i class="tdRRFarmaci icon-hourglass"></i>
+					<i class="tdRRFarmaci icon-attention"></i>
+					<i class="tdRRFarmaci icon-info-circled"></i>
+					<i class="tdRRFarmaci icon-hourglass"> </i>
+					
+					<p>si apriranno menu che permetteranno
+					di effettuare operazionisulle righe selezionate</p>
+					<li>Utilizzo della tastiera nella sezione:
+						<ul>
+							<li>Attraverso la <b>freccia su</b> e la <b>freccia gi&ugrave;</b> &egrave; possibile spostarsi tra le righe. </li>
+							<li>Con il tasto della <b>Barra Spaziatrice</b> si potranno selezionare le righe desiderate (riproduce la spunta sulla riga)</li>
+							<li>Con un clic sul tasto <b>F2</b> si potr&agrave; procedere con la prescrizione e accedere alla schermata di presalvataggio (riproduce il clic su Salva e Stampa)</li>
+						</ul>
+					</li>
+					</ul>
+				</div>
+					<!--<ul>
+						<li><i class="tdRRFarmaci icon-cog-1"></i>Cliccando sull'icona si aprir&agrave; un menu che vi dar&agrave; la possibilit&agrave; di cancellare la prescrizione, forzarla su ricetta rossa o su ricetta bianca</li>
+						<li><i class="tdRRFarmaci icon-hourglass"></i>Cliccando sull'icona si aprir&agrave; un menu che vi dar&agrave; la possibilit&agrave; di segnalare che la terapia corrente &egrave; cronica, periodica, temporanea, &egrave; un piano terapeutico, o bloccare la terapia in modo che solo un utente medico possa prescriverla</li>
+						<li><i class="tdRRFarmaci icon-attention"></i>Questa icona si colorer&agrave; in base alla qunatit&agrave; di farmaco rimanente</li>
+						<li><i class="tdRRFarmaci icon-info-circled"></i>Cliccando su questa icona si aprir&agrave; un menu che vi dar&agrave; la possibilit&agrave; di visualizzare informazioni sul farmaco</li>
+						<li><i class="tdRRFarmaci icon-hourglass"></i>Cliccando su questa icona si aprir&agrave; un menu che vi dar&agrave; la possibilit&agrave;</li>
+					</ul> -->
+			</div>
+			<div id="butSalvaRicetta" data-arrow="bottom">
+				Con questi pulsanti si pu&ograve; aggiungere una riga per una nuova prescrizione, salvare la prescrizione senza stampare o stampare la ricetta
+			</div>
+		</div>
+		
+		<!-- End Sezione Prescrizione farmaci -->
+		
+		<!-- Sezione Prescrizione accertamenti -->
+		<div id="TAB_RR_ACCERTAMENTI">
+			<div id="iCommonFunctions" data-arrow="bottom">
+				<p>Con questo pulsante si pu&ograve; accedere ad un menu per le operazioni da effettuare su prescrizioni multiple</p>
+			</div>
+			<div id="lblTitolo" data-arrow="top">
+				<div><p>In questa lista verranno visualizzate le prescrizioni di farmaci effettuate per il paziente corrente. Attraverso le icone vicine alla prescrizione si potranno effettuare diverse operazioni:</p>
+					<ul>
+					<li><i class="tdRRAccertamenti icon-cog-1"></i>Cliccando su questa icona si aprir&agrave; un menu che vi dar&agrave; la possibilit&agrave; di cancellare la prescrizione, </li>
+					<li>Utilizzo della tastiera nella sezione:
+						<ul>
+							<li>Attraverso la <b>freccia su</b> e la <b>freccia gi&ugrave;</b> &egrave; possibile spostarsi tra le righe. </li>
+							<li>Con il tasto della <b>Barra Spaziatrice</b> si potranno selezionare le righe desiderate (riproduce la spunta sulla riga)</li>
+							<li>Con un clic sul tasto <b>F2</b> si potr&agrave; procedere con la prescrizione e accedere alla schermata di presalvataggio (riproduce il clic su Salva e Stampa)</li>
+						</ul>
+					</li>
+					</ul>
+				</div>
+			</div>
+			<div id="butSalvaRicetta" data-arrow="bottom">
+				Con questi pulsanti si pu&ograve; aggiungere una riga per una nuova prescrizione, salvare la prescrizione senza stampare o stampare la ricetta
+			</div>
+		</div>
+		
+		<!-- End Sezione Prescrizione accertamenti -->
+		
+		<!-- Sezione Bacheca -->
+		<div id="BACHECA">
+			<div id="lblTitolo" data-arrow="top">
+				<p>Nella sezione <b>Bacheca</b> potrai visualizzare i promemoria divisi per generali, per utente, per paziente</p>
+				<p>Nella sezione <b>ASL</b>  potrai visualizzare gli avvisi che venrranno inseriti sul sistema da parte dell'ASL2</p>
+				<p>Nella sezione <b>aggiornamenti</b>  potrai visualizzare i dettagli dei vari aggiornamenti e potrai fare una stampa del dettaglio di ogni singolo aggiornamento</p>
+				<p>Nella sezione <b>Inserimento</b>  potrai inserire i promemoria e gli avvisi che ti compariranno nel sistema. Se l'avviso ha priorit&agrave; alta sar&agrave; visualizzato con dettaglio, altrimenti comparir&agrave; un riepilogo di quanti avvisi sono presenti</p>
+			</div>
+		</div>
+		
+		<!-- End Sezione Bacheca -->
+		
+		<!--
+		<div id="NOME_PAGINA">
+			<div id="" data-arrow="">
+				<p></p>
+			</div>
+		</div>
+
+		LETTERE ACCENTATE:
+			à : &agrave;
+			è : &egrave;
+			ì : &igrave;
+			ò : &ograve;
+			ù : &ugrave;
+		-->
+		
+	</body>
+</html>

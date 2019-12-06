@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_ALCOOL_FUMO</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.WK_ALCOOL_FUMO</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<!--<MENU>
+			<ID>ALCOOL_FUMO</ID>
+		</MENU>-->
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>15px</HEIGHT>
+            <EVENTS>
+                <!--<CLICK>function(rec){$(this).selectedLine('IDEN');VISUALIZZA_DOCUMENTI.loadDocumento(rec);}</CLICK>-->
+                <!--  <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>-->
+                <!--<DBLCLICK></DBLCLICK>-->
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_INS</COL>
+						<DB>DATA_INS</DB>
+					</ID>
+					<DESCRIPTOR>"Data Rilevazione"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PAZIENTE</COL>
+						<DB>PAZIENTE</DB>
+					</ID>
+					<DESCRIPTOR>"Paziente"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>IDEN_MED</COL>
+						<DB>IDEN_MED</DB>
+					</ID>
+					<DESCRIPTOR>"Medico_Rilev"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>FUMO</COL>
+						<DB>FUMO</DB>
+					</ID>
+					<DESCRIPTOR>"Fumo"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>ALCOL</COL>
+						<DB>ALCOL</DB>
+					</ID>
+					<DESCRIPTOR>"Alcool"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>NOTE_ALCOL</COL>
+						<DB>NOTE_ALCOL</DB>
+					</ID>
+					<DESCRIPTOR>"Note_Alcool"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>NOTE_FUMO</COL>
+						<DB>NOTE_FUMO</DB>
+					</ID>
+					<DESCRIPTOR>"Note_Fumo"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_INS">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

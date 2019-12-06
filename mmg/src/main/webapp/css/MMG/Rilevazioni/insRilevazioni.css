@@ -1,0 +1,40 @@
+body#page{
+	width:960px;
+}
+#fldBMI, #fldCardio{
+
+	width:40%;
+	float:left;
+	clear: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+
+#fldTemperatura, #fldPressione, #fldPLS, #fldAltro {
+	width:40%;
+	float:right;
+}
+
+#tabRiepilogoBMI, #tabRiepilogoCardio, #tabRiepilogoPressione{
+	height:500px;
+}
+
+#fldPLS {
+	
+	padding-top: 10px;
+}
+	
+#fldTemperatura { height: 71px;}
+
+.tdLbl .icon-certificate {
+	margin-left: 5px;
+}
+
+.popup .content ul li {
+	line-height: 25px;
+}
+
+.icon-clock {
+	font-size: 18px;
+}

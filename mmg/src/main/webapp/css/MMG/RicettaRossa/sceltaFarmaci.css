@@ -1,0 +1,34 @@
+body { width: 960px; }
+
+#divWkSostituti {
+	height:70px;
+ }
+
+.tdButton{
+	text-align: center;
+	padding-left:15px;
+	width: 120px;
+}
+
+#butSamePA, #butSameConf, #butSameATC {
+	width:90%;
+	height: 35px;
+}
+
+.dp_footer {display:none;}
+
+.attenzione_1 {
+	background-color: violet;
+}
+
+.attenzione_2 {
+	background-color: red;
+}
+
+.delAcc {
+	color: red;
+}
+
+.icon-info-circled {
+	color: #274069;
+}

@@ -1,0 +1,54 @@
+#tabAnamnesi {
+    width: 100%;
+    padding-right: 20px;
+}
+
+#taNoteOrgani, #taNoteTrapianti, #taNoteEspianti, #taNoteProtesi, #taNoteImpianti, #taNoteAusili, #taNoteDipendenze, #taNoteSostanzeTossiche {
+    height: 50px;
+}
+
+#divWk, #divWkTerapie, #divWkEsenzioni, #divWkVaccinazioni, #divWkScreening, #divWkAccertamenti {
+    height: 600px;
+}
+
+#buttonInsAllergie, #buttonIns { float: right;}
+
+#fldInserimentoAllergie td.tdAC { width: 700px; }
+
+/*PRIVACY*/
+.oscurato {background-color: #d1d1d1 !important;}
+.oscurato .RBpuls {background-color: #d1d1d1 !important;  }
+.maschera {	position: absolute; top:0; width: 100%; height: 100%; background: #d1d1d1; font-style: italic}
+#li-tabOldVersion { background: #FDFFDB; color:black; }
+
+
+#tabDatiGenerali fieldset, 
+#tabAnamnesi fieldset, 
+/*  #tabAnamnesiClinica fieldset,  */
+#tabDatiMedico fieldset,
+#fldInserimentoAllergie,
+#fldInserimentoIntervento
+{
+	width:960px;
+}
+
+#tabAnamnesiClinica,
+#fldAnamnesiPatologicaRemota{
+	width:980px;
+}
+
+#txtAltreInfo{
+	height:250px;
+}
+
+#fldOrgani, 
+#fldProtesi, 
+#fldFattoriRischi{
+	width:310px;
+	float:left;
+	border: 1px solid #E5E5E5;
+}
+
+#taNotePatologia {
+	height: 150px
+}

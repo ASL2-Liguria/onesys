@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>3</minChars>
+		<onSelect type="js">
+			<![CDATA[function(ret){AC.selectComune(ret);}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>300</width>
+		<zIndex>9999</zIndex>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_COMUNI</storedQuery>
+		<maxResults>40</maxResults>
+		<datasource>MMG_DATI</datasource>
+	</AJAX> 
+	<LIST>
+	    <title>Luogo Nascita</title>
+	    <id_wk>AC_COMUNI</id_wk>
+	    <onSelect type="js">
+			<![CDATA[function(ret){AC.selectComune(ret);}]]>
+		</onSelect>
+	</LIST>
+
+</AUTOCOMPLETE>	 
+    

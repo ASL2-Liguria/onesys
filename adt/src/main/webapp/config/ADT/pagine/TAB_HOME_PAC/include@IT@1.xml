@@ -1,0 +1,9 @@
+<INCLUDE>
+	<JS path="js/TimePicker/jquery.meio.mask.js"/>
+	<JS path="js/ADT/Contatto/ContattoMethods.js"/>
+	<JS path="js/ADT/Anagrafica/Anagrafica.js"/>
+	<JS path="js/ADT/WK/NS_ANAGRAFICA.js"/>
+	<JS path="js/Base/NS_FENIX_FILTRI.js"/>
+	<JS path="js/ADT/TabHomePac/TabHomePacWK.js"/>
+    <JS path="js/ADT/TabHomePac/TabHomePac.js"/>
+</INCLUDE>

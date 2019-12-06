@@ -1,0 +1,67 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_RELAZIONE_ESTERNA_CADAVERE_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_RELAZIONE_ESTERNA_CADAVERE_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+
+
+    <!-- Caricamento Dati -->
+    <DATO key_id="DataIspezione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_ISPEZIONE" db_descrizione="DATA_ISPEZIONE"  />
+    <DATO key_id="txtOraIspezione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_ISPEZIONE" db_descrizione="ORA_ISPEZIONE"  />
+    <DATO key_id="txtOraGiuntoCadavere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_ARRIVO" db_descrizione="ORA_ARRIVO"  />
+    <DATO key_id="txtProvenienza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROVENIENZA" db_descrizione="PROVENIENZA"  />
+    <DATO key_id="txtSpecificaProvenienza" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SPECIFICA_PROVENIENZA" db_descrizione="SPECIFICA_PROVENIENZA"  />
+    <DATO key_id="txtSpecificare" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SPECIFICA_MEZZO" db_descrizione="SPECIFICA_MEZZO"  />
+
+
+
+    <!-- Query multidata -->
+    <DATO key_id="radSegni" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''MODULO_RELAZIONE_ESTERNA_CADAVERE'''; end;" />
+
+    <DATO key_id="radMezzo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''MEZZO_MODULO_RELAZIONE_ESTERNA_CADAVERE'''; end;" />
+
+
+    <DATO key_id="h-radMezzo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEZZO_ARRIVO" db_descrizione="MEZZO_ARRIVO"/>
+
+    <DATO key_id="h-radSegni" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SEGNI" db_descrizione="SEGNI"/>
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+</DATI>

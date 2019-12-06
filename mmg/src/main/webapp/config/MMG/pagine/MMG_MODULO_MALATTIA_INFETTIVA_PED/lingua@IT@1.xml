@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>MODULO DI NOTIFICA DI MALATTIA INFETTIVA (PEDICULOSI)</lblTitolo>
+        <tabModuloMalattiaInfettiva>Modulo di notifica di malattia infettiva</tabModuloMalattiaInfettiva>
+        
+        <fldContatti>Contatti</fldContatti>
+        <fldConviventi>Conviventi</fldConviventi>
+        <fldSostanzeStupefacenti>Sostanze Stupefacenti</fldSostanzeStupefacenti>
+        
+        <lblMalattia>Malattia</lblMalattia>
+        <lblTipologia>Tipologia</lblTipologia>
+        <lblTrattamento>Trattamento</lblTrattamento>
+        <lblTipo>Tipo</lblTipo>
+        <lblDurata>Durata</lblDurata>
+        <lblFrequenzaCollettivita>Frequenza di collettvità</lblFrequenzaCollettivita>
+        <lblControllati>Controllati</lblControllati>
+        <lblPrescrProfilassi>Prescritta profilassi</lblPrescrProfilassi>
+        <lblSorvSanitaria>Sorveglianza sanitaria</lblSorvSanitaria>
+        <lblDataInizio>Data inizio</lblDataInizio>
+        <lblAccertamenti>Accertamenti (tipo,data,esito)</lblAccertamenti>
+        <lblProfessione>Professione</lblProfessione>
+        <lblFrqCollettivita>Frequenza in collettività</lblFrqCollettivita>
+        <lblCodiceSSN>Codice SSN</lblCodiceSSN>
+        <lblASLResidenza>ASL di residenza</lblASLResidenza>
+        <lblASLDomicilio>ASL di domicilio</lblASLDomicilio>
+        <lblCittadinanza>Cittadinanza</lblCittadinanza>
+		
+		<butStampa>Salva e Stampa</butStampa>
+		<butStampaOnly>Stampa</butStampaOnly>
+    </ROW>
+</ROWSET>

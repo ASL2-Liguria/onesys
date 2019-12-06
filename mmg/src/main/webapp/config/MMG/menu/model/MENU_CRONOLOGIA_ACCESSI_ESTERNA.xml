@@ -1,0 +1,27 @@
+<MENU>
+	<id>MENU_CRONOLOGIA_ACCESSI_ESTERNA</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MCAE.A</ID>
+			<LINK><![CDATA[function(rec){ NS_MENU_CRONOLOGIA_ACCESSI.apriCartella( rec ); }]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE>
+			<OUTPUT>"Apri cartella paziente"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MCA.CR</ID>
+			<LINK><![CDATA[function(rec){ NS_MENU_CRONOLOGIA_ACCESSI.cancellaAccesso(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Cancella Accesso"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

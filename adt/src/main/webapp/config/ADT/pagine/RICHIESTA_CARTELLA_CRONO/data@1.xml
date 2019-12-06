@@ -1,0 +1,18 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'ADT.DATI_PAZIENTE_BY_ID@ADT'; :where := null; :campo_xml := null; end;">
+
+    <DATO key_id="txtCognome" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COGNOME" db_descrizione="COGNOME"
+          configurazione_multi_data="" />
+    <DATO key_id="txtNome" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOME" db_descrizione="NOME"
+          configurazione_multi_data="" />
+    <DATO key_id="txtSesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SESSO" db_descrizione="SESSO"
+          configurazione_multi_data="" /> 
+    <DATO key_id="txtDataNasc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_NASCITA" db_descrizione="DATA_NASCITA"
+          configurazione_multi_data="" />
+    <DATO key_id="txtCodFisc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_FISCALE" db_descrizione="CODICE_FISCALE"
+          configurazione_multi_data="" />
+</DATI>

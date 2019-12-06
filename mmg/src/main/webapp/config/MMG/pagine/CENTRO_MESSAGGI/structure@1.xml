@@ -1,0 +1,107 @@
+<PAGINA key_id="CENTRO_MESSAGGI">
+
+	<HEADER_PAGE key_id="CENTRO_MESSAGGI" valore="DEFAULT_MMG,SCHEDA,CENTRO_MESSAGGI#DEFAULT_MMG,CENTRO_MESSAGGI" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#EVENTI_APPLET#IDEN#IDEN" evento="START_END">
+	
+		<TABULAZIONE.INIT key_id="tabPannelloNotifiche" valore="PannelloNotifiche#lblTitolo#butNuovoMessaggio,butSalva,butChiudi" evento="START">
+		
+			<TABULAZIONE.CREA_TAB key_id="tabMessaggi" valore="tabMessaggi" evento="START">
+		
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca" evento="START">
+
+					<TR_TD_TEXT key_id="Ricerca" valore="txtRicerca###RICERCA" evento="START">
+
+						<TD_BUTTON key_id="butCercaMsg" valore="butCercaMsg" evento="START"></TD_BUTTON>
+						<TD_BUTTON key_id="butMsgPazienteCorrente" valore="butMsgPazienteCorrente" evento="START"></TD_BUTTON>
+
+					</TR_TD_TEXT>
+				
+				</FIELDSET_TABLE>						
+				
+				<FIELDSET_TABLE key_id="fldVisualizzazione" valore="fldVisualizzazione" evento="START">
+
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						
+						<DIV key_id="divMsg" valore="divMsg" evento="START"></DIV>
+						<DIV key_id="divAction" valore="divAction" evento="START"></DIV>
+					
+					</TR.INIT>
+						
+					<TR.INIT key_id="tr4" valore="" evento="START">
+						
+						<DIV key_id="testoMsg" valore="testoMsg" evento="START"></DIV>
+						
+					</TR.INIT>
+
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldTipoMessaggi" valore="fldTipoMessaggi" evento="START">
+						
+					<TR_TD_LABEL_RADIO key_id="inviatiRicevuti" valore="lblInviatiRicevuti##inviatiRicevuti#radInviatiRicevuti#{width:80,idxDefault:1}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+				
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldListaMessaggi" valore="fldListaMessaggi" evento="START">
+
+					<DIV.WORKLIST key_id="wk" valore="divWk" evento="START"></DIV.WORKLIST>
+
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabMessaggiInvio" valore="tabMessaggiInvio" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldRicercaUtenti" valore="fldRicercaUtenti" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="RicercaUtenti" valore="lblRicercaUtenti##txtRicercaUtenti###" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butFiltraOnline" valore="butFiltraOnline" evento="START">
+						</TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_RADIO key_id="tipoUtente" valore="lblTipoUtente##tipoUtente#radTipoUtente#{width:150,idxDefault:1}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					
+				</FIELDSET_TABLE>
+			
+				<FIELDSET_TABLE key_id="fldFiltriMessaggio" valore="fldFiltriMessaggio" evento="START">
+					
+					<EXCHANGE_LISTS key_id="exchangeUser" valore="excUser#ComboInUser#ComboOutUser#N#btnControls#{ onlySingleTransfert: false, removeFirstListItems:true, listHeaders:{ listFrom:{ title:'Lista Utenti (scegliere con le frecce o con doppio clic)' }, listTo:{ title:'Destinatari messaggio (rimuovere con le frecce o con doppio clic)', } } }#USER" evento="START">
+					</EXCHANGE_LISTS>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldNotifica" valore="fldNotifica" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="OggettoMessaggio" valore="lblOggettoMessaggio##txtOggettoMessaggio###OGGETTO_MESSAGGIO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXTAREA key_id="Messaggio" valore="lblMessaggio#txtMessaggio#MESSAGE#N" evento="START">
+					</TR_TD_LABEL_TEXTAREA>
+					
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldProprietaNotifica" valore="fldProprietaNotifica" evento="START">
+					
+					<TR_TD_LABEL_RADIO key_id="collegamentoPaziente" valore="lblCollegamentoPaziente##collegamentoPaziente#radCollegamentoPaziente#{width:150,idxDefault:1}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+
+					<TR_TD_LABEL_RADIO key_id="priorita" valore="lblPriorita##priorita#radPriorita#{width:150,idxDefault:0}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>
+
+						

@@ -1,0 +1,152 @@
+body { width: 960px; }
+
+#fldRiepilogo input {
+	width:95%;
+	padding-left:5px;
+	height: 25px;
+}
+
+#fldRiepilogo table td {
+	text-align: center;
+}
+
+#fldRiepilogo table th {
+	font-weight: bold;
+	border-bottom: 1px solid  #aaa;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+#fldRiepilogo td {
+	margin-top:10px;
+}
+
+td.urgenza {
+	background:none;
+	width:auto;
+	height: auto;
+}
+
+/*td.diagnosi, td.accertamento{
+	width:400px;
+}*/
+
+#butInserisci{float: right;}
+#butDelDiagnosi i{
+	color:red;
+	padding-right:5px;
+}
+
+fieldset.fldCampi {
+	border: 1px solid #e1e1e1;
+	margin: 10px 10px 10px;
+	padding: 0px 5px 20px 0;
+}
+
+fieldset.fldCampi legend{
+	padding-bottom: 5px;
+}
+
+td.diagnosi select {
+	width:200px;
+}
+
+.icon-cancel-1{
+	font-size: 10px;
+}
+
+.sedute {
+	display: none;
+}
+.notePrestazioni{
+	background:#ffffff;
+	border:1px solid grey;
+	margin: 2px;
+	padding:2px;
+	cursor:pointer;
+	width:80px;
+	height:25px;
+	line-height: 20px;
+}
+
+.notePrestazioni:hover{
+	background:#ffff80;
+	font-weight:bold;
+}
+
+.notePrestazioni i{
+	color: #274069;
+	margin-left:1px;
+	width:15px;
+}
+
+.notePrestazioni a{
+	width:15px;
+}
+
+
+.tableRiepilogo{
+	border-collapse:collapse !important;
+}
+
+
+.delAcc{
+	color:red;
+}
+
+#txtDiagnosi{
+	height:30px;
+}
+
+/******** Note Prestazioni ******************/
+.selected{
+	background: #FFD700 !important;
+}
+
+.clsIndicazione{
+	background: #c1e0ff;
+}
+
+.clsCondizione{
+/* 	background: red; */
+}
+
+i.icon-ok{
+	font-size:10px;
+	width: 8px;
+}
+
+tr.dati{
+	border-top:1px solid grey;
+}
+
+tr.dati td{
+	margin-top:2px;
+	padding-bottom:5px;
+}
+
+.rigaNote{
+	border-top:2px solid orange !important;
+	background:#FAF9B4 !important;
+}
+
+.rigaNote td{
+	background:transparent;
+}
+
+.rigaNoteDM1996{
+	border-top:2px solid red !important;
+	background: #f88f92 !important;
+}
+
+.rigaNoteDM1996 td{
+	background:transparent;
+}
+
+#divInfoNota {
+	white-space: pre-wrap;
+}
+
+.btnNota {
+	font-size: 1.2em;
+}

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<lblTitolo>MODULO PRIVACY</lblTitolo>
+		
+		<butStampa>Salva e Stampa</butStampa>
+		
+		<tabDichiarante>Dichiarante</tabDichiarante>
+		<tabTrattamento>Trattamento dati</tabTrattamento>
+		<tabCondivisione>Condivisione Dati</tabCondivisione>
+		<tabConsensoComunicazione>Comunicazione dati</tabConsensoComunicazione>
+		<tabDichiarazioneSostitutiva>Dichiarazione sostitutiva</tabDichiarazioneSostitutiva>
+
+		<fldDatiDichiarante>Riepilogo dati paziente</fldDatiDichiarante>
+		
+		<lblSottoscrittoCognome>Io sottoscritto/a (cognome)</lblSottoscrittoCognome>	
+		<lblSottoscrittoNome>(nome)</lblSottoscrittoNome>	
+		<lblSottoscrittoLuogoNascita>nato/a a </lblSottoscrittoLuogoNascita>
+		
+		<fldDataCertificato>Data Consenso</fldDataCertificato>
+		<lblDataCertificato>Data</lblDataCertificato>
+		
+		<lblSottoscrittoDataNascita>il</lblSottoscrittoDataNascita>
+	  	<lblSottoscrittoIndirizzo>residente in</lblSottoscrittoIndirizzo>
+	  	<lblSottoscrittoComune>a</lblSottoscrittoComune>
+	  	
+	  	<lblSottoscrittoCodiceFiscale>codice fiscale</lblSottoscrittoCodiceFiscale>
+	  	
+	  	<lblTipoDichiarante>oppure come:</lblTipoDichiarante>
+        
+        <lblGaranteCognome>di (cognome)</lblGaranteCognome>	
+        <lblGaranteNome>(nome)</lblGaranteNome>	
+		<lblGaranteLuogoNascita>nato/a a </lblGaranteLuogoNascita>
+		
+		<lblGaranteDataNascita>il</lblGaranteDataNascita>
+	  	<lblGaranteIndirizzo>residente in</lblGaranteIndirizzo>
+	  	<lblGaranteComune>a</lblGaranteComune>
+	  	
+	  	<lblGaranteCodiceFiscale>codice fiscale</lblGaranteCodiceFiscale>
+       
+       	<lblInformativa>Il sottoscritto, acquisite e comprese le informazioni fornite dal titolare del trattamento, SOSTITUIRE_CON_NOME_MEDICO , ai sensi dell'articolo 13 del D.Lgs. 196/2003</lblInformativa>
+        
+        <lblTrattamentoConsensoDati>A. Relativamente al trattamento dei dati comuni per l'espletamento delle attività indispensabili alla gestione del rapporto medico paziente</lblTrattamentoConsensoDati>
+        <lblTrattamentoConsensoDatiPost>da il proprio consenso al trattamento dei propri dati personali per le finalità indicate nell'apposita informativa, necessarie per permettere al Titolare una corretta gestione del rapporto ed un congruo trattamento dei dati stessi.</lblTrattamentoConsensoDatiPost>
+        
+        <lblConsensoDatiSensibili>B. Relativamente al trattamento dei dati sensibili e giudiziari (articoli .4 comma 1 lett. d),e) e 26 del D.Lgs. 196/2003), ed in particolare: convinzioni religiose, origini razziali o etniche, vita sessuale, Stato di salute)</lblConsensoDatiSensibili>
+        <lblConsensoDatiSensibiliPost>da il proprio consenso, consapevole delle tutele imposte dalla legge</lblConsensoDatiSensibiliPost>
+		
+		<lblCondivisioneDati>C. Relativamente alla condivisione dei dati necessari alla cura del paziente, con altre figure professionali, al fine di garantire la conitnuità di cura e assistenziale</lblCondivisioneDati>
+		
+		<fldTrattamentoDatiSostituto></fldTrattamentoDatiSostituto>
+		<lblTrattamentoDatiSostituto>da il proprio consenso facoltativo al SOSTITUTO, cioè il medico che sostituisce temporaneamente il medico o il pediatra che la cura (art.78 comma 4 lett. a del codice)?</lblTrattamentoDatiSostituto>
+		
+		<fldSpecialista></fldSpecialista>
+		<lblSpecialista>da il proprio consenso facoltativo allo SPECIALISTA su richiesta del medico di base e del pediatra  (art.78 comma 4 lett. a del codice)?</lblSpecialista>
+		
+		<fldAssociati></fldAssociati>		
+		<lblAssociati>qualora l'attività professionale sia prestata in forma associata, da il proprio consenso facoltativo agli ASSOCIATI (art.78 comma 4 lett. c del codice), anche mediante l'ausilio di strumenti, reti,
+		e comunicazioni elettroniche per le quali il suo MMG o PLS è l'unico titolare del trattamento per le finalità di prevenzione, diagnosi, cura, terapia e riabilitazione consapevole che in tale caso Lei può esercitare il diritto all'oscuramento delle informazioni sanitarie di cui non ritiene di autorizzare la visione?</lblAssociati>
+		
+		<fldCollaboratori></fldCollaboratori>
+		<lblCollaboratori>da il proprio consenso facoltativo ai COLLABORATORI designati dal MMG o PLS, in qualità di responsabili o incaricati al fine di coadiuvarlo nelle attività amministrative e contabili, di segreteria, di caricamento manuale dei dati sanitari 
+		nelle procedure/banche informatiche/profilo sanitario sintetico ed in generale nelle attività di supporto, per garantirLe l'efficacia del servizio? </lblCollaboratori>
+		
+		<lblConsensoPersonaleASL>qualora abbia già aderito al fascicolo sanitario elettronico personale provinciale FSEP, da il proprio consenso facoltativo all'implementazione del Patient Summary all'interno del suo FSEP al solo fine di coadiuvare il personale medico coinvolto nel suo percorso di cura?</lblConsensoPersonaleASL>
+		
+		<lblDomandaConsenso>Relativamente alla COMUNICAZIONE dei propri dati personali?</lblDomandaConsenso>
+		
+		<fldConsensoComunicazione></fldConsensoComunicazione>
+		<lblConsensoComunicazione>da il proprio consenso facoltativo alla comunicazione di dati sul suo stato di salute a familiari/conviventi o terzi che si occupano della sua persona (Care giver), da Lei delegati per iscritto o da Lei di seguito espressamente indicati? </lblConsensoComunicazione>
+		<fldElencoNominativo>Eventuale elenco dei soggetti terzi ai quali possono essere comunicate informazioni sul suo stato di salute:</fldElencoNominativo>
+		<lblTelefono>Telefono</lblTelefono>
+		<lblNominativo>Nominativo</lblNominativo>
+		
+		<fldDatiRecepimento>Dati Modulo</fldDatiRecepimento>
+		<lblDataRecepimento>Data recepimento consenso cartaceo </lblDataRecepimento>
+		<lblOpeRecepimento>Operato recepimento consenso cartaceo</lblOpeRecepimento>
+		
+		<fldDatiUltimaModifica>Dati ultima modifica</fldDatiUltimaModifica>
+		<lblDataModulo>Data ultima modifica</lblDataModulo>
+		<lblUtenteModulo>Utente ultima modifica</lblUtenteModulo>
+		<lblOraModulo>Ora ultima modifica</lblOraModulo>
+		
+		<butConsensoVergine>Stampa consenso vuoto</butConsensoVergine>
+		<butInformativa>Informativa</butInformativa>
+		<butVersPrec>Consulta dati versione precedente</butVersPrec>
+		
+		<fldMedicoTitolare>Medico titolare</fldMedicoTitolare>
+		<butMedicoTitolare>Clicca qui per impostare il medico del paziente come titolare del consenso</butMedicoTitolare>
+		<msgMedicoTitolare>Il medico che viene impostato è il titolare del consenso e verrà inserito il suo timbro sul modulo in fase di stampa</msgMedicoTitolare>
+		
+		<lblConcede>CONCEDE</lblConcede>
+		<lblNega>NEGA</lblNega>
+		
+		<lblInfoMerge>Attenzione! Questa è la nuova versione del modulo della privacy. Per facilitare l'iter, i dati della versione precedente del modulo sono stati automaticamente inseriti in questa nuova versione.</lblInfoMerge>
+		<lblInfoMerge2>Si consiglia di controllare i seguenti campi per verificare i dati importati:</lblInfoMerge2>
+		<lblInfoMergeNome>Nome e Cognome del paziente e del garante</lblInfoMergeNome>
+		<lblInfoMergeIndirizzo>Indirizzo del paziente e del garante</lblInfoMergeIndirizzo>
+		<lblInfoMergeCompletezza>Completezza dei dati inseriti</lblInfoMergeCompletezza>
+		<lblPulsanteConsultaDatiVecchioModulo>Per ottenere l'anteprima del modulo vecchio, in modo da poter controllare i dati precedentemente inseriti, si può cliccare sul pulsante in basso 'Consulta dati versione precedente'</lblPulsanteConsultaDatiVecchioModulo>
+		<moduloVecchio>Il paziente ha compilato la precedente versione del modulo di consenso ai fini privacy. I dati verranno importati nella nuova versione. Si consiglia di provvedere a controllare i dati importati ed eventualmente a ristampare e far firmare la nuova versione del modulo. </moduloVecchio>
+    </ROW>
+</ROWSET>

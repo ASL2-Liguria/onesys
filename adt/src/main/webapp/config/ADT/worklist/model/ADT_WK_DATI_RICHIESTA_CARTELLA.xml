@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ADT_WK_DATI_RICHIESTA</ID>
+    <ID-QUERY connection="ADT">WORKLIST.WK_DATI_RICHIESTA_CARTELLA</ID-QUERY>
+    <TITLE>"Worklist gestione richieste cartelle"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+    	<ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>IDEN_RICHIESTA</COL>
+                        <DB>IDEN_RICHIESTA</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN RICHIESTA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>STATO_RICHIESTA</COL>
+                        <DB>STATO_RICHIESTA</DB>
+                    </ID>
+                    <DESCRIPTOR>"STATO RICHIESTA CARTELLA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_ORA_STATO</COL>
+                        <DB>DATA_ORA_STATO</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA ORA STATO"</DESCRIPTOR>
+                    <PROCESS></PROCESS>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CARTELLA</COL>
+                        <DB>CARTELLA</DB>
+                    </ID>
+                    <DESCRIPTOR>"N. CARTELLA"</DESCRIPTOR>
+                    <PROCESS></PROCESS>
+                    <WIDTH>80px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>UTE_INS</COL>
+                        <DB>UTE_INS</DB>
+                    </ID>
+                    <DESCRIPTOR>"UTENTE REGISTRAZIONE"</DESCRIPTOR>
+                    <PROCESS></PROCESS>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

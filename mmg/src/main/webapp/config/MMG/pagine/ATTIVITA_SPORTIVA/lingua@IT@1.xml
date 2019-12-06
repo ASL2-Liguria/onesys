@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+		
+		<lblTitolo>Modulo attività sportiva</lblTitolo>
+		
+		<tabModuloAttivitaSportiva>Modulo attività sportiva</tabModuloAttivitaSportiva>
+		
+			<fldDatiPaziente>Dati del paziente</fldDatiPaziente>
+        		
+        		<lblNome>Nome</lblNome>
+        		<lblCognome>Cognome</lblCognome>
+        		<lblDataNascita>Data di nascita</lblDataNascita>
+        		<lblLuogoNascita>Luogo di nascita</lblLuogoNascita>
+        		
+        	<fldDatiModulo>Dati relativi al modulo di attività sportiva</fldDatiModulo>
+        			
+        		<lblMioAssistito>Il paziente è mio assistito</lblMioAssistito>
+        		<lblECG>Sono in possesso dell'ECG del paziente</lblECG>
+        		<lblScopoLudico>Attività sportiva a scopo ludico/ricreativo</lblScopoLudico>	
+        		
+        	<fldRiepilogo>Anteprima del modulo</fldRiepilogo>
+        	
+        	<butStampa>Salva e Stampa</butStampa>
+        <titleFormato>Formato carta</titleFormato>
+        <titleConfirm>Chiusura</titleConfirm>
+        <lblDialogFormato>Scegliere il formato della carta sulla quale verrà effettuata la stampa</lblDialogFormato>
+        <lblA4>A4</lblA4>
+        <lblA5>A5</lblA5>
+        <lblAnnulla>Annulla</lblAnnulla>
+        			
+    </ROW>
+</ROWSET>

@@ -1,0 +1,226 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#b9e0ff;padding-right:10px;}
+
+fieldset{
+	margin:10px;
+	border:2px solid #fff;
+	padding:5px;
+	}
+	fieldset .TableProfilo, #ListaEsami{
+		background:#fff;
+		padding:5px;
+		}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+
+
+div#ListaEsami table.TableProfilo
+{
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:left;
+	border: 1px solid #6AA8F2;
+	background-color:#FFC;	
+	border-collapse : collapse;
+	width:100%;	
+}
+
+div#ListaEsami div
+{
+	table-layout:fixed;
+	font: Arial;
+	font-size:10px;
+	text-align:left;
+	width:100%;
+	padding-bottom:1px;
+	padding-top:1px;
+	padding-left:1px;
+	padding-right:1px;
+}
+
+div#ListaEsami label
+{
+	font-size:12px;
+	cursor:pointer;
+}
+
+div#ListaEsami div table{
+	
+	font-size:10 px;
+	border: 1px solid #729ECF;
+	background-image: 
+	url(file://///192.168.1.20/Projects/libs/whaleTest/imagexPix/provetteLabo/provettaEsamiMednucOpaca.png) bottom right;
+	width:100%;
+
+}
+
+div#ListaEsami div table td
+{
+	width:20%;
+	font-stretch:condensed;
+	font-size:10px;
+}
+
+div#ListaEsami div table th
+{
+	width:20%;
+	font-size: 12px;
+    font-weight:bold;
+	padding-left:28px;
+	text-align:left;
+	border-right: 1px #729ECF;
+	text-decoration:underline;
+	cursor: hand;
+
+}
+
+
+div#ListaEsami div.arancio table 
+{
+	background:#FFDFBF;
+}
+
+div#ListaEsami div.azzurro table
+{
+	background:#CEF2F4;
+	
+}
+
+div#ListaEsami div.nero table
+{
+	background:#999;
+}
+
+div#ListaEsami div.rosso table 
+{
+	background:#FFC4C4;
+}
+
+div#ListaEsami div.grigio table
+{
+	background:#CCC;
+}
+
+
+div#ListaEsami div.verde table
+{
+	background:#C6FFC6;
+}
+
+div#ListaEsami div.giallo table
+{
+	background:#FFFFB3;
+}
+
+div#ListaEsami div.altriesami table
+{
+	background:#D9D9FF;
+}
+
+div#ListaEsami div.marrone table
+{
+	background:#FFD7AE;
+}
+
+div#ListaEsami div.marronechiaro table
+{
+	background:#F7EEEE;
+}
+
+div#ListaEsami div.viola table
+{
+	background:#F5DEF3;
+}
+
+div#ListaEsami div.blu table
+{
+	background:#7DBEFF;
+}
+
+
+div#ListaEsami .nonUrgente {
+
+	color: #F2F2F2;
+	font-style:italic;
+
+}
+
+div#ListaEsami .pulsante {
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 18px;
+	WIDTH: 105px;
+	BACKGROUND-REPEAT: repeat-x;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FLOAT: right;
+	HEIGHT: 21px;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: bold;
+}
+
+.lblElenco{
+
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	height:40px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+	text-align:center;
+	width:50%;
+	vertical-align:middle;
+
+}
+
+.lblElencoVerde {
+
+	border: 1px solid #6AA8F2;
+	background-color:#B0FFB0;
+	height:40px;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+	text-align:center;
+	width:50%;
+
+}
+
+.listboxGiallo {
+
+	background-color:#FFFFCC;
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:500;
+
+}
+
+.listboxEsami {
+
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;	
+	
+
+}
+
+
+
+.textRicerca {
+
+	padding-left:5px;
+	border:solid 1px #6AA8F2;
+
+}
+
+

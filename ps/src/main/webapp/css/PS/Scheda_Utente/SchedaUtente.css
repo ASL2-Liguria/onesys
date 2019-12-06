@@ -1,0 +1,19 @@
+#SchedaUtente{
+	width: 960px;
+	display: block;
+	margin:0 auto;
+}
+#lblUtente{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#butModifica{
+    float:right;
+}
+#iFrParams{
+    width:100%;
+    height:80%;
+}
+
+.exchangeList div.buttons{width: 50px;margin-top: 46px;}
+.excHeader .btn{float:right; margin:2px 10px}

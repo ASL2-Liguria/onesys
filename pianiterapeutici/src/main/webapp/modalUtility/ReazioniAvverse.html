@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Reazioni avverse</title>
+
+<link href='../std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/tabulatore.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='../dwr/interface/dwrTerapie.js' language='JavaScript'></script>
+<script type='text/javascript' src='../dwr/engine.js' language='JavaScript'></script>
+</head>
+<body onload="init();" >
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%"  >
+  <tr>
+    <td class='classTabHeaderSx'></td>
+    <td class='classTabHeaderMiddle'>Reazioni avverse</td>
+    <td class='classTabHeaderDx'></td>
+  </tr>
+</table>
+
+<div style="OVERFLOW-Y: scroll;OVERFLOW-X: hidden">
+    <TABLE class="classDataTable" width="100%"  id="oTable">
+    
+    </TABLE>
+</div>
+
+
+
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+  <tr>
+    <td class='classTabFooterSx'>&nbsp;</td>
+    <td class='classTabHeaderMiddle'>&nbsp;</td>
+    <td id=tdOK class='classButtonHeader'><div class='pulsante'><a href='javascript:closeModal("S");'>OK</a></div></td>
+    <td id=tdChiudi class='classButtonHeader'><div class='pulsante'><a href='javascript:closeModal("N");'>Annulla</a></div></td>
+    <td class='classTabFooterDx'>&nbsp;</td>
+  </tr>
+</table>
+</body>
+<script>
+function init(){
+
+	var idAnag = dialogArguments.iden_anag;
+	var idFarmaco = dialogArguments.iden_farmaco;
+	
+	dwr.engine.setAsync(false);
+	dwrTerapie.verificaReazione(idAnag,idFarmaco,callBack);
+	dwr.engine.setAsync(true);
+	
+	function callBack(resp){
+		alert(resp);
+		document.all.oTable.innerHTML = resp;
+	}
+	
+}
+function closeModal(prosegui){	
+	window.returnValue = prosegui;
+	self.close();
+}
+
+
+</script>
+</html>

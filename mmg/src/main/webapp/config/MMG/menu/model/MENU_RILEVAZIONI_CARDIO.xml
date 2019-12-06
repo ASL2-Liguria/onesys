@@ -1,0 +1,16 @@
+<MENU>
+	<id>MENU_RILEVAZIONI_CARDIO</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MRC.CR</ID>
+			<LINK><![CDATA[function(rec){RIEPILOGO_RILEVAZIONI.cancellaRilevazione(rec, 'CARDIO');}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Cancella Rilevazione"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="elcoInfo" class="it.elco.listener.ElcoContextInfo" lazy-init="false"/>
+
+    <bean id="dbCore" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="#{elcoInfo.getContextPath() + 'config/caronte/connection_core.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dbMMG" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="#{elcoInfo.getContextPath() + 'config/caronte/connection_mmg.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dbWhale" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="#{elcoInfo.getContextPath() + 'config/caronte/connection_whale_dati.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dbRegistry" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="#{elcoInfo.getContextPath() + 'config/caronte/connection_registry.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dbAmbulatorio" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="#{elcoInfo.getContextPath() + 'config/caronte/connection_ambulatorio.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="POLARIS_SDJ" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbCore"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="SDJ"/>
+                <!-- Opzionale, se non viene impostato il suo valore sarà uguale al POOL.USERNAME... -->
+                <!--<entry key="CONNECTION.ACTION" value="SDJ"/>-->
+                <entry key="POOL.ID" value="SDJ"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_sdj.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="CONFIG_WEB" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbMMG"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="CONFIG_WEB"/>
+                <entry key="POOL.ID" value="WEB"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_config.xml</value>
+                <value>config/caronte/query_messaggistica.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="POLARIS_DATI" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbMMG"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="POLARIS_DATI"/>
+                <entry key="POOL.ID" value="DATI"/>
+            </map>
+        </property>
+
+<!--        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+            </util:list>
+        </property>
+-->
+    </bean>
+
+    <bean id="MMG_DATI" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbMMG"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="MMG"/>
+                <entry key="POOL.ID" value="MMG_DATI"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_mmg.xml</value>
+                <value>config/caronte/query_mmg_offline.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="WHALE" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbWhale"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="RADSQL"/>
+                <entry key="POOL.ID" value="WHALE"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_whale.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="PORTALE_PIC" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbRegistry"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="XDSREGISTRY"/>
+                <entry key="POOL.ID" value="PORTALE_PIC"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_xdsregistry.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="AMBULATORIO" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="dbAmbulatorio"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="RADSQL"/>
+                <entry key="POOL.ID" value="AMBULATORIO"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_ambulatorio.xml</value>
+            </util:list>
+        </property>
+    </bean>
+    
+    <bean id="PredicateXdsDocumentFactory" class="it.elco.fenix.pic.predicate.PredicateXdsDocumentFactoryImpl" lazy-init="true">
+        <constructor-arg>
+            <bean class="it.elco.fenix.pic.bean.builder.RichiestaAutorizzazioniPrivacyBuilder">
+                <constructor-arg>
+                    <bean class="it.elco.fenix.pic.bean.builder.AssistitoBuilder"/>                     
+                </constructor-arg>
+            </bean> 
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="it.elco.fenix.pic.bean.builder.XdsDocumentBuilder"/>
+        </constructor-arg>
+        <constructor-arg value="config/MMG/privacy.properties"/>
+    </bean> 
+	
+</beans>

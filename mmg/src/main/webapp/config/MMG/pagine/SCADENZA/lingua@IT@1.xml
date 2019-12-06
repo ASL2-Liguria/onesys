@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Configurazione</lblTitolo>
+        <tabMain>Scadenza</tabMain>
+        <fldEvento>Scadenza</fldEvento>
+        <lblDescrizione>Evento</lblDescrizione>
+        <lblRicorrente>Ricorrente</lblRicorrente>
+        <lblAnniPaz>Età dell'assistito in anni</lblAnniPaz>
+        <lblMesiPaz>mesi</lblMesiPaz>
+        <lblGiorniPaz>giorni</lblGiorniPaz>
+        <lblGiorniOgni>Ogni [giorni]</lblGiorniOgni>
+        <lblAnniDa>Dall'età dell'assistito in anni</lblAnniDa>
+        <lblMesiDa>mesi</lblMesiDa>
+        <lblGiorniDa>giorni</lblGiorniDa>
+        <lblAnniA>All'età dell'assistito in anni</lblAnniA>
+        <lblMesiA>mesi</lblMesiA>
+        <lblGiorniA>giorni</lblGiorniA>
+        <lblNote>Note</lblNote>
+        <lblAttivo>Attivo</lblAttivo>
+    </ROW>
+</ROWSET>

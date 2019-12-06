@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>NOTA DEL DIARIO</lblTitolo>
+		<butStampa>Salva e Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<tabDiario>Diario</tabDiario>
+		<tabInserimento>Nota Diario</tabInserimento>
+		
+		<fldDiario>Diario</fldDiario>
+		<fldNoteDiario>Note</fldNoteDiario>
+		
+		<lblData>Data</lblData>
+		<lblNoteDiario>Note Chiusura</lblNoteDiario>
+		<lblProblema>Problema</lblProblema>
+		
+    </ROW>
+</ROWSET>

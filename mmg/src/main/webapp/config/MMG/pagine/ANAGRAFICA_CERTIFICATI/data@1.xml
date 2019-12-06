@@ -1,0 +1,15 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_ALTRI_CERTIFICATI'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Codice" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_CERTIFICATO" db_descrizione="COD_CERTIFICATO"
+		configurazione_multi_data="" />
+	<DATO key_id="Segnaposto" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SEGNAPOSTO_CERTIFICATI" />
+	<DATO key_id="Titolo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TITOLO" db_descrizione="TITOLO" configurazione_multi_data="" />
+	<DATO key_id="Descrizione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TESTO" db_descrizione="TESTO" configurazione_multi_data="" />
+	<DATO key_id="TipoCertificato" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TIPO" db_descrizione="" configurazione_multi_data="CMB_TIPO_CERTIFICATO" />	
+</DATI>
+

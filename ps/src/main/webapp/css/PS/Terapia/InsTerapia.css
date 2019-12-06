@@ -1,0 +1,13 @@
+#colDatiTerapia, #colTerapiaSel ,#colRicFarmaci,#colCompetenze{
+    width:100%;
+}
+tr.trIntestazione th{
+    border-left: 1px solid #555;
+    background-color: graytext;
+    color:#fff;
+}
+table.campi tr td.tdLbl, table.campi tr td.tdACList, table.campi tr td.tdCombo select,
+table.campi tbody tr td.oracontrol input, td.tdData input{
+    width: 80px !important;
+}
+/*, td.tdText input*/

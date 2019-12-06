@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- <link href='../std/css/textArea.css' type='text/css' rel='stylesheet'> -->
+<link rel="stylesheet" href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script type="text/javascript"	src="../../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.widget.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<script type="text/javascript" src="../../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../../std/jscript/optionJsUtil.js"></script>   
+
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+<link rel="stylesheet" type="text/css" href="../../std/jscript/jQueryUI/jquery.timeentry.css">        
+<script type="text/javascript" src="../../std/jscript/jQueryUI/jquery.plugin.js"></script>
+<script type="text/javascript" src="../../std/jscript/jQueryUI/jquery.timeentry.js"></script>
+        
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="css/stampeOculistica.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/stampeOculistica.js"></script>
+<script type='text/javascript' src='../../dwr/util.js' language='JavaScript'></script>
+<script type='text/javascript' src='../../dwr/engine.js' language='JavaScript'></script>
+
+
+<link href='../../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Stampe moculi oculistici</title>
+<style>
+
+ #toolbarVisita {
+    display: inline-block;
+	background-color:#FFC;
+	margin-top:5px;
+	padding:2px 2px 2px 2px;
+  }
+  /* support: IE7 */
+  *+html #toolbarVisita {
+    display: inline;
+  }
+
+TD.classTdLabelRicerca{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:2px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+TD.classTdLabelRicercaNoWidth{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:2px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+TD.classTdFieldRicerca{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	padding-left:5px;
+	width:200px;}
+	
+TD.classTdFieldRicercaNoWidth{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	padding-left:5px;
+}
+
+SPAN.resetICD {
+	margin-top: 5px;
+	width: 20px;
+	height: 20px;
+	background-image: url(../imagexPix/button/mini/btReset.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+}
+
+LABEL.lblDataEntry{
+	margin-right:3px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+.setCursorPointer{
+	cursor:pointer;
+}
+
+.correzPachim{
+	font-weight:bold;
+	font-size:14px;
+}
+
+
+.fieldInputText{
+	border:1px solid #909090;
+  }
+  
+  
+  #tabs .tabs-spacer { float: left; height: 200px; }
+  .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+  .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+  .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }  
+  
+INPUT.campiRicerca{
+	border:1px solid #909090;
+	margin-left:5px;
+}
+
+LABEL.lblPuntTot{
+	font-weight:bold;
+}
+  
+LABEL.searchTitle{
+	margin-left:5px;
+	font-size:12px;
+	font-weight:bold;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+LABEL.lblSezIndagine{
+	font-size:12px;
+	font-weight:bold;
+	margin-left:2px;
+}
+
+LABEL.LABEL_LAST_ADDED{
+	color:red;
+	display:inline;
+}
+
+LEGEND.clsLegend{
+	font-size:12px; font-weight:italic;color:blue;
+}
+
+LABEL.lblTipoMisurazione{
+	font-size:12px; font-weight:bold;color:black;
+}
+
+SPAN.clsLinkDisegnaAsse_DISTANZA{
+	display:block;
+	background-color:#F30; 
+	color:white;cursor:pointer; 
+	padding:2px 2px 2px 2px;
+	color:white;
+	font-weight:bold;
+}
+
+SPAN.clsLinkDisegnaAsse_PERMANENZA{
+	display:block;
+	background-color:#3F0;
+	color:white;cursor:pointer; 
+	padding:2px 2px 2px 2px;
+	color:black;	
+	font-weight:bold;	
+}
+
+SPAN.clsLinkDisegnaAsse_LETTURA{
+	display:block;
+	background-color:cyan;
+	color:white;cursor:pointer; 
+	padding:2px 2px 2px 2px;
+	color:black;	
+	font-weight:bold;	
+}
+
+
+
+
+  .CSSTableGenerator {
+	margin:0px;
+	padding:0px;
+	width:95%;
+	border:1px solid #000000;
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px;
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px;
+	color: #EEE;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+}.CSSTableGenerator tr:hover td{
+	/*background-color:#ffffff;*/
+		
+
+}
+.CSSTableGenerator td{
+	vertical-align:middle;
+	background-color:#e5ffff;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:3px;
+	font-size:12px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #007fff 5%, #aaffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #007fff), color-stop(1, #aaffff) );
+	background:-moz-linear-gradient( center top, #007fff 5%, #aaffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff", endColorstr="#aaffff");	background: -o-linear-gradient(top,#007fff,aaffff);
+
+	background-color:#007fff;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#000000;
+}
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #007fff 5%, #aaffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #007fff), color-stop(1, #aaffff) );
+	background:-moz-linear-gradient( center top, #007fff 5%, #aaffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff", endColorstr="#aaffff");	background: -o-linear-gradient(top,#007fff,aaffff);
+
+	background-color:#007fff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+
+
+.CSSTableGenerator td.visita_occhio_dx{
+	background-color:#FFC;
+}
+
+.CSSTableGenerator td.visita_occhio_sx{
+	background-color:#0CF;
+}
+
+.CSSTableGenerator td.visita_occhio_dx_titoloMisura{
+	background-color:#FFC;
+	text-align:center;
+}
+
+.CSSTableGenerator td.visita_occhio_sx_titoloMisura{
+	background-color:#0CF;	
+	text-align:center;
+}
+
+.CSSTableGenerator td.visita_occhio_dx_misura{
+	background-color:#FFC;
+	text-align:center;
+}
+
+.CSSTableGenerator td.visita_occhio_sx_misura{
+	background-color:#0CF;
+	text-align:center;
+}
+  
+TD.titoloSezRicercaICD{
+  padding-top:5px;
+  padding-bottom:5px;
+  background-color:#FFCC00;
+  width:50%;
+}
+TD.celleSezRicercaICD{
+	background-color:#FFCC00;
+}
+TD.titoloSezSelezionatoICD{
+  padding-top:5px;
+  padding-bottom:5px;
+  background-color:#66FF99;
+}
+TD.celleSezSelezionatoICD{
+	background-color:#66FF99;
+}
+
+SPAN.resetFieldTerapia {
+	margin-top: 5px;
+	width: 20px;
+	height: 20px;
+	background-image: url(../imagexPix/button/mini/btReset.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+}
+
+
+<!-- #accordion h3 { padding-left: 20px; }	-->
+div.clsAccordion h3 { padding-left: 20px; }	
+
+</style>
+
+</head>
+
+
+
+<body style="height:500px" id="myBody">
+    <div style="overflow:hidden; height:650px;">
+	<table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Stampa moduli</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+    <div id="accordion">
+        <h3><a href="#">Certificato di visita oculistica (per lavoro)</a></h3>
+        <div >
+        	<fieldset>
+            <legend></legend>
+            	<table>
+                <tbody>
+                <tr>
+	                <td class="classTdLabelRicerca">Data visita</td><td class="classTdFieldRicerca" colspan="3"><input type="text" gruppo='CERT_VIS_OCU' name="CERT_VIS_OCU_DATA_VISITA" id="CERT_VIS_OCU_DATA_VISITA" size="20" obbligatorio='N' formato='S' tipo='DATA' /></td>
+                </tr>
+                <tr>
+	                <td class="classTdLabelRicerca">Ora inizio visita</td><td class="classTdFieldRicerca" > <input gruppo='CERT_VIS_OCU' type="text" size="8" value="" id="CERT_VIS_OCU_ORA_INI" tipo='ORARIO'/></td>
+                    <td class="classTdLabelRicerca">Ora fine visita</td><td class="classTdFieldRicerca" > <input gruppo='CERT_VIS_OCU' type="text" size="8" value="" id="CERT_VIS_OCU_ORA_FINE" tipo='ORARIO'/></td>
+                </tr>
+                <tr>
+	                <td class="classTdLabelRicerca">Medico</td><td class="classTdFieldRicerca" colspan="3"><input gruppo='CERT_VIS_OCU' type="text" size="40" value="" id="CERT_VIS_OCU_MEDICO" /></td>
+                </tr>
+                <tr>
+<td class="classTdLabelRicerca" >Motivazione</td>
+<td >
+                <input type='radio'   id='CERT_VIS_OCU_DOC_PERS' name='CERT_VIS_OCU_DOC'  gruppo='CERT_VIS_OCU' value='PERS'  checked="checked"/><label for='CERT_VIS_OCU_DOC_PERS' class='etiForCheckbox' id='lbl_GRAVIDANZA_N'>Prestazioni di carattere sanitario</label> 
+              	<br />
+              	<input type='radio'  id='CERT_VIS_OCU_DOC_104' name='CERT_VIS_OCU_DOC' value='104' gruppo='CERT_VIS_OCU' /><label for='CERT_VIS_OCU_DOC_104' class='etiForCheckbox' id='lbl_GRAVIDANZA_S'>Come accompagnatore in quanto usufruente legge  104 del Sig.\Sig.ra <br/><input type='text' id="CERT_VIS_OCU_104_PAZ" size='35'  gruppo='CERT_VIS_OCU'/> </label>                
+                </tr>
+                </tbody>
+				</table>                
+            </fieldset>
+        	<button class='clsStampa' onclick="javascript:stampa('CERT_VIS_OCU');" >Stampa</button> 
+        </div>
+		<h3><a href="#">Modulo Ferie</a></h3>
+        <div>
+       	<button class='clsStampa' onclick="javascript:stampa('MOD_FERIE');" >Stampa</button>         
+        </div >        
+        <h3><a href="#">Reticolo di Amsler</a></h3>
+        <div>
+       	<button class='clsStampa' onclick="javascript:stampa('RET_AMSLER');" >Stampa</button>         
+        </div >
+        <h3><a href="#">Tonometria</a></h3>
+        <div>
+       	<button class='clsStampa' onclick="javascript:stampa('TONOMETRIA');" >Stampa</button>         
+        </div >        
+    </div>    
+  
+
+     <table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+        <tr>
+           <td class='classTabFooterSx'></td>
+           <td class='classTabHeaderMiddle'><label>&nbsp;</label></td>
+           <td class='classButtonHeader'>
+              <div class='pulsante'><a id='chiudi' href='javascript:chiudi(false);'>Chiudi</a></div>
+           </td>
+           <td class='classTabFooterDx'></td>
+        </tr>
+     </table>    
+     </div>
+     
+
+    
+     <script>
+
+		var oTable;
+		$(function() {
+				   init();
+	   });	 
+     </script>
+	 
+</body>
+</html>

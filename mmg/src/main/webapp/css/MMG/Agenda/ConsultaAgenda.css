@@ -1,0 +1,139 @@
+/*****************************
+ FILTRI
+ *****************************/
+#hiddenDiv {
+    display: none;
+}
+
+/*****************************
+ GRID
+ *****************************/
+.h30px ul.contentColGrid li div span{line-height:30px;padding-right:7px;}
+
+ul.contentColGrid li div {
+    text-align: center;
+    position:relative;
+}
+
+ul.contentColGrid li div.full{background:#ffb2b2;}
+ul.contentColGrid li div.few{background:#fffeb5;}
+ul.contentColGrid li div.empty{background:#e1fddb; }
+
+ul.contentColGrid li div span {
+    font-size: 11px;
+}
+
+ul.contentColGrid li div i {
+    color:#60ab89;
+    font-size: 13px;
+    position:absolute;
+    top: 2px;
+    right:0;
+}
+
+ul.contentColGrid li:hover div i,
+ul.contentColGrid li div i:hover {
+    color: #333 !important;
+}
+
+ul.contentColGrid li div.full i {
+    color: #BD0122;
+}
+
+ul.contentColGrid li div.few i {
+    color:#FAA70F;
+}
+
+ul.contentColGrid li div.empty i {
+    color:#60ab89;
+}
+
+/*****************************
+ TIMELINE
+ *****************************/
+#timelineContainer {
+    height: 115px;
+}
+
+/*****************************
+ DIALOG
+ *****************************/
+#dialog-mask{z-index: 100!important;}
+.dialog{z-index: 101 !important;}
+.contextMenu{z-index: 102 !important;}
+#dialogNote{z-index:103 !important;}
+
+textarea.liquid {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    resize: none;
+}
+
+#dialogContent {
+    padding-bottom: 20px;
+}
+
+#dialogContent .RadioBox {
+    float: right;
+}
+
+
+/*****************************
+ RESUME
+ *****************************/
+
+#resume ul li div.date {
+    width: 168px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+#resume ul li div.patient, #resume ul li div.exam {
+    width: 300px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+/*****************************
+ POPUP
+ *****************************/
+  .popup .content li {
+  	padding: 5px 0;
+  	color: #333;
+  }
+  
+ .popup .content li.alt {
+ 	background: #f1f1f1;
+ 	color: #222;
+ }
+ 
+.popup .content div {
+	vertical-align: middle;
+	font-size: 11px !important;
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+}
+
+.popup .content div.descriptor {
+    width: 80%;
+}
+
+.popup .content div.value {
+    width: 20%;
+}
+
+/*****************************
+ WORKLIST
+ *****************************/
+.worklist-icon {
+	font-size: 16px;
+	cursor: pointer;
+}

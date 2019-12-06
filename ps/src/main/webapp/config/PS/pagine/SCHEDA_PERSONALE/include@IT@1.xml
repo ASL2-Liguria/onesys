@@ -1,0 +1,5 @@
+<INCLUDE>
+    <CSS path="css/Schede/SchedaPersonale.css" />
+    <JS path="js/Base/NO-min/jquery.exchangeLists.js" />
+    <JS path="js/GestioneTabelle/SchedaPersonale.js" />
+</INCLUDE>

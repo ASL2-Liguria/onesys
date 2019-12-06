@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<MENU>
+    <ID>MENU_SEGNALAZIONI</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+    
+    	<ITEM>
+            <ID>MS.APRI</ID>
+            <LINK><![CDATA[ function( rec ){ return NS_MENU_SEGNALAZIONI.apri( rec, $('#N_SCHEDA').val() ); }]]></LINK>
+            <ICON_CLASS>anteprima</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return NS_MENU_SEGNALAZIONI.whereApri( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblApri</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+  
+    </LIST>
+    
+</MENU>

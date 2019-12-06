@@ -1,0 +1,5 @@
+<INCLUDE>
+    <JS path="config/PS/validator/model/V_CODICE_COLORE.js"/>
+    <JS path="js/PS/CodiceColore/CodiceColore.js"/>
+    <CSS path="css/PS/CodiceColore/CodiceColore.css" />
+</INCLUDE>

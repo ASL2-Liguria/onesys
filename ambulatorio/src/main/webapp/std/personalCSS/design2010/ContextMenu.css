@@ -1,0 +1,77 @@
+#contextualMenu{
+	position:absolute;
+	border:1px solid #aaa;
+	border-top:0px;
+	font-size:12px;
+	cursor:default;
+	visibility:hidden;
+}
+
+.ContextMenuLinks {
+	background: #fff;
+	font-size:14px;
+	padding: 0px;
+	cursor: default;
+}
+
+.ContextMenuOver {
+	background: #e6e6e6;
+	color:#000000;
+	font-size:12px;
+	line-height:25px;
+	height:25px;
+	cursor: Default;	
+	padding:0 2px 1px 0;
+}
+
+.ContextMenuNormal {
+	background:#fff;
+	color:#000000;
+	font-size:12px;
+	line-height:25px;
+	height:25px;
+	cursor: Default;
+	padding:0 2px 1px 0;
+}
+
+.ContextIcon{
+	height:25px;
+	width:25px;	
+	background:#fff;
+	display:none;
+}
+
+.ContextNull{
+	height:60px;
+	width:160px;
+	border:1px solid #aaa;
+	font-size: 12px;
+	background-color:white;
+	padding:4px 4px 4px 0;
+}
+
+.titleMenuOptionOLD{
+	height:20px;
+	background-color:#258BF1;
+	color:yellow;
+	text-align:center;
+	background-image:url(../../../imagexPix/bar/titleMenuOption_dark_blue.jpg);
+	background-repeat:repeat-x;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: 14px;
+	margin:2px 0px 2px 0px;	
+}
+
+.titleMenuOption{
+	font-size: 12px;
+	color:#000;
+	width:100%;
+	overflow:hidden;
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.gif) repeat-x;
+	height:24px;
+	line-height:25px;
+	padding:0 5px;
+	font-weight:bold;
+	border-bottom:1px solid #e0e0e0;
+}	

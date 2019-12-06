@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Bilancio di salute n.2 (61°-90° giorno di vita)</lblTitolo>
+        
+        <tabBilancioSalute>Bilancio di salute</tabBilancioSalute>
+        <tabSviluppoPsicomotorio>Sviluppo psicomotorio</tabSviluppoPsicomotorio>
+        <tabControlli>Controlli</tabControlli>
+        
+        <fldDatiGenerali>Dati generali</fldDatiGenerali>
+        <fldDatiAuxometrici>Dati auxometrici</fldDatiAuxometrici>
+        <fldEsameClinico>Esame clinico</fldEsameClinico>
+        <fldSviluppoPsicomotorio>Sviluppo psicomotorio</fldSviluppoPsicomotorio>
+        <fldSonno>Sonno</fldSonno>
+        <fldAllattamento>Allattamento</fldAllattamento>
+        <fldControlloVisivo>Controllo funzione visiva</fldControlloVisivo>
+        <fldControlloOrtopedico>Controllo ortopedico</fldControlloOrtopedico>
+        
+        <lblData>Data compilazione</lblData>
+        <lblEtaMesi>Mesi</lblEtaMesi>
+        <lblEtaGiorni>Giorni</lblEtaGiorni>
+        <lblRaccordoAnamnestico>Raccordo anamnestico</lblRaccordoAnamnestico>
+        <lblPeso>Peso (kg)</lblPeso>
+        <lblLunghezza>Lunghezza (cm)</lblLunghezza>
+        <lblCirconferenzaCranica>Circ. cranica (cm)</lblCirconferenzaCranica>
+        <lblPesoCentile>...</lblPesoCentile>
+        <lblAltezza>Lunghezza (cm)</lblAltezza>
+        <lblAltezzaCentile>...</lblAltezzaCentile>
+        <lblBMI>BMI</lblBMI>
+        <lblCirconferenza_Cranica>Circ. cranica (cm)</lblCirconferenza_Cranica>
+        <lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+        <lblNoteSonno>Note</lblNoteSonno>
+        <lblAllattamento>Allattamento</lblAllattamento>
+        <lblNoteAllattamento>Note</lblNoteAllattamento>
+        <lblNoteEsameClinico>Note</lblNoteEsameClinico>
+        
+		<lblReggeCapo_Si_No>Regge il capo</lblReggeCapo_Si_No>
+		<lblManiAperte_Si_No>Tiene le mani aperte</lblManiAperte_Si_No>
+		<lblMantieneOggetti_Si_No>Mantiene momentaneamente gli oggetti posti nelle mani</lblMantieneOggetti_Si_No>
+       	<lblVariaPianto_Si_No>Varia il pianto in relazione al tipo di fastidio</lblVariaPianto_Si_No>
+		<lblEmetteSuoni_Si_No>Emette suoni</lblEmetteSuoni_Si_No>
+		<lblSorride_Si_No>Sorride in risposta</lblSorride_Si_No>
+		<lblReagisceRumori_Si_No>Reagisce ai rumori</lblReagisceRumori_Si_No>
+		<lblCalma_Si_No>Si calma alla voce</lblCalma_Si_No>
+		<lblSegueOggetti_Si_No>Segue con lo sguardo un oggetto che si muove da vicino</lblSegueOggetti_Si_No>
+		<lblFissaOggetti_Si_No>Fissa gli oggetti</lblFissaOggetti_Si_No>
+       	<lblOcchioNormale_Si_No>L'occhio appare normale all'ispezione</lblOcchioNormale_Si_No>
+		<lblLeucocoria_Si_No>Leucocoria</lblLeucocoria_Si_No>
+		<lblStrabismo_Si_No>Strabismo</lblStrabismo_Si_No>
+		<lblRiflessoPupillare_Si_No>Riflesso pupillare alla luce presente e simmetrico</lblRiflessoPupillare_Si_No>
+		<lblAtteggiamentoPiedi_Si_No>Atteggiamento dei piedi corretto</lblAtteggiamentoPiedi_Si_No>
+		<lblEcografiaBacino_Si_No>Ha eseguito Ecografia del bacino</lblEcografiaBacino_Si_No>
+       
+        
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <butSalva>Salva</butSalva>
+        <butStampa>Salva e Stampa</butStampa>
+        <butChiudi>Chiudi</butChiudi>
+        <PD></PD>
+        
+    </ROW>
+</ROWSET>

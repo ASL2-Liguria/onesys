@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>ALTRE_STAMPE</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.ALTRE_STAMPE</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+	<WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_ALTRE_STAMPE</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+			</EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>TITOLO</COL>
+						<DB>TITOLO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblTitoloCertificato</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>TESTO</COL>
+						<DB>TESTO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblTestoCertificato</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>400px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>CERTIFICATO_RELATIVO</COL>
+						<DB>CERTIFICATO_RELATIVO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblCertificatoRelativo</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_INSERIMENTO_CERTIFICATO</COL>
+						<DB>DATA_INSERIMENTO_CERTIFICATO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblDataInserimento</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_SCADENZA_CERTIFICATO</COL>
+						<DB>DATA_SCADENZA_CERTIFICATO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblDataScadenza</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT />
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

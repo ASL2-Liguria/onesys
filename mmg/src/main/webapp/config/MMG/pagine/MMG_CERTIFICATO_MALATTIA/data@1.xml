@@ -1,0 +1,86 @@
+<DATI
+	configurazione="begin 
+
+   if  '#IDEN#' is null then
+   
+	   :stato_pagina := 'I'; 
+	   :key_query := 'Q_CERTIFICATO_MALATTIA_INS'; 
+	   :where := null; 
+	   :campo_xml := null; 
+		   
+   else
+   
+	   :stato_pagina := 'M'; 
+	   :key_query := 'Q_CERTIFICATO_MALATTIA_MOD'; 
+	   :where := null; 
+	   :campo_xml := null; 
+				
+   end if;
+
+end;">
+	<DATO key_id="NoteDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOTE" db_descrizione="NOTE" configurazione_multi_data="" />
+	<DATO key_id="Username" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="USERNAME_MEDICO" db_descrizione="USERNAME_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="RicordaPin" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RICORDA_PIN" db_descrizione="RICORDA_PIN" configurazione_multi_data="C_RICORDA" />
+	<DATO key_id="Pwd" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PWD" db_descrizione="PWD" configurazione_multi_data="" />
+	<DATO key_id="Comune" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COMUNE" db_descrizione="COMUNE" configurazione_multi_data="" />
+	<DATO key_id="Pin" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PINCODE" db_descrizione="PINCODE" configurazione_multi_data="" />
+	<DATO key_id="TipoVisita" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TIPO_VISITA" db_descrizione="TIPO_VISITA" configurazione_multi_data="R_TIPO_VISITA" />
+	<DATO key_id="TipoCertificato" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TIPO_CERTIFICATO" db_descrizione="TIPO_CERTIFICATO" configurazione_multi_data="R_TIPO_CERTIFICATO" />
+	<DATO key_id="Ruolo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RUOLO" db_descrizione="RUOLO" configurazione_multi_data="R_RUOLO_MEDICO" />
+	<DATO key_id="Agevolazione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="AGEVOLAZIONE" db_descrizione="AGEVOLAZIONE" configurazione_multi_data="R_AGEVOLAZIONI" />
+	<DATO key_id="GiornataLavorata" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="GIORNATA_LAVORATA" db_descrizione="GIORNATA_LAVORATA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Trauma" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TRAUMA" db_descrizione="TRAUMA" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="txtCodFisc" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_FISC" db_descrizione="COD_FISC" configurazione_multi_data="" />
+	<DATO key_id="txtIndirizzo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDIRIZZO" db_descrizione="INDIRIZZO" configurazione_multi_data="" />
+	<DATO key_id="txtCivico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CIVICO" db_descrizione="CIVICO" configurazione_multi_data="" />
+	<DATO key_id="txtCAP" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CAP" db_descrizione="CAP" configurazione_multi_data="" />
+	<DATO key_id="txtProvincia" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROVINCIA" db_descrizione="PROVINCIA" configurazione_multi_data="" />
+	<DATO key_id="txtCivicoRepe" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CIVICO_REPE" db_descrizione="CIVICO_REPE" configurazione_multi_data="" />
+	<DATO key_id="txtCAPRepe" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CAP_REPE" db_descrizione="CAP_REPE" configurazione_multi_data="" />
+	<DATO key_id="ComuneRepe" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COMUNE_REPE" db_descrizione="COMUNE_REPE" configurazione_multi_data="" />
+	<DATO key_id="txtProvinciaRepe" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROVINCIA_REPE" db_descrizione="PROVINCIA_REPE" configurazione_multi_data="" />
+	<DATO key_id="txtIndirizzoRepe" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="INDIRIZZO_REPE" db_descrizione="INDIRIZZO_REPE" configurazione_multi_data="" />
+	<DATO key_id="txtNome" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOME_REPE" db_descrizione="NOME_REPE" configurazione_multi_data="" />
+	<DATO key_id="NomePaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOME_ASSISTITO" db_descrizione="NOME_ASSISTITO" configurazione_multi_data="" />
+	<DATO key_id="RicordaPwd" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RICORDA_PWD" db_descrizione="RICORDA_PWD" configurazione_multi_data="C_RICORDA" />
+	<DATO key_id="DataFine" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_FINE" db_descrizione="DATA_FINE" configurazione_multi_data="" />
+	<DATO key_id="DataMalattia" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_INIZIO" db_descrizione="DATA_INIZIO" configurazione_multi_data="" />
+	<DATO key_id="DataRilascio" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_RILASCIO" db_descrizione="DATA_RILASCIO" configurazione_multi_data="" />
+	<DATO key_id="CodDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="CODICE_ICD9" db_descrizione="CODICE_ICD9" configurazione_multi_data="" />
+	<DATO key_id="Diagnosi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DESCR_ICD9" db_descrizione="DESCR_ICD9" configurazione_multi_data="" />
+	<DATO key_id="CodiceAsl" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_ASL" db_descrizione="COD_ASL" configurazione_multi_data="" />
+	<DATO key_id="CodiceRegione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_REGIONE" db_descrizione="COD_REGIONE" configurazione_multi_data="" />
+</DATI>
+

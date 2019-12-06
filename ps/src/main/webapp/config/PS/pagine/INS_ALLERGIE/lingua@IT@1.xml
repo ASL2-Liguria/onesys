@@ -1,0 +1,9 @@
+<ROWSET>
+    <ROW>
+        <fldAllergie>Allergie</fldAllergie>
+        <lblallergicoA>Allergico A</lblallergicoA>
+        <lblTipologia>Tipologia</lblTipologia>
+        <lblNote>Note</lblNote>
+        <fldEcxcange>Sintomi</fldEcxcange>
+    </ROW>
+</ROWSET>

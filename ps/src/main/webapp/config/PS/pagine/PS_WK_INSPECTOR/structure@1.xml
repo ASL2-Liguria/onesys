@@ -1,0 +1,11 @@
+<PAGINA key_id="PS_WK_INSPECTOR">
+    <HEADER_WK key_id="PS_WK_INSPECTOR" valore="DEFAULT,WK,PS_WK_INSPECTOR#DEFAULT,PS_WK_INSPECTOR" evento="START_END">
+        <TABULAZIONE.FILTRI key_id="filtri" valore="ConfigNomenclatore#butApplica##divWk#divWorklist" evento="START_END">
+            <TABULAZIONE.CREA_TAB key_id="contattiAperti" valore="lblcontattiAperti#contattiAperti" evento="START">
+            </TABULAZIONE.CREA_TAB>
+            <TABULAZIONE.CREA_TAB key_id="contattiChiusi" valore="lblcontattiChiusi#contattiChiusi" evento="START">
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.FILTRI>
+    </HEADER_WK>
+
+</PAGINA>

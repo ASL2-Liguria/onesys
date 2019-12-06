@@ -1,0 +1,43 @@
+<PAGINA key_id="MMG_UTILITA">
+	<HEADER_PAGE key_id="MMG_UTILITA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_UTILITA#DEFAULT_MMG,MMG_UTILITA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_MMG_UTILITA#MMG_DATI#MMG_UTILITA#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="Utilita#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabLink" valore="tabLink" evento="START">
+				<FIELDSET_TABLE key_id="fldLink" valore="fldLink" evento="START">
+					<!-- 
+					<TR_TD_LINK key_id="lblBancaDatiFarmaci" valore="lblBancaDatiFarmaci#lblBancaDatiFarmaci" evento="START"></TR_TD_LINK>
+					<TR_TD_LINK key_id="lblNoteAifa" valore="lblNoteAifa#lblNoteAifa" evento="START"></TR_TD_LINK>
+					<TR_TD_LINK key_id="lblSistemaTS" valore="lblSistemaTS#lblSistemaTS" evento="START"></TR_TD_LINK>
+					<TR_TD_LINK key_id="lblMinSalute" valore="lblMinSalute#lblMinSalute" evento="START"></TR_TD_LINK>
+					<TR_TD_LINK key_id="lblVaccinazioniEstero" valore="lblVaccinazioniEstero#lblVaccinazioniEstero" evento="START"></TR_TD_LINK>
+					<TR_TD_LINK key_id="lblVacc_Viagg_Internazionali" valore="lblVacc_Viagg_Internazionali#lblVacc_Viagg_Internazionali" evento="START"></TR_TD_LINK> 
+					-->
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabCalcolatori" valore="tabCalcolatori" evento="START">
+				<FIELDSET_TABLE key_id="fldCalcolatori" valore="fldCalcolatori" evento="START">
+					<TR_TD_LABEL_DATA key_id="DataScreening" valore="lblDataScreening##txtDataScreening#DataScreening####DATA_SCREENING" evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="TipoScreening" valore="lblTipoScreening##txtTipoScreening###TIPO_SCREENING" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="SceltaScreening" valore="lblSceltaScreening##SceltaScreening#radSceltaScreening#{width:'auto'}#N#SCELTA_SCREENING" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="EsitoScreening" valore="lblEsitoScreening#txtEsitoScreening#ESITO_SCREENING" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butInserisci##2" evento="START"></TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabNoteCUF" valore="tabNoteCUF" evento="START">
+				<FIELDSET_TABLE key_id="fldNoteCUF" valore="fldNoteCUF" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtNota" valore="lblNota##txtNota##lettura#" evento="START">
+						<TD_BUTTON key_id="butCercaNota" valore="butCercaNota" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="wkNote_CUF" valore="wkNote_CUF" evento="START"></DIV.WORKLIST>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

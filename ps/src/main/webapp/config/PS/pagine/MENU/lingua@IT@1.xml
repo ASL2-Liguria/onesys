@@ -1,0 +1,46 @@
+<ROWSET>
+    <ROW>
+        <mMainPS>Home Page</mMainPS>
+        <ttmMainPS>Home Page</ttmMainPS>
+        <mFunzioni>Funzioni</mFunzioni>
+        <ttmFunzioni>Funzioni</ttmFunzioni>
+        <mRiconcilia>Riconcilia Paziente</mRiconcilia>
+        <ttmRiconcilia>Riconcilia Paziente</ttmRiconcilia>
+		<mMonitor>Monitor</mMonitor>
+		<ttmMonitor>Monitor</ttmMonitor>
+        <mConfig>Config</mConfig>
+        <mTabelle>Tabelle</mTabelle>
+        <mUtilita>Utilità</mUtilita>
+        <ttmConfig>Menu di Configurazione</ttmConfig>
+        <ttmTabelle>Tabelle di Configurazione</ttmTabelle>
+        <ttmUtilita>Utilita'</ttmUtilita>
+        <mCDC>Centri Di Costo</mCDC>
+        <ttmCDC>Centri Di Costo</ttmCDC>
+        <mTipi>Tipi</mTipi>
+        <mPentaho>Statistiche</mPentaho>
+        <mCartLock>Gestione</mCartLock>
+        <mInspector>Ps Inspector</mInspector>
+        <ttmTipi>Tipi</ttmTipi>
+        <mPersonale>Personale</mPersonale>
+        <ttmPersonale>Personale</ttmPersonale>
+        <mGestionePc>Gestione Pc</mGestionePc>
+        <mGestioneUtenti>Gestione Utenti</mGestioneUtenti>
+        <mGestioneGruppi>Gestione Gruppi</mGestioneGruppi>
+        <ttmGestionePc>Gestione Pc</ttmGestionePc>
+        <ttmGestioneUtenti>Gestione Utenti</ttmGestioneUtenti>
+        <ttmGestioneGruppi>Gestione Gruppi</ttmGestioneGruppi>
+        <mFlussi>Flussi</mFlussi>
+        <mFlussiInail>INAIL</mFlussiInail>
+        <mCartelleInail>Cartelle Inail</mCartelleInail>
+        <ttConsulenze>Consulenze</ttConsulenze>
+        <mConsulenze>Consulenze</mConsulenze>
+        <ttPrestazioniGiornaliere>Prestazioni Giornaliere</ttPrestazioniGiornaliere>
+        <mPrestazioniGiornaliere>Prestazioni Giornaliere</mPrestazioniGiornaliere>
+        <fldFunzioniModuli>Funzioni Moduli</fldFunzioniModuli>
+        <Falselabel>1212</Falselabel>
+        <PerEvitare>222</PerEvitare>
+        <UnErrore>234</UnErrore>
+        <ttmGenerazioneStatistiche>Generazione Statistiche</ttmGenerazioneStatistiche>
+        <mGenerazioneStatistiche>Generazione Statistiche</mGenerazioneStatistiche>
+    </ROW>
+</ROWSET>

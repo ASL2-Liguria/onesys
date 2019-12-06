@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblPressione" TYPE="label" TEXT="Pressione" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="lblO2Sat" TYPE="label" TEXT="O2Sat" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="lblFrequenzaCardiaca" TYPE="label" TEXT="Frequenza Cardiaca"
+            CLASS="subTitleLabel"/>
+
+        <CAMPO KEY_CAMPO="txtPressione" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="txtO2Sat" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="txtFrequenzaCardiaca" TYPE="input" TYPEINPUT="text"/>
+
+        <CAMPO KEY_CAMPO="lblPeso" TYPE="label" TEXT="Peso (Kg)" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="lblAltezza" TYPE="label" TEXT="Altezza (cm)" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="lblBMI" TYPE="label" TEXT="BMI" CLASS="subTitleLabel"/>
+
+        <CAMPO KEY_CAMPO="txtPeso" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="txtAltezza" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="txtBMI" TYPE="input" TYPEINPUT="text"/>
+    </CAMPI>
+</PAGINA>

@@ -1,0 +1,38 @@
+<ROWSET>
+    <ROW>
+        <lblTitolo>Scheda Parti Anatomiche</lblTitolo>
+        <butInserisci>Inserisci</butInserisci>
+		<fldCorpo>Corpo</fldCorpo>
+		<fldMetodica>Metodiche</fldMetodica>
+		<fldScelta>Scelta</fldScelta>
+		<fldRicercaInserimento>Ricerca e Inserimento</fldRicercaInserimento>
+		<lblRicercaEsa>Esame</lblRicercaEsa>
+		<lblFiltroRicerca>Filtro</lblFiltroRicerca>
+        <butAnnulla>Annulla</butAnnulla>
+		<A>Testa</A>
+		<B>Collo</B>
+		<C>Torace</C>
+		<D>Addome Inferiore</D>
+		<E>Addome Superiore</E>
+		<F>Spalla Destra</F>
+		<G>Spalla Sinistra</G>
+		<H>Avanbraccio Destro</H>
+		<I>Avanbraccio Sinistro</I>
+		<L>Gomito Destro </L>
+		<M>Gomito Sinistro</M>
+		<N>Braccio Destro</N>
+		<O>Braccio Sinistro</O>
+		<P>Mano Destra</P>
+		<Q>Mano Sinistra</Q>
+		<R>Coscia Sinistra</R>
+		<S>Coscia Destra</S>
+		<T>Ginocchio Destro</T>
+		<U>Ginocchio Sinistro</U>
+		<V>Gamba Destra</V>
+		<W>Gamba Sinistra</W>
+		<X>Piede Destro</X>
+		<Y>Piede Sinistro</Y>
+        <butAddOne>&#9660;</butAddOne>
+        <butRemOne>&#9650;</butRemOne>
+    </ROW>
+</ROWSET>

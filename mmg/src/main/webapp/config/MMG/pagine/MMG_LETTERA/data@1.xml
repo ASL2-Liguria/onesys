@@ -1,0 +1,72 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_MMG_LETTERA'; :where := null; :campo_xml := null; end;">
+	<DATO 
+		key_id="Nome" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="NOME" 
+		db_descrizione="NOME" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Cognome" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="COGNOME" 
+		db_descrizione="COGNOME" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Indirizzo" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="INDIRIZZO" 
+		db_descrizione="INDIRIZZO" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Localita" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="LOCALITA" 
+		db_descrizione="LOCALITA" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="CAP" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="CAP" 
+		db_descrizione="CAP" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Recapito_Tel" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="RECAPITO_TEL" 
+		db_descrizione="RECAPITO_TEL" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="E_Mail" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="E_MAIL" 
+		db_descrizione="E_MAIL" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Dettaglio" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="DETTAGLIO" 
+		db_descrizione="DETTAGLIO" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Corpo" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="CORPO_LETTERA" 
+		db_descrizione="CORPO_LETTERA" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Diagnosi" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="DIAGNOSI" 
+		db_descrizione="DESCR" 
+		configurazione_multi_data="Q_DIAGNOSI_LETTERA" 
+	/>
+</DATI>

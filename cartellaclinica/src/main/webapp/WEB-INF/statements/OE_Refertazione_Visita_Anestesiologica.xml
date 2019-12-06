@@ -1,0 +1,97 @@
+<root>
+        <statements_list>
+            <statement name="searchLastRefertoAnestesiologico">
+                <sql>
+			<![CDATA[
+                    SELECT *
+                    FROM
+                      (
+                        SELECT 
+                            tr.iden ,
+                            dr.iden_ref
+                        FROM infoweb.testata_richieste tr
+                        JOIN infoweb.dettaglio_richieste dr
+                        ON (tr.iden = dr.iden_testata)
+                        JOIN nosologici_paziente np
+                        ON (tr.iden_visita = np.iden)
+                        WHERE 
+                        (
+                            np.iden     = to_number(?)
+                            OR np.parent       =to_number(?)
+                            OR (? is not null and np.iden=?)
+                        )
+                        AND tr.tipologia_richiesta = ?
+                        ORDER BY tr.iden DESC
+                      )
+                    WHERE rownum=1
+			]]>
+                </sql>
+            </statement>
+            <statement name="caricaNoteIntervento">				
+                <sql>
+                <![CDATA[		
+                SELECT NVL(icd.DESCRIZIONE, np.NOTE_INTERVENTO) descrizione_intervento
+                FROM NOSOLOGICI_PAZIENTE np
+                LEFT OUTER JOIN CC_ICD icd ON (np.CODICE_INTERVENTO = icd.COD_DEC)
+                WHERE np.IDEN = TO_NUMBER(?) AND np.DELETED = 'N'
+                ]]>
+                </sql>
+            </statement>   
+            <statement name="caricaCodiceVpo">				
+                <sql>
+			<![CDATA[		
+                select
+                  cod_esa,descr
+                from
+                    VIEW_CC_CODIFICHE_VPO
+			]]>
+                </sql>
+            </statement> 
+            <statement name="loadAnestesiologicoParametri">
+                <sql>
+                    <![CDATA[
+                    select * 
+                    from CC_PARAMETRI_RICOVERO 
+                    where IDEN_VISITA = to_number(?) and IDEN_PARAMETRO in (
+                        select iden 
+                        from CC_PARAMETRI_TYPE 
+                        where CC_PARAMETRI_TYPE.COD_DEC = ?
+                    )
+                    ]]>
+                </sql>
+            </statement>
+            <statement name="loadingScanDb">
+                <sql>
+                    <![CDATA[
+						SELECT 
+						    icd.IDEN
+						    , icd.COD_DEC,
+						  NVL(icd.DESCRIZIONE, np.NOTE_INTERVENTO) descrizione
+						FROM NOSOLOGICI_PAZIENTE np
+						LEFT OUTER JOIN CC_ICD icd ON (np.CODICE_INTERVENTO = icd.COD_DEC AND icd.TIPO = 'PROCEDURE')
+						WHERE np.IDEN = TO_NUMBER(?) AND np.DELETED = 'N'
+                    ]]>
+                </sql>
+            </statement>          
+            <statement name="loadingStatoRefertoPrecedente">
+                <sql>
+                    <![CDATA[
+                    SELECT 
+                        stato,attivo,deleted
+                    FROM cc_lettera_versioni
+                    WHERE iden=to_number(?)
+                    ]]>
+                </sql>
+            </statement>
+            <statement name="searchTerapiaAssociata">
+                <sql>
+                    <![CDATA[
+                    SELECT 
+                        iden_terapia_associata
+                    FROM cc_lettera_versioni
+                    WHERE iden=to_number(?)
+                    ]]>
+                </sql>
+            </statement>                     
+        </statements_list>	
+</root>

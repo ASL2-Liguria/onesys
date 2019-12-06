@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>CHIUSURA PROBLEMA</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<tabChiusuraProblema>Chiusura Problema</tabChiusuraProblema>
+		<tabInserimento>Problemi</tabInserimento>
+		
+		<fldNoteChiusura>Note</fldNoteChiusura>
+		<fldChiusuraProblema>Dati Chiusura</fldChiusuraProblema>
+		
+		<lblProblema>Seleziona Problema</lblProblema>
+		<lblTipoProblema>Tipologia Problema</lblTipoProblema>
+		<lblDataProblema>Data Problema</lblDataProblema>
+		<lblNoteChiusura>Note Chiusura</lblNoteChiusura>
+		<lblChiusuraProblema></lblChiusuraProblema>
+		
+    </ROW>
+</ROWSET>

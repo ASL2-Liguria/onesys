@@ -1,0 +1,46 @@
+<MENU>
+    <ID>MENU_WK_RICHIESTE_DSA</ID>
+    <TITLE>"Menu Richieste DSA"</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>MODIFICA_DATA_PROPOSTA</ID>
+            <LINK><![CDATA[function(rec){ RICHIESTE.RichiediModificaDataProposta(rec[0].IDEN);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/prenotazione2.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if (((rec[0].METODICA=='L') || (rec[0].METODICA=='A')) && (rec[0].PRELIEVO_EFFETTUATO=='N')) {return true;} else {return false;} }]]></WHERE>
+            <OUTPUT>"Modifica data proposta"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Prelievo già effettuato o prestazione non di laboratorio"</INFO>
+        </ITEM>   
+        <ITEM>
+        	<ID>ASSOCIA_DATA_ESE</ID>
+            <LINK><![CDATA[function(rec){ alert('funzione non ancora realizzata');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if (rec[0].STATO_RICHIESTA == "R"){ return false;} else { return true; }}]]></WHERE>
+            <OUTPUT>"Set data esecuzione (cdc non informatizzato)"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM> 
+        <ITEM>
+        	<ID>VISUALIZZA_DOCUMENTO</ID>
+            <LINK><![CDATA[function(rec){ RICHIESTE.visualizzaReferto(rec[0])}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if (rec[0].STATO_RICHIESTA == "R"){ return true;} else { return false; }}]]></WHERE>
+            <OUTPUT>"Visualizza Documento"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_MODULO_RICHIESTA_CARDIOLOGIA</ID>
+            <LINK><![CDATA[function(rec){RICHIESTE.printModuloRichiestaCardiologia(rec[0].IDEN, rec[0].CDC_DESTINATARIO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return rec[0].TIPOLOGIA_RICHIESTA == "4"}]]></WHERE>
+            <OUTPUT>"Stampa Modulo Richiesta Cardiologia"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+     </LIST>
+</MENU>

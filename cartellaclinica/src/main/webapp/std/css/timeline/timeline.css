@@ -1,0 +1,40 @@
+div#scrollObj{overflow-x:hidden;width:100%;}
+div.timeline{font-weight:bold;text-align:left;position:relative;left:0px;background:#F00;}
+
+div.timeline table{background:#d6d6d6;table-layout:fixed;width:100%;}
+
+div.timeline tr#rowGiorno{height:15px;}
+div.timeline tr#rowOre{height:12px;}
+div.timeline tr#rowBlocchi{height:30px;}
+
+div.timeline td{height:100%;overflow:hidden;}
+
+div.timeline tr div{margin-bottom:0px;margin-top:1px;height:13px;font-size:10px;width:100%;}
+div.timeline tr#rowGiorno div.pari{background: url(../../../imagexPix/bar/sf_yellow.jpg) repeat-x;}
+div.timeline tr#rowGiorno div.dispari{background: url(../../../imagexPix/bar/sf_orange.jpg) repeat-x;}
+
+div.timeline tr#rowOre td div.ora{background:url(../../../imagexPix/bar/sf_fasce.jpg) repeat-x;color:#FFF;font-size:8px;font-family:Arial, Helvetica, sans-serif;}
+
+div.timeline tr#rowBlocchi div{height:30px;}
+
+div.timeline tr#rowBlocchi div.pari{background:#f1f3f5;margin:1px;}
+div.timeline tr#rowBlocchi div.dispari{background:#e4eef5;margin:1px;}
+
+div.left{margin-left:1px;margin-right:0px;}
+div.mid{margin-left:0px;margin-right:0px;}
+div.right{margin-left:0px;margin-right:1px;}
+div.empty{margin:0px;height:13px}
+
+
+div#toolTip{font-size:14px;position:absolute;width:40px;height:15px;background:#FF0;display:none;text-align:center;filter:alpha(opacity=50);z-index:51;}
+
+div#dettaglio{background:url(../../../imagexPix/bar/black1x1.png) left repeat-y;font-size:10px;position:absolute;left:0;top:0;cursor:hand;}
+	div.range{float:left;}
+		div.middle{border-top:1px solid black;border-bottom:1px solid black;text-align:center;font-size:12px;}
+		div.border{background:url(../../../imagexPix/bar/black1x1.png) right repeat-y;}
+		div.textRight{text-align:right;padding-right:2px;}
+		div.textLeft{text-align:left;padding-left:2px;}		
+		
+div#dettaglio.L3 div.middle{border:2px solid #F24835;background:none;}
+div#dettaglio.L2 div.middle{border:2px solid #FEF79C;background:none;}
+div#dettaglio.L1 div.middle{border:2px solid #A5FE98;background:none;}

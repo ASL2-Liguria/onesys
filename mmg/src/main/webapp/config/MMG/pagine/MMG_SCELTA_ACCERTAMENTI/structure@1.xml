@@ -1,0 +1,87 @@
+<PAGINA key_id="MMG_SCELTA_ACCERTAMENTI">
+	<HEADER_PAGE key_id="MMG_SCELTA_ACCERTAMENTI" valore="DEFAULT_MMG,SCHEDA,MMG_SCELTA_ACCERTAMENTI#DEFAULT_MMG,MMG_SCELTA_ACCERTAMENTI,COMMON_ACCERTAMENTI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_STANDARD#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabSceltaAccertamenti"
+			valore="tabSceltaAccertamenti#lblTitolo#butCreaProfili,butInserisci,butChiudi"
+			evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabScelta" valore="tabScelta"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR_TD_TEXT key_id="Ricerca" valore="txtRicerca##txtRicerca#"
+						evento="START">
+					</TR_TD_TEXT>
+					<TR.INIT key_id="rigaRicerca" valore="" evento="START">
+						<TD_BUTTON key_id="butDescrizione" valore="butDescrizione#butDescrizione" evento="START">
+						</TD_BUTTON>
+						<TD_BUTTON key_id="butCodice" valore="butCodice#butCodice" evento="START">
+						</TD_BUTTON>
+						
+					</TR.INIT>
+					<TD_BUTTON key_id="butRicercaEsatta" valore="butRicercaEsatta#butRicercaEsatta#2" evento="START">
+					</TD_BUTTON>
+					<!-- <TR_TD_CHECK key_id="chkRicEsatta"
+						valore="chkRicEsatta#chkRicercaEsatta#N#{width:'auto',ctrl:false}##"
+						evento="START">
+					</TR_TD_CHECK> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAttributi" valore="fldAttributi"
+					evento="START">
+					<TR.INIT key_id="rigaSinonimo" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Sinonimi"
+							valore="lblSinonimi##Sinonimi#radSinonimi#{width:50,idxDefault:0}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_TEXT key_id="hRicerca" valore="hRicerca" evento="START">
+						</TD_TEXT>
+					</TR.INIT>
+						<TR_TD_LABEL_RADIO key_id="Frequenza"
+							valore="lblFrequenza##Frequenza#radFrequenza#{width:50,idxDefault:0}#S"
+							evento="START">
+						</TR_TD_LABEL_RADIO>
+					<!-- <TR_TD_LABEL_CHECK key_id="chkRicEsatta"
+						valore="lblRicercaEsatta##chkRicEsatta#chkRicercaEsatta#N#{width:'auto',ctrl:false}##"
+						evento="START">
+					</TR_TD_LABEL_CHECK> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDataAcc" valore="fldDataAcc"
+					evento="START">
+					<TR_TD_LABEL_DATA key_id="Data"
+						valore="lblData##Data#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldListaAccertamenti" valore="fldListaAccertamenti"
+					evento="START">
+					<DIV.WORKLIST key_id="worklist" valore="divWk" evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabSceltaProfili"
+				valore="tabSceltaProfili" evento="START">
+				<FIELDSET_TABLE key_id="fldRicercaGruppi" valore="fldRicercaGruppi"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtRicercaGruppi"
+						valore="lblRicercaGruppi##txtRicercaGruppi" evento="START">
+						<TD key_id="txtRicercaProfili" valore="c" evento="START">
+						</TD>
+						<TD_BUTTON key_id="butRicerca" valore="butRicerca"
+							evento="START">
+						</TD_BUTTON>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fldGruppi" valore="fldGruppi" evento="START">
+					<DIV.WORKLIST key_id="wkListaGruppi" valore="divWkGruppi"
+						evento="START_END">
+					</DIV.WORKLIST>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			<FIELDSET_TABLE key_id="fldRiepilogo" valore="fldRiepilogo"
+				evento="START">
+			</FIELDSET_TABLE>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

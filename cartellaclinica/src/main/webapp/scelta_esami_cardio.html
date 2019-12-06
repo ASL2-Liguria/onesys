@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href='std/css/textArea.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/Libreria/pageModal.js' language='JavaScript'></script>
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+
+<script type='text/javascript' src='std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/filterTable.css' type='text/css' rel='stylesheet'>
+
+<link rel="stylesheet" type="text/css" href="std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/button.css">
+<link rel="stylesheet" type="text/css" href="std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Elenco esami di cardiologia</title>
+<script>
+var arrayLabelName  = new Array('bt');
+var arrayLabelValue = new Array('Chiudi');
+var oMyObject = opener.myObject;
+
+function visualizza_elenco()
+{
+
+//alert('visualizza elenco');
+
+	
+	
+	var elenco_bidoni = oMyObject.descr_bidoni;
+	var elenco_iden   = oMyObject.iden_bidoni;
+
+	var List_descr = elenco_bidoni.split('@');
+	var List_iden = elenco_iden.split('@');
+	
+	for (contatore = 1; contatore < List_iden.length ; contatore++)
+	{
+		document.all.bidoni.options[contatore-1] = new Option(List_descr[contatore], List_iden[contatore], false, false);	
+	}
+}
+
+
+function chiudi()
+{
+//	opener.aggiorna('SL_MagazzinoMN', '');
+	window.close();
+}
+	
+function visualizzaImmagine()
+{
+
+function setParam(){
+//alert(oMyObject.cdcDest);
+//alert(oMyObject.descr_bidoni);
+//alert(document.all.bidoni.options[document.all.bidoni.selectedIndex].value);
+		this.idEsameDicom=document.all.bidoni.options[document.all.bidoni.selectedIndex].value;
+		this.cdcDest=oMyObject.cdcDest;			
+	}
+	var param = new setParam();
+
+	var resp = window.showModalDialog('modalUtility/paginaOcxCardio.html',param,'dialogHeight:'+screen.availHeight+'px;dialogWidth:'+screen.availWidth+'px');
+	
+
+//opener.apriOcxCardio(document.all.bidoni.options[document.all.bidoni.selectedIndex].value);	
+	
+chiudi();
+}		
+
+</script>
+</head>
+<body onLoad='fillLabels(arrayLabelName,arrayLabelValue);'>
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>ESAMI</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+      <tr>
+	  <select name="bidoni" size="10" style="width:100%" onClick = "javascript:visualizzaImmagine();"></select></td>
+      </tr>
+    </table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+<tr>
+	
+	
+		
+	    <table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+			<td class='classTabHeaderMiddle'> </td>
+			<td class='classButtonHeader'><div  class='pulsante' id='bt' onclick="javascript:chiudi();"></div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+	<script>visualizza_elenco(); 
+	setPage(document);</script>
+</body>
+</html>
+

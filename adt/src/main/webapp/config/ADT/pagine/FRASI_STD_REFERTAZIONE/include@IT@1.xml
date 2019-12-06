@@ -1,0 +1,6 @@
+<INCLUDE>
+	<!-- CSS path="css/Schede_Refertazione/BluePolaris.css" condizione="IE"/ -->
+	<CSS path="css/ADT/FRASI_STD_REFERTAZIONE/FRASI_STD_REFERTAZIONE.css"/>
+	<JS path="js/ADT/FRASI_STD_REFERTAZIONE/FRASI_STD_REFERTAZIONE.js"/>
+</INCLUDE>
+

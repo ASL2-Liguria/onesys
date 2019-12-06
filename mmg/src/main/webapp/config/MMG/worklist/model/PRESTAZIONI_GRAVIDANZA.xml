@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>PRESTAZIONI_GRAVIDANZA</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.PRESTAZIONI_GRAVIDANZA</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	<STRUCTURE>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+                    <DESCRIPTOR>traduzione.lblPrestazione</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>450px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>CODICE_ESENZIONE</COL>
+						<DB>CODICE_ESENZIONE</DB>
+					</ID>
+                    <DESCRIPTOR>traduzione.lblCodEsenzione</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>DESCR_ESENZIONE</COL>
+						<DB>DESCR_ESENZIONE</DB>
+					</ID>
+                    <DESCRIPTOR>traduzione.lblEsenzioneRelativa</DESCRIPTOR>
+					<PROCESS/>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			<SORT/>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

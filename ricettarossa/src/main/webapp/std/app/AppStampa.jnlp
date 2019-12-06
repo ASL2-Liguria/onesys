@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="6.0+" codebase="" href="AppStampa.jnlp" version="1.0">
+	<information>
+		<title>Componente per la stampa di MMG</title>
+		<vendor>Elco</vendor>
+		<offline-allowed/>
+		<description>Concedere il permesso di esecuzione a questo componente permette di stampare e ricevere notifiche in tempo reale</description>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources>
+		<j2se version="1.7+" />
+		<j2se version="1.6+" />
+		<jar href="SignedFenixApplet.jar" version="1.0" main="true" />
+	</resources>
+	<applet-desc
+		main-class="it.elco.applet.elcoApplet"
+		name="AppStampa"
+		width="1"
+		height="1"
+	>
+<!--
+		<param name="loadStampe" value="true"/>
+		<param name="wmode" value="transparent"/>
+		<param name="loadFirma" value="false"/>
+		<param name="loadSCL" value="false"/>
+		<param name="loadAQ" value="false"/>
+		<param name="ShowMediaTrays" value="S"/>
+		<param name="brokerUrl" value="tcp://192.168.3.10:61616" />
+		<param name="logoutOnDestroy" value="N" />
+-->
+	</applet-desc>
+</jnlp>

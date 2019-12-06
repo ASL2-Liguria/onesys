@@ -1,0 +1,79 @@
+#lstEsenzioniPaziente{
+	width: 500px;
+	height: 50px;
+}
+#lstEsenzioniScelte{
+	width: 500px;
+	height: 50px;
+}
+#txtNumNosologico, #txtTicketRiceIniDSA{
+	width:100px
+}
+#txtSospettoDia{
+	height: 30px
+}
+#cmbTipologiaDSA{
+	width: 400px
+}
+#butRegistraCodiceRicetta{
+	float:right;
+}
+#txtCognome,#txtNome,#txtSesso,#txtDataNasc,#txtCodFisc{
+	font-weight: bold;
+	color: blue;
+}
+#idAssistito legend,#idAccRico legend{
+	font-weight: bold;
+}
+#lblNome,#lblCognome,#txtOraRico{
+	width: 50px;
+}
+
+#lblSesso{
+	width: 40px;
+}
+#txtSesso{
+	width: 25px;
+}
+#txtCodFisc{
+	width: 140px;
+}
+#txtCognome,#txtNome{
+	width: 200px;
+}
+#lblCodiceFiscale,#lblDataNascita{
+	width: 100px;
+}
+#cmbTipoRicetta{
+	width: 300px;
+}
+#cmbPrioritaRicetta{
+	width: 120px;
+}
+#idtipoRicetta{
+	width: 700px;
+}
+#butStampaRelazione{
+	margin-left: 20px;
+}
+#txtRisultati,#txtSintesiClinica,#txtTerapieProposte{
+	height: 120px;
+}
+#colWk2{
+    width: 60%;
+}
+#col3{
+    width: 40%;
+}
+#col4{
+    width: 100%;
+}
+#row2{
+   padding-top: 20px;
+}
+#divwkReferti, #DatiLabo{
+   height: 450px;
+}
+#DatiLabo{
+    width: 100%;
+}

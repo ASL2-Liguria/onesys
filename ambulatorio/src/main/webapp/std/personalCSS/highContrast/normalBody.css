@@ -1,0 +1,47 @@
+body {
+	background-color:#FFFFCC;
+	margin: 0 0 0 0;
+	background-image:url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding:0;
+	}
+
+.Titolo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color:#FFFFFF;
+	background-color:#036;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+}
+
+.StatoPrenotatoAccettato{
+	background-color:#33CCFF;
+}
+
+.StatoRefertoSospeso{
+	background-color:#FF3333;
+}
+
+.StatoInizioEsecuzione{
+	background-color:#F93;
+}
+
+/* usato per definire lo sfondo dei livelli di info*/
+.layerInfo{
+	background-image:url(../../../imagexPix/button/gradient/gradientKeyImage.jpg);
+	background-repeat:repeat;
+	overflow:auto;
+}
+/* titolo delle sezioni definito come span */
+SPAN.spanTitle{
+	color:black;
+	font-weight:bold; 
+	font-size:14px; 
+	display:block; 
+	background-color:#FFC; 
+	width:100%; 
+	text-align:center;	
+}

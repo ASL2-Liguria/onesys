@@ -1,0 +1,35 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_MMG_SOSTITUZIONE_MEDICO'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Liquid" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="LIQUIDAZIONE" db_descrizione="LIQUIDAZIONE"
+		configurazione_multi_data="R_LIQUID" />
+	<DATO key_id="hMedicoBase" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN_MED" db_descrizione="IDEN_MED"
+		configurazione_multi_data="" />
+	<DATO key_id="MedicoBase" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="MED_CURANTE" db_descrizione="MED_CURANTE"
+		configurazione_multi_data="" />
+	<DATO key_id="hIden" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN" db_descrizione="IDEN" configurazione_multi_data="" />
+	<DATO key_id="DataIniVisione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_INIZIO_VISIONE" db_descrizione="DATA_INIZIO_VISIONE"
+		configurazione_multi_data="" />
+	<DATO key_id="Visione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VISIONE" db_descrizione="VISIONE"
+		configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="DatiGruppo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="SOST_GRUPPO" db_descrizione="SOST_GRUPPO"
+		configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MotivoSostituzione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NOTE" db_descrizione="NOTE" configurazione_multi_data="" />
+	<DATO key_id="DataFine" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_FINE" db_descrizione="DATA_FINE"
+		configurazione_multi_data="" />
+	<DATO key_id="DataInizio" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_INIZIO" db_descrizione="DATA_INIZIO"
+		configurazione_multi_data="" />
+	<DATO key_id="Sostituto" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="IDEN_MED_SOSTITUTO" db_descrizione="MED_SOSTITUTO"
+		configurazione_multi_data="" />
+</DATI>
+

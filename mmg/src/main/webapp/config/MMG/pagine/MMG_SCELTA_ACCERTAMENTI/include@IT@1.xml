@@ -1,0 +1,7 @@
+
+<INCLUDE>
+	<CSS path="css/MMG/RicettaRossa/sceltaAccertamenti.css" />
+	<CSS path="css/MMG/RicettaRossa/accertamenti_common.css" />
+	<JS path="js/MMG/RicettaRossa/accertamenti_common.js" />
+	<JS path="js/MMG/RicettaRossa/sceltaAccertamenti.js" />
+</INCLUDE>

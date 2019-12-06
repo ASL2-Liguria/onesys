@@ -1,0 +1,40 @@
+<PAGINA key_id="GESTIONE_PAC">
+    <HEADER_PAGE key_id="GESTIONE_PAC" valore="DEFAULT,SCHEDA,GESTIONE_PAC#DEFAULT,GESTIONE_PAC" evento="START_END"></HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#GESTIONE_PAC#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="GESTIONE_PAC#lblTitle#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabInserimentoPAC" valore="tabInserimentoPAC" evento="START">
+	            <FIELDSET_TABLE key_id="tableDatiRicovero" valore="tableDatiRicovero" evento="START">
+	                <TR.INIT  key_id="riga1" valore="" evento="START" >
+	                    <TD_LABEL_COMBO key_id="cmbReparto" valore="lblReparto##cmbReparto#cmbReparto#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+		                <TD_LABEL_DATA key_id="dataPrenotazionePAC" valore="lblDataPrenotazionePAC#maskData#txtDataPrenotazionePAC##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START"></TD_LABEL_DATA>
+	                </TR.INIT>      
+	                <TR.INIT  key_id="riga2" valore="" evento="START" >
+	                	<TD_AUTOCOMPLETE key_id="DiagnosiICD9" valore="lblDiagnosiIcd9#acDiagnosiICD9#DiagnosiICD9#txtDiagnosiICD9#DiagnosiICD9#" evento="START"></TD_AUTOCOMPLETE>
+	                	<TD_LABEL_DATA key_id="dataInizioPAC" valore="lblDataInizioPAC#maskData#txtDataInizioPAC##format: 'Ymd', onSelect:function(data){ NS_PAC.setDataPrimoAccesso(data); }#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START"></TD_LABEL_DATA>
+	                </TR.INIT>
+	                <TR.INIT  key_id="riga3" valore="" evento="START" >
+	                	<TD_AUTOCOMPLETE key_id="InterventiICD90" valore="lblInterventiIcd90#acInterventiICD90#InterventiICD90#InterventiICD90#InterventiICD9###interventi#" evento="START"></TD_AUTOCOMPLETE>
+	                	<TD_LABEL_DATA key_id="dataFinePAC" valore="lblDataFinePAC#maskData#txtDataFinePAC##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START"></TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT  key_id="riga4" valore="" evento="START" >
+	                	<TD_AUTOCOMPLETE key_id="InterventiICD91" valore="lblInterventiIcd91#acInterventiICD91#InterventiICD91#InterventiICD91#InterventiICD9###interventi#" evento="START"></TD_AUTOCOMPLETE>
+					</TR.INIT>	   
+	                <TR.INIT  key_id="riga5" valore="" evento="START" >
+	                	<TD_LABEL_COMBO key_id="cmbCodPAC" valore="lblCodPAC##cmbCodPAC#cmbCodPAC#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+	                </TR.INIT>      
+	            </FIELDSET_TABLE>
+	            <FIELDSET_TABLE key_id="tableDatiPrimoAccessoPAC" valore="tableDatiPrimoAccessoPAC" evento="START">
+		            <TR.INIT  key_id="riga5" valore="" evento="START" >
+		            	<TD_LABEL_DATA key_id="dataFinePrimoAccessoPAC" valore="lblDataPrimoAccessoPAC#maskData#txtDataPrimoAccessoPAC##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START"></TD_LABEL_DATA>
+	                    <TD_LABEL_ORA key_id="oraInizioPrimoAccessoPAC" valore="lblOraInizioPrimoAccessoPAC##txtOraInizioPrimoAccessoPAC#N" evento="START"></TD_LABEL_ORA>
+	                    <TD_LABEL_ORA key_id="oraFinePrimoAccessoPAc" valore="lblOraFinePrimoAccessoPAC##txtOraFinePrimoAccessoPAC#N" evento="START"></TD_LABEL_ORA>
+		            </TR.INIT>
+	            </FIELDSET_TABLE>
+	            <FIELDSET_TABLE key_id="tableWkAccessiPAC" valore="tableWkAccessiPAC" evento="START">
+	            	<DIV key_id="divWkAccessiPAC" valore="divWkAccessiPAC" evento="START"></DIV>
+	            </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

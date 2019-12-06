@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/MMG/Medico/sostituzione.css" />
+	<JS path="js/MMG/Medico/elencoSostituzioni.js" />
+</INCLUDE>
+

@@ -1,0 +1,26 @@
+<MENU>
+    <ID>MENU_WK_RICH_GROUPER</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>VISUALIZZA_RESULT_GROUPER</ID>
+            <LINK><![CDATA[function(rec){alert("visualizza analisi")}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec[0].STATO == 'PROCESSED'){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>"Visualizza risultato analisi"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>APRI_SDO</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=DIMISSIONE_SDO&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&IDEN_ANAG='+rec[0].IDEN_ANAG+'&IDEN_AG='+rec[0].IDEN,id:'riftrasfGiuridico',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec[0].STATO == 'PROCESSED'){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>"Apri SDO"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

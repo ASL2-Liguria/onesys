@@ -1,0 +1,16 @@
+<root>
+    <statements_list>
+        <statement name="getIntervento">
+            <sql>
+                <![CDATA[
+                    SELECT 
+                       GET_KEY_CAMPO_VALUE(ccsx.CONTENUTO,'txtCodiceICD') TXT_CODICE_ICD
+                       ,GET_KEY_CAMPO_VALUE(ccsx.CONTENUTO,'txtDescrizioneICD') TXT_DESCRIZIONE_ICD
+                    FROM radsql.CC_SCHEDE_XML CCSX
+                    INNER JOIN radsql.NOSOLOGICI_PAZIENTE NP on (ccsx.IDEN_VISITA = np.IDEN)
+                    WHERE FUNZIONE = ? AND IDEN_VISITA = TO_NUMBER(?)
+                ]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

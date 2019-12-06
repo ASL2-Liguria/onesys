@@ -1,0 +1,16 @@
+<PAGINA key_id="GESTIONE_PC">
+    <HEADER_WK key_id="GESTIONE_PC" valore="DEFAULT,WK,GESTIONE_PC#DEFAULT,GESTIONE_PC" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="filtri" valore="GestionePc#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroGestPC" valore="filtroGestPC#WK_GENERIC" evento="START">
+            <TABELLA.INIT key_id="tabGestPC" valore="" evento="START">
+                <TR.INIT key_id="riga1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="filtroNomePc" valore="lblNomePC#txtCampoPC#PC#" evento="START">
+                    </FILTRO_TEXT>
+                    <TD.INIT key_id="tdvuoto" valore="" evento="START">
+                    </TD.INIT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+</PAGINA>

@@ -1,0 +1,17 @@
+html body { background:#b9e0ff; overflow: hidden;}
+.paramIntestazione{padding-left:10px; width:100%;background:url(../../../../imagexPix/bar/sf_turni.jpg) repeat-x;
+	font-weight:bold; font-style:normal;color:#FFF;}
+.paramValori{width:95%;margin:5px 10px 5px 10px;height:25px;}
+div#Note{margin:10px;}
+div#Note label{font-weight:bold; font-style: italic;}
+textarea#txtareaNote{width:98%;}
+
+div#Parametri{max-height: 400px; overflow-y:auto; overflow-x:hidden; border-bottom: 2px solid white;}
+.divDate{margin:5px 10px 0px 10px; border-top:2px solid blue;}
+.divOra{margin:5px 10px 5px 10px; border-bottom:2px solid blue;}
+input#txt_ora{margin-bottom:4px;}
+
+.rowButton{background:url(../../../../imagexPix/bar/sf_turni.jpg) repeat-x; width:100%; position:absolute;
+   bottom:0;}
+.button{float:right;margin-right:10px;font-weight:bold;color:white;cursor: pointer;}
+

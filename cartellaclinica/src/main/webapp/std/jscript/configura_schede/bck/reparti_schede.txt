@@ -1,0 +1,16 @@
+var _filtro_list_gruppo  = null;
+var _filtro_list_profili = null;
+var _filtro_list_elenco = null;
+var _filtro_list_scelti  = null;
+
+function filtroQuery(){
+
+	_filtro_list_scelti = new FILTRO_QUERY('ElencoRepartiScheda', null);
+	_filtro_list_scelti.setEnableWait('N');
+	_filtro_list_scelti.setValueFieldQuery('IDEN');
+	_filtro_list_scelti.setDescrFieldQuery('DESCR');
+	_filtro_list_scelti.setFromFieldQuery('TAB_PRO');
+	//_filtro_list_scelti.setWhereBaseQuery('IDEN NOT IN()');
+	_filtro_list_scelti.setOrderQuery('DESCR ASC');
+
+}

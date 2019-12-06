@@ -1,0 +1,117 @@
+<root>
+	<statements_list>
+		<statement name="LoadPianoGiornaliero">	
+			<params>
+				<param index="1" type="VARCHAR"/>
+				<param index="2" type="VARCHAR"/>
+				<param index="3" type="INTEGER"/>
+				<param index="4" type="VARCHAR"/>
+				<param index="5" type="VARCHAR"/>
+				<param index="6" type="CLOB"/>
+			</params>		
+			<sql>
+			<![CDATA[
+				declare
+
+					pWebuser varchar2(5000) := ?;
+					pFiltroCartella varchar2(5000) := ?;
+					pIdenRiferimento pls_integer := ?;
+					pDataIni varchar2(5000) := ?;
+					pDataFine varchar2(5000) := ?;
+
+					pOut clob;
+					
+				begin
+				
+					CC_PIANO_GIORNALIERO_MAIN_3021 (pWebuser,pFiltroCartella,pIdenRiferimento,pDataIni,pDataFine,pOut);
+					? := pOut;
+					
+				end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="ReloadTerapia">	
+			<params>
+				<param index="1" type="INTEGER"/>
+				<param index="2" type="VARCHAR"/>
+				<param index="3" type="VARCHAR"/>
+				<param index="4" type="VARCHAR"/>
+				<param index="5" type="VARCHAR"/>
+				<param index="6" type="CLOB"/>
+			</params>		
+			<sql>
+			<![CDATA[
+				declare
+					pIdenTerapia pls_integer := ?;
+
+					pInizioTerapia varchar2(5000) := ?;
+					pFineTerapia varchar2(5000) := ?;
+
+					pDateFrom date := to_date(?,'yyyyMMddhh24:mi');
+					pDateTo date := to_date(?,'yyyyMMddhh24:mi');
+					
+					pDateInizioTerapia date := null;
+					pDateFineTerapia date := null;
+					pOut clob;
+				begin
+					if(pInizioTerapia is not null) then
+						pDateInizioTerapia := to_date(pInizioTerapia,'yyyyMMddhh24:mi');						
+					end if;
+					
+					if(pFineTerapia is not null) then
+						pDateFineTerapia := to_date(pFineTerapia,'yyyyMMddhh24:mi');						
+					end if;
+					
+					CC_PIANO_GIORNALIERO_TERAPIE (pIdenTerapia,pDateInizioTerapia,pDateFineTerapia,pDateFrom,pDateTo,pOut);
+					? := pOut;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="ReloadProcedura">	
+			<params>
+				<param index="1" type="INTEGER"/>
+				<param index="2" type="VARCHAR"/>
+				<param index="3" type="VARCHAR"/>
+				<param index="4" type="VARCHAR"/>
+				<param index="5" type="VARCHAR"/>
+				<param index="6" type="CLOB"/>
+			</params>		
+			<sql>
+			<![CDATA[
+				declare
+					pIdenProcedura pls_integer := ?;
+
+					pInizioProcedura varchar2(5000) := ?;
+					pFineProcedura varchar2(5000) := ?;
+
+					pDateFrom date := to_date(?,'yyyyMMddhh24:mi');
+					pDateTo date := to_date(?,'yyyyMMddhh24:mi');
+					
+					pDateInizioProcedura date := null;
+					pDateFineProcedura date := null;
+					pOut clob;
+				begin
+					if(pInizioTerapia is not null) then
+						pDateInizioTerapia := to_date(pInizioTerapia,'yyyyMMddhh24:mi');						
+					end if;
+					
+					if(pFineTerapia is not null) then
+						pDateFineTerapia := to_date(pFineTerapia,'yyyyMMddhh24:mi');						
+					end if;
+					
+					CC_PIANO_GIORNALIERO_PROCEDURE (pIdenTerapia,pDateInizioTerapia,pDateFineTerapia,pDateFrom,pDateTo,null,pOut);
+					? := pOut;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getParametriType">		
+			<sql>
+			<![CDATA[								
+				Select iden, descrizione, separatore, decodifica, cod_dec,valore_minimo,valore_massimo,nrilevazioni,campi_aggiuntivi from radsql.CC_PARAMETRI_TYPE where attivo = 'S'
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

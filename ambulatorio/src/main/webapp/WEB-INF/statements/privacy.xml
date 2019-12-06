@@ -1,0 +1,99 @@
+<root>
+	<statements_list>
+		<statement name="getPrivacyPazCode">
+			<sql>
+			<![CDATA[
+				select PAZ_PRIVACY_CODE from VIEW_AMB_WORKLIST_ANAG where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		
+		<statement name="getPrivacyHandlerKeys">				
+			<sql>
+			<![CDATA[
+				declare
+					tipoModulo varchar2(100) := ?;
+					idAnag varchar2(100) := ?;
+					urlPrivacyHander varchar2(2000) := '';
+					idAnagRemoto varchar2(2000) := '';
+				begin
+					SELECT VALORE into urlPrivacyHander FROM IMAGOWEB.CONFIGURA_MODULI where modulo='PRIVACY_HANDLER' and variabile = tipoModulo;
+					? := urlPrivacyHander ;
+					SELECT ID_REMOTO into idAnagRemoto FROM VIEW_IDEN_REPOSITORY where iden = to_number(idAnag);
+					? := idAnagRemoto;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		
+		<statement name="getPrivacyAnagInfo">
+			<sql>
+			<![CDATA[
+				select COGN, NOME, DATA,COD_FISC,COM_RES, COM_NASC, SESSO from anag where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		
+		<statement name="getPrivacyEsame">
+			<sql>
+			<![CDATA[
+				select * from VIEW_OSCURAMENTO_ESAME where iden in (select to_number(column_value) from table (split(?))) order by cod_oscuramento desc
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		
+		<statement name="updatePrivacyEsameByAccettazione">				
+			<sql>
+			<![CDATA[
+				begin
+					update esami set Privacy_Esame = XMLType(?) where num_pre in (select num_pre from esami where iden in(select to_number(column_value) from table (split(?))));
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="updatePrivacyEsameByIden">				
+			<sql>
+			<![CDATA[
+				begin
+					update esami set Privacy_Esame = XMLType(?) where iden in (select to_number(column_value) from table (split(?)));
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		
+		<statement name="getPazPrivacyTagValue">
+			<sql>
+			<![CDATA[
+				declare
+					tagPvcy varchar2(100) := ?;
+					idenAnag varchar2(100):= ?;
+					tagToFind varchar2(200):= '';
+					tagValue varchar2(200):='';
+				begin
+					tagToFind := '//consenso/flag[@key='''|| tagPvcy ||''']';
+					select Extractvalue(Extract(privacy_paziente, tagToFind),'/flag/@value') into tagValue from anag where iden = to_number(idenAnag);
+					? := tagValue;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+
+		
+		
+		
+		
+	</statements_list>
+</root>

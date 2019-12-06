@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+.input{
+	background:url(../../imagexPix/textbox/input_left.gif) no-repeat;
+	padding:0 0 0 4px;
+	float:left;
+	margin:1px;float:left;
+}
+.input span{
+	background:url(../../imagexPix/textbox/input_right.gif) no-repeat right top;
+	padding:1px 3px 3px 0;
+	float:left;
+}
+    /* if you want a different color, jsut specify it here, and change the color of the included .png files */
+.input span input{
+	background:url(../../imagexPix/textbox/bgndLightCyan.gif);
+	background-repeat:repeat-x;
+	font-weight:bold;
+	border:0;
+}

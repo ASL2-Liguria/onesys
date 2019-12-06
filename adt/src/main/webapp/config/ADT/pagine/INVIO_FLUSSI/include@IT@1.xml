@@ -1,0 +1,7 @@
+<INCLUDE>
+    <JS path="js/ADT/InvioFlussi/NS_PAGINA.js"/>
+    <JS path="js/ADT/InvioFlussi/NS_FLUSSI_SDO.js"/>
+    <JS path="js/ADT/InvioFlussi/NS_FLUSSI_DSA.js"/>
+    <JS path="js/ADT/InvioFlussi/NS_FLUSSI_ST.js"/>
+    <JS path="config/ADT/validator/model/V_INVIO_FLUSSI.js"/>
+</INCLUDE>

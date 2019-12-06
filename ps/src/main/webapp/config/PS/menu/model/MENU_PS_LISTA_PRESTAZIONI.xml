@@ -1,0 +1,22 @@
+<MENU>
+    <ID>MENU_PS_LISTA_PRESTAZIONI</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ELIMINA_PRESTAZIONE</ID>
+            <LINK><![CDATA[function(rec){PRESTAZIONI.eliminaPrestazioni(rec[0].IDEN_TESTATA, rec[0].IDEN_DETTAGLIO, rec[0].IDEN_CDC, rec[0].IDEN_NOMENCLATORE, rec[0].PRESTAZIONE);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){
+                if( ($("#READONLY").val()!=='S') && (rec[0].IDEN_MEDICO_INVIANTE == home.baseUser.IDEN_PER) ){
+                    return true;
+                }
+                else{
+                    return false;
+            }}]]></WHERE>
+            <OUTPUT>"Elimina Prestazioni"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Elimina Prestazioni"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

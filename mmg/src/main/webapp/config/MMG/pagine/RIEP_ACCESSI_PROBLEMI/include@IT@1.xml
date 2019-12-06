@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Riepilogo/filtriAccessiProblemi.css" />
+	<JS path="js/MMG/Riepilogo/filtriAccessiProblemi.js" />
+</INCLUDE>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>3</minChars>
+		<onSelect type="js">
+			<![CDATA[function(data){/*alert("Hai selezionato: " + data.DESCR);*/}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>300</width>
+		<zIndex>9999</zIndex>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>WORKLIST.WK_PRESTAZIONI</storedQuery>
+		<maxResults>40</maxResults>
+		<datasource>MMG_DATI</datasource>
+	</AJAX> 
+	<LIST>
+	    <title>Prestazioni</title>
+	    <id_wk>AC_PRESTAZIONI</id_wk>
+	    <onSelect type="js">
+			<![CDATA[function(ret){/*alert("Hai selezionato: " + data.DESCR);*/}]]>
+		</onSelect>
+	</LIST>
+
+</AUTOCOMPLETE>	 
+    

@@ -1,0 +1,153 @@
+/* CSS Document */
+/* definisco solo 4 colori base */
+/* i primi 4 feti, per gli altri */
+/* userò gli stessi, facendo la divisione per 4 */
+/* e prendendo il resto */
+
+/* CONTAINER */
+.containerFeto_0{
+	background-color:#562DFB;
+	color:white;
+	font-weight:bold;	
+}
+
+.containerFeto_1{
+	background-color:#009933;
+	color:white;
+	font-weight:bold;	
+}
+
+.containerFeto_2{
+	background-color:#993300;
+	color:white;
+	font-weight:bold;	
+}
+
+.containerFeto_3{
+	background-color:#D58E24;
+	color:white;
+	font-weight:bold;	
+}
+
+.containerFeto_4{
+	background-color:#993399;
+	color:white;
+	font-weight:bold;	
+}
+
+/* TOOLBAR */
+.toolbarFeto_0{
+	height:25px;
+	background-color:#562DFB;
+	padding:5px 5px 5px 5px;
+	color:white;	
+	font-weight:bold;	
+}
+
+.toolbarFeto_1{
+	height:25px;
+	background-color:#009933;
+	padding:5px 5px 5px 5px;	
+	color:white;
+	font-weight:bold;	
+}
+
+.toolbarFeto_2{
+	height:25px;
+	background-color:#993300;
+	padding:5px 5px 5px 5px;		
+	color:white;
+	font-weight:bold;	
+}
+
+.toolbarFeto_3{
+	height:25px;
+	background-color:#D58E24;
+	padding:5px 5px 5px 5px;	
+	color:white;
+	font-weight:bold;	
+}
+
+.toolbarFeto_4{
+	height:25px;
+	background-color:#993399;
+	padding:5px 5px 5px 5px;	
+	color:white;
+	font-weight:bold;	
+}
+
+/* CONTENT */
+.contentFeto_0{
+	background-color:#562DFB;
+	padding:5px 5px 5px 5px;	
+	
+}
+
+.contentFeto_1{
+	background-color:#009933;
+	padding:5px 5px 5px 5px;
+}
+
+.contentFeto_2{
+	background-color:#993300;
+	padding:5px 5px 5px 5px;
+}
+
+.contentFeto_3{
+	background-color:#D58E24;
+	padding:5px 5px 5px 5px;
+}
+
+.contentFeto_4{
+	background-color:#993399;
+	padding:5px 5px 5px 5px;
+}
+
+
+/* indiatore numero feti totali */
+.classFetiTotali{
+	background-color:#0000FF;
+	border:thin;
+	border-color:#FFFFFF;
+	color:white;
+	border-width:thin;
+}
+
+
+#idSelAnatomiaNotVisible{
+	background-color:#F9C6C7;
+}
+
+#idSelAnatomiaVisible{
+	background-color:#D8FFCE;
+}
+
+.classTitFlussiMaterno{
+	background-color:#ADE0FC;
+	text-align:center;
+	color:blue;
+	font-size:14px;	
+	font-weight:bold;
+}
+
+.warnPercentile{
+	margin-left:10px;
+	cursor:pointer;
+}
+
+warnPercentileEmpty{
+	margin-left:10px;	
+}
+
+.warnPercentile_over{
+	background-color:red;
+	margin-left:10px;
+	cursor:pointer;	
+}
+
+.warnPercentile_under{
+	margin-left:10px;
+	background-color:green;
+	cursor:pointer;	
+}
+

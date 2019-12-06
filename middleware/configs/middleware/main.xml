@@ -1,0 +1,39 @@
+<MAIN>
+    <!-- public web manager port -->
+    <PUBLICWEBPORT>9102</PUBLICWEBPORT>
+    <!-- internal manager port -->
+    <INTERNALMANAGERPORT>9111</INTERNALMANAGERPORT>
+    <!-- internal database web console port -->
+    <INTERNALDBWEBCONSOLEPORT>9133</INTERNALDBWEBCONSOLEPORT>
+    <!-- internal database port -->
+    <INTERNALDBPORT>9123</INTERNALDBPORT>
+    <!-- internal database bind address -->
+    <INTERNALDBBINDADDRESS>localhost</INTERNALDBBINDADDRESS>
+    <!-- default user web interface password -->
+    <WEBINTERFACEPWD>xa1ArD8w9qFdH6nTsLOhged8OyfL0iSV</WEBINTERFACEPWD>
+	<!-- users definition -->
+    <USERS>
+        <USER>
+            <NAME>read</NAME>
+            <PASSWORD>xa1ArD8w9qFdH6nTsLOhged8OyfL0iSV</PASSWORD>
+            <ROLE>read</ROLE>
+        </USER>
+    </USERS>
+	<!-- http or https -->
+    <WEBSSL>
+        <ACTIVE>false</ACTIVE>
+        <KESTORE>keystore.jks</KESTORE>
+        <KEYPASSWORD>ar7ND4DVAJk=</KEYPASSWORD>
+    </WEBSSL>
+<!--     <MONGODBAPPENDERURI>192.168.51.7:27017?database=test&amp;collection=test</MONGODBAPPENDERURI> -->
+    <LOGGERSTATUSLISTENER>disabled</LOGGERSTATUSLISTENER>
+    <SYSTEMPROPERTIES>
+    	<PROPERTY>groovy.use.classvalue=true</PROPERTY>
+    </SYSTEMPROPERTIES>
+    <INTERNALDB>enabled</INTERNALDB>
+    <ACTIVEMQ>enabled</ACTIVEMQ>
+    <MULTICASTPRODUCER>disabled</MULTICASTPRODUCER>
+    <LOGBACKMAXFILESIZE>100</LOGBACKMAXFILESIZE>
+    <TELNETPORT>23</TELNETPORT>
+<!--     <LOGBACKPATTERN>%d: %level - [%thread] - %logger - %marker -> %message%n</LOGBACKPATTERN> -->
+</MAIN>

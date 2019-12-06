@@ -1,0 +1,151 @@
+<PAGINA key_id="OFFLINE">
+	
+	<HEADER_OFFLINE key_id="OFFLINE" valore="OFFLINE#DEFAULT_MMG,OFFLINE#MMG offline#offline.appcache" evento="START_END">
+	</HEADER_OFFLINE>
+		
+	<DIV key_id="stampa" valore="stampa#invisible" evento="START">
+		<OBJECT key_id="AppStampa" valore="AppStampa#text/plain#0px#0px" evento="START">
+		</OBJECT>
+	</DIV>
+	
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		
+		<DIV key_id="divInfo" valore="divInfo" evento="START">
+		</DIV>
+				
+		<DIV key_id="divVersioneOffline" valore="divVersioneOffline" evento="START">
+		</DIV>
+		
+		<TABULAZIONE.INIT key_id="tab" valore="Offline#lblTitolo" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabWorklistAssistiti" valore="tabWorklistAssistiti" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldWorklistAssistiti" valore="fldWorklistAssistiti" evento="START">
+					
+					<TR.INIT key_id="tr1" valore="tr1" evento="START">
+						
+						<TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome" evento="START"></TD_LABEL_TEXT>
+						
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome" evento="START"></TD_LABEL_TEXT>
+						
+					</TR.INIT>
+					
+					<TR.INIT key_id="tr2" valore="tr2" evento="START">
+					
+						<TD_LABEL_DATA key_id="DataDiNascita" valore="lblDataDiNascita##txtDataDiNascita#DataDiNascita" evento="START"></TD_LABEL_DATA>	
+						
+						<TD_LABEL_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale##txtCodiceFiscale" evento="START"></TD_LABEL_TEXT>
+						
+					</TR.INIT>
+					
+					<TR.INIT key_id="tr3" valore="tr3" evento="START">
+
+						<TD_BUTTON key_id="butApplicaAssistito" valore="butApplicaAssistito##4" evento="START">
+					 		<BUTTON key_id="butSoloMieiAssistiti" valore="butSoloMieiAssistiti" evento="START"></BUTTON>	
+						</TD_BUTTON>
+					
+					</TR.INIT>
+					
+				</FIELDSET_TABLE>
+				
+				<DIV.WORKLIST key_id="divWorklistAssistiti" valore="divWorklistAssistiti" evento="START"></DIV.WORKLIST>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabDatiAssistito" valore="tabDatiAssistito" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldDatiAnagrafici" valore="fldDatiAnagrafici" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="CognomeAssistito" valore="lblCognomeAssistito##txtCognomeAssistito" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="NomeAssistito" valore="lblNomeAssistito##txtNomeAssistito" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="DataDiNascitaAssistito" valore="lblDataDiNascitaAssistito##txtDataDiNascitaAssistito" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="LuogoNascitaAssistito" valore="lblLuogoNascitaAssistito##txtLuogoNascitaAssistito" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="CodiceFiscaleAssistito" valore="lblCodiceFiscaleAssistito##txtCodiceFiscaleAssistito" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="ResidenzaAssistito" valore="lblResidenzaAssistito##txtResidenzaAssistito" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="DomicilioAssistito" valore="lblDomicilioAssistito##txtDomicilioAssistito" evento="START"></TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET key_id="fldEsenzioniAssistito" valore="fldEsenzioniAssistito" evento="START">
+					
+					<DIV key_id="listaEsenzioniAssistito" valore="listaEsenzioniAssistito" evento="START"></DIV>
+					
+				</FIELDSET>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabRiepilogoAssistito" valore="tabRiepilogoAssistito" evento="START">
+			
+				<FIELDSET key_id="fldProblemiAssistito" valore="fldProblemiAssistito" evento="START">
+					
+					<DIV key_id="listaProblemiAssistito" valore="listaProblemiAssistito" evento="START"></DIV>
+					
+				</FIELDSET>
+				
+				<FIELDSET key_id="fldRicetteFarmaciAssistito" valore="fldRicetteFarmaciAssistito" evento="START">
+					<DIV key_id="listaRicetteFarmaciAssistito" valore="listaRicetteFarmaciAssistito" evento="START"></DIV>
+					<TD_BUTTON key_id="butPrescrizioneFarmaci" valore="butPrescrizioneFarmaci" evento="START"></TD_BUTTON>
+				</FIELDSET>
+				
+				<FIELDSET key_id="fldDiarioAssistito" valore="fldDiarioAssistito" evento="START">
+					
+					<DIV key_id="listaDiarioAssistito" valore="listaDiarioAssistito" evento="START"></DIV>
+					
+				</FIELDSET>
+				
+				<FIELDSET key_id="fldRicetteAccertamentiAssistito" valore="fldRicetteAccertamentiAssistito" evento="START">
+					
+					<DIV key_id="listaRicetteAccertamentiAssistito" valore="listaRicetteAccertamentiAssistito" evento="START"></DIV>
+					
+					<TD_BUTTON key_id="butPrescrizioneAccertamenti" valore="butPrescrizioneAccertamenti" evento="START"></TD_BUTTON>
+					
+				</FIELDSET>				
+					
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabUltimiAggiornamenti" valore="tabUltimiAggiornamenti" evento="START">
+
+				<FIELDSET key_id="fldUltimiAggiornamenti" valore="fldUltimiAggiornamenti" evento="START">
+				
+					<TD_BUTTON key_id="butAggiorna" valore="butAggiorna" evento="START"></TD_BUTTON>
+					<TD_BUTTON key_id="butReimporta" valore="butReimporta" evento="START"></TD_BUTTON>
+					
+					<DIV key_id="listaUltimiAggiornamenti" valore="listaUltimiAggiornamenti" evento="START"></DIV>
+					
+					<DIV key_id="divEventiDaElaborare" valore="divEventiDaElaborare" evento="START">
+						<BUTTON key_id="butEventiDaElaborareInvia" valore="butEventiDaElaborareInvia" evento="START"></BUTTON>
+						<LABEL key_id="divEventiDaElaborareDescr" valore="divEventiDaElaborareDescr" evento="START"></LABEL>
+					</DIV>
+					
+				</FIELDSET>
+				
+				<FIELDSET key_id="fldUtilita" valore="fldUtilita" evento="START">
+					
+					<DIV key_id="divCreaShortcut" valore="divCreaShortcut" evento="START">
+						<TD_BUTTON key_id="butCreaShortcut" valore="butCreaShortcut" evento="START">
+							<LABEL key_id="butCreaShortcutDescrizione" valore="butCreaShortcutDescrizione" evento="START"></LABEL>
+						</TD_BUTTON>
+					</DIV>
+					
+					<DIV key_id="divRicaricaPagine" valore="divRicaricaPagine" evento="START">
+						<TD_BUTTON key_id="butRicaricaPagine" valore="butRicaricaPagine" evento="START">
+							<LABEL key_id="butRicaricaPagineDescrizione" valore="butRicaricaPagineDescrizione" evento="START"></LABEL>
+						</TD_BUTTON>
+					</DIV>
+					
+				</FIELDSET>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>
+

@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="config/ADT/validator/model/V_FRASI_STANDARD.js"/>
+	<CSS path="css/ADT/FRASI_STD_INSERT/FRASI_STD_INSERT.css"/>
+	<JS path="js/ADT/FRASI_STD_INSERT/FRASI_STD_INSERT.js"/>
+</INCLUDE>
+

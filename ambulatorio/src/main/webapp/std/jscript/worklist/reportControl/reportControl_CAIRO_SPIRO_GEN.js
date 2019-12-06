@@ -1,0 +1,1 @@
+document.write('<iframe width="95%" height="550px" src="moduloConsole/CAIRO_SPIRO_GEN.html" id = "objReportControl"></iframe>');

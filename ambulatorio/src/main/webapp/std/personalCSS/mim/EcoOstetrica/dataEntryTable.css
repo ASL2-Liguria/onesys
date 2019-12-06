@@ -1,0 +1,296 @@
+table.classDataEntryTable {
+	text-align: left;
+	width: 99%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+table.classDataEntryTableMiddle {
+	text-align: left;
+	width: 50%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+	
+}
+table.classDataEntryTableMiddleRight {
+	text-align: Right;
+	width: 30;
+	border: 0;
+	height:25px;
+	margin: 5px;
+	white-space: nowrap;
+	right: 0;
+}
+
+td.classTdLabelNoWidth{
+	white-space: nowrap;
+	border: 1px solid #B8BACD;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	right: 0px;
+}
+
+td.classTdLabel{
+	border: 1px solid #B8BACD;
+	background-color:#E3D8F1;
+	padding-left:5px;
+	width:140px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelObb{
+	border: 1px solid #B8BACD;
+	background-color:#00D235;
+	padding-left:5px;
+	width:140px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelOpt{
+	border: 1px solid #B8BACD;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:140px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelMiddle{
+	border: 1px solid #B8BACD;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:50%;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdField{
+	border: 1px solid #B8BACD;
+	background-color:#F9F0FF;
+	white-space: nowrap;
+}
+td.classTdFieldBigBord{
+	border: 1px solid #B8BACD;
+	background-color:#F9F0FF;
+	border-right-style:double;
+	border-left-style:double;
+	
+}
+
+
+td.classTdSize{
+	font-size:9.5px;
+	border: 1px solid #B8BACD;
+	background-color:#F9F0FF;
+}
+
+td.classTdLabelLink{
+	border: 1px solid #B8BACD;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:140px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+td.classTdLabelLinkObb{
+	border: 1px solid #B8BACD;
+	background-color:#00D235;
+	padding-left:5px;
+	width:140px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+td.classTdLabelLinkOpt{
+	border: 1px solid #B8BACD;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:140px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+/*APPROPRIATEZZA*/
+td.classTdLabelAppr{
+	white-space: nowrap;
+	border: 1px solid #B8BACD;
+	width:400px;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+}
+
+td.classTdFieldAppr{
+	white-space: nowrap;
+	border: 1px solid #B8BACD;
+	background-color:#F9F0FF;
+	font-size:12px;
+}
+
+td.classTdMetodica{
+	white-space: nowrap;
+	border: 1px solid #B8BACD;/*#B8BACD*/
+	background-color:#F9F0FF;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+}
+
+/*Utilizzato nella Gestione dell'Utente*/
+td.classTdFieldUte{
+	white-space: nowrap;
+	border: 1px solid #B8BACD;/*#B8BACD*/
+	background-color:#F9F0FF;
+	font-size:15px;
+}
+
+th.classThLabelLink{
+	border: 1px solid #B8BACD;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:140px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+table.classDataEntryTableStatic {
+	text-align: left;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+
+td.classTdLabelApprRef{
+	white-space: nowrap;
+	border: 1px solid #B8BACD;
+	width:400px;
+	background-color:#00CCFF;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+}
+
+td.btnormale
+{
+	background-color: #FF3300;
+	border-top-color: #FF9900;
+	border-left-color: #FF9900;
+	border-right-color: #FF9900;
+	border-bottom-color: #FF9900;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-align: center;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	width:auto;
+}
+
+td.btpremuto
+{
+	background-color: #0066FF;
+	border-top-color: #0000FF;
+	border-left-color: #0000FF;
+	border-right-color: #00CCFF;
+	border-bottom-color: #00CCFF;
+	font-size: 10px;
+	font-weight: bold;
+	color: yellow;
+	text-align: center;
+	border-top-width: 2px;
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+}
+
+
+/*FILTRI WORKLIST*/
+td.classTdFiltriLabel{
+	white-space: nowrap;
+	border: 1px solid #B8BACD;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:15px;
+	right: 0px;
+}
+
+td.classTdFiltriField{
+	border: 1px solid #B8BACD;
+	background-color:#F9F0FF;
+	white-space: nowrap;
+}
+
+table.classTableFiltri {
+	text-align: left;
+	width: 99%;
+	border: 0;
+	height:50px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+td.classTabHeaderMiddleFiltri {
+	background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:13px;
+	color:#0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.textAreaFullWidth{
+	width:100%;
+}

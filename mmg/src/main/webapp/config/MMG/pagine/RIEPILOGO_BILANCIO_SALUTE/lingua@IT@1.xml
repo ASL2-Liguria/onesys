@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <tabRiepilogoBilanciSalute>Riepilogo dei Bilanci di Salute</tabRiepilogoBilanciSalute>
+        <tabRiepilogo>Riepilogo dei Bilanci di Salute</tabRiepilogo>
+        
+        <fldRicerca>Lista dei bilanci di salute effettuati</fldRicerca>
+        
+        <lblBilancioSalute>Bilancio Salute</lblBilancioSalute>
+        <lblBilancioSalute1>N° 1 (10 - 45 giorni)</lblBilancioSalute1>
+		<lblBilancioSalute2>N° 2 (61 - 90 giorni)</lblBilancioSalute2>
+		<lblBilancioSalute3>N° 3 (121 - 180 giorni)</lblBilancioSalute3>
+		<lblBilancioSalute4>N° 4 (211 - 270 giorni)</lblBilancioSalute4>
+		<lblBilancioSalute5>N° 5 (10 - 12 mesi)</lblBilancioSalute5>
+		<lblBilancioSalute6>N° 6 (15 - 18 mesi)</lblBilancioSalute6>
+		<lblBilancioSalute7>N° 7 (24 - 36 mesi)</lblBilancioSalute7>
+		<lblBilancioSalute8>N° 8 (5 - 6 anni)</lblBilancioSalute8>
+        
+        <lblPaziente>Paziente</lblPaziente>
+        <lblDataRegistrazione>Data di registrazione</lblDataRegistrazione>
+        <lblMedico>Medico</lblMedico>
+        <lblTipoBilancioSalute>Tipo di Bilancio di Salute</lblTipoBilancioSalute>
+        
+        <lblTitolo>Riepilogo dei Bilanci di Salute</lblTitolo>
+        
+        <butApplica>Applica</butApplica>
+        <butChiudi>Chiudi</butChiudi>
+        
+        <but_bs_1>N° 1 (10 - 45 giorni)</but_bs_1>
+        <but_bs_2>N° 2 (61 - 90 giorni)</but_bs_2>
+        <but_bs_3>N° 3 (4 - 6 mesi)</but_bs_3>
+        <but_bs_4>N° 4 (7 - 9 mesi)</but_bs_4>
+        <but_bs_5>N° 5 (10 - 12 mesi)</but_bs_5>
+        <but_bs_6>N° 6 (15 - 18 mesi)</but_bs_6>
+        <but_bs_7>N° 7 (24 - 36 mesi)</but_bs_7>
+        <but_bs_8>N° 8 (5 - 6 anni)</but_bs_8>
+        
+        <lblApriBilancioSalute>Apri Bilancio Salute</lblApriBilancioSalute>
+        
+    </ROW>
+</ROWSET>

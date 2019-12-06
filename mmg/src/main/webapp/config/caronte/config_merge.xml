@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<MERGES>
+    <MERGE>
+        <PATH value="//QUERIES" id_node="QUERY_GROUP">
+            <CONDITION type="missing" value="@id"/>
+        </PATH>
+    </MERGE>
+    <MERGE>
+        <PATH value="//QUERIES" id_node="QUERY_GROUP">
+            <CONDITION value="@id">
+                <MERGE>
+                    <PATH value="." id_node="QUERY">
+                        <CONDITION type="equal" value="@id"/>
+                    </PATH>
+                </MERGE>
+            </CONDITION>
+        </PATH>
+    </MERGE>
+</MERGES>

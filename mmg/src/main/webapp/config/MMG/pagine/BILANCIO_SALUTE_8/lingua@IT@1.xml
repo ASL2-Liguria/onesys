@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Bilancio di salute n.8 (5-6 anni)</lblTitolo>
+        
+        <tabBilancioSalute>Bilancio di salute</tabBilancioSalute>
+        <tabSviluppoPsicomotorio>Sviluppo psicomotorio</tabSviluppoPsicomotorio>
+        <tabControlloStomatologico>Controllo stomatologico</tabControlloStomatologico>
+        
+        <fldDatiGenerali>Dati generali</fldDatiGenerali>
+        <fldDatiAuxometrici>Dati auxometrici</fldDatiAuxometrici>
+        <fldEsameClinico>Esame clinico</fldEsameClinico>
+        <fldSonno>Sonno</fldSonno>
+        <fldSviluppoPsicomotorio>Sviluppo psicomotorio</fldSviluppoPsicomotorio>
+        <!-- <fldDentizioneSuperioreSX>Dentizione superiore SX</fldDentizioneSuperioreSX>
+		<fldDentizioneSuperioreDX>Dentizione superiore DX</fldDentizioneSuperioreDX>
+		<fldDentizioneInferioreSX>Dentizione inferiore SX</fldDentizioneInferioreSX>
+		<fldDentizioneInferioreDX>Dentizione inferiore DX</fldDentizioneInferioreDX> -->
+		<fldDentizioneCompleta>Controllo Stomatologico</fldDentizioneCompleta>
+		<labelsupSX>Dentizione sinistra</labelsupSX>
+		<labelsupDX>Dentizione destra</labelsupDX>
+		<fldDentizione>Dentizione</fldDentizione>
+        <fldNotizieAlimentazione>Notizie sull'alimentazione</fldNotizieAlimentazione>
+        <fldNoteControlloStomatologico>Note sul controllo stomatologico</fldNoteControlloStomatologico>
+        
+        <lblData>Data compilazione</lblData>
+        <lblEtaAnni>Anni</lblEtaAnni>
+        <lblEtaMesi>Mesi</lblEtaMesi>
+        <lblEtaGiorni>Giorni</lblEtaGiorni>
+        <lblRaccordoAnamnestico>Raccordo anamnestico</lblRaccordoAnamnestico>
+        <lblPeso>Peso (kg)</lblPeso>
+        <lblPesoCentile>...</lblPesoCentile>
+        <lblAltezza>Lunghezza (cm)</lblAltezza>
+        <lblAltezzaCentile>...</lblAltezzaCentile>
+        <lblBMI>BMI</lblBMI>
+        <lblCirconferenza_Cranica>Circ. cranica (cm)</lblCirconferenza_Cranica>
+        <lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+        <lblNoteSonno>Note</lblNoteSonno>
+        <lblUdito>Udito</lblUdito>
+        <lblVisitaOculistica_Si_No>Visita oculistica</lblVisitaOculistica_Si_No>
+        <lblScoliosi_Si_No>Scoliosi in trattamento</lblScoliosi_Si_No>
+        <lblPatologiaPiede_Si_No>Patologia strutturale piede</lblPatologiaPiede_Si_No>
+        <lblNoteEsameClinico>Note</lblNoteEsameClinico>
+        
+        <lblDeambulazione_Si_No>Deambulazione: adeguata</lblDeambulazione_Si_No>
+		<lblControlloSfinteri_Si_No>Controllo sfinteri</lblControlloSfinteri_Si_No>
+		<lblLinguaggio_Si_No>Linguaggio: adeguato</lblLinguaggio_Si_No>
+		<lblVitaRelazione>Vita di relazione</lblVitaRelazione>
+		<lblNotizieAlimentazione>Notizie sull'alimentazione</lblNotizieAlimentazione>	
+		<lblNoteControlloStomatologico>Note</lblNoteControlloStomatologico>				
+		<lblComportamentoBambino>Comportamento del bambino</lblComportamentoBambino>				
+				
+		<lblVisiteOdontoiatriche>Eseguite visite odontoiatriche</lblVisiteOdontoiatriche>				
+		<lblOrtognatopatie>Ortognatopatie</lblOrtognatopatie>
+		<lblCarie>Carie</lblCarie>
+		<lblFluoroprofilassi>Fluoroprofilassi</lblFluoroprofilassi>						
+				
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <lblSiCasa>Sì a casa</lblSiCasa>
+        <lblSiScuola>Sì a scuola</lblSiScuola>
+        <lblNo>No</lblNo>
+        <butSalva>Salva</butSalva>
+        <butStampa>Salva e Stampa</butStampa>
+        <butChiudi>Chiudi</butChiudi>
+        <PD></PD>
+        
+    </ROW>
+</ROWSET>

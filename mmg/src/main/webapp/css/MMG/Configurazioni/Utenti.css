@@ -1,0 +1,20 @@
+body {
+	width: 960px;
+}
+
+#fldUtente td.tdText input, #fldINPS td.tdText input {
+	width: 350px;
+}
+
+
+body.mce-content-body {
+	font-size: 12px !important;
+}
+
+#fldOffline {
+	width: 80%;
+}
+
+#txtPersistenzaPrivacy, #txtPersistenzaAllergie{
+	width:50px;
+}

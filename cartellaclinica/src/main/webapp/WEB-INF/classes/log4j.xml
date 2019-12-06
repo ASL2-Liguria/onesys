@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="false"
+	xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="ROLL" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern"
+				value="${catalina.home}/logs/whale.%d{yyyy-MM-dd__HH}.log.gz" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d --> %p %t %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PRIVACY" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern"
+				value="${catalina.home}/logs/logsPrivacy/whale.%d{yyyy-MM-dd__HH}.log.gz" />
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d --> %p %t %c - %m%n" />
+		</layout>
+	</appender>
+        
+	<appender name="HL7Listner" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern" value="${catalina.home}/logs/whale.hl7listner.%d{yyyy-MM-dd__HH}.log.gz"/>
+		</rollingPolicy>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d --> %p %t %c - %m%n"/>
+		</layout>
+	</appender>        
+
+	<logger name="org.directwebremoting.util.Logger">
+		<level value="WARN" />
+		<appender-ref ref="ROLL" />
+	</logger>
+
+	<logger name="imago.sql.dbConnections">
+		<appender-ref ref="ROLL" />
+	</logger>
+        
+	<logger name="it.elco.whale.hl7">
+		<level value="WARN"/>
+		<appender-ref ref="HL7Listner" />
+	</logger>        
+
+	<logger name="it.elco.privacy">
+		<level value="DEBUG" />
+		<appender-ref ref="PRIVACY" />
+	</logger>
+
+	<root>
+		<level value="DEBUG" />
+		<appender-ref ref="ROLL" />
+	</root>
+</log4j:configuration>

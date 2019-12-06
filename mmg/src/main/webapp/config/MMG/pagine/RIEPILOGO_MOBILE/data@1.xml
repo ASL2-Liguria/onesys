@@ -1,0 +1,7 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	
+	<!--  
+		<DATO key_id="fldAggiornamenti" configurazione_stato="begin :stato := 'E'; end;" db_valore="LEGEND_PROBLEMI" db_descrizione="LEGEND_AGGIORNAMENTI" configurazione_multi_data="" />
+	-->	
+		
+</DATI>

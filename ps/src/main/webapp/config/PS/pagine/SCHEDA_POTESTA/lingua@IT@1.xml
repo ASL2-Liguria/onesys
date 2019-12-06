@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblDataNasc>Data di Nascita</lblDataNasc>
+        <lblSesso>Sesso</lblSesso>
+        <lblLuogoNasc>Luogo di Nascita</lblLuogoNasc>
+        <lblCodFisc>Codice Fiscale</lblCodFisc>
+        <tabDatiPrincipali>Dati Anagrafici</tabDatiPrincipali>
+        <fldDP>Dati Principali</fldDP>
+        <butInserisci>Inserisci</butInserisci>
+
+    </ROW>
+</ROWSET>

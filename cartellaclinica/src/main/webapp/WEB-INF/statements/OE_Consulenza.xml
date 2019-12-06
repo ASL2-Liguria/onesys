@@ -1,0 +1,205 @@
+<root>
+	<statements_list>
+	
+		<statement name="consulenze.setAccettato">
+			<sql>
+			<![CDATA[
+				declare
+					sOut varchar2(4001);
+				begin
+				
+					radsql.OE_CONSULENZA.accettaConsulenza(?,?,null,sOut);
+								
+				end;
+			]]>
+			</sql>
+		</statement>
+	
+		<statement name="consulenze.annullaAccettato">
+			<sql>
+			<![CDATA[
+				declare
+					sOut varchar2(4001);
+				begin
+				
+					radsql.OE_CONSULENZA.accettaConsulenza(?,?,?,sOut);
+								
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.caricaPrestazioniRichiesta">
+			<sql>
+			<![CDATA[
+  				select 
+  					te.iden valore,
+  					te.descr testo,
+  					dr.esame_associato 
+  				from infoweb.dettaglio_richieste dr
+  				join tab_esa te on (dr.iden_tab_esa = te.iden)
+  				where dr.iden_testata = ? and stato_dettaglio<>'X'
+			]]>
+			</sql>
+		</statement>	
+		<statement name="consulenze.caricaPrestazioniSelezionabili">
+			<sql>
+			<![CDATA[
+  				SELECT col01 valore,col02 testo FROM TABLE(GETESAMIRICHIEDIBILI(?,?,?))
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.registraPrestazioniAggiuntive">
+			<sql>
+			<![CDATA[
+					declare
+					  	pPrestazioniAggiunte  		varchar2(4001) := ?;
+					  	pIdenTestataRichiesta 		pls_integer := to_number(?);
+					  	vArrayPrestazioni			ARRAY_NUMBER;
+					  	vOut						varchar2(4001):='';
+					begin
+					  	vArrayPrestazioni := split2array_number(pPrestazioniAggiunte,'@');
+					  	if pPrestazioniAggiunte='' or pPrestazioniAggiunte is null then
+					  		vOut := 'KO';
+					    else
+					  		vOut := radsql.OE_CONSULENZA.salvaPrestazioniAggiunte(pIdenTestataRichiesta,vArrayPrestazioni);					    	
+					    end if;
+					    ? := vOut;
+					end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.controllaRefertoAnnullativo">
+			<sql>
+			<![CDATA[
+  				select 
+  					type_firma
+  				from cc_firma_pdf 
+  				where iden_tab = ? 
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.retrieveNumNosologico">
+			<sql>
+			<![CDATA[
+					declare
+						pIdenVisita  pls_integer := to_number(?);
+						pOut varchar2(5000);
+					begin
+						pOut := radsql.cc_ricoveri.getNumNosologico(pIdenVisita);
+						? := pOut;
+					end;
+
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.retrieveTipoMed">
+			<sql>
+			<![CDATA[
+				select 
+ 			    extractvalue(elements.column_value,'//@tipo') TIPO,
+			     extractvalue(elements.column_value,'//@tipo_med') TIPO_MED,
+			     extractvalue(elements.column_value,'//text()') DESCR
+ 			    from 
+ 			     TABLE(
+ 		       xmlsequence(
+ 		         EXTRACT(
+	            xmltype(imagoweb.pck_configurazioni.getValue('','',?,'SCELTA_TIPO_MED_CONSULENZE')),'ROOT/UTENTI/UTENTE'
+ 		         )
+		        )
+		      ) elements
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.logoFisio.aperturaCartella">
+			<sql>
+                            <![CDATA[		
+                                DECLARE
+                                        vIdenTestata  	pls_integer := to_number(?);
+                                        vIdenVisita  	pls_integer := to_number(?);
+                                        vNummin         pls_integer := to_number(?);    
+                                        vIdenVersione 	pls_integer ;
+                                        vInizioTrattamento 	varchar2(10);
+                                        vFineTrattamento 	varchar2(10);
+                                        vFinoFineRicovero	varchar2(1);
+                                        vDataFineRicovero  	varchar2(10);
+                                        vChiuso         	varchar2(1);
+                                        vReturn 	    	varchar2(4000) := '';
+                                BEGIN
+                                        BEGIN
+                                                SELECT dr.IDEN_REF INTO vIdenVersione 
+                                                FROM infoweb.DETTAGLIO_RICHIESTE DR 
+                                                WHERE dr.IDEN_TESTATA = vIdenTestata and rownum=1;
+                                                
+                                           /*     SELECT GET_KEY_CAMPO_VALUE(XMLTYPE(TESTO_HTML), 'inizioTrattamento'), GET_KEY_CAMPO_VALUE(XMLTYPE(TESTO_HTML), 'fineTrattamento'), GET_KEY_CAMPO_VALUE(XMLTYPE(TESTO_HTML), 'finoFineRicovero') 
+                                                INTO vInizioTrattamento, vFineTrattamento, vFinoFineRicovero
+                                                FROM radsql.CC_LETTERA_SEZIONE 
+                                                WHERE iden_versione = vIdenVersione AND id_elemento = 'durataTrattamento';*/
+                                                
+                                                SELECT to_char(data_inizio,'DD/MM/YYYY'),to_char(data_fine,'DD/MM/YYYY'),ffr,chiuso 
+                                                INTO vInizioTrattamento, vFineTrattamento, vFinoFineRicovero,vChiuso
+                                                FROM radsql.CC_TRATTAMENTI 
+                                                WHERE iden_versione = vIdenVersione;                                                
+
+                                                EXCEPTION WHEN NO_DATA_FOUND THEN
+                                                        vReturn := 'OK|';
+                                        END;
+
+                                        IF vReturn IS NULL THEN	
+                                        
+                                        		if (vChiuso='S') then
+                                        		  vReturn := 'KO|Cartella Bloccata: Trattamento concluso!';
+                                        		
+                                                elsif vFinoFineRicovero = 'N' and  vFineTrattamento is null THEN
+                                                    if vNummin>360 then
+                                                        vReturn :='KO|Cartella Bloccata: superate limite massimo di ore!';
+                                                    else
+                                                        vReturn :='OK|';
+                                                    end if;
+                                                elsif vFinoFineRicovero = 'N' and  vFineTrattamento is not null THEN
+                                                        IF (TO_CHAR(SYSDATE, 'YYYYMMDD') <= radsql.DATETIMECONVERTER(vFineTrattamento, 'DD/MM/YYYY', 'YYYYMMDD')) THEN
+                                                                vReturn := 'OK|';
+                                                        ELSE
+                                                                vReturn := 'KO|Cartella Bloccata: Trattamento concluso!';
+                                                        END IF;
+                                                elsif vFinoFineRicovero = 'S' then
+                                                        BEGIN
+                                                                SELECT 
+                                                                        CASE 
+                                                                                WHEN np1.DATA_FINE_RICOVERO IS NULL THEN TO_CHAR(SYSDATE, 'YYYYMMDD')
+                                                                                ELSE np1.DATA_FINE_RICOVERO
+                                                                        END INTO vDataFineRicovero
+                                                                FROM radsql.NOSOLOGICI_PAZIENTE NP1 
+                                                                WHERE (np1.IDEN = vIdenVisita AND np1.ACCESSO = 0 AND np1.DIMESSO = 'S' AND np1.DELETED = 'N') OR np1.IDEN = (
+                                                                    SELECT np2.PARENT 
+                                                                    FROM radsql.NOSOLOGICI_PAZIENTE NP2 
+                                                                    WHERE np2.IDEN = vIdenVisita AND np2.ACCESSO = 1
+                                                                );
+
+                                                                --SELECT data_fine_ricovero INTO vDataFineRicovero 
+                                                                --FROM radsql.NOSOLOGICI_PAZIENTE 
+                                                                --WHERE iden = vIdenVisita AND dimesso = 'S' AND deleted = 'N';
+																		
+
+                                                                IF (TO_DATE(vDataFineRicovero, 'YYYYMMDD') >= TRUNC(SYSDATE, 'DD')) THEN
+                                                                        vReturn := 'OK|';
+                                                                ELSE
+                                                                        vReturn := 'KO|Cartella Bloccata: Trattamento concluso!';
+                                                                END IF;
+
+                                                                EXCEPTION WHEN NO_DATA_FOUND THEN
+                                                                        vReturn := 'OK|';
+                                                        END;
+
+                                                END IF;
+                                        END IF;
+
+                                        --RADSQL.GEST_LOGS.ERROR('consulenze.logoFisio.aperturaCartella','vReturn: '||vReturn); 
+                                        ? := vReturn; 
+                                END;
+                            ]]>
+			</sql>
+		</statement>
+	</statements_list>	
+</root>
+
+

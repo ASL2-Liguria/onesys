@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>RILEVAZIONI_DIA_FONTANELLA</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.RILEVAZIONI_DIA_FONTANELLA</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+      <MENU>
+            <ID>MENU_RILEVAZIONI_BMI</ID>
+        </MENU>
+        
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA</COL>
+						<DB>DATA</DB>
+					</ID>
+					<DESCRIPTOR>"Data Rilevazione"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DIA_FONTANELLA</COL>
+						<DB>DIA_FONTANELLA</DB>
+					</ID>
+                    <DESCRIPTOR>"Diametro fontanella"</DESCRIPTOR>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

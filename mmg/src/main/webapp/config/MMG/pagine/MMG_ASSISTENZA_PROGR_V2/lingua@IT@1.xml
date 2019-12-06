@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>ASSISTENZA PROGRAMMATA DOMICILIARE AD ASSISTITI NON DEAMBULANTI</lblTitolo>
+        <butSalvaStampa>Salva e Stampa</butSalvaStampa>
+        <tabPartePrima>Sezione n.1</tabPartePrima>
+        <tabParteSeconda>Sezione n.2</tabParteSeconda>
+		<lblCasa_Riposo>Casa di Riposo</lblCasa_Riposo>
+		
+		<fldAnamnesiPatologica>Anamnesi Patologica Remota</fldAnamnesiPatologica>
+		<fldDiagnosiAttuale>Diagnosi Attuale</fldDiagnosiAttuale>
+		<fldTerapia>Terapia</fldTerapia>
+		<fldPrestazioni>Il paziente necessita delle seguenti prestazioni</fldPrestazioni>
+		<fldNote>Note</fldNote>
+		
+		<lblProblemiPaziente>Diagnosi (o sospetti diagnostici) Paziente</lblProblemiPaziente>
+		<lblTerapiaPaziente>Terapie croniche del paziente</lblTerapiaPaziente>
+		<lblDiagnosiPaziente>Diagnosi (o sospetti diagnostici) Paziente</lblDiagnosiPaziente>
+		
+		<fldDataScadenza>Scadenza del modulo</fldDataScadenza>
+		<fld3>Si richiede attivazione ADP per impossibilità dell'utente a raggiungere lo studio del medico per uno o più dei seguenti motivi:</fld3>
+		<fld6>Proposte di Accessi Domiciliari</fld6>
+		<lblDataScadenza>Data di scadenza</lblDataScadenza>
+		
+		<lblMsgPromemoria>Il modulo ADP inserito per il paziente scadrà il giorno </lblMsgPromemoria>
+		<lblMsgAutomatico>Questo messaggio è generato automaticamente all'inserimento del modulo ADP</lblMsgAutomatico>
+		
+		<butInserisciAnamnesi>Inserisci</butInserisciAnamnesi>
+		<butInserisciDiagnosi>Inserisci</butInserisciDiagnosi>
+		<butInserisciTerapia>Inserisci</butInserisciTerapia>
+			
+    </ROW>
+</ROWSET>

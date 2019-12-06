@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){/*alert("You selected: " + data.DESCR);*/}]]>
+        </onSelect>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.WK_REPARTI_DESTINAZIONE_VPO</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Reparti disponibili</title>
+        <id_wk>WK_REPARTI_DESTINAZIONE_VPO</id_wk>
+    </LIST>
+    <QUERY_BINDS>
+        <iden_cdc>0</iden_cdc>
+    </QUERY_BINDS>
+</AUTOCOMPLETE>

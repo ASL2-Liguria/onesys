@@ -1,0 +1,216 @@
+# DEFAULT CACHE REGION
+jcs.default=
+jcs.default.cacheattributes=org.apache.jcs.engine.CompositeCacheAttributes
+jcs.default.cacheattributes.MaxObjects=100000
+jcs.default.cacheattributes.MemoryCacheName=org.apache.jcs.engine.memory.lru.LRUMemoryCache
+#jcs.default.elementattributes=org.apache.jcs.engine.ElementAttributes
+jcs.default.elementattributes.IsEternal=false
+jcs.default.elementattributes.MaxLifeSeconds=86400
+jcs.default.elementattributes.IdleTime=86400
+
+#jcs.auxiliary.DC=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheFactory
+#jcs.auxiliary.DC.attributes=org.apache.jcs.auxiliary.disk.indexed.IndexedDiskCacheAttributes
+#jcs.auxiliary.DC.attributes.DiskPath=c:/temp/cache/indexed-disk-cache
+#jcs.auxiliary.DC.attributes.MaxPurgatorySize=100
+#jcs.auxiliary.DC.attributes.MaxKeySize=-1
+#jcs.auxiliary.DC.attributes.MaxRecycleBinSize=100
+#jcs.auxiliary.DC.attributes.OptimizeAtRemoveCount=5000
+#jcs.auxiliary.DC.attributes.OptimizeOnShutdown=true
+#jcs.auxiliary.DC.attributes.ShutdownSpoolTimeLimit=600
+#jcs.auxiliary.DC.attributes.ClearDiskOnStartup=true
+
+# SDJ_XML
+jcs.region.SDJ_XML=
+jcs.region.SDJ_XML.cacheattributes.MaxObjects=10
+
+# BASE_GLOBAL
+jcs.region.BASE_GLOBAL=
+jcs.region.BASE_GLOBAL.cacheattributes.MaxObjects=10
+
+# BASE_GLOBAL_FILE
+jcs.region.BASE_GLOBAL_FILE=
+jcs.region.BASE_GLOBAL_FILE.cacheattributes.MaxObjects=10
+
+# CARONTE_QUERY
+jcs.region.CARONTE_QUERY=
+jcs.region.CARONTE_QUERY.cacheattributes.MaxObjects=10000
+
+# PACS_SCAN_AETITLE
+jcs.region.PACS_SCAN_AETITLE=
+jcs.region.PACS_SCAN_AETITLE.cacheattributes.MaxObjects=10000
+
+# MENU_CONFIG_ENGINE
+jcs.region.MENU_CONFIG_ENGINE=
+jcs.region.MENU_CONFIG_ENGINE.cacheattributes.MaxObjects=10
+
+# MENU_CONFIG_STRUCTURE
+jcs.region.MENU_CONFIG_STRUCTURE=
+jcs.region.MENU_CONFIG_STRUCTURE.cacheattributes.MaxObjects=500
+
+# CACHE-MANIFEST
+jcs.region.CACHE-MANIFEST=
+jcs.region.CACHE-MANIFEST.cacheattributes.MaxObjects=10
+
+# TEMPLATES
+jcs.region.TEMPLATES=
+jcs.region.TEMPLATES.cacheattributes.MaxObjects=100
+
+# INCLUDE_FILES
+jcs.region.INCLUDE_FILES=
+jcs.region.INCLUDE_FILES.cacheattributes.MaxObjects=10000
+
+# LINGUA
+jcs.region.LINGUA=
+jcs.region.LINGUA.cacheattributes.MaxObjects=2000
+
+# WORKLIST_CONFIG_ENGINE
+jcs.region.WORKLIST_CONFIG_ENGINE=
+jcs.region.WORKLIST_CONFIG_ENGINE.cacheattributes.MaxObjects=30
+
+# FILTRI
+jcs.region.FILTRI=
+jcs.region.FILTRI.cacheattributes.MaxObjects=1000000
+
+# WORKLIST_CONFIG_STRUCTURE
+jcs.region.WORKLIST_CONFIG_STRUCTURE=
+jcs.region.WORKLIST_CONFIG_STRUCTURE.cacheattributes.MaxObjects=1000000
+
+# ACCORDION_MENU
+jcs.region.ACCORDION_MENU=
+jcs.region.ACCORDION_MENU.cacheattributes.MaxObjects=10000
+
+# AC_CONFIG
+jcs.region.AC_CONFIG=
+jcs.region.AC_CONFIG.cacheattributes.MaxObjects=10000
+
+# MENU
+jcs.region.MENU=
+jcs.region.MENU.cacheattributes.MaxObjects=100000
+
+# PARAM
+jcs.region.PARAM=
+jcs.region.PARAM.cacheattributes.MaxObjects=100000
+
+# TEMPLATES
+jcs.region.TEMPLATES=
+jcs.region.TEMPLATES.cacheattributes.MaxObjects=100
+
+# UL_MENU
+jcs.region.UL_MENU=
+jcs.region.UL_MENU.cacheattributes.MaxObjects=100000
+
+# HTML_CONFIG
+jcs.region.HTML_CONFIG=
+jcs.region.HTML_CONFIG.cacheattributes.MaxObjects=10000
+
+# HTML_ATTRIBUTI_ENGINE
+jcs.region.HTML_ATTRIBUTI_ENGINE=
+jcs.region.HTML_ATTRIBUTI_ENGINE.cacheattributes.MaxObjects=600000
+
+# HTML_PARAMETER
+jcs.region.HTML_PARAMETER=
+jcs.region.HTML_PARAMETER.cacheattributes.MaxObjects=600000
+
+# HTML_STRUTTURA_A
+jcs.region.HTML_STRUTTURA_A=
+jcs.region.HTML_STRUTTURA_A.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_B
+jcs.region.HTML_STRUTTURA_B=
+jcs.region.HTML_STRUTTURA_B.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_C
+jcs.region.HTML_STRUTTURA_C=
+jcs.region.HTML_STRUTTURA_C.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_D
+jcs.region.HTML_STRUTTURA_D=
+jcs.region.HTML_STRUTTURA_D.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_E
+jcs.region.HTML_STRUTTURA_E=
+jcs.region.HTML_STRUTTURA_E.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_F
+jcs.region.HTML_STRUTTURA_F=
+jcs.region.HTML_STRUTTURA_F.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_G
+jcs.region.HTML_STRUTTURA_G=
+jcs.region.HTML_STRUTTURA_G.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_H
+jcs.region.HTML_STRUTTURA_H=
+jcs.region.HTML_STRUTTURA_H.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_I
+jcs.region.HTML_STRUTTURA_I=
+jcs.region.HTML_STRUTTURA_I.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_J
+jcs.region.HTML_STRUTTURA_J=
+jcs.region.HTML_STRUTTURA_J.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_K
+jcs.region.HTML_STRUTTURA_K=
+jcs.region.HTML_STRUTTURA_K.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_L
+jcs.region.HTML_STRUTTURA_L=
+jcs.region.HTML_STRUTTURA_L.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_M
+jcs.region.HTML_STRUTTURA_M=
+jcs.region.HTML_STRUTTURA_M.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_N
+jcs.region.HTML_STRUTTURA_N=
+jcs.region.HTML_STRUTTURA_N.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_O
+jcs.region.HTML_STRUTTURA_O=
+jcs.region.HTML_STRUTTURA_O.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_P
+jcs.region.HTML_STRUTTURA_P=
+jcs.region.HTML_STRUTTURA_P.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_Q
+jcs.region.HTML_STRUTTURA_Q=
+jcs.region.HTML_STRUTTURA_Q.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_R
+jcs.region.HTML_STRUTTURA_R=
+jcs.region.HTML_STRUTTURA_R.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_S
+jcs.region.HTML_STRUTTURA_S=
+jcs.region.HTML_STRUTTURA_S.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_T
+jcs.region.HTML_STRUTTURA_T=
+jcs.region.HTML_STRUTTURA_T.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_U
+jcs.region.HTML_STRUTTURA_U=
+jcs.region.HTML_STRUTTURA_U.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_V
+jcs.region.HTML_STRUTTURA_V=
+jcs.region.HTML_STRUTTURA_V.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_W
+jcs.region.HTML_STRUTTURA_W=
+jcs.region.HTML_STRUTTURA_W.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_X
+jcs.region.HTML_STRUTTURA_X=
+jcs.region.HTML_STRUTTURA_X.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_Y
+jcs.region.HTML_STRUTTURA_Y=
+jcs.region.HTML_STRUTTURA_Y.cacheattributes.MaxObjects=500000
+
+#HTML_STRUTTURA_Z
+jcs.region.HTML_STRUTTURA_Z=
+jcs.region.HTML_STRUTTURA_Z.cacheattributes.MaxObjects=500000

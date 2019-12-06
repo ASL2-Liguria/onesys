@@ -1,0 +1,13 @@
+<INCLUDE>
+    <CSS path="css/PS/Cartella/Console.css"  />
+    <CSS path="css/PS/Cartella/Cartella.css" />
+    <JS path="js/PS/TabHomePS/Lock.js"/>
+    <JS path="js/PS/TabHomePS/FunzioniMenu.js" />
+    <JS path="js/PS/Cartella/InfoPaziente.js" />
+    <JS path="js/PS/Cartella/NS_PANEL.js" />
+    <JS path="js/PS/Cartella/CARTELLA_DXSX.js" />
+    <JS path="js/PS/Cartella/CARTELLA_CONTENT.js" />
+    <JS path="js/PS/Cartella/CARTELLA_HEADER.js" />
+    <JS path="js/NS_APPLICATIONS.js"/>
+    <JS path="js/PS/DialogPS/DialogPS.js"/>
+</INCLUDE>

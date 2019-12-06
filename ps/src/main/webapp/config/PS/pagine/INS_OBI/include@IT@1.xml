@@ -1,0 +1,7 @@
+<INCLUDE>
+    <CSS path="css/PS/InsObi/insObi.css"/>
+    <JS path="js/PS/TabHomePS/Lock.js" />
+    <JS path="config/PS/validator/model/V_INS_OBI.js" />
+    <JS path="js/PS/Obi/OBI.js" />
+    <JS path="js/PS/Obi/InsObi.js" />
+</INCLUDE>

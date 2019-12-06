@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.labelDivIntestazione{
+	width:100%;
+	padding:5px;
+	text-align:center;
+}
+
+
+div.labelDivIntestazione span{
+	width:auto;
+	padding:2px;
+	border:#fff 3px solid;
+	font-weight:bold;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+}

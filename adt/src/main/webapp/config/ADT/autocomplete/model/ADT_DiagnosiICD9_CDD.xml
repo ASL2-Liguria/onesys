@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>3</minChars>
+        <onSelect type="js"></onSelect>
+        <deferRequestBy>1000</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.ADT_DIAGNOSI_ICD9_CDD</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Flusso Controdeduzioni - Diagnosi ICD9</title>
+        <id_wk>ADT_DIAGNOSI_ICD9_CDD</id_wk>
+    </LIST>
+</AUTOCOMPLETE>

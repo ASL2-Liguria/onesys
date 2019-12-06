@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	
+    	<tabElencoRicette>Elenco ricette</tabElencoRicette>
+    	
+        <lblTitolo>ELENCO RICETTE</lblTitolo>
+        <fldRicerca>Ricerca</fldRicerca>
+        <lblDaData>Dal </lblDaData>
+		<lblAData>al </lblAData>
+		<butCerca>Cerca</butCerca>
+		<lblCognome>Cognome</lblCognome>
+		<lblNome>Nome</lblNome>
+		<butStampa>Stampa Elenco Visualizzato</butStampa>
+		
+    </ROW>
+</ROWSET>

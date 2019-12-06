@@ -1,0 +1,14 @@
+<PAGINA key_id="PAG_ASS_PRERICOVERO">
+    <HEADER_PAGE key_id="PAG_ASS_PRERICOVERO" valore="DEFAULT,SCHEDA,PAG_ASS_PRERICOVERO#DEFAULT,PAG_ASS_PRERICOVERO" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#PAG_ASS_PRERICOVERO#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="ASS_PRERICOVERO#lblTitle#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabPre" valore="tabPre" evento="START">
+                <FIELDSET key_id="tableDatiPaziente" valore="wkPrericoveri" evento="START">
+                    <DIV.WORKLIST key_id="divWkAss" valore="divWkAss" evento="START"></DIV.WORKLIST>
+                </FIELDSET>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

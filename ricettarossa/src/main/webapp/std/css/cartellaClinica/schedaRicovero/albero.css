@@ -1,0 +1,24 @@
+.ramoChiuso
+{
+	font-size:12px;
+	background-color:#DAF5FE;
+	border: 1px solid #6AA8F2;
+}
+.ramoAperto
+{
+	font-size:12px;
+	background-color:#FFFF00;
+	border: 1px solid #6AA8F2;
+}
+.risoltoN
+{
+	background-position:center;
+	background-image:url(../../../../imagexPix/schedaAnag/nospuntaradio.gif);
+	background-repeat:no-repeat;
+}
+.risoltoS
+{
+	background-position:center;
+	background-image:url(../../../../imagexPix/schedaAnag/spuntaradio2.gif);
+	background-repeat:no-repeat;
+}

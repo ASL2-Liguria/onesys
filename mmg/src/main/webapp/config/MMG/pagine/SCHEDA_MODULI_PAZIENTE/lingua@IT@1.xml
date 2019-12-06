@@ -1,0 +1,13 @@
+<ROWSET>
+    <ROW>
+    	<tabModuli>Moduli</tabModuli>
+         <butChiudi>Chiudi</butChiudi>
+        <lblTitolo>Cronologia Moduli Paziente</lblTitolo>        
+        <titleFormato>Formato carta</titleFormato>
+        <titleConfirm>Chiusura</titleConfirm>
+        <lblDialogFormato>Scegliere il formato della carta sulla quale verrà effettuata la stampa</lblDialogFormato>
+        <lblA4>A4</lblA4>
+        <lblA5>A5</lblA5>
+        <lblAnnulla>Annulla</lblAnnulla>
+    </ROW>
+</ROWSET>

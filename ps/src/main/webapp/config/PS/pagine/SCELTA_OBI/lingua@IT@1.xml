@@ -1,0 +1,12 @@
+<ROWSET>
+    <ROW>
+        <lblDiagnosiObi>Diagnosi OBI</lblDiagnosiObi>
+        <fldInsObi>Inserimento OBI</fldInsObi>
+        <lblDatInsObi>Data</lblDatInsObi>
+        <lblAree>Area</lblAree>
+        <lblOraInsOBI>Ora</lblOraInsOBI>
+        <tabDati>OBI</tabDati>
+        <lblcmbUbicazione>Ubicazione</lblcmbUbicazione>
+        <lblDiagnosiDescrittiva>Diagnosi Descrittiva</lblDiagnosiDescrittiva>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,67 @@
+<Terapia stile="liv0" a_ereditabili="">
+
+	<UserInput tipo="text" name="NomeCiclo" a_globali="None=S" descr=""/>
+	<UserInput tipo="text" name="NumeroCiclo" a_globali="None=S" descr=""/>
+	<UserInput tipo="text" name="FarmaciSelezionati" a_globali="obligatory=S;msg=Farmaci selezionati;None" descr=""/>	
+	 <UserInput tipo="text" name="dataInizioTerapia" a_globali="None" a_inserimento="Default=TODAY;"/>
+
+	<GruppoFarmaciDescrizione classe="Label" a_globali="Intestazione">Solvente</GruppoFarmaciDescrizione>
+	<GruppoFarmaci tipo="2" a_globali="minimo=1;massimo=1" key="tipo">
+      	<Template file="Farmaci.xml" i="solvente" />		
+	</GruppoFarmaci>
+  	
+	<GruppoFarmaciDescrizione classe="Label" a_globali="Intestazione">Soluti</GruppoFarmaciDescrizione>
+	<GruppoFarmaci tipo="3" a_globali="minimo=1;massimo=3" key="tipo">
+     	<Template file="Farmaci.xml" i="soluto" />	
+	</GruppoFarmaci>
+
+	<SettingDescrizione classe="Label" a_globali="Intestazione">Velocita</SettingDescrizione>
+	<Setting classe="Gruppo">
+		<Riga classe="Gruppo">
+			<UserInput tipo="text" name="VolumeTotale" a_globali="obligatory=S;msg=Volume totale" descr="Volume totale:"/>			
+
+			<UserInput tipo="text" name="Velocita" a_globali="obligatory=S;msg=Velocita" descr="Velocita:"/>
+			<UserInput classe="Options" tipo="select" descr="" name="UdmVelocita">
+				<OPTION value="60">ml/ora</OPTION>
+				<OPTION value="1">ml/minuto</OPTION>
+			</UserInput>
+			<UserInput tipo="text" name="Durata" a_globali="" descr="Durata:"/>
+			<UserInput classe="Options" tipo="select" descr="" name="UdmDurata"  a_globali="">
+				<OPTION value="60">ore</OPTION>
+				<OPTION value="1">minuti</OPTION>
+			</UserInput>
+			<UserInput tipo="text" name="VelocitaMinuti" a_globali="None" descr=""/>
+		</Riga>
+	</Setting>
+	
+	<GruppoPrescrizioniDescrizione classe="Label" a_globali="Intestazione">Prescrizioni</GruppoPrescrizioniDescrizione>
+	<GruppoPrescrizioni classe="Gruppo">
+		<Riga classe="Gruppo" a_inserimento="None">    
+
+			<UserInput classe="Options" tipo="radio" name="TipoPrescrizione" a_globali="obligatory=S;msg=Tipo prescrizione" value="">
+				<OPTION value="5" a_globali="obbliga=hGiorniCiclo">Ciclica</OPTION>
+			</UserInput>    
+    
+			<UserInput tipo="text" name="DataInizio" a_globali="obligatory=N;msg=Data inizio;Calendario=S;Disable" a_inserimento="Default=TODAY;CopyValueTo=dataInizioTerapia;" a_modifica="" descr="Data inizio"/>
+			<UserInput tipo="text" name="OraInizio" a_globali="msg=Ora inserimento; Orario=S" a_modifica="" descr="Ora inizio" value="00:00"/>
+			
+			<UserInput tipo="text" name="NumeroGiorni" a_globali="Positive;obligatory=N;msg=Numero giorni;None"  descr="Numero giorni"/>
+		</Riga>  
+		
+    	<Riga classe="Gruppo" a_inserimento="None">
+			<UserInput tipo="text" name="DataFine"  descr="Data fine"/>
+			<UserInput tipo="text" name="OraFine"  descr="Ora fine"/>      
+		</Riga>
+		
+		<Template file="Prescrizioni.xml" i="ciclica" />
+		
+		<Template file="Prescrizioni.xml" i="notemodifica" />
+	</GruppoPrescrizioni>
+
+	<HtmlContent>
+		<script>
+			ModelloTerapiaVelocita.init();	
+      			farmaci.setEventsSomma("ml","VolumeTotale");
+		</script>		
+	</HtmlContent>
+</Terapia>

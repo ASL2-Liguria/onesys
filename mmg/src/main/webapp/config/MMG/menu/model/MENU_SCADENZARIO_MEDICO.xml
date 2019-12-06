@@ -1,0 +1,46 @@
+<MENU>
+	<id>MENU_SCADENZARIO_MEDICO</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MSM.I</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_MEDICO.inserisci();}]]></LINK>
+			<ICON_CLASS>calendario</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Inserisci scadenza personale"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MSM.M</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_MEDICO.modifica(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){ return SCADENZARIO_MEDICO.whereModifica(rec);}]]></WHERE>
+			<OUTPUT>"Modifica scadenza personale"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MSM.Disattiva</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_MEDICO.attivazione(rec, "N");}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return SCADENZARIO_MEDICO.whereDisattiva(rec);}]]></WHERE>
+			<OUTPUT>"Disattiva scadenza"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MSM.Riattiva</ID>
+			<LINK><![CDATA[function(rec){SCADENZARIO_MEDICO.attivazione(rec,"S");}]]></LINK>
+			<ICON_CLASS>esegui</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return SCADENZARIO_MEDICO.whereRiattiva(rec);}]]></WHERE>
+			<OUTPUT>"Riattiva scadenza"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

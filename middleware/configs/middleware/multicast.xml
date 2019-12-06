@@ -1,0 +1,10 @@
+<MULTICAST>
+	<!-- multicast ip to join to -->
+	<NETWORKMULTICASTIP>228.0.0.12</NETWORKMULTICASTIP>
+	<!-- multicast port -->
+	<NETWORKMULTICASTPORT>45567</NETWORKMULTICASTPORT>
+	<!-- multicast interface to use. Can be empty -->
+	<NETWORKMULTICASTINTERFACE></NETWORKMULTICASTINTERFACE>
+	<!-- message sent over the network. Producer only -->
+	<MESSAGE>ELCOMIDDLEWARE1</MESSAGE>
+</MULTICAST>

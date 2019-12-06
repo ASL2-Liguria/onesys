@@ -1,0 +1,34 @@
+body { width: 960px; }
+
+.table { text-align: center; }
+
+.textarea { width: 100%; border-color: #AAAAAA; }
+
+table.campi tr.separator {
+	height: 2px;
+}
+
+tr.separator { height:2px; background: #c9c9c9;}
+
+table.campi tr .header { height: 30px; background: #e9e9e9; border:1px solid #c3c3c3;}
+
+table.campi tr .row { height: 35px; border:1px solid #c3c3c3;}
+
+table.campi tr td {
+	margin:0px;
+	paddding:0px;
+}
+
+.informativa {
+	background: #FDFFDB;
+	padding:10px;
+	text-align: center !important;
+}
+
+.informativa label {
+	font-size: 13px !important;
+}
+
+.farmaco p{
+	font-weight: bold;
+}

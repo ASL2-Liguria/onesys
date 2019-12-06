@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_ASS_PRERICOVERI</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ASS_RIC_DA_PRE</ID>
+            <LINK><![CDATA[function(rec){NS_ASS_PRERICOVERO_RICOVERO.associaPreRic(rec[0].IDEN)}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apertura_nomi_utenti_orari_modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Assorcia Prericovero a ricovero"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ROWSET>
+    <ROW>
+        <Mesi>Gennaio,Febbraio,Marzo,Aprile,Maggio,Giugno,Luglio,Agosto,Settembre,Ottobre,Novembre,Dicembre</Mesi>
+        <Giorni>Domenica,Lunedì,Martedì,Mercoledì,Giovedì,Venerdì,Sabato</Giorni>
+        <lunedi>Lun</lunedi>
+        <martedi>Mar</martedi>
+        <mercoledi>Mer</mercoledi>
+        <giovedi>Gio</giovedi>
+        <venerdi>Ven</venerdi>
+        <sabato>Sab</sabato>
+        <domenica>Dom</domenica>
+        <menuVuoto>Non ci sono operazioni disponibili per i dati selezionati</menuVuoto>
+        <lblSconosciuto>Sconosciuto</lblSconosciuto>
+        <lblMaschio>Maschio</lblMaschio>
+        <lblFemmina>Femmina</lblFemmina>
+        <lblTutti>Tutti</lblTutti>
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <lblAttenzione>Attenzione</lblAttenzione>
+        <lblAnnulla>Annulla</lblAnnulla>
+        <lblCampiImportanti>Campi importanti non compilati.<br /> Continuare?</lblCampiImportanti>
+        <lblNon_Noto>Non noto</lblNon_Noto>
+        <lblDato_non_noto>Dato non noto</lblDato_non_noto>
+        <lblCerca>Cerca</lblCerca>
+        <lblCodice>Codice</lblCodice>
+        <lblDescrizione>Descrizione</lblDescrizione>
+        <lblCancella>Cancella</lblCancella>
+        
+        <lblTelefono>Telefono</lblTelefono>
+        <lblNome>Nome</lblNome>
+        <lblCognome>Cognome</lblCognome>
+        <lblDataNascita>Data Nascita</lblDataNascita>
+        <lblCodiceFiscale>Codice Fiscale</lblCodiceFiscale>
+        <lblIndirizzo>Indirizzo</lblIndirizzo>
+        <lblEmail>Email</lblEmail>
+        <lblCancellaDocumento>Cancella Documento</lblCancellaDocumento>
+        <lblChiudiScheda>Tutti i dati non registrati andranno persi. Continuare?</lblChiudiScheda>
+        <lblMessaggioLoginOK>Login effettuato con successo</lblMessaggioLoginOK>
+        <lblWaitSeconds>L'operazione potrebbe richiedere alcuni secondi...</lblWaitSeconds>
+        <lblAttenzione>Attenzione!</lblAttenzione>
+        <lblDeniedMorte>Non è possibile accedere alla funzione su un paziente deceduto</lblDeniedMorte>
+        <selAllTags>Seleziona Tutti</selAllTags>
+        <deselAllTags>Deseleziona Tutti</deselAllTags>
+        <okTags>Applica</okTags>
+        <closeTags>Chiudi</closeTags>
+        <acList>Autocomplete List</acList>
+        <acListCerca>Cerca</acListCerca>
+        <acListChiudi>Chiudi</acListChiudi>
+        <acListRicercaSensibile>Ricerca Sensibile</acListRicercaSensibile>
+        <butDeselAll>Desel. Tutto</butDeselAll>
+        <butSelAll>Sel. Tutto</butSelAll>
+        <butApplica>Applica</butApplica>
+        <butResetDati>Reset Dati</butResetDati>
+        <butSalva>Salva</butSalva>
+        <butRegistra>Registra</butRegistra>
+        <butStampa>Stampa</butStampa>
+        <butChiudi>Chiudi</butChiudi>
+        <butAnnulla>Annulla</butAnnulla>
+        <butAddOne>&gt;</butAddOne>
+        <butAddAll>&gt;&gt;</butAddAll>
+        <butRemAll>&lt;&lt;</butRemAll>
+        <butRemOne>&lt;</butRemOne>
+        <lblModifica>Modifica</lblModifica>
+        <successSave>Salvataggio effettuato correttamente</successSave>
+        <successTitleSave>Success!</successTitleSave>
+        <errorSave>Errore durante il salvataggio</errorSave>
+        <errorTitleSave>Error!</errorTitleSave>
+        <validRequired>Il campo è Obbligatorio</validRequired>
+        <validImportant>Il campo è importante</validImportant>
+        <validEmail>Inserire un indirizzo mail valido</validEmail>
+        <validUrl>Inserire una URL valida</validUrl>
+        <validNumber>Inserire solo numeri</validNumber>
+        <validDigits>Inserire solo caratteri</validDigits>
+        <validMinlength>Lunghezza minima {0} caratteri</validMinlength>
+        <validMaxlength>Lunghezza massima {0} caratteri</validMaxlength>
+        <validRangelength>Inserire un valore di lunghezza compresa tra {0} e {1} caratteri</validRangelength>
+        <validRange>Inserire un valore compreso tra {0} e {1}</validRange>
+        <validMax>Il valore deve essere minore o uguale a {0}</validMax>
+        <validMin>Il valore deve essere maggiore o uguale a {0}</validMin>
+        <validFixedLength>Il valore deve essere {0} caratteri</validFixedLength>
+        <validHours>Il valore deve essere in formato hh:mm [00:00 - 23:59]</validHours>
+        
+        <lblOk>Ok</lblOk>
+  		<lblMenu>Menu</lblMenu>
+        <lblWorklist>Worklist</lblWorklist>
+
+		<!--oscuramenti-->
+		<lblOscura>Oscura</lblOscura>
+        <lblDisoscura>Rimuovi oscuramento</lblDisoscura>
+        <lblDatoOscurato>Dato oscurato</lblDatoOscurato>
+        <confirmOscura>Attenzione!!! Il dato oscurato risulterà visibile unicamente all'utente che lo ha inserito ed al medico correlato all'inserimento (in caso di inserimento da parte di personale amministrativo). Si vuole procedere?</confirmOscura>
+        <confirmDisoscura>Si desidera rimuovere l'oscuramente del dato corrente?</confirmDisoscura>
+        <lblConfermaOscuramento>PRIVACY: ATTENZIONE! Il dato oscurato risulterà visibile unicamente all'utente che lo ha inserito ed al medico correlato all'inserimento (in caso di inserimento da parte di personale amministrativo). Per rendere permanenti le modifiche sara' necessario salvare la scheda. Confermare l'oscuramento del dato?</lblConfermaOscuramento>
+        <lblRimozioneOscuramento>Il dato precedentemente immesso verra' cancellato e sara' possibile reinserirlo nuovamente. Per rendere permanenti le modifiche sara' necessario salvare la scheda. Confermare la rimozione dell'oscuramento? </lblRimozioneOscuramento>
+        
+        
+        
+    </ROW>
+</ROWSET>

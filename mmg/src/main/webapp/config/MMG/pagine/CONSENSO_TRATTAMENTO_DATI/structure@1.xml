@@ -1,0 +1,144 @@
+<PAGINA key_id="CONSENSO_TRATTAMENTO_DATI">
+	<HEADER_PAGE key_id="CONSENSO_TRATTAMENTO_DATI"
+		valore="DEFAULT_MMG,SCHEDA,CONSENSO_TRATTAMENTO_DATI#DEFAULT_MMG,CONSENSO_TRATTAMENTO_DATI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#CONSENSO_TRATTAMENTO_DATI#IDEN#IDEN"
+		evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab"
+			valore="Consenso#lblTitolo#butSalva,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabDichiarante" valore="tabDichiarante" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldDatiDichiarante" valore="fldDatiDichiarante" evento="START">
+					 
+					<TR_TD_LABEL_TEXT key_id="txtSottoscrittoNomeCognome" valore="lblSottoscrittoNomeCognome##txtSottoscrittoNomeCognome" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtSottoscrittoLuogoNascita" valore="lblSottoscrittoLuogoNascita##txtSottoscrittoLuogoNascita" evento="START"></TR_TD_LABEL_TEXT>
+				 
+				 	<TR_TD_LABEL_TEXT key_id="txtSottoscrittoDataNascita" valore="lblSottoscrittoDataNascita##txtSottoscrittoDataNascita" evento="START"></TR_TD_LABEL_TEXT>
+				 	
+					<TR_TD_LABEL_TEXT key_id="txtSottoscrittoResidente" valore="lblSottoscrittoResidente##txtSottoscrittoResidente" evento="START"></TR_TD_LABEL_TEXT>
+					
+				 	<TR_TD_LABEL_TEXT key_id="txtSottoscrittoCodiceFiscale" valore="lblSottoscrittoCodiceFiscale##txtSottoscrittoCodiceFiscale" evento="START"></TR_TD_LABEL_TEXT>
+				
+					<TR_TD_LABEL_RADIO key_id="radTipoDichiarante" valore="lblTipoDichiarante##radTipoDichiarante#radTipoDichiarante#{width:250}#N" evento="START"></TR_TD_LABEL_RADIO>
+				 
+				 	<TR_TD_LABEL_TEXT key_id="txtGaranteNomeCognome" valore="lblGaranteNomeCognome##txtGaranteNomeCognome" evento="START"></TR_TD_LABEL_TEXT>
+				 	
+					<TR_TD_LABEL_TEXT key_id="txtGaranteLuogoNascita" valore="lblGaranteLuogoNascita##txtGaranteLuogoNascita" evento="START"></TR_TD_LABEL_TEXT>
+				 
+				 	<TR_TD_LABEL_TEXT key_id="txtGaranteDataNascita" valore="lblGaranteDataNascita##txtGaranteDataNascita" evento="START"></TR_TD_LABEL_TEXT>
+				 	
+					<TR_TD_LABEL_TEXT key_id="txtGaranteResidente" valore="lblGaranteResidente##txtGaranteResidente" evento="START"></TR_TD_LABEL_TEXT>
+				
+				 	<TR_TD_LABEL_TEXT key_id="txtGaranteCodiceFiscale" valore="lblGaranteCodiceFiscale##txtGaranteCodiceFiscale" evento="START"></TR_TD_LABEL_TEXT>
+					
+				</FIELDSET_TABLE>
+	
+				<LABEL key_id="lblInformativa1" valore="lblInformativa1" evento="START"></LABEL>
+			
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabSezione1" valore="tabSezione1" evento="START">
+					
+				<FIELDSET_TABLE key_id="fldTrattamentoDiBase" valore="fldTrattamentoDiBase" evento="START">
+					
+					<TR_TD_LABEL key_id="lblSezione1A" valore="lblSezione1A" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_LABEL key_id="lblScelta1A" valore="lblScelta1A" evento="START"></TR_TD_LABEL>
+						
+						<TR_TD_RADIO key_id="radScelta1A" valore="radScelta1A#radScelta1A#{width:100}#S" evento="START"></TR_TD_RADIO>
+			
+					<TR_TD_LABEL key_id="lblSezione1B" valore="lblSezione1B" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_LABEL key_id="lblScelta1B" valore="lblScelta1B" evento="START"></TR_TD_LABEL>
+						
+						<TR_TD_RADIO key_id="radScelta1B" valore="radScelta1B#radScelta1B#{width:100}#S" evento="START"></TR_TD_RADIO>
+						
+						<TR_TD_LABEL key_id="lblScelta1BDettaglio" valore="lblScelta1BDettaglio" evento="START"></TR_TD_LABEL>
+						
+						<TR_TD_TEXT key_id="radScelta1BDettaglio" valore="txtScelta1BDettaglio" evento="START"></TR_TD_TEXT>
+								
+					<TR_TD_LABEL key_id="lblSezione1C" valore="lblSezione1C" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_LABEL key_id="lblScelta1C" valore="lblScelta1C" evento="START"></TR_TD_LABEL>
+						
+						<TR_TD_RADIO key_id="radScelta1C" valore="radScelta1C#radScelta1C#{width:100}#S" evento="START"></TR_TD_RADIO>	
+							
+				</FIELDSET_TABLE>
+					
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabSezione2" valore="tabSezione2" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldTrattamentoStrumentiInformatici" valore="fldTrattamentoStrumentiInformatici" evento="START">
+					
+					<TR_TD_LABEL key_id="lblSezione2A" valore="lblSezione2A" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_LABEL key_id="lblScelta2A1" valore="lblScelta2A1" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_RADIO key_id="radScelta2A1" valore="radScelta2A1#radScelta2A1#{width:100}#S" evento="START"></TR_TD_RADIO>
+					
+						<TR_TD_LABEL key_id="lblScelta2A2" valore="lblScelta2A2" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_RADIO key_id="radScelta2A2" valore="radScelta2A2#radScelta2A2#{width:100}#S" evento="START"></TR_TD_RADIO>
+					
+						<TR_TD_LABEL key_id="lblScelta2A3" valore="lblScelta2A3" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_RADIO key_id="radScelta2A3" valore="radScelta2A3#radScelta2A3#{width:100}#S" evento="START"></TR_TD_RADIO>
+					
+						<TR_TD_LABEL key_id="lblScelta2A4" valore="lblScelta2A4" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_RADIO key_id="radScelta2A4" valore="radScelta2A4#radScelta2A4#{width:100}#S" evento="START"></TR_TD_RADIO>
+					
+						<TR_TD_LABEL key_id="lblScelta2A5" valore="lblScelta2A5" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_RADIO key_id="radScelta2A5" valore="radScelta2A5#radScelta2A5#{width:100}#S" evento="START"></TR_TD_RADIO>
+					
+					<TR_TD_LABEL key_id="lblSezione2B" valore="lblSezione2B" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_LABEL key_id="lblScelta2B1" valore="lblScelta2B1" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_RADIO key_id="radScelta2B1" valore="radScelta2B1#radScelta2B1#{width:100}#S" evento="START"></TR_TD_RADIO>
+						
+						<TR_TD_LABEL key_id="lblScelta2B2" valore="lblScelta2B2" evento="START"></TR_TD_LABEL>
+					
+						<TR_TD_RADIO key_id="radScelta2B2" valore="radScelta2B2#radScelta2B2#{width:100}#S" evento="START"></TR_TD_RADIO>
+					
+					<TR_TD_LABEL key_id="lblDichiarazioneFinale" valore="lblDichiarazioneFinale" evento="START"></TR_TD_LABEL>
+					
+					<TR_TD_LABEL key_id="lblDataDichiarazione" valore="lblDataDichiarazione" evento="START"></TR_TD_LABEL>
+					
+					<TR_TD_DATA key_id="txtDataDichiarazione" valore="txtDataDichiarazione#DataDichiarazione#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA_DICHIARAZIONE" evento="START"></TR_TD_DATA>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabDichiarazioneSostitutiva" valore="tabDichiarazioneSostitutiva" evento="START">
+				
+				<LABEL key_id="lblInformativa2" valore="lblInformativa2" evento="START"></LABEL>
+				
+				<FIELDSET_TABLE key_id="fldDichiarazioneSostitutiva" valore="fldDichiarazioneSostitutiva" evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="txtSostitutoNomeCognome" valore="lblSostitutoNomeCognome##txtSostitutoNomeCognome" evento="START"></TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_TEXT key_id="txtSostitutoLuogoNascita" valore="lblSostitutoLuogoNascita##txtSostitutoLuogoNascita" evento="START"></TR_TD_LABEL_TEXT>
+				 
+				 	<TR_TD_LABEL_TEXT key_id="txtSostitutoDataNascita" valore="lblSostitutoDataNascita##txtSostitutoDataNascita" evento="START"></TR_TD_LABEL_TEXT>
+				 	
+					<TR_TD_LABEL_TEXT key_id="txtSostitutoResidente" valore="lblSostitutoResidente##txtSostitutoResidente" evento="START"></TR_TD_LABEL_TEXT>
+					
+				 	<TR_TD_LABEL_TEXT key_id="txtSostitutoDocumentoIdentita" valore="lblSostitutoDocumentoIdentita##txtSostitutoDocumentoIdentita" evento="START"></TR_TD_LABEL_TEXT>
+				
+					<TR_TD_LABEL_RADIO key_id="radTipoSostitutoDichiarante" valore="lblTipoSostitutoDichiarante##radTipoSostitutoDichiarante#radTipoSostitutoDichiarante#{width:400}#N" evento="START"></TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+				
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+</PAGINA>

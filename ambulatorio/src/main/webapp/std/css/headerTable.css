@@ -1,0 +1,216 @@
+table.classTabHeader {
+	text-align: left;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	border: 0;
+	height: 25px;
+}
+
+table.classTabHeader td.classTabHeaderSx {
+	background-image: url(../../imagexPix/tabheader/tabSx.gif);
+	/*background-repeat:no-repeat;*/
+	width: 10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddle {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-size: 14px;
+	color: #0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabHeader td.classTabHeaderDx {
+	background-image: url(../../imagexPix/tabheader/tabDx.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeader td.classTabFooterSx {
+	background-image: url(../../imagexPix/tabheader/tabSxDown.gif);
+	width: 10px;
+}
+
+table.classTabHeader td.classTabFooterDx {
+	background-image: url(../../imagexPix/tabheader/tabDxDown.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeader td.classButtonHeader {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	width: 80px;
+}
+
+table.classTabHeader td.classButtonHeaderHideSuccessivo {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	width: 80px;
+	display: none;
+}
+
+table.classTabHeader td.classButtonHeaderHidePrecedente {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	width: 80px;
+	display: none;
+}
+
+table.classTabHeader td.classTabHeaderMiddleTitle {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-size: 16px;
+	color: #003399;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: underline;
+}
+
+/* classe per i pulsanti mini (21*21) */
+table.classTabHeader td.miniButton {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	width: 25px;
+	padding: 0 2px 0 2px;
+}
+
+table.classTabHeader td.classVaiA {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	font-weight: bold;
+	color: #0000CC;
+	font-size: 12px;
+	width: 150px;
+}
+
+table.classTabHeader td.classTabHeaderSxUncut {
+	background-image: url(../../imagexPix/tabheader/tabSxUnCut.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeader td.classTabHeaderDxUncut {
+	background-image: url(../../imagexPix/tabheader/tabDxUnCut.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeaderNoButtons {
+	text-align: left;
+	width: 100%;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	border: 0;
+	height: 10px;
+	overflow: hidden;
+	line-height: 10px;
+}
+
+table.classTabHeaderNoButtons td.classTabHeaderMiddle {
+	background-image:
+		url(../../imagexPix/tabheader/top_tabellaNoButtons.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-size: 14px;
+	color: #0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabHeaderNoButtons td.classTabFooterSx {
+	background-image: url(../../imagexPix/tabheader/tabSxDownNoButtons.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeaderNoButtons td.classTabFooterDx {
+	background-image: url(../../imagexPix/tabheader/tabDxDownNoButtons.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeaderNoButtons td.classTabHeaderSx {
+	background-image: url(../../imagexPix/tabheader/tabSxNoButtons.gif);
+	/*background-repeat:no-repeat;*/
+	width: 10px;
+}
+
+table.classTabHeaderNoButtons td.classTabHeaderDx {
+	background-image: url(../../imagexPix/tabheader/tabDxNoButtons.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+/*************************
+ * Da al_headerTable.css *
+ *************************/
+
+table.classTabHeader td.classButtonHeader {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	width: 100px;
+}
+
+table.classTabHeader td.classButtonHeaderContainer {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	width: 520px;
+}
+
+table.classTabHeader td.classMiniButtonheader {
+	background-image: url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat: repeat-x;
+	width: 26px;
+	padding: 0, 5px, 0, 5px;
+}
+
+/* ************ configurazione per intestazione rossa ********** */
+
+table.classTabHeader td.classTabHeaderSxRed {
+	background-image: url(../../imagexPix/tabheader/tabSx_red.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddleRed {
+	background-image: url(../../imagexPix/tabheader/top_tabella_red.gif);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-size: 14px;
+	color: #0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabHeader td.classTabHeaderDxRed {
+	background-image: url(../../imagexPix/tabheader/tabDx_red.gif);
+	background-repeat: no-repeat;
+	width: 10px;
+}
+
+table.classTabHeader td.classButtonHeaderRed {
+	background-image: url(../../imagexPix/tabheader/top_tabella_red.gif);
+	background-repeat: repeat-x;
+	width: 100px;
+}
+
+table.classTabHeader td.classButtonHeaderContainerRed {
+	background-image: url(../../imagexPix/tabheader/top_tabella_red.gif);
+	background-repeat: repeat-x;
+	width: 700px;
+}
+
+table.classTabHeader td.classMiniButtonheaderRed {
+	background-image: url(../../imagexPix/tabheader/top_tabella_red.gif);
+	background-repeat: repeat-x;
+	width: 26px;
+	padding: 0, 5px, 0, 5px;
+}
+/* ************************************************************* */

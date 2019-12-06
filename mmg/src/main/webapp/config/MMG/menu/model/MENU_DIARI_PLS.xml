@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MENU>
+	<ID>MENU_DIARI</ID>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+
+		<ITEM>
+			<ID>MD.MN</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.modifica(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].SCHEDA != 'RILEVAZIONI');}]]></WHERE>
+			<OUTPUT>traduzione.lblModifica</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+		<ITEM>
+			<ID>MD.CN</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.cancella(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].SCHEDA != 'RILEVAZIONI');}]]></WHERE>
+			<OUTPUT>traduzione.lblCancella</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+
+		<ITEM>
+			<ID>MD.EV</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.apriElencoVisite(rec);}]]></LINK>
+			<ICON_CLASS>avanti</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblElencoVisite</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MD.IN</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.inserisci(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblInserisci</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+				
+		<ITEM>
+			<ID>MD.IV</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.inserisciVisita(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblInserisciVisita</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MD.OS</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.oscura(rec);}]]></LINK>
+			<ICON_CLASS>appropriatezza</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].SCHEDA != 'RILEVAZIONI');}]]></WHERE>
+			<OUTPUT>traduzione.lblOscura</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MD.ST</ID>
+			<LINK><![CDATA[function(rec){WK_DIARI.stampa(rec);}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){
+				return (rec[0].SCHEDA == 'NOTE' || rec[0].SCHEDA == 'MMG_VISITE' || rec[0].SCHEDA == 'PLS_VISITE')
+			}]]></WHERE>
+			<OUTPUT>traduzione.lblStampaNota</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

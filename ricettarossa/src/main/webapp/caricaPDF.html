@@ -1,0 +1,37 @@
+<html>
+	<head>
+
+		<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+		<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+		<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>        
+		
+		<SCRIPT>
+            var arrayLabelName = new Array('btChiudi','titoloAnte');
+            var arrayLabelValue = new Array('CHIUDI','Anteprima di Stampa');
+        </SCRIPT>
+        
+        <SCRIPT>
+        var DisPulsPrint='N';
+        var funzioneStampa='';
+        var StampaSu='N';
+        var sorgente='null';
+        var pdfPosition=dialogArguments;
+        var n_copie='1';
+        var requestAnteprima='S';
+        var OffsTop='-1';
+        var OffsLeft='-1';
+        var Rotation='-1';
+        var selezionaStampante='';
+        var width=996;
+        var height=684;
+        </SCRIPT>
+	</head>
+    
+    <body onLoad='fillLabels(arrayLabelName,arrayLabelValue);' class='body'>
+		<!--<font face=tahoma size=12 color=black>Stampa in corso....</font>-->
+	</body>
+	<!--<script type='text/javascript' src='std/jscript/tutto_schermo.js' language='JavaScript'></script>-->
+	<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>    
+    <script type='text/javascript' src='std/jscript/src/Sel_Stampa/elabStampa.js' language='JavaScript'></script>
+	<SCRIPT>initMainObject(pdfPosition);</SCRIPT>    
+ </html>

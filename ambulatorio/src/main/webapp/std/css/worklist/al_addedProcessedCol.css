@@ -1,0 +1,349 @@
+/* ********************************* */
+/* ****** Icona Gericos ************ */
+/* ********************************* */
+.classReqType {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_gericos.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqType A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqType A:hover {
+	color:red;
+	display:block;	
+}
+
+
+/* ********************************* */
+/* ****** Icona Gericos per prenotazioni ************ */
+/* ********************************* */
+
+.classReqTypeBooked {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_gericos_booked.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqTypeBooked A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqTypeBooked A:hover {
+	color:red;
+	display:block;	
+}
+
+
+/* ********************************* */
+/* ****** Icona Polaris per prenotazioni ************ */
+/* ********************************* */
+
+.classReqTypeBookedByPolaris {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_polaris_booked.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqTypeBookedByPolaris A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqTypeBookedByPolaris A:hover {
+	color:red;
+	display:block;	
+}
+
+
+/* ********************************* */
+/* ****** Icona Progetto sole ************ */
+/* ********************************* */
+
+
+.classProgettoSole {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_sole.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classProgettoSole A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classProgettoSole A:hover {
+	color:red;
+	display:block;	
+}
+
+/* ********************************* */
+/* ****** Eco Ostetrica ************ */
+/* ********************************* */
+
+.classEcoOstInfo_malfo{
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ciuccio_rosso.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classEcoOstInfo_malfo A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classEcoOstInfo_malfo A:hover{
+	color:red;
+	display:block;
+}
+
+
+.classEcoOstInfo_no_malfo{
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ciuccio_verde.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classEcoOstInfo_no_malfo A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classEcoOstInfo_no_malfo A:hover{
+	color:red;
+	display:block;
+}
+
+/* ********************************* */
+/* **** Icona Richieste Assistenza * */
+/* ********************************* */
+
+.classRichAssist_SottoIndagine{
+	width:30px;
+	height:30px;
+	background-image:url(../../../imagexPix/RichiesteModifica/richieste_modifica.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classRichAssist_SottoIndagine A{
+	cursor:pointer;	
+}
+
+.classRichAssist_SottoIndagine A:hover{
+	cursor:pointer;
+}
+
+
+/* ********************************* */
+/* **** Icona Carebox  ************* */
+/* ********************************* */
+
+.classCareboxComplete{
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/carebox/complete.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classCareboxComplete A{
+	cursor:pointer;	
+}
+
+.classCareboxComplete :hover{
+	cursor:pointer;
+}
+
+.classCareboxApproved{
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/carebox/approved.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classCareboxApproved A{
+	cursor:pointer;	
+}
+
+.classCareboxApproved :hover{
+	cursor:pointer;
+}
+
+
+.classCareboxRevoca{
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/carebox/revoca.png);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	cursor:pointer;
+}
+
+.classCareboxRevoca A{
+	cursor:pointer;	
+}
+
+.classCareboxRevoca :hover{
+	cursor:pointer;
+}
+
+
+.caseFormIncomplete{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/form_incompleto.png);
+	display:block;
+}
+
+.caseFormComplete{ 
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/form_compilato.png);
+	display:block;
+}
+
+/* ********************************* */
+/* ****** Icone Stato richieste **** */
+/* ********************************* */
+
+.richiestaPrenotata{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_P.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaPrenotata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_P_over.png);background-color:#FF0;}
+
+.richiestaInviata{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_I.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaInviata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_I_over.png);background-color:#FF0;}
+
+.richiestaEseguita{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_E.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaEseguita:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_E_over.png);background-color:#FF0;}
+
+.richiestaRefertata{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_R.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaRefertata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRef_R_over.png);background-color:#FF0;}
+
+.richiestaErrata{background-image:url(../../../imagexPix/GestioneRichieste/amb2RichRef_ERR.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaErrata:hover{background-image:url(../../../imagexPix/GestioneRichieste/amb2RichRef_ERR_over.png);background-color:#FF0;}
+
+
+/* ********************************* */
+/* ****** Icone Stato prenotazione * */
+/* ********************************* */
+
+
+.prenotazionePrenotata{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_P.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.prenotazionePrenotata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_P_over.png);background-color:#FF0;}
+
+.prenotazioneAccettata{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_A.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.prenotazioneAccettata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_A_over.png);background-color:#FF0;}
+
+.prenotazioneEseguita{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_E.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.prenotazioneEseguita:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_E_over.png);background-color:#FF0;}
+
+.prenotazioneRefertata{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_R.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.prenotazioneRefertata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_R_over.png);background-color:#FF0;}
+
+.prenotazioneErrata{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_ERR.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.prenotazioneErrata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambPrenPolaris_ERR_over.png);background-color:#FF0;}
+
+
+
+/* ********************************* */
+/* *** Icone Stato Rich Radio Whale **/
+/* ********************************* */
+/* ancora da differenziare !!! */
+.richiestaRadioPrenotata{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_P.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaRadioPrenotata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio__over.png);background-color:#FF0;}
+
+.richiestaRadioInviata{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_A.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaRadioInviata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_A_over.png);background-color:#FF0;}
+
+.richiestaRadioEseguita{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_E.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaRadioEseguita:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_E_over.png);background-color:#FF0;}
+
+.richiestaRadioRefertata{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_R.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaRadioRefertata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_R_over.png);background-color:#FF0;}
+
+.richiestaRadioErrata{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_ERR.png);visibility:visible;display:block;width:25px;height:25px;cursor:pointer;}
+.richiestaRadioErrata:hover{background-image:url(../../../imagexPix/GestioneRichieste/ambRichRadio_ERR_over.png);background-color:#FF0;}
+
+
+
+/* ********************************* */
+/* *** Icone Stato Aggiuntivo **/
+/* ********************************* */
+.statoAgg_NP{background-image:url(../../../imagexPix/GestioneStatiAgg/statoAgg_NP.png);visibility:visible;display:block;width:32px;height:32px}
+.statoAgg_D{background-image:url(../../../imagexPix/GestioneStatiAgg/statoAgg_D.png);visibility:visible;display:block;width:32px;height:32px}
+.statoAgg_DP{background-image:url(../../../imagexPix/GestioneStatiAgg/statoAgg_DP.png);visibility:visible;display:block;width:32px;height:32px}
+
+/* ********************************* */
+/* *** colonna vuota **/
+/* ********************************* */
+.colonnaVuotaNonDefinita{background-image:url(../../../imagexPix/contextMenu/squareShim32.png);visibility:visible;display:block;width:32px;height:32px}

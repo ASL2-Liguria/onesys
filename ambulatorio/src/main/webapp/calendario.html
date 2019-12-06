@@ -1,0 +1,256 @@
+<html title='Calendario'><head>
+<script type='text/javascript' src='std/jscript/Calendar/calendar.js' language='JavaScript'></script>
+<script type='text/javascript' src='std/jscript/Libreria/pageModal.js' language='JavaScript'></script>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='std/css/ImageX.css' type='text/css' rel='stylesheet'>
+<!-- CSS per la gestione del Calendario  -->
+<script TYPE='text/JavaScript' language='JavaScript'>
+<!--
+var dataCal=new Date();
+var dataChiamata;
+var textData;
+
+function formatDateEx(anno, mese, giorno)
+{
+	var strTmp="";
+
+	if(anno<100) anno=anno+2000;
+	if(giorno<10)
+	{
+		strTmp=strTmp+"0";
+	}
+	strTmp=strTmp+giorno+"/";
+	if(mese<10)
+	{
+		strTmp=strTmp+"0";
+	}
+	strTmp=strTmp+mese+"/"+anno;
+
+	return strTmp;
+}
+
+function extractMonth(month)
+{
+	var strRet="";
+
+	if(month<0) month=12+month;
+	if(month>11) month=month-12;
+
+	switch(month)
+	{
+		case(0):
+			strRet="Gennaio";
+			break;
+		case(1):
+			strRet="Febbraio";
+			break;
+		case(2):
+			strRet="Marzo";
+			break;
+		case(3):
+			strRet="Aprile";
+			break;
+		case(4):
+			strRet="Maggio";
+			break;
+		case(5):
+			strRet="Giugno";
+			break;
+		case(6):
+			strRet="Luglio";
+			break;
+		case(7):
+			strRet="Agosto";
+			break;
+		case(8):
+			strRet="Settembre";
+			break;
+		case(9):
+			strRet="Ottobre";
+			break;
+		case(10):
+			strRet="Novembre";
+			break;
+		case(11):
+			strRet="Dicembre";
+			break;
+	}
+
+	return strRet;
+}
+
+function changeCursor(obj, cursorType)
+{
+	obj.style.cursor=cursorType;
+}
+
+function onMouse(image, source, type)
+{
+	if(type=="OUT")
+	{
+		changeCursor(image, "default");
+	}
+	else if(type=="OVER")
+	{
+		changeCursor(image, "pointer");
+	}
+	image.src=source;
+}
+
+function checkDate(valoreData)
+{
+	var T=0;
+	var stato=0;
+	var mioChar=0;
+	var anno="";
+	var mese="";
+	var giorno="";
+	var dataO=new Date();
+	var dataTmp;
+	var dataRet=formatDateEx(dataO.getFullYear(), dataO.getMonth()+1, dataO.getDate());
+
+	if(valoreData.length>0)
+	{
+		for(T=0 ; T<valoreData.length ; T++)
+		{
+			mioChar=valoreData.charAt(T);
+			switch(stato)
+			{
+				case(0):
+				if(mioChar>='0' && mioChar<='9')
+				{
+					giorno=giorno+mioChar;
+				}
+				else
+				{
+					stato=1;
+				}
+				break;
+				case(1):
+				if(mioChar>='0' && mioChar<='9')
+				{
+					mese=mese+mioChar;
+					stato=2;
+				}
+				break;
+				case(2):
+				if(mioChar>='0' && mioChar<='9')
+				{
+					mese=mese+mioChar;
+				}
+				else
+				{
+					stato=3;
+				}
+				break;
+				case(3):
+				if(mioChar>='0' && mioChar<='9')
+				{
+					anno=anno+mioChar;
+					stato=4;
+				}
+				break;
+				case(4):
+				if(mioChar>='0' && mioChar<='9')
+				{
+					anno=anno+mioChar;
+				}
+				else
+				{
+					stato=5;
+				}
+				break;
+				default:
+				break;
+			}//switch(stato)
+		}//for(T=0 ; T<valoreData.lenght ; T++)
+
+		if(anno.length!=0 && mese.length!=0 && giorno.length!=0)
+		{
+			if(anno<100) anno=eval(parseInt(anno, 10)+2000);
+			if(parseInt(anno)>9999) anno=parseInt(dataO.getFullYear());
+			dataTmp=new Date(parseInt(anno, 10), parseInt(mese, 10)-1, parseInt(giorno, 10));
+			dataRet=formatDateEx(dataTmp.getFullYear(), dataTmp.getMonth()+1, dataTmp.getDate());
+		}
+	}
+
+	else
+	{
+		dataRet="";
+	}
+
+	return dataRet;
+}
+
+function setCalendar(Calendar)
+{
+try{
+
+	var col;
+	var row;
+	var initCol;
+	var giorno=1;
+	var dataInterna;	try{
+	dataInterna=new Date(dataCal.getYear(), dataCal.getMonth(), 1);
+	}catch(e){dataInterna=new Date();}
+	var dataPrec = new Date();
+	var dataOdierna=new Date();
+
+	//Riempimento celle prima del mese
+	for(col=0 ; col<dataInterna.getDay() ; col++)
+	{
+		dataPrec=new Date(dataCal.getYear(), dataCal.getMonth(), 1-dataInterna.getDay()+col);
+		Calendar.rows[1].cells[col].innerHTML="<div><font color=\"#999999\">"+dataPrec.getDate()+"</font></div>";
+	}
+
+	//Riempimento delle celle del mese e dopo
+
+	for(row=1 ; row<7 ; row++)
+	{
+		if(row==1)
+		{
+			initCol=dataInterna.getDay();
+		}
+		else
+		{
+			initCol=0;
+		}
+
+		for(col=initCol ; col<7 ; col++)
+		{
+			if(dataCal.getMonth()==dataInterna.getMonth())
+			{
+				if(dataInterna.getYear()==dataOdierna.getYear() && dataInterna.getMonth()==dataOdierna.getMonth() && dataInterna.getDate()==dataOdierna.getDate())
+				{
+					Calendar.rows[row].cells[col].innerHTML="<div onClick='opener.document.all.data_carico.value=formatDate(this.childNodes[0].childNodes[0].childNodes[0].innerHTML); self.close();' onMouseOver=\"changeCursor(this, &quot;pointer&quot;);\" onMouseOut=\"changeCursor(this, &quot;default&quot;);\"><font color=\"#FF0000\"><strong><U>"+dataInterna.getDate()+"</U></strong></font></div>";
+				}
+				else
+				{
+					Calendar.rows[row].cells[col].innerHTML="<div onClick='opener.document.all.data_carico.value=formatDate(this.childNodes[0].childNodes[0].childNodes[0].innerHTML); self.close();' onMouseOver=\"changeCursor(this, &quot;pointer&quot;);\" onMouseOut=\"changeCursor(this, &quot;default&quot;);\"><font color=\"#000000\"><strong><U>"+dataInterna.getDate()+"</U></strong></font></div>";
+				}
+			}
+			else
+			{
+				Calendar.rows[row].cells[col].innerHTML="<div><font color=\"#999999\">"+dataInterna.getDate()+"</font></div>";
+			}
+			giorno++;
+			dataInterna=new Date(dataCal.getYear(), dataCal.getMonth(), giorno);
+		}
+	}
+}
+
+catch(e){alert(e + ' - Errore in function setCalendar()');}
+}
+
+function today()
+{
+	 var oggi = new Date();
+	 dataCal = new Date(oggi.getYear(), oggi.getMonth(), oggi.getDate());
+	 opener.document.all.data_carico.value = formatDate(dataCal.getDate());
+	 self.close();
+}
+
+
+// -->
+</script></head><body onLoad='javascript:setCalendar(document.all.CalGiorni);setHeader();'><div ID='MainCalendar'><div ID='Calendario'><table ID='MainTable' CLASS='CAL'><tr><td HEIGHT='30%'><table ID='CalHead' CLASS='CAL'><tr><td><div><strong>DICEMBRE 2007</strong></div></td></tr><tr><td><table ID='CalGest' CLASS='CAL'><tr><td WIDTH='20%'></td><td WIDTH='20%'></td><td WIDTH='30%'></td><td WIDTH='20%'></td><td WIDTH='20%'></td></tr></table></td></tr></table></td></tr>
+<tr><td HEIGHT='70%'><table ID='CalGiorni' CLASS='CAL'><tr><td WIDTH='15%' CLASS='CalCella'><DIV><STRONG><FONT CLASS="CalGiorniHeadFont">DO</FONT></STRONG></DIV></td><td WIDTH='14%' CLASS='CalCella'><DIV><STRONG><FONT CLASS="CalGiorniHeadFont">LU</FONT></STRONG></DIV></td><td WIDTH='14%' CLASS='CalCella'><DIV><STRONG><FONT CLASS="CalGiorniHeadFont">MA</FONT></STRONG></DIV></td><td WIDTH='14%' CLASS='CalCella'><DIV><STRONG><FONT CLASS="CalGiorniHeadFont">ME</FONT></STRONG></DIV></td><td WIDTH='14%' CLASS='CalCella'><DIV><STRONG><FONT CLASS="CalGiorniHeadFont">GI</FONT></STRONG></DIV></td><td WIDTH='14%' CLASS='CalCella'><DIV><STRONG><FONT CLASS="CalGiorniHeadFont">VE</FONT></STRONG></DIV></td><td WIDTH='15%' CLASS='CalCella'><DIV><STRONG><FONT CLASS="CalGiorniHeadFont">SA</FONT></STRONG></DIV></td></tr><tr><td CLASS='CalGiorniFestivi'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFestivi'>&nbsp;</td></tr><tr><td CLASS='CalGiorniFestivi'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFestivi'>&nbsp;</td></tr><tr><td CLASS='CalGiorniFestivi'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFestivi'>&nbsp;</td></tr><tr><td CLASS='CalGiorniFestivi'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFestivi'>&nbsp;</td></tr><tr><td CLASS='CalGiorniFestivi'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFestivi'>&nbsp;</td></tr><tr><td CLASS='CalGiorniFestivi'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFeriali'>&nbsp;</td><td CLASS='CalGiorniFestivi'>&nbsp;</td></tr></table></td></tr></table></div></div></body></html><SCRIPT>setCalendar(document.all.CalGiorni);setHeader();setPage(document);</SCRIPT>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabTC>Sezione 1</tabTC>
+    	<tabQuestionario>Sezione 2</tabQuestionario>
+        <lblTitolo>MODULO RICHIESTA PER ESAMI TC</lblTitolo>
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        <butCerca>Inserisci Accertamento</butCerca>
+        <butInserisci>Inserisci</butInserisci>
+        <butConsensoInformato>Stampa Consenso Informato</butConsensoInformato>
+        
+        <fldAnamnesi>Anamnesi </fldAnamnesi>
+        <fldQuesito>Quesito diagnostico </fldQuesito>
+        <fldIndagine>Indagine proposta </fldIndagine>
+        <fldMdc>Esami con mezzo di contrasto (Mdc)</fldMdc>
+        <fldEsami>Nb: qualora sussista una o più delle condizioni suddette gli esami obbligatoriamente da eseguire sono </fldEsami>
+        <fldPazienteCollaborante>Dati assistito</fldPazienteCollaborante>
+        
+        <lblCollaborazione>Paziente collaborante </lblCollaborazione>
+        <lblMdc_Iodato>Il paziente ha già eseguito esami con mdc iodato?</lblMdc_Iodato>
+        <lblDisturbi>Ha presentato disturbi?</lblDisturbi>
+        <lblRischio_Allergico>Esiste comprovato rischio allergico ad altre sostanze?</lblRischio_Allergico>
+        <lblInsuff_Renale>Insufficienza Renale</lblInsuff_Renale>
+        <lblInsuff_Epatica>Insufficienza Epatica</lblInsuff_Epatica>
+        <lblInsuff_Cardio_Vasc>Insufficienza Cardio Vascolare</lblInsuff_Cardio_Vasc>
+		<lblStato_Gravidanza>Stato di Gravidanza</lblStato_Gravidanza>
+		<lblIpertiroidismo>Ipertiroidismo</lblIpertiroidismo>
+		<lblMieloma>Anamnesi per mieloma o paraproteinemie</lblMieloma>
+        <lblDiabete>Diabete</lblDiabete>
+		<lblTratt_Farma>Trattamento in atto con farmaci (beta-bloccanti, biguanidi, interleuchina)</lblTratt_Farma>
+		<lblG_Insuff_Card>Grave insufficienza cardiaca </lblG_Insuff_Card>
+		<lblG_Insuff_Epa>Grave insufficienza epatica </lblG_Insuff_Epa>
+		<lblG_Insuff_Ren>Grave insufficienza renale </lblG_Insuff_Ren>
+		<lblLinfomi>Linfomi, Waldestrom, mielomi </lblLinfomi>
+		<lblPeso>Peso (Kg)</lblPeso>
+		<lblProblemiPaziente>Diagnosi effettuate per il paziente</lblProblemiPaziente>
+		
+		<lblErrore>Salvataggio non effettuato. Controllare i dati inseriti</lblErrore>
+		<lblTitoloErrore>Errore</lblTitoloErrore>
+		<fldEsameMdc>In caso di esame CON Mezzo di Contrasti (M.d.C.) il paziente dovrà eseguire preliminarmente:</fldEsameMdc>
+		<lblCreatinenemia>Creatinenemia  -  valore(mg/dL)</lblCreatinenemia>
+		<lblDataCreatinenemia>Eseguito il</lblDataCreatinenemia>
+		<lblVFGF>Volume Filtrato Glomerulare con Formula  -  valore(ml/min)</lblVFGF>
+		<lblDataVFGF>Eseguito il</lblDataVFGF>
+    </ROW>
+</ROWSET>

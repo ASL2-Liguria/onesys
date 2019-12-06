@@ -1,0 +1,10 @@
+<INCLUDE>
+	<JS path="js/ADT/Contatto/Contatto.js"/>
+	<JS path="js/ADT/Contatto/ContattoMethods.js"/>
+	<JS path="js/TimePicker/jquery.ptTimeSelect.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+	<JS path="js/ADT/AccessoDh/AccessoDh.js"/>
+	<JS path="config/ADT/validator/model/V_ADT_ACCESSO_DH.js"/>
+	<CSS path="css/ADT/AccessoDh/AccessoDh.css"/>
+</INCLUDE>

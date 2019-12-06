@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>POSOLOGIE</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.POSOLOGIE</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_POSOLOGIA</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('CODICE');WK_POSOLOGIA.select(rec);}</CLICK> 
+                <DBLCLICK>function(rec){WK_POSOLOGIA.choose(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){WK_POSOLOGIA.choose(rec);}</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+
+				<COLUMN>
+					<ID>
+						<COL>POSOLOGIA</COL>
+						<DB>POSOLOGIA</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPosologiaSTD</DESCRIPTOR>
+					<WIDTH>400px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PERSONALE</COL>
+						<DB>PERSONALE</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPersonale</DESCRIPTOR>
+					<WIDTH>30px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+			</LIST>
+			<SORT>
+				<COLUMN id="QTA">ASC</COLUMN>
+				<COLUMN id="QTA_GIORNALIERA">ASC</COLUMN>
+				<COLUMN id="POSOLOGIA">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

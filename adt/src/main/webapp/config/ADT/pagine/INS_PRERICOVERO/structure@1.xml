@@ -1,0 +1,28 @@
+<PAGINA key_id="INS_PRERICOVERO">
+    <HEADER_PAGE key_id="INS_PRERICOVERO" valore="DEFAULT,SCHEDA,INS_PRERICOVERO#DEFAULT,INS_PRERICOVERO" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#INS_PRERICOVERO#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="INS_PRERICOVERO#lblTitle#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabInsPre" valore="tabInsPre" evento="START">
+                <FIELDSET_TABLE key_id="tableLivelloUrgenza" valore="IdLivelloUrgenza" evento="START">
+                    <TR_TD_CHECK key_id="cmbLivelloUrg" valore="cmbLivelloUrg#cmbLivelloUrg#N#{width:'200px',single_val:true}##URGENZA" evento="START"></TR_TD_CHECK>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+            <FIELDSET_TABLE key_id="tableDatiPaziente" valore="IdDatiPaziente" evento="START">
+                <TR.INIT  key_id="riga1" valore="" evento="START" >
+                    <TD_LABEL_COMBO key_id="cmbReparto" valore="lblReparto##cmbReparto#cmbReparto#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+	                <TD_LABEL_DATA key_id="dataInsPre" valore="lblDataInsPre#maskData#txtDataPre##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA_PREN" evento="START"></TD_LABEL_DATA>
+                    <TD_LABEL_ORA key_id="txtOraPre" valore="lblOraPre##txtOraPre#N" evento="START"></TD_LABEL_ORA>
+                </TR.INIT>
+                <TR.INIT  key_id="riga2" valore="" evento="START" >
+	                <TD_AUTOCOMPLETE key_id="repartoGiuridico" valore="lblRepartoDestinazione#acRepartoDestinazione#txtRepartoDestinazione#txtRepartoDestinazione#RepartiDestinazioneVPO#" evento="START"></TD_AUTOCOMPLETE>
+                    <!--<TD_LABEL_COMBO key_id="cmbTipoPreRicovero" valore="lblTipo##cmbTipoPreRicovero#cmbTipoPreRicovero#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>-->
+                </TR.INIT>
+                <TR.INIT  key_id="riga3" valore="" evento="START" >
+                    <TD_LABEL_COMBO key_id="cmbTipoPreRicovero" valore="lblTipo##cmbTipoPreRicovero#cmbTipoPreRicovero#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                </TR.INIT>
+            </FIELDSET_TABLE>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

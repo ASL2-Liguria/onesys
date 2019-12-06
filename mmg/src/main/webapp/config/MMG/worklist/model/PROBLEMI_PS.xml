@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>PROBLEMI_PS</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.PROBLEMI_PS</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_PROBLEMI_PS</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+			</EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+
+				<COLUMN>
+					<ID>
+						<COL>DATA</COL>
+						<DB>DATA</DB>
+					</ID>
+					<DESCRIPTOR>"Data del Problema"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>	
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>PRIVACY</COL>
+					</ID>
+					<DESCRIPTOR>" "</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk, td){ return NS_PROCESS_CLASS_MMG.processOscuramento(data, wk, td); }]]></PROCESS>
+					<WIDTH>25px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+					<EVENTS/>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>PROBLEMA_COMPLETO</COL>
+						<DB>PROBLEMA_COMPLETO</DB>
+					</ID>
+					<DESCRIPTOR>"Problema"</DESCRIPTOR>
+					<WIDTH>500px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>CHIUSO_DESCR</COL>
+						<DB>CHIUSO_DESCR</DB>
+					</ID>
+					<DESCRIPTOR>"Stato Problema"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>RISCHIO</COL>
+						<DB>RISCHIO</DB>
+					</ID>
+					<DESCRIPTOR>"Patologia a Rischio"</DESCRIPTOR>
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<!-- <COLUMN>
+					<ID>
+						<COL>DESCR_COMBO</COL>
+						<DB>DESCR_COMBO</DB>
+					</ID>
+					<DESCRIPTOR>"Stato Problema"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN> -->
+
+			</LIST>
+			<SORT>
+				<COLUMN id="ORDINE_RISCHIO">DESC</COLUMN>
+				<COLUMN id="ORDINAMENTO_PROBLEMA">ASC</COLUMN>
+				<COLUMN id="DATA">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

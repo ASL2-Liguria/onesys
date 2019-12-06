@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WK_PC</ID>
+    <ID-QUERY connection="CONFIG_WEB">WORKLIST.Q_WK_PC</ID-QUERY>
+    <TITLE>"PC"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <MENU>
+            <ID>MENU_GESTIONE_PC</ID>
+        </MENU>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>IP</COL>
+                        <DB>IP</DB>
+                    </ID>
+                    <DESCRIPTOR>"PC"</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>sito</COL>
+                        <DB>sito</DB>
+                    </ID>
+                    <DESCRIPTOR>"SITO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>70px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>STAMPANTE_REFERTO</COL>
+                        <DB>STAMPANTE_REFERTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"STAMPANTE REFERTO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>STAMPANTE_ETICHETTE</COL>
+                        <DB>STAMPANTE_ETICHETTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"STAMPANTE ETICHETTE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

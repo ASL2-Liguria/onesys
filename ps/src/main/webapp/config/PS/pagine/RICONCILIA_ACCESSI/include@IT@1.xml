@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="js/Base/NO-min/jquery.exchangeLists.js"/>
+    <JS path="js/PS/DialogPS/DialogPS.js"/>
+    <JS path="js/PS/RiconciliaAccessi/RiconciliaAccessi.js"/>
+    <CSS path="css/PS/RiconciliaAccessi/RiconciliaAccessi.css"/>
+</INCLUDE>

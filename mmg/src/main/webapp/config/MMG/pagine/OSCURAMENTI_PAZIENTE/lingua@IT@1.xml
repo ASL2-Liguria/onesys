@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <tabOscuramenti>Oscuramenti Paziente</tabOscuramenti>
+        <lblTitolo></lblTitolo>
+        
+        <lblMedOscurato>Cerca Medico</lblMedOscurato>
+        <lblGruppoOscurato>Oscura paziente al gruppo</lblGruppoOscurato>
+		
+    </ROW>
+</ROWSET>

@@ -1,0 +1,32 @@
+<PAGINA key_id="CHIUSURA_PROBLEMA">
+	<HEADER_PAGE key_id="CHIUSURA_PROBLEMA"
+		valore="DEFAULT_MMG,SCHEDA,CHIUSURA_PROBLEMA#DEFAULT_MMG,CHIUSURA_PROBLEMA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_CHIUSURA_PROBLEMA#MMG_DATI#PROVA#IDEN#ID_PROBLEMA"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabChiusuraProblema"
+			valore="ChiusuraProblema#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento" valore="tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldChiusuraProblema" valore="fldChiusuraProblema"
+					evento="START">
+					<TR_TD_LABEL_COMBO key_id="Problema"
+						valore="lblProblema##Problema#cmbProblema#N#PROBLEMA" evento="START_END">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_RADIO key_id="chkChiusuraProblema"
+						valore="lblChiusuraProblema##chkChiusuraProblema#radChiusuraProblema##N#CHIUSURA_PROBLEMA"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteChiusura" valore="fldNoteChiusura"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="NoteChiusura" valore="txtNoteChiusura#NOTE#2"
+						evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

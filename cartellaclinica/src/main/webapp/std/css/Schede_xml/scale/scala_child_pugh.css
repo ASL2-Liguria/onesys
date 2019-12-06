@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+#lblLegenda{	
+	width:1000px;
+}
+#lblIntestazione{	
+	width:1000px;
+}
+
+.Link{
+	background:url(../../../../imagexPix/interrogativo.png) no-repeat;
+	float:left;
+	margin-right:10px;
+	width:20px;height:20px;
+	cursor:pointer;
+}
+/*.labelClass{
+	float:right;
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}*/
+
+.tdClass{
+height:30px;
+}
+
+table#tableInfoChildPugh {
+	border: 1px solid;
+	}
+table#tableInfoChildPugh td {
+     padding: 5px;
+     font-size: 12px;
+     border: solid #000 1px;
+    }
+	

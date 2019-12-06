@@ -1,0 +1,54 @@
+<root>
+	<statements_list>
+		<!-- funzione che ritornerà il valore da passare al parametro filtriAggiuntivi del repository-->
+		<!-- al momento ne definisco una di prova! -->
+		<statement name="getRepositoryKeys">				
+			<sql>
+			<![CDATA[
+				declare
+					tipoModulo varchar2(100) := ?;
+					idAnag varchar2(100) := ?;
+					urlRepo varchar2(2000) := '';
+					paramUrl varchar2(2000) := '';
+				begin
+					SELECT VALORE into urlRepo FROM IMAGOWEB.CONFIGURA_MODULI where modulo='REPOSITORY' and variabile = tipoModulo;
+					? := urlRepo ;
+					SELECT ID_REMOTO into paramUrl FROM VIEW_IDEN_REPOSITORY where iden = to_number(idAnag);
+					? := paramUrl;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		<statement name="getUrlRepo">	
+			<!-- variabile x il momento deve essere "RADIO" -->
+			<sql>
+			<![CDATA[
+				SELECT VALORE FROM CONFIGURA_MODULI where modulo='REPOSITORY' and variabile = ?
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		
+		<statement name="getIdenRemoto">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+				SELECT ID_REMOTO FROM VIEW_IDEN_REPOSITORY where iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getParamConfigPage">
+			<sql>
+			<![CDATA[
+				select valore from ges_config_page where parametro = ? and pagina = ?
+			]]>
+			</sql>
+			<schema>IMAGOWEB</schema>
+		</statement>
+		
+		
+	</statements_list>
+</root>

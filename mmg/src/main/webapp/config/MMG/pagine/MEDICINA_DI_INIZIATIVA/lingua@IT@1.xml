@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    
+    <ROW>
+        
+        <lblTitolo>Medicina di iniziativa</lblTitolo>
+        
+        <tabListaMedicinaDiIniziativa>Lista M.I.</tabListaMedicinaDiIniziativa>
+        
+        <tabInserimentoMedicinaDiIniziativa>Inserimento M.I.</tabInserimentoMedicinaDiIniziativa>
+        	
+        	<fldMedicinaDiIniziativa>Dati della medicina di iniziativa</fldMedicinaDiIniziativa>
+        	
+		        <lblTipoMedicinaDiIniziativa>Tipo medicina di iniziativa</lblTipoMedicinaDiIniziativa>
+		        <lblDataInizio>Data inizio</lblDataInizio>
+		        <lblDataFine>Data fine</lblDataFine>
+		
+		<lblInserisci>Inserisci</lblInserisci>
+        <lblModifica>Modifica</lblModifica>	
+        	
+    </ROW>
+    
+</ROWSET>

@@ -1,0 +1,3 @@
+<@lib.tdAutoComplete idText="txtDiagnosiICD" idLbl="lblDiagnosiICD" tradLbl="Diagnosi" idAutoComplete="acDiagnosiICD9" query="AUTOCOMPLETE.ADT_DIAGNOSI_ICD9_LIKE" idWk="ADT_DIAGNOSI_ICD9" datasource="ADT" binds={} title="Diagnosi" colspan="2"></@lib.tdAutoComplete>
+<@lib.tdLbl class="tdLbl" id="lblDiagnosi" value="${traduzione.lbltaDiagnosi}" ></@lib.tdLbl>
+<@lib.tdTextarea id="txtDiagnosi" colspan="4" ></@lib.tdTextarea>

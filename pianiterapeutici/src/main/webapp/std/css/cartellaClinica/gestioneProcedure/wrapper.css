@@ -1,0 +1,22 @@
+div.intestazione { background-color: #b9e0ff; }
+label.intestazione {
+background-color: #08A;
+display: block;
+color: white;
+font-size: 14px;
+text-align: center;
+font-weight: bold;
+height: 25px;
+vertical-align:middle;
+padding-top:4px;
+}
+label.intestazione input {
+vertical-align:middle;
+}
+iframe {
+width: 100%;
+}
+body{
+	width: 100%;
+	overflow: hidden;
+}

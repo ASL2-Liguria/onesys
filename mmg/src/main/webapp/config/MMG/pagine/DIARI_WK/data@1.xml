@@ -1,0 +1,8 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+ 
+	<DATO key_id="FiltriNoteDiario" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''DIARI_WK'' and TIPO_DATO=''FiltriNote'''; end;" />
+
+
+</DATI>

@@ -1,0 +1,178 @@
+body {
+	width:100%;
+}
+
+.contentTabs {
+	padding: 0 10px;
+}
+
+fieldset.fldCampi {
+	margin: 10px 0;
+}
+
+#fldTesto,#fldTestiStandard {
+	margin: 10px 1%;
+}
+
+#fldTesto, #fldDatiCertificato, #fldDatiPaziente {
+	width: 64%;
+	float: left;
+	margin-left: 0;
+	position: relative;
+}
+
+#fldTestiStandard {
+	width: 34%;
+	height: 100%;
+	float: right;
+	margin-right: 0;
+	display: block;
+	position: relative;
+	/* colore giallo */
+	border: 2px solid #fff0c1;
+	background: #fff3cf;
+	
+	/* colore verde
+	border: 2px solid #a8fbc9;
+	background: #c6fddc;
+	*/
+}
+
+#fldDatiPaziente .tdLbl  {
+	width: 80px;
+}
+
+#fldDatiPaziente .tdButton {
+	text-align: center;
+	padding-top:10px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#butImporta {
+	height: 25px;
+	background: #c6fddc;
+}
+
+.tdTextarea{
+	border: 1px solid #3D3D3D;
+}
+
+/*
+#fldDatiCertificato {
+	clear: both;
+}*/
+
+#txtDataScadenza { 
+	width: 120px; 
+}
+
+#testo,#container {
+	border: 1px solid #d5d5d5;
+	background: #fff;
+	padding: 0;
+	overflow-x: auto;
+}
+
+#testo {
+	padding: 10px 5px;
+	overflow-y: scroll;
+}
+
+#testo div {
+	line-height: 150%;
+}
+
+.icons,.search-container {
+	background: #f8f8f8;
+	text-align: center;
+	padding: 1px 0;
+}
+
+.icons {
+	height: 28px;
+}
+
+.icons i {
+	display: inline-block;
+	font-size: 20px;
+	padding: 0 8px;
+	color: #555;
+}
+
+.search-container {
+	display: none;
+	/* text-align: left; */
+}
+
+.search-container #search {
+	width: 90%;
+	margin: 0 5%;
+	padding: 0 5px;
+	height: 24px;
+}
+
+.search-container .search-filter {
+	border: 1px solid #c5c5c5;
+	display: inline-block;
+	padding: 2px 8px;
+	margin: 2px;
+	cursor: pointer;
+	background: #e1e1e1;
+	font-weight: bold;
+	font-size: 11px;
+}
+
+#list {
+	list-style: none;
+}
+
+#list li {
+	width: 100%;
+	height: 26px;
+	padding: 5px;
+	display: list-item;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 130%;
+	cursor: pointer;
+}
+
+#list li:first-child {
+	border-top: 1px solid #ddd;
+}
+
+#list li:hover {
+	background: #e8e8e8;
+}
+
+#list li.divider {
+	background: #f8f8f8;
+}
+
+#list li.selected {
+	background: #c3dcec;
+}
+
+#STD, #NO-STD {
+	width: 50%;
+	background: #f8f8f8;
+	text-align: center;
+	display: inline-block;
+	height: 26px;
+	font-weight: bold;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 5px 0;
+	cursor: pointer;
+} 
+
+#STD {
+	border-right: 1px solid #e5e5e5;
+}
+
+#STD:hover, #NO-STD:hover, 
+#STD.active, #NO-STD.active {
+	background: #e8e8e8;
+	text-decoration: underline;
+}

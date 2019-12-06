@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+<!-- css per la tabella di dati, come ad esempio la worklist -->
+
+#groupWK {
+	height:600px;
+	width:100%;
+	overflow-y:scroll;
+}
+
+
+
+
+
+

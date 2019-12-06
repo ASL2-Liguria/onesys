@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+	body {margin:0px; padding:0px;}
+	td {text-align:center; cursor:pointer;}
+</style>
+</head>
+
+<body>
+    <table cellpadding='0' cellspacing='0' width="100%" border=1 >
+    	<tr>
+            <th>Glicemia:</th>
+            <td onclick="setDose('')">&lt;100</td>
+            <td onclick="setDose('8')">100-160</td>
+            <td onclick="setDose('10')">160-220</td>
+            <td onclick="setDose('12')">220-280</td>
+            <td onclick="setDose('15')">280-320</td>
+            <td onclick="setDose('20')">&gt;320</td>
+      	</tr>
+    	<tr>
+            <th>Insulina:</th>
+            <td onclick="setDose('')">N.T.</td>
+            <td onclick="setDose('8')">HR 8U</td>
+            <td onclick="setDose('10')">HR 10U</td>
+            <td onclick="setDose('12')">HR 12U</td>
+            <td onclick="setDose('15')">HR 15U</td>
+            <td onclick="setDose('20')">HR 20U</td>
+
+      	</tr>
+    </table>        
+	
+</body>
+<script>
+function setDose(val) {
+	parent.document.getElementById('dose_variabile').getElementsByTagName("input")[0].value=val;
+}
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<style>
+body{
+	margin:0 0 0 0;
+}
+</style>
+
+
+<body onload="init();">
+<div id=Div_ComPACS>
+</div>
+
+</body>
+<script>
+
+var idEsameDicom;
+var repartoDest;
+
+function init()
+{	
+	idEsameDicom=window.dialogArguments.idEsameDicom;
+	repartoDest=window.dialogArguments.cdcDest;
+	apriOcx();
+}
+
+
+function apriOcx(){
+
+
+	var user='';
+	var password='';
+	var dominio='';
+	var url= 'http://compacs.medimatic.com/WebServer';
+	var serverae='COMPACS';
+	var sqlinstance='SERVER\COMPACS';
+	var sqlcatalog='COMPACS';
+	var clientae='WebViewer';
+	var db='';
+	var commandLine;
+
+	//alert(idEsameDicom);
+	//alert(repartoDest);
+	if (repartoDest=="SZ_CARD" || repartoDest=="SZ_CARDIO"){
+	
+	dominio='PFPACSZ1';
+	db='PFPACSZ1\\COMPACS';
+	url= 'http://pfpacsz1/webserver/';
+	}
+	else 
+	{
+	
+	dominio='PFPACSP1';
+	db='PFPACSP1\\COMPACS';
+	url= 'http://pfpacsp1/webserver/';
+	}
+
+		commandLine="viewer -D:"+dominio+" -U:compacs -P:compacsuser -NC:\"-name:COMPACSWEB -t:3 -ae:COMPACSWEB -db:"+db+" -catalog:ComPACS -ip:"+url+" -cae:WEB-VIEWER\" -forceopen -arp:nogui -aro:AccNum="+idEsameDicom;
+//	   alert(commandLine);
+	
+	//alert(document.getElementById("Div_ComPACS"));	
+	
+	loaderdiv = document.getElementById("Div_ComPACS");
+	if (loaderdiv)
+	{
+	
+		objectel = document.createElement("OBJECT");
+		
+		objectel.id ="ComPACSViewer";
+		objectel.classid = "CLSID:75972089-5626-11d8-a0b4-000c6e220a33";
+		objectel.width ="100%";
+		objectel.height ="100%";		
+
+		objectel.SetResources('C:\\Programmi\\MediMatic\\ComPACS\\Workstation\\ResourceDLL.dll');	
+		
+	
+
+		objectel.SetCommandLine(commandLine);
+		
+		 
+//quella funzionante
+//objectel.SetCommandLine("viewer -D:PFPACSP1 -U:compacs -P:compacsuser -NC:\"-name:COMPACSWEB -t:3 -ae:COMPACSWEB -db:PFPACSP1\\COMPACS -catalog:ComPACS -ip:http://pfpacsp1/webserver/ -cae:WEB-VIEWER\"");
+		
+		
+		objectel.ShowSplash = false;
+		objectel.ShowLoadSaveSplash = false;
+		objectel.MinimalIE = true;
+		loaderdiv.appendChild(objectel);
+
+	}
+
+	
+	
+}
+
+
+function onClose(){
+//	window.returnValue = '';
+}
+</script>
+</html>

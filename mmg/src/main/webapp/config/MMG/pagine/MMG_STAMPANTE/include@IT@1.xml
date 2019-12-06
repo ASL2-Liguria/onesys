@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Configurazioni/MMG_Stampante.js" />
+	<CSS path="css/MMG/Configurazioni/MMG_Stampante.css" />
+</INCLUDE>

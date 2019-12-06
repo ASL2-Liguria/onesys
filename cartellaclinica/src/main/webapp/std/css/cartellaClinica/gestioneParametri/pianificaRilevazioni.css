@@ -1,0 +1,51 @@
+*{font-family: Verdana, Arial, Helvetica, sans-serif;font-size:11px;}
+
+body { background:#b9e0ff; overflow: hidden; padding: 0px; margin:0px;}
+
+/*div.inline {margin-top:10px;clear:both;}
+div.inline * {display:inline; margin-left: 10px;}*/
+
+fieldset{
+	padding:3px;
+	margin:3px;
+}
+
+#timeline {margin: 10px;}
+
+div.title{padding-left:10px; width:100%;background:url(../../../../imagexPix/bar/sf_turni.jpg) repeat-x;
+	font-weight:bold; font-style:normal;color:#FFF; margin-bottom: 5px;}
+/*div#parametri select{height: 150px; width: 96%; margin-left: 10px; margin-bottom: 15px;}*/
+ 
+input#OraInizio{width: 35px;}
+input#DataInizio{width: 70px;}
+input#NumeroGiorni{width: 25px;}
+
+.rowButton{background:url(../../../../imagexPix/bar/sf_turni.jpg) repeat-x; width:100%; position:absolute; bottom:0px;margin:0px;}
+.button{float:right;margin-right:10px;font-weight:bold;color:white;cursor: pointer;}
+
+.btn{
+	text-align:center;
+	display:block;
+	float:left;
+	margin:2px;
+	padding:0 8px;
+	cursor:pointer;
+	width:24px;
+	background:#CCC;	
+	border:1px solid #004993;
+	color:#fff;
+}
+
+.btn.selected{background:#2294F7;}
+	
+.btn.H22{line-height:22px;height:22px;}
+
+.btn.H15{line-height:15px;height:15px;}
+
+.btn.H10{line-height:10px;height:10px;}
+
+.btn.H8{line-height:8px;height:8px;}
+
+.btn.W35{width:35px;}
+
+.btn.W60{width:60px;}

@@ -1,0 +1,99 @@
+/*CALENDARIO*/
+.CAL {
+	WIDTH : 100%;
+	HEIGHT : 100%;
+	BORDER : 3px SOLID SILVER;
+	font-weight: normal;
+	color:  #FFFFCC;
+}
+
+/*intestazione dei giorni DO..SA*/
+.CALGIORNIHEADFONT {
+	color: #3333CC;
+}
+
+.CALGIORNIFESTIVI {
+	BACKGROUND-COLOR : #C2FAFE;
+	BORDER : 1px SOLID BLACK;
+}
+
+.CALGIORNIFERIALI {
+	BACKGROUND-COLOR : #FFFFF0;
+	BORDER : 1px SOLID BLACK;
+}
+
+.CALCELLA {BORDER : 1px SOLID BLACK;}
+
+/*Sezione ID*/
+#MainCalendar {POSITION : ABSOLUTE; WIDTH:250; HEIGHT:220;}/*BACKGROUND-COLOR : #CCFFFF;*/
+#Calendario {WIDTH:250; HEIGHT:220;}
+/*Background della parte di intestazione con il mese e le frecce*/
+#CALHEAD {BORDER-WIDTH : 0pt; color:#0033CC; BACKGROUND-COLOR:#00CCFF; border-color:#00CCFF}/*#CCFFFF*/
+#CALGEST {BORDER-WIDTH : 0pt; color:#0033CC;}
+
+
+
+
+/*FILTRI*/
+.FILFRMDATI {WIDTH : 100%; margin: 0px; border: 0; }
+.FIL {WIDTH : 100%; }
+.FILTAB {WIDTH : 100%;}
+/* sfondo della tabella che contirne i filtri */
+.FILTD {border: 0; background-color:#FFF7EE; height:20px;}
+.FILSELECT {WIDTH : 100%;}
+.FILIMGDATA {
+	width:20px;
+	height:20px;
+	background-image : url(../../../imagexPix/button/icon/calendario.gif);
+	cursor : pointer;	
+	background-repeat:none;
+}
+.FILIMGDATAUP {
+	width:20px;
+	height:20px;
+	background-image : url(../../../imagexPix/button/icon/calendario.gif);
+	cursor : pointer;
+	background-repeat:none;
+}
+
+
+/*GRUPPI*/
+.groupTable {
+	width:97%;
+	height:250pt;
+/*	border:2px solid #83E2BC; */
+	border:2px solid #B8BACD; 
+}
+.groupTd {
+	width:40%;
+	text-align:center;
+}
+.groupTdCenter {
+	width:20%;
+	text-align:center;
+}
+.groupLabelDescr {
+	font-weight:bold;
+}
+.groupSelect {
+	font-size:8pt;
+	width:150px;
+}
+
+.ListBox{font-size: 9pt; font-family:Courier; vertical-align: middle}
+
+td.classTabHeaderMiddleSF {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_mim.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	color:white;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+
+/*FILTRI*/
+#FILMAINTAB {WIDTH : 100%; BORDER-WIDTH : 1pt; PADDING : 0pt;}

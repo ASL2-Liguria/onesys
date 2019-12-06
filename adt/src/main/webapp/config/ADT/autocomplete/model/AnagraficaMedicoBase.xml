@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>2</minChars>
+		<onSelect type="js">
+			<![CDATA[function(data){}]]>
+		</onSelect>
+		<deferRequestBy>200</deferRequestBy>
+		<datasource>ADT</datasource>
+		<storedQuery>AUTOCOMPLETE.AC_ANAG_MEDICO_BASE</storedQuery>
+		<maxResults>40</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>Medico di base</title>
+	    <id_wk>AC_ANAG_MEDICO_BASE</id_wk>
+	</LIST>
+</AUTOCOMPLETE>	 
+    

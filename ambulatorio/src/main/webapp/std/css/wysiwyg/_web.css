@@ -1,0 +1,16 @@
+
+#containerReportControl{
+	width:776px;
+	top:20px;
+	padding:2px 2px 2px 2px;
+	background:#E2FAFE;
+	background-image:url(../../../imagexPix/button/gradient/gradient.png);
+	background-repeat:repeat-x;
+}
+.sample{
+	padding:0 2px;
+}
+
+.buttons{
+	padding:10px 0;
+}

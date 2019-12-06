@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+
+	<ID>OFFLINE_FARMACI</ID>
+	<ID-QUERY connection="MMG_DATI"></ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+	<WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	
+	<STRUCTURE>
+		
+		<!--  
+		<MENU>
+		
+			<ID></ID>
+			
+		</MENU>
+		-->
+		
+		<ROWS>
+		
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			
+			<HEIGHT>26px</HEIGHT>
+			
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('');}</CLICK>
+				<DBLCLICK>
+					function(rec)
+					{ 
+						
+						if( typeof PRESCRIZIONE != 'undefined' )
+							PRESCRIZIONE.addToList( rec );
+						 
+					}
+				</DBLCLICK>
+				<TAPHOLD>
+					function(rec)
+					{ 
+						
+						if( typeof PRESCRIZIONE != 'undefined' )
+							PRESCRIZIONE.addToList( rec );
+						 
+					}
+				</TAPHOLD>
+			</EVENTS>
+			
+		</ROWS>
+		
+		<COLUMNS>
+			
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>COD_FARMACO</COL>
+						<DB>COD_FARMACO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblCodiceFarmaco</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblDescrizioneFarmaco</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PRINCIPIO_ATTIVO</COL>
+						<DB>PRINCIPIO_ATTIVO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPrincipioAttivo</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>CLASSE</COL>
+						<DB>CLASSE</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblClasse</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>30px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PREZZO_EURO</COL>
+						<DB>PREZZO_EURO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPrezzo</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>30px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>N</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			
+			<SORT />
+			
+		</COLUMNS>
+		
+	</STRUCTURE>
+	
+</WORKLIST>

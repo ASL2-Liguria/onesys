@@ -1,0 +1,154 @@
+<root>
+	<statements_list>
+		<statement name="getImagowebCcConfigurazioneFirme">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					IMAGOWEB.CC_CONFIGURAZIONE_FIRME 
+				where 
+					TYPE_PROCEDURE=? and 
+					REPARTO=? and 
+					type_firma=?	
+			]]>
+			</sql>
+		</statement>
+
+		<statement name="stmLetteraDaFirmare">
+			<sql>
+			<![CDATA[
+				declare
+				  pVista      varchar2(4000):=?;   
+				  pIdenVisita pls_integer:=to_number(?); 
+				  pOutIden    varchar2(4000);
+				  pOutTabella varchar2(4000);    
+				begin
+				  
+				    execute immediate  'SELECT iden,tabella
+				                      FROM radsql.'||pVista||' 
+				                      WHERE iden_visita=:piden' into pOutIden,pOutTabella using pIdenVisita;
+				  ? := pOutIden;
+				  ? := pOutTabella;   
+				    						
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="stmSchedaDaFirmare">
+			<sql>
+			<![CDATA[
+				DECLARE
+				  ptabella      VARCHAR2(4000):=?;
+				  pfunzione 	  VARCHAR2(4000):=?;   --TERAPIA_DOMICILIARE 
+				  piden         pls_integer:=to_number(?); --TERAPIA_DOMICILIARE->IDEN_LETTERA;SCHEDE->IDEN_VISITA;
+				  pidenvisita   pls_integer:=to_number(?); --TERAPIA_DOMICILIARE->IDEN_LETTERA;SCHEDE->IDEN_VISITA;
+				  pidenmed      pls_integer:=to_number(?);
+				  pidentab      pls_integer;
+				  poutiden      VARCHAR2(4000);
+				  pstatement 	VARCHAR2(4000);
+				  pcountiden    pls_integer;
+				  pprogressivo pls_integer;
+				BEGIN
+				  --CASE WHEN DA MODIFICARE A SECONDA DI QUELLO CHE DEVO FIRMARE
+				  radsql.gest_logs.error('stmSchedaDaFirmare',ptabella||' '||pfunzione||' '||piden||' '||pidenvisita||' '||pidenmed);
+				  BEGIN
+				  CASE
+				    WHEN pfunzione='TERAPIA_DOMICILIARE'	
+				    THEN
+				      pstatement := 'SELECT iden_lettera FROM radsql.'||ptabella||' WHERE iden_lettera=:piden and primo_ciclo=''S'' and rownum=1';
+				      EXECUTE IMMEDIATE pstatement INTO pidentab USING piden;
+				    ELSE
+				      NULL;
+				  END CASE;
+				  exception WHEN no_data_found THEN
+				    pidentab:=0;
+				  END;
+				
+				  --PARTE COMUNE, CREO
+				  IF pidentab>0 THEN
+				    BEGIN
+				    	select progr into pprogressivo from (
+				    	SELECT 
+				    		progr 
+				    	FROM radsql.cc_firma_pdf 
+				    	WHERE 
+				    		iden_visita = pidenvisita AND 
+				    		tabella_sorgente = ptabella AND 
+				    		funzione = pfunzione AND 
+				    		pdf_firmato_creato = 'S'
+				    		and deleted = 'N'
+				    	order by iden desc) where rownum=1;
+							
+				      pprogressivo:=pprogressivo+1;
+				    exception WHEN no_data_found THEN
+				      pprogressivo:=0;
+				    END;
+				    BEGIN
+				      INSERT INTO radsql.cc_firma_pdf (iden_visita,tabella_sorgente,iden_tab,funzione,progr,iden_ute,deleted) 
+				      VALUES (pidenvisita,ptabella,pidentab,pfunzione,pprogressivo,pidenmed ,'S');
+				      poutiden:='S';
+				    exception WHEN others THEN
+				      poutiden:='N';
+				    END;
+				    
+				  ELSE
+				    poutiden:='N';
+				  END IF;
+				  ?:=poutiden;
+				END;
+			]]>
+			</sql>
+		</statement>
+		<statement name="stmSchedaUpdFirma">
+			<sql>
+			<![CDATA[
+DECLARE
+  ptabella      VARCHAR2(4000):=?;
+  pfunzione 	VARCHAR2(4000):=?;   		--TERAPIA_DOMICILIARE 
+  piden         pls_integer:=to_number(?); 	--TERAPIA_DOMICILIARE->IDEN_LETTERA;
+  pidenvisita   pls_integer:=to_number(?); 	--TERAPIA_DOMICILIARE->IDEN_VISITA;
+  clobvar       clob:=?;
+  poutiden      VARCHAR2(4000);
+  pidentodeprecate    pls_integer;
+  pprogr         pls_integer;
+BEGIN
+  radsql.gest_logs.error('stmSchedaUpdFirma',ptabella||' '||pfunzione||' '||piden||' '||pidenvisita);
+  BEGIN
+  	begin
+	select iden into pidentodeprecate from (
+	   	SELECT 
+	   		iden 
+	   	FROM radsql.cc_firma_pdf 
+	   	WHERE 
+	   		iden_visita = pidenvisita AND 
+	   		tabella_sorgente = ptabella AND 
+	   		funzione = pfunzione AND 
+	   		pdf_firmato_creato = 'S'
+	   		and deleted = 'N'
+	   	order by iden desc) 
+	 where rownum=1;
+  	exception when no_data_found then
+  		pidentodeprecate:='';
+  	end;
+  
+    update radsql.cc_firma_pdf
+    set 
+      pdf_firmato=clobvar,
+      pdf_firmato_creato = 'S', 
+      deleted = 'N',
+      iden_to_deprecate=pidentodeprecate,
+      data_ora_firma =sysdate
+    where iden_visita = pidenvisita and funzione = pfunzione and iden_tab = piden;
+      poutiden:='S';	
+  exception WHEN others THEN
+      poutiden:='N';
+      radsql.gest_logs.error('stmSchedaUpdFirma',sqlerrm);
+  END;				  		  
+  ?:=poutiden;
+END;
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

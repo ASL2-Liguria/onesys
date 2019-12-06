@@ -1,0 +1,22 @@
+<PAGINA key_id="PANN_AMM_ADT">
+    <HEADER_WK key_id="PANN_AMM_ADT" valore="DEFAULT,WK,PANN_AMM_ADT#DEFAULT,PANN_AMM_ADT" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroListaAttesa" valore="filtroListaAttesa#LISTATT" evento="START">
+            <TABELLA.INIT key_id="tableListAttesa" valore="" evento="START">
+                <TR.INIT key_id="rigaAttesa1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="DescrLista" valore="lblDescrLista#txtDescrLista#DescrLista##T" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroListaChiamata" valore="filtroListaChiamata#ADT_WK_LISTE_CHIAMATA" evento="START">
+            <TABELLA.INIT key_id="tableListChiamata" valore="" evento="START">
+                <TR.INIT key_id="rigaChiamata1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="DescrListaChiamata" valore="lblDescrListaChiamata#txtDescrListaChiamata#DescrLista##T" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+</PAGINA>

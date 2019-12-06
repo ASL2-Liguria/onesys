@@ -1,0 +1,8 @@
+body{width:960px;}
+
+#txtAltezza, #txtPeso, #txtBMI { width : 100px; }
+
+#fldRegimeAccesso td, #fldAccesso td{
+	padding-left:35px;
+	padding-bottom:25px;
+}

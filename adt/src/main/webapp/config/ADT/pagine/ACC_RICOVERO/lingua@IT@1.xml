@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Gestione Ricovero</lblTitolo>
+    	<tabAnagrafica>Anagrafica</tabAnagrafica>
+    	<fldDP>Dati Principali</fldDP>
+    	<fldInfoPaz>Info Paziente</fldInfoPaz>
+    	<fldRes>Residenza</fldRes>
+        <fldDom>Domicilio</fldDom>
+        <lblSTP>STP</lblSTP>
+        <lblcodSTP>Codice STP</lblcodSTP>
+        <lblscadcodSTP>Data scadenza STP</lblscadcodSTP>
+        <lblENI>ENI</lblENI>
+        <lblcodENI>Codice ENI</lblcodENI>
+        <lblscadcodENI>Data scadenza ENI</lblscadcodENI>
+        <lblGIU>GIUBILEO</lblGIU>
+        <lblcodGIU>Codice GIUBILEO</lblcodGIU>
+        <lblscadcodGIU>Data scadenza codice</lblscadcodGIU>
+        <lblStatoCivile>Stato civile</lblStatoCivile>
+        <lblCitt>Cittadinanza</lblCitt>
+        <lblCitt1>Cittadinanza</lblCitt1>
+        <lblCitt2>Cittadinanza</lblCitt2>
+        <lblCitt3>Cittadinanza</lblCitt3>
+        <lblTessera>Tessera sanitaria</lblTessera>
+        <lblScadenzaTessera>Data scadenza tessera</lblScadenzaTessera>
+        <lblTelRes>Telefono</lblTelRes>
+        <butStampaSTP>Stampa Modulo STP</butStampaSTP>
+        <butStampaENI>Stampa Modulo ENI</butStampaENI>
+        <butFirma>Firma</butFirma>
+        <butApriCartella>Apri Cartella</butApriCartella>
+        <butStampaTesseraENI>Stampa Tessera ENI</butStampaTesseraENI>
+        <butCalcola>Calcola</butCalcola>
+        <butCalcolaENI>Calcola</butCalcolaENI>
+    	<tabRicovero>Ricovero</tabRicovero>
+    	<tabSintesiPaziente>Sintesi</tabSintesiPaziente>
+        <lblCodSTP>Codice STP</lblCodSTP>
+        <lblCodENI>Codice ENI</lblCodENI>
+        <lblScadCodSTP>Scadenza STP</lblScadCodSTP>
+        <lblScadCodENI>Scadenza ENI</lblScadCodENI>
+        <lblComuneResidenza>Comune residenza</lblComuneResidenza>
+        <lblLuogoNasc>Comune nascita</lblLuogoNasc>
+        <lblIndRes>Indirizzo</lblIndRes>
+        <lblCAPRes>Cap</lblCAPRes>
+        <lblProvRes>Prov</lblProvRes>
+        <lblCivRes>N. civico</lblCivRes>
+        <lblCodiceRegioneRes>Reg</lblCodiceRegioneRes>
+        <lblASLResidenza>Asl</lblASLResidenza>
+        <lblDescrDRG>Descrizione</lblDescrDRG>
+        <idAccRico>Dati ricovero</idAccRico>
+        <lblLivelloUrg>Data prenotazione e livello di urgenza</lblLivelloUrg>
+        <lblDataPren>Data prenotazione</lblDataPren>
+        <lblDataRicovero>Data ricovero</lblDataRicovero>
+        <lblOraRicovero>Ora</lblOraRicovero>
+        <lblOggi>oggi</lblOggi>
+        <lblNeonato>Neonato</lblNeonato>
+        <lblTipoNeonato>Tipo neonato</lblTipoNeonato>
+        <lblRegime>Regime</lblRegime>
+        <lblAssPostoLetto>Assegnazione posto letto</lblAssPostoLetto>
+        <lblRepartoRico>Reparto giuridico</lblRepartoRico>
+        <lblRepartoAss>Reparto di assistenza</lblRepartoAss>
+        <lblTipoRico>Tipo ricovero</lblTipoRico>
+        <lblMotivoRico>Motivo ricovero</lblMotivoRico>
+        <lblProvenienza>Provenienza</lblProvenienza>
+        <lblMedicoAcc>Medico accettante</lblMedicoAcc>
+        <lblOnere>Onere</lblOnere>
+        <lblSubOnere>Sub onere</lblSubOnere>
+        <lblTicket>Posizione ticket</lblTicket>
+        <lblTipoMedPresc>Tipo medico prescrivente</lblTipoMedPresc>
+        <lblDiagnosiAcc>Diagnosi all'accettazione</lblDiagnosiAcc>
+        <lbltaNoteBraccialettoRicovero>Note braccialetto ricovero</lbltaNoteBraccialettoRicovero>
+        <lblLateralita>Lateralità</lblLateralita>
+        <lblDiagnosiIcd9>Diagnosi ICD9</lblDiagnosiIcd9>
+        <lblEnte>Ente</lblEnte>
+        <lblPrognosi>Prognosi</lblPrognosi>
+        <lblPrognosiGG>Giorni prognosi</lblPrognosiGG>
+        <lblTitoloStudio>Titolo di studio</lblTitoloStudio>
+        <idAssistito>Dati assistito</idAssistito>
+        <lblSesso>Sesso</lblSesso>
+        <lblCognome>Cognome</lblCognome>
+        <lblNome>Nome</lblNome>
+        <lblDataNascita>Data di nascita</lblDataNascita>
+        <lblCodiceFiscale>Codice fiscale</lblCodiceFiscale>
+        <lblNumNosologico>Numero Nosologico</lblNumNosologico>
+        <idDatiNeonato>Dati neonato</idDatiNeonato>
+        <lblPesoNascita>Peso alla nascita [gr]</lblPesoNascita>
+        <lblF>F</lblF>
+        <lblM>M</lblM>
+        <idPrimoAccessoDh>Dati primo accesso DH</idPrimoAccessoDh>
+        <lblDataFineAccesso>Data fine</lblDataFineAccesso>
+        <lblOraFineAccesso>Ora fine</lblOraFineAccesso>
+        <lblTrauma>Traumatismi o intossicazioni</lblTrauma>
+        <lblCategoriaCausaEsterna>Categoria causa esterna</lblCategoriaCausaEsterna>
+        <lblCausaEsterna>Causa esterna</lblCausaEsterna>
+        <lblMadreCartella>Cartella Madre</lblMadreCartella>
+        <idAccessiDh>Riepilogo</idAccessiDh>
+	    <tabTrasferimento>Trasferimento</tabTrasferimento>
+        <tableTrasfAss>Richiesta trasferimento </tableTrasfAss>
+        <butSalva>Salva</butSalva>
+        <butChiudi>Chiudi</butChiudi>
+        <butStampa>Stampa Sdo</butStampa>
+        <butRepartoAttuale>Reparto Attuale</butRepartoAttuale>
+        <butStampaDecesso>Stampa Modulo</butStampaDecesso>
+        <lblSesso>Sesso</lblSesso>
+        <lbloraInizioRicovero>Ora inizio</lbloraInizioRicovero>
+        <lbldatiPaziente>Dati Trasferimento</lbldatiPaziente>
+        <lblRepDestinazione>Reparto Giuridico</lblRepDestinazione>
+        <lblData>Data inizio</lblData>
+        <lblRepAss>Reparto assistenziale</lblRepAss>
+        <tableWkTrasferimenti>Riepilogo Trasferimenti</tableWkTrasferimenti>
+        <idDatiRicoveroAcc>Dati accettazione ricovero</idDatiRicoveroAcc>
+        <lblCartellaAcc>N. Cartella</lblCartellaAcc>
+        <lblDataRicoAcc>Data</lblDataRicoAcc>
+        <lblOraRicoAcc>Ora</lblOraRicoAcc>
+        <lblRepartoAcc1>Reparto</lblRepartoAcc1>
+        <idDegenza>Dati degenza attuale</idDegenza>
+        <lblRepartoAttGiu>Reparto giuridico</lblRepartoAttGiu>
+        <lblRepartoAttAss>Reparto assistenziale</lblRepartoAttAss>
+        <lblTrasfAmbulanza>Trasferimento in ambulanza</lblTrasfAmbulanza>
+        <tabAccessiDh>Accessi</tabAccessiDh>
+	    <tabDimissione>Dimissione</tabDimissione>
+        <idAssistito>Dati assistito</idAssistito>
+        <idDatiRicovero>Dati ricovero</idDatiRicovero>
+        <idDegenzaDimi>Dati degenza</idDegenzaDimi>
+        <lblCartella>N. Cartella</lblCartella>
+        <lblAnno>Anno</lblAnno>
+        <lblDataRico>Data ricovero</lblDataRico>
+        <lblOraRico>Ora ricovero</lblOraRico>
+        <lblRepartoAcc>Reparto di accettazione</lblRepartoAcc>
+        <lblRepartoDeg>Reparto di degenza</lblRepartoDeg>
+        <lblRepartoAss>Reparto di assistenza</lblRepartoAss>
+        <lblDataUltimoMov>Data ultimo movimento</lblDataUltimoMov>
+        <lblOraUltimoMov>Ora ultimo movimento</lblOraUltimoMov>
+        <idDimissione>DIMISSIONE</idDimissione>
+        <lblDataDimi>Data dimissione</lblDataDimi>
+        <lblOraDimi>Ora dimissione</lblOraDimi>
+        <lblTipoDimi>Tipo dimissione</lblTipoDimi>
+        <lblMedicoDimi>Medico dimettente</lblMedicoDimi>
+        <idDatiAusiliari>Dati ausiliari</idDatiAusiliari>
+        <lblGgPermesso>Giorni di permesso</lblGgPermesso>
+        <lblAssDomi>Necessita di assistenza domiciliare</lblAssDomi>
+        <lblRefAutop>Riscontro autoptico</lblRefAutop>
+        <fieldsetFinder>Gestione Finder</fieldsetFinder>
+        <lblNumAccessiDh>N. accessi DH</lblNumAccessiDh>
+        <butFinder>Calcola Drg</butFinder>
+        <butCalcoloDrgTariffa>Calcolo Drg e tariffa</butCalcoloDrgTariffa>
+         <lblImportoDRG>Importo Drg</lblImportoDRG>
+        <lblImportoDRGFuoriSoglia>Importo fuori soglia</lblImportoDRGFuoriSoglia>
+        <butDiagnosiFromCartella>Importa Diagnosi</butDiagnosiFromCartella>
+        <butFinderInterface>Apri interfaccia DRG</butFinderInterface>
+        <lblCodDRG>Codice DRG</lblCodDRG>
+        <idPatologie>Dati dimissione</idPatologie>
+        <lblPatologiaPrimaria>Patologia Primaria</lblPatologiaPrimaria>
+        <lblMedicoDimissione>Medico Dimissione</lblMedicoDimissione>
+        <lblMedicoCompilatore>Medico Compilatore</lblMedicoCompilatore>
+        <lblRepDimissione>Reparto Dimissione</lblRepDimissione>
+        <butCalcoloDrgTariffa>Calcolo Drg e tariffa</butCalcoloDrgTariffa>
+        <traumatismiDimissione>Traumatismi e Intossicazioni</traumatismiDimissione>
+        <lblTraumatismiDimissione>Traumatismi o intossicazioni</lblTraumatismiDimissione>
+        <lblCategoriaCausaEsternaDimissione>Categoria causa esterna</lblCategoriaCausaEsternaDimissione>
+        <lblCausaEsternaDimissione>Causa esterna</lblCausaEsternaDimissione>
+        <butImportaTraumatismi>Importa</butImportaTraumatismi>
+        <fldDiagnosi>Diagnosi</fldDiagnosi>
+        <lblDiagnosiDimissione>Diagnosi Testuale</lblDiagnosiDimissione>
+        <lblDiagnosiIcd90>Diagnosi Principale</lblDiagnosiIcd90>
+        <lblDiagnosiIcd91>Diagnosi</lblDiagnosiIcd91>
+        <lblDiagnosiIcd92>Diagnosi</lblDiagnosiIcd92>
+        <lblDiagnosiIcd93>Diagnosi</lblDiagnosiIcd93>
+        <lblDiagnosiIcd94>Diagnosi</lblDiagnosiIcd94>
+        <lblDiagnosiIcd95>Diagnosi</lblDiagnosiIcd95>
+        <lblDiagnosiIcd96>Diagnosi</lblDiagnosiIcd96>
+        <fldInterventi>Interventi</fldInterventi>
+        <lblInterventiIcd90>Intervento Principale</lblInterventiIcd90>
+        <lblInterventiIcd91>Intervento</lblInterventiIcd91>
+        <lblInterventiIcd92>Intervento</lblInterventiIcd92>
+        <lblInterventiIcd93>Intervento</lblInterventiIcd93>
+        <lblInterventiIcd94>Intervento</lblInterventiIcd94>
+        <lblInterventiIcd95>Intervento</lblInterventiIcd95>
+        <lblInterventiIcd96>Intervento</lblInterventiIcd96>
+        <lblDimiDecesso>Dimissione per decesso</lblDimiDecesso>
+        <lblDataInterventiICD90>Data Intervento</lblDataInterventiICD90>
+        <lblDataInterventiICD91>Data Intervento</lblDataInterventiICD91>
+        <lblDataInterventiICD92>Data Intervento</lblDataInterventiICD92>
+        <lblDataInterventiICD93>Data Intervento</lblDataInterventiICD93>
+        <lblDataInterventiICD94>Data Intervento</lblDataInterventiICD94>
+        <lblDataInterventiICD95>Data Intervento</lblDataInterventiICD95>
+        <lblDataInterventiICD96>Data Intervento</lblDataInterventiICD96>
+        <butDiagnosi0UP>&#x25B2;</butDiagnosi0UP>
+        <butDiagnosi0DOWN>&#x25BC;</butDiagnosi0DOWN>
+        <butDiagnosi1UP>&#x25B2;</butDiagnosi1UP>
+        <butDiagnosi1DOWN>&#x25BC;</butDiagnosi1DOWN>
+        <butDiagnosi2UP>&#x25B2;</butDiagnosi2UP>
+        <butDiagnosi2DOWN>&#x25BC;</butDiagnosi2DOWN>
+        <butDiagnosi3UP>&#x25B2;</butDiagnosi3UP>
+        <butDiagnosi3DOWN>&#x25BC;</butDiagnosi3DOWN>
+        <butDiagnosi4UP>&#x25B2;</butDiagnosi4UP>
+        <butDiagnosi4DOWN>&#x25BC;</butDiagnosi4DOWN>
+        <butDiagnosi5UP>&#x25B2;</butDiagnosi5UP>
+        <butDiagnosi5DOWN>&#x25BC;</butDiagnosi5DOWN>
+        <butDiagnosi6UP>&#x25B2;</butDiagnosi6UP>
+        <butDiagnosi6DOWN>&#x25BC;</butDiagnosi6DOWN>
+        <butIntervento0UP>&#x25B2;</butIntervento0UP>
+        <butIntervento0DOWN>&#x25BC;</butIntervento0DOWN>
+        <butIntervento1UP>&#x25B2;</butIntervento1UP>
+        <butIntervento1DOWN>&#x25BC;</butIntervento1DOWN>
+        <butIntervento2UP>&#x25B2;</butIntervento2UP>
+        <butIntervento2DOWN>&#x25BC;</butIntervento2DOWN>
+        <butIntervento3UP>&#x25B2;</butIntervento3UP>
+        <butIntervento3DOWN>&#x25BC;</butIntervento3DOWN>
+        <butIntervento4UP>&#x25B2;</butIntervento4UP>
+        <butIntervento4DOWN>&#x25BC;</butIntervento4DOWN>
+        <butIntervento5UP>&#x25B2;</butIntervento5UP>
+        <butIntervento5DOWN>&#x25BC;</butIntervento5DOWN>
+        <butIntervento6UP>&#x25B2;</butIntervento6UP>
+        <butIntervento6DOWN>&#x25BC;</butIntervento6DOWN>
+        <btnDiagnosi>Importa</btnDiagnosi>
+        <btnInterventi>Importa</btnInterventi>
+        <lblDimiDecesso>Dimissione per decesso</lblDimiDecesso>
+        <lblTest1>1</lblTest1>
+        <lblTest2>2</lblTest2>
+        <lblTest3>3</lblTest3>
+        <lblTest4>4</lblTest4>
+        <lblTest5>5</lblTest5>
+        <lblTest6>6</lblTest6>
+        <lblTest7>1</lblTest7>
+        <lblTest8>2</lblTest8>
+        <lblTest9>3</lblTest9>
+        <lblTest10>4</lblTest10>
+        <lblTest11>5</lblTest11>
+        <lblTest12>6</lblTest12>
+
+    </ROW>
+</ROWSET>

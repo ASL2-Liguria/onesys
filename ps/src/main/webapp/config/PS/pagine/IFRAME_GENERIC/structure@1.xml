@@ -1,0 +1,9 @@
+<PAGINA key_id="IFRAME_GENERIC">
+	<HEADER_PAGE key_id="IFRAME_GENERIC" valore="DEFAULT,SCHEDA,IFRAME_GENERIC#DEFAULT" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati##ADT###" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="IFRAME_GENERIC##" evento="START">
+            <IFRAME key_id="iframe" valore="iframe##" evento="START"></IFRAME>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

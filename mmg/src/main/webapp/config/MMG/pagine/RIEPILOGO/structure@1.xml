@@ -1,0 +1,15 @@
+<PAGINA key_id="RIEPILOGO">
+	<HEADER_PAGE key_id="RIEPILOGO"
+		valore="DEFAULT_MMG,RIEPILOGO#DEFAULT_MMG,RIEPILOGO" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<IFRAME key_id="Riepilogo1" valore="Riepilogo1" evento="START">
+		</IFRAME>
+		<IFRAME key_id="Riepilogo2" valore="Riepilogo2" evento="START">
+		</IFRAME>
+		<IFRAME key_id="Riepilogo3" valore="Riepilogo3" evento="START">
+		</IFRAME>
+		<IFRAME key_id="Riepilogo4" valore="Riepilogo4" evento="START">
+		</IFRAME>
+	</FORM>
+</PAGINA>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <butStampaDati>Stampa dati Anagrafici</butStampaDati>
+        <lblTitolo>Scheda Anagrafica</lblTitolo>
+        <butStampa>Stampa</butStampa>
+        <lblTessera>Tessera Sanitaria</lblTessera>
+        <butEsenzione>Esenzione</butEsenzione>
+        <butSalva>Salva</butSalva>
+        <butChiudi>Chiudi</butChiudi>
+        <lblCellPaz>Cellulare</lblCellPaz>
+        <lblCodiceRegioneDom>Codice Regionale</lblCodiceRegioneDom>
+        <lblASLDomicilio>ASL Domicilio</lblASLDomicilio>
+        <lblcodGIU>Codice GIUBILEO</lblcodGIU>
+        <lblscadcodGIU>Scadenza Codice </lblscadcodGIU>
+        <lblGIU>GIUBILEO</lblGIU>
+        <tabNote>Note</tabNote>
+        <tabCodiciEsterni>Codici Esterni</tabCodiciEsterni>
+        <tabAnamnesi>Anamnesi</tabAnamnesi>
+        <tabDatiTessera>Dati TesEuro</tabDatiTessera>
+        <tabResDom>Residenza e Domicilio</tabResDom>
+        <tabDatiPrincipali>Dati Principali</tabDatiPrincipali>
+        <tabEsami>Esami</tabEsami>
+        <fldDP>Dati Principali</fldDP>
+        <fldInfoPaz>Info Paziente</fldInfoPaz>
+        <fldNote>Note</fldNote>
+        <lblCognome>Cognome</lblCognome>
+        <lblNome>Nome</lblNome>
+        <lblDataNasc>Data di Nascita</lblDataNasc>
+        <lblEta>Età</lblEta>
+        <lblSesso>Sesso</lblSesso>
+        <lblLuogoNasc>Luogo di Nascita</lblLuogoNasc>
+        <lblCodFisc>Codice Fiscale</lblCodFisc>
+        <lblCodiceRegioneAss>Codice Regionale</lblCodiceRegioneAss>
+        <lblCodiceRegioneRes>Codice Regionale</lblCodiceRegioneRes>
+        <lblNoso>N° nosografico</lblNoso>
+        <lblSTP>STP</lblSTP>
+        <lblscadcodSTP>Scadenza STP</lblscadcodSTP>
+        <lblcodSTP>Codice STP</lblcodSTP>
+        <lblENI>ENI</lblENI>
+        <lblscadcodENI>Scadenza ENI</lblscadcodENI>
+        <lblcodENI>Codice ENI</lblcodENI>
+        <lblCitt>Cittadinanza</lblCitt>
+        <lblCitt1>Cittadinanza</lblCitt1>
+        <lblCitt2>Cittadinanza</lblCitt2>
+        <lblCitt3>Cittadinanza</lblCitt3>
+        <lblMedBase>Medico di Base</lblMedBase>
+        <lblProf>Professione</lblProf>
+        <lblIDpaz>ID Patient</lblIDpaz>
+        <lblMail>E-Mail</lblMail>
+        <lblDataDec>Data Decesso</lblDataDec>
+        <lblLocRes>Località</lblLocRes>
+        <lblIndRes>Indirizzo</lblIndRes>
+        <lblCivRes>Civico</lblCivRes>
+        <lblNaz>Nazionalità</lblNaz>
+        <lblASLResidenza>ASL Residenza</lblASLResidenza>
+        <lblCAPRes>CAP</lblCAPRes>
+        <lblTelRes>Telefono</lblTelRes>
+        <lblRegRes>Regione</lblRegRes>
+        <lblProvRes>Provincia</lblProvRes>
+        <lblCell>Cellulare</lblCell>
+        <lblLocDom>Località</lblLocDom>
+        <lblIndDom>Indirizzo</lblIndDom>
+        <lblCivDom>Civico</lblCivDom>
+        <lblUSLDom>USL</lblUSLDom>
+        <lblCAPDom>CAP</lblCAPDom>
+        <lblTelDom>Telefono</lblTelDom>
+        <lblRegDom>Regione</lblRegDom>
+        <lblProvDom>Provincia</lblProvDom>
+        <lblPresso>Presso</lblPresso>
+        <lblIDCitt>ID Cittadino</lblIDCitt>
+        <lblNtes>N. Tessera</lblNtes>
+        <lblICT>Istit. Competente Tessera</lblICT>
+        <lblDescrStrut>Descrizione Struttura</lblDescrStrut>
+        <lblDataScadTes>Data Scadenza Tessera</lblDataScadTes>
+        <lblQualBen>Qualifica Beneficiario</lblQualBen>
+        <lblCert>Certificazione</lblCert>
+        <lblID1>ID 1</lblID1>
+        <lblID2>ID 2</lblID2>
+        <lblID3>ID 3</lblID3>
+        <lblID4>ID 4</lblID4>
+        <lblID5>ID 5</lblID5>
+        <lblID6>ID 6</lblID6>
+        <lblID7>ID 7</lblID7>
+        <lblID8>ID 8</lblID8>
+        <lblID9>ID 9</lblID9>
+        <lblID10>ID 10</lblID10>
+        <lblID11>ID 11</lblID11>
+        <lblID12>ID 12</lblID12>
+        <fldAna>Anamnesi</fldAna>
+        <fldAnaResult>Calcoli</fldAnaResult>
+        <lblPeso>Peso</lblPeso>
+        <lblAltezza>Altezza</lblAltezza>
+        <lblSupCorpo>Sup. Corporea</lblSupCorpo>
+        <lblPesoIdeale>Peso Ideale</lblPesoIdeale>
+        <lblBMI>Body Mass Index</lblBMI>
+        <lblRisultato>Risultato Peso</lblRisultato>
+        <lblMDC>MDC</lblMDC>
+        <lblAnamnesi>Anamnesi</lblAnamnesi>
+        <lblKg>Kg</lblKg>
+        <lblCm>Cm</lblCm>
+        <lblM2>m^2</lblM2>
+        <lblTratDati>Consenso al trattamento dei dati personali</lblTratDati>
+        <lblASLAssistenza>ASL Assistenza</lblASLAssistenza>
+        <fldRes>Residenza</fldRes>
+        <fldDom>Domicilio</fldDom>
+        <wkDataEsame>Data Esame</wkDataEsame>
+        <wkEsame>Esame</wkEsame>
+        <wkProvenienza>Provenienza</wkProvenienza>
+        <wkStato>Stato</wkStato>
+        <lblStampaReferto>Stampa Referto</lblStampaReferto>
+        <lblStampaEtiEsame>Stampa Etichette Esame</lblStampaEtiEsame>
+        <lblFineEsecuzione>Fine Esecuzione</lblFineEsecuzione>
+        <lblInizioEsecuzione>Inizio Esecuzione</lblInizioEsecuzione>
+        <lblAccettaEsame>Accetta</lblAccettaEsame>
+        <lblRefertaEsame>Referta Esami</lblRefertaEsame>
+        <lblStampa>Stampa</lblStampa>
+        <lblInserisciEsame>Inserisci Esame</lblInserisciEsame>
+        <lblNewAnag>Inserimento nuovo paziente</lblNewAnag>
+        <errCalcCodFisc>Errore cacolo Codice Fiscale</errCalcCodFisc>
+        <errNoCognome>Compilare prima il cognome</errNoCognome>
+        <errNoNome>Compilare prima il nome</errNoNome>
+        <errNoSesso>Compilare prima il sesso</errNoSesso>
+        <errNoComNasc>Compilare prima il luogo di nascita</errNoComNasc>
+        <errNoDataNasc>Compilare prima la data di nascita</errNoDataNasc>
+        <lblAcCap>CAP</lblAcCap>
+        <lblAcCodice>Codice</lblAcCodice>
+        <lblAcCodiceFiscale>Codice Fiscale</lblAcCodiceFiscale>
+        <lblAcDescrizione>Comune</lblAcDescrizione>
+        <lblComuneDomicilio>Comune</lblComuneDomicilio>
+        <lblComuneResidenza>Comune</lblComuneResidenza>
+        <lblAcProvincia>Provincia</lblAcProvincia>
+        <lblAcInizioValidita>Inizio Validità</lblAcInizioValidita>
+        <lblAcFineValidita>Fine Validità</lblAcFineValidita>
+        <lblAcTitCittadinanza>Cittadinanza</lblAcTitCittadinanza>
+        <lblAcTitMedici>Medici</lblAcTitMedici>
+        <lblAcProfessioni>Professioni</lblAcProfessioni>
+        <lblSottopeso>Sottopeso</lblSottopeso>
+        <lblNormopeso>Normopeso</lblNormopeso>
+        <lblSovrappeso>Sovrappeso</lblSovrappeso>
+        <lblObesita>Obesità</lblObesita>
+        <fldCodici>Codici</fldCodici>
+        <lblCod1>ID 1</lblCod1>
+        <lblCod2>ID 2</lblCod2>
+        <lblCod3>ID 3</lblCod3>
+        <lblCod4>ID 4</lblCod4>
+        <lblCod5>ID 5</lblCod5>
+        <lblCod6>ID 6</lblCod6>
+        <lblCod7>ID 7</lblCod7>
+        <lblCod8>ID 8</lblCod8>
+        <lblCod9>ID 9</lblCod9>
+        <lblCod10>ID 10</lblCod10>
+        <fldCertificazione>Certificazione</fldCertificazione>
+        <lblTipoCert>Tipo</lblTipoCert>
+        <tabIndirizzi>Indirizzi</tabIndirizzi>
+        <butAddIndirizzo>Inserisci nuovo indirizzo</butAddIndirizzo>
+        <lblTitoloAnag>Titolo</lblTitoloAnag>
+        <lblAcTitoloAnag>Titolo</lblAcTitoloAnag>
+        <lblTitoloStudio>Titolo di Studio</lblTitoloStudio>
+        <lblAcTitoloStudioAnag>Titolo di Studio</lblAcTitoloStudioAnag>
+        <lblStatoCivile>Stato Civile</lblStatoCivile>
+        <lblAcStatoCivile>Stato Civile</lblAcStatoCivile>
+        <lblScadenzaTessera>Scadenza Tessera Sanitaria</lblScadenzaTessera>
+        <lblCuslRes>ASL Residenza</lblCuslRes>
+    </ROW>
+</ROWSET>

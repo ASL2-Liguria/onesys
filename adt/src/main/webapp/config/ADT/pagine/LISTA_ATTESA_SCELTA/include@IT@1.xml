@@ -1,0 +1,5 @@
+<INCLUDE>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/ADT/LISTA_ATTESA/ListaAttesaScelta.js"/>
+</INCLUDE>

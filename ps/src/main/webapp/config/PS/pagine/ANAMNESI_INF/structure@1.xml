@@ -1,0 +1,47 @@
+<PAGINA key_id="ANAMNESI_INF">
+    <HEADER_REFERTAZIONE key_id="ANAMNESI_INF" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,ANAMNESI_INF#DEFAULT,PS_ANAMNESI_INF" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="AnamnesiInf" valore="ANAMNESI_INF#lblTitolo#butSalva" evento="START">
+            <!--<TABULAZIONE.CREA_TAB key_id="tabDati" valore="tabDati" evento="START">-->
+                <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hOreDiffChiusura" valore="hOreDiffChiusura" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUtenteDimissione" valore="hUtenteDimissione" evento="START">
+                </INPUT.HIDDEN>
+                <ROW key_id="rowAnamnesiInf" valore="rowAnamnesiInf" evento="START">
+                    <COLUMN_FREE key_id="colAnamnesiInf" valore="colAnamnesiInf" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldAnamnesiInf" valore="fldAnamnesiInf"	evento="START">
+                            <TR_TD_LABEL_TEXTAREA key_id="txtAllergie" valore="lblAllergie#txtAllergie#ALLERGIE#N#N" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="txtTerInCorso" valore="lblTerInCorso#txtTerInCorso#TERAPIE#N#N" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="txtMalattie" valore="lblMalattie#txtMalattie#MALATTIE#N#N" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="txtUltimoPasto" valore="lblUltimoPasto#txtUltimoPasto#ULTIMOPASTO#N#N" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="txtInterventoSubito" valore="lblInterventoSubito#txtInterventoSubito#INTERVENTI#N#N" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+            <!--</TABULAZIONE.CREA_TAB>-->
+
+            <!-- <TABULAZIONE.CREA_TAB key_id="tabRivalutazioni" valore="tabRivalutazioni" evento="START">
+                <FIELDSET key_id="tableWkRiepilogo" valore="tableWkRiepilogo" evento="START">
+             	    <DIV key_id="divWkRivalutazioni" valore="divWkRivalutazioni##" evento="START">
+             	    </DIV>
+                 </FIELDSET>
+             </TABULAZIONE.CREA_TAB>
+
+            <TABULAZIONE.CREA_TAB key_id="tabPrecedenti" valore="tabPrecedenti" evento="START">
+                <FIELDSET key_id="tableWkPrecedenti" valore="tableWkPrecedenti" evento="START">
+                    <DIV key_id="divWkPrecedenti" valore="divWkPrecedenti##" evento="START">
+                    </DIV>
+                </FIELDSET>
+            </TABULAZIONE.CREA_TAB>-->
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

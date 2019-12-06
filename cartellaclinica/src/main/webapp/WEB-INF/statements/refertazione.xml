@@ -1,0 +1,128 @@
+<root>
+	<statements_list>
+		<!--statement name="consulenze.getConfigMenuRepartoSezioni">				
+			<sql>
+			<![CDATA[		
+				Select GRUPPO,LABEL,IDEN_FIGLIO,QUERY,RIFERIMENTI from IMAGOWEB.CONFIG_MENU_REPARTO where PROCEDURA=? and CODICE_REPARTO=? and FUNZIONE=?  and IDEN_PADRE is null and ATTIVO='S' order by ORDINAMENTO
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.getConfigMenuRepartoInfo">				
+			<sql>
+			<![CDATA[		
+				Select GRUPPO,LABEL,IDEN_FIGLIO,QUERY,RIFERIMENTI from IMAGOWEB.CONFIG_MENU_REPARTO where PROCEDURA=? and CODICE_REPARTO=? and FUNZIONE=?  and IDEN_PADRE is null and ATTIVO='S' order by ORDINAMENTO
+			]]>
+			</sql>
+		</statement>		
+		<statement name="consulenze.getConfigMenuRepartoButton">				
+			<sql>
+			<![CDATA[		
+				Select FUNZIONE,LABEL,GRUPPO from IMAGOWEB.CONFIG_MENU_REPARTO where PROCEDURA=? and CODICE_REPARTO=?  and (TIPO_UTE=? or TIPO_UTE is null) and ATTIVO='S' order by ORDINAMENTO desc
+			]]>
+			</sql>
+		</statement-->	
+		<statement name="consulenze.getConfigMenuRepartoSezioni">				
+			<sql>
+			<![CDATA[		
+				Select GRUPPO,LABEL,IDEN_FIGLIO from IMAGOWEB.CONFIG_MENU_REPARTO where PROCEDURA=? and CODICE_REPARTO=? and FUNZIONE=?  and TIPO_UTE=? and IDEN_PADRE is null and ATTIVO='S' order by ORDINAMENTO
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.getConfigMenuRepartoInfo">				
+			<sql>
+			<![CDATA[		
+				Select GRUPPO,LABEL,IDEN_FIGLIO,QUERY,RIFERIMENTI from IMAGOWEB.CONFIG_MENU_REPARTO where PROCEDURA=? and CODICE_REPARTO=? and FUNZIONE=?  and TIPO_UTE=?  and IDEN_PADRE is null and ATTIVO='S' order by ORDINAMENTO
+			]]>
+			</sql>
+		</statement>		
+		<statement name="consulenze.getConfigMenuRepartoButton">				
+			<sql>
+			<![CDATA[		
+				Select FUNZIONE,LABEL,GRUPPO from IMAGOWEB.CONFIG_MENU_REPARTO where PROCEDURA=? and CODICE_REPARTO=?  and (TIPO_UTE=? or TIPO_UTE is null) and FUNZIONE=? and ATTIVO='S' order by ORDINAMENTO desc
+			]]>
+			</sql>
+		</statement>	
+		<statement name="consulenze.getConfigFromViewSezioni">				
+			<sql>
+			<![CDATA[		
+				select * from RADSQL.VIEW_CC_CONSULENZE_SEZ where iden_versione=to_number(?) 
+			]]>
+			</sql>
+		</statement>
+		<statement name="anestesiologica.getConfigFromViewSezioni">				
+			<sql>
+			<![CDATA[		
+				select * from RADSQL.VIEW_CC_VISITA_AN_SEZ where iden_versione=to_number(?)
+			]]>
+			</sql>
+		</statement>
+        <statement name="consulenze.getVersioneRefertazione">				
+			<sql>
+			<![CDATA[		
+				select STATO,ATTIVO from RADSQL.CC_LETTERA_VERSIONI where iden_visita=to_number(?) and funzione=? and iden=to_number(?)
+			]]>
+			</sql>
+		</statement>
+        <statement name="getVersioneRefertazione">				
+			<sql>
+			<![CDATA[		
+				select STATO,ATTIVO from RADSQL.CC_LETTERA_VERSIONI where iden_visita=to_number(?) and funzione=? and iden=to_number(?)
+			]]>
+			</sql>
+		</statement>
+        <statement name="consulenze.getDescrTabEsaConcat">				
+			<sql>
+			<![CDATA[		
+				select radsql.oe_consulenza.rettabesadescrconcat(to_number(?)) DESCR from dual
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.getDataOraRefertazione">				
+			<sql>
+			<![CDATA[		
+				select data_refertazione,ora_refertazione,data_esecuzione,ora_esecuzione,stato_richiesta from infoweb.testata_richieste where iden=to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="consulenze.getSectionsValue">				
+			<sql>
+			<![CDATA[		
+				Select 
+					GRUPPO,
+					LABEL,
+					QUERY,
+					RIFERIMENTI,
+					QUERY_CONTROLLO,
+                    ORDINAMENTO 
+				from 
+					IMAGOWEB.CONFIG_MENU_REPARTO 
+				where 
+					PROCEDURA=? and 
+					CODICE_REPARTO=? and 
+					FUNZIONE=?  and 
+					IDEN_PADRE=to_number(?) and 
+					tipo_ute=? and 
+					ATTIVO='S' 
+					order by ORDINAMENTO
+			]]>
+			</sql>
+		</statement>		
+		<statement name="valutazionePreOperatoria.anestesiologica.getLastIdenRef">				
+			<sql>
+			<![CDATA[
+                select iden from (
+                select 
+                    iden 
+                from 
+                    cc_lettera_versioni clv 
+                where
+                    clv.iden_visita = to_number(?) 
+                    and clv.funzione= ?
+                    and clv.attivo='S'
+                    order by iden desc)
+					where rownum=1
+			]]>
+			</sql>
+		</statement>        
+    </statements_list>	
+</root>	

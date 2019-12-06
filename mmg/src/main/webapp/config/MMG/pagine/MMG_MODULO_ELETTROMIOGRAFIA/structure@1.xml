@@ -1,0 +1,27 @@
+<PAGINA key_id="MMG_MODULO_ELETTROMIOGRAFIA">
+	<HEADER_PAGE key_id="MMG_MODULO_ELETTROMIOGRAFIA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_ELETTROMIOGRAFIA#DEFAULT_MMG,MMG_MODULO_ELETTROMIOGRAFIA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_ELETTROMIOGRAFIA#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="ModuloElettromiografia#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabModulo" valore="tabModulo" evento="START">
+				<FIELDSET_TABLE key_id="fldNumeroTelefono" valore="fldNumeroTelefono" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtNumeroTelefono" valore="lblNumeroTelefono##txtNumeroTelefono###NUMERO_TELEFONO" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldSospettoDiagnostico" valore="fldSospettoDiagnostico" evento="START">
+					<TR_TD_LABEL key_id="lblSospettoDiagnostico" valore="lblSospettoDiagnostico" evento="START"></TR_TD_LABEL>
+					<TR_TD_RADIO key_id="sospettoDiagnostico" valore="sospettoDiagnostico#sospettoDiagnostico#{width:300}#N#SOSPETTO_DIAGNOSTICO" evento="START"></TR_TD_RADIO>					
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDettMononeuropatia" valore="fldDettMononeuropatia" evento="START">
+					<TR_TD_TEXTAREA key_id="taDettMononeuropatia" valore="taDettMononeuropatia#DETT_MONONEUROPATIA" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldDettAltro" valore="fldDettAltro" evento="START">
+					<TR_TD_TEXTAREA key_id="taDettAltro" valore="taDettAltro#DETT_ALTRO" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

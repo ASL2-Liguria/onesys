@@ -1,0 +1,67 @@
+/** foglio di stile per i pulsanti dello zoom **/
+
+#divBtDown{
+	float:left;
+	width:21px;
+	background-image:url(../../../../imagexPix/button/mini/btDown.gif);	
+	margin-left:9px;
+	margin-top:2px;	
+}
+
+#divBtUp{
+	float:left;
+	background-image:url(../../../../imagexPix/button/mini/btUp.gif);
+	width:21px;
+	margin-left:0px;
+	margin-top:2px;	
+	
+}
+
+#divCommandButton{
+	float:right;
+	background-image:url(../../../../imagexPix/button/mini/closing.gif);
+	margin-right:0px;
+	width:21px;
+	margin-top:2px;
+
+}
+
+#containerCmdButtonInside{
+	float:right;
+	width:42px; 
+	height:25px;
+	overflow:hidden;
+	margin-right:8px;
+	
+}
+
+#containerCmdButtonOutside{
+	width:80px;
+	position:absolute;
+	top:0px;
+	right:18px;
+	background-image:url(../../../../imagexPix/tabheader/topTabulator80.gif);
+	height:25px;
+}
+
+#containerGlobalTabulator{
+	float:left;
+	height:25px;
+	width:100%;
+}
+
+
+
+.closing A{
+	width:21px;
+	height:21px;
+	background-image:url(../../../../imagexPix/button/mini/closing.gif);
+	
+}
+
+.closing A:hover {
+	width:21px;
+	height:21px;
+	background-image:url(../../../../imagexPix/button/mini/closingOver.gif);
+}
+

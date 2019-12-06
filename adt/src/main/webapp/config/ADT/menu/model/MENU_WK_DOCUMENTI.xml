@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_WK_DOCUMENTI</ID>
+    <TITLE>"Menu Documenti"</TITLE>
+    <LIST>
+        <ITEM>
+        	<ID>APRI_DOCUMENTO</ID>
+            <LINK><![CDATA[function(rec){ NS_DOCUMENTI_WK.apriDocumento(rec[0])}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return true; }]]></WHERE>
+            <OUTPUT>"Apri Documento"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>    
+     </LIST>
+</MENU>

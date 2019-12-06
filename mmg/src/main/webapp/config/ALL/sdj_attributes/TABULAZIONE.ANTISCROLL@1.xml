@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TABULAZIONE.ANTISCROLL">
+        <OBJ classe_id="PATH::div">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="tabs"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@0">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="headerTabs"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@0.h2">
+            <PROC id="setId">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@0.h2">
+            <PROC id="setTagValue">
+                <PAR translate="true" type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@0.h2.span[.dataHtmlField]">
+            <PROC id="VOID"/>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="antiscroll-wrap"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1.div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="antiscroll-box"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1.div.div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="antiscroll-inner"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1.div.div.div*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="contentTabs"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="footerTabs sfDark"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2{.extButtons}">
+            <PROC id="generateButs">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@0{.extButtons}">
+            <PROC id="generateButs">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="3"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

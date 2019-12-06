@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+
+	<ID>APPUNTI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.APPUNTI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>N</SELECT_COLUMNS>
+	<WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	
+	<STRUCTURE>
+		
+		<MENU>
+			<ID>MENU_APPUNTI</ID>
+		</MENU>
+		
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+			</EVENTS>
+		</ROWS>
+		
+		<COLUMNS>
+			
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_APPUNTO</COL>
+						<DB>DATA_APPUNTO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblData</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>TIPOLOGIA</COL>
+						<DB>TIPOLOGIA</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblTipologia</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>TITOLO</COL>
+						<DB>TITOLO</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblTitoloAppunti</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>500px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			
+			<SORT />
+			
+		</COLUMNS>
+		
+	</STRUCTURE>
+	
+</WORKLIST>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblAnestesiologicoProposta" TYPE="label" TEXT="Anestesia Proposta"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoProposta1" TYPE="input" TYPEINPUT="checkbox"
+            TEXT="Anestesia locale"/>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoProposta2" TYPE="input" TYPEINPUT="checkbox"
+            TEXT="Sedazione"/>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoProposta3" TYPE="input" TYPEINPUT="checkbox"
+            TEXT="Anestesia loco-regionale"/>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoProposta4" TYPE="input" TYPEINPUT="checkbox"
+            TEXT="Anestesia generale"/>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoProposta5" TYPE="input" TYPEINPUT="checkbox"
+            TEXT="Analgesia peridurale"/>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoProposta7" TYPE="input" TYPEINPUT="checkbox"
+            TEXT="Incannulamento Grossi Vasi"/>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoProposta6" TYPE="input" TYPEINPUT="checkbox"
+            TEXT="Altro"/>
+    </CAMPI>
+</PAGINA>

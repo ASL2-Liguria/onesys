@@ -1,0 +1,51 @@
+<PAGINA key_id="CONFERMA_RICETTE">
+	
+	<HEADER_PAGE key_id="CONFERMA_RICETTE" valore="DEFAULT_MMG,SCHEDA,CONFERMA_RICETTE#DEFAULT_MMG,CONFERMA_RICETTE,COMMON_RICETTE" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="ConfermaRicette#lblTitolo#butSelezionaTutto,butDeselezionaTutto,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabConfermaRicette" valore="tabConfermaRicette" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldFiltri" valore="fldFiltri" evento="START">	
+					<TR_TD_LABEL_RADIO key_id="DemaSN" valore="lblDemaSN##DemaSN#radDemaSN#{width:150,idxDefault:1}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="filtroStampate" valore="lblSituazioneStampa##filtroStampate#radStampate#{width:150,idxDefault:2}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+					<TR_TD_LABEL_RADIO key_id="Visualizza" valore="lblVisualizza##Visualizza#radVisualizza#{width:150,idxDefault:1}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<DIV key_id="divInfoSearch" valore="divInfoSearch" evento="START"></DIV>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldFiltriDate" valore="fldFiltriDate" evento="START">
+					
+					<TR_TD_LABEL_DATA key_id="DataInizio" valore="lblDataInizio##txtDataInizio#DataInizio#startWithToday:true, format: 'd/m/Y'" evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_DATA key_id="DataFine" valore="lblDataFine##txtDataFine#DataFine#startWithToday:true, format: 'd/m/Y'" evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_COMBO key_id="Medico"
+						valore="lblMedico##Medico#cmbMedico#N#MEDICO"
+						evento="START">
+					</TR_TD_LABEL_COMBO>
+					<TD_BUTTON key_id="butApplica" valore="butApplica##8" evento="START"></TD_BUTTON>
+				</FIELDSET_TABLE>
+				<!--
+				<FIELDSET key_id="fldApplica" valore="fldApplica" evento="START">
+				</FIELDSET>
+				-->
+				<DIV key_id="divWk" valore="divWk" evento="START">
+				</DIV>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>

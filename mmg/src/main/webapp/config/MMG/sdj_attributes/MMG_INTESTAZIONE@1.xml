@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="MMG_INTESTAZIONE">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="setId">
+                <PAR value="slidemenuRapido"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="jqueryslidemenuRapido"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.mmg.extIntestazione}">
+            <PROC id="generaIntestazione"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

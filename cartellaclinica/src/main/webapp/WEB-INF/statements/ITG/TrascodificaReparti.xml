@@ -1,0 +1,19 @@
+<root>
+    <statements_list>
+        <statement name="getReparti">				
+            <sql>
+            <![CDATA[
+                    select
+                        tp.iden ID
+                        , tp.cod_dec CODICE
+                        , tp.descr DESCRIZIONE
+                     from
+                        tab_pro tp
+                     where
+                        tp.attivo = 'S'
+                        --and te.data_ultima_modifica >= to_date(?, 'yyyyMMddhh24:mi')
+            ]]>
+            </sql>
+        </statement>		
+    </statements_list>
+</root>

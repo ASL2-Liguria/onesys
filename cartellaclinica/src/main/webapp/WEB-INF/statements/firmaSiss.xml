@@ -1,0 +1,150 @@
+<root>
+	<statements_list>
+		<statement name="siss.getOscuramentoAutorizzazioneNote">
+			<sql>
+			<![CDATA[
+					select  
+						OSCURAMENTO1,   
+						OSCURAMENTO2, 
+						OSCURAMENTO3,    
+						OSCURAMENTO4,    
+						OSCURAMENTO5,
+						AUTORIZZAZIONE,
+						NOTE_REPERIBILITA
+					from
+						radsql.cc_lettera_osc_aut
+					where
+						iden_let = 	to_number(?)	
+			]]>
+			</sql>
+		</statement>
+				<statement name="siss.setOscuramentoAutorizzazioneNote">
+			<sql>
+			<![CDATA[
+					declare
+						pOscuramento1 varchar2(1):=?;   
+						pOscuramento2 varchar2(1):=?; 
+						pOscuramento3 varchar2(1):=?;
+						pOscuramento4 varchar2(1):=?;    
+						pOscuramento5 varchar2(1):=?;
+						pAutorizzazione varchar2(1):=?;
+						pNoteReperibilita varchar2(4000):=?;
+						pIdenRef pls_integer:=to_number(?);
+					begin
+					update
+						radsql.cc_lettera_osc_aut
+					set
+						OSCURAMENTO1=pOscuramento1,   
+						OSCURAMENTO2=pOscuramento2, 
+						OSCURAMENTO3=pOscuramento3,    
+						OSCURAMENTO4=pOscuramento4,    
+						OSCURAMENTO5=pOscuramento5,
+						AUTORIZZAZIONE=pAutorizzazione,
+						NOTE_REPERIBILITA=pNoteReperibilita
+					where
+						iden_let = 	pIdenRef;
+					end;	
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getImagowebCcConfigurazioneFirme">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					IMAGOWEB.CC_CONFIGURAZIONE_FIRME 
+				where 
+					TYPE_PROCEDURE=? and 
+					REPARTO=? and 
+					type_firma=?	
+			]]>
+			</sql>
+		</statement>		
+		<statement name="siss.getImagowebConfigFirmaSiss">
+			<sql>
+			<![CDATA[
+				select 
+					* 
+				from 
+					IMAGOWEB.CONFIG_FIRMA_SISS
+				where 
+					CDC=? and 
+					FIRMA_SISS=?
+			]]>
+			</sql>
+		</statement>	
+		<statement name="siss.PredisponiPubblicazioneFSE">
+			<timeout>1000</timeout>
+			<params>
+               	<param index="1" type="VARCHAR"/>
+               	<param index="2" type="VARCHAR"/>
+               	<param index="3" type="CLOB"/>
+           	</params>
+			<sql>
+
+			<![CDATA[
+					declare
+						pMetodo varchar2(4000):=?;   
+						pWhereCond varchar2(4000):=?; 
+						pOut clob;
+					begin
+						pOut:=radsql.SISS_FUNCTION_GENERAXML(pMetodo,pWhereCond);
+						?:=pOut;
+					end;	
+			]]>
+			</sql>
+		</statement>
+		<statement name="siss.salvaRefertoFirmato">
+			<!--  params>
+               	<param index="1" type="CLOB"/>
+               	<param index="2" type="VARCHAR"/>
+               	<param index="3" type="CLOB"/>
+               	<param index="4" type="VARCHAR"/>
+               	<param index="5" type="VARCHAR"/>
+               	<param index="6" type="INTEGER"/>
+               	<param index="7" type="INTEGER"/>
+               	<param index="8" type="VARCHAR"/>
+               	<param index="9" type="INTEGER"/>
+               	<param index="10" type="INTEGER"/>               	
+               	<param index="11" type="VARCHAR"/>
+               	<param index="12" type="VARCHAR"/>
+           	</params-->
+			<sql>
+
+			<![CDATA[
+					declare
+						pFirmato  			clob	:=?;
+                       	pTipologiaDiFirma  	varchar2(4000):=?;
+                       	pDaoFirmato  		clob	:=?;
+                       	pXslt  				varchar2(4000):=?;
+                       	pHashPdf  			varchar2(4000):=?;
+                       	pSizeDoc  			pls_integer	:=?;
+                       	pIdenTab  			pls_integer	:=?;
+                       	pFunzione  			varchar2(4000):=?;
+                       	pIdenEsa  			pls_integer	:=?;
+                       	pIdenPer  			pls_integer	:=?;
+                       	pDataEsecuzione  	varchar2(4000):=?;
+                       	pOraEsecuzione  	varchar2(4000):=?;
+					begin
+						radsql.oe_consulenza.saveafterprocfirmasiss(
+							pFirmato,
+	                        pTipologiaDiFirma,
+	                        pDaoFirmato,
+	                        pXslt,
+	                        pHashPdf,
+	                        pSizeDoc,
+	                        pIdenTab,
+	                        pFunzione,
+	                        pIdenEsa,
+	                        pIdenPer,
+	                        pDataEsecuzione,
+	                        pOraEsecuzione
+						
+						);
+					end;	
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

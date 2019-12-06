@@ -1,0 +1,69 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_DENUNCIA_MORSO_ANIMALE_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_DENUNCIA_MORSO_ANIMALE_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+
+    <!-- Caricamento Dati -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"  />
+
+    <DATO key_id="taLesioni" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LESIONI" db_descrizione="LESIONI"  />
+
+    <DATO key_id="txtGiorniPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIORNI_PROGNOSI" db_descrizione="GIORNI_PROGNOSI"  />
+
+    <DATO key_id="txtProvocatoDa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROVOCATO_DA" db_descrizione="PROVOCATO_DA"  />
+
+    <DATO key_id="txtDataAvvenimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_AVVENIMENTO" db_descrizione="DATA_AVVENIMENTO"  />
+
+    <DATO key_id="txtLuogoAvvenimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LUOGO_AVVENIMENTO" db_descrizione="LUOGO_AVVENIMENTO"  />
+
+    <DATO key_id="taCaratteristicheAnimale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CARATTERISTICHE" db_descrizione="CARATTERISTICHE"  />
+
+    <DATO key_id="txtProprietario" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROPRIETARIO" db_descrizione="PROPRIETARIO"  />
+
+    <DATO key_id="txtResidenzaProprietario" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RESIDENZA_PROPRIETARIO" db_descrizione="RESIDENZA_PROPRIETARIO"  />
+    <!-- Query multidata -->
+
+    <DATO key_id="chkCure" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''DENUNCIA_MORSO_ANIMALE'' and attivo = ''S'''; end;" />
+
+    <DATO key_id="h-chkCure" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CURE" db_descrizione="CURE"
+          configurazione_multi_data="" />
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+</DATI>

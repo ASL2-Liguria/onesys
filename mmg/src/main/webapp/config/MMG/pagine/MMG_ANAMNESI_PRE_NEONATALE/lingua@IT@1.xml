@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>Anamnesi Prenatale e Neonatale</lblTitolo>
+        <butStampa>Stampa</butStampa>
+        <butCerca>Cerca</butCerca>
+        
+        <tabDati>Anamnesi Pediatrica</tabDati>
+        <tabCalendarioVaccinazioni>Calendario delle vaccinazioni dell'età evolutiva in Liguria</tabCalendarioVaccinazioni>
+        
+        <fldAllergie>ALLERGIE - eventuali allergie o intolleranze ai farmaci e altre sostanze</fldAllergie>
+        <fldMalattieFam>MALATTIE DEI FAMILIARI - ereditarie e non, dei genitori, ascendenti e altri familiari che possono avere influenza sulla salute del bambino (specificare l'epoca di comparsa e la parentela) </fldMalattieFam>
+        <fldPrenatale>PREDIODO PRENATALE - informazioni sulla madre e sul periodo prenatale </fldPrenatale>
+        <fldNeonatale>PERIODO NEONATALE</fldNeonatale>
+        <fldNascita>NOTIZIE SULLA NASCITA</fldNascita>
+        <fldManovre>MANOVRE RIANIMATORIE E OSSERVAZIONI - manovre e altre osservazioni sull'immediato postpartum</fldManovre>
+        <fldAllattamento>ALLATTAMENTO </fldAllattamento>
+        <fldCalVaccinazioni>Calendario vaccinazioni</fldCalVaccinazioni>
+        
+        <lblData>Data compilazione</lblData>
+        <lblTerapie>Terapie praticate</lblTerapie>
+        <lblControlli>Controlli consigliati alla dimissione </lblControlli>
+        <lblAnca>Lussazione dell'anca</lblAnca>
+        <lblMalAllergiche>Malattie allergiche (asma, eczema...)</lblMalAllergiche>
+        <lblMalformCongenite>Malformazioni congenite</lblMalformCongenite>
+        <lblMalGenetiche>Malattie genetiche</lblMalGenetiche>
+        <lblDiabete>Diabete</lblDiabete>
+        <lblSordita>Sordità</lblSordita>
+        <lblMalNervose>Mal. nervose o mentali, epilessia</lblMalNervose>
+        <lblEmofilia>Emofilia e deficit di coagulazione</lblEmofilia>
+        <lblGravidanzePrecedenti>N. gravidanze precedenti </lblGravidanzePrecedenti>
+        <lblNatiVivi>Nati vivi </lblNatiVivi>
+        <lblNatiMorti>Nati morti </lblNatiMorti>
+        <lblAborti>N. aborti spont.</lblAborti>
+        <lblGSangueRH>Gruppo sanguigno e fattore Rh della madre </lblGSangueRH>
+        <lblGravidanza>Gravidanza</lblGravidanza>
+        <lblOspedale>Ospedale / clinica </lblOspedale>
+        <lblPresentazione>Presentazione </lblPresentazione>
+        <lblGenitura>Ordine di genitura </lblGenitura>
+        <lblSesso>Sesso </lblSesso>
+        <lblParto_I>Parto </lblParto_I>
+        <lblGemelli>N. gemelli</lblGemelli>
+        <lblNoteParto>Note </lblNoteParto>
+        <lblPeso>Peso [Kg]</lblPeso>
+        <lblEtaGest>Età gestazionale [sett.]</lblEtaGest>
+        <lblAltezza>Lunghezza [cm]</lblAltezza>
+        <lblCirCran>C.C. [cm]</lblCirCran>
+        <lblCirconferenza_Cranica>Circ. cranica (cm)</lblCirconferenza_Cranica>
+        <lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+        <lblAPGAR_I>Punteggio APGAR a 1'</lblAPGAR_I>
+        <lblAPGAR_II>Punteggio APGAR a 5'</lblAPGAR_II>
+        <lblAPGAR_X>Punteggio APGAR a 10'</lblAPGAR_X>
+        <lblLeg1>**(N.B. le vaccinazioni scritte in corsivo-grassetto sono quelle raccomandate)</lblLeg1>
+        <lblLeg2>°° la vaccinazione morbillo-rosolia-parotite (MRP)</lblLeg2>
+        <lblLeg3>- tra il 12° e 15° mese di vita  tutti i nati;</lblLeg3>
+        <lblLeg4>- all'età di 5-6 anni come strategia di recupero dei soggetti non vaccinati nel corso del secondo anno di vita, ovvero come recupero/richiamo all'età di 11-12 anni indipendentemente dall'aver superato una o due delle corrispondenti malattie.</lblLeg4>
+        <lblLeg5>la vacinazione antitetanica quale dose di rinforzo con vaccino antidifterico tetanico per adulti (TD) nel periodo compreso tra gli 11 e i 15 anni ed a tutti coloro che ne facciano richiesta.</lblLeg5>
+        <lblScreening>Otoemissioni o Screening audiologico SX</lblScreening>
+        <lblScreeningDX>Otoemissioni o Screening audiologico DX</lblScreeningDX>
+        <lblRedReflex>Red Reflex</lblRedReflex>
+        <lblPolsiFemorali>Polsi Femorali</lblPolsiFemorali>
+        <lblManovraOrtolani>Manovra Ortolani</lblManovraOrtolani>
+        <lblManItterica>Manifestazioni Itterica</lblManItterica>
+        <lblFototerapia>Fototerapia</lblFototerapia>
+        <lblOssigenoterapia>Ossigenoterapia</lblOssigenoterapia>
+        <lblTestCombs>Test di Coombs</lblTestCombs>
+        <lblLiquido>Liquido</lblLiquido>
+        <lblManovre>Manovre</lblManovre>
+        <lblInfezioni>Infezioni</lblInfezioni>
+        <lblFarmaci>Farmaci</lblFarmaci>
+        <lblRx>RX</lblRx>
+        <lblIncubatrice>Incubatrice</lblIncubatrice>
+        <lblExanguino>Exanguinotrasfusione</lblExanguino>
+        <lblMaxBT>Max BT [mg %]</lblMaxBT>
+        <lblMaxBTInd>Max BT-Ind [mg %]</lblMaxBTInd>
+        <lblDataDimissione>Data dimissione</lblDataDimissione>
+        <lblPesoDimissione>Peso alla dimissione [Kg]</lblPesoDimissione>
+        <lblAltezzaCentile>...</lblAltezzaCentile>
+        <lblPesoCentile>...</lblPesoCentile>
+        <lblAltreMalFam>Altro</lblAltreMalFam>
+        <fldNoteAgg>Note aggiuntive</fldNoteAgg>
+        <butInserisciRilevazioni>Inserisci rilevazioni</butInserisciRilevazioni>
+        <lblDataNonCompilata>E' stato inserito il peso alla dimissione ma non è stata inserita la data corrispondente</lblDataNonCompilata>
+        <lblPesoNonCompilato>E' stata inserita la data della dimissione ma non il peso corrispondente</lblPesoNonCompilato>
+        <valoreNonInCifre>Inserire un valore numerico ( solo cifre )</valoreNonInCifre>
+    </ROW>
+</ROWSET>

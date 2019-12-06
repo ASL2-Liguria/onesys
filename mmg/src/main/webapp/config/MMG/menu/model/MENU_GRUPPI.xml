@@ -1,0 +1,16 @@
+<MENU>
+	<id>MENU_GRUPPI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MF.CR</ID>
+			<LINK><![CDATA[function(rec){CONFIGURAZIONE_UTENTI.modificaGruppo(rec, 'MOD');}]]></LINK>
+			<ICON_CLASS>anteprima</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return CONFIGURAZIONE_UTENTI.canModifyGruppo(rec);}]]></WHERE>
+			<OUTPUT>"Modifica"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

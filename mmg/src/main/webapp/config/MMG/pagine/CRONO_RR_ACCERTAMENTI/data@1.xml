@@ -1,0 +1,51 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_CRONO_RR_ACCERTAMENTI'; :where := null; :campo_xml := null; end;">
+	<DATO 
+		key_id="Blocco" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="BLOCCO" 
+		db_descrizione="BLOCCO" 
+		configurazione_multi_data="R_BLOCCO" 
+	/>
+	<DATO 
+		key_id="DaData" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="DA_DATA" 
+		db_descrizione="DA_DATA" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="AData" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="A_DATA" 
+		db_descrizione="A_DATA" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="DataPartenza" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="DATA_PARTENZA" 
+		db_descrizione="DATA_PARTENZA" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="ggPeriodo" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="GIORNI_PERIODO" 
+		db_descrizione="GIORNI_PERIODO" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="NotePrescrizione" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="NOTE" 
+		db_descrizione="NOTE" 
+		configurazione_multi_data="" 
+	/>
+	<DATO 
+		key_id="Note" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="NOTE_PERIODICITA" 
+		db_descrizione="NOTE_PERIODICITA" 
+		configurazione_multi_data="" 
+	/>
+</DATI>

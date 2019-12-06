@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+
+.dataTables_filter {
+	display: none; 
+}
+
+.dataTables_scrollHead{
+	background-color:#0CF;
+	padding:5px 5px 5px 5px;
+}
+
+
+#TAB_NOTIFICHE.dataTable td {
+	font-size:14px;
+	padding-top:10px;
+	padding-left:10px;
+	padding-bottom:10px;
+	padding-righ:10px;
+}
+
+#TAB_NOTIFICHE td.highlight {
+	background-color: yellow;
+}
+
+#TAB_NOTIFICHE thead th , tfoot th{
+	background-color:#0CF;
+}
+
+#TAB_NOTIFICHE td.selectedChk {
+	background-color:#F60;
+}
+
+A.linkOggettoMsg{
+	text-decoration:underline;
+	color:blue;
+	cursor:pointer;
+}
+
+SPAN.docUnread {
+	width: 32px;
+	height: 32px;
+	background-image:url(../../imagexPix/button/docUnread.png);
+	background-repeat: no-repeat;
+/*	cursor: pointer; */
+	display: block;
+	float: left;
+}
+
+SPAN.docRead {
+	width: 32px;
+	height: 32px;
+	background-image: url(../../imagexPix/button/docRead.png);
+	background-repeat: no-repeat;
+/*	cursor: pointer; */
+	display: block;
+	float: left;
+}
+
+SPAN.whoRead {
+	width: 32px;
+	height: 32px;
+	background-image:url(../../imagexPix/contextMenu/cerca_paziente.gif);
+	background-repeat: no-repeat;
+	cursor: pointer; 
+	display: block;
+	float: left;
+}
+
+/* icone per inserimento , modifica, cancellazione notifica */
+SPAN.insMsg{
+	width: 32px;
+	height: 32px;
+	background-image:url(../../imagexPix/contextMenu/MnCntIns.gif);
+	background-repeat: no-repeat;
+	cursor: pointer; 
+	display: block;
+	float: left;	
+}
+
+SPAN.editMsg{
+	width: 32px;
+	height: 32px;
+	background-image:url(../../imagexPix/contextMenu/MnCntEdit.gif);
+	background-repeat: no-repeat;
+	cursor: pointer; 
+	display: block;
+	float: left;	
+}
+
+SPAN.delMsg{
+	width: 32px;
+	height: 32px;
+	background-image:url(../../imagexPix/contextMenu/MnCntDel.gif);
+	background-repeat: no-repeat;
+	cursor: pointer; 
+	display: block;
+	float: left;	
+}

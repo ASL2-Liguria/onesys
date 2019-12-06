@@ -1,0 +1,63 @@
+<root>
+	<statements_list>
+	<statement name="caricaDati">
+			<sql>
+			<![CDATA[
+				SELECT 
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDataMorte"]/text()').Getstringval() txtDataMorte,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtOraMorte"]/text()').Getstringval() txtOraMorte,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="vRadioMedico"]/text()').Getstringval() vRadioMedico,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="vChkGiuntoCadavere"]/text()').Getstringval() vChkGiuntoCadavere,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="vChkPaceMaker"]/text()').Getstringval() vChkPaceMaker,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="vChkADisposizione"]/text()').Getstringval() vChkADisposizione,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="vChkRiscontro"]/text()').Getstringval() vChkRiscontro,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="vChkAffetto"]/text()').Getstringval() vChkAffetto,
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="vChkMorteImprovvisa"]/text()').Getstringval() vChkMorteImprovvisa
+				FROM CC_LETTERA_VERSIONI WHERE FUNZIONE='SEGNALAZIONE_DECESSO' AND IDEN_VISITA=? AND attivo='S'
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaDatiAnagrafici">				
+			<sql>
+			<![CDATA[
+				select cogn,nome,data,com_nasc,com_res,res_indirizzo from view_worklist_anag where iden=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaDatiMedico">				
+			<sql>
+			<![CDATA[
+				select COGNOME,NOME from tab_per where iden=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaStatoCivile">				
+			<sql>
+			<![CDATA[
+				select get_key_campo_value(contenuto,'txtStatoCivile') valore from cc_schede_xml where funzione='DATI_GENERALI' and iden_visita=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="retrieveIden">				
+			<sql>
+			<![CDATA[
+				select valore1 from radsql.tab_work where tipo=? and webuser=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="retrieveDescrMed">				
+			<sql>
+			<![CDATA[
+				select descr from radsql.tab_per where iden=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="retrieveIdenFromVersioni">				
+			<sql>
+			<![CDATA[
+				SELECT IDEN FROM CC_LETTERA_VERSIONI WHERE FUNZIONE='SEGNALAZIONE_DECESSO' AND IDEN_VISITA=? AND attivo='S'
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

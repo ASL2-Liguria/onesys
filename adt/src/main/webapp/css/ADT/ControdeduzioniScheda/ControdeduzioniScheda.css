@@ -1,0 +1,13 @@
+#txtSesso{
+	width: 25px;
+}
+#txtPosContabile{
+	width: 25px;
+	background-color: yellow;
+}
+#txtCodFisc,#txtCodFiscSogei{
+	width: 140px;
+}
+#cmbLivelloUrg div{
+	display:inline-block; 
+}

@@ -1,0 +1,1342 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>
+        <statement name="ossigenoterapia.esegui">
+            <sql>
+                <![CDATA[
+				declare
+					vDataIni date := to_date(?,'yyyyMMddhh24:mi');
+					vNote varchar2(5000) := ?;
+					vIdenPer pls_integer := to_number(?);
+					vIdenDettaglio pls_integer := to_number(?);
+					vIdenTerapia pls_integer := to_number(?);
+					vIdenScheda pls_integer := to_number(?);
+					pDurata number;
+					pTipoDurata number;
+					pDataFine date:=null;
+				begin 
+				select extractvalue(xmltype(IMPOSTAZIONI),'//UserInput[@name="DurataTerapia"]/@value'),extractvalue(xmltype(IMPOSTAZIONI),'//UserInput[@name="TipoDurata"]/@value') into pDurata,pTipoDurata from cc_terapie_scheda where iden=vIdenScheda;
+				--fototerapia
+				if (pDurata is not null) then
+				  pDataFine:= vDataIni+((pDurata*pTipoDurata)/24);	
+			--	  update cc_terapie_scheda set data_ini=vDataIni,data_fine=pDataFine where iden_terapia=vIdenTerapia;			
+				end if;	
+					update cc_terapie_dettagli set
+						esito='I',data_ultima_modifica=sysdate,validita_inizio=vDataIni,validita_fine=pDataFine,note=vNote,ute_ultima_modifica=vIdenPer
+					where iden=vIdenDettaglio;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="somministrazione.esegui">
+            <sql>
+                <![CDATA[
+				declare
+					vEsito char(1) := ?;
+					vUtente pls_integer := to_number(?);
+					vValidita date := to_date(?,'yyyyMMddhh24:mi');
+					vNote varchar2(4000) := ?;
+					vIdenDettaglio pls_integer := to_number(?);
+					vDosi varchar2(4000) := ?;
+					vArrayFarma  ARRAY_VALUE;
+					vArrayDosi  ARRAY_VALUE;
+				begin
+					update CC_TERAPIE_DETTAGLI set
+						ESITO=vEsito,UTE_ESEC=vUtente,DATA_ESEC=sysdate,VALIDITA_INIZIO=vValidita,					
+						VALIDITA_FINE=vValidita,NOTE_NON_ESECUZIONE=null,NOTE=vNote,
+						DATA_ULTIMA_MODIFICA=sysdate,UTE_ULTIMA_MODIFICA=vUtente
+					where IDEN=vIdenDettaglio;
+					if (vDosi is not null) then
+					  	vArrayFarma := RADSQL.SPLIT2ARRAY(vDosi,'|');
+					  	for i in 1..varrayFarma.last loop 
+					  		vArrayDosi := RADSQL.SPLIT2ARRAY(varrayFarma(i),'$');
+                            CC_TERAPIA.setDosaggioFarmacoCollegato(vIdenDettaglio, to_number(vArrayDosi(1)), vUtente, vArrayDosi(2), to_number(vArrayDosi(3)));					  		
+					  	end loop;
+					end if;
+		--			cc_terapia.ricalcolaOrari(vIdenDettaglio, vValidita);
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="somministrazione.nonEseguito">
+            <sql>
+                <![CDATA[
+				declare
+					vEsito char(1) := ?;
+					vUtente pls_integer := to_number(?);
+					vNote varchar2(4000) := ?;
+					vIdenDettaglio pls_integer := to_number(?);
+				begin
+					update CC_TERAPIE_DETTAGLI set
+						ESITO=vEsito,UTE_ESEC=vUtente,NOTE_NON_ESECUZIONE=vNote,DATA_ULTIMA_MODIFICA=sysdate,UTE_ULTIMA_MODIFICA=vUtente
+					where IDEN=vIdenDettaglio;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="somministrazione.annullaEsecuzione">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenDettaglio pls_integer := to_number(?);
+					vIdenScheda pls_integer := to_number(?);
+					vUtente pls_integer := to_number(?);
+					data_pre varchar2(8); 
+					ora_pre varchar2(5);
+					resetDosi pls_integer;	
+				begin 
+					select data, ora into data_pre, ora_pre from cc_terapie_dettagli_bck where iden_originale = vIdenDettaglio and tipo_operazione = 'PRESCRIZIONE';
+					update cc_terapie_dettagli set validita_inizio = to_date(data_pre||ora_pre,'yyyyMMddhh24:mi'),validita_fine = to_date(data_pre||ora_pre,'yyyyMMddhh24:mi'), esito=null,ute_esec=null,ute_ultima_modifica=vUtente,data_ultima_modifica=sysdate where iden=vIdenDettaglio;
+					
+			--		cc_terapia.ricalcolaOrari(vIdenDettaglio, to_date(data_pre||ora_pre,'yyyyMMddhh24:mi'));
+					
+					select existsNode(xmltype(impostazioni), '//UserInput[@name="DoseFarmaco"]') into resetDosi from cc_terapie_scheda where iden = vIdenScheda;
+					if resetDosi = 0 then
+						CC_TERAPIA.cleanFarmaciCollegati(vIdenDettaglio, vUtente);
+					end if;	
+					
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="somministrazione.sospendi">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenDettaglio pls_integer := to_number(?);
+					vUtente pls_integer := to_number(?);
+					vUtenteSosp pls_integer := to_number(?);
+					vSospesa char(1) := ?;
+					vMotivo varchar2(4000) := ?;
+				begin 
+					update CC_TERAPIE_DETTAGLI set
+						SOSPESA=vSospesa,UTE_SOSP=vUtenteSosp,MOTIVO_SOSP=vMotivo,DATA_SOSP=sysdate,
+						DATA_ULTIMA_MODIFICA=sysdate,UTE_ULTIMA_MODIFICA=vUtente
+					where IDEN=vIdenDettaglio;	
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="somministrazione.setNota">
+            <sql>
+                <![CDATA[
+				declare 
+					vIdenDettaglio pls_integer := to_number(?);
+					vUtente pls_integer := to_number(?);
+					vNota varchar2(4000) := ?;
+				begin 
+					update CC_TERAPIE_DETTAGLI set NOTE=vNota,UTE_ULTIMA_MODIFICA=vUtente 
+					where IDEN=vIdenDettaglio;	
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="somministrazione.setDosaggioDettaglio">
+            <sql>
+                <![CDATA[
+				declare
+					nUtente pls_integer := to_number(?);
+					nIdenDettaglio pls_integer := to_number(?);
+					nIdenFarmaco pls_integer;
+					vDosaggio varchar2(5000) := ?;	
+				begin
+				  select iden_farmaco into nIdenFarmaco from cc_terapie_farmaci_collegati where iden_dettaglio=nIdenDettaglio;
+                  CC_TERAPIA.setDosaggioFarmacoCollegato(nIdenDettaglio, nIdenFarmaco, nUtente, vDosaggio);					
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="gestInfusione">
+            <sql>
+                <![CDATA[
+				declare 
+					vUtente pls_integer := to_number(?);
+					vTipoOp varchar2(50) := ?;
+					vIdenTerapia pls_integer := to_number(?);
+					vIdenDettaglio pls_integer := to_number(?);
+					vIdenScheda pls_integer := to_number(?);
+					vDataIni varchar2(8) := ?;
+					vOraIni varchar2(5) := ?;
+					vDataFine varchar2(8) := ?;
+					vOrafine varchar2(5) := ?; 
+         			vVelocita pls_integer := to_number(?);
+					vNota varchar2(4000) := ?;
+					ret varchar2(4000):='';
+					vDosi varchar2(4000) := ?;
+				begin 
+					CC_TERAPIE_INFU_GEST (vUtente,vTipoOp,vIdenTerapia,vIdenDettaglio,vIdenScheda,vDataIni,vOraIni,vDataFine,vOraFine,vVelocita,ret,vNota,vDosi);
+					?:=ret;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="idenTerapieCiclo" >
+            <sql>
+                <![CDATA[
+                    SELECT
+                    iden
+                    FROM
+                    radsql.cc_terapie_ricovero
+                    WHERE
+                    iden_ciclo = to_number(?)
+                ]]>
+            </sql>
+        </statement>
+        <statement name="isTerapiaPianificabile" >
+            <sql>
+                <![CDATA[
+                    declare
+                        vIdenPer pls_integer := to_number(?);
+                        vTipoUte varchar2(50) := ?;
+                        vIdenScheda pls_integer := to_number(?);
+                        vTipoPrescr pls_integer;
+                        vResp varchar2(4000);
+                        vRespKo  varchar2(4000) := '';
+                        chkPianDaPrescr  varchar2(4000);
+                        chkPianDaMed  varchar2(4000);
+                        chkPianDaInf  varchar2(4000);
+                        vUte_ins pls_integer;
+
+                    begin
+                        select
+                                extractvalue(xmltype(IMPOSTAZIONI),'//UserInput[@name="TipoPrescrizione"]/@value'),
+                                extractvalue(xmltype(IMPOSTAZIONI),'//UserInput[@name="PianificabileDaPrescrittore"]/@value'),
+                                extractvalue(xmltype(IMPOSTAZIONI),'//UserInput[@name="PianificabileDaMedici"]/@value'),
+                                extractvalue(xmltype(IMPOSTAZIONI),'//UserInput[@name="PianificabileDaInfermieri"]/@value'),
+                                ute_ins
+                         into
+                          vTipoPrescr,chkPianDaPrescr,chkPianDaMed,chkPianDaInf,vUte_ins
+                           from cc_terapie_scheda where iden = vIdenScheda;
+                        if vTipoPrescr <> 8 then
+                          vResp := 'KO' ;
+                          vRespKo := 'Terapia non pianificabile' ;
+                        else
+                            case
+                                when(vTipoUte = 'I' and chkPianDaInf = 'S') then
+                                    vResp := 'OK';
+                                when(vTipoUte = 'M' and chkPianDaMed = 'S') then
+                                    vResp := 'OK';
+                                when(chkPianDaPrescr = 'S' and vIdenPer =  vUte_ins ) then
+                                    vResp := 'OK';
+                                else
+                                    vResp := 'KO';
+                                    case
+                                        when (vTipoUte = 'I' and chkPianDaInf <> 'S') then
+                                            vRespKo := 'Terapia non pianificabile dal personale infermieristico';
+                                        when (vTipoUte = 'M' and chkPianDaMed <> 'S') then
+                                            vRespKo := 'Terapia non pianificabile dal personale medico';
+                                        when(chkPianDaPrescr = 'S' and vIdenPer <>  vUte_ins ) then
+                                            vRespKo := 'Terapia  pianificabile esclusivamente dal medico prescrittore';
+                                        else
+                                            vRespKo := 'Utente non  abilitato alla pianificazione della terapia';
+                                    end case;
+                                end case;
+                        end if;
+                        ?:=Vresp;
+                        ?:=vRespKo;
+                    end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="chiudi">
+            <sql>
+                <![CDATA[
+				declare 
+					vUtente pls_integer := to_number(?);
+					vMotivo varchar2(4000) := ?;
+					vIdenTerapia pls_integer := to_number(?);
+					vUteDescr varchar2(100) := ?;
+					vData varchar2(8) := ?;
+					vOra varchar2(5) := ?;
+					vDataFine date := to_date(vData||vOra,'yyyyMMddhh24:mi');
+					vClientTime date := to_date(?,'yyyyMMddhh24:mi');
+					vChiudiDet varchar2(1):=?;
+					vResiduo varchar2(10):=?;
+					vStatoTestata char(1) := 'P';
+					vStatoScheda char(1) := 'I';  
+					vIdenDettaglio pls_integer; 
+					vCount number;  
+					vOut varchar2(4000):=' ';   
+				begin 
+					if vDataFine <= vClientTime then
+						vStatoTestata := 'C';
+						vStatoScheda := 'E';
+					end if;
+					
+					
+					select count(*) into vCount from CC_TERAPIE_DETTAGLI where iden_terapia=vIdenTerapia and esito in ('I','S') and to_date(vData||vOra,'yyyyMMddhh24:mi')< validita_inizio;
+				    if (vCount>0) then
+				     vOut:='Attenzione, non è possibile chiudere la terapia in una data antecedente a quella di una somministrazione eseguita';
+					else	
+				    
+							update CC_TERAPIE_RICOVERO set 
+								ute_close=vUtente,DATA_CLOSE=sysdate,DATA_FINE=vDataFine,MOTIVO_CLOSE=vMotivo,STATO=VStatoTestata 
+							where iden=vIdenTerapia; 
+							update cc_terapie_scheda set stato='X' where iden_terapia = vIdenTerapia and data_ini>vDataFine;
+							
+					/*		for schede in (select iden from cc_terapie_scheda where iden_terapia = vIdenTerapia and data_ini<= vDataFine order by data_ini desc) 
+							loop
+								update cc_terapie_scheda set 
+									impostazioni = updateXML(xmltype(impostazioni),
+									'//UserInput[@name="uteChiusa"]/@value',vUteDescr,
+									'//UserInput[@name="dtaChiusa"]/@value',to_char(vDataFine,'dd/MM/yyyy'),
+									'//UserInput[@name="oraChiusa"]/@value',vOra,
+									'//UserInput[@name="motChiusa"]/@value',vMotivo).getclobval(),
+									data_fine = vDataFine,
+									stato=vStatoScheda
+								where 
+		              			iden=schede.iden; 
+							end loop;*/
+							
+							update cc_terapie_scheda set 
+									impostazioni = updateXML(xmltype(impostazioni),
+									'//UserInput[@name="uteChiusa"]/@value',vUteDescr,
+									'//UserInput[@name="dtaChiusa"]/@value',to_char(vDataFine,'dd/MM/yyyy'),
+									'//UserInput[@name="oraChiusa"]/@value',vOra,
+									'//UserInput[@name="motChiusa"]/@value',vMotivo).getclobval(),
+									data_fine = vDataFine,
+									stato=vStatoScheda
+								where 
+		              			iden_terapia = vIdenTerapia and data_ini<= vDataFine and (data_fine>=vDataFine or data_fine is null); 
+							
+							
+							delete from cc_terapie_dettagli where esito is null and validita_inizio>vDataFine and iden_terapia = vIdenTerapia;					
+							update cc_eventi set data_fine_validita=vDataFine where tabella2='CC_TERAPIE_SCHEDA' and iden_tabella2=vIdenTerapia;
+							
+							if (vChiudiDet='S') then
+								select count(*) into vCount from CC_TERAPIE_DETTAGLI where iden_terapia=vIdenTerapia and esito='I' and validita_fine>=to_date(vData||vOra,'yyyyMMddhh24:mi');
+							    if (vCount=1) then
+							       select iden into vIdenDettaglio from CC_TERAPIE_DETTAGLI where iden_terapia=vIdenTerapia and esito='I' and validita_fine>=to_date(vData||vOra,'yyyyMMddhh24:mi');
+							       Update CC_TERAPIE_DETTAGLI set ESITO='S',validita_fine=vDataFine,data_ultima_modifica=sysdate,ute_ultima_modifica=vUtente where iden=vIdenDettaglio;
+					    		   Update CC_TERAPIE_VELOCITA set residuo=vResiduo,data_fine=vData,ora_fine=vOra where iden_inizio=vIdenDettaglio and deleted='N' and  to_date(data_ini||ora_ini,'yyyyMMddhh24:mi')<to_date(vData||vOra,'yyyyMMddhh24:mi')
+								   and (to_date(data_fine||ora_fine,'yyyyMMddhh24:mi')>=to_date(vData||vOra,'yyyyMMddhh24:mi') or (data_fine is null and ora_fine is null));
+							
+									Update cc_terapie_velocita set deleted='S' where iden_inizio=vIdenDettaglio and to_date(data_ini||ora_ini,'yyyyMMddhh24:mi')>=to_date(vData||vOra,'yyyyMMddhh24:mi');						
+								elsif (vCount>1) then
+								 vOut:='Attenzione, più somministrazioni in corso; è stato possibile chiudere solamente la terapia';
+								else
+								 null;
+								end if;
+							end if;
+					end if; 
+					
+					? := vOut;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="sospendi">
+            <sql>
+                <![CDATA[
+		declare
+	  vSospesa char(1) := ?;
+	  vIdenTerapia pls_integer := to_number(?);
+	  vUtente pls_integer := to_number(?);
+	  vDataMin date := to_date(?,'yyyyMMddhh24:mi');
+	  vDataMax date;
+	  vDataMaxString varchar2(13) := ?;
+	  vMotivo varchar2(4000) := ?;
+	  vDataIni date;
+	  vDataFine date;
+	  vIdenAggiorna pls_integer;
+	  v_found        BOOLEAN;
+	  
+
+	begin
+		
+	  if 'x'||vDataMaxString ='x' then
+	    vDataMax := to_date('2999123123:59','yyyyMMddhh24:mi');
+	  else
+	    vDataMax := to_date(vDataMaxString,'yyyyMMddhh24:mi');
+	  end if;
+	  update CC_TERAPIE_DETTAGLI set 
+	    SOSPESA=vSospesa,UTE_SOSP=vUtente,MOTIVO_SOSP=vMotivo,DATA_SOSP=sysdate,
+	    DATA_ULTIMA_MODIFICA=sysdate,UTE_ULTIMA_MODIFICA=vUtente
+	  where IDEN_TERAPIA=vIdenTerapia and esito is null 
+	    and VALIDITA_INIZIO >= vDataMin 
+	    and VALIDITA_INIZIO <= vDataMax;
+				
+       --sospensione di una terapia 
+         if (vSospesa='S') then	
+         v_found := FALSE;
+         for curSosp in (select iden, to_date(data_ini||ora_ini,'YYYYMMDD:hh24:mi') dataIni,to_date(data_fine||ora_fine,'YYYYMMDD:hh24:mi') dataFine from RADSQL.CC_TERAPIE_SOSPENSIONE where IDEN_TERAPIA=vIdenTerapia order by dataini)
+          loop 
+              if (vIdenAggiorna is not null) then
+                if (vDataMax<curSosp.dataIni) then
+                  update RADSQL.CC_TERAPIE_SOSPENSIONE set DATA_FINE=to_char(vDataMax,'YYYYMMDD'),ORA_FINE=to_char(vDataMax,'hh24:mi'),UTE_MOD=vUtente,MOTIVO=vMotivo where iden=vIdenAggiorna;
+                   vIdenAggiorna:=null;  
+                  exit;
+                elsif(vDataMax>=curSosp.dataIni and vDataMax<=curSosp.dataFine) then
+                  update RADSQL.CC_TERAPIE_SOSPENSIONE set DATA_FINE=to_char(curSosp.dataFine,'YYYYMMDD'),ORA_FINE=to_char(curSosp.dataFine,'hh24:mi'),UTE_MOD=vUtente,MOTIVO=vMotivo where iden=vIdenAggiorna;
+                  update RADSQL.CC_TERAPIE_SOSPENSIONE set ATTIVO='N',UTE_MOD=vUtente  where iden=curSosp.iden;
+                   vIdenAggiorna:=null;  
+                  exit;
+                end if;             
+               end if;
+              
+               if (vIdenAggiorna is  null) then 
+				if(vDataMin<curSosp.dataIni)then	
+                    if (vDataMax<curSosp.dataIni) then
+                      insert into RADSQL.CC_TERAPIE_SOSPENSIONE(IDEN_TERAPIA,DATA_INI,ORA_INI,DATA_FINE,ORA_FINE,UTE_INS,MOTIVO) values(vIdenTerapia,to_char(vDataMin,'YYYYMMDD'),to_char(vDataMin,'hh24:mi'),to_char(vDataMax,'YYYYMMDD'),to_char(vDataMax,'hh24:mi'),vUtente,vMotivo);
+                      v_found := TRUE; 
+                      exit;
+                    elsif(vDataMax<=curSosp.dataFine)then	
+                      update RADSQL.CC_TERAPIE_SOSPENSIONE set DATA_INI=to_char(vDataMin,'YYYYMMDD'),ORA_INI=to_char(vDataMin,'hh24:mi'),UTE_MOD=vUtente,MOTIVO=vMotivo where iden=curSosp.iden;
+                      v_found := TRUE; 
+                      exit;
+                    elsif(vDataMax>curSosp.dataFine) then
+                      update RADSQL.CC_TERAPIE_SOSPENSIONE set ATTIVO='N',UTE_MOD=vUtente where iden=curSosp.iden;
+                    end if;
+                 elsif(vDataMin>=curSosp.dataIni and vDataMin<=curSosp.dataFine and vDataMax>curSosp.dataFine) then      
+                      vIdenAggiorna:=curSosp.iden; 
+                      v_found := TRUE;                                        
+                end if;
+              end if;
+          end loop;
+          
+         if (v_found=FALSE) then 
+			insert into RADSQL.CC_TERAPIE_SOSPENSIONE(IDEN_TERAPIA,DATA_INI,ORA_INI,DATA_FINE,ORA_FINE,UTE_INS,MOTIVO) values(vIdenTerapia,to_char(vDataMin,'YYYYMMDD'),to_char(vDataMin,'hh24:mi'),to_char(vDataMax,'YYYYMMDD'),to_char(vDataMax,'hh24:mi'),vUtente,vMotivo);		 
+         elsif(vIdenAggiorna is not null) then
+         	update RADSQL.CC_TERAPIE_SOSPENSIONE set DATA_FINE=to_char(vDataMax,'YYYYMMDD'),ORA_FINE=to_char(vDataMax,'hh24:mi'),UTE_MOD=vUtente,MOTIVO=vMotivo where iden=vIdenAggiorna;
+         end if;   
+            
+      else
+       -- caso di riattivazione di una terapia
+         update RADSQL.CC_TERAPIE_SOSPENSIONE set ATTIVO='N',UTE_MOD=vUtente where IDEN_TERAPIA=vIdenTerapia and vDataMin<=to_date(data_ini||ora_ini,'YYYYMMDD:hh24:mi');
+         update RADSQL.CC_TERAPIE_SOSPENSIONE set DATA_FINE=to_char(vDataMin-(1/1440),'YYYYMMDD'),ORA_FINE=to_char(vDataMin-(1/1440),'hh24:mi'),UTE_MOD=vUtente  where IDEN_TERAPIA=vIdenTerapia and vDataMin>to_date(data_ini||ora_ini,'YYYYMMDD:hh24:mi') and vDataMin<=to_date(data_fine||ora_fine,'YYYYMMDD:hh24:mi'); 
+        
+          
+        end if;
+		
+	end;	
+				]]>
+            </sql>
+        </statement>
+        <statement name="cancella">
+            <sql>
+                <![CDATA[
+				declare	
+					pIdenTerapia pls_integer := to_number(?);			
+					vDettagliEseguiti pls_integer;
+					resp varchar2(2):='KO';
+  				begin 
+   					select controlloCancellaTerapia(pIdenTerapia) into vDettagliEseguiti from dual;
+    				if vDettagliEseguiti = 1 then
+      					update cc_terapie_ricovero set deleted='S' where iden = pIdenTerapia;
+                        update cc_terapie_scheda set stato='X' where iden_terapia = pIdenTerapia;
+                        delete from cc_terapie_dettagli  where iden_terapia = pIdenTerapia;
+      					resp:='OK';
+    				end if;
+    				?:=resp;
+    			end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="set_dati_farmacie">
+            <sql>
+                <![CDATA[
+				declare					
+					vReparto varchar2(5000):= ?;
+				begin 
+					cc_terapia.setDatiFarmacie(vReparto); 
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="dettagliSommTerapia">
+            <sql>
+                <![CDATA[
+                 select 
+				 	extractvalue(xmltype(cts.IMPOSTAZIONI),'//UserInput[@name="NumeroSomministrazioni"]/@value') NumeroSomministrazioni,
+					 ctd.iden,
+					 datetimeconverter(ctd.data,'yyyyMMdd','dd/MM/yyyy') data,
+					 ctd.ora,
+					 ctd.esito, 
+					 ctd.note, 
+					 to_char(cts.data_fine, 'dd/mm/yyyy hh24:mi') data_fine, 
+					 to_char(cts.data_ini, 'dd/mm/yyyy hh24:mi') data_ini
+                    from
+                        cc_terapie_scheda cts
+                        left outer join cc_terapie_dettagli ctd on ctd.iden_scheda_terapia = cts.iden
+                        where
+                        cts.iden = to_number(?)
+                        order by data asc
+                ]]>
+            </sql>
+        </statement>
+        <statement name="somministraTerapia">
+            <sql>
+                <![CDATA[
+                declare
+                      vIdenScheda pls_integer := to_number(?);
+                      vDataValiditaInizio varchar2(4000) := (?);
+                      vIdenPer pls_integer := to_number(?);
+                      vNote varchar2(4000) := (?);
+                begin
+                        radsql.CC_TERAPIA.InsertDettaglio(vIdenScheda,to_date(vDataValiditaInizio,'dd/MM/yyyyhh24:mi'),vIdenPer,vNote);
+                end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="Somministrazione.modifica">
+            <sql>
+                <![CDATA[
+                declare
+                      vIden pls_integer := to_number(?);
+                      vData varchar2(4000) := ?;
+                      vOra  varchar2(4000) := ?;
+                      vNote varchar2(4000) := ?;
+                begin
+                    update radsql.cc_terapie_dettagli set validita_inizio = to_date(vData||vOra, 'yyyyMMddhh24:mi'), validita_fine = to_date(vData||vOra, 'yyyyMMddhh24:mi'), note = vNote where iden = vIden;
+                end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="Cicli.cancella">
+            <sql>
+                <![CDATA[
+                declare
+            pIdenCiclo pls_integer := to_number(?);
+            pMotivo varchar2(5000):= ?;
+            vDettagliEseguiti pls_integer;
+            resp varchar2(2):='KO';
+            begin
+                 for curDati in (select iden  from cc_terapie_ricovero where iden_ciclo = pIdenCiclo)
+                 loop
+                    select controlloCancellaTerapia(curDati.iden) into vDettagliEseguiti from dual;
+                    if vDettagliEseguiti = 1 then
+                         resp:='OK';
+                    else
+                         resp:='KO';
+                         EXIT;
+                    end if;
+                 end loop;
+                 if resp = 'OK' then
+                    update cc_terapie_ricovero set deleted='S', MOTIVO_CANC = pMotivo where IDEN_CICLO = pIdenCiclo;
+                 end if;
+                 ?:=resp;
+            end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="Cicli.getModelli">
+            <sql>
+                <![CDATA[
+				select iden from radsql.cc_terapie_modelli where iden_ciclo = to_number(?) order by iden
+			]]>
+            </sql>
+        </statement>
+        <statement name="Cicli.getImpostazioni">
+            <sql>
+                <![CDATA[
+				select 
+					modelli.descrizione
+					,extractvalue(modelli.impostazioni,'//element[@name="txtIntervalloCicli"]/@value') INTERVALLO_CICLO
+					,extractvalue(modelli.impostazioni,'//element[@name="txtNumeroCicli"]/@value') NUMERO_CICLI
+					,extractvalue(modelli.impostazioni,'//element[@name="radGiornoInizio"]/@value') GIORNO_INIZIO          
+				from 
+					radsql.cc_terapie_ciclo_modelli modelli 
+				where 
+					iden = to_number(?)
+			]]>
+            </sql>
+        </statement>
+        <statement name="Cicli.getTerapia">
+            <sql>
+                <![CDATA[
+				select IDEN_TERAPIA,iden IDEN_SCHEDA,NUMERO_CICLO from radsql.cc_terapie_scheda where iden_terapia = to_number(?) and stato='I' order by IDEN_TERAPIA,NUMERO_CICLO
+			]]>
+            </sql>
+        </statement>
+        <statement name="Cicli.getTerapie">
+            <sql>
+                <![CDATA[
+				select IDEN_TERAPIA,iden IDEN_SCHEDA,NUMERO_CICLO from radsql.cc_terapie_scheda where iden_terapia in(select iden from cc_terapie_ricovero where iden_ciclo= to_number(?)) and stato='I' order by IDEN_TERAPIA,NUMERO_CICLO
+			]]>
+            </sql>
+        </statement>
+        <statement name="prescrizioniStd.cancella">
+            <sql>
+                <![CDATA[
+				declare
+					pIden_modello pls_integer := to_number(?);
+					pCod_cdc varchar2(4000) :=?;
+					k pls_integer;
+				begin
+					delete from radsql.CC_TERAPIE_MODELLI where iden = pIden_modello;
+					delete from radsql.CC_TERAPIE_MODELLI where iden_parent = pIden_modello;
+					delete from radsql.CC_TERAPIE_MODELLI_REPARTI where iden_modello = pIden_modello;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="prescrizioniStd.getRepartiAssocia">
+            <sql>
+                <![CDATA[
+				select cod_cdc, descr, max(associato) associato, max(associabile) associabile from (select cdc.cod_cdc,cdc.descr,t.associato,t.associabile from (select cod_cdc,1 associato,0 associabile  from cc_terapie_modelli_reparti where iden_modello = to_number(?) union all
+				select reparto cod_cdc,0 associato,1 associabile from imagoweb.web_cdc where webuser=?) t join centri_di_costo cdc on (t.cod_cdc=cdc.cod_cdc))
+				group by cod_cdc,descr order by descr
+			]]>
+            </sql>
+        </statement>
+        <statement name="prescrizioniStd.setRepartiAssocia">
+            <sql>
+                <![CDATA[
+				declare
+					pIden_modello 	pls_integer 	:= to_number(?);
+					pCod_cdc 		varchar2(4000) 	:= ?;
+					ArCdc			ARRAY_VALUE:=ARRAY_VALUE();
+				begin
+					ArCdc := split2array(pCod_cdc, ',');
+					delete from cc_terapie_modelli_reparti where iden_modello = pIden_modello;
+					for idx in ArCdc.first..ArCdc.last
+    				loop
+     					insert into cc_terapie_modelli_reparti (iden_modello,cod_cdc) values(pIden_modello,ArCdc(idx));
+    				end loop;
+				end;	
+			]]>
+            </sql>
+        </statement>
+        <statement name="prescrizioniStd.check">
+            <sql>
+                <![CDATA[
+				declare
+					pIdenTabella pls_integer := to_number(?);
+					pTabella varchar2(5000) := ?;
+					pIdenConcat varchar2(5000) := ?;
+					pSvuotaChar  varchar2(5000) := ?;
+					pSvuota boolean := true;
+					
+					pCampoDescrizione varchar2(5000) := ?;
+					pValoreDescrizione varchar2(5000) := ?;
+					
+					pCampoImpostazioni varchar2(5000) := ?;
+					pValoreImpostazioni varchar2(5000) := ?;
+
+					pCampoReparto varchar2(5000) := ?;
+					pValoreReparto varchar2(5000) := ?;
+					vCheck pls_integer;
+				begin
+					select count(*) into vCheck from cc_terapie_modelli tm join cc_terapie_modelli_reparti tmr on (tm.iden=tmr.iden_modello) 
+					where tm.descrizione=pValoreDescrizione and tmr.cod_cdc=pValoreReparto and tm.iden<>pIdenTabella;
+					? := vCheck;	
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="prescrizioniStd.creaPacchetto">
+            <sql>
+                <![CDATA[
+				declare
+					pIden varchar2(100) :=?;
+					 vArrayIden ARRAY_VALUE;
+					vIdenMaster pls_Integer;
+					vIdenNew pls_Integer;
+         		 cur number;
+				begin
+				  vArrayIden:= RADSQL.SPLIT2ARRAY(pIden,'*');
+				  for i in 1..vArrayIden.last loop
+				   if(i=1) then
+           		  for cur in (SELECT UTE_INS,CODICE_REPARTO,TIPO_TERAPIA,IDEN_CONF_SCHEDA,IMPOSTAZIONI,IDEN_CICLO FROM CC_TERAPIE_MODELLI WHERE IDEN=to_number(vArrayIden(i)))
+				   	loop
+            		INSERT INTO CC_TERAPIE_MODELLI (UTE_INS,CODICE_REPARTO,TIPO_TERAPIA,IDEN_CONF_SCHEDA,IMPOSTAZIONI,IDEN_CICLO) VALUES (cur.UTE_INS,cur.CODICE_REPARTO,cur.TIPO_TERAPIA,cur.IDEN_CONF_SCHEDA,cur.IMPOSTAZIONI,cur.IDEN_CICLO) returning iden into vIdenMaster;
+				   end loop;
+          		   else
+         		   for cur in (SELECT UTE_INS,CODICE_REPARTO,TIPO_TERAPIA,IDEN_CONF_SCHEDA,IMPOSTAZIONI,IDEN_CICLO FROM CC_TERAPIE_MODELLI WHERE IDEN=to_number(vArrayIden(i)))
+				   	loop
+          			  INSERT INTO CC_TERAPIE_MODELLI (UTE_INS,CODICE_REPARTO,TIPO_TERAPIA,IDEN_CONF_SCHEDA,IMPOSTAZIONI,IDEN_CICLO,IDEN_PARENT) VALUES (cur.UTE_INS,cur.CODICE_REPARTO,cur.TIPO_TERAPIA,cur.IDEN_CONF_SCHEDA,cur.IMPOSTAZIONI,cur.IDEN_CICLO,vIdenMaster) returning iden into vIdenNew;
+				   end loop;
+				   end if;  
+				  end loop;
+				 ? := vIdenMaster;
+				end;
+				 
+			]]>
+            </sql>
+        </statement>
+         <statement name="prescrizioniStd.cancellaPacchetto">
+            <sql>
+                <![CDATA[
+				declare
+					pIden_modello pls_integer := to_number(?);
+					pCod_cdc varchar2(4000) :=?;
+					k pls_integer;
+				begin
+					delete from radsql.CC_TERAPIE_MODELLI where iden = pIden_modello;
+					delete from radsql.CC_TERAPIE_MODELLI where iden_parent = pIden_modello;
+					delete from radsql.CC_TERAPIE_MODELLI_REPARTI where iden_modello = pIden_modello;
+				end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="bilancio.getSomministrazioni">
+            <sql>
+                <![CDATA[
+                select 
+                	IDEN,VALIDITA_INIZIO, VALIDITA_FINE, PRE, POST, STATO, STATO_DECODED, INTESTAZIONE, VOLUME VOLUME, RESIDUO_SEGNALATO, SOMMINISTRATO_COMPETENTE, SOMMINISTRATO_PRECEDENTE, SOTTOTIPO_SCHEDA 
+               	from (					
+					Select /*+first_rows(20)*/ d.iden, 
+						to_char(d.validita_inizio,'hh24:mi dd/MM/yyyy') VALIDITA_INIZIO, 
+						to_char(d.validita_fine,'hh24:mi dd/MM/yyyy') VALIDITA_FINE, 
+						case when d.validita_inizio<to_date(?,'yyyyMMddhh24:mi') then 'S' else 'N' end PRE,
+						case when d.validita_fine>to_date(?,'yyyyMMddhh24:mi') then 'S' else 'N' end POST,
+						DECODE(d.sospesa,'N', DECODE(d.esito,'I','I','S', 'E' ,'N','K', 'P'),'S') STATO,
+						DECODE(d.sospesa,'N', DECODE(d.esito,'I','Iniziato','S', 'Eseguito','N','Non Eseguito','Da eseguire'),'Sospeso') STATO_DECODED, 
+						(SELECT STRING_AGG(f.describe) FROM cc_farmaci f join cc_terapie_farmaci_collegati fc on (f.iden=fc.iden_farmaco) where fc.iden_dettaglio = d.iden) INTESTAZIONE,
+						to_number(replace(extractValue(xmltype(s.impostazioni),'//UserInput[@name="VolumeTotale"]/@value'),'.',',')) VOLUME,
+						round(cc_somministrazione.getSomministratoCompetente(d.iden,?,?)) as SOMMINISTRATO_COMPETENTE,
+						round(cc_somministrazione.getSomministratoPrecedente(d.iden,?)) as SOMMINISTRATO_PRECEDENTE,
+						cc_somministrazione.getResiduoSegnalato(d.iden,?) as RESIDUO_SEGNALATO,
+  						NVL((select cod_sottotipo from cc_terapie_conf_scheda cs where CS.IDEN = S.IDEN_CONF_SCHEDA),'') as SOTTOTIPO_SCHEDA
+					from radsql.cc_terapie_dettagli d 
+						join  cc_terapie_scheda s on (d.iden_scheda_terapia = s.iden)
+						join cc_terapie_ricovero r on (d.iden_terapia=r.iden) 
+					where r.deleted = 'N' and  r.iden_visita in (select iden from nosologici_paziente where parent = to_number(?) and accesso = 1) and d.validita_fine>to_date(?,'yyyyMMddhh24:mi') and d.validita_inizio<to_date(?,'yyyyMMddhh24:mi')
+						and extractValue(xmltype(s.impostazioni),'//UserInput[@name="VolumeTotale"]/@value') is not null
+				) 
+				order by INTESTAZIONE, to_date(VALIDITA_INIZIO,'hh24:mi dd/MM/yyyy')
+			]]>
+            </sql>
+        </statement>
+        <statement name="bilancio.cancella">
+            <sql>
+                <![CDATA[
+				update cc_bilancio_idrico set deleted='S' where iden = to_number(?)
+			]]>
+            </sql>
+        </statement>
+        <statement name="bilancio.getInfusiPrecedenti">
+            <sql>
+                <![CDATA[
+				select * from (
+					select extractValue(contenuto,'//CAMPO[@KEY_CAMPO="hInfusi"]') infusiPre from cc_bilancio_idrico where iden_visita = to_number(?) and to_date(data_bilancio||ora_bilancio,'yyyyMMddhh24:mi') = to_date(?,'yyyyMMddhh24:mi')-1 and deleted = 'N' order by data_ins desc
+					) where rownum=1
+			]]>
+            </sql>
+        </statement>
+        <!--statement name="importa.getTerapie">
+            <sql>
+                <![CDATA[
+				select 
+					tr.iden_visita,
+					(select descr from centri_di_costo where cod_cdc=np.cod_cdc) reparto,
+					datetimeconverter(np.data_ricovero,'yyyyMMdd','dd/MM/yyyy') data_ricovero,
+					datetimeconverter(np.data_fine_ricovero,'yyyyMMdd','dd/MM/yyyy') data_fine_ricovero,
+				  	tr.iden iden_terapia,
+				  	(Select descrizione from cc_terapie_type where iden=tr.tipo_terapia) tipo,
+  					ts.iden iden_scheda,
+  					(SELECT '<table>'|| replace(string_agg('<tr><td class="farmaco"><div class="nome">'||nvl(FC.descr,'Ossigenoterapia') ||'</div><div class="sostanza">' ||FC.sostanza ||
+            			'</div></td><td class="dose">' ||fc.dosaggio ||' ' || (select codice from tab_codifiche where iden = FC.udm)||'</td></tr>'),'tr>,','tr>')
+						||'</table>'
+   						FROM view_cc_farmaci_collegati FC
+    					WHERE FC.iden_scheda=ts.iden) intestazione,
+    				cc_terapia.getdescrprescrizione(ts.impostazioni) prescrizione 
+  				from cc_terapie_ricovero tr 
+  				join nosologici_paziente np on np.iden=tr.iden_visita 
+  				join cc_terapie_scheda ts on tr.iden=ts.iden_terapia
+				where
+  					np.iden_anag=? and
+  					np.parent <> ? and np.iden <> ? and
+  					np.data_fine_ricovero>to_char(sysdate-10,'yyyyMMdd') and
+					tr.deleted='N' and tr.stato = 'P'
+					and (ts.data_fine is null or ts.data_fine>=to_date(np.data_fine_ricovero,'yyyyMMdd'))  
+  				order by np.data_fine_ricovero desc, tr.tipo_terapia
+			]]>
+            </sql>
+        </statement-->
+        <statement name="importa.getTerapie">
+            <sql>
+                <![CDATA[
+                            SELECT 
+                              tr.iden_visita,
+                              (select descr from centri_di_costo where cod_cdc=np.cod_cdc) reparto,
+                              datetimeconverter(np.data_ricovero,'yyyyMMdd','dd/MM/yyyy') data_ricovero,
+                              datetimeconverter(np.data_fine_ricovero,'yyyyMMdd','dd/MM/yyyy') data_fine_ricovero,
+                                tr.iden iden_terapia,
+                                (Select descrizione from cc_terapie_type where iden=tr.tipo_terapia) tipo,
+                                ts.iden iden_scheda,
+                                (SELECT '<table>'|| replace(string_agg('<tr><td class="farmaco"><div class="nome">'||nvl(FC.descr,'Ossigenoterapia') ||'</div><div class="sostanza">' ||FC.sostanza ||
+                                      '</div></td><td class="dose">' ||fc.dosaggio ||' ' || (select codice from tab_codifiche where iden = FC.udm)||'</td></tr>'),'tr>,','tr>')
+                                ||'</table>'
+                                  FROM view_cc_farmaci_collegati FC
+                                  WHERE FC.iden_scheda=ts.iden) intestazione,
+                                cc_terapia.getdescrprescrizione(ts.impostazioni) prescrizione 
+                            FROM nosologici_paziente np       
+                              join cc_terapie_ricovero tr on tr.iden_visita in (np.iden) 
+                              JOIN cc_terapie_scheda ts ON tr.iden=ts.iden_terapia
+                               join tab_tipo_ricovero ttr on ttr.iden = np.iden_tipo_ricovero
+                            where
+                                np.iden_anag=:iden_anag AND
+                                (np.PARENT <> :iden_parent OR np.PARENT IS NULL) AND np.iden <> :iden_accesso AND
+                                ((np.data_fine_ricovero IS NULL and ttr.codice in ('PRE','PRE-DH','PRE-DS','PRE-VPO')) OR np.data_fine_ricovero>to_char(SYSDATE-180,'yyyyMMdd'))
+                                and tr.deleted='N' and tr.stato in ('P','B')
+                                AND (tr.stato='B' or ts.data_fine IS NULL OR ts.data_fine>=to_date(np.data_fine_ricovero,'yyyyMMdd'))  
+                              order by np.data_fine_ricovero desc, tr.tipo_terapia
+			]]>
+            </sql>
+        </statement>
+        <statement name="infusione.inizio">
+            <sql>
+                <![CDATA[
+				declare 
+					pIdenDettaglio pls_integer:=to_number(?);
+					pIdenScheda pls_integer:=to_number(?);
+					pDataIni varchar2(8):=?;
+					pOraIni varchar2(5):=?;
+					pIdenPer pls_integer:=to_number(?);
+					pNota varchar2(4000) :=?;
+					pDosi varchar2(4000) :=?;
+					vValiditaIni date; 
+					vValiditaFine date; 
+					vArrayFarma  ARRAY_VALUE;
+					vArrayDosi  ARRAY_VALUE;
+					cEsito varchar2(1) := 'I';
+				begin
+	      			vValiditaIni := to_date(pDataIni||pOraIni,'yyyyMMddhh24:mi');
+					
+				cc_somministrazione.allineaVelocita(pIdenDettaglio, vValiditaIni);
+					
+	      			vValiditaFine := GET_FINE_TERAPIA_DETTAGLIO (pIdenDettaglio,pIdenScheda,vValiditaIni);
+					--update CC_TERAPIE_VELOCITA set data_ini=pDataIni,ora_ini=pOraIni where iden_inizio=pIdenDettaglio;
+	      			Update CC_TERAPIE_DETTAGLI 
+	      				set ESITO=cEsito,validita_inizio=vValiditaIni,validita_fine=vValiditaFine,note=pNota,
+	      				ute_esec=pIdenPer,data_ultima_modifica=sysdate,ute_ultima_modifica=pIdenPer 
+	      			where iden=pIdenDettaglio;
+	
+	      			if (pDosi is not null) then
+					  	vArrayFarma := RADSQL.SPLIT2ARRAY(pDosi,'|');
+					  	for i in 1..varrayFarma.last loop 
+					  		vArrayDosi := RADSQL.SPLIT2ARRAY(varrayFarma(i),'?');
+                                                                                                                              CC_TERAPIA.setDosaggioFarmacoCollegato(pIdenDettaglio, to_number(vArrayDosi(2)), pIdenPer, vArrayDosi(2), to_number(vArrayDosi(3)));					  		
+					  	end loop;
+					end if;
+		--			cc_terapia.ricalcolaOrari(pIdenDettaglio, vValiditaIni);
+				end;		
+			]]>
+            </sql>
+        </statement>
+        <statement name="infusione.fine">
+            <sql>
+                <![CDATA[
+				declare 
+					pIdenDettaglio pls_integer:=to_number(?);
+					pDataFine varchar2(8):=?;
+					pOraFine varchar2(5):=?;
+					pIdenPer pls_integer:=to_number(?);
+					pNota varchar2(4000) :=?;
+					pResiduo pls_integer:= ?;
+					cEsito varchar2(1) := 'S';
+				begin
+					Update CC_TERAPIE_DETTAGLI set ESITO=cEsito,validita_fine=to_date(pDataFine||pOraFine,'yyyyMMddhh24:mi'),data_ultima_modifica=sysdate,ute_ultima_modifica=pIdenPer,note=pNota where iden=pIdenDettaglio;
+					
+					Update CC_TERAPIE_VELOCITA set residuo=pResiduo,data_fine=pDataFine,ora_fine=pOraFine where iden_inizio=pIdenDettaglio and deleted='N' and  to_date(data_ini||ora_ini,'yyyyMMddhh24:mi')<to_date(pDataFine||pOraFine,'yyyyMMddhh24:mi')
+					and (to_date(data_fine||ora_fine,'yyyyMMddhh24:mi')>=to_date(pDataFine||pOraFine,'yyyyMMddhh24:mi') or (data_fine is null and ora_fine is null));
+					
+					Update cc_terapie_velocita set deleted='S' where iden_inizio=pIdenDettaglio and to_date(data_ini||ora_ini,'yyyyMMddhh24:mi')>=to_date(pDataFine||pOraFine,'yyyyMMddhh24:mi');
+					
+				end;		
+			]]>
+            </sql>
+        </statement>
+        <statement name="infusione.cambioSacca">
+            <sql>
+                <![CDATA[
+                            declare 
+                              pIdenDettaglio pls_integer:=to_number(?);
+                              pIdenScheda pls_integer:=to_number(?);
+                              pIdenTerapia pls_integer:=to_number(?);
+                              pDataFine varchar2(8):=?;
+                              pOraFine varchar2(5):=?;
+                              pIdenPer pls_integer:=to_number(?);
+                              pNota varchar2(4000) :=?;
+                              vFineScheda date;
+                              vDataSchedulazione date;
+                              vUteSchedulazione pls_integer;
+                              vNewIden pls_integer;
+                              vUltimaVelocita number;
+                              vDataControllo date;
+                              vDataCambio date;
+                              vNewDataFine date;
+                              vCount pls_integer;
+                              vOut varchar2(4000):='';
+                              vXml xmltype;
+                              vVelocitaScheda number;
+                              vIdenTabVel number;
+                              vIdenSchedaNew pls_integer:=0;
+                              vDataIniNew date;
+                              vDataFineNew date;
+                              vVelocitaSchedaNew number;
+                            begin 
+                              begin
+                                vDataCambio := to_date(pDataFine||pOraFine,'yyyyMMddhh24:mi');
+                                  --GEST_LOGS.error('cambio sacca',' 0 ');
+                                select 
+                                  data_fine 
+                                into 
+                                  vFineScheda 
+                                from 
+                                  cc_terapie_scheda S 
+                                where 
+                                  s.iden = pIdenScheda and 
+                                  existsNode(xmltype(S.impostazioni), '/Terapia//UserInput[@name="TipoPrescrizione" and @value="3"]') = '1';
+
+                                SELECT 
+                                  xmltype(impostazioni) 
+                                INTO 
+                                  vXml 
+                                FROM 
+                                  cc_terapie_scheda 
+                                WHERE 
+                                  iden=pIdenScheda;
+
+                                select 
+                                  to_number(extractvalue(vXml,'//UserInput[@name="VelocitaMinuti"]/@value'),'999999999.00000000000000000000') 
+                                into 
+                                  vVelocitaScheda 
+                                from 
+                                  dual;  
+
+                                select 
+                                  velocita,
+                                  d,
+                                  iden  
+                                into 
+                                  vUltimaVelocita,
+                                  vDataControllo,
+                                  vIdenTabVel 
+                                from(
+                                      select 
+                                        velocita,
+                                        to_date(data_ini||ora_ini,'yyyyMMddhh24:mi') d,
+                                        iden 
+                                      from 
+                                        CC_TERAPIE_VELOCITA 
+                                      where 
+                                        iden_inizio=pIdenDettaglio and 
+                                        deleted='N' 
+                                      order by 
+                                        data_ini desc,
+                                        ora_ini desc
+                                      ) 
+                                where rownum=1;
+
+                                if(vUltimaVelocita=0) then
+                                 vOut :='Non è possibile il cambio sacca, dettaglio sospeso';
+                                else
+
+                                  if(vDataCambio<=vDataControllo) then  
+                                    vOut :='Indicare un orario successivo all''ultima valutazione'; 
+                                  else
+                                    select count(*) into vCount from cc_terapie_dettagli where iden_precedente = pIdenDettaglio;
+                                    if vCount<1 then
+                                      update CC_TERAPIE_VELOCITA set data_fine=pDataFine,ora_fine=pOraFine where iden_inizio=pIdenDettaglio and iden=vIdenTabVel;
+                                      update CC_TERAPIE_DETTAGLI set ESITO='S',validita_fine=vDataCambio,data_ultima_modifica=sysdate,ute_ultima_modifica=pIdenPer where iden=pIdenDettaglio;
+                                      
+                                      --controllo se esiste una scheda successiva a quella attuale su cui continuare la terapia e generare il cambio sacca
+                                      begin
+                                   	select iden,data_ini,data_fine,to_number(extractvalue(xmltype(impostazioni),'//UserInput[@name="VelocitaMinuti"]/@value'),'999999999.00000000000000000000')  into vIdenSchedaNew,vDataIniNew,vDataFineNew,vVelocitaSchedaNew from cc_terapie_scheda where data_ini>=vFineScheda and iden_terapia=pIdenTerapia; 
+                                    exception when no_data_found then
+                                      	null;
+                                      end;
+                                      
+                                      if (vFineScheda is null or vDataCambio<vFineScheda or (vIdenSchedaNew<>0 and vDataCambio>=vDataIniNew and (vDataCambio<vDataFineNew or vDataFineNew is null))) then
+                                       
+                                       --se il dettaglio deve essere creato nella scheda successiva aggiorno le variabili
+                                        if(vIdenSchedaNew<>0 and vDataCambio>=vDataIniNew and vDataCambio<vDataFineNew) then
+                                        	pIdenScheda:=vIdenSchedaNew;
+                                        	vVelocitaScheda:=vVelocitaSchedaNew;
+                                        	
+                                        end if;
+                                       
+                                       
+                                        select ute_sched,data_sched into vUteSchedulazione,vDataSchedulazione from cc_terapie_dettagli where iden=pIdenDettaglio;
+                                        vNewDataFine := GET_FINE_TERAPIA_DETTAGLIO (null,pIdenScheda,vDataCambio,vVelocitaScheda);
+
+                                        insert into CC_TERAPIE_DETTAGLI (iden_terapia,iden_scheda_terapia,ute_sched,data_sched,validita_inizio,validita_fine,confermata,esito,ute_esec,iden_precedente,data_ultima_modifica,ute_ultima_modifica,note) 
+                                          values (pIdenTerapia,pIdenScheda,vUteSchedulazione,vDataSchedulazione,vDataCambio,vNewDataFine,'S','I',pIdenPer,pIdenDettaglio,sysdate,pIdenPer,pNota)
+                                        returning iden into vNewIden;
+
+                                        insert into CC_TERAPIE_VELOCITA (iden_inizio,data_ini,ora_ini,velocita) values (vNewIden,pDataFine,pOraFine,vVelocitaScheda);
+
+                                        for farmaci in (
+                                            select 
+                                                TIPO,                                                                                                
+                                                DOSAGGIO_RAPPRESENTAZIONE,
+                                                UNITA_DI_MISURA,
+                                                IDEN_FARMACO,
+                                                IDEN_SCHEDA,
+                                                IDEN_TERAPIA
+                                            from 
+                                                cc_terapie_farmaci_collegati 
+                                            where 
+                                                iden_dettaglio=pIdenDettaglio
+                                        )
+                                        loop
+                                            CC_TERAPIA.insertFarmacoCollegato(farmaci.TIPO, farmaci.IDEN_FARMACO,  farmaci.DOSAGGIO_RAPPRESENTAZIONE, farmaci.UNITA_DI_MISURA, vNewIden, farmaci.IDEN_SCHEDA, farmaci.IDEN_TERAPIA);
+                                        end loop;
+                                      else 
+                                        vOut := 'L''orario inserito per il cambio sacca é¨ successivo alla data fine terapia, cambio sacca non effettuato';
+                                      end if;
+                                    else
+                                      vOut := 'Il cambio sacca su quella somministrazione è già stato eseguito. La pagina verrà aggiornata.';
+                                    end if;
+                                  end if;
+                                end if;
+                              exception when no_data_found then 
+                                  vOut := 'La terapia selezionata non puo essere replicata';
+                              end;
+                              ? := vOut;
+                            end;		
+			]]>
+            </sql>
+        </statement>
+		<statement name="infusione.annullaEsecuzione">
+			<sql>
+                <![CDATA[
+				declare 
+					pIdenDettaglio pls_integer:=to_number(?);
+					pIdenScheda pls_integer:=to_number(?);
+					pIdenTerapia pls_integer:=to_number(?);
+					pIdenPer pls_integer:=to_number(?);
+					vDataFine date;
+					vDataIni date;
+					vIdenPre pls_integer;
+					vResetDosi pls_integer;
+					vEsito varchar2(1);
+					k pls_integer;
+					vOut varchar2(4000):='';
+					vIdenSchedaPrecedente pls_integer;
+				BEGIN
+      
+ 			 --controllo se l'ultima operazione effettuata è stata un cambio velocità
+          select count(*) into k from cc_terapie_velocita where iden_inizio=pIdendettaglio;
+          if k>1 then
+            vOut:= 'Operazione non consentita';
+          else
+          
+
+
+            select count(iden) into k from cc_terapie_dettagli where iden_terapia =pIdenTerapia and iden_precedente = pIdendettaglio;
+            if k > 0 then 
+              vOut:= 'Impossibile annullare, esistono delle somministrazioni collegate successive';
+            else 
+
+              select iden_precedente,esito,validita_inizio into vIdenPre,vEsito,vDataIni from cc_terapie_dettagli where iden = pIdenDettaglio;
+              begin            
+                select iden_scheda_terapia into vIdenSchedaPrecedente from cc_terapie_dettagli where iden = vIdenPre;
+              exception when no_data_found then
+                vIdenSchedaPrecedente:=0;
+              end;
+              if vEsito = 'S' then 
+              -- ultimo dettaglio chiuso
+                update cc_terapie_velocita set data_fine = null, ora_fine = null, residuo=null where iden_inizio = pIdenDettaglio;
+                vDataFine := GET_FINE_TERAPIA_DETTAGLIO (pIdenDettaglio,pIdenScheda,vDataIni);
+                update cc_terapie_dettagli set validita_fine=vDataFine,esito='I',ute_ultima_modifica=pIdenper,data_ultima_modifica=sysdate where iden=pIdenDettaglio;
+                select existsNode(xmltype(impostazioni), '//UserInput[@name="DoseFarmaco"]') into vResetDosi from cc_terapie_scheda where iden = pIdenScheda;
+                if vResetDosi = 0 then
+                CC_TERAPIA.cleanFarmaciCollegati(pIdenDettaglio, pIdenPer);			            
+               end if;	
+
+              elsif vIdenPre is null then
+              -- prima infusione: (esito I --> null)
+                select to_date(data||ora,'yyyyMMddhh24:mi'),to_date(data_fine||ora_fine,'yyyyMMddhh24:mi') into vDataIni,vDataFine from cc_terapie_dettagli_bck where iden_originale = pIdenDettaglio and tipo_operazione = 'PRESCRIZIONE';
+                update cc_terapie_dettagli set validita_inizio = vDataIni,validita_fine=vDataFine,esito=null,ute_esec=null,ute_ultima_modifica=pIdenPer,data_ultima_modifica=sysdate where iden=pIdenDettaglio;
+                update cc_terapie_velocita set data_ini=to_char(vDataIni,'yyyyMMdd'),ora_ini=to_char(vDataIni,'hh24:mi'),data_fine=null,ora_fine=null where iden_inizio = pIdenDettaglio;
+                select existsNode(xmltype(impostazioni), '//UserInput[@name="DoseFarmaco"]') into vResetDosi from cc_terapie_scheda where iden = pIdenScheda;
+
+                if vResetDosi = 0 then
+                  CC_TERAPIA.cleanFarmaciCollegati(pIdenDettaglio, pIdenPer);
+                end if;	
+              else
+                begin
+                  select esito into vEsito from cc_terapie_dettagli_bck where iden_originale = vIdenPre and esito='M';
+                exception when no_data_found then
+                  vEsito:='I';
+                end;
+              /*In presenza di un cambio sacca, le schede sono uguali*/
+                if pIdenScheda = vIdenSchedaPrecedente then
+
+
+              -- infusione successiva alla prima (i.e. c'e stato un cambio sacca): cancello ultima, riapro precedente (esito-->I)
+                  update cc_terapie_velocita 
+                  set data_fine = null, ora_fine = null where iden_inizio = vIdenPre 
+                  and iden=(select iden from(select iden from cc_terapie_velocita where iden_inizio=vIdenPre and deleted='N' order by to_date(data_fine||ora_fine,'YYYYMMDDhh24:mi') desc) where rownum=1);		  
+                  vDataFine := GET_FINE_TERAPIA_DETTAGLIO (vIdenPre,pIdenScheda,null);			  
+                  
+                  update cc_terapie_dettagli 
+                  set validita_fine=vDataFine,esito=vEsito,ute_esec=null,ute_ultima_modifica=pIdenPer,data_ultima_modifica=sysdate 
+                  where iden=vIdenPre;
+                  
+                  select existsNode(xmltype(impostazioni), '//UserInput[@name="DoseFarmaco"]') into vResetDosi from cc_terapie_scheda where iden = pIdenScheda;
+                  if vResetDosi = 0 then
+                  CC_TERAPIA.cleanFarmaciCollegati(vIdenPre, pIdenPer);			            
+                  end if;
+                  
+
+                  delete from cc_terapie_dettagli where iden = pIdenDettaglio;
+                  delete from cc_terapie_velocita where iden_inizio = pIdenDettaglio;
+                  CC_TERAPIA.removeFarmaciCollegati(pIdenDettaglio, pIdenPer);
+                else
+                  vDataFine := GET_FINE_TERAPIA_DETTAGLIO (pIdenDettaglio,pIdenScheda,null);	
+                  update cc_terapie_dettagli 
+                  set validita_inizio = vDataIni,validita_fine=vDataFine,esito=null,ute_esec=null,ute_ultima_modifica=pIdenPer,data_ultima_modifica=sysdate 
+                  where iden = pIdenDettaglio;
+              
+                  update cc_terapie_velocita 
+                  set data_ini=to_char(vDataIni,'yyyyMMdd'),ora_ini=to_char(vDataIni,'hh24:mi'),data_fine=null,ora_fine=null 
+                  where iden_inizio = pIdenDettaglio;
+                end if;
+              insert into cc_terapie_dettagli_bck (iden_originale,iden_terapia,ute_ultima_modifica,data_ultima_modifica,tipo_operazione) values (vIdenPre,pIdenTerapia,pIdenPer,sysdate,'ANNULLA CAMBIO SACCA');
+              end if;
+            end if;
+
+
+          end if;
+          ? := vOut;
+          END;	
+
+			]]>
+			</sql>
+		</statement>
+        <statement name="infusione.cambioVelocita">
+            <sql>
+                <![CDATA[
+				declare 
+					pIdenDettaglio pls_integer:=to_number(?);
+					pDataIni varchar2(8):=?;
+					pOraIni varchar2(5):=?;
+					pDataFine varchar2(8):=?;
+					pOraFine varchar2(5):=?;
+					pVelocita number:=to_number(?);
+					pIdenPer pls_integer:=to_number(?);
+					pResiduo number:=to_number(?);
+
+				begin
+				  CC_SOMMINISTRAZIONE.gestCambioVelocita(pIdenDettaglio,pDataIni,pOraIni,pDataFine,pOraFine, pVelocita,pIdenPer,pResiduo);		
+				end;
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="somministrazione.getFarmaciCollegati">
+            <sql>
+                <![CDATA[
+			select  
+			  fc.TIPO
+			  ,fc.DOSAGGIO
+			  ,farmaci.describe FARMACO
+			  ,tc.descrizione UNITA_DI_MISURA
+			  ,sostanze.descrizione SOSTANZA
+			from
+				radsql.cc_terapie_farmaci_collegati fc
+			  join radsql.cc_farmaci farmaci on farmaci.iden = fc.iden_farmaco
+			  join radsql.tab_codifiche tc on tc.iden = fc.unita_di_misura
+			  left outer join radsql.cc_farmaci_sostanze sostanze  ON sostanze.iden = farmaci.iden_sostanza
+			where
+			  fc.iden_dettaglio = to_number(?)
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="filtri.getTipoFarmaco">
+            <sql>
+                <![CDATA[
+				Select t.iden,t.descrizione from CC_TERAPIE_REPARTO r
+				inner join  CC_TERAPIE_TYPE t on(t.iden=r.iden_terapia)
+				where codice_reparto=? and r.attivo='S' order by r.ordine
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="filtri.getConfScheda">
+            <sql>
+                <![CDATA[
+				Select * from VIEW_CC_TERAPIE_CONF_SCHEDA where codice_reparto=? and stato_terapia=? order by descrizione
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="domiciliari.precedenti">
+            <sql>
+                <![CDATA[
+				Select /*+first_rows(20)*/ IDEN_LETTERA,STATO_LETTERA,to_char(DATA_INSERIMENTO,'dd/mm/yyyy hh24:mi') data_inserimento,
+				PRIMO_CICLO,FARMACO,IDEN_FARMACO,COD_DEC,IDEN_SOSTANZA,IDEN_TIPO_TERAPIA,DOSE,UDM,ORARI,DURATA,NUM_SCATOLE,CATEGORIA
+				from radsql.VIEW_WK_LETTERA_FARMACI w where iden_visita in
+				(select iden from nosologici_paziente where iden_anag=? and cod_cdc=?) and attivo='S' and stato_lettera = 'F' order by w.data_inserimento desc,farmaco
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="domiciliari.farmaci_lettera">
+            <sql>
+                <![CDATA[
+					Select /*+first_rows(20)*/ * from radsql.VIEW_WK_LETTERA_FARMACI where iden_lettera=? and attivo = 'S'
+				]]>
+            </sql>
+        </statement>
+        <statement name="domiciliari.farmaci_lettera_associata">
+            <sql>
+                <![CDATA[
+					Select /*+first_rows(20)*/ * from radsql.VIEW_WK_LETTERA_FARMACI where iden_lettera=?
+				]]>
+            </sql>
+        </statement>
+
+        <statement name="domiciliari.farmaci_ricovero">
+            <sql>
+                <![CDATA[
+					Select /*+first_rows(20)*/ * from radsql.VIEW_WK_LETTERA_TERAPIE where iden_visita in (select iden from nosologici_paziente where parent=? or iden=?) and stato in ('P','A') and iden_tipo_terapia <> 46 and deleted = 'N' order by ORDINE, FARMACO
+				]]>
+            </sql>
+        </statement>
+        
+        <statement name="domiciliari.farmaci_ricovero_no_bisogno">
+            <sql>
+                <![CDATA[
+					Select /*+first_rows(20)*/ * from radsql.VIEW_WK_LETTERA_TERAPIE where iden_visita in (select iden from nosologici_paziente where parent=? or iden=?) and stato in ('P','A') and iden_tipo_terapia <> 46 and tipo_prescrizione <> '4' and deleted = 'N' order by ORDINE, FARMACO
+				]]>
+            </sql>
+        </statement>
+		
+		<statement name="delTerapieCiclo">
+			<sql>
+			<![CDATA[
+				delete from radsql.cc_terapie_modelli where iden_ciclo=to_number(?)
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="delCiclo">
+			<sql>
+			<![CDATA[
+				delete from radsql.cc_terapie_ciclo_modelli where iden=to_number(?)
+			]]>
+			</sql>
+		</statement>
+        <statement name="setVelocitàInfusionale">
+            <sql>
+                <![CDATA[
+				declare
+                    pData varchar2(4001) := ? ;
+                    pOra varchar2(4001) := ? ;
+                    pVelocita number 	:= to_number(?);
+                    pDose number 	:= to_number(?);
+                    pIdenPer pls_integer 	:= to_number(?);
+                    pIdenTerapia pls_integer 	:= to_number(?);
+				begin
+                    radsql.cc_terapia.setVelocitaInfusione(pIdenTerapia, pVelocita, pDose, to_date(pData||pOra,'dd/MM/yyyyhh24:mi'),pIdenPer);
+				end;
+                ]]>
+            </sql>
+        </statement>
+		
+        <statement name="getInfoScheda">
+            <sql>
+                <![CDATA[		
+				select
+				  s.IDEN,
+				  case extractvalue(xmltype(s.impostazioni),'//UserInput[@name="TipoPrescrizione"]/@value') 
+						when '0' then 'FREQUENZA'
+						when '1' then 'ORARIA '
+						when '2' then 'SINGOLA'
+						when '3' then 'CONTINUA'
+						when '4' then 'BISOGNO'     
+						when '5' then 'CICLICA'
+						when '6' then 'COUMADIN'
+						when '7' then 'TAO'
+						when '8' then 'RIPIANIFICABILE'
+						else null
+				  end TIPO_PRESCRIZIONE,
+				  extractvalue(xmltype(s.impostazioni),'//UserInput[@name="TipoAltarnabilita"]/@value') TIPO_ALTERNABILITA,
+				  c.SOTTOTIPO,
+				  c.COD_SOTTOTIPO,
+				  t.cod_dec TIPOLOGIA  
+				from
+				  cc_terapie_scheda s
+				  join cc_terapie_conf_scheda c on c.iden = s.iden_conf_scheda
+				  join cc_terapie_type t on t.iden = c.tipo_terapia
+				where   
+				  s.iden = ?
+			]]>
+            </sql>
+        </statement>
+
+        <statement name="infusione.getSomministrazioneInCorso">
+            <sql>		
+                <![CDATA[
+					select 
+						td.iden 
+					from 
+						cc_terapie_dettagli td
+					where 
+						td.iden_terapia = to_number(?)
+						and td.validita_inizio < sysdate
+						and td.validita_fine >= sysdate
+                                                                                                            and td.esito='I'
+				]]>
+            </sql>
+        </statement>		
+		
+        <statement name="infusione.getResiduo">
+            <sql>
+                <![CDATA[		
+				declare
+					pIdenDettaglio pls_integer := to_number(?);
+					pRiferimentoInizio varchar2(5000) := ?;
+					pRiferimentoFine varchar2(5000) := ?;
+					
+					pDataRiferimentoInizio date;
+					pDataRiferimentoFine date;					
+					
+					vResiduo number;				
+				begin
+										
+					select    
+						ROUND(
+							cc_somministrazione.getResiduo(
+								d.iden
+								,TO_NUMBER(
+									REPLACE( 
+										extractValue(xmltype(s.impostazioni),'//UserInput[@name="VolumeTotale"]/@value')
+									,'.'
+									,',')
+								)
+						,case when (pRiferimentoInizio is null) then
+								to_char(d.validita_inizio,'yyyyMMddhh24:mi')
+							else
+								pRiferimentoInizio
+							end 
+						,case when (pRiferimentoFine is null) then
+								to_char(sysdate,'yyyyMMddhh24:mi')
+							else
+								pRiferimentoFine
+							end 
+						)) RESIDUO
+					into
+						vResiduo
+					from 
+						cc_terapie_dettagli d
+						join cc_terapie_scheda s on s.iden = d.iden_scheda_terapia						
+					where 
+						d.iden = pIdenDettaglio;	
+						
+					? := vResiduo;				
+					
+				end;
+				]]>
+            </sql>
+        </statement> 		 
+        <statement name="terapie.parametriAlBisogno">
+            <sql>
+                <![CDATA[		
+                    select t.IDEN , t.DESCRIZIONE , t.COD_DEC
+                    from 
+                        CC_PARAMETRI_TYPE t 
+                        join CC_PARAMETRI_REPARTO r on t.iden=r.iden_parametro 
+                    where 
+                        r.codice_reparto=? and r.terapia_al_bisogno='S' and t.attivo='S' order by r.ordine
+				]]>
+            </sql>
+        </statement> 			
+    </statements_list>
+</root>

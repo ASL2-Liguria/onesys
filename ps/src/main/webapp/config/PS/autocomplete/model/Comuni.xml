@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>2</minChars>
+		<onSelect type="js">
+			<![CDATA[function(ret){if(typeof NS_GENERICS !== 'undefined') { NS_GENERICS.callBackAutocomplete(ret)}}]]>
+		</onSelect>
+		<!--<maxHeight>400</maxHeight>
+        <width>300</width>
+		<zIndex>9999</zIndex>-->
+        <datasource>PS</datasource>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_COMUNI</storedQuery>
+        <storedQueryIden>AUTOCOMPLETE.AC_COMUNI_IDEN</storedQueryIden>
+		<maxResults>20</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>Comuni</title>
+	    <id_wk>AC_COMUNI</id_wk>
+	    <onSelect type="js">
+			<![CDATA[function(ret){if(typeof NS_GENERICS !== 'undefined') { NS_GENERICS.callBackAutocomplete(ret)}}]]>
+            </onSelect>
+	</LIST>
+</AUTOCOMPLETE>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <tabRicovero>Cartella Pregressa</tabRicovero>
+        <lblTitolo>Gestione Ricovero</lblTitolo>
+        <fldDatiRicovero>Dati ricovero</fldDatiRicovero>
+        <lblLivelloUrg>Livello di Urgenza</lblLivelloUrg>
+        <lblDataPren>Data Prenotazione</lblDataPren>
+        <lblDataRicovero>Data ricovero</lblDataRicovero>
+        <lblOraRicovero>Ora</lblOraRicovero>
+        <lblRegimeRicovero>Regime</lblRegimeRicovero>
+        <lblRepartoGiuridico>Reparto</lblRepartoGiuridico>
+        <lblProvenienza>Provenienza</lblProvenienza>
+        <lblTipoRicovero>Tipo ricovero</lblTipoRicovero>
+        <lblMedicoAccettazione>Medico accettante</lblMedicoAccettazione>
+        <lblTipoMedicoPrescrivente>Medico Prescrivente</lblTipoMedicoPrescrivente>
+        <lblOnere>Onere</lblOnere>
+        <lblSubOnere>Sub onere</lblSubOnere>
+        <lblTicket>Posizione Ticket</lblTicket>
+        <lblDiagnosiIcd9>Diagnosi ICD9</lblDiagnosiIcd9>
+        <lblAnno>Anno</lblAnno>
+        <lblStruttura>Struttura</lblStruttura>
+        <lblCartella>Cartella</lblCartella>
+        <lblCodice>Codice</lblCodice>
+        <fldDatiDimissione>Dati Dimissione</fldDatiDimissione>
+        <lblDataTrasferimento>Data Trasferimento</lblDataTrasferimento>
+        <lblOraTrasferimento>Ora </lblOraTrasferimento>
+        <lblDataFineRicovero>Data Fine</lblDataFineRicovero>
+        <lblOraFineRicovero>Ora Fine</lblOraFineRicovero>
+        <lblRepartoGiuridicoDimissione>Reparto Dimissione</lblRepartoGiuridicoDimissione>
+        <lblTipoDimissione>Tipo Dimissione</lblTipoDimissione>
+        <lblMedicoDimissione>Medico Dimissione</lblMedicoDimissione>
+        <fldDatiAccessoDH>Dati Primo Accesso DH</fldDatiAccessoDH>
+        <lblDataFineAccesso>Data Fine</lblDataFineAccesso>
+        <lblOraFineAccesso>Ora</lblOraFineAccesso>
+    </ROW>
+</ROWSET>

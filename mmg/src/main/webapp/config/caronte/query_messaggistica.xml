@@ -1,0 +1,194 @@
+<?xml version = "1.0"?>
+<QUERIES>
+	<!-- WIP. Le query non utilizzate saranno rimosse -->
+    <QUERY_GROUP id="MESSAGGISTICA">
+    	<QUERY id="MESSAGGI_UTENTE"> <!-- Lista dei messaggi filtrati per utente non raggruppati -->
+    		<SQL>
+				select M.IDEN, M.MESSAGGIO, M.MESSAGGIO_HTML, M.PRIORITA,
+				M.IDEN_DISCUSSIONE, M.DATA_INS, TO_CHAR(M.DATA_INS,'yyyyMMddhh24mi') DATA, nvl(M.TITOLO, D.TITOLO) TITOLO, M.MITTENTE, M.MITTENTE_SITO, D.TIPO_DISCUSSIONE, D.ID_ARGOMENTO,
+				case when M.IDEN &gt; U.ULTIMO_LETTO then 'S' else 'N' end DA_LEGGERE,
+				(select string_agg(MU.DESTINATARIO || '@' || MU.DESTINATARIO_SITO || '|' || P.DESCRIZIONE) from MESSAGGI_UTENTI MU
+					JOIN CONFIG$UTENTI UT on UT.USERNAME = MU.DESTINATARIO and UT.SITO in (MU.DESTINATARIO_SITO, 'ALL')
+					JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+					where IDEN_DISCUSSIONE=M.IDEN_DISCUSSIONE) DESTINATARI,
+				P.DESCRIZIONE as MITTENTE_DESCR, decode(P.DESCRIZIONE, null, M.MITTENTE, P.DESCRIZIONE || ' (' || M.MITTENTE || ')') as MITTENTE_DESCR_USERNAME
+				from MESSAGGI M
+				JOIN CONFIG$UTENTI UT on UT.USERNAME = M.MITTENTE and UT.SITO in (M.MITTENTE_SITO, 'ALL')
+				JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+				join MESSAGGI_DISCUSSIONI D on M.IDEN_DISCUSSIONE = D.IDEN
+				join MESSAGGI_UTENTI U on M.IDEN_DISCUSSIONE=U.IDEN_DISCUSSIONE
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and upper(nvl(M.TITOLO, D.TITOLO)) like '%' || upper(:titolo) || '%'
+				and (
+					(:case = 'RICEVUTI' and m.mittente != :username) or
+					(:case = 'INVIATI' and m.mittente = :username) or
+					(:case = 'ALL' )
+				)
+				and M.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+    	<QUERY id="MESSAGGI_UTENTE_ARGOMENTO"> <!-- Lista dei messaggi filtrati per utente e argomento non raggruppati -->
+    		<SQL>
+				select M.IDEN, M.MESSAGGIO, M.MESSAGGIO_HTML, M.PRIORITA,
+				M.IDEN_DISCUSSIONE, M.DATA_INS, TO_CHAR(M.DATA_INS,'yyyyMMddhh24mi') DATA, nvl(M.TITOLO, D.TITOLO) TITOLO, M.MITTENTE, M.MITTENTE_SITO, D.TIPO_DISCUSSIONE, D.ID_ARGOMENTO,
+				case when M.IDEN &gt; U.ULTIMO_LETTO then 'S' else 'N' end DA_LEGGERE,
+				(select string_agg(MU.DESTINATARIO || '@' || MU.DESTINATARIO_SITO || '|' || P.DESCRIZIONE) from MESSAGGI_UTENTI MU
+					JOIN CONFIG$UTENTI UT on UT.USERNAME = MU.DESTINATARIO and UT.SITO in (MU.DESTINATARIO_SITO, 'ALL')
+					JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+					where IDEN_DISCUSSIONE=M.IDEN_DISCUSSIONE) DESTINATARI,
+				P.DESCRIZIONE as MITTENTE_DESCR, decode(P.DESCRIZIONE, null, M.MITTENTE, P.DESCRIZIONE || ' (' || M.MITTENTE || ')') as MITTENTE_DESCR_USERNAME
+				from MESSAGGI M
+				JOIN CONFIG$UTENTI UT on UT.USERNAME = M.MITTENTE and UT.SITO in (M.MITTENTE_SITO, 'ALL')
+				JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+				join MESSAGGI_DISCUSSIONI D on M.IDEN_DISCUSSIONE = D.IDEN
+				join MESSAGGI_UTENTI U on M.IDEN_DISCUSSIONE=U.IDEN_DISCUSSIONE
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and upper(nvl(M.TITOLO, D.TITOLO)) like '%' || upper(:titolo) || '%'
+				and D.ID_ARGOMENTO = :id_argomento and D.TIPO_DISCUSSIONE = :tipo_discussione
+				and (
+					(:case = 'RICEVUTI' and m.mittente != :username) or
+					(:case = 'INVIATI' and m.mittente = :username) or
+					(:case = 'ALL' )
+				)
+				and M.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+    	<QUERY id="DISCUSSIONI_UTENTE"> <!-- Lista delle discussioni -->
+    		<SQL>
+				select D.IDEN, D.DATA_AGG, TO_CHAR(D.DATA_AGG,'yyyyMMddhh24mi') DATA, D.TITOLO, M.MITTENTE, M.MITTENTE_SITO, D.TIPO_DISCUSSIONE, D.ID_ARGOMENTO,
+				case when D.ULTIMO_MESSAGGIO &gt; U.ULTIMO_LETTO then 'S' else 'N' end DA_LEGGERE,
+				(select string_agg(MU.DESTINATARIO || '@' || MU.DESTINATARIO_SITO || '|' || P.DESCRIZIONE) from MESSAGGI_UTENTI MU
+					JOIN CONFIG$UTENTI UT on UT.USERNAME = MU.DESTINATARIO and UT.SITO in (MU.DESTINATARIO_SITO, 'ALL')
+					JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+					where IDEN_DISCUSSIONE=M.IDEN_DISCUSSIONE) DESTINATARI,
+				P.DESCRIZIONE as MITTENTE_DESCR, decode(P.DESCRIZIONE, null, M.MITTENTE, P.DESCRIZIONE || ' (' || M.MITTENTE || ')') as MITTENTE_DESCR_USERNAME
+				from MESSAGGI_DISCUSSIONI D
+				join MESSAGGI_UTENTI U on U.IDEN_DISCUSSIONE = D.IDEN
+				join MESSAGGI M on M.IDEN = D.IDEN
+				JOIN CONFIG$UTENTI UT on UT.USERNAME = M.MITTENTE and UT.SITO in (M.MITTENTE_SITO, 'ALL')
+				JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and upper(nvl(M.TITOLO, D.TITOLO)) like '%' || upper(:titolo) || '%'
+				
+				and D.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+    	<QUERY id="DISCUSSIONI_UTENTE_ARGOMENTO"> <!-- Lista delle discussioni (primo messaggio della discussione) per argomento (TODO: ordinare per data dell'ultimo messaggio) -->
+    		<SQL>
+				select D.IDEN, D.DATA_AGG, TO_CHAR(D.DATA_AGG,'yyyyMMddhh24mi') DATA, D.TITOLO, M.MITTENTE, M.MITTENTE_SITO, D.TIPO_DISCUSSIONE, D.ID_ARGOMENTO,
+				case when D.ULTIMO_MESSAGGIO &gt; U.ULTIMO_LETTO then 'S' else 'N' end DA_LEGGERE,
+				(select string_agg(MU.DESTINATARIO || '@' || MU.DESTINATARIO_SITO || '|' || P.DESCRIZIONE) from MESSAGGI_UTENTI MU
+					JOIN CONFIG$UTENTI UT on UT.USERNAME = MU.DESTINATARIO and UT.SITO in (MU.DESTINATARIO_SITO, 'ALL')
+					JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+					where IDEN_DISCUSSIONE=M.IDEN_DISCUSSIONE) DESTINATARI,
+				P.DESCRIZIONE as MITTENTE_DESCR, decode(P.DESCRIZIONE, null, M.MITTENTE, P.DESCRIZIONE || ' (' || M.MITTENTE || ')') as MITTENTE_DESCR_USERNAME
+				from MESSAGGI_DISCUSSIONI D
+				join MESSAGGI_UTENTI U on U.IDEN_DISCUSSIONE = D.IDEN
+				join MESSAGGI M on M.IDEN = D.IDEN
+				JOIN CONFIG$UTENTI UT on UT.USERNAME = M.MITTENTE and UT.SITO in (M.MITTENTE_SITO, 'ALL')
+				JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and upper(nvl(M.TITOLO, D.TITOLO)) like '%' || upper(:titolo) || '%'
+				and D.ID_ARGOMENTO = :id_argomento and D.TIPO_DISCUSSIONE = :tipo_discussione
+				and D.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+    	<QUERY id="MESSAGGI_UTENTE_DISCUSSIONE"> <!-- Lista dei messaggi filtrati per utente e discussione (vista discussione) -->
+    		<SQL>
+				select M.IDEN, M.MESSAGGIO, M.MESSAGGIO_HTML, M.PRIORITA,
+				M.IDEN_DISCUSSIONE, M.DATA_INS, TO_CHAR(DATA_INS,'yyyyMMddhh24mi') DATA, nvl(M.TITOLO, D.TITOLO) TITOLO, M.MITTENTE, M.MITTENTE_SITO, D.TIPO_DISCUSSIONE, D.ID_ARGOMENTO,
+				case when M.IDEN &gt; U.ULTIMO_LETTO then 'S' else 'N' end DA_LEGGERE,
+				(select string_agg(MU.DESTINATARIO || '@' || MU.DESTINATARIO_SITO || '|' || P.DESCRIZIONE) from MESSAGGI_UTENTI MU
+					JOIN CONFIG$UTENTI UT on UT.USERNAME = MU.DESTINATARIO and UT.SITO in (MU.DESTINATARIO_SITO, 'ALL')
+					JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+					where IDEN_DISCUSSIONE=M.IDEN_DISCUSSIONE) DESTINATARI,
+				P.DESCRIZIONE as MITTENTE_DESCR, decode(P.DESCRIZIONE, null, M.MITTENTE, P.DESCRIZIONE || ' (' || M.MITTENTE || ')') as MITTENTE_DESCR_USERNAME
+				from MESSAGGI M
+				JOIN CONFIG$UTENTI UT on UT.USERNAME = M.MITTENTE and UT.SITO in (M.MITTENTE_SITO, 'ALL')
+				JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+				join MESSAGGI_DISCUSSIONI D on M.IDEN_DISCUSSIONE = D.IDEN
+				join MESSAGGI_UTENTI U on M.IDEN_DISCUSSIONE=U.IDEN_DISCUSSIONE
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and upper(nvl(M.TITOLO, D.TITOLO)) like '%' || upper(:titolo) || '%'
+				and U.IDEN_DISCUSSIONE = :iden_discussione
+				and (
+					(case = 'RICEVUTI' and m.mittente != :username) or
+					(case = 'INVIATI' and m.mittente = :username) or
+					(case = 'ALL' )
+				)
+				and M.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+    	<QUERY id="MESSAGGI_UTENTE_DISCUSSIONE_DA_LEGGERE">
+    		<SQL>
+				select M.IDEN, M.MESSAGGIO, M.MESSAGGIO_HTML, M.PRIORITA,
+				M.IDEN_DISCUSSIONE, M.DATA_INS, TO_CHAR(DATA_INS,'yyyyMMddhh24mi') DATA, nvl(M.TITOLO, D.TITOLO) TITOLO, M.MITTENTE, M.MITTENTE_SITO, D.TIPO_DISCUSSIONE, D.ID_ARGOMENTO,
+				case when M.IDEN &gt; U.ULTIMO_LETTO then 'S' else 'N' end DA_LEGGERE,
+				(select string_agg(MU.DESTINATARIO || '@' || MU.DESTINATARIO_SITO || '|' || P.DESCRIZIONE) from MESSAGGI_UTENTI MU
+					JOIN CONFIG$UTENTI UT on UT.USERNAME = MU.DESTINATARIO and UT.SITO in (MU.DESTINATARIO_SITO, 'ALL')
+					JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+					where IDEN_DISCUSSIONE=M.IDEN_DISCUSSIONE) DESTINATARI,
+				P.DESCRIZIONE as MITTENTE_DESCR, decode(P.DESCRIZIONE, null, M.MITTENTE, P.DESCRIZIONE || ' (' || M.MITTENTE || ')') as MITTENTE_DESCR_USERNAME
+				from MESSAGGI M
+				JOIN CONFIG$UTENTI UT on UT.USERNAME = M.MITTENTE and UT.SITO in (M.MITTENTE_SITO, 'ALL')
+				JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+				join MESSAGGI_DISCUSSIONI D on M.IDEN_DISCUSSIONE = D.IDEN
+				join MESSAGGI_UTENTI U on M.IDEN_DISCUSSIONE=U.IDEN_DISCUSSIONE
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and upper(nvl(M.TITOLO, D.TITOLO)) like '%' || upper(:titolo) || '%'
+				and U.IDEN_DISCUSSIONE = :iden_discussione
+				and M.IDEN &gt; U.ULTIMO_LETTO
+				and (
+					(case = 'RICEVUTI' and m.mittente != :username) or
+					(case = 'INVIATI' and m.mittente = :username) or
+					(case = 'ALL' )
+				)
+				and M.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+    	<QUERY id="MESSAGGI_UTENTE_DA_LEGGERE">
+    		<SQL>
+				select M.IDEN, M.MESSAGGIO, M.MESSAGGIO_HTML, M.PRIORITA,
+				M.IDEN_DISCUSSIONE, M.DATA_INS, TO_CHAR(DATA_INS,'yyyyMMddhh24mi') DATA, nvl(M.TITOLO, D.TITOLO) TITOLO, M.MITTENTE, M.MITTENTE_SITO, D.TIPO_DISCUSSIONE, D.ID_ARGOMENTO,
+				case when M.IDEN &gt; U.ULTIMO_LETTO then 'S' else 'N' end DA_LEGGERE,
+				(select string_agg(MU.DESTINATARIO || '@' || MU.DESTINATARIO_SITO || '|' || P.DESCRIZIONE) from MESSAGGI_UTENTI MU
+					JOIN CONFIG$UTENTI UT on UT.USERNAME = MU.DESTINATARIO and UT.SITO in (MU.DESTINATARIO_SITO, 'ALL')
+					JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+					where IDEN_DISCUSSIONE=M.IDEN_DISCUSSIONE) DESTINATARI,
+				P.DESCRIZIONE as MITTENTE_DESCR, decode(P.DESCRIZIONE, null, M.MITTENTE, P.DESCRIZIONE || ' (' || M.MITTENTE || ')') as MITTENTE_DESCR_USERNAME
+				from MESSAGGI M
+				JOIN CONFIG$UTENTI UT on UT.USERNAME = M.MITTENTE and UT.SITO in (M.MITTENTE_SITO, 'ALL')
+				JOIN DATI$PERSONALE P on UT.IDEN_PER = P.IDEN
+				join MESSAGGI_DISCUSSIONI D on M.IDEN_DISCUSSIONE = D.IDEN
+				join MESSAGGI_UTENTI U on M.IDEN_DISCUSSIONE=U.IDEN_DISCUSSIONE
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and upper(nvl(M.TITOLO, D.TITOLO)) like '%' || upper(:titolo) || '%'
+				and M.IDEN &gt; U.ULTIMO_LETTO
+				and (
+					(:case = 'RICEVUTI' and m.mittente != :username) or
+					(:case = 'INVIATI' and m.mittente = :username) or
+					(:case = 'ALL' )
+				)
+				and M.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+    	<QUERY id="MESSAGGI_UTENTE_DA_LEGGERE_COUNT">
+    		<SQL>
+				select count(*) CONTEGGIO
+				from MESSAGGI M
+				join MESSAGGI_UTENTI U on M.IDEN_DISCUSSIONE=U.IDEN_DISCUSSIONE
+				where U.DESTINATARIO = :username and U.DESTINATARIO_SITO = :sito
+				and M.IDEN &gt; U.ULTIMO_LETTO
+				and M.DELETED='N'
+				{#ORDER#}
+			</SQL>
+		</QUERY>
+	</QUERY_GROUP>
+</QUERIES>

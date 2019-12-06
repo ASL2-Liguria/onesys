@@ -1,0 +1,66 @@
+<PAGINA key_id="CODICE_COLORE">
+    <HEADER_REFERTAZIONE key_id="CODICE_COLORE" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,CODICE_COLORE#DEFAULT,PS_CODICE_COLORE" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#PS_SALVATAGGI.SALVA_CODICE_COLORE#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="CODICE_COLORE#lblTitolo#butSalva#" evento="START">
+
+                <INPUT.HIDDEN key_id="hAreaPS" valore="hAreaPS###hAreaPS" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStatoListaAttesa" valore="hStatoListaAttesa" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hIdenLista" valore="hIdenLista" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStampato" valore="hStampato" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hRivalutato" valore="hRivalutato" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUbicazione" valore="hUbicazione" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hSesso" valore="hSesso" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hDataNascita" valore="hDataNascita" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hProgressivo" valore="hProgressivo" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStruttura" valore="hStruttura###" evento="START">
+                </INPUT.HIDDEN>
+
+                <ROW key_id="rowTemplate" valore="rowTemplate" evento="START">
+                    <COLUMN_FREE key_id="colTemplate" valore="colTemplate" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldTemplate" valore="fldTemplate"	evento="START">
+                            <TR.INIT key_id="trTemplate1" valore="" evento="START">
+                                <TD_LABEL key_id="lblTemplate1" valore="lblTemplate1" evento="START">
+                                </TD_LABEL>
+                                <TD.INIT key_id="tdTemplate2" valore="1" evento="START">
+                                    <TEMPLATE key_id="template" valore ="CODICE_COLORE/CodiceColore.ftl#CODICE_COLORE/CodiceColore.ftl" evento = "START">
+                                    </TEMPLATE>
+                                </TD.INIT>
+                            </TR.INIT>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+                <ROW key_id="rowNote" valore="rowNote" evento="START">
+                    <COLUMN_FREE key_id="colNote" valore="colNote" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldNote" valore="fldNote" evento="START">
+                            <TR_TD_LABEL_COMBO key_id="cmbAreaPS" valore="lblcmbAreaPS##cmbAreaPS#cmbAreaPS#N##S##" evento="START">
+                            </TR_TD_LABEL_COMBO>
+                            <TR_TD_LABEL_COMBO key_id="cmbUbicazione" valore="lblcmbUbicazione##cmbUbicazione#cmbUbicazione#N##S##" evento="START">
+                            </TR_TD_LABEL_COMBO>
+                            <TR_TD_LABEL_COMBO key_id="cmbStatoPaziente" valore="lblcmbStatoPaziente##cmbStatoPaziente#cmbStatoPaziente#N##S##" evento="START">
+                            </TR_TD_LABEL_COMBO>
+                            <TR_TD_LABEL_TEXTAREA key_id="taNote" valore="lbltaNote#taNote##N#N#" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taNoteBraccialetto" valore="lbltaNoteBraccialetto#taNoteBraccialetto##N#N#" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taNoteRivalutazione" valore="lbltaNoteRivalutazione#taNoteRivalutazione##N#N#" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

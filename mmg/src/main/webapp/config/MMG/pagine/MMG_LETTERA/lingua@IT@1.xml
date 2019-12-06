@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>LETTERA ALLO SPECIALISTA</lblTitolo>
+         <butStampa>Stampa</butStampa>
+        <fld1>Dati Anagrafici</fld1>
+		<lblNome>Nome</lblNome>
+		<lblCognome>Cognome</lblCognome>	
+		<lblIndirizzo>Indirizzo</lblIndirizzo>
+		<lblLocalita>Località</lblLocalita>
+		<lblCAP>CAP</lblCAP>
+		<lblRecapito_Tel>Recapito Telefonico</lblRecapito_Tel>
+		<lblE_Mail>E_Mail</lblE_Mail>
+		<fld2>Diagnosi</fld2>
+		<lblDiagnosi>Diagnosi</lblDiagnosi>
+		<lblDettaglio>Dettaglio</lblDettaglio>
+		<fld3>Lettera</fld3>
+		<lblCorpo>Corpo della Lettera</lblCorpo>
+			
+    </ROW>
+</ROWSET>

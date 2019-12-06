@@ -1,0 +1,99 @@
+<PAGINA key_id="INS_TERAPIA">
+    <HEADER_REFERTAZIONE key_id="INS_TERAPIA" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,INS_TERAPIA#DEFAULT,PS_TERAPIA" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#PS_SALVATAGGI.FNC_SALVA_TERAPIE#PS###" evento="START_END">
+        <TABULAZIONE.INIT key_id="insTerapia" valore="INS_TERAPIA#insTerapia#butSalva" evento="START">
+		        <INPUT.HIDDEN key_id="hIdenAnag" valore="hIdenAnag###IDEN_ANAG" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hIdenContatto" valore="hIdenContatto###IDEN_CONTATTO" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hUteIns" valore="hUteIns###UTE_INS" evento="START">
+				</INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hStatoListaAttesa" valore="hStatoListaAttesa" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUteRiferimento" valore="hUteRiferimento" evento="START">
+                </INPUT.HIDDEN>
+                <TD_COMBO key_id="cmbDiluizione" valore="cmbDiluizione#cmbDiluizione_###S" evento="START">
+                </TD_COMBO>
+                <TD_COMBO key_id="cmbVieSomministra" valore="cmbVieSomministra#cmbVieSomministra_###S" evento="START">
+                </TD_COMBO>
+                <TD_COMBO key_id="cmbVeicolo" valore="cmbVeicolo#cmbVeicolo_###S" evento="START">
+                </TD_COMBO>
+                <TD_COMBO key_id="cmbUnitaMisura" valore="cmbUnitaMisura#cmbUnitaMisura_###S" evento="START">
+                </TD_COMBO>
+				<ROW key_id="rowRicFarmaci" valore="rowRicFarmaci" evento="START">
+					<COLUMN_FREE key_id="colRicFarmaci" valore="colRicFarmaci" evento="START">
+		                <FIELD_HEADER_TABLE key_id="fldWkRicFarmaci" valore="fldWkRicFarmaci" evento="START">
+		                    <TR.INIT key_id="trRic1" valore="" evento="START">
+                                <!--<TD.INIT key_id="tdFiltroText" valore="1" evento="START">-->
+                                <!--</TD.INIT>-->
+                                <TD_LABEL_RADIO key_id="radFiltroWk" valore="lblradFiltroWk##radFiltroWk#radFiltroWk#{width:100}#N##3#" evento="START">
+                                </TD_LABEL_RADIO>
+                            </TR.INIT >
+                            <TR.INIT  key_id="tdFiltroText2" valore="1" evento="START">
+                                <TD_LABEL_TEXT key_id="filtroText" valore="lblfiltroText##filtroText#######" evento="START">
+                                </TD_LABEL_TEXT>
+                                <TD.INIT key_id="tdMedico" valore="1" evento="START">
+                                    <DIV_CHECK  key_id="checkMagazzino" valore="checkMagazzino#checkMagazzino#N#{width:80,ctrl:false}##checkMagazzino#" evento="START">
+                                    </DIV_CHECK>
+                                </TD.INIT>
+                                <TD_BUTTON key_id="butCerca" valore="butCerca" evento="START">
+                                </TD_BUTTON>
+                            </TR.INIT>
+		                    <TR.INIT key_id="trRic2" valore="" evento="START">
+		                        <TD.INIT key_id="tdwkFarmaci" valore="6" evento="START">
+		                            <DIV key_id="divWkFarmaci" valore="divWkFarmaci" evento="START">
+		                            </DIV>
+		                        </TD.INIT>
+		                    </TR.INIT>
+		               </FIELD_HEADER_TABLE>
+		         	</COLUMN_FREE>
+                </ROW>
+		        <ROW key_id="rowTerapiaSel" valore="rowTerapiaSel" evento="START">					
+		            <COLUMN_FREE key_id="colTerapiaSel" valore="colTerapiaSel" evento="START">				
+		                <FIELD_HEADER_TABLE key_id="fldTerapiaSel" valore="fldTerapiaSel" evento="START">
+		                </FIELD_HEADER_TABLE>
+		            </COLUMN_FREE>
+		        </ROW>
+		        <!--<ROW key_id="rowDatiTerapia" valore="rowDatiTerapia" evento="START">-->
+                    <!--<COLUMN_FREE key_id="colDatiTerapia" valore="colDatiTerapia" evento="START">-->
+                        <!--<FIELD_HEADER_TABLE key_id="fldDatiTerapia" valore="fldDatiTerapia" evento="START">-->
+                            <!--<TR.INIT key_id="trTerap1" valore="" evento="START">-->
+                                <!--<TD_LABEL_TEXT key_id="velocitaInf" valore="lblvelocitaInf##txtvelocitaInf" evento="START">-->
+                                <!--</TD_LABEL_TEXT>-->
+                                <!--<TD_LABEL_TEXT key_id="taPosologia" valore="lblPosologia##taPosologia#" evento="START">-->
+                                <!--</TD_LABEL_TEXT>-->
+                            <!--</TR.INIT>-->
+                        <!--</FIELD_HEADER_TABLE>-->
+                    <!--</COLUMN_FREE>-->
+				<!--</ROW>-->
+                <ROW key_id="rowCompetenze" valore="rowCompetenze" evento="START">
+                    <COLUMN_FREE key_id="colCompetenze" valore="colCompetenze" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldCompetenze" valore="fldCompetenze" evento="START">
+                            <TR.INIT key_id="trCompetenze1" valore="" evento="START">
+                                <TD_LABEL  key_id="lblCompetenza" valore="lblCompetenza" evento="START">
+                                </TD_LABEL>
+                                <TD.INIT key_id="tdPrevisto" valore="1" evento="START">
+                                    <DIV_CHECK  key_id="checkInfermiere" valore="checkInfermiere#checkInfermiere#N#{width:110,ctrl:false}##checkInfermiere#" evento="START">
+                                    </DIV_CHECK>
+                                </TD.INIT>
+                                <TD.INIT key_id="tdMedico" valore="1" evento="START">
+                                    <DIV_CHECK  key_id="checkMedico" valore="checkMedico#checkMedico#N#{width:80,ctrl:false}##checkMedico#" evento="START">
+                                    </DIV_CHECK>
+                                </TD.INIT>
+                                <TD_AUTOCOMPLETE key_id="Medico" valore="lblmedico1#acMedico#medico#txtMedico#Medici" evento="START">
+                                </TD_AUTOCOMPLETE>
+                                <TD_LABEL_DATA key_id="txtDataIns" valore="lblDataIns##txtDataIns#DataIns#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataIns#DATA_INS" evento="START">
+                                </TD_LABEL_DATA>
+                                <TD_LABEL_ORA key_id="txtOraIns" valore="lblOraIns##txtOraIns#N" evento="START">
+                                </TD_LABEL_ORA>
+                            </TR.INIT>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

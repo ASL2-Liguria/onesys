@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>RILEVAZIONI_CARDIO</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.RILEVAZIONI_CARDIO</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+         <MENU>
+            <ID>MENU_RILEVAZIONI_CARDIO</ID>
+        </MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                 <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA</COL>
+						<DB>DATA</DB>
+					</ID>
+					<DESCRIPTOR>"Data Rilevazione"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			 <COLUMN>
+					<ID>
+						<COL>FREQUENZA</COL>
+						<DB>FREQUENZA</DB>
+					</ID>
+                    <DESCRIPTOR>"Frequenza Cardiaca"</DESCRIPTOR>
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                
+                <COLUMN>
+					<ID>
+						<COL>RITMO</COL>
+						<DB>RITMO</DB>
+					</ID>
+                    <DESCRIPTOR>"Ritmo"</DESCRIPTOR>
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                
+                <COLUMN>
+					<ID>
+						<COL>AMPIEZZA</COL>
+						<DB>AMPIEZZA</DB>
+					</ID>
+                    <DESCRIPTOR>"Ampiezza"</DESCRIPTOR>
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                
+                <COLUMN>
+					<ID>
+						<COL>SIMMETRIA</COL>
+						<DB>SIMMETRIA</DB>
+					</ID>
+                    <DESCRIPTOR>"Simmetria"</DESCRIPTOR>
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

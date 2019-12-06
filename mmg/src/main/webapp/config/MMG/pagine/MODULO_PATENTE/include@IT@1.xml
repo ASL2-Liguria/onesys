@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Moduli/ModuloPatente.css" />
+	<JS path="js/MMG/Moduli/Modulo_Patente.js" />
+</INCLUDE>

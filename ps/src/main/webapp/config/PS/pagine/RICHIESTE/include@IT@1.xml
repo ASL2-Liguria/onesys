@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/PS/Richieste/Richieste.js"/>
+    <JS path="js/NS_APPLICATIONS.js" />
+</INCLUDE>

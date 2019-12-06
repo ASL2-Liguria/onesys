@@ -1,0 +1,32 @@
+<ACTIVEMQ>
+	<!-- listening address and port -->
+	<ADDRESS>tcp://0.0.0.0:61616</ADDRESS>
+	<!-- absolute path. If empty will be used a default path: "working directory"/activemq-data -->
+	<DATADIRECTORY></DATADIRECTORY>
+	<!-- cancel all messages from all queues and topics at startup -->
+	<DELETEALLMESSAGESONSTARTUP>false</DELETEALLMESSAGESONSTARTUP>
+	<!-- normally use true -->
+	<PERSISTENT>true</PERSISTENT>
+	<!-- normally use false -->
+	<ADVISORYSUPPORT>false</ADVISORYSUPPORT>
+	<!-- normally use true -->
+	<ENABLESTATISTICS>true</ENABLESTATISTICS>
+	<!-- amount of time (in milliseconds) after which we remove inactive durable subs. Default 2 days -->
+	<DURABLEOFFLINETIMEOUT>172800000</DURABLEOFFLINETIMEOUT>
+	<!-- for remote JMX connection -->
+	<CONNECTORPORT>15501</CONNECTORPORT>
+	<!-- to tell ActiveMQ to just discard expired messages, configure the processExpired property to false on a dead letter strategy. Normally use false -->
+	<DEADLETTERSTRATEGY_PROCESSEXPIRED>false</DEADLETTERSTRATEGY_PROCESSEXPIRED>
+	<!-- memory usage in MB -->
+	<MEMORYUSAGE>100</MEMORYUSAGE>
+	<!-- store limit in MB -->
+	<STORELIMIT>100</STORELIMIT>
+	<!-- temporary store limit in MB -->
+	<TEMPORARYSTORELIMIT>50</TEMPORARYSTORELIMIT>
+	<!-- maximum number of pending message. Oldest will be deleted -->
+	<PENDINGMESSAGELIMITSTRATEGY>50</PENDINGMESSAGELIMITSTRATEGY>
+	<!-- jdbc persistence adapter. Empty tag to use H2 internal db. Remove to use kahadb -->
+<!-- <JDBCPERSISTENCEADAPTER>
+ 		<POOLNAME>pool_name</POOLNAME>
+	</JDBCPERSISTENCEADAPTER> -->
+</ACTIVEMQ>

@@ -1,0 +1,15 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_LAST'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+
+	<DATO key_id="DentizioneSuperioreSX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="DentizioneSuperioreDX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="DentizioneInferioreSX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="DentizioneInferioreDX" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_CONTROLLO_STOMATOLOGICO" />
+	<DATO key_id="InPiedi_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Afferra_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ConosceUsoOggetti_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="CamminaSostegno_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="CamminaDaSolo_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="hIden" configurazione_stato="begin :stato := 'E'; end;" db_valore="IDEN" db_descrizione="IDEN" configurazione_multi_data="" />
+</DATI>
+

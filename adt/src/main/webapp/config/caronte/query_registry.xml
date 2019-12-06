@@ -1,0 +1,18 @@
+<?xml version = "1.0"?>
+<QUERIES>
+    <QUERY_GROUP id="WORKLIST">
+    	<QUERY id="WK_DOCUMENTI_RICHIESTA">
+            <SQL>
+            	<![CDATA[
+	            	SELECT 
+						ID, :iden_richiesta AS IDEN_RICHIESTA, TO_CHAR(TO_DATE(CREATIONTIME,'yyyyMMdd hh24:mi'),'dd/MM/yyyy hh24:mi') AS DATA_CREAZIONE, PRESTASSOCIATE, URI, AUTORE 
+	            	FROM 
+	            		XDSREGISTRY.VIEW_DOCUMENTI 
+	            	WHERE 
+	            		ID IN (SELECT DISTINCT(PARENT) FROM XDSREGISTRY.SLOT WHERE NAME = 'identificativoEsterno' AND VALUE = :iden_richiesta) AND STATUS = 'Approved'
+					{#ORDER#}
+        		]]>
+    	    </SQL>
+    	</QUERY>
+    </QUERY_GROUP>
+</QUERIES>

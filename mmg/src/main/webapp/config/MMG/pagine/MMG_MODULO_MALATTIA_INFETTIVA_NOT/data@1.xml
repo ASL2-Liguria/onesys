@@ -1,0 +1,6 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+	<DATO key_id="radDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_MODULO_MALATTIA_INFETTIVA_NOT'' and TIPO_DATO=''Diagnosi'''; end;" />
+	<DATO key_id="Vaccinazione" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+</DATI>

@@ -1,0 +1,155 @@
+<PAGINA key_id="TAB_HOME_PS">
+    <HEADER_WK key_id="TAB_HOME_PS" valore="DEFAULT,WK,TAB_HOME_PS#DEFAULT,TAB_HOME_PS" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+
+        <INPUT.HIDDEN key_id="hIdenPs" valore="hIdenPs" evento="START">
+        </INPUT.HIDDEN>
+        <INPUT.HIDDEN key_id="hStruttura" valore="hStruttura" evento="START">
+        </INPUT.HIDDEN>
+        <INPUT.HIDDEN key_id="hIdenProvenienza" valore="hIdenProvenienza" evento="START">
+        </INPUT.HIDDEN>
+
+
+
+
+
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroAnagrafica" valore="filtroAnagrafica#PS_WK_RIC_PAZ" evento="START">
+            <TABELLA.INIT key_id="tablePz" valore="" evento="START">
+                <TR.INIT key_id="rigaPz1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeAnag" valore="lblCognome#txtCognomeAnag#cognome##T#" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeAnag" valore="lblNome#txtNomeAnag#nome##T#" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="CodiceFiscale" valore="lblCodiceFiscale#txtCodiceFiscale#codice_fiscale###" evento="START">
+                    </FILTRO_TEXT>
+                    <TD.INIT key_id="Reset_Campi" valore="" evento="START">
+                        <BUTTON key_id="Reset_Campi" valore="lblResetCampi" evento="START">
+                        </BUTTON>
+                    </TD.INIT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaPz2" valore="" evento="START">
+                    <FILTRO_DATA key_id="dateData" valore="lblData#dateData##readonly_element: false, format: 'd/m/Y', view: 'month'##S#data_nascita##N" evento="START">
+                    </FILTRO_DATA>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroAttesa" valore="filtroAttesa#PS_WK_LISTA_ATTESA" evento="START">
+            <TABELLA.INIT key_id="tableAttesa" valore="" evento="START">
+                <TR.INIT key_id="trAttesa1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeAttesa" valore="lblCognome#txtCognomeAttesa#cognome##T#" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeAttesa" valore="lblNome#txtNomeAttesa#nome##T#" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="trAttesa2" valore="" evento="START">
+                    <FILTRO_TAG key_id="AreeAttesa" valore="lblAreeAttesa#lblTitoloAreeAttesa#chkFiltroAreeAttesa#chkAreeAttesa#txtAreeAttesa#{width:230,ctrl:false}#N#AreeAttesa#FILTRO_AREE_ATTESA#N" evento="START">
+                    </FILTRO_TAG>
+                	<FILTRO_TAG key_id="UrgenzaAttesa" valore="lblUrgenza#lblTitoloUrgenza#chkFiltroUrgenze#chkUrgenze#txtUrgenzaAttesa#{width:230,ctrl:false}#N#urgenza#FILTRO_URGENZA_ATTESA#N" evento="START">
+                    </FILTRO_TAG>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+        
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroAperti" valore="filtroAperti#PS_WK_LISTA_APERTI" evento="START">
+            <TABELLA.INIT key_id="tableAperti" valore="" evento="START">
+                <TR.INIT key_id="trAperti1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeAperti" valore="lblCognome#txtCognomeAperti#cognome##T#" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeAperti" valore="lblNome#txtNomeAperti#nome##T#" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                 <TR.INIT key_id="trAperti2" valore="" evento="START">
+                     <FILTRO_TAG key_id="AreeAperti" valore="lblAreeAperti#lblTitoloAreeAperti#chkFiltroAreeAperti#chkAreeAperti#txtAreeAperti#{width:'230px',ctrl:false}#N#AreeAperti#FILTRO_AREE_APERTI#N" evento="START">
+                     </FILTRO_TAG>
+                     <FILTRO_COMBO key_id="cmbUtenti" valore="lblUtenti#cmbUtenti#UTENTE_LISTA_APERTI#N##UTENTE_LISTA_APERTI#N#S" evento="START">
+                     </FILTRO_COMBO>
+                 </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroOBI" valore="filtroOBI#PS_WK_LISTA_OBI" evento="START">
+            <TABELLA.INIT key_id="tableOBI" valore="" evento="START">
+                <TR.INIT key_id="rigaOBI1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeOBI" valore="lblCognome#txtCognomeOBI#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeOBI" valore="lblNome#txtNomeOBI#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaOBI2" valore="" evento="START">
+                    <FILTRO_TAG key_id="AreeOBI" valore="lblAreeOBI#lblTitoloAreeOBI#chkFiltroAreeOBI#chkAreeOBI#txtAreeOBI#{width:230,ctrl:false}#N#AreeOBI#FILTRO_AREE_OBI#N" evento="START">
+                    </FILTRO_TAG>
+                    <FILTRO_COMBO key_id="cmbUtentiOBI" valore="lblUtentiOBI#cmbUtentiOBI#UTENTE_LISTA_OBI#N##UTENTE_LISTA_OBI#N#S" evento="START">
+                    </FILTRO_COMBO>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="GestioneEsito" valore="GestioneEsito#PS_WK_GESTIONE_ESITO" evento="START">
+            <TABELLA.INIT key_id="tableGestioneEsito" valore="" evento="START">
+                <TR.INIT key_id="rigaGestioneEsito1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeGestioneEsito" valore="lblCognome#txtCognomeGestioneEsito#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeGestioneEsito" valore="lblNome#txtNomeGestioneEsito#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaGestioneEsito2" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Anno" valore="lblAnno#txtAnno#anno##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="Cartella" valore="lblCartella#txtCartella#cartella##N" evento="START">
+                    </FILTRO_TEXT>
+
+                </TR.INIT>
+                <TR.INIT key_id="rigaGestioneEsito3" valore="" evento="START">
+                    <FILTRO_DATA key_id ="daData" valore ="lblDaDataGestEsito#txtDaDataGestEsito#DaDataGestEsito#direction: false, format : 'd/m/Y'##lblDaDataGestEsito#da_data#GESTIONE_ESITO_DA_DATA" evento="START">
+                    </FILTRO_DATA>
+                    <FILTRO_DATA key_id ="AData" valore ="lblADataGestEsito#txtADataGestEsito#DataADataEsito#direction: false, format : 'd/m/Y'##lblADataGestEsito#a_data#GESTIONE_ESITO_A_DATA" evento="START">
+                    </FILTRO_DATA>
+                    <TD.INIT key_id="Reset_Campi" valore="" evento="START">
+                        <BUTTON key_id="Reset_Campi" valore="lblResetCampiGestione" evento="START">
+                        </BUTTON>
+                    </TD.INIT>
+                </TR.INIT>
+
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroCancellati" valore="filtroCancellati#PS_WK_LISTA_CANCELLATI" evento="START">
+            <TABELLA.INIT key_id="tableCancellati" valore="" evento="START">
+                <TR.INIT key_id="rigaCancellati1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="CognomeCancellati" valore="lblCognome#txtCognomeCancellati#cognome##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id="NomeCancellati" valore="lblNome#txtNomeCancellati#nome##T" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="rigaCancellati2" valore="" evento="START">
+                    <FILTRO_TEXT key_id ="AnnoCancellati" valore="lblAnno#txtAnnoCancellati#anno##N" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_TEXT key_id ="CartellaCancellati" valore="lblCartella#txtCartellaCancellati#cartella##N" evento="START">
+                    </FILTRO_TEXT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+
+
+    </TABULAZIONE.FILTRI>
+
+    <TABULAZIONE.FILTRI key_id="wkMissione" valore="WorklistMissione#butApplicaMissione,butNascondi,butMostra##divWkCodiciMissione#divWorklistMissione" evento="START_END">
+
+            <TABELLA.INIT key_id="tableCodiciMissione" valore="" evento="START">
+                <TR.INIT key_id="rigaCodiciMissione1" valore="" evento="START">
+                    <TD_LABEL_TEXT key_id="CodiceAmbulanza" valore="lblCodiceAmbulanza#txtCodiceAmbulanza#CodiceAmbulanza##T" evento="START">
+                    </TD_LABEL_TEXT>
+                    <FILTRO_DATA key_id="dataMissione" valore="lblDataMissione#dataMissione##startWithToday: true, readonly_element: false, format: 'd/m/Y', view: 'month'##S#DATA_MISSIONE##N" evento="START">
+                    </FILTRO_DATA>
+                    <TD_LABEL_ORA key_id="txtOraMissione" valore="lblOraMissione##txtOraMissione##ORA_MISSIONE" evento="START">
+                    </TD_LABEL_ORA>
+                </TR.INIT>
+
+            </TABELLA.INIT>
+
+    </TABULAZIONE.FILTRI>
+
+</PAGINA>

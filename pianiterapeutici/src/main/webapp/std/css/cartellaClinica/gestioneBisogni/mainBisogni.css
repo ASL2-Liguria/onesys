@@ -1,0 +1,22 @@
+td{
+	height:23px;
+	color:white;	
+	FONT: bold 12px Verdana ;
+	padding:0px;
+	cursor:hand;
+}
+
+.tdLivello{background:url(../../../../imagexPix/tabheader/sf-menu30.gif) repeat-x;}
+.tdLivello:hover{background: #1978e2;}
+
+.tdLivello0{background: url(../../../../imagexPix/tabheader/sf-menu30.gif) repeat-x;}
+.tdLivello0:hover{background: #1978e2;}
+
+.tdLivello1{background: url(../../../../imagexPix/bar/sf-green.png) repeat-x;}
+.tdLivello1:hover{background: url(../../../../imagexPix/bar/sf-green-hover.png) repeat-x;}
+
+.tdLivello2{background: url(../../../../imagexPix/bar/sf-orange.png) repeat-x;}
+.tdLivello2:hover{background: url(../../../../imagexPix/bar/sf-orange-hover.png) repeat-x;}
+
+.tdLivello3{background: url(../../../../imagexPix/bar/sf-red.png) repeat-x;}
+.tdLivello3:hover{background: url(../../../../imagexPix/bar/sf-red-hover.png) repeat-x;}

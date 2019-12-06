@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <tabPosTerCron>Posologia terapie croniche</tabPosTerCron>
+        <lblTitolo>Informativa posologia terapie croniche</lblTitolo>
+        <lblDaData>Dal</lblDaData>
+        <lblAData>Al</lblAData>
+		
+		<butImposta>Imposta</butImposta>
+		<butPulisci>Pulisci</butPulisci>
+		
+		<lblApplicaAiSuccessivi>Applica ai successivi</lblApplicaAiSuccessivi>
+		
+		<lblInformativa>In questa pagina l'utente può definire, per un periodo di tempo modificabile a piacere, la posologia dettagliata per i farmaci selezionati.</lblInformativa>
+        <lblInformativa2>Per prima cosa impostare il range di date desiderato e cliccare quindi sul tasto verde 'Imposta'.</lblInformativa2> 
+        <lblInformativa3>Appariranno dei campi testuali al di sotto di ogni farmaco, relativi ciascuno ad un giorno dell'anno indicato nella colonna di sinistra, all'interno dei quali è possibile indicare la quantità di farmaco desiderata.</lblInformativa3>
+		
+    </ROW>
+</ROWSET>

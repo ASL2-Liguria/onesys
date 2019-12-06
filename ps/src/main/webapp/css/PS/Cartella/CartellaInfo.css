@@ -1,0 +1,82 @@
+body#page {	background: #BBBBBB; padding: 5px;}
+div.headerTabs, div.footerTabs  {height: 0px;}
+ul.ulTabs {	height: 0px;}
+h5.h5Tab {
+	cursor: pointer;
+	background: -moz-linear-gradient(top, #eee 0%, #bbb);
+	background: -webkit-gradient(linear, left top, left bottom, from(#eee),
+		to(#bbb));
+	background: linear-gradient(to bottom, #eee 5%, #bbb 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE',
+		endColorstr='#BBBBBB', GradientType=0);
+	border: 1px solid #565656;
+	border-right: 0;
+	padding: 0 10px;
+	height: 26px;
+	font-size: 12px;
+	border-bottom: 0;
+}
+h5.h5TabActive {
+	border: 1px solid #565656;
+	border-bottom: 0;
+	filter: none !important;
+	background: #686868 !important;
+	color: #fff !important;
+	cursor: default;
+}
+.divWkMN {
+	width: 40%;
+	display: block;
+	float: left;
+}
+#ContwkPrec{
+	width: 60%;
+}
+.headWk {
+	height: 24px;
+	margin: 0 8px 0px 8px;
+}
+.wk {
+	margin: 0 8px 8px 8px;
+	background: url(../../img/loading3.gif) center center no-repeat;
+}
+.headWk>h5 {
+	line-height: 26px;
+	font-weight: bold;
+	font-size: 14px;
+}
+.headWk h5.h5Tab:first-child {
+	-moz-border-radius-topleft: 6px;
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+}
+.headWk h5.h5Tab:last-child {
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	border-right: 1px solid #565656;
+}
+div.clsWk div.clsWkScroll table tr.clsSel td.pressed {
+    background-color: #f87a16 !important;
+}
+.tabledialog{
+    margin: auto;
+    width: 100%;
+}
+.tabledialog tr td, .infoDati td{
+    padding: 5px;
+    text-align: left;
+    white-space : normal;
+ }
+.tabledialog tr th, .infoTitolo td{
+    width: 70px;
+    height: 20px;
+    font-weight: 900;
+    text-align: left;
+    padding: 5px;
+}
+.icon-cancel-squared {
+    margin-top : 0 !important;
+
+}
+

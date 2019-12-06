@@ -1,0 +1,6 @@
+<INCLUDE>
+	<CSS path="css/MMG/RicettaRossa/salvataggio/salvataggio.css" />
+	<JS path="js/MMG/RicettaRossa/salvataggio/common.js" />
+	<JS path="js/MMG/RicettaRossa/salvataggio/salvataggio.js" />
+	<JS path="js/MMG/RicettaRossa/farmaci_common.js" />
+</INCLUDE>

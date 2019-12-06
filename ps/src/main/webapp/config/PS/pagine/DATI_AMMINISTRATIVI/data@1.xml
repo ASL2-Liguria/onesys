@@ -1,0 +1,113 @@
+<DATI configurazione="
+		begin
+		    :stato_pagina := '';
+		    :key_query := 'PS.Q_LOAD_INTERVISTA@PS';
+		    :where := null;
+		    :campo_xml := null;
+		end;">
+
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="stato_contatto" db_descrizione="stato_contatto" configurazione_multi_data="" />
+
+    <DATO key_id="hOreDiffChiusura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ore_diff_chiusura" db_descrizione="ore_diff_chiusura" configurazione_multi_data="" />
+
+    <DATO key_id="hUtenteDimissione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="utente_dimissione" db_descrizione="utente_dimissione" configurazione_multi_data="" />
+
+	<DATO key_id="h-txtDataIngresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="data_ingresso" db_descrizione="data_ingresso" configurazione_multi_data="" />
+
+    <DATO key_id="h-txtDataEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="data_evento" db_descrizione="data_evento" configurazione_multi_data="" />
+
+    <DATO key_id="txtOraIngresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ora_ingresso" db_descrizione="ora_ingresso"
+          configurazione_multi_data="" />
+
+    <DATO key_id="txtOraEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ora_evento" db_descrizione="ora_evento"
+          configurazione_multi_data="" />
+
+    <DATO key_id="txtComuneEv" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="comune_evento_descr" db_descrizione="comune_evento_descr"
+          configurazione_multi_data="" />
+
+    <DATO key_id="h-txtComuneEv" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="comune_evento_val" db_descrizione="comune_evento_val"
+          configurazione_multi_data="" />
+
+    <DATO key_id="txtAnno" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="Anno" db_descrizione="Anno"
+          configurazione_multi_data="" />
+    <DATO key_id="txtProgressivoMissione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ProgressivoMissione" db_descrizione="ProgressivoMissione"
+          configurazione_multi_data="" />
+    <DATO key_id="txtCodiceMissione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CodiceMissione" db_descrizione="CodiceMissione"
+          configurazione_multi_data="" />
+    <DATO key_id="txtAccompagnatore" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="accompagnatore" db_descrizione="accompagnatore"
+          configurazione_multi_data="" />
+    <DATO key_id="taDescrLocEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="locEvento" db_descrizione="locEvento"
+          configurazione_multi_data="" />
+    <DATO key_id="taDichiarazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="dichiarazione" db_descrizione="dichiarazione"
+          configurazione_multi_data="" />
+    <DATO key_id="cmbMotivoIngresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_motivo" db_descrizione="cmb_motivo"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''CAUSA_ACCESSO_TRIAGE'' AND ATTIVO=''S'''; end;" />
+    <DATO key_id="cmbAutorita" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_autorita" db_descrizione="cmb_autorita"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@PS'; :where := 'tipo = ''AUTORITA'' AND ATTIVO=''S'''; end;" />
+    <DATO key_id="cmbMezzoIncidente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_mezzo_inc" db_descrizione="cmb_mezzo_inc"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''MEZZO_INCIDENTE'' AND ATTIVO=''S'''; end;" />
+    <DATO key_id="cmbPresidio" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_presidio" db_descrizione="cmb_presidio"
+          configurazione_multi_data="PS.CMB_PRESIDIO_PROVENIENZA@PS" />
+    <DATO key_id="cmbModArrivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_mod_arrivo" db_descrizione="cmb_mod_arrivo"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''MODALITA_ACCESSO_TRIAGE'' AND ATTIVO=''S'''; end;" />
+    <DATO key_id="cmbMezzoArrivo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_mezzo_arrivo" db_descrizione="cmb_mezzo_arrivo"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''MEZZO_ARRIVO_PS'' AND ATTIVO=''S'''; end;" />
+    <DATO key_id="cmbProbPrinc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_problema" db_descrizione="cmb_problema"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''PROBLEMA_PRINCIPALE_RISCONTRATO'' AND ATTIVO=''S'''; end;" />
+    <DATO key_id="cmbTriageAcc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_triace_accompa" db_descrizione="cmb_triace_accompa"
+          configurazione_multi_data="PS.Q_COMBO_URGENZA_FLUSSO@PS" />
+
+    <DATO key_id="hCodDecCentraleOperativa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_DEC_118" db_descrizione="COD_DEC_118"
+          configurazione_multi_data=""/>
+    <DATO key_id="cmbCodIdentificativo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_cod_identificativo" db_descrizione="cmb_cod_identificativo"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''CODICE_CENTRALE_OPERATIVA'' and attivo = ''S'' AND ATTIVO=''S'''; end;" />
+    <DATO key_id="chkCatena" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''CATENA_CUSTODIA'''; end;" />
+    <DATO key_id="h-chkCatena" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CATENA" db_descrizione="CATENA"
+          configurazione_multi_data="" />
+    <DATO key_id="chkIntAutoritaGiu" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''AUTORITA_GIU'''; end;" />
+    <DATO key_id="h-chkIntAutoritaGiu" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="autoritaGiu" db_descrizione="autoritaGiu"
+          configurazione_multi_data="" />
+    <DATO key_id="chkAltraCentrale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_PARAM@PS'; :where := 'tipo = ''ALTRA_CENTRALE'''; end;" />
+    <DATO key_id="h-chkAltraCentrale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ALTRACENTRALE" db_descrizione="ALTRACENTRALE"
+          configurazione_multi_data="" />
+    <DATO key_id="cmbOnere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_onere" db_descrizione="cmb_onere"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''ADT_ACC_RICOVERO_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''PS'' AND ATTIVO=''S''';	end;" />
+    <DATO key_id="cmbSubOnere" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_sub_onere" db_descrizione="cmb_sub_onere"
+          configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@PS'; :where := 'tipo = ''ADT_ACC_RICOVERO_SUB_ONERE'' AND ASSIGNING_AUTHORITY_AREA = ''PS'' AND ATTIVO=''S'' ';	end;" />
+</DATI>

@@ -1,0 +1,109 @@
+<root>
+	<statements_list>
+		<statement name="infoRicovero">				
+			<sql>
+			<![CDATA[
+			select np.data_ricovero DATAIN, np.data_fine_ricovero DATAOUT, cdc.descr REP
+                        from nosologici_paziente np join tab_pro pro on (np.iden_pro = pro.iden) join centri_di_costo cdc on (pro.cod_dec = cdc.cod_dec)
+                        where np.parent = ?  and deleted='N' order by np.data_ricovero asc, np.ora_ricovero asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="infoRicoveroPS">				
+			<sql>
+			<![CDATA[
+			select 
+                            np.DEA_DATA_INGRESSO
+                        from nosologici_paziente np 
+                        where np.iden = ?  and deleted='N' and np.DEA_DATA_INGRESSO is not null
+			]]>
+			</sql>
+		</statement>
+		<statement name="infoRicoveroDh">				
+			<sql>
+			<![CDATA[
+			select np.data_ricovero DATAIN, np.data_fine_ricovero DATAOUT, cdc.descr REP, np.DEA_DATA_INGRESSO,np.ACCESSO
+                        from nosologici_paziente np join tab_pro pro on (np.iden_pro = pro.iden) join centri_di_costo cdc on (pro.cod_dec = cdc.cod_dec)
+                        where np.iden = ? and accesso='0' and deleted='N' order by np.data_ricovero asc, np.ora_ricovero asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="dataFineRicovero">				
+			<sql>
+			<![CDATA[
+			select  extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="DATA_FINE_RICOVERO"]') DATA_FINE_RICOVERO from cc_lettera_versioni where iden_visita=? and FUNZIONE=? and attivo='S' 
+			]]>
+			</sql>
+		</statement>
+		<statement name="allegaDatiStrutturati">				
+			<sql>
+			<![CDATA[
+			select  extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="ALLEGA_DATI_STRUTTURATI"]') ALLEGA_DATI_STRUTTURATI from cc_lettera_versioni where iden_visita=? and FUNZIONE='LETTERA_STANDARD' and attivo='S' 
+			]]>
+			</sql>
+		</statement>
+		<statement name="allegaDatiStrutturatiDH">				
+			<sql>
+			<![CDATA[
+			select  extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="ALLEGA_DATI_STRUTTURATI"]') ALLEGA_DATI_STRUTTURATI from cc_lettera_versioni where iden_visita=? and FUNZIONE=? and attivo='S' 
+			]]>
+			</sql>
+		</statement>
+		<statement name="getHtmlSezione">		
+			<sql>
+			<![CDATA[								
+				Select testo_html from radsql.cc_lettera_sezione where iden_versione = to_number(?) and id_elemento = ?
+			]]>
+			</sql>
+		</statement>
+        <statement name="getPianoSezione">
+            <sql>
+                <![CDATA[
+				Select testo_piano from radsql.cc_lettera_sezione where iden_versione = to_number(?) and id_elemento = ?
+			]]>
+            </sql>
+        </statement>
+		<statement name="getLettera">		
+			<sql>
+			<![CDATA[								
+				Select IDEN_VISITA from radsql.CC_LETTERA_VERSIONI where iden = to_number(?)
+			]]>
+			</sql>
+		</statement> 
+		<statement name="getLetteraDimissioniFirmata">		
+			<sql>
+			<![CDATA[
+				 Select iden from cc_lettera_versioni where iden_visita = to_number(?) and attivo='S' and stato='F' and funzione='LETTERA_STANDARD'
+			]]>
+			</sql>
+		</statement> 
+		<statement name="getRicovero">				
+			<sql>
+			<![CDATA[
+                            SELECT *
+                            FROM NOSOLOGICI_PAZIENTE
+                            WHERE IDEN = TO_NUMBER(?)
+			]]>
+			</sql>
+		</statement> 
+		<statement name="getMedicoPediatraSaved">				
+			<sql>
+			<![CDATA[
+                            SELECT EXTRACTVALUE(CONTENUTO,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="TXT_MED_PED"]') TXT_MED_PED, EXTRACTVALUE(CONTENUTO,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="H_MED_PED"]') H_MED_PED 
+                            FROM CC_LETTERA_VERSIONI 
+                            WHERE iden_visita = TO_NUMBER(?) AND FUNZIONE = 'LETTERA_STANDARD' AND attivo = 'S'
+			]]>
+			</sql>
+		</statement> 
+		<statement name="getMedicoPediatraLoaded">				
+			<sql>
+			<![CDATA[
+                            SELECT tp.IDEN, tp.DESCR, tp.COD_DEC
+                            FROM TAB_PER tp
+                            JOIN ANAG a ON (tp.IDEN = a.IDEN_MED_BASE AND a.IDEN_MED_BASE IS NOT NULL)
+                            JOIN NOSOLOGICI_PAZIENTE np ON (a.IDEN = np.IDEN_ANAG AND np.IDEN = TO_NUMBER(?))
+			]]>
+			</sql>
+		</statement> 
+	</statements_list>
+</root>

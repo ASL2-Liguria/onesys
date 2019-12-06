@@ -1,0 +1,180 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th{
+	border: 0;
+	font-family: Arial;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+body{
+	background-image: url(../../../imagexPix/wallpaper/pattern_sfondo.gif);margin: 0px;
+	padidng-bottom: 0px;padding-left:0px;padding-right:0px;
+} 	
+
+
+
+
+div#divMain{width:100%;overflow-y:hidden;overflow-x:hidden;}		
+div#divWrapper{width:100%;overflow-y:hidden;overflow-x:hidden;}
+div#divHeader{width:100%;}
+div#divNull{background: #F90;color:black;text-align:center;margin:0;line-height:25px;}	
+
+/* Dati Strutturati - Datepicker */
+.datepick-trigger{cursor:pointer;width:20px;position:relative;vertical-align:middle;}
+
+.wrapSezioneMenu{float:left;height:25px;margin:5px;}
+.wrapSezioneMenu > select{border:none;position:relative;vertical-align:middle;}
+.lblMenuDatiLaboratorio{font-size:12px;font-weight:bold;color:#fff;	padding-left:15px;display:inline-block;height:25px;line-height:25px;}
+.spnMenuDatiLaboratorio{
+	font-size:12px;font-weight:bold;color:#fff;
+	display:inline-block;height:25px;line-height:25px;
+	padding-left:10px;padding-right:10px;
+}
+.inpFiltroData{height:15px;line-height:15px;width:65px;font-size:12px;margin-right:2px;position:relative;vertical-align:middle;}
+
+table#tabellaBloc{border: solid 1px #ccc;margin:0,0,0,0;}			
+table#tabellaInt{border: solid 1px #ccc;margin:0,0,0,0;}			
+table#datiTable{border: solid 1px #ccc;margin:0,0,0,0;}	
+
+.buttonExport{width:25px;height:25px;cursor:pointer;line-height:50px;margin:5px;}
+.pulsWkRich{background-image:url(../../../imagexPix/GestioneRichieste/icoWkRich.png);float:right;background-repeat:no-repeat;}
+#divAddRisultato{background-image:url(../../../imagexPix/Visualizzatore/ico_add_risultato_labo.png);float:right;}
+#refreshPage{background-image:url(../../../imagexPix/Visualizzatore/ico_refresh.png);float:left;}
+#expExcel{background-image:url(../../../imagexPix/Visualizzatore/ico_excel.png);float:right;}
+#expPdf{background-image:url(../../../imagexPix/Visualizzatore/ico_pdf.png);float:right;}
+
+#lblSceltaProvenienza{cursor:pointer;}
+#lblElencoProvenienza{font-size:11px;color:#ffc000;font-weight:bold;}
+
+#lblSceltaEsamiProfili{cursor:pointer;}
+.esamiSelezionatiTrue{font-size:11px;color:#ffc000;font-weight:bold;}
+
+/* Dati Strutturati - Iframe */
+#iframeGriglia{width:100%;overflow-y:hidden;overflow-x:scroll;}
+
+/* Dati Strutturati - Colonne Intestazione */
+div#divBloc{width:auto;color:#fff;float:left;}			
+div#divInt{width:auto;margin:0;color:#fff;overflow-y:hidden;overflow-x:hidden;}
+
+
+
+.triangoloNote{float:right;width:0px;border-top:11px solid red;border-left:11px solid transparent;}
+
+table {border-collapse:collapse;}
+table td {
+	/*width:100px;*/padding:2px 2px;border:1px solid #CCC;
+	font-size:12px;text-align:center;color:black;vertical-align:middle
+}
+.imageGraf {
+	width:23px;height:22px; display:block;cursor:pointer;
+	background: url(../../../imagexPix/Visualizzatore/mostra_grafico.gif) no-repeat;	
+}
+
+/* Dati Strutturati - Colonne Popolate*/
+div#divLeft{
+	background:white;border-left: solid 1px #CCC;color:#fff;	
+	float:left;margin:0;overflow-y:hidden;overflow-x:hidden;
+}		
+
+div#divDati{
+	width:auto;background:white;	
+    float:left;margin:0;overflow-x:auto;overflow-y:auto;
+}
+
+.colGraf{width:30px;background:white;}
+.colDati{width:100px !important;background:white;padding:2px;}
+.colEsameIntestazione{background:white;width:250px;}
+
+.colEsameSingolo{
+	background:white;width:235px;
+	padding-left:16px !important;
+	text-align:left !important;
+	font-size:12px !important;}
+.colEsameMultiplo{background:white;width:245px;text-align:left !important;padding-left:6px !important;font-size:12px !important;}
+
+.colValMin{background:white;width:50px;}
+.colValMax{background:white;width:50px;}
+.colUnMis{background:white;width:50px;}
+
+.rigaAnalisiMulti td{width:370px;text-align:left;padding-left:5px;background-color:#ffc000;}
+.rigaEsame td{height:25px;}
+
+.tdGruppo{width:300px;text-align:left;color:white;}
+
+.classTitle{text-decoration:underline;}
+.link{text-decoration:underline;cursor:hand;}
+
+.datiMicrobiologia{
+	background:#F2FA9D;
+	color:red; 
+	font-weight:BOLD;
+	cursor:hand;
+}
+
+/* ****** bodyInCartella ****** */
+
+.bodyCartella #tabIntestazione td {    
+	color:#fff;border:1px solid #CCC;padding:2px;vertical-align:middle;
+	font-size:13.5px;font-weight:bold;text-align:center;height:35px;background-color:#358DF9;	
+}
+.bodyCartella #tabIntestazioneRisultati td {    
+	color:#fff;border:1px solid #CCC;padding:2px;height:35px;background-color:#358DF9;
+	font-size:12px !important;text-align:center;vertical-align:middle;width:100px !important;
+}
+
+.bodyCartella .rigaGruppo{background:#04F;color:#fff;font-size:14px;height:18px;}
+.bodyCartella .tdInt{color:white;}
+.bodyCartella .tdIntAltriRep{color:white;}
+.bodyCartella div#divMenu{width:100%;height:35px;text-align:center;background:#06F;}	
+
+/* ****** *********** ****** */
+
+/* ####### bodyMMG ####### */
+.bodyMMG #tabIntestazione td {    
+	background:#73ACDE;color:#fff;border:1px solid #CCC;padding:2px 2px; 
+	font-size:13px;font-weight:bold;text-align:center;			
+}
+
+.bodyMMG div#divWrapper{width: 90%;}
+.bodyMMG .rigaGruppo{background:#A8A8A8;color:#fff;font-size:14px;height:18px;}
+.bodyMMG .tdInt{color:white;background:#3CC;}
+.bodyMMG .tdIntAltriRep{color:white;background:#A8A8A8;}
+.bodyMMG div#divNull{background: #F56E6E;color:black;text-align:center;margin:0;line-height:25px;}
+.bodyMMG div#divMenu{width:100%;height:35px;text-align:center;background:#A8A8A8;}
+
+.bodyMMG div#divLeft{
+	background:white;border-left: solid 1px #CCC;color:#fff;	
+	float:left;margin:0;overflow-y:hidden;overflow-x:hidden;
+}		
+
+.bodyMMG div#divDati{
+	background:white;	
+    float:left;margin:0;overflow-x:auto;overflow-y:auto;
+}
+
+/*####### ####### #######*/
+
+/* @@@@@@@@@@@ bodyAmbulatorio @@@@@@@@@@@@@ */
+
+.bodyAmbulatorio table th {    
+	background:#358DF9;color:#fff;border:1px solid #CCC;padding:2px 2px;
+	font-size:13.5px;font-weight:bold;text-align:center;	
+}
+
+.bodyAmbulatorio .rigaGruppo{background:#04F;color:#fff;font-size:14px;}
+.bodyAmbulatorio .tdInt{color:white;background:#358DF9;}
+.bodyAmbulatorio .tdIntAltriRep{color:white;background:#358DF9;}
+.bodyAmbulatorio div#divMenu{width:100%;height:35px;text-align:center;background:#06F;}		
+
+/* @@@@@@@@@@@ @@@@@@@@@@@ */
+
+

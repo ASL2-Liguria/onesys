@@ -1,0 +1,187 @@
+<MENU>
+    <ID>MENU_WK_GEST_CART_GROUPER</ID>
+    <TITLE>"Menu gestione cartelle grouper"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ANALISI_GROUPER</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.calcolaDRG(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Calcolo DRG e tariffazione"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANALISI_GROUPER_MESE_ANNO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.calcolaDRGMese(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return false;}]]></WHERE>
+            <OUTPUT>"Calcola DRG del mese"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>TARIFFA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.setTariffa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Esegui tariffazione"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>RICEVI_ARCHIVIO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.RiceviInArchivio(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella RICEVUTA in ARCHIVIO"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CARTELLA_ARCHIVIATA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaArchiviata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella ARCHIVIATA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CARTELLA_REINVIATA_REP</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaReinviata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella REINVIATA in REPARTO"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CARTELLA_PERSA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaPersa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella PERSA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>  
+         
+        <ITEM>
+            <ID>CARTELLA_SEQ</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaSequestrata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella SEQUESTRATA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA ULTIMO STATO CARTELLA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.resetStatoCartella(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla stato cartella"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>  
+        <ITEM>
+            <ID>VISUALIZZA_STORICO</ID>
+            <LINK><![CDATA[function(rec){if (rec.length>1) home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); else top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=STORICO_PAZIENTE&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA,id:'STORICO_PAZIENTE',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (rec.length != 0 && !NS_MENU_ANAGRAFICA.IsRemota(rec));}]]></WHERE>
+            <OUTPUT>"Visualizza storico paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM> 
+             <ITEM>
+            <ID>CRONOLOGIA STATI CARTELLA</ID>
+            <LINK><![CDATA[function(rec){if (rec.length>1) home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); else top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=STATO_CARTELLA_CRONO&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA,id:'CronoStatoCartella',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cronologia stato cartella"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>    
+                      <ITEM>
+            <ID>RIEPILOGO_ACCESSI_DH</ID>
+            <LINK><![CDATA[function(rec){if (rec.length>1) home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); else NS_HOME_ARCHIVIO.riepiligoaccessidh(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){if(rec[0].REGIME=='Day Hospital'){return true;}else{return false;}}]]></WHERE>
+            <OUTPUT>"Riepilogo Accessi DH"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){if (rec.length>1) home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); else top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACC_RICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&STATO_PAGINA=E',id:'ModificaRicovero',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Modifica Ricovero"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+             <ITEM>
+            <ID>ANNULLA_DRG_TARIFFA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.AnnullaDrg_e_Tariffa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla drg e tariffa"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_DRG</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.annullaDrg(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla drg"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_TARIFFA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.annullaTariffa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla tariffa"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_STORICO_RICOVERI</ID>
+            <LINK><![CDATA[function(rec){if (rec.length>1) home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); else NS_HOME_ARCHIVIO_PRINT.stampaStoricoRicoveriCartella(rec[0].IDEN_ANAGRAFICA);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true}]]></WHERE>
+            <OUTPUT>"Stampa Storico Ricoveri"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_ACCESSI_DH</ID>
+            <LINK><![CDATA[function(rec){if (rec.length > 1) { home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); } else { NS_HOME_ARCHIVIO_PRINT.stampaAccessiDH(rec[0].IDEN_CONTATTO);}}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if (rec[0].REGIME_CODICE == "2") {return true;} else {return false;}}]]></WHERE>
+            <OUTPUT>"Stampa Accessi DH"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

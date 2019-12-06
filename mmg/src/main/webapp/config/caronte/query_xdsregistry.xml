@@ -1,0 +1,30 @@
+<?xml version = "1.0"?>
+<QUERIES>
+    <QUERY_GROUP id="XDSREGISTRY">
+    	<QUERY id="DOCUMENTI">
+			<SQL>
+				select * from (
+					select substr(CREATIONTIMESTAMP,1,8) DATA_DOCUMENTO, CREATIONTIME, NOSOLOGICO, DESCRIZIONE, REPARTOEROG, REDATTORE, AUTORE, VERSIONE,
+					PATIENTID, PRESTASSOCIATE, URI, URISS, MIMETYPE, TIPODOC, id, OSCURAMENTO
+					from VIEW_DOCUMENTI where STATUS = 'Approved'
+				)
+				where PATIENTID  = :idRepository || '^^^&amp;' || 'CF&amp;' || 'ISO'
+				and instr(:codice, TIPODOC) > 0
+				and DATA_DOCUMENTO between :da_data and :a_data
+				 {#ORDER#}
+			</SQL>  
+    	</QUERY>
+    	<QUERY id="DOCUMENTI_LAST">
+			<SQL>
+				select MIN(DATA_DOCUMENTO_ISO) DATA_INIZIALE_ISO, TO_CHAR(TO_DATE(MIN(DATA_DOCUMENTO_ISO),'YYYYMMDD'),'dd/MM/yyyy') DATA_INIZIALE from (
+					select substr(CREATIONTIMESTAMP,1,8) DATA_DOCUMENTO_ISO
+					from VIEW_DOCUMENTI
+					where PATIENTID  = :idRepository || '^^^&amp;' || 'CF&amp;' || 'ISO'
+					and STATUS = 'Approved'
+					and instr(:codice, TIPODOC) > 0 
+					order by CREATIONTIMESTAMP DESC
+				) WHERE ROWNUM &lt;=:number {#ORDER#}
+			</SQL>  
+    	</QUERY>
+    </QUERY_GROUP>
+</QUERIES>

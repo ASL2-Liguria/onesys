@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblInterventoEsame" TYPE="label"
+            TEXT="Intervento Chirurgico / Esame Diagnostico proposto" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="hIdenInterventoEsame" TYPE="input" TYPEINPUT="hidden"/>
+        <CAMPO KEY_CAMPO="htxtInterventoEsame" TYPE="input" TYPEINPUT="hidden"/>
+        <CAMPO KEY_CAMPO="txtInterventoEsame" TYPE="input" TYPEINPUT="text"/>
+    </CAMPI>
+</PAGINA>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>SCREENING</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.SCREENING</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_SCREENING</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <!--<CLICK>function(rec){$(this).selectedLine('IDEN');VISUALIZZA_DOCUMENTI.loadDocumento(rec);}</CLICK>-->
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+                <!--<DBLCLICK></DBLCLICK>-->
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_SCREENING</COL>
+						<DB>DATA_SCREENING</DB>
+					</ID>
+					<DESCRIPTOR>"Data Screening"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>PRIVACY</COL>
+					</ID>
+					<DESCRIPTOR>" "</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk, td){ return NS_PROCESS_CLASS_MMG.processOscuramento(data, wk, td); }]]></PROCESS>
+					<WIDTH>25px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+					<EVENTS/>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>TIPO_SCREENING</COL>
+						<DB>TIPO_SCREENING</DB>
+					</ID>
+					<DESCRIPTOR>"Tipo Screening"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>ESITO_SCREENING</COL>
+						<DB>ESITO_SCREENING</DB>
+					</ID>
+					<DESCRIPTOR>"Esito Screening"</DESCRIPTOR>           				
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_SCREENING">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

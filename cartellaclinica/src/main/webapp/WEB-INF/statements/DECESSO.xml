@@ -1,0 +1,56 @@
+<root>
+    <statements_list>
+        <statement name="getDatiPaziente">
+            <sql>
+                <![CDATA[
+                    SELECT
+                      an.cogn,
+                      an.nome,
+                      com.comune comune_nascita,
+                      com2.comune comune_residenza,
+                      radsql.datetimeconverter(an.data,'yyyyMMdd','dd/MM/yyyy') data_nascita
+                    FROM
+                      anag an
+                    JOIN comuni com
+                    ON
+                      (
+                        an.com_nasc = com.xxx_ccom
+                      )
+                    JOIN COMUNI COM2
+                    ON
+                      (
+                        AN.COM_RES = COM2.XXX_CCOM
+                      )
+                    WHERE
+                      an.iden= ?
+			]]>
+            </sql>
+        </statement>
+        <statement name="getDatiMedico">
+            <sql>
+                <![CDATA[
+                    SELECT
+                      an.cogn,
+                      an.nome,
+                      com.comune comune_nascita,
+                      com2.comune comune_residenza,
+                      radsql.datetimeconverter(an.data,'yyyyMMdd','dd/MM/yyyy') data_nascita
+                    FROM
+                      anag an
+                    JOIN comuni com
+                    ON
+                      (
+                        an.com_nasc = com.xxx_ccom
+                      )
+                    JOIN COMUNI COM2
+                    ON
+                      (
+                        AN.COM_RES = COM2.XXX_CCOM
+                      )
+                    WHERE
+                      an.iden= ?
+			]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

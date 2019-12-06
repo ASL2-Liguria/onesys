@@ -1,0 +1,29 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'PS.Q_ELENCO_PRESTAZIONI_PARAM_VIT@PS'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="radPressMisur" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''TRIAGE_PRESS_MISUR'''; end;" />          
+    <DATO key_id="radPressBraccio" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''TRIAGE_PRESS_BRACCIO'''; end;" />         
+    <DATO key_id="radRitmica" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''TRIAGE_RITMICA'''; end;" />
+
+    <DATO key_id="idenEsaStaturazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_SATURAZIONE" db_descrizione="IDEN_SATURAZIONE"
+          configurazione_multi_data="" />
+    <DATO key_id="idenEsaStickGlicemico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_STICK" db_descrizione="IDEN_STICK"
+          configurazione_multi_data="" />
+    <DATO key_id="idenEsaPressione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_PRESSIONE" db_descrizione="IDEN_PRESSIONE"
+          configurazione_multi_data="" />
+    <DATO key_id="idenCDC" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_CDC" db_descrizione="IDEN_CDC"
+          configurazione_multi_data="" />
+    <DATO key_id="STATO_CONTATTO" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO" db_descrizione="STATO"
+          configurazione_multi_data="" />
+
+</DATI>

@@ -1,0 +1,13 @@
+<PAGINA key_id="RIEPILOGO_ACCESSI_DH">
+	<HEADER_PAGE key_id="RIEPILOGO_ACCESSI_DH" valore="DEFAULT,SCHEDA,RIEPILOGO_ACCESSI_DH#DEFAULT,RIEPILOGO_ACCESSI_DH" evento="START_END">
+	</HEADER_PAGE>		
+	<FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="RIEPILOGO_ACCESSI_DH#lblTitolo#butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabAccessiDh" valore="tabAccessiDh" evento="START">
+				<FIELDSET_TABLE key_id="tableAccessiDh" valore="idAccessiDh" evento="START">
+	            	<DIV key_id="divAccessiDh" valore="divAccessiDh" evento="START"></DIV>
+	            </FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>													
+		</TABULAZIONE.INIT>
+	</FORM>	
+</PAGINA>

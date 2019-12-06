@@ -1,0 +1,101 @@
+<PAGINA key_id="MODULO_INCIDENTE_INTRAOSPEDALIERO">
+    <HEADER_PAGE key_id="MODULO_INCIDENTE_INTRAOSPEDALIERO" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,MODULO_INCIDENTE_INTRAOSPEDALIERO#DEFAULT,PS_MODULO_INCIDENTE_INTRAOSPEDALIERO" evento="START_END">
+    </HEADER_PAGE>
+        <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+            <TABULAZIONE.INIT key_id="MODULO_INCIDENTE_INTRAOSPEDALIERO" valore="MODULO_INCIDENTE_INTRAOSPEDALIERO#lblTitolo#butSalva,butFirma,butChiudi" evento="START">
+
+                <TABULAZIONE.CREA_TAB key_id="tabInfermieristica" valore="tabInfermieristica" evento="START">
+
+                    <FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+                        <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+                        </INPUT.HIDDEN>
+                        <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+                        </INPUT.HIDDEN>
+                        <INPUT.HIDDEN key_id="hIDEN" valore="hIDEN" evento="START">
+                        </INPUT.HIDDEN>
+
+                        <TR_TD_LABEL_DATA key_id="txtDataEvento" valore="lblDataEvento##txtDataEvento#DataEvento#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo24#DATA_NECROSCOPO_24" evento="START">
+                        </TR_TD_LABEL_DATA>
+                        <TR_TD_LABEL_ORA key_id="txtOraEvento" valore="lblOraEvento##txtOraEvento##" evento="START">
+                        </TR_TD_LABEL_ORA>
+                        <TR_TD_LABEL_TEXT key_id="txtTurno" valore="lblTurno#txtTurno#txtTurno##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtNomeCompilatore" valore="lblNomeCompilatore#txtNomeCompilatore#txtNomeCompilatore##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtCognomeCompilatore" valore="lblCognomeCompilatore#txtCognomeCompilatore#txtCognomeCompilatore##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_RADIO key_id="radLuogoEvento" valore="lblLuogoEvento##radLuogoEvento#radLuogoEvento#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_TEXT key_id="txtLuogoAltro" valore="lblLuogoAltro#txtLuogoAltro#txtLuogoAltro##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtSedeEvento" valore="lblSedeEvento#txtSedeEvento#txtSedeEvento##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_RADIO key_id="radPresenza" valore="lblPresenza##radPresenza#radPresenza#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_TEXT key_id="txtPresenzaAltro" valore="lblLuogoAltro#txtPresenzaAltro#txtPresenzaAltro##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+
+                        <TR_TD_LABEL_RADIO key_id="radModalita" valore="lblModalita##radModalita#radModalita#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_TEXT key_id="txtModalitaAltro" valore="lblModalitaAltro#txtModalitaAltro#txtModalitaAltro##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+
+                        <TR_TD_LABEL_RADIO key_id="radMotivo" valore="lblMotivo##radMotivo#radMotivo#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_TEXT key_id="txtMotivoAltro" valore="lblMotivoAltro#txtMotivoAltro#txtMotivoAltro##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+
+                        <TR_TD_LABEL_TEXTAREA key_id="taFacente" valore="lblFacente#taFacente#FACENTE##N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+
+                        <TR_TD_LABEL_RADIO key_id="radCalzatura" valore="lblCalzatura##radCalzatura#radCalzatura#{width:220}#N#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TR_TD_LABEL_TEXT key_id="txtAltroCalzatura" valore="lblAltroCalzatura#txtAltroCalzatura#txtAltroCalzatura##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+
+                        <TR_TD_LABEL_DATA key_id="txtDataCompilazione" valore="lblDataCompilazione##txtDataCompilazione#DataCompilazione#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataNecroscopo24#DATA_NECROSCOPO_24" evento="START">
+                        </TR_TD_LABEL_DATA>
+                    </FIELDSET_TABLE>
+                </TABULAZIONE.CREA_TAB>
+
+                <TABULAZIONE.CREA_TAB key_id="tabMedicaPrima" valore="tabMedicaPrima" evento="START">
+                    <FIELDSET_TABLE key_id="fldDatiMedicaPrima" valore="fldDatiMedicaPrima" evento="START">
+                        <TR_TD_LABEL_TEXTAREA key_id="taBreveDescrEvento" valore="lblBreveDescrEvento#taBreveDescrEvento#BREVE_DESCR_EVENTO##N#3" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+                        <TR_TD_LABEL_TEXT key_id="txtTipoLesione" valore="lblTipoLesione#txtTipoLesione#txtTipoLesione##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtSedeLesione" valore="lblSedeLesione#txtSedeLesione#txtSedeLesione##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL key_id="lblAccDiagnostici" valore="lblAccDiagnostici#" evento="START">
+                        </TR_TD_LABEL>
+                        <TR_TD_LABEL_TEXT key_id="txtAccRX" valore="lblAccRX#txtAccRX#txtAccRX##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtAccTAC" valore="lblAccTAC#txtAccTAC#txtAccTAC##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtAccAltro" valore="lblAccAltro#txtAccAltro#txtAccAltro##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_CHECK key_id="chkTerapieInAtto" valore="lblTerapieInAtto##chkTerapieInAtto#chkTerapieInAtto#N#{width:250,ctrl:false}#" evento="START">
+                        </TR_TD_LABEL_CHECK>
+                        <TR_TD_LABEL_TEXT key_id="txtPrognosiGiorniPrima" valore="lblPrognosiGiorniPrima#txtPrognosiGiorniPrima#txtPrognosiGiorniPrima##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                    </FIELDSET_TABLE>
+                </TABULAZIONE.CREA_TAB>
+
+                <TABULAZIONE.CREA_TAB key_id="tabMedicaDopo" valore="tabMedicaDopo" evento="START">
+                    <FIELDSET_TABLE key_id="fldDatiMedicaDopo" valore="fldDatiMedicaDopo" evento="START">
+                        <TR_TD_LABEL key_id="lblReferti" valore="lblReferti#" evento="START">
+                        </TR_TD_LABEL>
+                        <TR_TD_LABEL_TEXT key_id="txtRefertiRX" valore="lblRefertiRX#txtRefertiRX#txtRefertiRX##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtRefertiTAC" valore="lblRefertiTAC#txtRefertiTAC#txtRefertiTAC##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtRefertiAltro" valore="lblRefertiAltro#txtRefertiAltro#txtRefertiAltro##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtPrognosiGiorniDopo" valore="lblPrognosiGiorniDopo#txtPrognosiGiorniDopo#txtPrognosiGiorniDopo##N#3" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                    </FIELDSET_TABLE>
+                </TABULAZIONE.CREA_TAB>
+
+            </TABULAZIONE.INIT>
+        </FORM>
+</PAGINA>

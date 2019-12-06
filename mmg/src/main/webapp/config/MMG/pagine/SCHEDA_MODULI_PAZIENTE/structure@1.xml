@@ -1,0 +1,17 @@
+<PAGINA key_id="SCHEDA_MODULI_PAZIENTE">
+	<HEADER_PAGE key_id="SCHEDA_MODULI_PAZIENTE"
+		valore="DEFAULT_MMG,SCHEDA,SCHEDA_MODULI_PAZIENTE#DEFAULT_MMG,SCHEDA_MODULI_PAZIENTE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#####" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="ModuliPaziente#lblTitolo#butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabModuli" valore="tabModuli"
+				evento="START">
+				<DIV key_id="divWk" valore="divWk" evento="START">
+				</DIV>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

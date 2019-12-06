@@ -1,0 +1,36 @@
+<MENU>
+	<id>MENU_ESENZIONI_PAZIENTE</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>SE.PO</ID>
+			<LINK><![CDATA[function(rec){SCELTA_ESENZIONI.apriPrestazioni(rec);}]]></LINK>
+			<ICON_CLASS>letteradimissioni</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() != "MMG_PATIENT_SUMMARY");}]]></WHERE>
+			<OUTPUT>"Prestazioni collegate"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>PS.PO</ID>
+			<LINK><![CDATA[function(rec){NS_MMG_PATIENT_SUMMARY.apriPrestazioni(rec);}]]></LINK>
+			<ICON_CLASS>letteradimissioni</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'MOD');}]]></WHERE>
+			<OUTPUT>"Prestazioni collegate"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>VUOTO</ID>
+			<LINK><![CDATA[function(){}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(){return ($("#KEY_LEGAME").val() == "MMG_PATIENT_SUMMARY" && $("#STATO").val() == 'VIS');}]]></WHERE>
+			<OUTPUT>"Nessuna voce di menù disponibile"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

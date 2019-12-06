@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="SCHEDULER">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="scheduler"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="sHeader"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1">
+            <PROC id="setId">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1">
+            <PROC id="setTagValue">
+                <PAR translate="true" type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="sContent"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div">
+            <PROC id="setId">
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_container"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div">
+            <PROC id="addAttribute">
+                <PAR value="style"/>
+                <PAR value="width:100%;height:100%;"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_navline"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30(COMBO)">
+            <PROC id="VOID">
+                <PAR value="Medico"/>
+                <PAR value="cmbMedico"/>
+                <PAR type="idx" value="4"/>
+                <PAR value="N"/>
+                <PAR value="S"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@31">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_prev_button"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@32">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_next_button"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@33">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_today_button"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@34">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_zoom_in_button zoom_button dhx_cal_tab_first"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@35">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_zoom_out_button zoom_button dhx_cal_tab_last"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@36">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_date"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@37">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_tab dhx_cal_tab_first"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@37">
+            <PROC id="addAttribute">
+                <PAR value="name"/>
+                <PAR value="day_tab"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@38">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_tab dhx_cal_tab_last"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@38">
+            <PROC id="addAttribute">
+                <PAR value="name"/>
+                <PAR value="week_tab"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@39">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_tab"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@39">
+            <PROC id="addAttribute">
+                <PAR value="name"/>
+                <PAR value="unit_tab"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@39">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_tab"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@50">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_header"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@40">
+            <PROC id="addAttribute">
+                <PAR value="name"/>
+                <PAR value="month_tab"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@30.div@40">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_tab dhx_cal_tab_last"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@2.div.div@60">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_data"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@3">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="sFooter"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@3.div{.extButtons}">
+            <PROC id="generateButs">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="3"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

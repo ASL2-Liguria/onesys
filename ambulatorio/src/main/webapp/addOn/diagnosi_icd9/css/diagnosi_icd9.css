@@ -1,0 +1,40 @@
+
+textarea.myON,
+textarea.myOFF {
+  border: 1px solid #606060;
+  font-family: verdana, tahoma, sans-serif;
+  padding:5px 5px 5px 5px;
+  width:500px;
+   min-width:98%;
+   max-width:98%;
+  font-size:13px;
+}
+textarea.myON {
+  background:#CCC;
+  color: black;  
+  border: 1px solid #000000;
+}
+textarea.myOFF {
+  background: #EEEEEE;
+  color:#666;
+}
+
+
+INPUT.myON,
+INPUT.myOFF {
+  border: 1px solid #606060;
+  font-family: verdana, tahoma, sans-serif;
+/*  padding:5px 5px 5px 5px;*/
+  width:98%;
+  font-size:12px;
+}
+INPUT.myON {
+  background:#CCC;
+  color: black;  
+  border: 1px solid #000000;
+}
+INPUT.myOFF {
+  background: #EEEEEE;
+  color:#666;
+}
+

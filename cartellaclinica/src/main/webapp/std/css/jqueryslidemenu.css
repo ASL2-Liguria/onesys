@@ -1,0 +1,139 @@
+div.Blue .jqueryslidemenu ul li {background:url(../../imagexPix/tabheader/sf-menu.gif) repeat-x;}
+div.Blue .jqueryslidemenu ul li ul li {background:url(../../imagexPix/tabheader/sf-menu30.gif) repeat-x;}
+
+div.Red .jqueryslidemenu ul li a{background:url(../../imagexPix/tabheader/top_tabella_red.gif) repeat-x;}
+div.Red .jqueryslidemenu ul li ul li a{background:url(../../imagexPix/tabheader/top_tabella_red_30.gif) repeat-x #e36765;}
+
+div.Green .jqueryslidemenu ul li a{background:url(../../imagexPix/tabheader/top_tabella_verde.gif) repeat-x;}
+div.Green .jqueryslidemenu ul li ul li a{background:url(../../imagexPix/tabheader/top_tabella_verde_30.gif) repeat-x;}
+
+.jqueryslidemenu{
+/*font: bold 12px Verdana;*/
+font: bold 12px Arial;
+background:  url(../../imagexPix/tabheader/sf-menu.gif) repeat-x;
+height:23px;
+float:left;
+color:#FFF;
+}
+
+.jqueryslidemenu input{margin:0px;padding:0px;}
+.jqueryslidemenu label{margin:0px 0px 0px 3px;padding:0px;}
+
+/*.jqueryslidemenu a{z-index:1;}*/
+
+.jqueryslidemenu img{display:block;visibility:visible;}
+
+.jqueryslidemenu ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+/*.jqueryslidemenu ul.z49,.jqueryslidemenu ul.z49 li,.jqueryslidemenu ul.z49 li a,.jqueryslidemenu ul.z49 ul,.jqueryslidemenu ul.z49 ul li,.jqueryslidemenu ul.z49 ul li a{z-index:49;}
+.jqueryslidemenu ul.z48,.jqueryslidemenu ul.z48 li,.jqueryslidemenu ul.z48 li a,.jqueryslidemenu ul.z48 ul,.jqueryslidemenu ul.z48 ul li,.jqueryslidemenu ul.z48 ul li a{z-index:48;}
+.jqueryslidemenu ul.z97,.jqueryslidemenu ul.z47 li,.jqueryslidemenu ul.z47 li a,.jqueryslidemenu ul.z47 ul,.jqueryslidemenu ul.z47 ul li,.jqueryslidemenu ul.z47 ul li a{z-index:47;}*/
+
+/*Top level list items*/
+.jqueryslidemenu ul li{
+position: relative;
+display: inline;
+float: left;
+}
+
+/*Top level menu link items style*/
+.jqueryslidemenu ul li a{
+display: block;
+background: url(../../imagexPix/tabheader/sf-menu.gif) repeat-x; /*background of tabs (default state)*/
+color: white;
+padding: 4px 10px;
+border-right: 1px solid #0f5e9c;
+color: #2d2b2b;
+text-decoration: none;
+}
+
+* html .jqueryslidemenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+}
+
+.jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited{
+color: white;
+}
+
+.jqueryslidemenu ul li a:hover{
+background: #1978e2; /*tab link background during hover state*/
+color: white;
+}
+	
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+position: absolute;
+left: 0;
+display: block;
+visibility: hidden;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li{
+display: list-item;
+float: none;
+}
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{
+top: 0;
+}
+
+
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a{
+/*font: normal 12px Verdana;*/
+font: normal 12px Arial;
+width: 250px; /*width of sub menus*/
+padding: 8px 5px;
+margin: 0;
+border-top-width: 0;
+border-bottom: 1px solid #0f5e9c;
+background: url(../../imagexPix/tabheader/sf-menu30.gif) repeat-x #207ce5;
+}
+
+.jqueryslidemenu ul li ul li a span{
+	margin-left:5px;
+	text-align:center;
+	padding:0 4px;
+	cursor:pointer;
+	background:#2294F7;	
+	border:1px solid #004993;
+	color:#fff;
+}
+
+.jqueryslidemenu ul li ul li a.livello1{background: url(../../imagexPix/bar/sf-green.png) repeat-x;}
+.jqueryslidemenu ul li ul li a.livello1:hover{background: url(../../imagexPix/bar/sf-green-hover.png) repeat-x;}
+
+.jqueryslidemenu ul li ul li a.livello2{background: url(../../imagexPix/bar/sf-orange.png) repeat-x;}
+.jqueryslidemenu ul li ul li a.livello2:hover{background: url(../../imagexPix/bar/sf-orange-hover.png) repeat-x;}
+
+.jqueryslidemenu ul li ul li a.livello3{background: url(../../imagexPix/bar/sf-red.png) repeat-x;}
+.jqueryslidemenu ul li ul li a.livello3:hover{background: url(../../imagexPix/bar/sf-red-hover.png) repeat-x;}
+
+.jqueryslidemenu ul li ul li a.small{width: 150px; /*width of sub menus*/}
+.jqueryslidemenu ul li ul li a.large{width: 350px; /*width of sub menus*/}
+.jqueryslidemenu ul li ul li a.extralarge{width: 650px; /*width of sub menus*/}
+.jqueryslidemenu ul li ul li a.green{background:#c4ffc4; color: black;/*width of sub menus*/}
+
+.jqueryslidemenuz ul li ul li a:hover{ /*sub menus hover style*/
+background: #1978e2;
+color: black;
+}
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{
+position: absolute;
+top: 8px;
+right: 7px;
+}
+
+.rightarrowclass{
+position: absolute;
+top: 9px;
+right: 5px;
+}

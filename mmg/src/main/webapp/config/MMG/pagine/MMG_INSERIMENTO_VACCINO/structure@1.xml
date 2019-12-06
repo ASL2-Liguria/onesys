@@ -1,0 +1,118 @@
+<PAGINA key_id="MMG_INSERIMENTO_VACCINO">
+	<HEADER_PAGE key_id="MMG_INSERIMENTO_VACCINO"
+		valore="DEFAULT_MMG,SCHEDA,MMG_INSERIMENTO_VACCINO#DEFAULT_MMG,MMG_INSERIMENTO_VACCINO"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_INSERIMENTO_VACCINO#MMG_DATI#MMG_VACCINI_PAZIENTE#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabVaccino"
+			valore="Vaccino#lblTitolo#butModuloConsensoInformato,butSalva,butChiudi"
+			evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabLista" valore="tabLista"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldLista" valore="fldLista"
+					evento="START">
+					<DIV.WORKLIST key_id="wkVaccinazioni" valore="wkVaccinazioni"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento"
+				valore="tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldRicercaPaziente" valore="fldRicercaPaziente"
+					evento="START">
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome"
+							evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DataDiNascita"
+							valore="lblDataDiNascita##txtDataDiNascita" evento="START">
+						</TD_LABEL_DATA>
+						<TD_BUTTON key_id="butCerca" valore="butCerca##2"
+							evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="wkPaziente" valore="wkPaziente"
+					evento="START">
+				</DIV.WORKLIST>
+				<FIELDSET_TABLE key_id="fldInserimento" valore="fldInserimento"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="Vaccino"
+						valore="lblVaccino##Vaccino#radVaccino#{width:150}#N#TIPO_VACCINAZIONE"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Adiuvato"
+						valore="lblAdiuvato##Adiuvato#radAdiuvato#{width:350}#N#TIPO_VACCINO_ANTINFLUENZALE"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_AUTOCOMPLETE key_id="tipoVaccino"
+						valore="lblTipoVaccino#acVaccino#tipoVaccino#txtTipoVaccino#AC_VACCINO_TIPO#TIPO_VACCINO"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_RADIO key_id="Fornito"
+						valore="lblFornito##Fornito#radFornito#{width:350}#N#FORNITO"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="DescrizioneFornitore"
+						valore="lblDescrizioneFornitore##txtDescrizioneFornitore###DESCR_FORNITORE"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="LuogoEsecuzione"
+						valore="lblLuogoEsecuzione##LuogoEsecuzione#radEsecuzione#{width:350}#N#LUOGO_ESECUZIONE"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_COMBO key_id="NumeroLotto"
+						valore="lblNumeroLotto##cmbNumeroLotto#cmbNumeroLotto#N#NUMERO_LOTTO"
+						evento="START">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_DATA key_id="DataVaccino"
+						valore="lblDataVaccino##txtDataVaccino#DataVaccino#startWithToday:true#disabled:false##DATA_VACCINO"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_DATA key_id="DataScadenzaVaccino"
+						valore="lblDataScadenzaVaccino##txtDataScadenzaVaccino#DataScadenzaVaccino#startWithToday:false#disabled:false##DATA_SCADENZA_VACCINO"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_CHECK key_id="InserisciPromemoria" 
+						valore="lblInserisciPromemoria##InserisciPromemoria#chkInserisciPromemoria#N#{width:200,ctrl:false}##INSERISCI_PROMEMORIA"
+						evento="START">
+					</TR_TD_LABEL_CHECK>
+				</FIELDSET_TABLE>
+				<EXCHANGE_LISTS key_id="excClasseRischio"
+					valore="excClasseRischio#ComboIn#ComboOut#N#btnControls#
+{ 
+   onlySingleTransfert: 		true, 
+   removeFirstListItems:	true,
+   clickAndTransfert: 		true,
+   listHeaders:
+   {
+	   listFrom:
+	   {
+		   title: 'Classi di rischio selezionabili'
+		},
+		
+		listTo:
+		{	
+			title: 'Classi di rischio selezionate'
+		}
+	}
+	
+ }
+ #CLASSI"
+					evento="START">
+				</EXCHANGE_LISTS>
+				<INPUT.HIDDEN key_id="hIdenPPIP" valore="hIdenPPIP"
+					evento="START">
+				</INPUT.HIDDEN>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

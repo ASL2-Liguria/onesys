@@ -1,0 +1,7 @@
+<INCLUDE>
+	<!-- <CSS path="css/MMG/Messaggi/PannelloNotifiche.css" /> -->
+	<CSS path="css/MMG/Messaggi/centroMessaggi.css" />
+	<JS path="js/Base/tinymce4/tinymce.min.js" />
+	<!-- <JS path="js/MMG/Messaggi/PannelloNotifiche.js" /> -->
+	<JS path="js/MMG/Messaggi/centroMessaggi.js" />
+</INCLUDE>

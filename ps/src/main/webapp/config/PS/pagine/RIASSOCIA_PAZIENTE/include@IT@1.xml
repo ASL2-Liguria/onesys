@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="js/Base/NS_FENIX_TAG_LIST.js"/>
+    <JS path="js/PS/RiassociaPaziente/RiassociaPaziente.js"/>
+</INCLUDE>

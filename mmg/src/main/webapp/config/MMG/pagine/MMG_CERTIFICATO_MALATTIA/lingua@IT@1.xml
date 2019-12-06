@@ -1,0 +1,65 @@
+<ROWSET>
+    <ROW>
+		
+		<butElencoCertificati>Elenco certificati</butElencoCertificati>
+		<butAnteprima>Riepilogo</butAnteprima>
+		<butRipulisci>Ripulisci</butRipulisci>
+		<butSalva>Salva</butSalva>
+		<butSalvaCert>Salva</butSalvaCert>
+		<butChiudi>Chiudi</butChiudi>
+		<butClose>Chiudi</butClose>
+		<butStampa>Stampa</butStampa>
+		<butReset>Ripulisci Dati Login</butReset>
+		<butResetRepe>Cancella dati</butResetRepe>
+		<butLogin>Login</butLogin>
+		<butAnnulla>Annulla certificato</butAnnulla>
+		<tabLavoratore>Lavoratore</tabLavoratore>
+		<tabDatiCertificato>Certificato</tabDatiCertificato>
+		<tabLogin>Login</tabLogin>
+        <lblTitolo>CERTIFICATO MALATTIA</lblTitolo>
+        <lblNome>Nominativo Reperibilità</lblNome>
+        <lblTrauma>Trauma</lblTrauma>
+        <lblRuolo>Ruolo</lblRuolo>
+        <lblUsername>Username</lblUsername>
+        <lblPwd>Password</lblPwd>
+        <lblPin>Pincode</lblPin>
+        <lblAgevolazione>Agevolazione</lblAgevolazione>
+        <lblDataFine>Viene assegnata prognosi clinica a tutto il</lblDataFine>
+        <lblDataRilascio>Data rilascio</lblDataRilascio>
+        <lblDataMalattia>Il lavoratore dichiara di essere ammalato dal</lblDataMalattia>
+        <lblTipoCertificato>Tipo del certificato</lblTipoCertificato>
+        <lblTipoVisita>Tipo Visita</lblTipoVisita>
+        <lblGiornataLavorata>Giornata lavorata</lblGiornataLavorata>
+        <lblIndirizzo>Via</lblIndirizzo>
+        <lblIndirizzoRepe>Via</lblIndirizzoRepe>
+        <lblProvincia>Provincia</lblProvincia>
+        <lblComuneRepe>Comune</lblComuneRepe>
+        <lblComune>Comune</lblComune>
+        <lblCAPRepe>CAP</lblCAPRepe>
+        <lblCAP>CAP</lblCAP>
+        <lblCivicoRepe>Civico</lblCivicoRepe>
+        <lblCivico>Civico</lblCivico>
+        <lblProvinciaRepe>Provincia</lblProvinciaRepe>
+        <lblCodFisc>Codice Fiscale</lblCodFisc>
+        <lblAreaNote>Area Note</lblAreaNote>
+        <lblCodDiagnosi>Codice ICD9</lblCodDiagnosi>
+        <lblDiagnosi>Diagnosi ICD9</lblDiagnosi>
+        <lblRicorda>Ricorda</lblRicorda>
+        <lblRipulisci>Si vuole ripulire il certificato dai dati inseriti? l'azione sarà irreversibile e i dati dovranno essere reinseriti'</lblRipulisci>
+        <lblNoteDiagnosi>Diagnosi</lblNoteDiagnosi>
+        <lblAnteprima>Anteprima dei dati inseriti</lblAnteprima>
+        <lblDatoNoIns>Dato non inserito</lblDatoNoIns>
+        <fldCertificato>Dati Certificato</fldCertificato>
+        <fldReperibilita>Indirizzo Reperibilità</fldReperibilita>
+        <fldResidenza>Indirizzo Residenza</fldResidenza>
+        <fldLavoratore>Lavoratore</fldLavoratore>
+        <fldLogin>Dati Login Portale</fldLogin>
+        <fldLoginINPS>Link</fldLoginINPS>
+        <erroreCodReg>Codice Regione assente</erroreCodReg>
+        <erroreCodAsl>Codice Asl assente</erroreCodAsl>
+        <lblDataDiff>La data inserita non è corretta</lblDataDiff>
+		
+		<dataSuccessiva>La data inserita è successiva a quella precedentemente inserita</dataSuccessiva>
+		       
+    </ROW>
+</ROWSET>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WORKLIST>
+    <CONFIGS default="FENIX">
+        <CONFIG id="FENIX">
+            <CLASSLOADER type="reader">it.elco.worklist.standard.reader.wkReaderConfig</CLASSLOADER>
+            <CLASSLOADER type="column">it.elco.worklist.standard.config.wkConfigColumn</CLASSLOADER>
+	        <CLASSLOADER type="list_column">it.elco.worklist.standard.config.wkConfigColumnList</CLASSLOADER>
+	        <CLASSLOADER type="row">it.elco.worklist.standard.config.wkConfigRow</CLASSLOADER>
+	        <CLASSLOADER type="row_group">it.elco.worklist.standard.config.wkConfigGroupRow</CLASSLOADER>
+            <CLASSLOADER type="row_groups">it.elco.worklist.standard.config.wkConfigGroupRows</CLASSLOADER>
+            <CLASSLOADER type="cache">it.elco.worklist.standard.config.wkConfigCache</CLASSLOADER>
+            <CLASSLOADER type="structure">it.elco.worklist.standard.config.wkConfigStructure</CLASSLOADER>
+            <CLASSLOADER type="data">it.elco.worklist.data.wkData</CLASSLOADER>
+            <CLASSLOADER type="menu">it.elco.menu.menuEngine</CLASSLOADER>
+            <PATH type="process_field">it.elco.worklist.process</PATH>
+            <PATH type="menu_config">config/menu/config/engine.xml</PATH>
+        </CONFIG>
+    </CONFIGS>
+</WORKLIST>

@@ -1,0 +1,53 @@
+<PAGINA key_id="TAB_HOME_DSA">
+    <HEADER_WK key_id="TAB_HOME_DSA" valore="DEFAULT,WK,TAB_HOME_DSA#DEFAULT,TAB_HOME_DSA" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butApplica##divWk#divWorklist" evento="START_END">
+      <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroDsaAperti" valore="filtroDsaAperti#DSA" evento="START">
+      	<TABELLA.INIT key_id="tableDsa" valore="" evento="START">
+	      	<TR.INIT key_id="rigaDsa1" valore="" evento="START">
+	      		<FILTRO_TAG key_id="Reparto" valore="lblRep#titRep#REPG#tag#txt#{width:'230px'}#N##DSA_FILTRO_REPARTO#N" evento="START">
+	             </FILTRO_TAG>
+	      	</TR.INIT>
+	      	<TR.INIT key_id="rigaDsa2" valore="" evento="START">
+	      		<FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START">
+	             </FILTRO_TEXT>
+	             <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START">
+	             </FILTRO_TEXT>
+	             <FILTRO_TEXT key_id="Cartella" valore="lblCartella#txtCartella#cartella##N" evento="START">
+	              </FILTRO_TEXT>
+	      	</TR.INIT>
+	      </TABELLA.INIT>
+      </TABULAZIONE.CREA_TAB_FILTRO>
+      <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroDsaChiusi" valore="filtroDsaChiusi#DSA_CHIUSI" evento="START">
+      	<TABELLA.INIT key_id="tableDsaChiusi" valore="" evento="START">
+	      	<TR.INIT key_id="rigaDsaChiusi1" valore="" evento="START">
+		      		<FILTRO_TAG key_id="RepartoC" valore="lblRepC#titRepC#CREPG#tagRepartoC#txtRepartoC#{width:'230px'}#N##DSA_CHIUSI_FILTRO_REPARTO#N" evento="START">
+		             </FILTRO_TAG>
+		      	</TR.INIT>
+		      	<TR.INIT key_id="rigaDsaChiusi2" valore="" evento="START">
+		      		<FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognomeC#cognome##T" evento="START">
+		             </FILTRO_TEXT>
+		             <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNomeC#nome##T" evento="START">
+		             </FILTRO_TEXT>
+		             <FILTRO_TEXT key_id="Cartella" valore="lblCartella#txtCartellaC#cartella##N" evento="START">
+		              </FILTRO_TEXT>
+		      	</TR.INIT>
+		      	<TR.INIT key_id="rigaDsaChiusi3" valore="" evento="START">
+		      		<FILTRO_DATA key_id ="daData" valore ="lblDaData#txtDaData#DaData###lblDaData##FILTRO_DATA_DSA_DA#N" evento="START">
+	                    </FILTRO_DATA>
+	                    <FILTRO_DATA key_id ="aData" valore ="lblAData#txtAData#AData###lblAData##FILTRO_DATA_DSA_A#N" evento="START">
+	                    </FILTRO_DATA>
+		      	</TR.INIT>
+		    </TABELLA.INIT>
+      </TABULAZIONE.CREA_TAB_FILTRO>
+      <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRichiesteDsa" valore="filtroRichiesteDsa#RICHIESTEDSA" evento="START">
+        <TABELLA.INIT key_id="tableRichiesteDsa" valore="" evento="START">
+            <TR.INIT key_id="rigaRichiesteDsa" valore="" evento="START">
+            	<FILTRO_TAG key_id="RepartoRich" valore="lblRepRich#titRepRich#REPRICH#tagRepartoRich#txtRepartoRich#{width:'230px'}#N##DSA_RICH_FILTRO_REPARTO#N" evento="START">
+		          </FILTRO_TAG>
+                <FILTRO_TAG key_id="StatoRichieste" valore="lblStatoRichieste#titStatoRichieste#STATO_RICHIESTE_DSA#tagStatoRichieste#txtStatoRichieste#{width:'230px'}#N##RICHIESTE_DSA_FILTRO#V" evento="START">
+                </FILTRO_TAG>
+            </TR.INIT></TABELLA.INIT>
+    </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+   </PAGINA>

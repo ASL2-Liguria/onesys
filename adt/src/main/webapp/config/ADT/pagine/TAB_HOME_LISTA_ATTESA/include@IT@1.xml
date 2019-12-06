@@ -1,0 +1,7 @@
+<INCLUDE>
+    <JS path="js/ADT/TabHomeListaAttesa/tabHomeListeAttesa.js"/>
+    <JS path="js/Base/NS_FENIX_FILTRI.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/NS_APPLICATIONS.js"/>
+</INCLUDE>

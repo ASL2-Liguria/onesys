@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	padding:5px;
+	background:#b9e0ff;
+	}
+	
+#groupScheda{
+	background:#b9e0ff;
+	border-left:1px solid #85c8fb;
+	border-right:1px solid #85c8fb;
+}
+
+fieldset{
+	margin:10px;
+	border:2px solid #fff;
+	padding:2px;
+	}
+	fieldset .TableProfilo, #ListaEsami{
+		background:#fff;
+		padding:5px;
+		}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+		
+.txtRicerca{
+
+	background:#FFFFCC;
+
+}

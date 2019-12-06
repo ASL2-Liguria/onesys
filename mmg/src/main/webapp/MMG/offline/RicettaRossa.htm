@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ricetta</title>
+<style type="text/css">
+
+body {
+	width: 187mm;
+	height: 142mm;
+	background: white;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 10pt;
+	position: absolute;
+}
+
+div {
+	position: absolute;
+	display: block;
+/*	border: 1px solid black; test*/
+}
+
+div #ricetta {
+	position: relative;
+	width: 187mm;
+	height: 92mm;
+}
+
+div .casella {
+	text-align: center;
+	vertical-align: middle;
+}
+
+div #stampa_pc {
+	left: 182mm; top: 0mm; width: 5.6mm; height: 5.6mm; font-size: 1.6em;
+}
+
+div #paziente {
+	left: 1mm; top: 1mm; width: 81mm; height: 5.5mm; font-size: 1.1em;
+}
+
+div #residenza {
+	left: 1mm; top: 11mm; width: 81mm; height: 5.5mm; font-size: 1em;
+}
+
+div #codice_fiscale_barcode {
+	left: 110mm; top: 17mm; width: 70mm; height: 8mm; font-size: 1em;
+	text-align: center;
+	overflow:hidden;
+}
+div #codice_fiscale {
+	left: 100mm; top: 25.8mm; width: 83mm; height: 5.2mm; font-size: 1.1em;
+}
+div #non_esente {
+	left: 2mm; top: 36mm; width: 5.6mm; height: 5.6mm; font-size: 1.6em;
+}
+div #codice_esenzione {
+	left: 12mm; top: 36mm; width: 51mm; height: 5.6mm; font-size: 1.2em;
+}
+div #provincia_asl {
+	left: 105mm; top: 36mm; width: 26mm; height: 5.5mm; font-size: 1.1em;
+}
+div #prescrizione {
+	left: 5mm; top: 46.4mm; width: 125mm; height: 25mm; font-size: 0.9em;
+}
+	div #prescrizione table {
+		width: 100%;
+		text-align: center;
+	}
+	div #prescrizione table tr td {
+		width: 50%;
+		text-align: center;
+	}
+div #nota_cuf_1 {
+	left: 133mm; top: 49.3mm; width: 17mm; height: 5.5mm; font-size: 1.1em;
+}
+div #nota_cuf_2 {
+	left: 133mm; top: 57.3mm; width: 17mm; height: 5.5mm; font-size: 1.1em;
+}
+div #sugg_ric_altro {
+	left: 155mm; top: 46mm; width: 30mm; height: 5.6mm; font-size: 1.6em;
+}
+	div #suggerita {
+		left: 0mm; top: 0mm; width: 5.6mm; height: 5.6mm;
+	}
+	div #ricovero {
+		left: 12mm; top: 0mm; width: 5.6mm; height: 5.6mm;
+	}
+	div #altro {
+		left: 24mm; top: 0mm; width: 5.6mm; height: 5.6mm;
+	}
+div #priorita {
+	left: 155mm; top: 55mm; width: 30mm; height: 5.6mm; font-size: 1.6em;
+}
+	div #priorita_U {
+		left: 0mm; top: 0mm; width: 5.6mm; height: 5.6mm;
+	}
+	div #priorita_B {
+		left: 8mm; top: 0mm; width: 5.6mm; height: 5.6mm;
+	}
+	div #priorita_D {
+		left: 16mm; top: 0mm; width: 5.6mm; height: 5.6mm;
+	}
+	div #priorita_P {
+		left: 24mm; top: 0mm; width: 5.6mm; height: 5.6mm;
+	}
+div #quesito {
+	left: 5mm; top: 74.4mm; width: 125mm; height: 6mm; font-size: 0.8em;
+}
+div #numero {
+	left: 10.5mm; top: 82mm; width: 17mm; height: 5.5mm; font-size: 1.1em;
+}
+div #tipo_ricetta {
+	left: 55.9mm; top: 82mm; width: 17mm; height: 5.6mm; font-size: 1.1em;
+}
+div #data_ricetta {
+	left: 96mm; top: 82mm; width: 34mm; height: 6mm; font-size: 1.1em;
+}
+div #firma_medico {
+	left: 133mm; top: 67.3mm; width: 50mm; height: 24mm; font-size: 0.8em;
+	text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+	<div id="ricetta">
+		<div id="stampa_pc" class="casella"></div>
+		<div id="paziente"></div>
+		<div id="residenza"></div>
+		<div id="codice_fiscale_barcode"></div>
+		<div id="codice_fiscale"></div>
+		<div id="non_esente" class="casella"></div>
+		<div id="codice_esenzione"></div>
+		<div id="provincia_asl"></div>
+		<div id="prescrizione">
+			<table>
+				<tr><td id="prescrizione_0"></td><td id="prescrizione_1"></td></tr>
+				<tr><td id="prescrizione_2"></td><td id="prescrizione_3"></td></tr>
+				<tr><td id="prescrizione_4"></td><td id="prescrizione_5"></td></tr>
+				<tr><td id="prescrizione_6"></td><td id="prescrizione_7"></td></tr>
+			</table>
+		</div>
+		<div id="nota_cuf_1"></div>
+		<div id="nota_cuf_2"></div>
+		<div id="sugg_ric_altro">
+			<div id="suggerita" class="casella"></div>
+			<div id="ricovero" class="casella"></div>
+			<div id="altro" class="casella"></div>
+		</div>
+		<div id="priorita">
+			<div id="priorita_U" class="casella"></div>
+			<div id="priorita_B" class="casella"></div>
+			<div id="priorita_D" class="casella"></div>
+			<div id="priorita_P" class="casella"></div>
+		</div>
+		<div id="quesito"></div>
+		<div id="numero"></div>
+		<div id="tipo_ricetta"></div>
+		<div id="data_ricetta"></div>
+		<div id="firma_medico"></div>
+	</div>
+<script type="text/javascript" src="js/LIB.js?vOffline=14"></script>
+<script type="text/javascript" src="js/stampa.js?vOffline=14"></script>
+<script type="text/javascript">
+
+var RICETTA = {
+		
+		check_char: "#",
+		
+		prescrizioni: new Array(),
+		
+		init: function() {
+			try {
+				/*tapullo temporaneo per switch a report FARMACI.RPT/PRESTAZIONI.RPT*/
+				if (parent.LIB.getParamPcGlobal("REPORT_FARMACI","FARMACI.RPT")=="FARMACI_A4.RPT") {
+					document.body.style["height"]="92mm";
+				}
+			} catch (e) {
+				log.error(e);
+			}
+			this.prescrizioni.length = 0;
+		},
+		
+		addPrescrizione: function(prescr, numero) {
+			this.prescrizioni.push({descrizione: prescr, numero: numero});
+			this.popolaPrescrizione();
+			this.setNumero();
+		},
+		
+		popolaPrescrizione: function() {
+			var p = 0;
+			for (; p < this.prescrizioni.length; p++) {
+				this.setElement("prescrizione_" + p, this.prescrizioni[p].descrizione);
+			}
+			if (p > 4) {
+				/*Riduco la dimensione del carattere*/
+				$("#prescrizione").css("font-size", "0.7em");
+			}
+			for (; p < 8; p++) {
+				this.setElement("prescrizione_" + p, "");
+			}
+		},
+		
+		getElementTable: function(valore, element_size) {
+			var output = "";
+			if (!LIB.isValid(element_size)) {
+				element_size = "5.4";
+			}
+			for (var i=0; i < valore.length; i++) {
+				output += '<div class="casella" style="display: inline-block; position: absolute; left: ' + (element_size*i) + 'mm; width: ' + element_size + 'mm; height: ' + element_size + 'mm;">' + valore.charAt(i) + '</div>';
+			}
+			return output;
+		},
+		
+		setElement: function(nome, valore) {
+			document.getElementById(nome).innerHTML=valore;
+		},
+		
+		setBoolean: function(nome, bool) {
+			if (typeof bool == "undefined") {
+				bool = true;
+			}
+			if (bool) {
+				this.setElement(nome, this.check_char);
+			} else {
+				this.setElement(nome, "");
+			}
+		},
+		
+		setStampaPc: function(bool){
+			this.setBoolean("stampa_pc", bool);
+		},
+		
+		setPaziente: function(paziente) {
+			this.setElement("paziente", paziente);
+		},
+		
+		setResidenza: function(residenza) {
+			this.setElement("residenza", residenza);
+		},
+		
+		setCodiceFiscale: function(codice_fiscale) {
+			this.setElement("codice_fiscale", this.getElementTable(codice_fiscale, "5.2"));
+			this.setElement("codice_fiscale_barcode", Code39(codice_fiscale, 30, 1));
+		},
+		
+		setNonEsente: function(bool){
+			this.setBoolean("non_esente", bool);
+		},
+		
+		setCodiceEsenzione: function(codice_esenzione) {
+			this.setElement("codice_esenzione", this.getElementTable(codice_esenzione, "5.6"));
+			if (codice_esenzione.length > 0) {
+				this.setNonEsente(false);
+			} else {
+				this.setNonEsente(true);
+			}
+		},
+		
+		setProvinciaAsl: function(provincia_asl) {
+			this.setElement("provincia_asl", this.getElementTable(provincia_asl, "5.2"));
+		},
+		
+		setSuggerita: function(suggerita) {
+			this.setBoolean("suggerita", suggerita);
+		},
+		
+		setRicovero: function(ricovero) {
+			this.setBoolean("ricovero", ricovero);
+		},
+		
+		setAltro: function(altro) {
+			this.setBoolean("altro", altro);
+		},
+		
+		setQuesito: function(quesito) {
+			this.setElement("quesito", quesito);
+			if (quesito.length > 200) {
+				$("#quesito").css("font-size", "0.7em");
+			}
+		},
+		
+		setNumero: function() {
+			var numero = 0;
+			for (var c=0; c<this.prescrizioni.length; c++) {
+				numero += this.prescrizioni[c].numero;
+			}
+			this.setElement("numero", this.getElementTable("" + numero, "5.6"));
+		},
+		
+		setTipoRicetta: function(tipo_ricetta) {
+			this.setElement("tipo_ricetta", this.getElementTable(tipo_ricetta, "5.6"));
+		},
+		
+		setDataRicetta: function(data_ricetta) {
+			this.setElement("data_ricetta", this.getElementTable(data_ricetta, "5.6"));
+		},
+		
+		setFirmaMedico: function(firma_medico) {
+			this.setElement("firma_medico", firma_medico);
+		}
+};
+
+var FARMACI = {
+		
+		_show_farmaco_originale: true,
+		
+		farmaci: new Array(),
+		
+		init: function() {
+			RICETTA.init();
+			this.farmaci.length = 0;
+			this.setNotaCuf1("");
+			this.setNotaCuf2("");
+		},
+		
+		getDescrizione: function(farmaco) {
+			var descrizione;
+			var asterisco = farmaco._descrizione.indexOf("*");
+			if (LIB.isValid(farmaco._principio_attivo) && farmaco._principio_attivo != "" && asterisco > 0) {
+				descrizione = farmaco._principio_attivo;
+				descrizione += farmaco._descrizione.substring(asterisco);
+				if (this._show_farmaco_originale) {
+					descrizione += " (" + farmaco._descrizione.substring(0,asterisco) + " - SOSTITUIBILE)";
+				}
+				if (farmaco.stampa_posologia == "S" && farmaco._posologia != '') {
+					descrizione += " - " + farmaco._posologia;
+				}
+				if(LIB.isValid(farmaco._descrizione_extra) && farmaco._descrizione_extra != ''){
+					descrizione += " - " + farmaco._descrizione_extra;
+				}
+			} else {
+				descrizione = farmaco._descrizione;
+			}
+			if (farmaco.qta > 1) {
+				descrizione += " n° " + farmaco.qta;
+			}
+			return descrizione;
+		},
+		
+		/* Oggetto farmaco:
+			_descrizione (string) (OBBLIGATORIO)
+			_principio_attivo (string) (OBBLIGATORIO)
+			_posologia (string) (OPZIONALE)
+			_motivo_non_sostituibile (string) (OPZIONALE)
+			qta (int) (OPZIONALE, default 1)
+			note_cuf (string) (OPZIONALE)
+			sost_si_no (S/N) (OPZIONALE)
+		 */
+		add: function(farmaco) {
+			if (!LIB.isValid(farmaco.qta)) {
+				farmaco.qta = 1;
+			}
+			this.farmaci.push(farmaco);
+			RICETTA.addPrescrizione(this.getDescrizione(farmaco), farmaco.qta);
+			this.setNotaCuf(this.farmaci.length, farmaco.note_cuf);
+		},
+		
+		setNotaCuf:function(numero, nota_cuf) {
+			if (typeof nota_cuf == "undefined" || nota_cuf == null || nota_cuf == "") {
+				nota_cuf = RICETTA.check_char + RICETTA.check_char + RICETTA.check_char;
+			}
+			RICETTA.setElement("nota_cuf_" + numero, RICETTA.getElementTable(nota_cuf, "5.6"));
+		},
+		
+		setNotaCuf1: function(nota_cuf){
+			this.setNotaCuf("1", nota_cuf);
+		},
+		
+		setNotaCuf2: function(nota_cuf){
+			this.setNotaCuf("2", nota_cuf);
+		},
+};
+
+var ACCERTAMENTI = {
+		
+		accertamenti: new Array(),
+		
+		init: function() {
+			RICETTA.init();
+			this.accertamenti.length = 0;
+		},
+		
+		getDescrizione: function(accertamento) {
+			var descrizione;
+			descrizione = accertamento.accertamento;
+			if (accertamento.qta > 1) {
+				descrizione += " n° " + accertamento.qta;
+			}
+			return descrizione;
+		},
+		
+		add: function(accertamento) {
+			if (!LIB.isValid(accertamento.qta)) {
+				accertamento.qta = 1;
+			}
+			this.accertamenti.push(accertamento);
+			RICETTA.addPrescrizione(this.getDescrizione(accertamento), accertamento.qta);
+		},
+		
+		setUrgenza: function(priorita, bool) {
+			RICETTA.setBoolean("priorita_" + priorita, bool);
+		}
+};
+
+var TEST = {
+		ricetta: function() {
+			RICETTA.prescrizioni.length=0;
+			RICETTA.setPaziente("COGNOME NOME");
+			RICETTA.setResidenza("VIA DEGLI INDIRIZZI 45, COMUNE");
+			RICETTA.setCodiceFiscale("CGNNME90F11U520X");
+			RICETTA.setCodiceEsenzione("031E01");
+			RICETTA.setProvinciaAsl("SV102");
+			RICETTA.setQuesito("Quesito di test");
+//			RICETTA.setTipoRicetta("SSN");
+			RICETTA.setDataRicetta("030314");
+			RICETTA.setFirmaMedico("Medico Dr MMG<br/>Via dei test<br/>Prove (PV)");
+			RICETTA.setStampaPc(true);
+			RICETTA.setRicovero(true);
+		},
+		ricettaAccertamenti: function() {
+			TEST.ricetta();
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 1"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 2"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 3"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 4"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 5", numero: 2});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 6"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 7"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 8"});
+			ACCERTAMENTI.setUrgenza("B");
+			FARMACI.setNotaCuf1("");
+		},
+		ricettaFarmaci: function() {
+			TEST.ricetta();
+			FARMACI.add({descrizione: "FARMACO 1", numero: 1, note_cuf: "098"});
+			FARMACI.add({descrizione: "FARMACO 2", numero: 2});
+			ACCERTAMENTI.setUrgenza("B", false);
+		},
+		
+		test: function() {
+			TEST.ricettaFarmaci();
+			window.setTimeout(function() {
+				RENDER.print(function(dataurl) {
+					home.AppStampa.setSrcFromDataUrl(dataurl);
+					//AppStampa.print("HP LaserJet 400 M401 PCL 6",'{"methods":[{"autoRotateandCenter":[false]},{"setPageSize":[8]},{"setCustomPageDimension":[210.0,297.0,4]},{"setOrientation":[1]},{"setPageScale":[1]},{"setPageMargins":[[11.0,0.0,13.0,200.0],4]}]}');
+					home.AppStampa.print("Microsoft XPS Document Writer",'{"methods":[{"autoRotateandCenter":[false]},{"setPageSize":[8]},{"setCustomPageDimension":[210.0,297.0,4]},{"setOrientation":[1]},{"setPageScale":[1]},{"setPageMargins":[[11.0,0.0,13.0,200.0],4]}]}');
+				});
+			}, 500);
+		}
+}
+
+</script>
+</body></html>

@@ -1,0 +1,68 @@
+<root>
+	<statements_list>
+		<statement name="getAlbero">	
+		<schema>IMAGOWEB</schema>			
+			<sql>
+			<![CDATA[
+				declare					
+					pReparto varchar2(4000) := ?;
+					pTipo varchar2(4000) := ?;
+					pRespVal clob:='';
+					pRespTipo varchar2(4000):='';
+				begin
+					begin
+						select valore into pRespVal from cc_configura_reparto where cdc=pReparto and key=pTipo;
+						pRespTipo:='REPARTO';
+						exception when no_data_found then
+						begin
+							select valore into pRespVal from cc_configura_reparto where cdc is null and struttura=(select struttura from radsql.centri_di_costo where cod_cdc=pReparto) and key=pTipo;
+							pRespTipo:='STRUTTURA';
+							exception when no_data_found then
+							begin
+								select valore into pRespVal from cc_configura_reparto where cdc is null and struttura is null and sito=(select sito from radsql.centri_di_costo where cod_cdc=pReparto) and key=pTipo;
+								pRespTipo:='SITO';								
+							end;
+						end;
+					end;
+				? := pRespVal;
+				? := pRespTipo;
+				end;		
+			]]>
+			</sql>
+		</statement>
+		<statement name="registraAlbero">
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				declare					
+					pValore clob := ?;
+					pReparto varchar2(4000) := ?;
+					pTipo varchar2(4000) := ?;
+					pTipoConf varchar2(4000):=?;
+					vSito varchar2(100):='';
+					vStruttura varchar2(100):='';
+				begin
+					select sito,struttura into vSito,vStruttura from radsql.centri_di_costo where cod_cdc=pReparto;
+					if (pTipoConf='REPARTO') then
+						delete cc_configura_reparto where key=pTipo and cdc=pReparto;
+						insert into cc_configura_reparto(sito,struttura,cdc,key,valore) values(vSito,vStruttura,pReparto,pTipo,pValore);
+					elsif(pTipoConf='STRUTTURA') then
+						delete cc_configura_reparto where key=pTipo and struttura=vStruttura and cdc is null;
+						insert into cc_configura_reparto(sito,struttura,key,valore) values(vSito,vStruttura,pTipo,pValore);
+					else
+						delete cc_configura_reparto where key=pTipo and struttura is null and cdc is null and sito=vSito;
+						insert into cc_configura_reparto(sito,key,valore) values(vSito,pTipo,pValore);					
+					end if;
+				end;			
+			]]>
+			</sql>
+		</statement>
+				<statement name="getRamo">
+			<sql>
+			<![CDATA[
+				select riferimenti ramo from imagoweb.config_menu_reparto where procedura='RAMO_RICHIESTE' and funzione=?
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

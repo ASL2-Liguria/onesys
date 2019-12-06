@@ -1,0 +1,145 @@
+<?xml version = "1.0"?>
+<!--
+	Mettere le query in ordine alfabetico!
+	ALFABETO : A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 
+	-->
+<QUERIES>
+	<QUERY_GROUP id="CCE">
+        <QUERY id="CHECKEXISTANAG">
+            <SQL>select COUNT(1) HASCODFISC from anag where COD_FISC = :COD_FISC</SQL>
+        </QUERY>
+        <!--<QUERY id="ANAG_RICONOSCIUTA">-->
+            <!--&lt;!&ndash; se l'id4 è diverso da null allora il paziente non può più essere modificato&ndash;&gt;-->
+            <!--select-->
+            <!--CEA.ID4,-->
+            <!--anag.*-->
+            <!--from anag anag-->
+
+            <!--left outer join COD_EST_ANAG cea on(CEA.IDEN_ANAG=anag.iden and id4 is not null)-->
+            <!--where anag.iden= :iden_anag-->
+            <!--and ANAG.DELETED='N'-->
+        <!--</QUERY>-->
+        <QUERY id="CHECKDATICARTELLA">
+            <SQL>select  sum(checkdatiaccesso(np.iden)) NUM
+                from NOSOLOGICI_PAZIENTE np where np.NUM_NOSOLOGICO= :NOSOLOGICO and deleted = 'N'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_DATI_AVVERTENZE">
+            <SQL>
+                select
+                distinct
+                    a.tipo,
+                    a.DESCRIZIONE
+                from VIEW_PS_ALLERTE_RICOVERO a
+                join nosologici_paziente np on np.iden = a.iden_visita
+                where
+                    np.iden_anag = :idenAnag
+            </SQL>
+            <BINDS>
+                <BIND id="idenAnag" value="idenAnag" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+
+        <QUERY id="CMB_CDC_NOT_SEL">
+            <SQL>select COD_CDC value, descr from centri_di_costo where COD_CDC not in (select reparto from imagoweb.web_cdc where webuser = :username) and attivo = 'S' and codice_struttura is not null and TIPO_CDC='8' and attivo = 'S' order by descr asc</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_CDC_SEL">
+            <SQL>select COD_CDC value, descr from centri_di_costo where COD_CDC in (select reparto from imagoweb.web_cdc where webuser = :username) and attivo = 'S' order by descr</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_SINTOMI_ALLERGIA">
+            <SQL>select iden value ,DESCRIZIONE as descr from tab_codifiche where tipo_scheda='SCELTA_ALLERGIA' and tipo_dato='elencoSintomi' and attivo='S' and deleted='N' order by ordine</SQL>
+        </QUERY>
+        <QUERY id="CMB_TIPOLOGIA_ALLERGIA">
+            <SQL>select IDEN VALUE, DESCRIZIONE DESCR from tab_codifiche where tipo_scheda='SCELTA_ALLERGIA' and tipo_dato='cmbTipologia' and attivo='S' and deleted='N' order by ordine</SQL>
+        </QUERY>
+        <QUERY id="WK_FARMACI_ARMADIETTO">
+            <SQL>
+                select
+                    f.IDEN,
+                    f.describe DESCRIZIONE,
+                    f.cod_minsan10 CODICE,
+                    fs.descrizione principio_attivo
+                from CC_FARMACI_DISPONIBILITA fd
+                join CC_FARMACI f on fd.iden_farmaco = f.iden and attivo = 'S'
+                left outer join CC_FARMACI_SOSTANZE fs on(f.iden_sostanza=fs.iden and fs.attivo='S')
+                where iden_magazzino = (select iden  from  cc_farmaci_magazzini where cod_cdc = :cod_cdc /*and attivo = 'S' */ )
+                and disponibilita > 0
+                and (:descr is null or f.describe like '%'||:descr|| '%')
+                and (:principio is null or fs.descrizione like '%'||:principio|| '%')
+                and (:codice is null or f.cod_minsan10 = :codice)
+                and f.attivo = 'S'
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="WK_FARMACI">
+            <SQL>
+                SELECT
+                f.IDEN,
+                f.describe DESCRIZIONE,
+                f.cod_minsan10 CODICE,
+                fs.descrizione principio_attivo
+                from cc_farmaci f
+                left outer join CC_FARMACI_SOSTANZE fs on(f.iden_sostanza=fs.iden and fs.attivo='S')
+                where
+                (:descr is null or f.describe like '%'||:descr|| '%')
+                and (:principio is null or fs.descrizione like '%'||:principio|| '%')
+                and (:codice is null or f.cod_minsan10 = :codice)
+                and f.attivo = 'S' and fs.attivo = 'S'
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_ORGANISMI">
+            <SQL>
+                select descr, COD_DEC value from TAB_esa where cod_dec in ('9902','9031') and cod_esa like 'E%'
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_GET_ORGANISMI">
+            <SQL>
+                select
+                    decode(idanalisi, '9902', 'Ricerca colturale klebsiella pneumoniae  KPC' ,'9031' ,'Ricerca tossine Clostridium difficile', null) DESCR,
+                    POSITIVITA,
+                    TO_CHAR(DATA_POSITIVITA,'DD/MM/YYYY') DATA_POSITIVITA,
+                    POSITIVITA_PREGRESSA,
+                    TO_CHAR(DATA_P_PREGRESSA,'DD/MM/YYYY') DATA_P_PREGRESSA
+                from
+                    table(infoweb.verificaAllerteLabo((select id1 from cod_est_anag where iden_anag = :idenAnag)))
+                where
+                positivita = 'S'
+                or
+                positivita_pregressa = 'S'
+            </SQL>
+        </QUERY>
+        <QUERY id="INS_ORGANISMI_MULTIRESISTENTI">
+            <SQL>
+                declare
+                    vIdPaziente varchar2(100);
+                    vIdenAnag number := :IDEN_ANAG;
+                    vData date:= to_date(:DATE_POS,'DD/MM/YYYY');
+                    vGerme varchar2(15):= :GERME;
+                    vUteIns varchar2(100):= :UTE_INS;
+                begin
+                    select id1 into vIdPaziente from COD_EST_ANAG where IDEN_ANAG = vIdenAnag;
+
+                    insert into infoweb.dati_strutt_allerte
+                        (stridanalisisingola,idpaziente,positivita,data,utente)
+                    values
+                        (vGerme,vIdPaziente,'S',vData,vUteIns);
+
+                exception when others then
+                gest_logs.error('PS.INS_ORGANISMI_MULTIRESISTENTI','ERROR -> '||dbms_utility.format_error_backtrace||' - '||SQLERRM);
+
+
+                end;
+
+            </SQL>
+        </QUERY>
+
+
+    </QUERY_GROUP>
+</QUERIES>

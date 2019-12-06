@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.pulsanteInline A{
+	width:100%;
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:25px;
+	
+	float:left;
+	background-image:url(../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	display:block;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.pulsanteInline A:hover {
+	width:100%;	
+	background-image:url(../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;	
+}
+
+
+.infoInLine{
+	display:block;
+	background-color:#09C;
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+	height:25px;
+	line-height:25px;
+	width:100%;
+	overflow:hidden;
+	
+}
+
+.infoInLineSubTitle{
+	display:block;
+	background-color:#03F;	
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+}
+
+SPAN.closeLinkInLine{
+	float:right;
+	top:-24px;
+	position:relative;
+	width:23px;
+	height:23px;
+	background-image:url(../../imagexPix/button/mini/btCloseInLine.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+} 

@@ -1,0 +1,69 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'PS.Q_LOAD_INS_RICHIESTE@PS'; :where := null; :campo_xml := null; end;">
+
+    <DATO key_id="radRichieste" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione="" configurazione_multi_data="OE.Q_RICHIESTE@WHALE"/>
+
+    <DATO key_id="cmbRepartoConsulenze" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione="" configurazione_multi_data="OE.Q_REPARTO_CONSULENZE@WHALE"/>
+
+    <DATO key_id="cmbStrutturaCons" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione="" configurazione_multi_data="OE.Q_STRUTTURE@WHALE"/>
+
+    <DATO key_id="hAnagIden" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="iden_anag" db_descrizione="iden_anag" configurazione_multi_data=""/>
+
+    <DATO key_id="hAnagNome" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="nome" db_descrizione="nome" configurazione_multi_data=""/>
+
+    <DATO key_id="hAnagCognome" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cognome" db_descrizione="cognome" configurazione_multi_data=""/>
+
+    <DATO key_id="hAnagSesso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="sesso" db_descrizione="sesso" configurazione_multi_data=""/>
+
+    <DATO key_id="hAnagCodFisc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="codice_fiscale" db_descrizione="codice_fiscale" configurazione_multi_data=""/>
+
+    <DATO key_id="hAnagDataNasc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="data_nascita" db_descrizione="data_nascita" configurazione_multi_data=""/>
+
+    <DATO key_id="hContCodice" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="codice" db_descrizione="codice" configurazione_multi_data=""/>
+
+    <DATO key_id="hStruttura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="struttura" db_descrizione="struttura" configurazione_multi_data=""/>
+
+    <DATO key_id="hProblemaPrinc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="cmb_problema" db_descrizione="cmb_problema" configurazione_multi_data=""/>
+
+    <DATO key_id="hDescrProblemaPrinc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="descr_problema" db_descrizione="descr_problema" configurazione_multi_data=""/>
+
+    <DATO key_id="hCodCdc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_CDC" db_descrizione="COD_CDC" configurazione_multi_data=""/>
+
+    <DATO key_id="hCodDec" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_DEC" db_descrizione="COD_DEC" configurazione_multi_data=""/>
+
+    <DATO key_id="hCatena" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="catena" db_descrizione="catena" configurazione_multi_data=""/>
+
+    <DATO key_id="hEsamiForensi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESAMI_FORENSI" db_descrizione="ESAMI_FORENSI" configurazione_multi_data=""/>
+
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="stato_contatto" db_descrizione="stato_contatto" configurazione_multi_data="" />
+
+    <DATO key_id="hUbicazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UBICAZIONE" db_descrizione="UBICAZIONE" configurazione_multi_data="" />
+
+    <DATO key_id="hUtenteResponsabile" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTENTE_RESPONSABILE" db_descrizione="UTENTE_RESPONSABILE" configurazione_multi_data="" />
+
+    <DATO key_id="hDataAperturaCartella" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="data_apertura_cartella" db_descrizione="data_apertura_cartella" configurazione_multi_data="" />
+
+    <DATO key_id="hUrgenzaRichiesta" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione="" configurazione_multi_data="PS.Q_URGENZA_RICHIESTE@PS" />
+
+</DATI>

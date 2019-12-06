@@ -1,0 +1,8 @@
+<INCLUDE>
+    <CSS path="css/PS/CodiceColore/CodiceColore.css" />
+    <!--<CSS path="css/PS/AnamnesiInf/AnamnesiInf.css" />-->
+    <!--<JS path="js/Base/NO-min/jquery.autosize.js"/>-->
+    <JS path="js/PS/DialogPS/DialogPS.js"/>
+    <JS path="js/PS/EsameObiettivo/EsameObiettivo.js"/>
+    <JS path="config/PS/validator/model/V_ESAME_OBIETTIVO.js" />
+</INCLUDE>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="ACCORDION_RIQ">
+        <OBJ classe_id="PATH::h3">
+            <PROC id="VOID"/>
+        </OBJ>
+        <OBJ classe_id="PATH::h3.a">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::h3.a">
+            <PROC id="setTagValue">
+                <PAR translate="true" type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div*">
+            <PROC id="VOID"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

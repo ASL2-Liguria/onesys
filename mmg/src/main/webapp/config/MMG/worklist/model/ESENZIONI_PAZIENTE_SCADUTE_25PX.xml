@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>ESENZIONI_PAZIENTE_SCADUTE_25PX</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.ESENZIONI_PAZIENTE_SCADUTE</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('CODICE');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>CODICE_ESENZIONE</COL>
+						<DB>CODICE_ESENZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Codice"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_FINE_ESENZIONE</COL>
+						<DB>DATA_FINE_ESENZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Data fine"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>	
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCR_ESENZIONE</COL>
+						<DB>DESCR_ESENZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Descrizione"</DESCRIPTOR>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>TIPOLOGIA</COL>
+						<DB>TIPOLOGIA</DB>
+					</ID>
+					<DESCRIPTOR>"Tipologia"</DESCRIPTOR>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+							
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_FINE_ESENZIONE">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

@@ -1,0 +1,203 @@
+<root>
+	<statements_list>
+	
+		<statement name="saveConsensoEspresso">	
+			<sql>
+			<![CDATA[
+                declare
+                    vIden               pls_integer:=to_number(?);
+                    vIdenAnag           pls_integer:=to_number(?);
+                    vTabella            varchar2(4000):=?;
+                    vTipologiaDocumento varchar2(4000):=?;
+                    vTagConsensi        varchar2(4000):=?;
+                    vIdenPer            pls_integer:=to_number(?);
+                    vConsenso           xmltype:=null;
+                begin
+                    gest_logs.error('INSERIMENTO CONSENSO',to_char(vIden)||' '||vTabella||' '||vTipologiaDocumento||' '||vTagConsensi);
+                    radsql.PCK_PRIVACY.registraConsensoEspresso(vTipologiaDocumento,vTabella,vIden,vIdenAnag,vTagConsensi,vConsenso,vIdenPer,null,null);
+                end;
+                
+			]]>
+			</sql>
+		</statement>		
+		<statement name="loadConsensoEspressoRicovero">	
+			<sql>
+			<![CDATA[
+                select 
+                    extractvalue(privacy_evento,'/consenso/confidentiality-code/text()') consenso_espresso,
+                    extractvalue(privacy_evento,'/consenso/confidentialy-descriptors/descriptor[@key="001"]/@key') volonta_cittadino,
+                    extractvalue(privacy_evento,'/consenso/confidentialy-descriptors/descriptor[@key!="001"]/@key') per_legge
+                from
+                    nosologici_paziente
+                where 
+                    iden = to_number(?)
+			]]>
+			</sql>
+		</statement>		
+		<statement name="loadConsensoEspressoRichiesta">	
+			<sql>
+			<![CDATA[
+                select 
+                    extractvalue(privacy_evento,'/consenso/confidentiality-code/text()') consenso_espresso,
+                    extractvalue(privacy_evento,'/consenso/confidentialy-descriptors/descriptor[@key="001"]/@key') volonta_cittadino,
+                    extractvalue(privacy_evento,'/consenso/confidentialy-descriptors/descriptor[@key!="001"]/@key') per_legge
+                from
+                    infoweb.testata_richieste
+                where 
+                    iden = to_number(?)
+			]]>
+			</sql>
+		</statement>		
+		<statement name="loadConsensoEspressoLettera">	
+			<sql>
+			<![CDATA[
+                select 
+                    extractvalue(privacy_lettera,'//lettera[@funzione="'||?||'"]/consenso/confidentiality-code/text()') consenso_espresso,
+                    extractvalue(privacy_lettera,'//lettera[@funzione="'||?||'"]/consenso/confidentialy-descriptors/descriptor[@key="001"]/@key') volonta_cittadino,
+                    extractvalue(privacy_lettera,'//lettera[@funzione="'||?||'"]/consenso/confidentialy-descriptors/descriptor[@key!="001"]/@key') per_legge
+                from
+                    nosologici_paziente
+                where 
+                    iden = to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="loadConsensoEspressoDocumento">	
+			<sql>
+			<![CDATA[
+                declare
+                    vConsensoEspresso   varchar2(4000):='';
+                    vVolontaCittadino   varchar2(4000):='';
+                    vPerLegge           varchar2(4000):='';
+                    vIden               pls_integer:=to_number(?);
+                    vFunzione           varchar2(4000):=?;
+                begin
+                    if (vFunzione in ('CONSULENZE_REFERTAZIONE','PRESA_IN_CARICO')) then
+                        select 
+                            extractvalue(privacy_documento,'documenti/documento[@funzione="'||vFunzione||'"]/consenso/confidentiality-code/text()') consenso_espresso,
+                            extractvalue(privacy_documento,'documenti/documento[@funzione="'||vFunzione||'"]/consenso/confidentialy-descriptors/descriptor[@key="001"]/@key') volonta_cittadino,
+                            extractvalue(privacy_documento,'documenti/documento[@funzione="'||vFunzione||'"]/consenso/confidentialy-descriptors/descriptor[@key!="001"]/@key') per_legge                   
+                        into
+                            vConsensoEspresso,
+                            vVolontaCittadino,
+                            vPerLegge
+                        from
+                            infoweb.testata_richieste
+                        where 
+                            iden = vIden;
+                    else
+                        select 
+                            extractvalue(privacy_documento,'/documenti/documento[@funzione="'||vFunzione||'"]/consenso/confidentiality-code/text()') consenso_espresso,
+                            extractvalue(privacy_documento,'/documenti/documento[@funzione="'||vFunzione||'"]/consenso/confidentialy-descriptors/descriptor[@key="001"]/@key') volonta_cittadino,
+                            extractvalue(privacy_documento,'/documenti/documento[@funzione="'||vFunzione||'"]/consenso/confidentialy-descriptors/descriptor[@key!="001"]/@key') per_legge
+                        into
+                            vConsensoEspresso,
+                            vVolontaCittadino,
+                            vPerLegge
+                        from
+                            nosologici_paziente
+                        where 
+                            iden = vIden;
+                    end if;                                                                                               
+                    ?:= vConsensoEspresso;
+                    ?:= vVolontaCittadino;
+                    ?:= vPerLegge;       
+                end;    
+			]]>
+			</sql>
+		</statement>
+		<statement name="getConsensoUnico">	
+                    <sql>
+                        <![CDATA[
+                            SELECT CASE WHEN PRIVACY_PAZIENTE IS NOT NULL OR PRIVACY_PAZIENTE <> '' THEN EXISTSNODE(XMLTYPE(PRIVACY_PAZIENTE),'/consenso/flag[@key="A1" and @value="S"]') ELSE 0 END A1 
+                            FROM ANAG
+                            WHERE iden = to_number(?)
+                        ]]>
+                    </sql>
+		</statement>
+		<statement name="getConsensoUnicoStudio">	
+                    <sql>
+                        <![CDATA[
+                            SELECT CASE WHEN PRIVACY_PAZIENTE IS NOT NULL OR PRIVACY_PAZIENTE <> '' THEN EXISTSNODE(XMLTYPE(PRIVACY_PAZIENTE),'/consenso/flag[@key="C1" and @value="S"]') ELSE 0 END C1 
+                            FROM ANAG
+                            WHERE iden = to_number(?)
+                        ]]>
+                    </sql>
+		</statement>
+		<statement name="getListDocumentPatient">	
+			<pool>registryPool_oracle_whale</pool>
+			<schema>XDSREGISTRY</schema>
+                    <sql>
+                        <![CDATA[
+                            --SELECT 
+                            --    s.VALUE ID
+                            --    , s2.VALUE CREATIONTIME
+                            --    , c.NODEREPRESENTATION OSCURAMENTO
+                            --    , s3.VALUE NUM_NOSOLOGICO
+                            --FROM EXTERNALIDENTIFIER@testrepository ei
+                            --JOIN SLOT@testrepository s ON ei.REGISTRYOBJECT = s.PARENT AND s.NAME = 'identificativoEsterno'
+                            --JOIN SLOT@testrepository s2 ON ei.REGISTRYOBJECT = s2.PARENT AND s2.NAME = 'creationTime'
+                            --LEFT OUTER JOIN SLOT@testrepository s3 ON ei.REGISTRYOBJECT = s3.PARENT AND s3.NAME = 'nosologico'
+                            --JOIN CLASSIFICATION@testrepository c ON c.CLASSIFIEDOBJECT = ei.REGISTRYOBJECT AND c.CLASSIFICATIONSCHEME = 'urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f'
+                            --WHERE ei.VALUE = ?||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO' OR ei.VALUE = ?||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO'
+                            
+                            SELECT 
+                            	ei.REGISTRYOBJECT ID
+                                , s.VALUE ID_RICHIESTA
+                                , s2.VALUE CREATIONTIME
+                                , c.NODEREPRESENTATION OSCURAMENTO
+                                , s3.VALUE NUM_NOSOLOGICO
+                                ,c1.NODEREPRESENTATION REDATTORE
+                            FROM XDSREGISTRY.EXTERNALIDENTIFIER ei
+                            JOIN XDSREGISTRY.SLOT s ON ei.REGISTRYOBJECT = s.PARENT AND s.NAME = 'identificativoEsterno'
+                            JOIN XDSREGISTRY.SLOT s2 ON ei.REGISTRYOBJECT = s2.PARENT AND s2.NAME = 'creationTime'
+                            LEFT OUTER JOIN XDSREGISTRY.SLOT s3 ON ei.REGISTRYOBJECT = s3.PARENT AND s3.NAME = 'nosologico'
+                            JOIN XDSREGISTRY.CLASSIFICATION c ON c.CLASSIFIEDOBJECT = ei.REGISTRYOBJECT AND c.CLASSIFICATIONSCHEME = 'urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f'
+                            JOIN XDSREGISTRY.CLASSIFICATION c1 ON c1.CLASSIFIEDOBJECT = ei.REGISTRYOBJECT AND c1.CLASSIFICATIONSCHEME = 'urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead'
+                            WHERE ei.VALUE = ?||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO' OR ei.VALUE = ?||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO'                            
+                        ]]>
+                    </sql>
+		</statement>
+        <statement name="getListDocumentPatientID">	
+        <pool>registryPool_oracle_whale</pool>
+		<schema>XDSREGISTRY</schema>
+            <sql>
+                <![CDATA[
+                    SELECT 
+                    	ei.REGISTRYOBJECT ID,
+                      (SELECT value
+                      FROM XDSREGISTRY.slot
+                      WHERE parent=doc.id
+                      AND name    ='creationTime'
+                      ) CREATIONTIME,
+                      (SELECT value FROM XDSREGISTRY.slot WHERE Parent=Doc.Id AND Name='URI'
+                      ) URI,
+                      (SELECT STRING_AGG(value)
+                      FROM XDSREGISTRY.slot
+                      WHERE parent= doc.id
+                      AND name    ='nosologico'
+                      ) NUM_NOSOLOGICO,
+                      (SELECT e.value
+                      FROM XDSREGISTRY.externalidentifier e
+                      WHERE doc.id              =e.registryobject
+                      AND e.identificationscheme='urn:uuid:2e82c1f6-a085-4c72-9da3-8640a32e42ab'
+                      )                   AS ID_RICHIESTA,
+                      (SELECT NODEREPRESENTATION
+                      FROM xdsregistry.CLASSIFICATION
+                      WHERE CLASSIFICATIONSCHEME='urn:uuid:41a5887f-8865-4c09-adf7-e362475b143a'
+                      AND CLASSIFIEDOBJECT      =doc.id
+                      ) Tipodoc,
+
+                      (SELECT c.NODEREPRESENTATION FROM XDSREGISTRY.CLASSIFICATION c WHERE c.CLASSIFIEDOBJECT = doc.ID AND c.CLASSIFICATIONSCHEME = 'urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f') OSCURAMENTO,
+					  (SELECT c.NODEREPRESENTATION FROM XDSREGISTRY.CLASSIFICATION c WHERE c.CLASSIFIEDOBJECT = doc.id AND c.CLASSIFICATIONSCHEME='urn:uuid:cccf5598-8b07-4b77-a05e-ae952c785ead') REDATTORE
+                    FROM XDSREGISTRY.EXTRINSICOBJECT doc
+                    INNER JOIN XDSREGISTRY.externalidentifier e2
+                    ON (doc.id                 =e2.registryobject
+                    AND e2.identificationscheme= 'urn:uuid:58a6f841-87b3-4a3e-92fd-a8ffeff98427')
+                    WHERE e2.VALUE = ?||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO' OR e2.VALUE = ?||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO'                            
+                ]]>
+            </sql>
+</statement>                   
+    </statements_list>
+    
+</root>

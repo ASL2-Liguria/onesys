@@ -1,0 +1,54 @@
+body{padding-right:10px;}
+
+table {
+	background:#b9e0ff;
+}
+
+#lblFarmaciElenco {
+	width:300px;
+}
+#lblFarmaciSelezionati{
+	width:300px;
+}
+#lblPrestazioniElenco{
+	width:300px;
+}
+#lblPrestazioniSelezionate{
+	width:300px;
+}
+	
+#divRiepilogoEsenzioni{
+	background:#b9e0ff;
+}
+
+#groupEsenzioni label{
+	width:300px;
+}
+fieldset{
+	PADDING-TOP:10PX;
+	margin-RIGHT:10px;
+	margin-LEFT:10px;
+	margin-BOTTOM:15px;
+	border:3px solid #fff;
+	padding:10px;
+}
+
+fieldset legend{
+	font-weight:bold;
+	margin-bottom:10px;
+}
+
+fieldset label{
+	font-size:12px;
+	cursor:pointer;
+}
+
+select{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	overflow: AUTO;
+}
+
+#txtRicercaFarmaci, #txtRicercaPrincipioAttivo, #txtRicercaPrestazione, #txtRicercaCodice {
+	text-transform: uppercase;
+}

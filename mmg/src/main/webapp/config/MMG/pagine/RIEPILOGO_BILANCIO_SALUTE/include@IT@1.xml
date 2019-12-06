@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/CartellaPediatrica/Riepilogo_Bilancio_Salute.css" />
+	<JS path="js/MMG/CartellaPediatrica/Riepilogo_Bilancio_Salute.js" />
+</INCLUDE>

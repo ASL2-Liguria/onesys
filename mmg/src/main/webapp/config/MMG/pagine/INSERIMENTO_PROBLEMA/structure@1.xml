@@ -1,0 +1,58 @@
+<PAGINA key_id="INSERIMENTO_PROBLEMA">
+	<HEADER_PAGE key_id="INSERIMENTO_PROBLEMA"
+		valore="DEFAULT_MMG,SCHEDA,INSERIMENTO_PROBLEMA#DEFAULT_MMG,INSERIMENTO_PROBLEMA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_INSERIMENTO_PROBLEMA#MMG_DATI#MMG_PROBLEMI#IDEN#IDEN##VPROBL"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabProblema"
+			valore="inserimentoProblema#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento"
+				valore="tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldProblema" valore="fldProblema"
+					evento="START">
+					<TR_TD_LABEL_DATA key_id="Data"
+						valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y',direction:false#disabled:false##DATA"
+						evento="START_END">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_RADIO key_id="TipoProblema"
+						valore="lblTipoProblema##TipoProblema#radTipoProblema##N#TIPO_PROBLEMA"
+						evento="START_END">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_AUTOCOMPLETE key_id="DescrProblema"
+						valore="lblDescrProblema#acProblema#DescrProblema#txtDescrProblema#AC_PROBLEMA#DESCR_ICD9"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="CodProblema"
+						valore="lblCodProblema#acCodProblema#CodProblema#txtCodProblema#AC_CODICE_PROBLEMA#CODICE_ICD9"
+						evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_LABEL_TEXT key_id="Problema"
+						valore="lblProblema##txtProblema###DESCRIZIONE_PROBLEMA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="aRischio" 
+						valore="lblaRischio##aRischio#radaRischio#{width:150,idxDefault:1}#S#RISCHIO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_BUTTON key_id="Gravidanza" valore="btnGravidanza#btnGravidanza"
+						evento="START">
+					</TR_TD_BUTTON>
+					<TR_TD_LABEL_DATA key_id="DataUltimeMestruazioni"
+						valore="lblDataUM##txtDataUM#DataUM# format: 'd/m/Y',direction:false#disabled:false##DATA_UM"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					<INPUT.HIDDEN key_id="IdenIcd" valore="hIdenIcd###IDEN_ICD"
+						evento="START">
+					</INPUT.HIDDEN>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteProblema" valore="fldNoteProblema"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="NoteProblema" valore="txtAreaNoteProblema#NOTE#2"
+						evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

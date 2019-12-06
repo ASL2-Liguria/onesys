@@ -1,0 +1,541 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- <link href='../std/css/textArea.css' type='text/css' rel='stylesheet'> -->
+<link href="../std/jscript/jQueryUI/themes/cupertino/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script type="text/javascript"	src="../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script src="../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.widget.js"></script>
+<script src="../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<script type="text/javascript" src="../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../std/jscript/optionJsUtil.js"></script>   
+
+<script type='text/javascript' src="../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+<link rel="stylesheet"	href="../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<script type="text/javascript" language="javascript"	src="../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8" src="../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<link href='../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="../std/css/dataTable.css" rel="stylesheet" type="text/css" />
+<link href="css/notificheSistema.css" rel="stylesheet" type="text/css" />
+
+<script type='text/javascript' src='../dwr/util.js' language='JavaScript'></script>
+<script type='text/javascript' src='../dwr/engine.js' language='JavaScript'></script>
+
+
+<link href='../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../std/css/dataEntryTable.css">
+<script type="text/javascript" src="../dwr/interface/functionDwr.js"></script>
+<script type="text/javascript" src="../dwr/interface/eventDWR.js"></script>
+<script type="text/javascript" src="../dwr/interface/toolKitDB.js"></script>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Elenco pazienti non presentati</title>
+<script>
+var divNotifica = "idNotifica";
+// JavaScript Document
+// ******************
+(function($) {
+/*
+ * Function: fnGetColumnData
+ * Purpose:  Return an array of table values from a particular column.
+ * Returns:  array string: 1d data array
+ * Inputs:   object:oSettings - dataTable settings object. This is always the last argument past to the function
+ *           int:iColumn - the id of the column to extract the data from
+ *           bool:bUnique - optional - if set to false duplicated values are not filtered out
+ *           bool:bFiltered - optional - if set to false all the table data is used (not only the filtered)
+ *           bool:bIgnoreEmpty - optional - if set to false empty values are not filtered from the result array
+ * Author:   Benedikt Forchhammer <b.forchhammer /AT\ mind2.de>
+ */
+$.fn.dataTableExt.oApi.fnGetColumnData = function ( oSettings, iColumn, bUnique, bFiltered, bIgnoreEmpty ) {
+	var oTable = $("#TAB_NOTIFICHE").dataTable();
+    // check that we have a column id
+    if ( typeof iColumn == "undefined" ) return new Array();
+     
+    // by default we only want unique data
+    if ( typeof bUnique == "undefined" ) bUnique = true;
+     
+    // by default we do want to only look at filtered data
+    if ( typeof bFiltered == "undefined" ) bFiltered = true;
+     
+    // by default we do not want to include empty values
+    if ( typeof bIgnoreEmpty == "undefined" ) bIgnoreEmpty = true;
+     
+    // list of rows which we're going to loop through
+    var aiRows;
+     
+    // use only filtered rows
+    if (bFiltered == true) aiRows = oSettings.aiDisplay;
+    // use all rows
+    else aiRows = oSettings.aiDisplayMaster; // all row numbers
+ 
+    // set up data array   
+    var asResultData = new Array();
+
+    for (var i=0,c=aiRows.length; i<c; i++) {
+        iRow = aiRows[i];
+//        var aData = this.fnGetData(iRow);
+        var aData = this.fnGetData(iRow);
+        var sValue = aData[iColumn];
+        // ignore empty values?
+//		if (typeof(sValue)!="undefined"){
+			try{
+				if (typeof(sValue) != "undefined"){
+					if (bIgnoreEmpty == true && sValue.toString==""){ 
+						continue; 
+					}
+					// ignore unique values?
+					else if (bUnique == true && jQuery.inArray(sValue, asResultData) > -1){
+						continue;
+					}
+					// else push the value onto the result data array
+					else{
+						asResultData.push(sValue);
+					}
+				}
+			}catch(e){alert("##" + e.description +"##");}
+//		}
+    }
+//	alert("#" + asResultData +"#");
+    return asResultData;
+}}(jQuery));
+ 
+ 
+function fnCreateSelect( aData )
+{
+	var strOutput= "";
+	try{
+		var r='<select><option value=""></option>', i, iLen=aData.length;
+		for ( i=0 ; i<iLen ; i++ )
+		{
+			r += '<option value="'+aData[i]+'">'+aData[i]+'</option>';
+		}
+		strOutput = r+'</select>';
+
+	}
+	catch(e){
+		alert("fnCreateSelect - Error: " + e.description);
+	}
+    return strOutput;
+}
+
+// *******************
+var params;
+function getParams() {
+	try{
+		var idx = document.URL.indexOf('?');
+		if (idx != -1) {
+			var tempParams =  new Hashtable();
+			var pairs = document.URL.substring(idx+1,document.URL.length).split('&');
+			for (var i=0; i<pairs.length; i++) {
+				nameVal = pairs[i].split('=');
+				tempParams.put(nameVal[0],nameVal[1]);
+			}
+			return tempParams;
+		}
+	}
+	catch(e){
+		alert("getParams - Error:  "+ e.description);
+	}
+}	
+function getHomeFrame(){
+	var objHomeFrame;
+	
+	try{
+		if (params.get("sorgente")=="home"){
+			objHomeFrame = parent;
+		}
+		else if (params.get("sorgente")=="console"){
+			// modifica 29-7-15
+			objHomeFrame = parent.parent.top.opener.top;
+		}
+		else{
+			objHomeFrame = parent;
+		}
+	}
+	catch(e){alert(e.description);}
+	return objHomeFrame;
+}
+
+function init(){
+	try{
+		params = getParams();
+		if (params.get("idRemoto")=="" || params.get("idRemoto")=="undefined" || typeof(params.get("idRemoto"))=="undefined"){
+			$("#btNewMsg").hide();
+		}
+		creaLivelloPerNotifica();
+		 $( "#filtriTipoMsg" ).buttonset().find('label').css('width', '33.3%');
+		 
+		 
+//alert(		 jQuery("input:radio[name='filtriTipoMsg']:checked").val());
+		initDataTable();
+	}
+	catch(e){
+		alert("init - Error:  "+ e.description);
+	}
+}
+
+function highlightCheckCell(idCheck, triggeredBy){
+	try{
+//		alert($(triggeredBy).get(0).tagName);
+		if($("#" + idCheck).attr('checked')){
+			$("#" + idCheck).parent().addClass("selectedChk");
+		}
+		else{
+			$("#" + idCheck).parent().removeClass("selectedChk");
+		}
+	}
+	catch(e){
+		alert("highlightCheckCell - Error:  "+ e.description);
+	}
+}
+
+function initDataTable(){
+	var strTmp= "";
+	var strPriorita = "";
+	try{
+		oTable = $('#TAB_NOTIFICHE').dataTable({
+			"bPaginate": false,
+			"bLengthChange": true,
+			"bFilter": true,
+			"bSort": true,
+			"bInfo": false,
+			"bAutoWidth": false,
+ 		 	"sScrollY": "600px",
+	        "bScrollCollapse": true,
+			"aoColumns": [
+			{ "sWidth": "32px" , "bSearchable": false}, // 0th column width 							  						  						  
+			{ "sWidth": "32px" , "bSearchable": false}, // 0th column width 							  						  
+			{ "sWidth": "5%" , "bSearchable": false}, // 1st column width 							  
+			{ "sWidth": "10%" , "bSearchable": true}, // 2st column width 			
+			{ "sWidth": "20%" , "bSearchable": true}, // 3rd column width 
+			{ "sWidth": "20%" , "bSearchable": true}, // 4rd column width 
+			{ "sWidth": "15%" , "bSearchable": true }, // 5th column width 
+			{ "sWidth": "15%" , "bSearchable": true }, // 6th column width 			
+			{ "sWidth": "5%" , "bSearchable": false} // 7th column width 
+			
+			],				
+			"bJQueryUI": false,
+			'bRetrieve': true,
+			"oLanguage": {
+					"sZeroRecords": "Nessun elemento"
+				}
+			});
+			if (params.get("idRemoto")!="" && params.get("idRemoto")!="undefined" && typeof(params.get("idRemoto"))!="undefined"){
+				// richiesta history notifiche paziente
+				try{rs = getHomeFrame().executeQuery('notificheSistema_SV.xml','getMyMessagesByIdRemoto_SentRcvd',[params.get("codUtente"),params.get("codUtente"),params.get("idRemoto")]);}catch(e){alert("Errore: getMyMessages");}						
+			}
+			else{
+				// richiesto elenco news
+				// decommentare 
+				try{rs = getHomeFrame().executeQuery('notificheSistema_SV.xml','getMyMessages_SentRcvd',[params.get("codUtente"),params.get("codUtente")]);}catch(e){alert("Errore: getMyMessages");}		
+				
+			}
+		while (rs.next()){
+			strTmp = "{\"LETTO\":\"" + rs.getString("letto") + "\"";
+			strTmp += ",\"IDEN\":\"" + rs.getString("IDEN") +"\"";
+//			strTmp += ",\"MESSAGGIO\":\"" + rs.getString("messaggio").toString().replaceAll("\"","\\\"") + "\"";
+	//		strTmp += ",\"OGGETTO\":\"" + rs.getString("oggetto").toString().replaceAll("\"","\\\"") + "\"";	
+			strTmp += ",\"TESTO\":\"" + rs.getString("XML_TESTO").toString().replaceAll("\"","\\\"") + "\"";	
+			strTmp += ",\"OGGETTO\":\"" + rs.getString("XML_OGGETTO").toString().replaceAll("\"","\\\"") + "\"";			
+			strTmp += ",\"COD_DEC_TARGET\":\"" + rs.getString("COD_DEC_TARGET") +"\"";			
+			strTmp += ",\"destinatario\":\"" + rs.getString("destinatario") +"\"";						
+			strTmp += ",\"DATA_INSERIMENTO\":\"" + rs.getString("DATA_INSERIMENTO") +"\"";									
+			strTmp += ",\"DATA_LETTURA\":\"" + rs.getString("DATA_LETTURA") +"\"";		
+			strTmp += ",\"COD_DEC_SOURCE\":\"" + rs.getString("COD_DEC_SOURCE") +"\"";				
+			strTmp += ",\"DATA_INSERIMENTO_ITA\":\"" + rs.getString("DATA_INSERIMENTO_ITA") +"\"";	
+			strTmp += ",\"GENERATO_DA\":\"" + rs.getString("GENERATO_DA") +"\"";				
+			strTmp += ",\"COGNOME\":\"" + rs.getString("XML_COGNOME") +"\"";				
+			strTmp += ",\"NOME\":\"" + rs.getString("XML_NOME") +"\"";				
+			strTmp += ",\"CODICE_FISCALE\":\"" + rs.getString("XML_CODICE_FISCALE") +"\"";				
+			strTmp += ",\"SESSO\":\"" + rs.getString("XML_SESSO") +"\"";							
+			strTmp += ",\"ID_REMOTO\":\"" + rs.getString("XML_ID_REMOTO") +"\"";							
+			strTmp += ",\"DESCR_UTENTE_SOURCE\":\"" + rs.getString("XML_DESCR_UTENTE_SOURCE") +"\"";
+			strTmp += ",\"COD_UTENTE_SOURCE\":\"" + rs.getString("XML_COD_UTENTE_SOURCE") +"\"";
+			strTmp += ",\"SORGENTE\":\"" + rs.getString("XML_SORGENTE") +"\"";			
+			strTmp += ",\"DATA_NASCITA\":\"" + rs.getString("XML_DATA_NASCITA") +"\"";
+			strTmp += ",\"PRIORITA\":\"" + rs.getString("PRIORITA") +"\"";			
+			// generato_da cod_dec_source
+			// SORGENTE@COD_UTENTE_SOURCE
+			strTmp += "}";
+//			alert(strTmp);
+			strTmp = strTmp .replaceAll("\n","\\n");
+			jsonObj = JSON.parse(strTmp);
+			listaNotifiche.push(jsonObj);
+		}		
+		if (listaNotifiche.length>0){
+			var strStatoLetto = "";
+			var paziente = "";
+			var strReplyIcon = "";
+			var srtInvRcv = "";
+			for(var i=0;i<listaNotifiche.length;i++){
+				if (listaNotifiche[i].LETTO=="S"){
+					strStatoLetto = "<span class='docRead' title='Messaggio letto' id='notificaLettura_" + i + "' ></span>";				
+				}
+				else{
+					strStatoLetto = "<span class='docUnread' title='Messaggio non letto' id='notificaLettura_" + i + "' ></span>";				
+				}				
+//				alert(i +" " + listaNotifiche[i].iden + " " + listaNotifiche[i].descr + " " + tipo);
+				paziente = listaNotifiche[i].COGNOME +" " + listaNotifiche[i].NOME +" " +listaNotifiche[i].DATA_NASCITA;
+//				"<a href='#' onclick='javascrip:replyMsg(" + i +");return false;'>Rispondi</a>"
+				strPriorita = listaNotifiche[i].PRIORITA.toString() =="1"?"<span class='altaPriorita'>&nbsp;</span>":"<span class='bassaPriorita'>&nbsp;</span>";
+//				alert(params.get("codUtente") + ","+listaNotifiche[i].COD_UTENTE_SOURCE);
+				if (params.get("codUtente")==listaNotifiche[i].COD_UTENTE_SOURCE){
+					// da me inviato !!
+					strReplyIcon = "&nbsp;";
+					srtInvRcv = "INV";
+				}
+				else{ 
+					strReplyIcon = "<span class='replyIcon' title='Rispondi' id='id_replyTo_" + i + "' onclick='javascrip:replyMsg(" + i +");return false;'></span>";
+					srtInvRcv = "RCV";					
+				}
+				
+				oTable.fnAddData( [srtInvRcv,strReplyIcon,strPriorita,listaNotifiche[i].SORGENTE, "<a href\"#\" onclick=\"openDialog(" + i +");\" class=\"linkOggettoMsg\">" + listaNotifiche[i].OGGETTO +"</a>",paziente ,listaNotifiche[i].DATA_INSERIMENTO_ITA,listaNotifiche[i].DESCR_UTENTE_SOURCE, strStatoLetto],false);	
+			//	oTable.fnAddData( ["sss",i,"jjj"]);
+			}
+			try{oTable.fnDraw();		}catch(e){}			
+			setTimeout(function (){oTable.fnAdjustColumnSizing();}, 10 );	
+			setTimeout(function (){oTable.fnSort( [ [6,'desc'] ] );},1000);
+			$("#TAB_NOTIFICHE tr").hover(function()
+			{
+				$(this).children("td").removeClass("normal").addClass("highlight");
+			},
+			function()
+			{
+				$(this).children("td").removeClass("highlight").addClass("normal");
+			});		
+							
+					
+			/* Lasciare per ultimo: costruisce i filtri */
+			$("tfoot th[id^='colCombo']").each( function ( i ) {
+			    var strHtml = "";
+				var indiceColonna = $(this).attr("id").split("_")[1];
+				if (indiceColonna!=0){
+					strHtml = fnCreateSelect( oTable.fnGetColumnData(indiceColonna) );
+					this.innerHTML =  strHtml ;
+					$('select', this).change( function () {
+						try{
+							var valore = $(this).val();
+							// resetto filtri pre esistenti
+							$('#TAB_NOTIFICHE').dataTable().fnFilter( "" );
+							$('#TAB_NOTIFICHE').dataTable().fnFilter( valore, indiceColonna );							
+						}catch(e){alert(e.description);}
+					} );
+				}
+			} );	
+			// setto titolo tabella notifiche in base al tipo
+			// di chiamata
+			if (params.get("idRemoto")!="undefined" && params.get("idRemoto")!="" && typeof(params.get("idRemoto"))!="undefined"){
+				// richiesta history notifiche paziente
+				$("#lblTipoNotifica").html("Notifiche del paziente: ");
+				$("#lblPaziente").html(paziente);
+			}
+			else{
+				// richiesto elenco news
+				$("#lblTipoNotifica").html("Lista miei Messaggi");
+				$("#lblPaziente").html("");	
+			}
+		}
+		else{
+			// nessuna notifica
+				try{var rs = getHomeFrame().executeQuery('notificheSistema_SV.xml','getAnagInfo',[params.get("idRemoto")]);}catch(e){alert("Errore: getAnagInfo");}		
+				if (rs.next()){
+					paziente =  rs.getString("cogn") +" " + rs.getString("nome") +" " + rs.getString("data_nasc");					
+					$("#lblTipoNotifica").html("Notifiche del paziente: ");
+					$("#lblPaziente").html(paziente)						
+				}
+		}
+	}
+	catch(e){
+		alert("init - Error:  "+ e.description);
+	}	
+}
+
+
+function openDialog(indice){
+	try{
+		$( "#" + divNotifica).html(listaNotifiche[indice].TESTO.replace( /\r?\n/g, "<br/>" ));
+		$( "#"+ divNotifica ).dialog( "option", "title", "Messaggio del " + listaNotifiche[indice].DATA_INSERIMENTO_ITA + " da " + listaNotifiche[indice].DESCR_UTENTE_SOURCE).dialog( "open");
+		// cambio stato letto nel db
+		getHomeFrame().gestioneNotifiche.setRead(listaNotifiche[indice].IDEN);
+		// cambio icona !
+		$( "#notificaLettura_"+ indice ).removeClass( "docUnread" ).addClass( "docRead" );
+	}
+	catch(e){
+		alert("openDialog - Error:  "+ e.description);
+	}	
+}
+
+function replyMsg(indice){
+	try{
+		// SORGENTE@COD_UTENTE_SOURCE
+		// gestire: oggetto, quota S/N, testo, destinatario 
+		var codTarget = listaNotifiche[indice].SORGENTE +"@"+ listaNotifiche[indice].COD_UTENTE_SOURCE;
+		var oggetto = listaNotifiche[indice].OGGETTO;
+		var testo = listaNotifiche[indice].TESTO;
+		var idenMsg = listaNotifiche[indice].IDEN;
+		var idRemoto = listaNotifiche[indice].CODICE_FISCALE;
+		var quota = "S";
+		
+		getHomeFrame().gestioneNotifiche.replyToMsg(idenMsg);
+		setTimeout(function(){
+							try{getHomeFrame().jQuery.fancybox.close();}catch(e){;} 
+		},500);
+	}
+	catch(e){
+		alert("replyMsg - Error:  "+ e.description);
+	}	
+}
+
+
+function creaLivelloPerNotifica(testo){
+	try{
+//				$( "#divAnagInfoConsole" ).remove();
+		jQuery('<div/>', {
+			id: divNotifica,
+			title: 'Messaggio'
+		}).appendTo('#myBody');
+		$( "#" + divNotifica).dialog({
+			autoOpen: false,
+			height:"auto",
+			width:700,
+			modal:true
+		});	
+	}
+	catch(e){
+		alert("creaLivelloPerNotifica - Error:  "+ e.description);
+	}	
+}
+
+
+function chiudi(value){
+	if (!value){
+		if (!confirm("Chiudere la scheda corrente ?")){
+			return ;
+		}
+	}
+	getHomeFrame().jQuery.fancybox.close();						
+}
+
+function newMsg(){
+	try{
+		getHomeFrame().gestioneNotifiche.createMsgOnAnag(params.get("idRemoto"));
+		setTimeout(function(){getHomeFrame().jQuery.fancybox.close();	},500);
+	}
+	catch(e){
+		alert("newMsg - Error:  "+ e.description);
+	}			  
+}
+
+
+function filterDataTable(value){
+	try{
+		switch (value){
+			case "SND":
+				$('#TAB_NOTIFICHE').dataTable().fnFilter( "" ,0);			
+				$('#TAB_NOTIFICHE').dataTable().fnFilter( "INV", 0 );				
+				break;			
+			case "RCV":
+				$('#TAB_NOTIFICHE').dataTable().fnFilter( "",0 );			
+				$('#TAB_NOTIFICHE').dataTable().fnFilter( value, 0 );				
+				break;
+			case "ALL":
+				$('#TAB_NOTIFICHE').dataTable().fnFilter( "",0 );			
+				break;
+		}
+			setTimeout(function (){			try{oTable.fnDraw();		}catch(e){}			}, 10 );			
+	}
+	catch(e){
+		alert("filterDataTable - Error:  "+ e.description);
+	}		
+	
+}
+
+// *******************
+
+
+
+</script>
+</head>
+<body style="height:500px" id="myBody">
+<div style="width:98%; overflow:hidden">
+	<table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'><label id='lblTipoNotifica'>Notifiche relative a: </label><label id='lblPaziente'></label></td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+    <div id="filtriTipoMsg">
+        <input type="radio" id="filtriTipoMsgSnd" name="filtriTipoMsg" value="SND" onclick="javascript:filterDataTable(this.value);"><label for="filtriTipoMsgSnd">Inviati</label>
+        <input type="radio" id="filtriTipoMsgRcv" name="filtriTipoMsg" value="RCV" onclick="javascript:filterDataTable(this.value);"><label for="filtriTipoMsgRcv">Ricevuti</label>
+        <input type="radio" id="filtriTipoMsgAll" name="filtriTipoMsg" checked="checked"  value="ALL" onclick="javascript:filterDataTable(this.value);"><label for="filtriTipoMsgAll">Tutti</label>
+    </div>    
+    <table cellpadding="0" cellspacing="0" border="0" width="95%" id="TAB_NOTIFICHE" >
+    <thead>
+        <tr>
+            <th>&nbsp;</th>        
+            <th>&nbsp;</th>
+            <th>Priorit&agrave;</th>                                              
+            <th>Sistema sorgente</th>
+            <th>Oggetto</th>
+            <th>Paziente</th>            
+            <th>Notifica del</th>            
+            <th>Creata da</th>                        
+            <th>Letto</th>                                    
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+	<tfoot>
+		<tr>
+		<!--	<th contiene_combo='N' id="colCombo_0">Filtra per :</th>
+			<th contiene_combo='S' id="colCombo_1"></th>
+			<th contiene_combo='S' id="colCombo_2"></th>
+			<th contiene_combo='S' id="colCombo_3"></th>
+			<th contiene_combo='S' id="colCombo_4"></th>            -->
+		</tr>
+	</tfoot>    
+    </table>	
+
+     <table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+        <tr>
+           <td class='classTabFooterSx'></td>
+           <td class='classTabHeaderMiddle'><label>&nbsp;</label></td>
+           <td class='classButtonHeader'>           
+              <div class='pulsante' id="btNewMsg"><a id='aNewMsg' href='javascript:newMsg();'>Nuovo Msg</a></div>                   
+           </td>
+           <td class='classButtonHeader'>
+              <div class='pulsante'><a id='chiudi' href='javascript:chiudi(false);'>Chiudi</a></div>
+           </td>
+           <td class='classTabFooterDx'></td>
+        </tr>
+     </table>    
+    
+     <script>
+		var listaNotifiche = new Array();
+		var oTable;
+		$(function() {
+			init();
+	   });	 
+     </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+SPAN#spanNotificaMsg{
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	position:absolute;
+	left:0;
+	top:0;
+	background-color:red;
+	color:white;
+	text-align:left;
+	font-size:14px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	width:150px;
+	height:22px;
+	visibility:hidden;
+	padding-left:4px;
+	overflow:auto;
+}

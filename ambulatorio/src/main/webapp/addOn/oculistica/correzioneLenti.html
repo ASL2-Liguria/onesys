@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<title>Correzione lenti</title>
+
+
+
+
+<link rel="stylesheet" href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<link rel="stylesheet" href="../../std/jscript/jquerySVG/jquery.svg.css">
+<script src="../../std/jscript/jquerySVG/jquery.min.js"></script>
+<script src="../../std/jscript/jquerySVG/jquery.svg.js"></script>
+<script type="text/javascript" src="../../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../../std/jscript/optionJsUtil.js"></script>   
+
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+<link rel="stylesheet"	href="../../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<script type="text/javascript" language="javascript"	src="../../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/dataTable.css" rel="stylesheet" type="text/css" />
+<link href="css/erogazioneMultipla.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/erogazioneMultipla.js"></script>
+<script type='text/javascript' src='../../dwr/util.js' language='JavaScript'></script>
+<script type='text/javascript' src='../../dwr/engine.js' language='JavaScript'></script>
+<script type="text/javascript" src="../../dwr/interface/CJsEMEseguiEsame.js"></script>
+<script type="text/javascript" src="../../std/jscript/jQueryUI/jquery.blockUI.js"></script>      
+
+
+<link href='../../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+
+<style>
+
+
+#svgLenti {
+    width: 500px;
+    height: 120px;
+}
+
+#divAttesa{
+	width:100%;
+	height:100%;
+	background-color:#999
+}
+
+
+</style>
+
+<script>
+var params;
+function getParams() {
+	try{
+		var idx = document.URL.indexOf('?');
+		if (idx != -1) {
+			var tempParams =  new Hashtable();
+			var pairs = document.URL.substring(idx+1,document.URL.length).split('&');
+			for (var i=0; i<pairs.length; i++) {
+				nameVal = pairs[i].split('=');
+				tempParams.put(nameVal[0],nameVal[1]);
+			}
+			return tempParams;
+		}
+	}
+	catch(e){
+		alert("getParams - Error:  "+ e.description);
+	}
+}
+
+function init(){
+	try{
+		params = getParams();
+		$('#svgLenti').svg({onLoad: drawInitial});
+	}
+	catch(e){
+		alert("init - Error:  "+ e.description);
+	}
+}
+
+
+function drawInitial(svg) {
+    svg.describe('Correzione lenti'); 
+	
+	if (params.get("modApertura")=="SILENT" || params.get("modApertura")=="SILENT_FROM_MODULE"){
+		// disegno ed esco subito;
+		$.blockUI({
+				  overlayCSS: { backgroundColor: '#00f', padding:5 } ,
+				  message: '<label style=" font-size:16px;">Generazione grafico in corso</label>'
+		}); 			
+		drawElementi();
+		setTimeout(function(){chiudi();},500);
+	}
+	else{
+		var img = svg.image(0, 0, 500, 120, '../../imagexPix/oculistica/ottica.jpg'); 
+		drawElementi();
+	}
+}
+
+function drawElementi(){
+	var jsonList;
+	var misura = "";
+	if(params.get("elementi")!=""){
+		jsonList = JSON.parse(params.get("elementi"));
+		for (var k =0; k< jsonList.elemento.length;k++){
+			// disegnaAsse(30, "DX","LETTURA");
+			misura = jsonList.elemento[k].misura;
+			if (misura !="" && typeof(misura) != "undefined" && misura != "undefined"){
+				disegnaAsse(jsonList.elemento[k].misura,jsonList.elemento[k].lato,jsonList.elemento[k].tipo);
+			}
+		}
+	}else{return;}	
+}
+
+// occhio:	DX, SX
+// tipo:	LETTURA, PERMANENZA, DISTANZA
+function disegnaAsse(valoreInserito, occhio,tipo){
+
+	var raggio = 87;
+	var color = ""; // #F30 distanza, #3F0 permanenza, cyan lettura
+	var offsetX_zero =0;
+	var x1=0, y1=98, x2=0, y2=0;
+
+	try{
+		if (tipo =="" || occhio =="" || isNaN(valoreInserito)){return;}
+		switch(tipo){
+			case "DISTANZA":
+				color = "red";
+				break;
+			case "PERMANENZA":
+				color = "green";
+				break;
+			case "LETTURA":
+				color = "cyan";
+				break;
+		}
+		if (occhio.toString().toUpperCase()=="SX"){
+			offsetX_zero = 394;
+		}
+		else{
+			offsetX_zero = 115;
+		}
+		x1 = x1+offsetX_zero;
+		
+		var alfa = valoreInserito * 3.14 / 180;
+
+        x2 = x1 + raggio * Math.cos(alfa);
+        y2 = y1 - raggio * Math.sin(alfa);
+		
+        //Me.picOcchi.Line (X0, Y0)-(XL, YL), color
+		var svg = $('#svgLenti').svg('get');
+		svg.line(x1,y1, x2, y2, {fill: 'none', stroke: color, strokeWidth: 3});
+		
+	}
+	catch(e){
+		alert("disegnaAsse - Error: " + e.description);
+	}
+
+}
+
+
+function getRenderedSVG(){
+	try{
+		var xml = $('#svgLenti').svg('get').toSVG();
+//		$('#svgexport').html(xml.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+//		return xml.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+		return xml;
+	}
+	catch(e){
+		alert("getRenderedSVG - Error: " + e.description);
+	}		
+}
+
+function cleanSVGarea(){
+	try{
+		$('#svgLenti').svg('get').clear();
+	}
+	catch(e){
+		alert("cleanSVGarea - Error: " + e.description);
+	}		
+}
+
+
+function chiudi(){
+	try{
+		if(params.get("todoAfter")!=""){
+			// x ora cablo tutto !!
+			opener.setRenderedSVG(getRenderedSVG());
+		}
+		try{            $.unblockUI(); }catch(e){;}
+		self.close();
+	}
+	catch(e){
+		alert("chiudi - Error: " + e.description);
+	}
+}
+</script>
+</head>
+<body>
+<div id="divAttesa"></div>
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+    <tr>
+        <td class='classTabHeaderSx'></td>
+        <td class='classTabHeaderMiddle'>Lenti</td>
+        <td class='classTabHeaderDx'></td>
+    </tr>
+</table>
+<div id="svgLenti"></div>
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+    <tr>
+       <td class='classTabFooterSx'></td>
+       <td class='classTabHeaderMiddle'><label>&nbsp;</label></td>
+       <td class='classButtonHeader'>
+          <div class='pulsante'><a id='chiudi' href='javascript:chiudi();'>Chiudi</a></div>
+       </td>
+       <td class='classTabFooterDx'></td>
+    </tr>
+ </table>
+<div id="svgexport"></div>
+<script>
+	var oTable;
+	$(function() {
+		init();
+   });	 
+ </script>
+
+</body>
+</html>

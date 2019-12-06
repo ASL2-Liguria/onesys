@@ -1,0 +1,14 @@
+<ROWSET>
+    <ROW>
+		<tabElencoConsensi>Lista Consensi Compilati</tabElencoConsensi>
+		
+		<fldRicerca>Ricerca</fldRicerca>
+		
+		<lblDaData>Da Data</lblDaData>
+		<lblAData>A Data</lblAData>
+		<lblNoSave>Il salvataggio non è andato a buon fine</lblNoSave>
+		<lblErrorSave>Errore Salvataggio</lblErrorSave>
+
+		<butCerca>Cerca</butCerca>
+    </ROW>
+</ROWSET>

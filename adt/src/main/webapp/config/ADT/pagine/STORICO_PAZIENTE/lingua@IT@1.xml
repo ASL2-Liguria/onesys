@@ -1,0 +1,9 @@
+<ROWSET>
+    <ROW>
+   		<lblEmergenzaMedica>Il fascicolo potrebbe non essere completo</lblEmergenzaMedica>
+   		<lblCheckEmergenzaMedica>Emergenza Medica</lblCheckEmergenzaMedica>
+   		<lblTitolo>Storico Paziente</lblTitolo>
+   		<butChiudi>Chiudi</butChiudi>
+        <menuVuoto>Nessuna voce disponibile</menuVuoto>
+    </ROW>
+</ROWSET>

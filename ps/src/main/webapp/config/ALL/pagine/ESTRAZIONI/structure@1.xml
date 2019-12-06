@@ -1,0 +1,39 @@
+<PAGINA key_id="ESTRAZIONI">
+    <HEADER_PAGE key_id="ESTRAZIONI" valore="DEFAULT,SCHEDA,ESTRAZIONI#DEFAULT,ESTRAZIONI" evento="START_END"></HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG##" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="ESTRAZIONI#lblTitolo#butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabStatistiche" valore="tabStatistiche" evento="START">
+                <FIELDSET_TABLE key_id="fldStatistiche" valore="fldStatistiche" evento="START">
+                    <TR.INIT key_id="rigaWrapperFiltri" valore="" evento="START">
+                        <TD.INIT key_id="tdFiltri" valore="" evento="START">
+                            <TABLE key_id="tableFiltri" valore="tableFiltri#tableFiltri campi" evento="START"></TABLE>
+                        </TD.INIT>
+                        <TD.INIT key_id="tdFiltri" valore="" evento="START">
+                            <TABLE key_id="tableSceltaFiltro" valore="tableSceltaFiltro#tableSceltaFiltro campi" evento="START">
+                                <TR.INIT key_id="rigaSceltaFiltroSalvato" valore="" evento="START">
+                                    <TD_LABEL_COMBO key_id="cmbFiltriSalvati" valore="lblFiltriSalvati##cmbFiltriSalvati#cmbFiltriSalvati#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                                    <TD.INIT key_id="tdRemoveFilter" valore="2" evento="START">
+                                        <BUTTON key_id="butDeleteSavedFilter" valore="butDeleteSavedFilter" evento="START"></BUTTON>
+                                    </TD.INIT>
+                                </TR.INIT>
+                                <TR.INIT key_id="rigaAggiungiFiltro" valore="" evento="START">
+                                    <TD_LABEL_COMBO key_id="cmbFiltro" valore="lblFiltro##cmbFiltro#cmbFiltro#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                                </TR.INIT>
+                                <TR.INIT key_id="rigaGroupBy" valore="" evento="START">
+                                    <TD_LABEL_COMBO key_id="cmbGroupBy" valore="lblGroupBy##cmbGroupBy#cmbGroupBy#N#SALVA#S#" evento="START"></TD_LABEL_COMBO>
+                                </TR.INIT>
+                                <TR.INIT key_id="rigaOpzioniFiltro" valore="" evento="START">
+                                    <TD.INIT key_id="tdApplica" valore="2" evento="START">
+                                        <BUTTON key_id="butApplicaFiltri" valore="butApplicaFiltri" evento="START"></BUTTON>
+                                        <BUTTON key_id="butSalvaFiltro" valore="butSalvaFiltro" evento="START"></BUTTON>
+                                    </TD.INIT>
+                                </TR.INIT>
+                            </TABLE>
+                        </TD.INIT>
+                    </TR.INIT>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

@@ -1,0 +1,77 @@
+html,body {height:100%;overflow: hidden;margin:0;padding:0;}
+
+body.singolo,body.confronto{background:#1b519a;}
+
+body.singolo iframe#frameWork,body.singolo div#AlberoConsultazioneLeft{width:99.9%;}
+body.singolo iframe#frameConfronto,body.singolo div#AlberoConsultazioneRight{display:none;}
+
+body.confronto iframe#frameWork,body.confronto div#AlberoConsultazioneLeft{width:49.9%;}
+body.confronto iframe#frameConfronto,body.confronto div#AlberoConsultazioneRight{width:49.9%;display:block;}
+
+iframe.classIFrame{
+	float:left;
+	/*border:1px solid #0000FF;
+	border-left-width:0px;	*/
+	display:none;
+	margin:1px;
+}
+iframe.classIFWork{
+	width:99.9%;
+	height:100%;
+	float:left;
+}
+iframe.classIFConfronto{
+	width:0%;
+	height:100%;
+	float:right;
+	border-left:1px solid #1b519a;
+}
+
+div#AlberoConsultazione{width:100%;display:block;}
+
+div#intest{clear:both;width:100%;display:block;height:25px;line-height:25px;border-top:3px solid #1b519a;}
+div#intest label{float:left;margin-left:10px;font-weight:bold;}
+div#intest label.head{color:#000;font-size:10px;}
+div#intest label.data{color:#FFF;font-size:12px;}
+
+div#AlberoConsultazioneLeft{width:49.9%;float:left;}
+div#AlberoConsultazioneRight{width:49.9%;float:right;border-left:1px solid #1b519a;}
+
+/*classi di sfondo per differenziare le ModalitaCartella*/
+div.Blue{background:url(../../../imagexPix/tabheader/sf-menu.gif) repeat;}	
+div.Red{background:url(../../../imagexPix/tabheader/top_tabella_red.gif) repeat;}
+div.Green{background:url(../../../imagexPix/tabheader/top_tabella_verde.gif) repeat;}
+
+div#divFiltroCartella{float:left;height:20px;padding:3px 0px 0px 3px;line-height:16px;}
+
+div#divFiltroCartella div{
+	color:white;
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-bottom:1px solid #333;
+	border-right:1px solid #333;
+	padding:0 3px;	
+	margin-left:3px;
+	cursor:pointer;
+	float:left;
+	height:16px;
+}
+
+div#divFiltroCartella div.selected{
+	border-bottom:1px solid #999;
+	border-right:1px solid #999;
+	border-top:1px solid #333;
+	border-left:1px solid #333;
+}
+
+div#slideMenuMain{float:right;border-left: 1px solid #0f5e9c;}
+div#slideMenuVersioniLeft,div#slideMenuVersioniRight{}
+
+div.header{width:100%;height:25px;display:block;background:url(../../../imagexPix/bar/MenuImgV.png) repeat-x;}
+div.header div.btn{float:right;display:block;width:25px;height:25px;cursor:hand;}
+div.header div.btn:hover{background-color:#FF0;}
+div.info{background:url(../../../imagexPix/button/information.png);}
+div.chiudi{background:url(../../../imagexPix/button/cross.png);}
+div.patient{background:url(../../../imagexPix/button/Patient.png);}
+
+div.intestazioneCartella{color:#fff;height:25px;line-height:25px;position:absolute;width:80%;top:3px;left:10%;text-align:center;font: bold 14px Verdana;}

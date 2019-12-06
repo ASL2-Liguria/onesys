@@ -1,0 +1,9 @@
+<DATI configurazione="
+    begin :stato_pagina := 'I';
+        :key_query := '';
+        :where := null;
+        :campo_xml := null;
+    end;
+    ">
+</DATI>
+

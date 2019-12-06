@@ -1,0 +1,14 @@
+<PAGINA key_id="STORIA_CONTATTO">
+    <HEADER_REFERTAZIONE key_id="STORIA_CONTATTO" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,STORIA_CONTATTO#DEFAULT,STORIA_CONTATTO" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="StoriaContatto" valore="STORIA_CONTATTO#lblTitolo#" evento="START">
+
+                <FIELDSET_TABLE key_id="fldStoriaContatto" valore="fldStoriaContatto" evento="START">
+                    <DIV key_id="divWkStoriaContatto" valore="divWkStoriaContatto##" evento="START">
+                    </DIV>
+                </FIELDSET_TABLE>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

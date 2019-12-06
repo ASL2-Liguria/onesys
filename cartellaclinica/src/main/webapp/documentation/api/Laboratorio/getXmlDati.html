@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Laboratorio/getXmlDati</title> 
+        <style>
+            h1 {
+                background-color: #000000;
+                color: white;
+                padding: 0.2em;
+            }
+
+            h2 {
+                background-color: #444444;
+                color: white;
+                padding: 0.2em;
+            }
+
+            h3 {
+                background-color: #888888;
+                color: white;
+                padding: 0.2em;
+            }
+
+            h4 {
+                background-color: #CCCCCC;
+                color: white;
+                padding: 0.2em;
+            } 
+            
+            pre{
+                font-size: 11px;
+            }
+            
+            ul li{
+                margin: 6px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        
+        <h1>Laboratorio/getXmlDati</h1>
+        
+        <h2>Indice</h2>
+        
+        <ol>
+            <li><a href="#Descrizione">Descrizione</a></li>
+            
+            <li><a href="#Invocazione">Invocazione</a></li>            
+            <li>
+                <ol>
+                    <li><a href="#Autenticazione">Autenticazione</a></li>
+                    <li><a href="#Chiamata">URL di chiamata</a></li>
+                    <li><a href="#Parametri">Parametri di chiamata</a></li>
+					<li><a href="#IdentificativiPaziente">Struttura parametro "paziente.identificativi"</a></li>
+					<li><a href="#Combinazioni">Esampio struttura parametro "paziente"</a></li>
+                    <li><a href="#Combinazioni">Combinazioni di chiamata</a></li>
+                </ol>
+            </li>
+            
+            <li><a href="#Output">Output</a></li>
+            <li>
+                <ol>         
+                    <li><a href="#StrutturaXml">Struttura XML di risposta</a></li>
+                    <li><a href="#StrutturaRami">Struttura dei singoli rami</a></li>
+                </ol>
+            </li>
+        </ol>
+        
+        <h2 id="Descrizione">Descrizione</h2>        
+        <p>Servizio che fornisce i risultati di laboratorio per i dati criteri impostati</p>
+        
+        <h2 id="Invocazione">Invocazione</h2>        
+ 
+        <h4 id="Autenticazione">Autenticazione</h4>
+        <p>L'autenticazione avviene attraverso la verifica di utente e password che vanno inseriti come header "Authentication" nell chiamata di invocazione in formato "&lt;utente&gt;:&lt;password&gt;"</p>              
+        
+        <h4 id="Chiamata">URL di chiamata</h4>  
+        <p>http://&lt;applicationserver&gt;:&lt;port&gt;/&lt;application&gt;/Action/Laboratorio/getXmlDati/{"&lt;parametro1&gt;":&lt;valore1&gt;,"&lt;parametro2&gt;":&lt;valore2&gt;, .. ,"&lt;parametron&gt;":&lt;valoren&gt;}</p>
+     
+        <h4 id="Parametri">Parametri di chiamata</h4>        
+        <table border="1" style="width:100%;">
+
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Obbligatorietà</th>
+                <th>Descrizione</th>
+            </tr>
+
+            <tr>
+                <td>modalita</td>
+                <td>String (valori accettati: "PAZIENTE", "PAZIENTE_REPARTO", "RICOVERO")</td>
+                <td>SI</td>
+                <td>Filtro principale da applicare ai dati</td>
+            </tr>
+
+            <tr>
+                <td>idPatient</td>
+                <td>String</td>
+                <td>SI</td>
+                <td>Identificativo del paziente</td>
+            </tr>  
+
+            <tr>
+                <td>forzaVerificaAnagrafica</td>
+                <td>Boolean (default false)</td>
+                <td>NO</td>
+                <td>Indica se verificare l'anagrafica utilizzando i dati fondamentali contenuti nel parametro 'paziente'</td>
+            </tr>
+            
+            <tr>
+                <td>paziente</td>
+                <td>Object (<a href="#Paziente">struttura</a>, <a href="#EsempiPaziente">esampio</a>)</td>
+                <td>se omesso "idPatient" oppure se "forzaVerificaAnagrafica" è impostato a "true"</td>
+                <td>Dati fondamentali del paziente</td>
+            </tr>
+                         
+            <tr>
+                <td>reparto</td>
+                <td>String</td>
+                <td>se "modalita" è impostato a "PAZIENTE_REPARTO"</td>
+                <td>Identificativo del reparto</td>
+            </tr>
+
+            <tr>
+                <td>nosologico</td>
+                <td>String</td>
+                <td>se "modalita" è impostato a "RICOVERO"</td>
+                <td>Identificativo del ricovero</td>
+            </tr>            
+
+            <tr>
+                <td>daData</td>
+                <td>String (formato "yyyyMMdd")</td>
+                <td>NO</td>
+                <td>Data di inizio dell'intervallo temporale</td>
+            </tr>
+
+            <tr>
+                <td>aData</td>
+                <td>String (formato "yyyyMMdd")</td>
+                <td>NO</td>
+                <td>Data di fine dell'intervallo temporale</td>
+            </tr>
+
+            <tr>
+                <td>elencoEsami</td>
+                <td>String (sequenza di codici separati dal carattere ",")</td>
+                <td>NO</td>
+                <td>Codici prestazione</td>
+            </tr>             
+
+            <tr>
+                <td>branca</td>
+                <td>String [valori accettati: "L"(laboratorio), "A"(microbiologia)]</td>
+                <td>NO</td>
+                <td>Codica branca</td>
+            </tr>            
+
+            <tr>
+                <td>numRichieste</td>
+                <td>Integer</td>
+                <td>NO</td>
+                <td>Valore per limitare temporalmente il dato alle ultime n richieste</td>
+            </tr>             
+
+            <tr>
+                <td>provRisultati</td>
+                <td>String [valori accettati: "INT"(interni), "EST"(esterni), "PS"(pronto soccorso), "INS_MANU"(inserimento manuale)]</td>
+                <td>NO</td>
+                <td>Codice provenienza del dato</td>
+            </tr>            
+
+        </table>               
+        
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+        <h4 id="Paziente">Struttura parametro "paziente"</h4> 
+        <p>Il parametro paziente si presenta come sub-document ed accetta le seguenti proprietà:</p>        
+        <table border="1" width="100%">
+
+            <tr>
+                <th>Nome</th>
+                <th>Tipo</th>
+                <th>Obbligatorietà</th>
+                <th>Descrizione</th>
+            </tr>
+
+            <tr>
+                <td>nome</td>
+                <td>String</td>
+                <td>SI</td>
+                <td>Nome del paziente per cui vengono richiesti i dati</td>
+            </tr> 
+            
+            <tr>
+                <td>cognome</td>
+                <td>String</td>
+                <td>SI</td>
+                <td>Cognome del paziente per cui vengono richiesti i dati</td>
+            </tr>
+            
+            <tr>
+                <td>sesso</td>
+                <td>String (valori accettati: "M", "F", "X")</td>
+                <td>SI</td>
+                <td>Sesso del paziente per cui vengono richiesti i dati</td>
+            </tr>
+            
+            <tr>
+                <td>dataNascita</td>
+                <td>String (formato "yyyyMMdd")</td>
+                <td>SI</td>
+                <td>Data di nascita del paziente per cui vengono richiesti i dati</td>
+            </tr>
+            
+            <tr>
+                <td>comuneNascita</td>
+                <td>String (valore composto dal codice regione + codice comune)</td>
+                <td>SI</td>
+                <td>Codice comune di nascita del paziente per cui vengono richiesti i dati</td>
+            </tr>
+            
+            <tr>
+                <td>codiceFiscale</td>
+                <td>String</td>
+                <td>SI</td>
+                <td>Codice fiscale del paziente per cui vengono richiesti i dati</td>
+            </tr>
+            
+           <tr>
+                <td>identificativi</td>
+                <td>Object (<a href="#IdentificativiPaziente">struttura</a>, <a href="#EsempiPaziente">esampio</a>)</td>
+                <td>NO</td>
+                <td>Identificativi del paziente per cui vengono richiesti i dati</td>
+            </tr>              
+
+        </table> 
+        
+        <h4 id="IdentificativiPaziente">Struttura parametro "paziente.identificativi"</h4> 
+        <p>Il parametro identificativi si presenta come sub-document contenente coppie chiave-valore con il seguente significato:</p>           
+        <ul>
+            <li>Chiave : assigning authority dell'identificativo anagafico</li>
+            <li>Valore : identificativo anagafico relativo alla chiave</li>
+        </ul>        
+        
+        <h4 id="EsempiPaziente">Esampio struttura parametro "paziente":</h4> 
+        <pre>
+"paziente":{
+        "nome":"TIZIO"
+        ,"cognome":"CAIO"
+        ,"sesso":"M"
+        ,"dataNascita":"19709023"
+        ,"comuneNascita":"009015"
+        ,"codiceFiscale":"TZICAI70P23I480Q"
+        ,"identificativi":{
+            "AAC":"100"
+            ,"ONE.SYS":"400"
+        }
+    }            
+        </pre>        
+        
+        <h4 id="Combinazioni">Combinazioni di chiamata</h4>        
+        <ol>
+            <li>
+                <p>Richiesta dati del paziente</p>
+                <p>{"modalita":"PAZIENTE",&nbsp;"idPatient",&nbsp;"&lt;valore&gt;"}</p>
+                <p>{"modalita":"PAZIENTE",&nbsp;"paziente",&nbsp;"&lt;valore&gt;"}</p>
+                <p>{"modalita":"PAZIENTE",&nbsp;"idPatient",&nbsp;"&lt;valore&gt;",&nbsp;"paziente",&nbsp;"&lt;valore&gt;",&nbsp;"forzaVerificaAnagrafica",&nbsp;"&lt;valore&gt;"}</p>
+            </li>
+
+            <li>
+                <p>Richiesta dati del paziente richiesti da uno specifico reparto</p>
+                <p>{"modalita":"PAZIENTE_REPARTO",&nbsp;"idPatient","&lt;valore&gt;",&nbsp;"reparto":"&lt;valore&gt;"}</p>
+                <p>{"modalita":"PAZIENTE",&nbsp;"paziente",&nbsp;"&lt;valore&gt;",&nbsp;"reparto":"&lt;valore&gt;"}</p>
+                <p>{"modalita":"PAZIENTE",&nbsp;"idPatient",&nbsp;"&lt;valore&gt;",&nbsp;"paziente",&nbsp;"&lt;valore&gt;",&nbsp;"forzaVerificaAnagrafica",&nbsp;"&lt;valore&gt;",&nbsp;"reparto":"&lt;valore&gt;"}</p>                
+            </li>
+
+            <li>
+                <p>Richiesta dati del ricovero</p>
+                <p>{"modalita":"RICOVERO","idPatient","&lt;valore&gt;","nosologico","&lt;valore&gt;"}</p>
+                <p>{"modalita":"PAZIENTE",&nbsp;"paziente",&nbsp;"&lt;valore&gt;","nosologico","&lt;valore&gt;"}}</p>
+                <p>{"modalita":"PAZIENTE",&nbsp;"idPatient",&nbsp;"&lt;valore&gt;",&nbsp;"paziente",&nbsp;"&lt;valore&gt;",&nbsp;"forzaVerificaAnagrafica",&nbsp;"&lt;valore&gt;","nosologico","&lt;valore&gt;"}}</p>                
+            </li>           
+
+        </ol>   
+        
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+        <h2 id="Output">Output</h2>        
+        <p>L'output si presenta in formato JSON e rispetta la seguente struttura:</p>        
+        <pre>
+{
+    "success":&lt;boolean&gt;,  //indica la corretta esecuzione del servizio
+    "message":&lt;string&gt;, //eventuale messaggio di errore
+    "documento":&lt;string&gt; //rappresentazione XML dei dati richiesti
+}            
+        </pre>
+
+        <h4 id="StrutturaXml">La proprietà "documento" si presenta in formato XML e rispetta la seguente struttura:</h4>        
+        <pre>
+&lt;ROOT&gt;
+
+    &lt;DATICONF&gt;
+
+        &lt;!--riepilogo dati anagrafici--&gt;
+        &lt;<a href="#DATIANAG">DATIANAG</a> COGNOME="" NOME="" CODFISC="" SESSO="" DATANASC=""/&gt;
+
+    &lt;/DATICONF&gt;                    
+
+    &lt;ANALISI&gt;
+
+        &lt;!--elenco analisi contenute nel documento--&gt;
+        &lt;<a href="#ANALISIRICHIESTA">RICHIESTA</a> IDEN_RICHIESTA="" INT_EST="" STRIDRICHIESTA="" DATA="" ORA="" TIPO="" COD_CDC="" DESCR_CDC="" NOTE=""/&gt;
+        &lt;RICHIESTA IDEN_RICHIESTA="" INT_EST="" STRIDRICHIESTA="" DATA="" ORA="" TIPO="" COD_CDC="" DESCR_CDC="" NOTE=""/&gt;
+        ...
+        ...
+        &lt;RICHIESTA IDEN_RICHIESTA="" INT_EST="" STRIDRICHIESTA="" DATA="" ORA="" TIPO="" COD_CDC="" DESCR_CDC="" NOTE=""/&gt;
+
+    &lt;/ANALISI&gt;
+
+    &lt;!-- Elemento contenente i risultati degli esami svolti--&gt;
+    &lt;ESAMI&gt;
+
+        &lt;!-- Gruppo di visualizzazione (ripetibile)--&gt;	
+        &lt;<a href="#GRUPPO">GRUPPO</a> DESCR_GRUPPO=""&gt;
+
+            &lt;!-- Profilo (ripetibile)--&gt;	
+            &lt;<a href="#ANALISI_MULTI">ANALISI_MULTI</a> IDESAMEMULTIPLO="" DESCR=""&gt;
+
+                &lt;!-- Esame specifico (ripetibile)--&gt;	
+                &lt;<a href="#ESAME">ESAME</a> COD_DEC="" COD_ESA="" DESCR="" VALORERIFMIN="" VALORERIFMAX="" VALORERIF="" UNMISURA="" MATERIALE="" CODICE_MATERIALE="" &gt;
+
+                    &lt;-- Elenco risultati, l'attributo "IDEN_RICHIESTA" fa riferimento all'attributo "/ROOT/ANALISI/RICHIESTA/@IDEN_RICHIESTA" --&gt;
+                    &lt;<a href="#ESAMERICHIESTA">RICHIESTA</a> IDEN_RICHIESTA="" RICHIESTA_VALIDATA="" RISULTATOESAMELUNGO="" GERMI="" PROGRANALISI="" PROGRANALISIPR=""&gt;&lt;/RICHIESTA&gt;
+                    &lt;RICHIESTA IDEN_RICHIESTA="" RICHIESTA_VALIDATA="" RISULTATOESAMELUNGO="" GERMI="" PROGRANALISI="" PROGRANALISIPR=""&gt;&lt;/RICHIESTA&gt;
+                    ...
+                    ...
+                    &lt;RICHIESTA IDEN_RICHIESTA="" RICHIESTA_VALIDATA="" RISULTATOESAMELUNGO="" GERMI="" PROGRANALISI="" PROGRANALISIPR=""&gt;&lt;/RICHIESTA&gt;
+
+                &lt;/ESAME&gt;
+
+            &lt;/ANALISI_MULTI&gt;
+
+        &lt;/GRUPPO&gt;	
+
+    &lt;/ESAMI&gt;
+
+&lt;/ROOT&gt;
+        </pre>
+              
+        <h4 id="StrutturaRami">Struttura dei singoli rami</h4>        
+        <ul>
+
+            <li id="DATIANAG"><strong>/ROOT/DATICONF/DATIANAG</strong>
+                <table border="1" width="100%">
+
+                    <tr>
+                        <th width="20%">Nome attributo</th>
+                        <th width="80%">Descrizione</th>
+                    </tr>
+
+                    <tr>
+                        <td>COGNOME</td>
+                        <td>Cognome dell'assistito</td>
+                    </tr>
+
+                    <tr>
+                        <td>NOME</td>
+                        <td>Nome dell'assistito</td>
+                    </tr>
+
+                    <tr>
+                        <td>CODFISC</td>
+                        <td>Codice fiscale dell'assitito</td>
+                    </tr>
+
+                    <tr>
+                        <td>SESSO</td>
+                        <td>Sesso dell'assistito</td>
+                    </tr>
+
+                    <tr>
+                        <td>DATANASC</td>
+                        <td>Data di nascita dell'assistito (formato 'yyyyMMdd')</td>
+                    </tr>                        
+
+                </table>
+            </li>
+
+            <li id="ANALISIRICHIESTA"><strong>/ROOT/ANALISI/RICHIESTA</strong>
+                <table border="1" width="100%">
+
+                    <tr>
+                        <th width="20%">Nome attributo</th>
+                        <th width="80%">Descrizione</th>
+                    </tr>
+
+                    <tr>
+                        <td>IDEN_RICHIESTA</td>
+                        <td>Identificativo interno della richiesta</td>
+                    </tr>
+
+                    <tr>
+                        <td>INT_EST</td>
+                        <td>Provenienza richiesta ["I"(interna), "E"(esterna), "PS"(pronto soccorso)]</td>
+                    </tr>
+
+                    <tr>
+                        <td>STRIDRICHIESTA</td>
+                        <td>Identificativo esterno(laboratorio analisi) della richiesta</td>
+                    </tr>
+
+                    <tr>
+                        <td>DATA</td>
+                        <td>Data della richiesta</td>
+                    </tr>
+
+                    <tr>
+                        <td>ORA</td>
+                        <td>Ora della richiesta</td>
+                    </tr>
+
+                    <tr>
+                        <td>TIPO</td>
+                        <td>Provenienza dato ["LAB"(laboratorio analisi), "PS"(pronto soccorso), "INS_MANU"(inserimento manuale)]</td>
+                    </tr>
+
+                    <tr>
+                        <td>COD_CDC</td>
+                        <td>Codice reparto richiente della richiesta</td>
+                    </tr>
+
+                    <tr>
+                        <td>DESCR_CDC</td>
+                        <td>Descrizione reparto richiesdente della richiesta</td>
+                    </tr>
+
+                    <tr>
+                        <td>NOTE</td>
+                        <td>Note della richiesta</td>
+                    </tr>                        
+
+                </table>
+            </li> 
+
+            <li>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </li>
+            
+            <li id="GRUPPO"><strong>ROOT/ESAMI/GRUPPO</strong>
+                <table border="1" width="100%">
+
+                    <tr>
+                        <th width="20%">Nome attributo</th>
+                        <th width="80%">Descrizione</th>
+                    </tr>
+
+                    <tr>
+                        <td>DESCR_GRUPPO</td>
+                        <td>Descrizione raggruppamento</td>
+                    </tr>
+
+                </table>
+            </li> 
+
+            <li id="ANALISI_MULTI"><strong>ROOT/ESAMI/GRUPPO/ANALISI_MULTI</strong>
+                <table border="1" width="100%">
+
+                    <tr>
+                        <th width="20%">Nome attributo</th>
+                        <th width="80%">Descrizione</th>
+                    </tr>
+
+                    <tr>
+                        <td>IDESAMEMULTIPLO</td>
+                        <td>Identificativo del profilo</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>DESCR</td>
+                        <td>Descrizione del profilo</td>
+                    </tr>                    
+
+                </table>
+            </li>
+
+            <li id="ESAME"><strong>ROOT/ESAMI/GRUPPO/ANALISI_MULTI/ESAME</strong>
+                <table border="1" width="100%">
+
+                    <tr>
+                        <th width="20%">Nome attributo</th>
+                        <th width="80%">Descrizione</th>
+                    </tr>
+
+                    <tr>
+                        <td>COD_DEC</td>
+                        <td>Codice interno della prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>COD_ESA</td>
+                        <td>Codice esterno(laboratorio analisi) della prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>DESCR</td>
+                        <td>Descrizione della prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>VALORERIFMIN</td>
+                        <td>Valore di riferimento minimo della prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>VALORERIFMAX</td>
+                        <td>Valore di riferimento massimo della prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>VALORERIF</td>
+                        <td>Valore/i di riferimento descrittivo della prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>UNMISURA</td>
+                        <td>Unità di misura della prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>MATERIALE</td>
+                        <td>Descrizione materiale legato alla prestazione</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>CODICE_MATERIALE</td>
+                        <td>Codice materiale legato alla prestazione</td>
+                    </tr>                    
+
+                </table>
+            </li>   
+
+            <li id="ESAMERICHIESTA"><strong>ROOT/ESAMI/GRUPPO/ANALISI_MULTI/ESAME/RICHIESTA</strong>
+                <table border="1" style="width:100%;">
+
+                    <p>Il testo del nodo contiene il risultato numerico della prestazione</p>
+                    
+                    <tr>
+                        <th width="20%">Nome attributo</th>
+                        <th width="80%">Descrizione</th>
+                    </tr>
+
+                    <tr>
+                        <td>IDEN_RICHIESTA</td>
+                        <td>Identificativo interno della richiesta</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>RICHIESTA_VALIDATA</td>
+                        <td>Stato della richiesta ["4" (in lavorazione), "5" (parzialmente refertata), "6" (refertata), "7" (validata), "7,3" (da firmare), "7,6" (firmata), "8" (stampata)]</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>RISULTATOESAMELUNGO</td>
+                        <td>Risutlato descrittivo della prestazione</td>
+                    </tr>
+
+                    <tr>
+                        <td>GERMI</td>
+                        <td>Riscontro di germi sul campione analizzato</td>
+                    </tr>
+
+                    <tr>
+                        <td>PROGRANALISIPR</td>
+                        <td>Identificativo del profilo all'interno della richiesta</td>
+                    </tr>
+
+                    <tr>
+                        <td>PROGRANALISI</td>
+                        <td>Identificativo dell'analisi all'interno del profilo della richiesta</td>
+                    </tr>                    
+
+                </table>
+            </li>             
+
+        </ul>
+                
+    </body>
+</html>

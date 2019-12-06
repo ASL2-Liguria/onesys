@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="6.0+" codebase="$$codebase" href="$$name" version="1.05">
+	<information>
+		<title>ElcoWebStart - Componente esterno per stampa, scanner, firma, notifiche</title>
+		<vendor>Elco</vendor>
+		<offline-allowed/>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<resources os="Windows">
+		<j2se version="1.7+" />
+		<jar href="app/SignedFenixApplet.jar" version="2.2.0" download="eager" main="true" />
+		<jar href="app/JSon.jar" version="1.0.2" download="eager" />
+		<jar href="app/PDFOne.jar" version="1.0.2" download="eager" />
+		<jar href="app/bcpkix-jdk15on-148.jar" version="1.0.2" download="eager" />
+		<jar href="app/bcprov-jdk15on-148.jar" version="1.0.2" download="eager" />
+		<jar href="app/commons-lang-2.6.jar" version="1.0.2" download="eager" />
+	</resources>
+	<resources os="Mac\ OS\ X">
+		<!-- Problemi con java 8 -->
+		<j2se version="1.7*" />
+		<jar href="app/SignedFenixApplet.jar" version="2.2.0" download="eager" main="true" />
+		<jar href="app/JSon.jar" version="1.0.2" download="eager" />
+		<jar href="app/PDFOne.jar" version="1.0.2" download="eager" />
+		<jar href="app/bcpkix-jdk15on-148.jar" version="1.0.2" download="eager" />
+		<jar href="app/bcprov-jdk15on-148.jar" version="1.0.2" download="eager" />
+		<jar href="app/commons-lang-2.6.jar" version="1.0.2" download="eager" />
+	</resources>
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="app/SignedFenixApplet.jar" version="2.2.0" download="eager" main="true" />
+		<jar href="app/JSon.jar" version="1.0.2" download="eager" />
+		<jar href="app/PDFOne.jar" version="1.0.2" download="eager" />
+		<jar href="app/bcpkix-jdk15on-148.jar" version="1.0.2" download="eager" />
+		<jar href="app/bcprov-jdk15on-148.jar" version="1.0.2" download="eager" />
+		<jar href="app/commons-lang-2.6.jar" version="1.0.2" download="eager" />
+	</resources>
+	<application-desc
+		main-class="it.elco.applet.elcoNoApplet"
+	>
+		<argument>jtwain_dll=app/AspriseJTwain.dll</argument>
+		<argument>ShowMediaTrays=S</argument>
+		<argument>brokerUrl=tcp://192.168.3.10:61616</argument>
+		<argument>logoutOnDestroy=N</argument>
+		<argument>loadSCL=false</argument>
+	</application-desc>
+</jnlp>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>CONTEGGIO VACCINI</lblTitolo>
+        <tabConteggioVaccini>Conteggio vaccini</tabConteggioVaccini>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butAzzeraConteggio>Azzera Conteggio</butAzzeraConteggio>
+		
+		<lblVacciniConsegnati>Numero vaccini consegnati</lblVacciniConsegnati>
+		<lblNrLotto>Numero del lotto</lblNrLotto>
+		<lblVacciniResidui>Numero vaccini antinfluenzali residui </lblVacciniResidui>
+		<lblVacciniLink>Link ai Vaccini</lblVacciniLink>
+		<lblDataScadenza>Data di scadenza </lblDataScadenza>
+		<lblTipoVaccino>Tipo di Vaccino</lblTipoVaccino>
+		
+		<fld0>Conteggio</fld0>
+		<fld1>Riepilogo Conteggio Vaccini</fld1>
+		
+    </ROW>
+</ROWSET>

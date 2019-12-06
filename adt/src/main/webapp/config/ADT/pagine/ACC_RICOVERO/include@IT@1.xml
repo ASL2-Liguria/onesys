@@ -1,0 +1,33 @@
+<INCLUDE>
+    <JS path="plugin/jsrender/jsrender.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/Anagrafica/Anagrafica.js"/>  
+    <JS path="js/TimePicker/jquery.ptTimeSelect.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/ADT/SCHEDA_ANAGRAFICA/salvataggioAnagrafica.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicoveroControlli.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicoveroSalvataggio.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicoveroAccessiDH.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicoveroGestioneReparti.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicoveroSintesiPaziente.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicovero.js"/>
+    <JS path="config/ADT/validator/model/V_ADT_ACC_RICOVERO.js"/>
+     <JS path="config/ADT/validator/model/V_ADT_ACC_RICOVERO_ANAG.js"/>
+    <JS path="js/ADT/Trasferimenti/Trasferimenti.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicoveroAnagrafica.js"/>
+    <JS path="config/ADT/validator/model/V_ADT_TRASF_GIU.js"/>
+
+
+    <JS path="js/ADT/DimissioneSDO/DimissioneSDO.js"/>
+	<JS path="js/ADT/DimissioneSDO/DimissioneDRG.js"/>
+	<JS path="js/ADT/DimissioneSDO/DimissioneICD.js"/>
+    <JS path="js/ADT/DimissioneSDO/DimissioneControlli.js"/>
+    <JS path="config/ADT/validator/model/V_ADT_DIMI.js"/>	
+    <JS path="js/ADT/AccRicovero/InitAccRicovero.js"/>
+
+    <CSS path="css/ADT/AccRicovero/AccRicovero.css"/>
+    <CSS path="css/ADT/Trasferimenti/RichTrasf.css"/>
+    <CSS path="css/ADT/DimissioneSdo/DimissioneSdo.css"/>
+</INCLUDE>

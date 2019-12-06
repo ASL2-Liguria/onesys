@@ -1,0 +1,13 @@
+<PAGINA key_id="MMG_STORICO_RICOVERI">
+	<HEADER_PAGE key_id="MMG_STORICO_RICOVERI" valore="DEFAULT_MMG,MMG_STORICO_RICOVERI#DEFAULT_MMG,MMG_STORICO_RICOVERI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SP_SAVE_DATA#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabArchivio" valore="tabArchivio#lblTitolo#butChiudi" evento="START_END">
+			<FIELDSET_TABLE key_id="fldListaRicoveri" valore="fldListaRicoveri" evento="START">
+				<DIV.WORKLIST key_id="wk" valore="divWk" evento="START">
+				</DIV.WORKLIST>
+			</FIELDSET_TABLE>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

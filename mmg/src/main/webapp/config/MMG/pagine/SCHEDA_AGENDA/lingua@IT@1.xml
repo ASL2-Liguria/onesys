@@ -1,0 +1,41 @@
+<ROWSET>
+    <ROW>
+        
+        <tabAgenda>Agenda</tabAgenda>
+        <lblTitolo>Configurazione dell'agenda</lblTitolo>
+        
+        <fldAgenda>Descrizione e durata</fldAgenda>
+	        <lblCodiceDecodificaAgenda>Codice Decodifica</lblCodiceDecodificaAgenda>
+	        <lblDescrizioneAgenda>Nome</lblDescrizioneAgenda>
+	        <lblAttivaAgenda>Attiva</lblAttivaAgenda>
+	        <lblDataInizioAgenda>Data inizio</lblDataInizioAgenda>
+	        <lblDataFineAgenda>Data fine</lblDataFineAgenda>
+       	
+        <fldFasceOrarie>Dettaglio attività settimanale</fldFasceOrarie>
+        	
+        	<lblGiorni>Giorni</lblGiorni>
+	        
+	        <lblMattinoInizio>Mattino: ora inizio</lblMattinoInizio>
+	        <lblMattinoFine>Mattino: ora fine</lblMattinoFine>
+	        <lblPostiMattino>Mattino: n° posti</lblPostiMattino>
+	        
+	        <lblPomeriggioInizio>Pomeriggio: ora inizio</lblPomeriggioInizio>
+	        <lblPomeriggioFine>Pomeriggio: ora fine</lblPomeriggioFine>
+	        <lblPostiPomeriggio>Pomeriggio: n° posti</lblPostiPomeriggio>
+	        
+	        <lblLunedi>Lunedì</lblLunedi>
+	        <lblMartedi>Martedì</lblMartedi>
+	        <lblMercoledi>Mercoledì</lblMercoledi>
+	        <lblGiovedi>Giovedì</lblGiovedi>
+	        <lblVenerdi>Venerdì</lblVenerdi>
+	        <lblSabato>Sabato</lblSabato>
+	        <lblDomenica>Domenica</lblDomenica>
+	      
+	     <fldRiepilogo>Riepilogo</fldRiepilogo> 
+	        
+	    <erroreOrarioMattino>Inserire un valore compreso tra 00:00 e 12:00 per il campo orario del mattino. Il formato richiesto è hh:mm</erroreOrarioMattino>
+	    <erroreOrarioPomeriggio>Inserire un valore compreso tra 12:01 e 23:59 per il campo orario del pomeriggio. Il formato richiesto è hh:mm</erroreOrarioPomeriggio>    
+		<errorePosto>Il numero dei posti deve essere un valore numerico.</errorePosto>
+	        
+    </ROW>
+</ROWSET>

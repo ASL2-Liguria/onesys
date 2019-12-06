@@ -1,0 +1,416 @@
+
+table.historyGlaucoma {
+/*    border-collapse: collapse;*/
+    width: 100%;
+}
+
+table.historyGlaucoma th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+table.historyGlaucoma table, th, td {
+   border: 1px solid #CCCCCC;
+}
+
+table.historyGlaucoma tr:nth-child(even){background-color: #f2f2f2}
+
+table.historyGlaucoma th {
+    background-color:#00CCFF;
+    color: black;
+}
+
+/* valutare se inserire modifiche pulsanti nel css globale*/
+.ui-button {
+	color:blue !important;
+	border:#0000FF 1px !important;
+	margin-bottom:5px;
+	
+}
+
+.ui-button:hover {
+	background:blue !important;
+	color:white !important;
+	border:#000000 1px !important;
+}
+/* *********************** */
+
+
+  .ui-tooltip {
+    padding: 10px 20px;
+    border-radius: 20px;
+    font: bold 14px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 7px black;
+	width:600px;
+  }
+  
+  
+SPAN.classInfoIcon {
+	width:25px;
+	height:25px;
+	background-image:url(../../../../imagexPix/button/icon/ico_info.gif);
+	display:inline-block;
+	cursor:pointer;
+	margin-left:5px;
+}
+
+
+
+TABLE#NOMENCLATORE_PROTESI tr.clsTitolo{
+	background-color:#CCC;
+	font-weight:bold;
+}
+TABLE#NOMENCLATORE_PROTESI tr.clsSezione{
+	background-color:#FC6;
+}
+
+
+label.etiForCheckbox{
+	cursor:pointer;
+	font-size:12px;
+}
+
+A.linkValoriNormali{
+	color:blue;
+	cursor:pointer;
+}
+#svgLenti {
+    width: 500px;
+    height: 120px;
+	background-image:url(../../../../imagexPix/oculistica/ottica.jpg);
+	display:block;
+}
+
+ #toolbarVisita {
+    display: inline-block;
+	background-color:#FFC;
+	margin-top:5px;
+	padding:2px 2px 2px 2px;
+  }
+  /* support: IE7 */
+  *+html #toolbarVisita {
+    display: inline;
+  }
+
+TD.classTdLabelRicerca{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:2px;
+	width:60px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+TD.classTdLabelRicercaGlaucoma{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:2px;
+	width:150px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+TD.classTdFieldRicercaGlaucoma{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	padding-left:5px;
+	width:200px;}
+
+TD.classTdLabelRicercaNoWidth{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:2px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+TD.classTdFieldRicerca{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	padding-left:5px;
+	width:200px;}
+	
+TD.classTdFieldRicercaNoWidth{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	padding-left:5px;
+}
+
+SPAN.resetICD {
+	margin-top: 5px;
+	width: 20px;
+	height: 20px;
+	background-image: url(../../../../imagexPix/button/mini/btReset.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+}
+
+LABEL.lblDataEntry{
+	margin-right:3px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+.setCursorPointer{
+	cursor:pointer;
+}
+
+.correzPachim{
+	font-weight:bold;
+	font-size:14px;
+}
+
+
+.fieldInputText{
+	border:1px solid #909090;
+  }
+  
+  
+  #tabs .tabs-spacer { float: left; height: 200px; }
+  .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+  .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+  .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }  
+  
+INPUT.campiRicerca{
+	border:1px solid #909090;
+	margin-left:5px;
+}
+
+LABEL.lblPuntTot{
+	font-weight:bold;
+}
+  
+LABEL.searchTitle{
+	margin-left:5px;
+	font-size:12px;
+	font-weight:bold;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+LABEL.lblSezIndagine{
+	font-size:12px;
+	font-weight:bold;
+	margin-left:2px;
+}
+
+LABEL.LABEL_LAST_ADDED{
+	color:red;
+	display:inline;
+}
+
+LEGEND.clsLegend{
+	font-size:12px; font-weight:italic;color:blue;
+}
+
+LABEL.lblTipoMisurazione{
+	font-size:12px; font-weight:bold;color:black;
+}
+
+SPAN.clsLinkDisegnaAsse_DISTANZA{
+	display:block;
+	background-color:#F30; 
+	color:white;cursor:pointer; 
+	padding:2px 2px 2px 2px;
+	color:white;
+	font-weight:bold;
+}
+
+SPAN.clsLinkDisegnaAsse_PERMANENZA{
+	display:block;
+	background-color:#3F0;
+	color:white;cursor:pointer; 
+	padding:2px 2px 2px 2px;
+	color:black;	
+	font-weight:bold;	
+}
+
+SPAN.clsLinkDisegnaAsse_LETTURA{
+	display:block;
+	background-color:cyan;
+	color:white;cursor:pointer; 
+	padding:2px 2px 2px 2px;
+	color:black;	
+	font-weight:bold;	
+}
+
+
+
+
+  .CSSTableGenerator {
+	margin:0px;
+	padding:0px;
+	width:95%;
+	border:1px solid #000000;
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px;
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px;
+	color: #EEE;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+}.CSSTableGenerator tr:hover td{
+	/*background-color:#ffffff;*/
+		
+
+}
+.CSSTableGenerator td{
+	vertical-align:middle;
+	background-color:#e5ffff;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:3px;
+	font-size:12px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #007fff 5%, #aaffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #007fff), color-stop(1, #aaffff) );
+	background:-moz-linear-gradient( center top, #007fff 5%, #aaffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff", endColorstr="#aaffff");	background: -o-linear-gradient(top,#007fff,aaffff);
+
+	background-color:#007fff;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#000000;
+}
+.CSSTableGenerator tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #007fff 5%, #aaffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #007fff), color-stop(1, #aaffff) );
+	background:-moz-linear-gradient( center top, #007fff 5%, #aaffff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#007fff", endColorstr="#aaffff");	background: -o-linear-gradient(top,#007fff,aaffff);
+
+	background-color:#007fff;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+
+
+.CSSTableGenerator td.colonnaLabel{
+	width:150;
+}
+
+.CSSTableGenerator td.visita_occhio_dx{
+	background-color:#FFC;
+}
+
+.CSSTableGenerator td.visita_occhio_sx{
+	background-color:#0CF;
+}
+
+.CSSTableGenerator td.visita_occhio_dx_titoloMisura{
+	background-color:#FFC;
+	text-align:center;
+}
+
+.CSSTableGenerator td.visita_occhio_sx_titoloMisura{
+	background-color:#0CF;	
+	text-align:center;
+}
+
+.CSSTableGenerator td.visita_occhio_dx_misura{
+	background-color:#FFC;
+	text-align:center;
+}
+
+.CSSTableGenerator td.visita_occhio_sx_misura{
+	background-color:#0CF;
+	text-align:center;
+}
+  
+TD.titoloSezRicercaICD{
+  padding-top:5px;
+  padding-bottom:5px;
+  background-color:#FFCC00;
+  width:50%;
+}
+TD.celleSezRicercaICD{
+	background-color:#FFCC00;
+}
+TD.titoloSezSelezionatoICD{
+  padding-top:5px;
+  padding-bottom:5px;
+  background-color:#66FF99;
+}
+TD.celleSezSelezionatoICD{
+	background-color:#66FF99;
+}
+
+SPAN.resetFieldTerapia {
+	margin-top: 5px;
+	width: 20px;
+	height: 20px;
+	background-image: url(../../../../imagexPix/button/mini/btReset.png);
+	background-repeat: no-repeat;
+	cursor: pointer;
+	display: block;
+}
+
+<!-- #accordion h3 { padding-left: 20px; }	-->
+div.clsAccordion h3 { padding-left: 20px; }	
+
+div.clsNoteEvidenza{
+	display:none;
+	visibility:hidden;	
+	height:25px;
+	background-color:red;
+	color:white;
+	padding:5px 5px 5px 5px;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+	font-size:14px;
+}

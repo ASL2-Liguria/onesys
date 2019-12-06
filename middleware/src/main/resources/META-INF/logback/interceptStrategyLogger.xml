@@ -1,0 +1,23 @@
+<configuration>
+	<!-- appenders for intercept strategy -->
+	<appender name="ELCO_MIDDLEWARE_INTERCEPTSTRATEGYAPPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/interceptstrategy/%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+   			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+	       		<maxFileSize>${elco.logback.maxFileSize}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date: [%thread] -> %message%n</pattern>
+		</encoder>
+	</appender> 
+    <appender name="ELCO_MIDDLEWARE_INTERCEPTSTRATEGYAPPENDER_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+	    <queueSize>500</queueSize>
+        <appender-ref ref="ELCO_MIDDLEWARE_INTERCEPTSTRATEGYAPPENDER" />
+    </appender>
+    <!-- appenders for intercept strategy -->
+
+    <logger name="INTERCEPTSTRATEGY" level="INFO" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_INTERCEPTSTRATEGYAPPENDER_ASYNC"/>
+	</logger>
+</configuration>

@@ -1,0 +1,1083 @@
+/* al_consoleMain.css */
+table.classDataEntryTable {
+	table-layout:fixed;
+	text-align: left;
+	width: 100%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+}
+
+td.classTdLabelNoWidth{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;	
+}
+td.classTdText{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:14px;	
+        text-align:right;
+        text-decoration: underline;
+        border-bottom:1px;
+}
+
+td.classTdLabel{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:70px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:10px;	
+	white-space:nowrap;
+}
+
+td.classTdField{
+	border: 1px solid #83E2BC;
+	background-color:#F2FEFF;
+	white-space:nowrap;	
+	font-size:10px;		
+}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+input.smallTextBox{
+	font:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+
+/* imposto info primo layer */
+#divFirstLayout{
+	display:block;
+	height:32px;
+}
+/* imposto info secondo layer */
+#divSecondLayout{
+	display:block;
+	height:180px;
+}
+/* imposto info terzo layer */
+#divThirdLayout{
+	display:block;
+}
+
+div.classQuesito{
+	width:100%;
+    height:60px;
+    overflow:auto;padding: 4px;
+    border:2px solid #83E2BC;
+	background:url(../../../imagexPix/button/gradient/gradient.png);
+	background-repeat:repeat-x;
+}
+
+div.classDescrEsameQuesito{
+	color:#0000FF;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;	
+}
+
+div.classTestoQuesito{
+	margin-top:0px;
+	color:#000000;
+	text-align:justify;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;
+	overflow:auto;
+	
+}
+
+/* */
+
+div.classQuadro{
+	width:100%;
+    height:60px;
+    overflow:auto;padding: 4px;
+    border:2px solid #83E2BC;
+	background:url(../../../imagexPix/button/gradient/gradient.png);
+	background-repeat:repeat-x;
+}
+div.classDescrEsameQuadro{
+	color:#0000FF;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;	
+}
+
+div.classTestoQuadro{
+	margin-top:0px;
+	color:#000000;
+	text-align:justify;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:12px;		
+	
+}
+
+
+
+#attesaBox{
+	background-color:#000;
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	display:block;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	visibility:hidden;
+}
+
+
+.testoAttesaBox{
+	top:10%;
+	left:30%; 
+	color:white; 
+	position:relative;
+	font-size:20px;
+	
+}
+
+
+DIV.boxSceltaEsami {
+  display:     block;
+  width:       500px;
+  height:      250px;
+
+  position:    absolute;
+  top:         120px;
+  left:        40px;
+
+
+  background:url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+  background-repeat:repeat;
+}
+
+
+SPAN.closeLinkInLine{
+	float:right;
+	top:-24px;
+	position:relative;
+	width:23px;
+	height:23px;
+	background-image:url(../../../imagexPix/button/mini/btCloseInLine.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+} 
+
+SPAN.lenteInLine{
+	float:left;
+	width:23px;
+	height:23px;
+	background-image:url(../../../imagexPix/button/mini/lente.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+} 
+
+/* link per elenco esami (lente) */
+A LABEL.elencoEsamiClass{
+	cursor:pointer;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	text-decoration:none;	
+	line-height:25px;
+	color:blue;
+	float:left;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+A:hover LABEL.elencoEsamiClass{
+	color:white;
+	background-color:#00F;
+}
+
+/* ********************* */
+
+/* link esami (solo inserimento) */
+A LABEL.esamiClass{
+	cursor:pointer;
+	font-size:10px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	line-height:25px;
+	color:blue;
+	float:left;
+	margin-right:5px;
+	margin-left:5px;
+}
+
+A:hover LABEL.esamiClass{
+	color:white;
+	background-color:#00F;
+}
+
+
+SPAN#spanNotificaMsg{
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	position:absolute;
+	left:0;
+	top:0;
+	background-color:red;
+	color:white;
+	text-align:left;
+	font-size:12px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	width:150px;
+	height:22px;
+	visibility:hidden;
+	padding-left:4px;
+	overflow:auto;
+}
+
+
+#spanNotificaMsg_HSSDK{
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	position:absolute;
+	left:0;
+	top:0;
+	background-color:red;
+	color:white;
+	text-align:left;
+	font-size:12px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-weight:bold;
+	width:150px;
+	height:25px;
+	visibility:visible;
+	padding-left:4px;
+	overflow:auto;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:2px;
+	padding-bottom:2px;
+	
+}
+
+
+
+LABEL#lblDESCR_SEC_MEDICO{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+}
+
+/* al_headerTableConsole.css  */
+
+table.classTabHeader {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+
+table.classTabHeader td.classTabHeaderSx {
+	background-image:url(../../../imagexPix/tabheader/tabSx.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddle {
+	background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	color:#0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabHeader td.classTabHeaderDx {
+background-image:url(../../../imagexPix/tabheader/tabDx.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+table.classTabHeader td.classTabFooterSx {
+background-image:url(../../../imagexPix/tabheader/tabSxDown.gif);
+width:10px;
+}
+
+table.classTabHeader td.classTabFooterDx {
+background-image:url(../../../imagexPix/tabheader/tabDxDown.gif);
+background-repeat:no-repeat;
+width:10px; 
+}
+
+
+
+table.classTabHeader td.classButtonHeader {
+background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+
+table.classTabHeader td.classButtonHeaderContainer {
+background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+background-repeat:repeat-x;
+/*width:120px;*/
+}
+
+table.classTabHeader td.classButtonHeaderCarousel {
+	background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat:repeat-x;
+	width:750px;
+}
+
+
+table.classTabHeader td.classMiniButtonheader {
+background-image:url(../../../imagexPix/tabheader/top_tabella.gif);
+background-repeat:repeat-x;
+width:26px;
+padding:0,5px,0,5px;
+
+}
+
+/* ************ configurazione per intestazione rossa ********** */
+
+table.classTabHeader td.classTabHeaderSxRed{
+	background-image:url(../../../imagexPix/tabheader/tabSx_red.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabHeader td.classTabHeaderMiddleRed {
+	background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabHeader td.classTabHeaderDxRed {
+background-image:url(../../../imagexPix/tabheader/tabDx_red.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+table.classTabHeader td.classButtonHeaderRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+table.classTabHeader TD#headerThirdLayoutButton.classButtonHeaderContainerRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:120px; 
+}
+
+table.classTabHeader td.classMiniButtonheaderRed {
+background-image:url(../../../imagexPix/tabheader/top_tabella_red.gif);
+background-repeat:repeat-x;
+width:26px;
+padding:0,5px,0,5px;
+
+}
+
+/* normalBody.css  */
+body {
+	background-color:#FFFFCC;
+	margin: 0 0 0 0;
+	background-image:url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	font-family: Arial, Helvetica, sans-serif;
+	padding:0;
+	font-size:12px;	
+}
+
+
+/* al_buttonValida.css */
+
+.classButtonValida {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/icon/validaUtente.gif);
+	text-align: center;
+	
+}
+
+.classButtonValida A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValida A:hover {
+	background-image:url(../../../imagexPix/button/icon/validaUtente_over.gif);
+}
+/* pulsante di validazione con lucchetto */
+.classButtonValidaLock {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockOpened.gif);
+	text-align: center;
+	
+}
+
+.classButtonValidaLock A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValidaLock A:hover {
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockOpened_over.gif);
+}
+
+.classButtonValidaLockClosed {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockClosed.gif);
+	text-align: center;
+	
+}
+
+.classButtonValidaLockClosed A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValidaLockClosed A:hover {
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockClosed_over.gif);
+}
+
+#idImgSecMed{
+width:32px;
+height:32px;
+display:inline;
+}
+
+/* al_button.css */
+
+.pulsante {
+	width:105px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	float:right;
+
+}
+
+.pulsante A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsante A:hover {
+	background-image:url(../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+}
+.pulsanteDis {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}
+
+
+.pulsanteWide {
+	width:100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/bar/btLightCyan_50.jpg);
+	background-repeat:repeat;
+	text-align: center;
+	line-height:40px;
+}
+
+.pulsanteWide A{
+	width:100%;
+	height:50px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:inline-table;
+}
+
+.pulsanteWide A:hover {
+	background-image:url(../../../imagexPix/bar/btCyan_50.jpg);
+	background-repeat:repeat;
+	color: yellow;
+}
+
+/* dialog_box.css */
+
+#content {padding:20px}
+#dialog {position:absolute; width:525px; padding:10px; z-index:200; background:#fff}
+#dialog-header {display:block; position:relative; width:511px; padding:3px 6px 7px; height:14px; font-size:14px; font-weight:bold}
+#dialog-title {float:left}
+#dialog-close {float:right; cursor:pointer; margin:3px 3px 0 0; height:11px; width:11px; background:url(../../../imagexPix/dialog/dialog_close.gif) no-repeat}
+#dialog-content {display:block; height:160px; padding:6px; color:#666666; font-size:13px;overflow:auto;}
+#dialog-mask {position:absolute; top:0; left:0; min-height:100%; width:100%; background:#FFF; opacity:.75; filter:alpha(opacity=75); z-index:100}
+.error {background:#fff url(../../../imagexPix/dialog/error_bg.jpg) bottom right no-repeat; border:1px solid #924949; border-top:none}
+.errorheader {background:url(../../../imagexPix/dialog/error_header.gif) repeat-x; color:#6f2c2c; border:1px solid #924949; border-bottom:none}
+.warning {background:#fff url(../../../imagexPix/dialog/warning_bg.jpg) bottom right no-repeat; border:1px solid blue; border-top:none}
+.warningheader {background:url(../../../imagexPix/dialog/warning_header.gif) repeat-x; color:white; border:1px solid blue; border-bottom:none}
+.success {background:#fff url(../../../imagexPix/dialog/success_bg.jpg) bottom right no-repeat; border:1px solid #60a174; border-top:none}
+.successheader {background:url(../../../imagexPix/dialog/success_header.gif) repeat-x; color:#3c7f51; border:1px solid #60a174; border-bottom:none}
+.prompt {background:#fff url(../../../imagexPix/dialog/prompt_bg.jpg) bottom right no-repeat; border:1px solid #4f6d81; border-top:none}
+.promptheader {background:url(../../../imagexPix/dialog/prompt_header.gif) repeat-x; color:#355468; border:1px solid #4f6d81; border-bottom:none}
+
+/* carouselExam.css */
+
+.stepcarousel_Exam{
+	position: relative; /*leave this value alone*/
+	overflow: scroll; /*leave this value alone*/
+	width: 80%; /*Width of Carousel Viewer itself*/
+	height: 25px; /*Height should enough to fit largest content's height*/
+	padding-left:10px;
+	padding-right:10px;
+	margin-left:5px;
+	
+}
+
+.stepcarousel_Exam .beltCarousel_Exam{
+	position: absolute; /*leave this value alone*/
+	left: 0;
+	top: 0;
+}
+
+.stepcarousel_Exam .panelCarousel_Exam{
+	float: left; /*leave this value alone*/
+	overflow: hidden; /*clip content that go outside dimensions of holding panel DIV*/
+	width: 170px; /*Width of each panel holding each content. If removed, widths should be individually defined on each content DIV then. */
+	padding-left:3px;
+	padding-right:3px;
+}
+
+/* css per elemento del carosello */
+.stepcarousel_Exam .panelCarousel_Exam SPAN.singleElemCarousel_Exam{
+
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A LABEL.labelSingleElemCarousel_Exam{
+	cursor:pointer;
+	font-size:12px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	text-decoration:none;
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A:hover LABEL.labelSingleElemCarousel_Exam{
+	color:white;
+	background-color:#00F;
+}
+/* ********** */
+/* css per elemento del carosello SELEZIONATO*/
+.stepcarousel_Exam .panelCarousel_Exam A LABEL.labelSingleElemCarousel_ExamSelected{
+}
+
+.stepcarousel_Exam .panelCarousel_Exam A:hover LABEL.labelSingleElemCarousel_ExamSelected{
+	color:white;
+	background-color:#00F;
+}
+
+/* ********** */
+
+SPAN.infoButtonExam{
+	top:-25px;
+	position:relative;
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/mini/info.png);
+	background-repeat:no-repeat;
+	cursor:pointer;	
+}
+
+
+/* sceltaEsamiBox.css */
+
+#sceltaEsamiBox{
+	background-color:#000;
+	filter:alpha(opacity=98);
+	-moz-opacity: 0.98;
+	opacity: 0.98;
+	display:block;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	position:absolute;
+	visibility:hidden;
+	z-index:51;
+	border:2px 2px 2px 2px;
+	border-color:blue;
+}
+
+
+.testoSceltaEsamiBox{
+	top:10%;
+	left:30%; 
+	color:white; 
+	position:relative;
+	font-size:20px;
+	
+}
+
+/* commonInLineStyle.css */
+
+.pulsanteInline A{
+	width:100%;
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:25px;
+	
+	float:left;
+	background-image:url(../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	display:block;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.pulsanteInline A:hover {
+	width:100%;	
+	background-image:url(../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;	
+}
+
+
+.infoInLine{
+	display:block;
+	background-color:#09C;
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+	height:25px;
+	line-height:25px;
+	width:100%;
+	overflow:hidden;
+	
+}
+
+.infoInLineSubTitle{
+	display:block;
+	background-color:#03F;	
+	color:white;
+	font-weight:bold;
+	font-size:16px;
+	text-align:center;	
+}
+
+SPAN.closeLinkInLine{
+	float:right;
+	top:-24px;
+	position:relative;
+	width:23px;
+	height:23px;
+	background-image:url(../../../imagexPix/button/mini/btCloseInLine.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+} 
+
+
+/* attesaRegistra.css */
+#divAttesa
+{
+	position:absolute;
+}
+body > div#divAttesa
+{
+	position:fixed;
+}
+
+div#divAttesa
+{
+	left:expression(((ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft)) + 'px');
+	top:expression(((ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop)) + 'px');
+}
+
+#divRichiesta
+{
+	position:absolute;
+}
+body > div#divRichiesta
+{
+	position:fixed;
+}
+
+div#divRichiesta
+{
+	left:expression(((ignoreMe2 = document.documentElement.scrollLeft ? document.documentElement.scrollLeft + ((document.body.offsetWidth / 2) - 170): document.body.scrollLeft + ((document.body.offsetWidth / 2) - 170))) + 'px');
+	top:expression(((ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop + ((document.body.offsetHeight / 2) - 100): document.body.scrollTop + ((document.body.offsetHeight / 2) - 100))) + 'px');
+}
+
+.clsDivBlackOpacity
+{
+	filter:alpha(opacity=74);
+	position:absolute;
+	width:100%;
+	height:expression(document.body.offsetHeight + 'px' );
+	top:0;
+	left:0;
+	background-color:black;
+	display:none;
+	z-index:10;
+}
+
+.clsDivAttesaRegistra
+{
+	filter:alpha(opacity=100);
+	position:absolute;
+	width:200px;
+	height:80px;
+	left:expression(((document.body.offsetWidth / 2) - 100) + 'px' );
+	top:expression(((document.body.offsetHeight / 2) - 50) + 'px' );
+	background-color:white;
+	vertical-align:middle;
+	border:ridge;
+	border-color:#999999;
+	z-index:11;
+}
+
+.clsImgAttesaRegistra
+{
+	position:absolute;
+	width:160px;
+	left:16px;
+	top:expression((document.all['divRegistraAttesa'].offsetHeight - 30) + 'px' );
+}
+
+.clsSpanAttesaRegistra
+{
+	font-style:oblique;
+	font-weight: bold;
+	font-size:16px;
+	text-align:center;
+	text-shadow:#00CCFF;
+	position:absolute;
+	width:160px;
+	left:16px;
+	top:10px;
+}
+
+.clsdivRichiestaPassword
+{
+	position:absolute;
+	width:340px;
+	height:2000px;
+	/*left:expression(((document.body.offsetWidth / 2) - 170) + 'px' );
+	top:expression(((document.body.offsetHeight / 2) - 100) + 'px' );*/
+	vertical-align:middle;
+	z-index:11;
+}
+
+/* conclusioniStyle.css */
+
+
+h1 { font-size: 1.2em; margin: .6em 0; }		
+fieldset { padding:0; border:0; margin-top:25px; }
+div#users-contain { width: 500px; margin: 20px 0; }
+div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+.ui-dialog .ui-state-error { padding: .3em; }
+.validateTips { border: 1px solid transparent; padding: 0.3em; }
+#widget-docs .ui-state-error, #widget-docs .ui-widget-content #widget-docs .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec url(std/jscript/jQueryUI/images/fef1ec_40x100_textures_05_inset_soft_95.png) 50% bottom repeat-x; color: #cd0a0a; }
+#widget-docs .ui-state-error .ui-icon, #widget-docs .ui-state-error-text .ui-icon {background-image: url(std/jscript/jQueryUI/images/cd0a0a_256x240_icons_icons.png); }	
+
+
+
+
+label#lblDescrizionePaziente{
+	color:red;
+	font-size:12px;
+}
+
+label#lblAgeValue{
+	color:red;
+	font-size:12px;
+}
+
+label#lblDAT_REF{
+	color:black;
+}
+
+
+
+.classImmagineCarosello{
+	
+}
+.classImmagineCarosello_compilato{
+	border: 2px solid #00FF00;
+	background-color: #00FF00;
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;
+	
+}
+.classImmagineCarosello_incompleto{
+	border: 2px solid #FF0000;
+	background-color: #FF0000;
+	filter:alpha(opacity=75);
+	-moz-opacity: 0.75;
+	opacity: 0.75;	
+	
+}
+
+
+#simplemodal-overlay {background-color:#000;}
+#simplemodal-container {background-color:#333; border:8px solid #444; padding:12px;}
+
+
+
+/* ******************** */
+/* rilevanza casi */
+/* ******************** */
+
+SPAN.pulsanteInclusione{
+	display:inline-table;
+	background-image:url(../../../imagexPix/bar/btLightCyan_50.jpg);
+	height:50px;
+	width:100%;
+	background-repeat:repeat-x;
+	color:yellow;
+	text-align:center;
+	line-height:40px;
+}
+
+SPAN.pulsanteInclusione A{
+	display:inline-table;	
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+	font-weight:bold;
+	height:50px;
+
+}
+
+SPAN.pulsanteInclusione A:hover {
+	background-image:url(../../../imagexPix/bar/btCyan_50.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	font-weight:bold;	
+}
+
+
+
+#selectableRilevanza .ui-selecting { background: #FECA40; } 
+#selectableRilevanza .ui-selected { background: #F39814; color: white; }
+#selectableRilevanza { list-style-type: none; margin: 0; padding: 0; }
+#selectableRilevanza li { margin: 2px; padding: 1px; float: left; width: 70px; height: 40px; font-size: 4em; text-align: center; }
+
+
+
+	.ui-autocomplete {
+		max-height: 100px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+		/* add padding to account for vertical scrollbar */
+		padding-right: 2px;
+	}
+
+
+#dialog-form-casi ui-dialog-content ui-widget-content{
+	background: green;
+}
+
+
+SPAN.spanCasiTitle{
+	color:white;
+	font-weight:bold; 
+	font-size:14px; 
+	display:block; 
+	background-color:blue; 
+	width:100%; 
+	text-align:center;	
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+
+SPAN#idTitleIconPlaceHolder{
+	width:40px;
+	height:23px;
+	cursor:pointer;
+	position:relative;
+	margin-top:-24px;
+	float:right;
+	margin-right:3px;
+	display:block;
+}
+
+SPAN#idFormulaPlaceHolder{
+	width:40px;
+	height:23px;
+	cursor:pointer;
+	position:relative;
+	margin-top:-24px;
+	float:right;
+	margin-right:3px;
+	display:block;
+}
+
+
+SPAN#boxOpenExamForm{
+	width:40px;
+	height:23px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/schedaRM.png);
+	display:block;
+}
+
+SPAN#boxOpenRelevantCase{
+		width:40px;
+	height:23px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/caseEvalForm.png);
+	display:block;
+}
+
+
+
+/* ******************** */
+
+DIV#idDivReportControl{
+	display:block;
+}
+
+
+SPAN#femaleIconInfo{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/woman.png);
+	display:inline-block;	
+	cursor: pointer;
+}
+
+SPAN#maleIconInfo{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/man.png);
+	display: inline-block;
+	cursor: pointer;
+}
+
+
+SPAN.classeIconaSessoPaziente{
+	margin-left:5px;
+	margin-right:5px;	
+}
+
+
+div#divChangeStatus_container{
+
+}
+
+/* note di diario */
+td.classTdLabel_NotaDiario{
+	border: 1px solid #83E2BC;
+	background-color:#6CF;
+	padding:5px 5px 5px 5px;
+	width:70px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:14px;	
+	white-space:nowrap;
+	
+}
+
+td.classTdField_NotaDiario{
+	border: 1px solid #83E2BC;
+	background-color:#DEF9FE;
+	white-space:nowrap;	
+	font-size:14px;		
+	padding:5px 5px 5px 5px;	
+}
+
+TEXTAREA.classNoteDiario{
+	border: 1px solid #606060;
+	font-family: verdana, tahoma, sans-serif;
+	padding:5px 5px 5px 5px;
+	min-width:98%;
+	max-width:98%;
+	font-size:12px;	
+}
+
+img#idImgValidaMedRif{
+	width:25;
+	height:25;
+}
+	
+	
+label#idLblProntoValid{
+	font-size:12px;
+}
+
+#headerThirdLayoutMiddle{
+	width:150px;
+}
+
+/* ********************************* */
+/* *** medicina di iniziativa   **** */
+/* ********************************* */
+SPAN.anagIniziativa{
+	background-image:url(../../../imagexPix/contextMenu/btMedIniz_20.png);
+	background-repeat:no-repeat;	
+	display:inline-block;
+	width:20px;
+	height:20px;	
+	margin-left:2px;
+}
+
+SPAN.anagIniziativaNewMsg{
+	background-image:url(../../../imagexPix/contextMenu/btMedInizNewMsg_20.png);
+	background-repeat:no-repeat;	
+	display:inline-block;
+	width:20px;
+	height:20px;	
+	margin-left:2px;
+}
+

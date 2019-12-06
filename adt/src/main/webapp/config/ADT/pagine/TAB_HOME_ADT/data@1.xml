@@ -1,0 +1,83 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'SDJ.Q_EMPTY@ADT'; :where := null; :campo_xml := null; end;">
+
+    <DATO
+        key_id="REPG" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_DH_ORD@ADT"
+    />
+    <DATO
+    	key_id="TIPOR" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_TIPO_RICOVERO@ADT"
+    />
+    <DATO 
+    	key_id="REPARTO_A_G_D" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_DH_ORD@ADT"
+    />
+    <DATO 
+    	key_id="TIPO_A_G_D" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_TIPO_RICOVERO_WK_ACCESSI_GIURIDICI_DIMESSI@ADT"
+    />
+    <DATO 
+    	key_id="REGIME_A_G_D" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'TIPO = ''ADT_REGIME_CONTATTO'' and ASSIGNING_AUTHORITY_AREA = ''ADT'' and parametri = ''RICOVERO'''; end;"
+    />
+    <DATO 
+    	key_id="REPARTO_T_G" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="begin :key := 'ADT.Q_REPARTI_PERSONALE_DH_ORD@ADT'; :where := 'VALORE7 is null'; end;"
+    />
+    <DATO
+        key_id="REGIMER" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'TIPO = ''ADT_REGIME_CONTATTO'' and ASSIGNING_AUTHORITY_AREA = ''ADT'''; end;"
+  	/>
+    <DATO 
+    	key_id="radFiltroWk" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="VALUE" db_descrizione="DESCR"
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and TIPO=''ADT_TIPO_REPARTO_WORKLIST'''; end;"
+    />
+    <DATO
+        key_id="URG" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_FILL_COMBO_ADT_URG_IDEN@ADT"
+    />
+    <DATO
+      	key_id="STATOCONT" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.FILTRO_STATO_CONTATTO@ADT"
+    />
+    <DATO
+        key_id="REP_SDO" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_DH_ORD@ADT"
+	/>
+    <DATO
+        key_id="REP_GROUPER" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_DH_ORD@ADT"
+	/>
+    <DATO 
+     	key_id="STATO_SDO" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'assigning_authority_area=''ADT'' and tipo=''ADT_STATO_CARTELLA_SDO'' and attivo=''S'''; end;"
+    />
+    <DATO 
+     	key_id="STATO_CARTELLA" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'assigning_authority_area=''ADT'' and tipo=''ADT_STATO_CARTELLA'' and attivo=''S'''; end;"
+  	/>
+  	<DATO 
+  		key_id="chkRicercaSensibile" configurazione_stato="begin :stato := 'L'; end;"
+        db_valore="VALUE" db_descrizione="DESCR"
+        configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''RICERCA_SENSIBILE'''; end;"
+  	/>
+    <DATO
+        key_id="REPARTO_A_G_S" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE_DH@ADT"
+    />
+</DATI>

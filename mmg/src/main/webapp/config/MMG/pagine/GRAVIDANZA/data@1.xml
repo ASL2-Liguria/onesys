@@ -1,0 +1,26 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_GRAVIDANZA'; :where := null; :campo_xml := null; end;">
+
+	<DATO key_id="GravidanzaARischio" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="RISCHIO" db_descrizione="RISCHIO" configurazione_multi_data="R_SI_NO" />
+
+	<DATO key_id="EsenzioneGravidanza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="CMB_ESENZIONI_GRAVIDANZA" />
+
+	<DATO key_id="DataUltimoMestruo" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_ULT_MESTRUO" db_descrizione="DATA_ULT_MESTRUO"
+		configurazione_multi_data="" />
+
+	<DATO key_id="DataPresuntaParto" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_PARTO_PRESUNTA" db_descrizione="DATA_PARTO_PRESUNTA"
+		configurazione_multi_data="" />
+
+	<DATO key_id="DataParto" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_PARTO" db_descrizione="DATA_PARTO"
+		configurazione_multi_data="" />
+		
+	<DATO key_id="SettimanaGravidanza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="NSETTIMANA" db_descrizione="NSETTIMANA"
+		configurazione_multi_data="" />
+
+</DATI>

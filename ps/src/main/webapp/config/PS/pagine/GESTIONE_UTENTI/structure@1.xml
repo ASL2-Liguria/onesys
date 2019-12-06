@@ -1,0 +1,17 @@
+<PAGINA key_id="GESTIONE_UTENTI">
+    <HEADER_WK key_id="GESTIONE_UTENTI" valore="DEFAULT,WK,GESTIONE_UTENTI#DEFAULT,GESTIONE_UTENTI" evento="START_END">
+    </HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="filtri" valore="GestioneUtenti#butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroGestUtenti" valore="filtroGestUtenti#WK_GENERIC" evento="START_END">
+            <TABELLA.INIT key_id="tabConfUtenti" valore="" evento="START_END">
+                <TR.INIT key_id="riga1" valore="" evento="START_END">
+                    <FILTRO_TEXT key_id="FieldRicerca" valore="lblUsername#txtUsername#utente##T" evento="START">
+                    </FILTRO_TEXT>
+                    <FILTRO_RADIO key_id="FiltroAttivo" valore="lblStato#FiltroAttivo#radAttivo#{width:100,idxDefault:0}#S#attivo" evento="START">
+                    </FILTRO_RADIO>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>
+    </TABULAZIONE.FILTRI>
+</PAGINA>
+

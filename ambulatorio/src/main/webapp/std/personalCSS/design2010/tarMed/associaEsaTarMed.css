@@ -1,0 +1,26 @@
+/* CSS Document */
+html,body{margin:0;padding:0}
+p{margin:0 12px 12px}
+
+div#wrapper{
+float:right;width:70%}
+div#divTabEsa{}
+div#divTarMed {}
+div#divTableLink{}
+div#divTableLink{clear:both;width:100%}
+div#divTabEsa{float:left;width:29.9%}
+div#idToolTip{
+background-color:#FFFF99;
+font:Arial, Helvetica, sans-serif;
+font-size:14px;
+border-color:#3333CC;
+border-width:thin;
+padding: 3px 3px 3px 3px;
+border-style:double;
+}
+
+.prestazioneBase{
+	background-color:#FFFF99;
+	font-weight:bold;
+	color:#003399
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<lblTitolo>Segnalazioni relative all'applicativo MMG</lblTitolo>
+		
+		<tabInserimentoSegnalazioni>Inserimento</tabInserimentoSegnalazioni>
+		<tabSegnalazioni>Lista segnalazioni</tabSegnalazioni>
+		
+		<fldInserimentoSegnalazioni>Inserimento di una nuova segnalazione</fldInserimentoSegnalazioni>
+		<fldSegnalazioni>Lista segnalazioni già presenti</fldSegnalazioni>
+		<fldTesto>Testo della segnalazione</fldTesto>
+		
+		<lblPriorita>Priorità</lblPriorita>
+		<lblNessunaPriorita>Nessuna</lblNessunaPriorita>
+		<lblBassaPriorita>Bassa</lblBassaPriorita>
+		<lblMediaPriorita>Media</lblMediaPriorita>
+		<lblAltaPriorita>Alta</lblAltaPriorita>
+		<lblTelefono>Telefono</lblTelefono>
+		<lblEmail>E-mail</lblEmail>
+		<lblPreferenzaContatto>Preferenza di contatto</lblPreferenzaContatto>
+		<lblTipoSegnalazione>Tipo di segnalazione</lblTipoSegnalazione>
+		
+		<lblMedico>Medico</lblMedico>
+		<lblDataInserimento>Data inserimento</lblDataInserimento>
+		<lblStato>Stato</lblStato>
+		<lblTesto>Testo</lblTesto>
+		
+		<fldTipoSegnalazione>Tipo di segnalazione</fldTipoSegnalazione>
+		<fldErroreApplicativo>Errore Applicativo</fldErroreApplicativo>
+		<fldProblemaAnagrafica>Problema Anagrafica</fldProblemaAnagrafica>
+		
+		<fldDatiContatto>Dati Contatto</fldDatiContatto>
+		
+		<lblApri>Apri segnalazione</lblApri>
+		
+    </ROW>
+</ROWSET>

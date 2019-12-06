@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>
+        <statement name="getDati">
+            <sql>
+                <![CDATA[
+				SELECT 
+				n.num_nosologico,
+				a.cogn,
+				a.nome,
+				(select descrizione from cc_stanze where iden=n.stanza) stanza,
+				(select descrizione from cc_letti where iden=n.letto) letto,
+				(select descr from tab_pro where iden=n.iden_pro) reparto,
+				(select descr from tab_pro where iden=n.iden_pro_appoggio) reparto_appoggio,
+       			ttr.descr tipo_ricovero
+				FROM nosologici_paziente n
+				join tab_tipo_ricovero ttr
+       			on (n.iden_tipo_ricovero=ttr.iden)
+				join anag a
+				on(n.iden_anag=a.iden)
+				WHERE num_nosologico=?
+				AND iden_anag=(select iden_anag from cod_est_anag where id1=?)
+				AND  ((accesso='0' and ttr.cod_dec like 'PRE%') or accesso='1')
+				AND dimesso         ='N'
+				AND rownum=1
+ 			]]>
+             </sql>
+         </statement>
+    </statements_list>
+</root>

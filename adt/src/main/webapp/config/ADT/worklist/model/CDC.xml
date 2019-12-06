@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>CDC</ID>
+    <ID-QUERY connection="POLARIS_DATI">WORKLIST.CDC</ID-QUERY>
+    <TITLE>"Worklist Centri di Costo"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_TABELLE_INS_MOD</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN</COL>
+                        <DB>IDEN</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCdcIden</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+                    <WIDTH>80px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE</COL>
+                        <DB>CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCdcCodice</DESCRIPTOR>
+                    <PROCESS type="java"></PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                    <EVENTS>
+                        <CLICK>
+                            <![CDATA[function(rec){alert('aprischedaAnag');}]]>
+                        </CLICK>
+                    </EVENTS>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DESCRIZIONE</COL>
+                        <DB>DESCRIZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCdcDescrizione</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ORDINE</COL>
+                        <DB>ORDINE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblCdcOrdine</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+
+            </LIST>
+            <SORT>
+                <COLUMN id="ORDINE">ASC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

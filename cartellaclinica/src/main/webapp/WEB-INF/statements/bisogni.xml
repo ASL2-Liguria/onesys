@@ -1,0 +1,11 @@
+<root>
+	<statements_list>
+		<statement name="returnIdenBisogno">				
+			<sql>
+			<![CDATA[
+				select iden from cc_bisogni_type where funzione = ?
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

@@ -1,0 +1,1008 @@
+<root>
+	<statements_list>
+		<statement name="checkEsameRefertabile">				
+			<sql>
+			<![CDATA[
+				declare
+					nIdenEsame number := ?;
+				begin
+					AMB_CHECK_ESAME_REFERTABILE(nIdenEsame, ?, ?);
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+
+		<statement name="checkAnagPrenotabile">				
+			<sql>
+			<![CDATA[
+				declare
+					nIdenAnag number := ?;
+				begin
+					AMB_CHECK_ANAG_PRENOTABILE(nIdenAnag, ?, ?);
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+	
+        <statement name="getDiagnosiRichiesta">	
+            <sql>
+            <![CDATA[
+					SELECT pr.cod_icd,  pr.descr_icd FROM View_Cc_Problemi_Ricovero@WHALE.ASL2.LIGURIA pr JOIN tab_codifiche@WHALE.ASL2.LIGURIA tc ON (pr.priorita = tc.iden) WHERE tc.tipo_scheda ='SCHEDA_DIAGNOSI' AND tc.codice  ='T1' AND pr.iden_anag = (SELECT iden_anag FROM cod_est_anag@WHALE.ASL2.LIGURIA WHERE id1 = ?) AND pr.cod_specialita= ?
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>	
+		
+        <statement name="getDiagnosiRichiestaCodCdc">	
+            <sql>
+            <![CDATA[
+					SELECT pr.cod_icd,  pr.descr_icd FROM View_Cc_Problemi_Ricovero@WHALE.ASL2.LIGURIA pr JOIN tab_codifiche@WHALE.ASL2.LIGURIA tc ON (pr.priorita = tc.iden) WHERE tc.tipo_scheda ='SCHEDA_DIAGNOSI' AND tc.codice  ='T1' AND pr.iden_anag = (SELECT iden_anag FROM cod_est_anag@WHALE.ASL2.LIGURIA WHERE id1 = ?) AND pr.cod_cdc= ?
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>			
+		
+        <statement name="getDiagnosiRichiestaMedSv">	
+            <sql>
+            <![CDATA[
+					SELECT pr.cod_icd,  pr.descr_icd FROM View_Cc_Problemi_Ricovero@WHALE.ASL2.LIGURIA pr JOIN tab_codifiche@WHALE.ASL2.LIGURIA tc ON (pr.priorita = tc.iden) WHERE tc.tipo_scheda ='SCHEDA_DIAGNOSI' AND tc.codice  ='T1' AND pr.iden_anag = (SELECT iden_anag FROM cod_est_anag@WHALE.ASL2.LIGURIA WHERE id1 = ?) AND pr.cod_specialita= 'MED_SV'
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>			
+		
+		
+		<statement name="updateStatoCiclo">				
+			<sql>
+			<![CDATA[
+				declare
+					idenEsame varchar2(4000) := ?;
+					statoCiclo varchar2(50) := ?;
+					nomeCampo varchar2(4000) := '';
+					sql_stmt varchar2(250); 
+					
+					nIdenEsameIesimo number := null;
+					countEsami number := null;
+					vImpegnativa VARCHAR2(20) := '';
+					v_tmp number;
+
+				begin
+					-- GEST_LOGS.SET_LEVEL_DEBUG;
+				  GEST_LOGS.DEBUG('updateStatoCiclo',sysdate || ' idenEsame: '|| idenEsame );									
+					SELECT VALORE into nomeCampo FROM IMAGOWEB.CONFIGURA_MODULI where modulo='CAMPO_STATO_CICLICA' and variabile = 'CAMPO_STATO';				
+					-- statoCiclo contiene CICLICA o FINE_CICLO
+					-- se si vuole marcare FINE_CICLO devo controllare non ne esistano altri per stessa impegnativa id_gruppo_ciclica
+					-- devo tenere anche conto delle eccezioni: interni o considerati tali !!!
+					-- per non cambiare il codice lato js
+					-- devo per forza loopare
+					for cPar in (select COLUMN_VALUE from table(split(idenEsame)))
+					loop
+						nIdenEsameIesimo := to_number(cPar.COLUMN_VALUE);
+ 					  GEST_LOGS.DEBUG('updateStatoCiclo',sysdate || ' nIdenEsameIesimo: '|| to_char(nIdenEsameIesimo) );					
+						if (statoCiclo = 'FINE_CICLO') then
+							-- si vuole marcare fine ciclo
+							-- verifico se possibile
+							SELECT numimp_numrich into vImpegnativa FROM esami WHERE iden = nIdenEsameIesimo;
+							  GEST_LOGS.DEBUG('updateStatoCiclo',sysdate || ' vImpegnativa: '|| vImpegnativa );					
+							-- ** valorizzare id_gruppo_ciclica se null !!
+							select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = nIdenEsameIesimo;
+						    GEST_LOGS.DEBUG('updateStatoCiclo',sysdate || ' count: '|| to_char(v_tmp) );			
+							if(v_tmp > 0) then
+								update dett_esami set id_gruppo_ciclica = nvl(id_gruppo_ciclica,nIdenEsameIesimo) where  iden = nIdenEsameIesimo;								
+							else
+								insert into dett_esami (iden,ID_GRUPPO_CICLICA) values (nIdenEsameIesimo, nIdenEsameIesimo);
+							end if;							
+							-- **************
+							SELECT COUNT(iden_esame) into countEsami FROM cod_est_esami WHERE cod10     ='FINE_CICLO' AND iden_esame IN (SELECT esami.iden FROM esami, dett_esami WHERE esami.iden = dett_esami.iden (+) AND dett_esami.id_gruppo_ciclica = (SELECT id_gruppo_ciclica FROM dett_esami WHERE iden = nIdenEsameIesimo) and esami.deleted ='N');	
+						  GEST_LOGS.DEBUG('updateStatoCiclo',sysdate || 'count : '|| to_char(countEsami) );																	
+							if (vImpegnativa is not null) then
+								if (countEsami > 0) then
+									-- esiste gia quindi rimappo 
+									-- lo stato a normale ciclo
+									statoCiclo := 'CICLICA';
+								end if;
+							end if;
+
+						end if;
+						sql_stmt := 'update COD_EST_ESAMI set ' || nomeCampo || '=:1  where IDEN_ESAME = :2';						
+						EXECUTE IMMEDIATE sql_stmt USING statoCiclo, nIdenEsameIesimo;
+						  GEST_LOGS.DEBUG('updateStatoCiclo',sysdate || 'executed');
+					end loop;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		
+		<statement name="getInfoReferto">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+				select a.cogn, a.nome, datetimeconverter(a.data, 'yyyymmdd', 'dd/mm/yyyy') data_nasc from anag a , esami e, referti r where r.iden=to_number(?) and e.iden_ref = r.iden and a.iden = e.iden_anag 
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		
+		<statement name="eseguiEsamePrenotatoCiclo">
+			<sql>
+			<![CDATA[
+			declare
+				vData varchar2(4000) := ?;
+				vOra varchar2(4000) := ?;
+				nUte  number := to_number(?);
+				nIdenEsame number := to_number(?);
+				vStatoCiclo VARCHAR2(4000)  := ?;
+			begin
+				update ESAMI set ACCETTATO = '1', ESEGUITO = '1', PRENOTATO = '1', REFERTATO = '0', STATO = 'PAE          ', DAT_ESA = vData, ORA_ACC = vOra, ORA_ESA = vOra, UTE_ACC=nUte, UTE_ESE = nUte, FINE_ESECUZIONE = '0', UTE_MOD_ACC=nUte where IDEN = nIdenEsame;
+				if (vStatoCiclo is not null) then
+					update cod_est_esami set cod10 = vStatoCiclo where IDEN_ESAME = nIdenEsame;
+				end if;
+			end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="eseguiEsamePrenotato">
+			<sql>
+			<![CDATA[
+			declare
+				vData varchar2(4000) := ?;
+				vOra varchar2(4000) := ?;
+				nUte  number := to_number(?);
+				nIdenEsame number := to_number(?);
+			begin
+				update ESAMI set ACCETTATO = '1', ESEGUITO = '1', PRENOTATO = '1', REFERTATO = '0', STATO = 'PAE          ', DAT_ESA = vData, ORA_ACC = vOra, ORA_ESA = vOra, UTE_ACC=nUte, UTE_ESE = nUte, FINE_ESECUZIONE = '0', UTE_MOD_ACC=nUte where IDEN = nIdenEsame;
+			end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		
+		<statement name="getIdGruppoCiclica">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+				declare
+					vIdGruppoCiclica number;
+				begin
+					select SEQ_ID_GRUPPO_CICLICA.nextval into vIdGruppoCiclica from dual;
+					? := vIdGruppoCiclica ;
+				end;			
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="creaEsameCiclico">				
+			<sql>
+			<![CDATA[		
+				declare
+					idenEsame number := to_number(?);
+					vUteAcc number := to_number(?);
+					vDataAcc varchar2(4000) := ?;
+					-- al momento me lo faccio passare da esterno x non modificare i js
+					vIdGruppoCiclica VARCHAR2(100 BYTE) :=?;		
+					vUltimo varchar2(1) := ?;			
+					vIden_pro number ;
+					vTip_esec number ;
+					vInt_est varchar2(50);
+					vIden_sal number ;
+					vIden_mac number ;
+					vIden_esa number ;
+					vReparto varchar2(50);
+					vIden_anag number ;
+					vOra_esa varchar2(50) := ?;
+					vNote varchar2(4000) := ?;
+					vNUMIMP_NUMRICH varchar2(20);
+					vDATA_RICE varchar2(8);
+					vIDEN_TICK number;
+					vNUM_PRE esami.num_pre%type;
+					vIdenInserted number;
+					vIdGruppoCiclica_EsameOld number ;	
+					v_tmp number;
+					vLEA_CLASSE_PRIORITA                 VARCHAR2(5)    ;
+					vLEA_GARANZIA_TEMPI                  VARCHAR2(5)    ;
+					vLEA_PRESTAZIONI_PRIMO_ACC           VARCHAR2(5) ;	
+					
+					vCOD11 cod_est_esami.COD11%type;
+					vCODICE_AUTENTICAZIONE_SAC cod_est_esami.CODICE_AUTENTICAZIONE_SAC%type;	
+					vCUR_PRESCR cod_est_esami.CUR_PRESCR%type;	
+					vCOD_MIN_PRESCR cod_est_esami.COD_MIN_PRESCR%type;	
+					vCOD12 cod_est_esami.COD12%type;
+					vCICLICA tab_esa.CICLICA%type;
+					vPROGRESSIVO_PRESTAZIONE cod_est_esami.progressivo_prestazione%type;
+								
+				begin
+					GEST_LOGS.SET_LEVEL_DEBUG;
+					Progressivoaccettazione(vNUM_PRE);
+					SELECT esami.iden_pro, esami.tip_esec , esami.int_est , esami.iden_sal, esami.iden_mac, esami.iden_esa, esami.reparto, esami.iden_anag, esami.NUMIMP_NUMRICH, esami.DATA_RICE, esami.IDEN_TICK, dett_esami.ID_GRUPPO_CICLICA , LEA_CLASSE_PRIORITA , LEA_GARANZIA_TEMPI , LEA_PRESTAZIONI_PRIMO_ACC, cod_est_esami.COD11,cod_est_esami.CODICE_AUTENTICAZIONE_SAC,cod_est_esami.cur_prescr,cod_est_esami.cod_min_prescr, cod_est_esami.COD12, cod_est_esami.progressivo_prestazione into  vIden_pro, vTip_esec , vInt_est , vIden_sal, vIden_mac, vIden_esa, vReparto, vIden_anag, vNUMIMP_NUMRICH, vDATA_RICE, vIDEN_TICK, vIdGruppoCiclica_EsameOld , vLEA_CLASSE_PRIORITA , vLEA_GARANZIA_TEMPI , vLEA_PRESTAZIONI_PRIMO_ACC, vCOD11, vCODICE_AUTENTICAZIONE_SAC,vCUR_PRESCR,vCOD_MIN_PRESCR,vCOD12, vPROGRESSIVO_PRESTAZIONE  FROM radsql.esami , radsql.dett_esami, radsql.cod_est_esami where esami.iden=idenEsame and dett_esami.iden (+) = esami.iden and cod_est_esami.iden_esame (+) = esami.iden;
+					
+					-- compilo ID_GRUPPO_CICLICA per esame di partenza
+					if (vIdGruppoCiclica_EsameOld Is Null ) then
+						select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = idenEsame;
+						if(v_tmp > 0) then
+							update dett_esami set ID_GRUPPO_CICLICA = idenEsame where iden = idenEsame;
+						else
+							insert into dett_esami (iden,ID_GRUPPO_CICLICA, ultimo_esame_ciclica) values (idenEsame, idenEsame, 'N');											
+						end if;
+						vIdGruppoCiclica_EsameOld := idenEsame;
+					end if;					
+					
+				  GEST_LOGS.DEBUG('creaEsameCiclico',sysdate || ' idenEsame: '|| to_char(idenEsame) || ' vIdGruppoCiclica_EsameOld: '|| to_char(vIdGruppoCiclica_EsameOld));					
+					
+					
+					Insert into ESAMI (
+					IDEN_ANAG,DAT_ESA,
+					IDEN_PRO,TIP_ESEC,
+					INT_EST, IDEN_SAL,
+					IDEN_MAC, Iden_Esa,
+					Dat_Acc,Ora_Acc,
+					Stato,REPARTO,
+					ACCETTATO, UTE_ACC,
+					Ora_esa, NUMIMP_NUMRICH, DATA_RICE, IDEN_TICK, NUM_PRE,
+					LEA_CLASSE_PRIORITA , LEA_GARANZIA_TEMPI , LEA_PRESTAZIONI_PRIMO_ACC, NOTE) 
+					values (
+					vIden_anag,vDataAcc,
+					vIden_pro,vTip_esec,
+					vInt_est, vIden_sal, 
+					vIden_mac, vIden_esa,
+					to_char(sysdate,'yyyymmdd'),To_Char(Sysdate,'HH24:MI'),
+					' A           ', vReparto,
+					'1', vUteAcc,
+					vOra_esa, vNUMIMP_NUMRICH, vDATA_RICE, vIDEN_TICK, vNUM_PRE, vLEA_CLASSE_PRIORITA , vLEA_GARANZIA_TEMPI , vLEA_PRESTAZIONI_PRIMO_ACC, vNote) returning IDEN into vIdenInserted ;	
+					  GEST_LOGS.DEBUG('creaEsameCiclico',sysdate || ' vIdenInserted: '|| to_char(vIdenInserted));
+					select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = vIdenInserted;
+					  GEST_LOGS.DEBUG('creaEsameCiclico',sysdate || ' count: '|| to_char(v_tmp));					
+					if(v_tmp > 0) then
+						update dett_esami set ID_GRUPPO_CICLICA = vIdGruppoCiclica_EsameOld, ultimo_esame_ciclica = vUltimo  where iden = vIdenInserted;					
+					  GEST_LOGS.DEBUG('creaEsameCiclico',sysdate || ' updated dett_esami: '|| vIdenInserted || ' vIdGruppoCiclica_EsameOld: ' || vIdGruppoCiclica_EsameOld);					
+					else
+						insert into dett_esami (iden,	ID_GRUPPO_CICLICA, ultimo_esame_ciclica) values (vIdenInserted, vIdGruppoCiclica_EsameOld, vUltimo);					
+					  GEST_LOGS.DEBUG('creaEsameCiclico',sysdate || ' inserted dett_esami: '|| vIdenInserted || ' vIdGruppoCiclica_EsameOld: ' || vIdGruppoCiclica_EsameOld);											
+					end if;
+					if (vCOD11='DEMATERIALIZZATA') then
+						update cod_est_esami set COD11='DEMATERIALIZZATA',CODICE_AUTENTICAZIONE_SAC=vCODICE_AUTENTICAZIONE_SAC, CUR_PRESCR=vCUR_PRESCR, COD_MIN_PRESCR=vCOD_MIN_PRESCR, COD12=vCOD12 where iden_esame = vIdenInserted;
+					end if;
+				end;		
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="creaEsameCiclico_OLD">				
+			<sql>
+			<![CDATA[
+				declare
+					idenEsame number := to_number(?);
+					vUteAcc number := to_number(?);
+					vDataAcc varchar2(4000) := ?;
+					-- al momento me lo faccio passare da esterno x non modificare i js
+					vIdGruppoCiclica VARCHAR2(100 BYTE) :=?;		
+					vUltimo varchar2(1) := ?;			
+					vIden_pro number ;
+					vTip_esec number ;
+					vInt_est varchar2(50);
+					vIden_sal number ;
+					vIden_mac number ;
+					vIden_esa number ;
+					vReparto varchar2(50);
+					vIden_anag number ;
+					vOra_esa varchar2(50) := ?;
+					vNote varchar2(4000) := ?;
+					vNUMIMP_NUMRICH varchar2(20);
+					vDATA_RICE varchar2(8);
+					vIDEN_TICK number;
+					vNUM_PRE esami.num_pre%type;
+					vIdenInserted number;
+					vIdGruppoCiclica_EsameOld number ;	
+					v_tmp number;
+					vLEA_CLASSE_PRIORITA                 VARCHAR2(5)    ;
+					vLEA_GARANZIA_TEMPI                  VARCHAR2(5)    ;
+					vLEA_PRESTAZIONI_PRIMO_ACC           VARCHAR2(5) ;	
+					
+					vCOD11 cod_est_esami.COD11%type;
+					vCODICE_AUTENTICAZIONE_SAC cod_est_esami.CODICE_AUTENTICAZIONE_SAC%type;	
+					vCUR_PRESCR cod_est_esami.CUR_PRESCR%type;	
+					vCOD_MIN_PRESCR cod_est_esami.COD_MIN_PRESCR%type;	
+					vCOD12 cod_est_esami.COD12%type;
+					vCICLICA tab_esa.CICLICA%type;
+					vPROGRESSIVO_PRESTAZIONE cod_est_esami.progressivo_prestazione%type;
+								
+				begin
+					Progressivoaccettazione(vNUM_PRE);
+					SELECT esami.iden_pro, esami.tip_esec , esami.int_est , esami.iden_sal, esami.iden_mac, esami.iden_esa, esami.reparto, esami.iden_anag, esami.NUMIMP_NUMRICH, esami.DATA_RICE, esami.IDEN_TICK, dett_esami.ID_GRUPPO_CICLICA , LEA_CLASSE_PRIORITA , LEA_GARANZIA_TEMPI , LEA_PRESTAZIONI_PRIMO_ACC, cod_est_esami.COD11,cod_est_esami.CODICE_AUTENTICAZIONE_SAC,cod_est_esami.cur_prescr,cod_est_esami.cod_min_prescr, cod_est_esami.COD12, cod_est_esami.progressivo_prestazione into  vIden_pro, vTip_esec , vInt_est , vIden_sal, vIden_mac, vIden_esa, vReparto, vIden_anag, vNUMIMP_NUMRICH, vDATA_RICE, vIDEN_TICK, vIdGruppoCiclica_EsameOld , vLEA_CLASSE_PRIORITA , vLEA_GARANZIA_TEMPI , vLEA_PRESTAZIONI_PRIMO_ACC, vCOD11, vCODICE_AUTENTICAZIONE_SAC,vCUR_PRESCR,vCOD_MIN_PRESCR,vCOD12, vPROGRESSIVO_PRESTAZIONE  FROM radsql.esami , radsql.dett_esami, radsql.cod_est_esami where esami.iden=idenEsame and dett_esami.iden (+) = esami.iden and cod_est_esami.iden_esame (+) = esami.iden;
+					
+
+--					if (vPROGRESSIVO_PRESTAZIONE is Null) then
+--						if (vIdGruppoCiclica is null) then
+--							select to_char(SEQ_ID_GRUPPO_CICLICA.nextval) into vPROGRESSIVO_PRESTAZIONE from dual;
+--						else
+--							vPROGRESSIVO_PRESTAZIONE := vIdGruppoCiclica;
+--						end if;
+--					end if;
+					
+					if (vIdGruppoCiclica_EsameOld Is Null ) then
+						select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = idenEsame;
+						if(v_tmp > 0) then
+							update dett_esami set ID_GRUPPO_CICLICA = vPROGRESSIVO_PRESTAZIONE where iden = idenEsame;
+						else
+							insert into dett_esami (iden,ID_GRUPPO_CICLICA, ultimo_esame_ciclica) values (idenEsame, vPROGRESSIVO_PRESTAZIONE, 'N');											
+						end if;
+					end if;					
+					
+					Insert into ESAMI (
+					IDEN_ANAG,DAT_ESA,
+					IDEN_PRO,TIP_ESEC,
+					INT_EST, IDEN_SAL,
+					IDEN_MAC, Iden_Esa,
+					Dat_Acc,Ora_Acc,
+					Stato,REPARTO,
+					ACCETTATO, UTE_ACC,
+					Ora_esa, NUMIMP_NUMRICH, DATA_RICE, IDEN_TICK, NUM_PRE,
+					LEA_CLASSE_PRIORITA , LEA_GARANZIA_TEMPI , LEA_PRESTAZIONI_PRIMO_ACC, NOTE) 
+					values (
+					vIden_anag,vDataAcc,
+					vIden_pro,vTip_esec,
+					vInt_est, vIden_sal, 
+					vIden_mac, vIden_esa,
+					to_char(sysdate,'yyyymmdd'),To_Char(Sysdate,'HH24:MI'),
+					' A           ', vReparto,
+					'1', vUteAcc,
+					vOra_esa, vNUMIMP_NUMRICH, vDATA_RICE, vIDEN_TICK, vNUM_PRE, vLEA_CLASSE_PRIORITA , vLEA_GARANZIA_TEMPI , vLEA_PRESTAZIONI_PRIMO_ACC, vNote) returning IDEN into vIdenInserted ;	
+--					select max(iden) into vIdenInserted from esami where num_pre = vNUM_PRE;	
+					
+					select count(IDEN) into v_tmp from DETT_ESAMI where IDEN = vIdenInserted;
+					if(v_tmp > 0) then
+						if (vIdGruppoCiclica_EsameOld Is Null ) then
+							update dett_esami set ID_GRUPPO_CICLICA = vPROGRESSIVO_PRESTAZIONE, ultimo_esame_ciclica = vUltimo  where iden = vIdenInserted;
+						else
+							update dett_esami set ID_GRUPPO_CICLICA = vIdGruppoCiclica_EsameOld, ultimo_esame_ciclica = vUltimo  where iden = vIdenInserted;					
+						end if;					
+					
+					else
+						if (vIdGruppoCiclica_EsameOld Is Null ) then
+							insert into dett_esami (iden,	ID_GRUPPO_CICLICA, ultimo_esame_ciclica) values (vIdenInserted, vPROGRESSIVO_PRESTAZIONE, vUltimo);					
+						else
+							insert into dett_esami (iden,	ID_GRUPPO_CICLICA, ultimo_esame_ciclica) values (vIdenInserted, vIdGruppoCiclica_EsameOld, vUltimo);					
+						end if;
+					end if;
+					if (vCOD11='DEMATERIALIZZATA') then
+						update cod_est_esami set COD11='DEMATERIALIZZATA',CODICE_AUTENTICAZIONE_SAC=vCODICE_AUTENTICAZIONE_SAC, CUR_PRESCR=vCUR_PRESCR, COD_MIN_PRESCR=vCOD_MIN_PRESCR, COD12=vCOD12 where iden_esame = vIdenInserted;
+					end if;
+
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+
+		<statement name="creaEsameCiclico2">				
+			<sql>
+			<![CDATA[
+				declare
+					idenEsame number := to_number(?);
+					vUteAcc := to_number(?);
+					vDataAcc := ?;
+				begin
+					Insert into ESAMI (
+					IDEN_ANAG,DAT_ESA,IDEN_PRO,TIP_ESEC,INT_EST,
+					IDEN_SAL,IDEN_MAC,
+					Iden_Esa,Dat_Acc,Ora_Acc,Stato,
+					REPARTO, ACCETTATO, UTE_ACC, Ora_esa) 
+					values (
+					SELECT iden_anag FROM radsql.esami where iden=to_number(idenEsame)),vDataAcc,(SELECT iden_pro FROM radsql.esami where iden=to_number(idenEsame)),(SELECT tip_esec FROM radsql.esami where iden=to_number(idenEsame)),(SELECT int_est FROM radsql.esami where iden=to_number(idenEsame)),
+					(SELECT iden_sal FROM radsql.esami where iden=to_number(idenEsame)), (SELECT iden_mac FROM radsql.esami where iden=to_number(idenEsame)),
+					(Select Iden_Esa From Radsql.Esami Where Iden=to_number(idenEsame)), To_Char(Sysdate,'yyyymmdd'),To_Char(Sysdate,'HH24:MI'),' A           ',
+					(SELECT reparto FROM radsql.esami where iden=to_number(idenEsame)),'1', vUteAcc, (SELECT ora_esa FROM radsql.esami where iden=to_number(idenEsame)));						
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+
+		<statement name="getInfoEsamePazienteByIdenEsame">				
+			<sql>
+			<![CDATA[
+					select anag.cogn
+						|| ' '
+						|| anag.nome
+						|| ' '
+						|| datetimeconverter(anag.data, 'yyyymmdd', 'dd/mm/yyyy') AS PAZIENTE,
+							tab_esa.descr                   AS ESA_DESCR,
+							esami.note,
+							esami.dat_esa dataesameiso,
+							esami.iden iden_esame,
+				  rr.dm_codice dm_codice,
+				  rr.codice_regionale codice_regionale,
+				  CASE 
+				   WHEN nvl(rr.NUM_SEDUTE,1)=0 THEN 1
+				   ELSE nvl(rr.NUM_SEDUTE,1)
+				  END NUM_SEDUTE       ,
+				  esami.numimp_numrich impegnativa,
+		          esami.iden_esa,
+	              tab_esa.ciclica, tab_pro.int_est
+							from anag,esami,tab_pro,tab_esa, VIEW_RR_PRESTAZIONI@WHALE.ASL2.LIGURIA rr, cod_est_tab_esa cete
+							where 
+							esami.iden_anag = anag.iden
+					and esami.iden_esa = tab_esa.iden	
+					and esami.iden_pro = tab_pro.iden
+				AND tab_esa.iden = cete.iden_esa (+)
+				AND cete.cod1 = rr.codice_regionale  (+)
+				AND cete.cod2 = rr.dm_codice (+)
+				and esami.iden in(select column_value from table (split(?)))
+				order by esami.iden_esa
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+
+
+		<statement name="cancellaLockPerUtente">
+			<sql>
+			<![CDATA[
+				declare
+					nIden number := to_number(?);
+				begin
+					delete from ROWS_LOCK where ute_lock = nIden;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getEsaDaEseguire">				
+			<sql>
+			<![CDATA[
+				SELECT esami.iden_pro,esami.NUMIMP_NUMRICH,
+				  esami.iden,
+				  anag.cogn
+				  || ' '
+				  || anag.nome
+				  || ' '
+				  || datetimeconverter(anag.data, 'yyyymmdd', 'dd/mm/yyyy') AS PAZIENTE,
+				  esami.iden_tick,
+				  tab_esa.descr esa_descr,
+				  tab_sal.descr descr_sala,
+				  esami.reparto,
+				  tab_esa.ciclica,
+				  dett_esami.ULTIMO_ESAME_CICLICA
+				FROM ESAMI
+				INNER JOIN ANAG
+				ON ESAMI.IDEN_ANAG = ANAG.IDEN
+				-- INNER JOIN DETT_ESAMI
+				LEFT OUTER JOIN DETT_ESAMI
+				ON ESAMI.IDEN = DETT_ESAMI.IDEN
+				INNER JOIN TAB_ESA
+				ON ESAMI.IDEN_ESA = TAB_ESA.IDEN
+				LEFT OUTER JOIN TAB_SAL
+				ON ESAMI.IDEN_SAL    = TAB_SAL.IDEN
+				WHERE Esami.Deleted  = 'N'
+				AND anag.deleted     ='N'
+				AND (esami.accettato ='1')
+				-- OR esami.prenotato   ='1')
+				AND esami.eseguito   ='0'
+				AND esami.dat_esa    = TO_CHAR(SysDate, 'YYYYMMDD')
+				AND esami.reparto   IN
+				  (SELECT column_value FROM TABLE (split(?))
+				  )
+				  and tab_esa.ciclica ='S'
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		      
+
+		
+		
+		<statement name="isAlreadyCanceled">				
+			<sql>
+			<![CDATA[
+				SELECT CASE WHEN data_annulla_ese IS NULL THEN 'N' ELSE 'S' END annullato FROM esami WHERE iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		
+		<statement name="getEsaDaEseguireFerrara">				
+			<sql>
+			<![CDATA[
+				  select join_values('
+							SELECT iden
+							FROM esami
+							WHERE reparto =
+							(SELECT reparto FROM esami WHERE iden = to_number(' || ? || ') )
+							AND deleted   =''N''
+							AND accettato =''1''
+							AND eseguito  =''0''
+							AND iden_anag = (SELECT iden_anag FROM esami WHERE iden = to_number(' || ? || ')  )
+							AND dat_esa   = (SELECT dat_esa FROM esami WHERE iden = to_number(' || ? || ')  )
+							and data_annulla_ese is null
+					','*') iden_esami from dual
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getPrenDaAccettareFerrara">				
+			<sql>
+			<![CDATA[
+					select join_values('
+							SELECT iden
+							FROM esami
+							WHERE reparto =
+							(SELECT reparto FROM esami WHERE iden = to_number(' || ? || ') )
+							AND deleted   =''N''
+							AND prenotato =''1''
+							AND accettato =''0''
+							AND eseguito  =''0''
+							AND iden_anag = (SELECT iden_anag FROM esami WHERE iden = to_number(' || ? || ')  )
+							AND dat_esa   = (SELECT dat_esa FROM esami WHERE iden = to_number(' || ? || ')  )
+					','*') iden_esami from dual
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		
+		<statement name="updateFineGiornata">
+			<sql>
+			<![CDATA[
+				declare
+					vWebUser varchar2(30) := ?;
+					vIp varchar2(255) := ?;
+					vJsonInfo varchar2(4000) := ?;
+				begin
+					insert into LOG_FINE_GIORNATA (webuser,ip,json_info) values (vWebUser, vIp, vJsonInfo);
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getEsaAnnullati">
+			<sql>
+			<![CDATA[
+				SELECT iden
+				FROM esami
+				WHERE iden_anag = ?
+				AND dat_esa = (select dat_esa from esami where iden = ?)
+				and iden <> ?
+				AND eseguito  ='0'
+				and data_annulla_ese is not null
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getAnagMedBase">
+			<sql>
+			<![CDATA[
+				select tp.descr from tab_per tp, anag a where a.IDEN_MED_BASE (+) = tp.iden and a.iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getAnagMedBaseFromWhale">
+            <pool>elcoPool_whale</pool>
+            <catalogo>dati</catalogo>		
+			<sql>
+			<![CDATA[
+				select tp.descr from tab_per tp, anag a where a.IDEN_MED_BASE (+) = tp.iden and a.cod_fisc = ?
+			]]>
+			</sql>
+		</statement>
+		
+		
+		<statement name="switchStatoCiclo">				
+			<sql>
+			<![CDATA[
+				declare
+					idenEsame varchar2(4000) := ?;
+					statoCiclo varchar2(50) := '';
+					nomeCampo varchar2(4000) := '';
+					sql_stmt varchar2(250); 
+
+				begin
+					SELECT VALORE into nomeCampo FROM IMAGOWEB.CONFIGURA_MODULI where modulo='CAMPO_STATO_CICLICA' and variabile = 'CAMPO_STATO';				
+					sql_stmt := 'update COD_EST_ESAMI set ' || nomeCampo || ' = (SELECT DECODE(' || nomeCampo || ', ''CICLICA'', ''FINE_CICLO'', ''FINE_CICLO'', ''CICLICA'', ''CICLICA'') result FROM COD_EST_ESAMI WHERE IDEN_ESAME= :1) WHERE IDEN_ESAME= :2';
+					EXECUTE IMMEDIATE sql_stmt USING idenEsame, idenEsame; 
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+        <statement name="isInSalaHolter">	
+            <sql>
+            <![CDATA[
+					select isInSalaHolter(?) esito from dual
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>			
+		
+		<statement name="mergeReport">				
+			<sql>
+			<![CDATA[
+				declare
+					v_idenEsameSource number := to_number(?);
+					v_idenEsamiTarget varchar2(4000) := ?;
+					v_idenMedr esami.iden_medr%type; 
+					v_stato_prefix esami.stato%type; 
+					v_data_mod_esa esami.data_mod_esa%type;
+					v_idenRef number;
+				begin
+					select iden_medr, substr(stato, 0,9), iden_ref into v_idenMedr, v_stato_prefix, v_idenRef  from esami where iden = v_idenEsameSource;
+					update esami set refertato ='1', iden_medr =  v_idenMedr, data_mod_esa=sysdate, stato = v_stato_prefix || 'R   ' , iden_ref  = v_idenRef where iden in (select to_number(column_value) from table (split(v_idenEsamiTarget)));
+					update dett_esami set xml_module_output = (select xml_module_output from dett_esami where iden = v_idenEsameSource), html_module_output = (select html_module_output from dett_esami where iden = v_idenEsameSource) where iden in (select to_number(column_value) from table (split(v_idenEsamiTarget)));
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+
+		 <statement name="getIntEst">	
+            <sql>
+            <![CDATA[
+				SELECT int_est FROM radsql.esami where iden = ?
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>		
+
+		 <statement name="updateDataOraErogazioneDifferita">	
+			<sql>
+			<![CDATA[
+				declare
+					vIdenEsame varchar2(4000) := ?;
+					vData varchar2(8) := ?;
+					vOra varchar2(5) := ?;
+				begin
+					update esami set DAT_ESA = vData, ORA_ESA = vOra where iden in (select column_value from table (split(vIdenEsame)));
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+        </statement>	
+		
+		 <statement name="exitEsaDematerializzato">	
+            <sql>
+            <![CDATA[
+				SELECT iden_esame FROM cod_est_esami where iden_esame in (select column_value from table (split(?))) and codice_autenticazione_sac is not null
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>	
+		
+		 <statement name="canExecuteExams">	
+            <sql>
+            <![CDATA[
+				select is_eseguibile(?) esito from dual
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>	
+		
+		 <statement name="canPapTest">	
+            <sql>
+            <![CDATA[
+				select e.iden from esami e, tab_esa te where e.iden_esa = te.iden and te.cod_cup ='1516' and e.iden = to_number(?)
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>					
+		
+		 <statement name="canSchedaGrav">	
+            <sql>
+            <![CDATA[
+			-- originale
+--				select e.iden from esami e, tab_esa te where e.iden_esa = te.iden and te.consultorio ='S' and e.iden = to_number(?)
+				select e.iden from esami e, tab_esa te where e.iden_esa = te.iden  and e.iden = to_number(?)
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>
+		
+
+		 <statement name="getNumImpRich">	
+            <sql>
+            <![CDATA[
+				select NUMIMP_NUMRICH, INT_EST, IDEN_PRO , IDEN_TICK from esami where iden = to_number(?) and deleted ='N'
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>		
+
+		<!-- DEPRECATO -->
+		 <statement name="isCiclicoOLD">	
+            <sql>
+            <![CDATA[
+				select attributo from imagoweb.attributi where tabella ='TAB_ESA' and valore_campo_filtro in (select cod_esa from tab_esa where iden in(select iden_esa from esami where iden in (select column_value from table (split(?))))) and attributo =?
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>	
+		
+		 <statement name="countCicliciOLD">	
+            <sql>
+            <![CDATA[
+				select count(attributo) conteggio from imagoweb.attributi where tabella ='TAB_ESA' and valore_campo_filtro in (select cod_esa from tab_esa where iden in(select iden_esa from esami where iden in (select column_value from table (split(?))))) and attributo =?
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>		
+		
+		
+		 <statement name="countEseguibiliCiclici">	
+            <sql>
+            <![CDATA[
+				SELECT instr(join_values_w_cursor( 'select ciclica conteggio from tab_esa where iden in(select iden_esa from esami where iden in (select column_value from table (split('''|| ? || '''))))',','),'N') conteggio FROM dual				
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>				
+		
+		 <statement name="countEseguibiliNonCiclici">	
+            <sql>
+            <![CDATA[
+				SELECT instr(join_values_w_cursor( 'select ciclica conteggio from tab_esa where iden in(select iden_esa from esami where iden in (select column_value from table (split('''|| ? || '''))))',','),'S') conteggio FROM dual				
+            ]]>
+            </sql>
+			<schema>RADSQL</schema>
+        </statement>			
+
+		<statement name="accettaEsamePrenotato">
+			<sql>
+			<![CDATA[
+			declare
+				vDataAcc varchar2(4000) := ?;
+				vOraAcc varchar2(4000) := ?;
+				nUte  number := to_number(?);
+				nIdenEsame varchar2(4000) := ?;
+			begin
+				update esami set DAT_ESA=vDataAcc, ORA_ESA= vOraAcc, DAT_ACC=vDataAcc, UTE_ACC=nUte,UTE_MOD_ACC=nUte, stato ='PA',accettato='1',DATA_INS_ACC=sysdate,ORA_ACC=vOraAcc,DATA_MOD_ESA=sysdate where iden in (select column_value from table (split(''|| replace(nIdenEsame,'*',',') || '')));
+			end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+
+
+
+		<statement name="getNumSeduteCicliche">
+			<sql>
+			<![CDATA[
+			SELECT num_sedute
+			FROM RR_PRESTAZIONI
+			WHERE dm_codice=
+			  (SELECT cod2
+			  FROM cod_est_tab_esa cete
+			  JOIN tab_esa te
+			  ON (cete.iden_Esa  =te.iden)
+			  WHERE cete.IDEN_ESA=to_number(?)
+			  AND ciclica        ='S'
+			  )
+			AND codice=
+			  (SELECT cod3
+			  FROM cod_est_tab_esa cete
+			  JOIN tab_esa te
+			  ON (cete.iden_Esa  =te.iden)
+			  WHERE cete.IDEN_ESA=to_number(?)
+			  AND ciclica        ='S'
+			  )
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getCountImpegnative">
+			<sql>
+			<![CDATA[
+				SELECT nvl(COUNT(DISTINCT NUMIMP_NUMRICH),0) NUM FROM esami WHERE iden IN  (SELECT column_value FROM TABLE (split(?))  ) AND deleted ='N'
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		
+		<statement name="getIdenGravidanza_da_CodEstEsami">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[	
+				select iden_gravidanza from cod_est_esami where iden_esame = to_number(?)
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="canAssociate">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[			
+		select tab_pro.int_est, tab_pro.cod_dec cod_dec_pro, tab_tick.cod_dec cod_dec_tick from esami, tab_pro, tab_tick
+		where
+		esami.iden_pro = tab_pro.iden
+		and esami.iden_tick = tab_tick.iden (+)
+		and esami.iden = to_number(?) 	
+			]]>
+			</sql>
+		</statement>				
+		
+		<statement name="getCountDema">
+			<sql>
+			<![CDATA[
+				SELECT NVL(COUNT(cee.iden_esame),0) NUM
+				FROM cod_est_esami cee,
+				  esami e,
+				  tab_esa te
+				WHERE cee.iden_esame IN
+				  (SELECT column_value FROM TABLE (split(?))
+				  )
+				AND cee.cod11       = 'DEMATERIALIZZATA'
+				AND cee.iden_esame  = e.iden
+				AND e.iden_esa      = te.iden
+				AND te.CICLICA ='N'
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		
+		<statement name="getCountStessa_GruppoCiclo_Impegn">
+			<sql>
+			<![CDATA[		
+				SELECT COUNT(iden) NUM
+				FROM dett_esami
+				WHERE iden IN
+				  (SELECT iden FROM esami WHERE numimp_numrich = ?
+				  )
+				AND id_gruppo_ciclica =
+				  (SELECT id_gruppo_ciclica FROM dett_esami WHERE iden = to_number(?)
+				  )
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		<statement name="getInfoEsame">
+			<sql>
+			<![CDATA[		
+				Select * from esami where iden =  to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="isImpegnativaObbligatoria">
+			<sql>
+			<![CDATA[		
+				select IS_IMPEGNATIVA_OBBL_DA_IDEN(to_number(?)) esito from dual
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>				
+		
+		<statement name="updateTicketMultiEsa">
+			<sql>
+			<![CDATA[	
+				declare
+					nIdenTick  number := to_number(?);
+					nIdenEsame varchar2(4000) := ?;
+				begin				
+					update esami set iden_tick = nIdenTick where iden in(select column_value from table (split(nIdenEsame)));
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		
+		<statement name="getInfoPrestazione">
+			<sql>
+			<![CDATA[
+				Select te.* From tab_esa te , esami e Where e.iden_esa = te.iden and e.iden = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="gedIdenTestataRichiesta">
+			<sql>
+			<![CDATA[
+				  Select cod1 iden_testata From Cod_Est_Esami Where Iden_Esame = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		<statement name="getMaterialeBiologico">
+            <pool>elcoPool_whale</pool>
+            <catalogo>dati</catalogo>		
+			<sql>
+			<![CDATA[
+				SELECT ma.descr materiale, sedi.descrizione sede
+				FROM Infoweb.Dettaglio_Richieste Dr , radsql.tab_esa te, radsql.mg_art ma, radsql.LABO_SEDI_CORPO sedi
+				where 
+				Dr.iden_tab_esa = te.IDEN (+) and
+				Dr.iden_materiale = ma.iden (+) and
+				Dr.parte_corpo = sedi.iden (+)and 
+				Dr.Iden_Testata =to_number(?)
+			]]>
+			</sql>
+		</statement>		
+		
+		<statement name="is_prelevabile">				
+			<sql>
+			<![CDATA[
+				SELECT 
+				case 
+				  when count(attributo)>0 then 'S'
+				  else 'N'
+				end prelevabile
+				FROM imagoweb.attributi
+				WHERE tabella           ='TAB_ESA'
+				AND valore_campo_filtro =
+				  (SELECT cod_esa
+				  FROM tab_esa
+				  WHERE iden =
+					(SELECT iden_esa FROM esami WHERE iden = to_number(?)
+					)
+				  )
+				AND attributo ='PRELEVABILE'			
+				]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+
+		<statement name="contaPrestazioni_ErogateFineCiclo">				
+			<sql>
+			<![CDATA[
+				SELECT COUNT(iden_esame) esito
+				FROM cod_est_esami
+				WHERE cod10     ='FINE_CICLO'
+				AND iden_esame IN
+				  (SELECT esami.iden
+				  FROM esami,
+					dett_esami
+				  WHERE esami.numimp_numrich=
+					(SELECT numimp_numrich FROM esami WHERE iden = to_number(?))
+				  AND esami.iden                   = dett_esami.iden (+)
+				  AND dett_esami.id_gruppo_ciclica = (SELECT id_gruppo_ciclica FROM dett_esami WHERE iden = to_number(?))
+				  and esami.deleted ='N'
+				  )
+				  ]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		
+		<statement name="getStatoCiclo">				
+			<sql>
+			<![CDATA[
+				SELECT cod10,INVIO_EROGAZIONE FROM cod_est_esami WHERE iden_esame = to_number(?)
+			  ]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="getCountErogatiRegione">				
+			<sql>
+			<![CDATA[
+				select count(iden_esame) esito from cod_est_esami WHERE iden_esame in (SELECT column_value FROM TABLE (split(?))) and INVIO_EROGAZIONE is not null
+			  ]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>						
+
+	</statements_list>
+</root>
+

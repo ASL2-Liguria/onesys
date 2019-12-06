@@ -1,0 +1,24 @@
+<ROWSET>
+    <ROW>
+        <filtroRicercaPaz>Ricerca Pazienti</filtroRicercaPaz>
+        <lblPazientiSelezionati>Dettaglio Pazienti</lblPazientiSelezionati>
+        <lblPazId>ID</lblPazId>
+        <lblCodiceFiscale>Codice Fiscale</lblCodiceFiscale>
+        <lblDataNascita>Data Nascita</lblDataNascita>
+        <PazSelezionati>Pazienti Selezionati</PazSelezionati>
+        <fldPazSorgente>Paziente Sorgente</fldPazSorgente>
+        <fldPazDestinatario>Paziente Destinatario</fldPazDestinatario>
+        <fldAccessi>Accessi in PS</fldAccessi>
+        <butRiconciliaPaz>Riconcilia Accessi</butRiconciliaPaz>
+        <butSpostaEsami>Sposta Esami</butSpostaEsami>
+        <butSpostaAccessi>Sposta Accessi</butSpostaAccessi>
+        <butInvertiSorgDest>Inverti Sorgente Destinatario</butInvertiSorgDest>
+        <lblRiconciliaAnag>Riconcilia Accessi</lblRiconciliaAnag>
+        <lblMenu>Menu</lblMenu>
+        <lblPazSorgente>Paziente Sorgente</lblPazSorgente>
+        <lblPazDestinatario>Paziente Destinatario</lblPazDestinatario>
+        <lblDetailPaz> </lblDetailPaz>
+        <lblComuneNascita>Comune Nascita</lblComuneNascita>
+        <lblComuneResidenza>Comune Residenza</lblComuneResidenza>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Visualizzatore/Visualizzatore.js" />
+	<CSS path="css/MMG/Visualizzatore/Visualizzatore.css" />
+</INCLUDE>

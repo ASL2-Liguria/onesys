@@ -1,0 +1,148 @@
+<root>
+	<statements_list>
+		<statement name="getProblema">				
+			<sql>
+			<![CDATA[		
+				select * from VIEW_CC_PROBLEMI_RICOVERO where IDEN_PROBLEMA=to_number(?)
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getWkProblemi">				
+			<sql>
+			<![CDATA[		
+				select * from VIEW_CC_PROBLEMI_RICOVERO where IDEN_VISITA=to_number(?) and deleted='N'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getWkProblemiNosologico">				
+			<sql>
+			<![CDATA[		
+				select * from VIEW_CC_PROBLEMI_RICOVERO where NUM_NOSOLOGICO=?  and deleted='N'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getWkProblemiReparto">				
+			<sql>
+			<![CDATA[		
+				select * from VIEW_CC_PROBLEMI_RICOVERO where IDEN_ANAG=to_number(?) and COD_CDC=?  and deleted='N'
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getWkProblemiPaziente">				
+			<sql>
+			<![CDATA[		
+				select * from VIEW_CC_PROBLEMI_RICOVERO where IDEN_ANAG=to_number(?)  and deleted='N'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getWkProblemiPazienteSpecialita">				
+			<sql>
+			<![CDATA[		
+				select * from VIEW_CC_PROBLEMI_RICOVERO where IDEN_ANAG=to_number(?) AND cod_specialita in (select cod_specialita from VIEW_CDC_SPECIALITA where cod_cdc=?) and deleted='N'
+			]]>
+			</sql>
+		</statement>	
+		<statement name="setProblema">				
+			<sql>
+			<![CDATA[		
+				declare
+					pIdenUte    pls_integer 	:= to_number(?);					
+					pIdenIcd    pls_integer 	:= to_number(?);
+					pNote       varchar2(5000) 	:= ?;					
+					pRisolto    varchar2(5000) 	:= ?;					
+					pPriorita   pls_integer 	:= to_number(?);
+					
+					pIdenVisita pls_integer 	:= to_number(?);
+					pTipoIcd    varchar2(5000) 	:= ?;
+					
+					pOutIden    pls_integer;
+				begin
+					insert into CC_PROBLEMI_RICOVERO (IDEN_VISITA,IDEN_ICD,TIPO_ICD,NOTE,UTE_INS,RISOLTO,PRIORITA) values
+						(pIdenVisita,pIdenIcd,pTipoIcd,pNote,pIdenUte,pRisolto,pPriorita) returning iden into pOutIden;
+					? := pOutIden;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="editProblema">				
+			<sql>
+			<![CDATA[		
+				declare
+					pIdenUte      pls_integer := to_number(?);					
+					pIdenIcd      pls_integer := to_number(?);					
+					pNote         varchar2(5000) := ?;
+					pRisolto      varchar2(5000) := ?;					
+					pPriorita     pls_integer := to_number(?);
+					
+					pIdenProblema pls_integer := to_number(?);
+					
+					pOutIden    pls_integer;
+				begin
+					update CC_PROBLEMI_RICOVERO set 
+						UTE_MOD  = pIdenUte,
+						IDEN_ICD = pIdenIcd,
+						NOTE     = pNote,
+												
+						RISOLTO  = pRisolto,
+						PRIORITA = pPriorita,
+						DATA_MOD = sysdate
+					where 
+						IDEN = pIdenProblema
+					returning 
+						iden into pOutIden;
+					
+					? := pOutIden;
+				end;
+			]]>
+			</sql>
+		</statement>		
+		<statement name="setPriorita">				
+			<sql>
+			<![CDATA[		
+				declare				
+					pPriotita 		pls_integer := to_number(?);					
+					pIdenProblema  	pls_integer := to_number(?);
+					pIdenPer  		pls_integer := to_number(?);
+				begin
+					update CC_PROBLEMI_RICOVERO set PRIORITA= pPriotita ,UTE_MOD= pIdenPer ,DATA_MOD=sysdate where IDEN= pIdenProblema;
+				end;				
+			]]>
+			</sql>
+		</statement>
+		<statement name="setRisolto">				
+			<sql>
+			<![CDATA[		
+				declare				
+					pRisolto 		varchar2(5000) := ?;					
+					pIdenProblema  	pls_integer := to_number(?);
+					pIdenPer  		pls_integer := to_number(?);
+					
+					vUteRis 		pls_integer := null;
+					vDataRis 		date := null;
+				begin
+					if(pRisolto = 'S') then
+						vUteRis := pIdenPer;
+						vDataRis := sysdate;										
+					end if;
+					
+					update CC_PROBLEMI_RICOVERO set RISOLTO=pRisolto,UTE_RIS=vUteRis,DATA_RIS= vDataRis ,UTE_MOD= pIdenPer ,DATA_MOD=sysdate where IDEN= pIdenProblema;
+				
+				end;			
+			]]>
+			</sql>
+		</statement>
+		<statement name="setDeleted">				
+			<sql>
+			<![CDATA[		
+				declare				
+					pDeleted 		varchar2(5000) := ?;
+					pIdenProblema  	pls_integer := to_number(?);
+					pIdenPer  		pls_integer := to_number(?);
+				begin
+					update CC_PROBLEMI_RICOVERO set DELETED= pDeleted ,UTE_MOD= pIdenPer ,DATA_MOD=sysdate where IDEN= pIdenProblema;
+				end;				
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

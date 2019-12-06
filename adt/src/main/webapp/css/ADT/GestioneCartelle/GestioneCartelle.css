@@ -1,0 +1,96 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000; top: 0; left: 0; height: 100%; width: 100%;
+    background: rgba( 255, 255, 255, .8 )
+    url(../../../img/loading2.gif) 50% 50% no-repeat;
+}
+body.loading { overflow: hidden; }
+body.loading .modal { display: block; }
+
+.clsBckWhite {background-color:#FFFFFF;}
+.clsBckOrange {background-color:#FFA500 !important;}
+.clsBckPink {background-color: #FFC0CB !important;}
+.clsBckCyan {background-color:#00FFFF !important;}
+.clsBckBlue {background-color:#1E90FF !important;}
+.clsBckGreen {background-color:#7FFF00 !important;}
+.clsBckYellow {background-color:#FFFF00 !important;}
+.clsBckLemmon {background-color:#FFFACD !important;}
+.clsBckSilver {background-color:#C0C0C0 !important;}
+.clsBckBlack {background-color:#000000 !important; color:#FFFFFF !important;}
+
+
+.ui-widget-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.ui-progressbar {
+    height: 2em;
+    text-align: left;
+    overflow: hidden;
+}
+.ui-progressbar .ui-progressbar-value {
+    margin: -1px;
+    height: 100%;
+}
+.ui-progressbar .ui-progressbar-overlay {
+    background: url("../../../img/progressBar/animated-overlay.gif");
+    height: 100%;
+    filter: alpha(opacity=25);
+    opacity: 0.25;
+}
+.ui-progressbar-indeterminate .ui-progressbar-value {
+    background-image: none;
+}
+
+.ui-widget {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+    font-size: 1.1em;
+}
+.ui-widget .ui-widget {
+    font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+    font-family: Trebuchet MS,Tahoma,Verdana,Arial,sans-serif;
+    font-size: 1em;
+}
+.ui-widget-content {
+    border: 1px solid #dddddd;
+    background: #eeeeee url("../../../img/progressBar/ui-bg_highlight-soft_100_eeeeee_1x100.png") 50% top repeat-x;
+    color: #333333;
+}
+.ui-widget-content a {
+    color: #333333;
+}
+.ui-widget-header {
+    border: 1px solid #aaaaaa;
+    background: #cccccc url(../../../img/progressBar/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+    color: #222222;
+    font-weight: bold;
+}
+.ui-widget-header a {
+    color: #ffffff;
+}
+
+.ui-progressbar {
+    position: relative;
+}
+
+.progress-label {
+    position: absolute;
+    left: 50%;
+    top: 4px;
+    font-weight: bold;
+}
+#lblResetCampi{
+	position: absolute;
+	right: 20px;
+	top: 90px;
+}

@@ -1,0 +1,70 @@
+<PAGINA key_id="OFFLINE_PRESCRIZIONE">
+	
+	<HEADER_OFFLINE key_id="OFFLINE_PRESCRIZIONE" valore="OFFLINE_PRESCRIZIONE#DEFAULT_MMG,OFFLINE_PRESCRIZIONE#MMG offline#offline.appcache" evento="START_END">
+	</HEADER_OFFLINE>
+	
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab" valore="Prescrizione#lblTitolo#butPrescrivi,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabPrescrizione" valore="tabPrescrizione" evento="START">
+			
+				<FIELDSET_TABLE key_id="fldPrescrizione" valore="fldPrescrizione" evento="START">
+					
+					<TR_TD_LABEL_CHECK key_id="Prestazione" valore="lblPrestazione##Prestazione#chkPrestazione#N#{width:150}" evento="START">
+					</TR_TD_LABEL_CHECK>
+					
+					<TR_TD_LABEL_RADIO key_id="Urgenza" valore="lblUrgenza##Urgenza#radUrgenza#{width:150, idxDefault:3}#N" evento="START">
+					</TR_TD_LABEL_RADIO>
+						
+					<TR_TD_LABEL_TEXTAREA key_id="Quesito" valore="lblQuesito#txtQuesito" evento="START">
+					</TR_TD_LABEL_TEXTAREA>	
+					
+					<TR.INIT key_id="rigaEsenzione" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Esenzione" valore="lblEsenzione##txtEsenzione" evento="START">
+						
+							<BUTTON key_id="butEsenzioniPaz" valore="butEsenzioniPaz" evento="START"></BUTTON>
+							<BUTTON key_id="butEsenzioniTutte" valore="butEsenzioniTutte" evento="START"></BUTTON>
+						</TD_LABEL_TEXT>	
+					</TR.INIT>
+						
+					<TR_TD_LABEL_RADIO key_id="TipoRicetta" valore="lblTipoRicetta##TipoRicetta#radTipoRicetta#{width:150}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET_TABLE key_id="fldFiltro" valore="fldFiltro" evento="START">
+				
+					<TR.INIT key_id="rigaRicerca" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Filtro" valore="lblFiltro##txtFiltro" evento="START">
+							<BUTTON key_id="butRicercaDefault" valore="butRicercaDefault" evento="START"></BUTTON>
+							<BUTTON key_id="butRicercaDue" valore="butRicercaDue" evento="START"></BUTTON>
+							<BUTTON key_id="butRicercaTre" valore="butRicercaTre" evento="START"></BUTTON>
+							<BUTTON key_id="butRicercaProfili" valore="butRicercaProfili" evento="START"></BUTTON>
+							<BUTTON key_id="butNuovaRicetta" valore="butNuovaRicetta" evento="START"></BUTTON>
+						</TD_LABEL_TEXT>
+						
+					</TR.INIT>
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET key_id="fldSceltaPrescrizione" valore="fldSceltaPrescrizione" evento="START">
+				
+					<DIV key_id="worklist" valore="worklist" evento="START"></DIV>
+					
+					<DIV key_id="selezionati" valore="selezionati" evento="START"></DIV>
+					
+				</FIELDSET>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabAnteprimaRicetta" valore="tabAnteprimaRicetta" evento="START">
+						
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>
+

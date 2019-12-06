@@ -1,0 +1,22 @@
+<INCLUDE>
+	<CSS path="css/mix.css" />
+	<CSS path="css/ADT/generic.css" />
+    <JS path="js/Base/NO-min/ecma.js"/>
+	<JS path="js/Base/LIB.js" />
+	<JS path="js/Base/NS_LOADING.js" />
+	<JS path="js/Base/NO-min/jquery.dialog.js" />
+	<JS path="js/Base/DIALOG.js" />
+	<JS path="js/Base/NO-min/NS_INFORMATIONS.js" />
+	<JS path="js/Base/NS_FENIX_TOP.js" />
+	<JS path="js/Base/NO-min/browserDetector.js" />
+	<JS path="js/Base/NS_COMANDI_VOCALI.js" />
+	<JS path="js/Base/NO-min/NS_DB.js" />
+    <JS path="js/Base/NS_FENIX_PRINT.js" />
+    <JS path="js/Base/NS_FENIX_FIRMA.js" />
+    <JS path="js/Base/NS_VOCAL.js" />
+	<JS path="js/ADT/Firma/NS_FIRMA_ADT.js" />
+    <JS path="js/ADT/NS_FENIX_ADT/NS_FENIX_ADT.js" />
+    <DWR path="dwr/engine.js" />
+	<DWR path="dwr/interface/toolKitDB.js" />
+</INCLUDE>
+

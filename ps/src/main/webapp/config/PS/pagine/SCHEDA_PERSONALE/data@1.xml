@@ -1,0 +1,131 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_SCHEDA_PERSONALE@POLARIS_DATI'; :where := null; :campo_xml := null; end;">
+    <DATO
+            key_id="ComboOut"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE"
+            db_descrizione="CODICE"
+            configurazione_multi_data="CMB_CDC_SEL_PERSONALE@POLARIS_DATI"
+            />
+    <DATO
+            key_id="ComboIn"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE"
+            db_descrizione="CODICE"
+            configurazione_multi_data="CMB_CDC_NOT_SEL_PERSONALE@POLARIS_DATI"
+            />
+    <DATO
+            key_id="TipoMedico"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="TIPO_MEDICO"
+            db_descrizione=""
+            configurazione_multi_data="R_TIPO_MEDICO"
+            />
+    <DATO
+            key_id="Titolo"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="TITOLO"
+            db_descrizione="TITOLO"
+            configurazione_multi_data="R_TITOLO"
+            />
+    <DATO
+            key_id="TipoPersonale"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="TIPO_PERSONALE"
+            db_descrizione=""
+            configurazione_multi_data="PS.R_TIPO_PERSONALE@PS"
+            />
+    <DATO
+            key_id="Attivo"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ATTIVO"
+            db_descrizione="ATTIVO"
+            configurazione_multi_data="R_SI_NO"
+            />
+    <DATO
+            key_id="MedicoReparto"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="MEDICO_REPARTO"
+            db_descrizione="MEDICO_REPARTO"
+            configurazione_multi_data="R_SI_NO"
+            />
+    <DATO
+            key_id="MedicoMammo"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="MEDICO_MAMMO"
+            db_descrizione="MEDICO_MAMMO"
+            configurazione_multi_data="R_SI_NO"
+            />
+    <DATO
+            key_id="Nome"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="NOME"
+            db_descrizione="NOME"
+            configurazione_multi_data=""
+            />
+
+    <DATO
+            key_id="Cognome"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="COGNOME"
+            db_descrizione="COGNOME"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="CodiceDecodifica"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE_DECODIFICA"
+            db_descrizione="CODICE_DECODIFICA"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="CodiceFiscale"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE_FISCALE"
+            db_descrizione="CODICE_FISCALE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="Indirizzo"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="INDIRIZZO"
+            db_descrizione="INDIRIZZO"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="ProfiloVocale"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="PROFILO_VOCALE"
+            db_descrizione="PROFILO_VOCALE"
+            configurazione_multi_data=""
+            />
+    <DATO
+            key_id="Email"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="EMAIL"
+            db_descrizione="EMAIL"
+            configurazione_multi_data=""
+            />
+
+    <DATO
+            key_id="OreContratto"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ORE_CONTRATTO"
+            db_descrizione="ORE_CONTRATTO"
+            configurazione_multi_data=""
+            />
+    <!--<DATO
+            key_id="ComboInParamPersonale"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="VALUE"
+            db_descrizione="DESCR"
+            configurazione_multi_data="SCHEDE_GT.EX_PARAM_PERSONALE_IN@GESTIONE_TURNI"
+            />
+    <DATO
+            key_id="ComboOutParamPersonale"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="VALUE"
+            db_descrizione="DESCR"
+            configurazione_multi_data="SCHEDE_GT.EX_PARAM_PERSONALE_OUT@GESTIONE_TURNI"
+            />-->
+</DATI>
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>RFID OK</title>
+</head>
+
+<body bgcolor="#00FF00">
+<bgsound volume='0' src='sounds/tada.wav' id=music loop="infinite" autostart='true'>
+ <form name="frm" id="frm">
+  <table width="100%" border="1" id="oTableSaveOK">
+            <tr >
+              <td width="49%" height="49" colspan="4" bgcolor="#00FF00"><div align="center" class="style3">
+                <p class="style5">&nbsp;</p>
+                <p class="style5"><strong>Associazione Braccialetto Paziente Corretta!</strong></p>
+                <p class="style5"><strong>Del paziente: <label id="paz" name="paz"></label></strong></p>
+                </div>              
+              <p class="style13">&nbsp;</p>
+              </td>
+            </tr>
+            <tr >
+              <td height="49" colspan="4" bgcolor="#00FF00"><p align="center" class="style13"><strong>ESAMI VERIFICATI:<label id="esami" name="esami"></label>  in data: <label id="date" name="date"></label></strong></p>
+            </td>
+            </tr>
+</table>
+</form>
+<script>
+document.getElementById("paz").innerHTML=parent.PAZIENTE
+document.getElementById("esami").innerHTML=parent.DESCR
+document.getElementById("date").innerHTML=parent.DATA
+</script>
+</body>
+</html>

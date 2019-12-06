@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(ret){$('#acRepAss').data('acList').changeBindValue({"iden_provenienza":$('#h-repartoGiuridico').val()});}]]>
+        </onSelect>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.A_REPARTI_STRUTTURA</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Reparti Giuridici</title>
+        <id_wk>ADT_REPARTI_GIURIDICI</id_wk>
+    </LIST>
+    <QUERY_BINDS>
+        <iden_contatto>[Q_IDEN_CONTATTO@value]</iden_contatto>
+    </QUERY_BINDS>
+</AUTOCOMPLETE>

@@ -1,0 +1,15 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="ComboListParenti" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PARENTE" db_descrizione="PARENTE"
+		configurazione_multi_data="CMB_GENERICA_PRT" />
+	<DATO key_id="ComboListMalattie" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="GENERALI" db_descrizione="GENERALI"
+		configurazione_multi_data="CMB_GENERICA_GENERALI" />
+	<DATO key_id="ComboListMalattieComboListFamiliarita"
+		configurazione_stato="begin :stato := 'E'; end;" db_valore="FAMILIARITA"
+		db_descrizione="FAMILIARITA" configurazione_multi_data="CMB_SESSO" />
+	<DATO key_id="ComboListFamiliarita" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="Q_EMPTY" />
+</DATI>
+

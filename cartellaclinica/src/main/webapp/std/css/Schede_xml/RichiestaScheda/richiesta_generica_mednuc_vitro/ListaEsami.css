@@ -1,0 +1,238 @@
+#elenco_profili ul
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+#elenco_profili li
+{
+	list-style-type: none;
+	padding: 5px;
+	float:left;
+	height:25px;
+	text-align: center;
+	margin-bottom: 2px;
+}
+
+#elenco_profili li a
+{
+	width: auto;
+}
+
+
+div#ListaEsami .pulsante {
+	
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 18px;
+	WIDTH: 105px;
+	BACKGROUND-REPEAT: repeat-x;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FLOAT: right;
+	HEIGHT: 21px;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: bold;
+}
+
+table.classDataTableMednuc {
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFF;
+	border-collapse : collapse;
+	width:100%;
+	text-align:center;
+	
+}
+
+table.classDataTableMednuc td {
+	
+	border: 1px solid #6AA8F2;
+	text-align:center;
+	height: 35 px;
+}
+
+
+table.classDataTableMednuc th {
+	
+	background-color:#b9e0ff;
+	/*background-color:#C2FAFE;*/
+	border: 1px solid #6AA8F2;
+
+}
+
+
+
+table.classDataTableMednucRicerca {
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	BACKGROUND-COLOR: #f2feff;
+	width:100%;
+	
+}
+
+
+#lblProfilo, #lblRicerca, #lblEsamiSelezionati {
+	
+	background-color:#b9e0ff;
+	border: 1px solid #6AA8F2;
+	text-align:center;
+	height: 25px;
+	FONT-WEIGHT: bold;
+}
+
+#txtRic{
+	
+	border: 1px solid #6AA8F2;
+	border-bottom:2px solid #6AA8F2;
+	border-left:2px solid #6AA8F2;
+	padding-left:20px;
+}
+
+
+select#SelProfili {
+	
+	height:22px;
+	width: 250px;
+	font-size: 14px;
+	background-color: #FFFFC3 ;
+	text-align: center;
+	border: 1px solid #06F;
+}
+
+thead th{
+	HEIGHT:35PX;
+	border-bottom: 3px solid #6AA8F2;
+}
+	
+table#sceltaEsami tbody td {
+	
+	height:30px;
+	
+}
+
+table#sceltaEsami tbody tr {
+	
+	height:30px;
+	
+}
+
+th.intCheck{
+	
+	width:10%;
+	text-align:center;
+	
+	}
+	
+th.intCodEsa{
+	
+	width:10%;
+	text-align:center;
+
+	}
+	
+th.intEsami{
+	
+	width:30%;
+	text-align: center;
+
+	}
+	
+th.intCod{
+	
+	width:10%;
+	text-align:center;
+
+	}
+	
+th.intTempi{
+	
+	width:10%;
+	text-align:center;
+
+}
+	
+td.tdCheck{
+	
+	width:10%;
+	text-align:center;
+	/*background:#FFFFC3;*/
+	
+}
+	
+td.tdCodEsa{
+	
+	width:10%;
+	text-align:center;
+	
+	}
+
+td.tdDescr{
+	
+	width:30%;
+	text-align:center;
+	
+}
+	
+td.tdCod{
+	
+	width:10%;
+	text-align:center;
+	
+}
+
+td.tdTempi{
+	
+	width:10%;
+	text-align:center;
+
+}
+	
+
+
+#ListaProfili #divProfiliFS {
+	height:auto;
+}
+
+
+#ListaProfili #divProfiliFS LI{
+	WIDTH:AUTO;
+}
+
+#ListaProfili #divProfiliFS LI A{
+	WIDTH:AUTO;
+}
+
+#sceltaProfili{
+	height:auto;
+}
+
+#ListaEsami{
+	height:auto;
+}
+
+.testoEsami {
+	
+	width: 95%;
+	height: 20px;
+	line-height: 20px;
+	font-size:9px;
+	background:#FFFFC3;
+	border: 1px solid #6AA8F2;
+	border-bottom:2px solid #6AA8F2;
+	border-left:2px solid #6AA8F2;
+}
+
+.tempi{
+	border: 1px solid #6AA8F2;
+	border-bottom:2px solid #6AA8F2;
+	border-left:2px solid #6AA8F2;
+	width: 100px;
+
+}
+
+tr.selected {
+	background:#FFFFC3;
+}

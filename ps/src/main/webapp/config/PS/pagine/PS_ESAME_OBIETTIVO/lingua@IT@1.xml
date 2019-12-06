@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <tabDati>Valutazione Medica     </tabDati>
+        <fldEsameObiettivo>Valutazione Medica      </fldEsameObiettivo>
+        <tabRivalutazioni>Rivalutazioni</tabRivalutazioni>
+        <fldTemplate>Selezionare l'urgenza</fldTemplate>
+        <tableWkRiepilogo>Worklist Riepilogo</tableWkRiepilogo>
+        <tabPrecedenti>Valutazione Medica Accessi Passati</tabPrecedenti>
+        <tableWkPrecedenti>Worklist Accessi</tableWkPrecedenti>
+        <lblData>DATA</lblData>
+        <lblOra>ORA</lblOra>
+        <lblUtente>UTENTE</lblUtente>
+        <lblUrgenza>URGENZA</lblUrgenza>
+        <lblEsameObiettivo>VALUTAZIONE MEDICA</lblEsameObiettivo>
+        <lblTitolo>Rivalutazioni Mediche</lblTitolo>
+        <tabRivalutazioniMedichePassate>Accessi precedenti</tabRivalutazioniMedichePassate>
+        <lblMalattieRare>Sezione Malattie Rare</lblMalattieRare>
+        <fldAllergie>Allergie</fldAllergie>
+        <EsameO></EsameO>
+    </ROW>
+</ROWSET>

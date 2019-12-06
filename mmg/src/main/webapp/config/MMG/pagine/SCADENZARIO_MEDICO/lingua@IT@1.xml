@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>CONFIGURAZIONE SCADENZARIO</lblTitolo>
+        <tabMain>Scadenzario</tabMain>
+        <fldFiltri>Filtri</fldFiltri>
+        <lblAttivo>Mostra non attivi</lblAttivo>
+		<butInserisci>Inserisci scadenza personale</butInserisci>
+    </ROW>
+</ROWSET>

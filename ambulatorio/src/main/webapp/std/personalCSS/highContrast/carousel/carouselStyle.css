@@ -1,0 +1,46 @@
+.stepcarousel{
+	position: relative; /*leave this value alone*/
+	overflow: scroll; /*leave this value alone*/
+	width: 350px; /*Width of Carousel Viewer itself*/
+	height: 20px; /*Height should enough to fit largest content's height*/
+	padding-left:10px;
+	padding-right:10px;
+	margin-left:5px;
+	
+}
+
+.stepcarousel .beltCarousel{
+	position: absolute; /*leave this value alone*/
+	left: 0;
+	top: 0;
+}
+
+.stepcarousel .panelCarousel{
+	float: left; /*leave this value alone*/
+	overflow: hidden; /*clip content that go outside dimensions of holding panel DIV*/
+	width: 85px; /*Width of each panel holding each content. If removed, widths should be individually defined on each content DIV then. */
+	padding-left:3px;
+	padding-right:3px;	
+}
+
+
+.stepcarousel .panelCarousel SPAN.singleElemCarousel{
+
+}
+
+.stepcarousel .panelCarousel A LABEL.labelSingleElemCarousel{
+	cursor:pointer;
+	line-height:-10px;
+	font-size:14px;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	vertical-align:middle;
+	text-decoration:none;
+	color:white;
+}
+
+.stepcarousel .panelCarousel A:hover LABEL.labelSingleElemCarousel{
+	color:red;
+	background-color:yellow;
+	
+}

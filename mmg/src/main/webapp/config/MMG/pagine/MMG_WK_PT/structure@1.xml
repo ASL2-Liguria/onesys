@@ -1,0 +1,14 @@
+<PAGINA key_id="MMG_WK_PT">
+	<HEADER_PAGE key_id="MMG_WK_PT" valore="DEFAULT_MMG,SCHEDA,MMG_WK_PT#DEFAULT_MMG,MMG_WK_PT" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#MMG_WK_PT#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="WKVisite#lblTitolo#butChiudi" evento="START_END">
+		
+			<FIELDSET_TABLE key_id="fldListaPT" valore="fldListaPT" evento="START">
+				<DIV key_id="wkPT" valore="wkPT" evento="START_END">
+				</DIV>
+			</FIELDSET_TABLE>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

@@ -1,0 +1,90 @@
+<PAGINA key_id="INPS">
+    <HEADER_PAGE key_id="INPS" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,INPS#DEFAULT,PS_INPS" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#FNC_CERTIFICATO_SAVE_PS#MMG#" evento="START_END">
+        <TABULAZIONE.INIT key_id="INPS" valore="INPS#lblTitolo#butStampa,butSalva,butChiudi" evento="START">
+            	<TABULAZIONE.CREA_TAB key_id="tabLogin" valore="tabLogin" evento="START_END">
+                    <INPUT.HIDDEN key_id="hIden" valore="IDEN###IDEN" evento="START">
+                </INPUT.HIDDEN>
+                    <FIELDSET_TABLE key_id="fldLogin" valore="fldLogin" evento="START">
+                        <TR_TD_LABEL_TEXT key_id="Username" valore="lblUsername##txtUsername###USERNAME_MEDICO" evento="START"></TR_TD_LABEL_TEXT>
+                        <TR.INIT key_id="TR" valore="TR" evento="START">
+                            <TD_LABEL_PASSWORD key_id="Pin" valore="lblPin##txtPin###PIN" evento="START"></TD_LABEL_PASSWORD>
+                            <TD_CHECK key_id="RicordaPin" valore="RicordaPin#RicordaPin#S#{width:150,ctrl:false}##RICORDA_PIN" evento="START"></TD_CHECK>
+                        </TR.INIT>
+                        <TR.INIT key_id="TR2" valore="TR2" evento="START">
+                                <TD_LABEL_PASSWORD key_id="Pwd" valore="lblPwd##txtPwd###PWD" evento="START"></TD_LABEL_PASSWORD>                               
+                                <TD_CHECK key_id="RicordaPwd"
+                                        valore="RicordaPwd#RicordaPwd#S#{width:150,ctrl:false}##RICORDA_PWD"
+                                        evento="START"></TD_CHECK>                                        
+                        </TR.INIT>
+                        <TR.INIT key_id="riga2" valore="" evento="START">
+                                <TD.INIT key_id="tdVuoto2" valore="2" evento="START"></TD.INIT>
+                                <TD_BUTTON key_id="butLogin" valore="butLogin" evento="START"></TD_BUTTON>
+                        </TR.INIT>
+                    </FIELDSET_TABLE>
+                </TABULAZIONE.CREA_TAB>               
+                <TABULAZIONE.CREA_TAB key_id="tabDatiCertificato"
+                                      valore="tabDatiCertificato" evento="START_END">
+                     <FIELD_HEADER_TABLE key_id="fldINPS" valore="fldINPS" evento="START">
+
+                        <TR_TD_LABEL_RADIO key_id="radRuolo" valore="lblRuolo##radRuolo#radRuolo#{width:150}#CMB_RUOLO#S#" evento="START">                       
+                             
+                        </TR_TD_LABEL_RADIO>                                                 
+                        
+                        <TR_TD_LABEL_DATA key_id="txtDataRilascio" valore="lblDataRilascio##txtDataRilascio#DataRilascio#startWithToday:true, readonly_element: true, format: 'd/m/Y'###DATA_RILASCIO" evento="START">
+                        </TR_TD_LABEL_DATA >
+                        <TR_TD_LABEL_DATA key_id="txtDataInizioMalattia" valore="lblDataInizioMalattia##txtDataInizioMalattia#DataDataInizioMalattia#startWithToday:true, readonly_element: false, format: 'd/m/Y', direction : [-1,1]###DATA_INIZIO" evento="START">
+                        </TR_TD_LABEL_DATA >
+                        <TR_TD_LABEL_DATA key_id="txtDataTerminePrognosi" valore="lblDataTerminePrognosi##txtDataTerminePrognosi#DataDataTerminePrognosi#startWithToday:true, readonly_element: false, format: 'd/m/Y'###DATA_FINE" evento="START">
+                        </TR_TD_LABEL_DATA >
+                           
+                        <TR_TD_LABEL_RADIO key_id="radTipoVisita" valore="lblTipoVisita##radTipoVisita#radTipoVisita#{width:150,idxDefault:0}#TIPO_VISITA##" evento="START">                                                                                  
+                        </TR_TD_LABEL_RADIO> 
+                        <TR_TD_LABEL_RADIO key_id="radTipoCertificato" valore="lblTipoCertificato##radTipoCertificato#radTipoCertificato#{width:150,idxDefault:0}#TIPO_CERTIFICATO##" evento="START">                              
+                        </TR_TD_LABEL_RADIO> 
+                        
+                        <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD9" valore="lblDiagnosiICD9#acDiagnosiICD9#DiagnosiICD9#txtDiagnosiICD9#ADT_DiagnosiICD9###tdICD9" evento="START">                          
+                        </TR_TD_AUTOCOMPLETE>
+                        
+                        <TR_TD_LABEL_TEXTAREA key_id="txtDiagnosiDescrittiva" valore="lblDiagnosiDescrittiva#txtDiagnosiDescrittiva##N#N#N" evento="START">
+                        </TR_TD_LABEL_TEXTAREA>
+                        
+                        <TR_TD_LABEL_RADIO key_id="radGiornataLavorativa" valore="lblGiornataLavorativa##radGiornataLavorativa#radGiornataLavorativa#{width:50}#S#" evento="START">
+                        </TR_TD_LABEL_RADIO>
+                        <TD_LABEL_RADIO key_id="radTrauma" valore="lblTrauma##radTrauma#radTrauma#{width:50}#S#" evento="START">
+                        </TD_LABEL_RADIO> 
+                        
+                        <TR_TD_LABEL_RADIO key_id="radAgevolazione" valore="lblAgevolazione##radAgevolazione#radAgevolazione#{width:200}#AGEVOLAZIONE#S#" evento="START">                             
+                        </TR_TD_LABEL_RADIO>
+                        
+                    </FIELD_HEADER_TABLE>   
+                  
+                </TABULAZIONE.CREA_TAB>
+                <TABULAZIONE.CREA_TAB key_id="tabLavoratore" valore="tabLavoratore" evento="START_END">
+                    <FIELD_HEADER_TABLE key_id="fldLavoratore" valore="fldLavoratore" evento="START">                           
+                            <TR_TD_LABEL_TEXT key_id="txtCodFisc" valore="lblCodFisc##txtCodFisc###COD_FISC" evento="START"></TR_TD_LABEL_TEXT>
+                    </FIELD_HEADER_TABLE>                     
+                    <FIELD_HEADER_TABLE key_id="fldResidenza" valore="fldResidenza" evento="START">
+                        <TR_TD_LABEL_TEXT key_id="txtIndirizzo" valore="lblIndirizzo##txtIndirizzo###INDIRIZZO" evento="START"></TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtCivico" valore="lblCivico##txtCivico###CIVICO" evento="START"></TR_TD_LABEL_TEXT>                        
+                        <TR_TD_AUTOCOMPLETE key_id="Comune" valore="lblComune#acComune#Comune#txtComune#Comuni#" evento="START"></TR_TD_AUTOCOMPLETE>                                             
+                        <TR_TD_LABEL_TEXT key_id="txtCAP" valore="lblCAP##txtCAP###CAP" evento="START"></TR_TD_LABEL_TEXT>
+                        <TR_TD_LABEL_TEXT key_id="txtProvincia" valore="lblProvincia##txtProvincia###PROVINCIA" evento="START"></TR_TD_LABEL_TEXT>
+                    </FIELD_HEADER_TABLE>
+                     <FIELD_HEADER_TABLE key_id="fldIndirizzoReperibilita" valore="fldIndirizzoReperibilita" evento="START">
+                        <TR_TD_LABEL_TEXT key_id="txtNominativo" valore="lblNominativo##txtNominativoRepe#######" evento="START">                              
+                        </TR_TD_LABEL_TEXT>                            
+                        <TR_TD_LABEL_TEXT key_id="txtIndirizzoRepe" valore="lblIndirizzoRepe##txtIndirizzoRepe#######" evento="START">
+                        </TR_TD_LABEL_TEXT>
+                        <TR_TD_AUTOCOMPLETE key_id="ComuneRepe" valore="lblComuneRepe#acComuneRepe#ComuneRepe#txtComuneRepe#Comuni####" evento="START">                             
+                        </TR_TD_AUTOCOMPLETE>  
+                        <TR_TD_LABEL_TEXT key_id="txtCapRepe" valore="lblCapRepe##txtCapRepe#######" evento="START">                    
+                        </TR_TD_LABEL_TEXT>  
+                        <TR_TD_LABEL_TEXT key_id="txtProvincia" valore="lblProvinciaRepe##txtProvinciaRepe#######" evento="START">
+                        </TR_TD_LABEL_TEXT>   
+                    </FIELD_HEADER_TABLE>
+                </TABULAZIONE.CREA_TAB>                  
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

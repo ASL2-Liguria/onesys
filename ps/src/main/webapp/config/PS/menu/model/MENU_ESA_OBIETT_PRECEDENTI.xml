@@ -1,0 +1,16 @@
+<MENU>
+    <ID>MENU_ESA_OBIETT_PRECEDENTI</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>Visualizza_dettaglio</ID>
+            <LINK><![CDATA[function(rec){DIALOG_PS.dettaglioEsaObiettPrec(rec[0])}]]></LINK>
+            <URL_IMAGE>img/CMenu/cerca2.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Visualizza_dettaglio"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"Visualizza Rivalutazione"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

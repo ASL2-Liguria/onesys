@@ -1,0 +1,281 @@
+#divButtonWk{height:25px;width:25px;cursor:hand;background-position:center;background-repeat:no-repeat;float:left;}
+
+/*avvertenze
+.avvertenza{background-color:red;}
+.avvertenza:hover{background-color:red;}
+*/
+
+
+/*Obiettivi Bisogni*/
+.obiettivoBisognoAllerta{background-image:url(../../imagexPix/button/Obiettivi.png);}
+.obiettivoBisognoAllerta:hover{background-image:url(../../imagexPix/button/ObiettiviOver.png);}
+
+/*Scale*/
+.scaleAllerta{background-image:url(../../imagexPix/button/Scale.png);}
+.scaleAllerta:hover{background-image:url(../../imagexPix/button/ScaleOver.png);}
+
+/*Positivita*/
+.positivitaAllerta{background-image:url(../../imagexPix/button/Positivita.png);}
+.positivitaAllerta:hover{background-image:url(../../imagexPix/button/PositivitaOver.png);}
+
+/*Allergie*/
+.AllergieAllerta{background-image:url(../../imagexPix/button/Allergie.png);}
+.AllergieAllerta:hover{background-image:url(../../imagexPix/button/AllergieOver.png);}
+
+/*
+/*Obiettivi Bisogni
+.obiettivoBisognoAllerta{background-image:url(../../imagexPix/button/O.gif);}
+.obiettivoBisognoAllerta:hover{background-image:url(../../imagexPix/button/O.gif);}
+
+/*Scale
+.scaleAllerta{background-image:url(../../imagexPix/button/S.gif);}
+.scaleAllerta:hover{background-image:url(../../imagexPix/button/S.gif);}
+*/
+
+/*lettera dimissioni*/
+.letteraNonCompilata{background-image:url(../../imagexPix/room/buttonLettoSchCartFade.gif);}
+.letteraNonCompilata:hover{background-image:url(../../imagexPix/room/buttonLettoSchCartFade.png);}
+
+.letteraCompilata{background-image:url(../../imagexPix/room/buttonLettoSchCart.png);}
+.letteraCompilata:hover{background-image:url(../../imagexPix/room/buttonLettoSchCart.png);}
+
+/*problemi*/
+.problemiNonPresenti{background-image:url(../../imagexPix/room/buttonProbSanitariFade.gif);}
+.problemiNonPresenti:hover{background-image:url(../../imagexPix/room/buttonProbSanitariFade.png);}
+
+/*.problemiPresenti{background-image:url(../../imagexPix/room/buttonProbSanitari.png);}*/
+.intervistaNonCompilata{background-image:url(../../imagexPix/room/buttonIntervNonCompl.png);}
+.intervistaNonCompilata:hover{background-image:url(../../imagexPix/room/buttonIntervNonCompl.png);}
+
+.intervistaCompilata{background-image:url(../../imagexPix/room/buttonIntervNonComplFade.gif);}
+.intervistaCompilata:hover{background-image:url(../../imagexPix/room/buttonIntervNonComplFade.png);}
+
+/*richieste*/
+/*
+.richiesta{background-image:url(../../imagexPix/GestioneRichieste/icoRichiesta.gif);}
+.richiesta:hover{background-image:url(../../imagexPix/GestioneRichieste/icoRichiesta.gif);background-color:#FF0;}
+.prenotazione{background-image:url(../../imagexPix/GestioneRichieste/icoPrenotazione.gif);}
+.prenotazione:hover{background-image:url(../../imagexPix/GestioneRichieste/icoPrenotazione.gif);background-color:#FF0;}
+*/
+.richiesta{background-image:url(../../imagexPix/GestioneRichieste/icoRichiesta.png);}
+.richiesta:hover{background-image:url(../../imagexPix/GestioneRichieste/icoRichiesta.png);background-color:#FF0;}
+.prenotazione{background-image:url(../../imagexPix/GestioneRichieste/icoPrenotazione.png);}
+.prenotazione:hover{background-image:url(../../imagexPix/GestioneRichieste/icoPrenotazione.png);background-color:#FF0;}
+.consulenza{background-image:url(../../imagexPix/GestioneRichieste/icoConsulenza.png);}
+
+.richiesteDefault{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/buttonLettoRichiesta_fade.gif);}
+.richiesteDefault:hover{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/buttonLettoRichiesta_fade.png);}
+
+.problemiPresenti:hover{background-image:url(../../imagexPix/room/buttonProbSanitari.png);}
+
+.esamiOdierni{background-image:url(../../imagexPix/RichiesteModifica/warning.png);}
+.esamiOdierni:hover{background-image:url(../../imagexPix/RichiesteModifica/warning.png);}
+
+/*intervista*/
+.richiesteInviate{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/buttonLettoRichiesta.png);}
+.richiesteInviate:hover{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/buttonLettoRichiesta.png);}
+
+.richiesteTrasporto{background-image:url(../../imagexPix/room/wk_trasporto.png);}
+.richiesteTrasporto:hover{background-image:url(../../imagexPix/room/wk_trasporto.png);}
+
+.richiestePrelievo{background-image:url(../../imagexPix/room/wk_prelievo.png);}
+.richiestePrelievo:hover{background-image:url(../../imagexPix/room/wk_prelievo.png);}
+
+.prelievo{background-image:url(../../imagexPix/contextMenu/provetta.jpg);}
+.prelievo:hover{background-image:url(../../imagexPix/contextMenu/provetta.jpg);}
+
+.etichetta{background-image:url(../../imagexPix/contextMenu/ico_stampa.gif);}
+.etichetta:hover{background-image:url(../../imagexPix/contextMenu/ico_stampa.gif);}
+
+.stampa{background-image:url(../../imagexPix/contextMenu/stampa_referto.gif);}
+.stampa:hover{background-image:url(../../imagexPix/contextMenu/stampa_referto.gif);}
+
+.Visualizza_referto{background-image:url(../../imagexPix/contextMenu/anteprima.gif);}
+.Visualizza_referto:hover{background-image:url(../../imagexPix/contextMenu/anteprima.gif);}
+
+/*diario*/
+.Diario{background-image:url(../../imagexPix/contextMenu/ico_diario.gif);}
+.Diario:hover{background-image:url(../../imagexPix/contextMenu/ico_diario.gif);}
+
+
+
+/*esiti*/
+.esitiDefault{background-image:url(../../imagexPix/room/wk_esitiFade.gif);}
+.esitiDefault:hover{background-image:url(../../imagexPix/room/wk_esitiFade.png);}
+
+.esitiPresenti{background-image:url(../../imagexPix/room/wk_esiti.png);}
+.esitiPresenti:hover{background-image:url(../../imagexPix/room/wk_esiti.png);}
+
+.ImmaginiPacs{background-image:url(../../imagexPix/contextMenu/logo_ve_studySync.gif);}
+.ImmaginiPacs:hover{background-image:url(../../imagexPix/contextMenu/logo_ve_studySync.gif);}
+
+/*attivita*/
+.attivitaDefault{background-image:url(../../imagexPix/room/wk_attivitaFade.gif);}
+.attivitaDefault:hover{background-image:url(../../imagexPix/room/wk_attivitaFade.png);}
+
+.attivitaPresenti{background-image:url(../../imagexPix/room/wk_attivita.png);}
+.attivitaPresenti:hover{background-image:url(../../imagexPix/room/wk_attivita.png);}
+
+.attivitaPianificate{background-image:url(../../imagexPix/room/wk_attivitaPianificate.png);}
+.attivitaPianificate:hover{background-image:url(../../imagexPix/room/wk_attivitaPianificate.png);}
+
+/*terapie*/
+.terapieDefault{background-image:url(../../imagexPix/room/wk_somministrazioneFade.gif);}
+.terapieDefault:hover{background-image:url(../../imagexPix/room/wk_somministrazioneFade.png);}
+
+.terapieProssime{background-image:url(../../imagexPix/room/wk_somministrazione.png);}
+.terapieProssime:hover{background-image:url(../../imagexPix/room/wk_somministrazione.png);}
+
+.terapiePassate{background-image:url(../../imagexPix/room/wk_somministrazione_prec.png);}
+.terapiePassate:hover{background-image:url(../../imagexPix/room/wk_somministrazione_prec.png);}
+
+/*laboratorio*/
+.datiLaboratorioDefinitiviPresenti{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/icon_microscopeD.gif);}
+.datiLaboratorioDefinitiviPresenti:hover{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/icon_microscopeD.gif);}
+
+.datiLaboratorioPresenti{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/icon_microscope.gif);}
+.datiLaboratorioPresenti:hover{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/icon_microscope.gif);}
+
+.datiLaboratorioNonPresenti{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/icon_microscope20.gif);}
+.datiLaboratorioNonPresenti:hover{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/icon_microscope40.gif);}
+
+/*prericovero*/
+.chiusuraPrericovero{background-image:url(../../imagexPix/contextMenu/ico_canc.gif);}
+
+/*repository*/
+.documenti{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/buttonLettoRiepRicovero.png);}
+.documenti:hover{background-image:url(../../imagexPix/contextMenu/worklistRicoverati/buttonLettoRiepRicovero.png);}
+
+/*paziente dimesso*/
+.pazienteDimesso{background-color:red;}
+/*paziente ricoverato*/
+.pazienteRicoverato{background-color:yellow;}
+/*paziente visibile temporaneamente*/
+.pazienteDimessoForzato{font-size:22px;font-weight:900;color:red;border:1px solid red;text-align:center;margin:3px;padding:0px;}
+
+/*apertura dei dati di Pronto scccorso per i pazienti che vi hanno fatto accesso*/
+.apriDatiPS{background-image:url(../../imagexPix/button/infoPS.gif);}
+.apriDatiPS:hover{background-image:url(../../imagexPix/button/infoPSover.gif);}
+
+/*passaggioConsegne*/
+.passaggioConsegne{background-image:url(../../imagexPix/button/passCons.png);}
+.passaggioConsegne:hover{background-image:url(../../imagexPix/button/passCons.png);}
+
+
+/* pulsanti wk richieste */
+.classButtonHeaderWK {
+	margin-top: 2 px;
+	WIDTH: 25px;
+	BACKGROUND: url(../../imagexPix/tabheader/top_tabella.gif) repeat-x
+}
+
+.pulsWkRichieste {
+	width:25px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../imagexPix/button/plusBt.png);
+	background-repeat:no-repeat;
+	text-align: center;
+	line-height:18px;
+	float:right;
+	margin: 2px;
+	/*padding-top:2px;*/
+
+}
+
+.pulsWkRichieste A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsWkRichieste A:hover {
+	background-image:url(../../imagexPix/button/plusBtOver.png);
+	background-repeat:no-repeat;
+	color: yellow;
+	/*margin: 2px;*/
+	/*padding-top:2px;*/
+
+}
+
+#Apulsante{
+
+	margin: 0 px;
+	width: 25 px;
+}
+
+#divPulsante{
+
+	margin: 0 px;
+	width: 25 px;
+}
+
+.pulsWkRich {
+	width:25px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../imagexPix/GestioneRichieste/icoWkRich.png);
+	background-repeat:no-repeat;
+	text-align: center;
+	line-height:18px;
+	float:right;
+	margin: 2px;
+	/*padding-top:2px;*/
+
+}
+
+.pulsWkRich A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsWkRich A:hover {
+	background-image:url(../../imagexPix/GestioneRichieste/icoWkRichOver.png);
+	background-repeat:no-repeat;
+	/*background-color:yellow;*/
+	color: yellow;
+	/*margin: 2px;*/
+	/*padding-top:2px;*/
+
+}
+
+.pulsWkPren {
+	width:25px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../imagexPix/GestioneRichieste/icoWkPren.png);
+	background-repeat:no-repeat;
+	text-align: center;
+	line-height:18px;
+	float:right;
+	margin: 2px;
+	/*padding-top:2px;*/
+
+}
+
+.pulsWkPren A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsWkPren A:hover {
+	background-image:url(../../imagexPix/GestioneRichieste/icoWkPrenOver.png);
+	background-repeat:no-repeat;
+	/*background-color:yellow;*/
+	color: yellow;
+	/*margin: 2px;*/
+	/*padding-top:2px;*/
+
+}
+

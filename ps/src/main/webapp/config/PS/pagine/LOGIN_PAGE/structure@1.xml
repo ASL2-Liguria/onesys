@@ -1,0 +1,52 @@
+<PAGINA key_id="LOGIN_PAGE">
+    <HEADER key_id="LOGIN_PAGE" valore="LOGIN_PAGE#LOGIN_PAGE,DEFAULT#Onesys Login#bodyLogin" evento="START_END">
+    </HEADER>
+    <IMG key_id="logo" valore="logo#img/logo-onesys.png#253#169" evento="START">
+    </IMG>
+    <DIV key_id="divFormLogin" valore="divFormLogin" evento="START">
+        <HRIQ key_id="divHeaderLogin" valore="lblTitHeaderLogin" evento="START">
+        </HRIQ>
+        <DIV key_id="contentLogin" valore="contentLogin" evento="START">
+            <FORM key_id="formLogin" valore="formLogin" evento="START_END">
+                <LABEL_TEXT key_id="username" valore="lblUsername#username##field" evento="START">
+                </LABEL_TEXT>
+                <LABEL_PASSWORD key_id="password" valore="lblPassword#password##field" evento="START">
+                </LABEL_PASSWORD>
+                <INPUT.HIDDEN key_id="codice" valore="codice" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="ipRilevato" valore="ipRilevato" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="nomeHost" valore="nomeHost" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="forceLogout" valore="forceLogout#N" evento="START">
+                </INPUT.HIDDEN>
+            </FORM>
+            <DIV key_id="errorMsg" valore="errorMsg#hide errorMsg" evento="START">
+            </DIV>
+            <BUTTON key_id="butLogin" valore="butLogin" evento="START">
+            </BUTTON>
+            <BUTTON key_id="butCambia" valore="butCambia" evento="START">
+            </BUTTON>
+        </DIV>
+    </DIV>
+    <OBJECT key_id="AppStampa" valore="AppStampa#application/x-java-applet#0#0" evento="START">
+        <PARAM key_id="archive" valore="archive#app/SignedFenixApplet.jar" evento="START">
+        </PARAM>
+        <PARAM key_id="code" valore="code#it.elco.applet.elcoApplet.class" evento="START">
+        </PARAM>
+        <PARAM key_id="SCL" valore="loadSCL#true" evento="START">
+        </PARAM>
+        <PARAM key_id="SCLclass" valore="SCLclass#it.elco.applet.smartCard.login.LoginCardListener" evento="START">
+        </PARAM>
+        <PARAM key_id="PROVIDER_PATH" valore="provider_path#C:\firma.cfg" evento="START">
+        </PARAM>
+    </OBJECT>
+    <STATUS_BAR key_id="statusBar" valore="statusBar" evento="START">
+        <DIV key_id="statSx" valore="statSx" evento="START">
+            <STATUS_BAR_H5 key_id="h5NomeHost" valore="h5NomeHostTit#h5NomeHostVal" evento="START">
+            </STATUS_BAR_H5>
+        </DIV>
+        <DIV key_id="statDx" valore="statDx" evento="START">
+        </DIV>
+    </STATUS_BAR>
+</PAGINA>

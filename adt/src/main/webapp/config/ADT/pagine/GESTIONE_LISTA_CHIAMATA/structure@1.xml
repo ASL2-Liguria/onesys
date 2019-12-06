@@ -1,0 +1,56 @@
+<PAGINA key_id="GESTIONE_LISTA_ATTESA">
+    <HEADER_PAGE key_id="GESTIONE_LISTA_ATTESA" valore="DEFAULT,SCHEDA,GESTIONE_LISTA_CHIAMATA#DEFAULT,PANN_AMM_ADT" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#PAG_ASS_PRERICOVERO#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="GESTIONE_LISTA_ATTESA#lblTitleLista#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabGestLista" valore="tabGestLista" evento="START">
+                <FIELDSET_TABLE key_id="tableGestLista" valore="tableGestLista" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome#####w200px#N" evento="START">
+                        <TD_LABEL_TEXT key_id="txtIdWk" valore="lblIdWk##txtIdWk#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="txtCodiceOrma" valore="lblCodiceOrma##txtCodiceOrma#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtNumeroPazienti" valore="lblNumeroPazienti##txtNumeroPazienti#####w200px#N" evento="START">
+                        <TD_LABEL_TEXT key_id="txtIdTemplate" valore="lblIdTemplate##txtIdTemplate#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="radSiNoListaChiamata" valore="lblradSiNoChiamata##radSiNoListaChiamata#radSiNoListaChiamata#{idxDefault:2}##" evento="START">
+                        <TD_LABEL_RADIO key_id="radSiNoRicovero" valore="lblradSiNoRicovero##radSiNoRicovero#radSiNoRicovero###" evento="START">
+                        </TD_LABEL_RADIO>
+                    </TR_TD_LABEL_RADIO>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="idListe" valore="idListe" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="Lista1" valore="lblLista1#acLista1#Lista1#Lista1#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista2" valore="lblLista2#acLista2#Lista2#Lista2#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista3" valore="lblLista3#acLista3#Lista3#Lista3#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista4" valore="lblLista4#acLista4#Lista4#Lista4#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista5" valore="lblLista5#acLista5#Lista5#Lista5#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista6" valore="lblLista6#acLista6#Lista6#Lista6#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista7" valore="lblLista7#acLista7#Lista7#Lista7#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista8" valore="lblLista8#acLista8#Lista8#Lista8#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista9" valore="lblLista9#acLista9#Lista9#Lista9#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista10" valore="lblLista10#acLista10#Lista10#Lista10#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista11" valore="lblLista11#acLista11#Lista11#Lista11#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista12" valore="lblLista12#acLista12#Lista12#Lista12#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista13" valore="lblLista13#acLista13#Lista13#Lista13#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Lista14" valore="lblLista14#acLista14#Lista14#Lista14#ADT_Liste_attesa#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

@@ -1,0 +1,32 @@
+<PAGINA key_id="INSERIMENTO_RILEVAZIONI_PLS">
+	<HEADER_PAGE key_id="INSERIMENTO_RILEVAZIONI_PLS" valore="DEFAULT_MMG,SCHEDA,INSERIMENTO_RILEVAZIONI_PLS#DEFAULT_MMG,INSERIMENTO_RILEVAZIONI_PLS" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_INSERIMENTO_RILEVAZ#MMG_DATI#MMG_ACCERT_RILEVAZIONI#IDEN#IDEN##VRILEVAZ" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabRilevazioni" valore="inserimentoRilevazioni#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento" valore="tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldRilevazioni" valore="fldRilevazioni" evento="START">
+					<TR_TD_LABEL_DATA key_id="Data" valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA"	evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="txtAltezza" valore="lblAltezza##txtAltezza###ALTEZZA###small" evento="START">
+						<TD_LABEL key_id="AltezzaCentile" valore="lblAltezzaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtPeso" valore="lblPeso##txtPeso###PESO###small" evento="START">
+						<TD_LABEL key_id="PesoCentile" valore="lblPesoCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtBMI" valore="lblBMI##txtBMI###BMI###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCirconferenza_Cranica" valore="lblCirconferenza_Cranica##txtCirconferenza_Cranica###CIRCONFERENZA_CRANICA###small" evento="START">
+						<TD_LABEL key_id="txtCirconferenza_CranicaCentile" valore="lblCirconferenza_CranicaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtMassima" valore="lblMassima##txtMassima###MASSIMA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtMinima" valore="lblMinima##txtMinima###MINIMA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtTemperatura" valore="lblTemperatura##txtTemperatura###TEMPERATURA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDiam_Fontanella" valore="lblDiam_Fontanella##txtDiam_Fontanella###DIAM_FONTANELLA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Saturazione_Ossigeno"
+						valore="lblSaturazione_Ossigeno##txtSaturazione_Ossigeno###SATURAZIONE_OSSIGENO###small"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

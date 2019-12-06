@@ -1,0 +1,78 @@
+<root>
+	<statements_list>
+		<statement name="getDatiPacs">
+		<pool>elcoPool_polaris</pool>
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			SELECT a.ID_PAZ_DICOM,e.ID_ESAME_DICOM,TAB_AETITLE.NODE_NAME
+			FROM anag a
+			JOIN esami e
+			ON (a.iden=e.iden_anag)
+			JOIN TAB_SAL
+			ON E.IDEN_SAL = TAB_SAL.IDEN
+			JOIN TAB_AETITLE
+			ON TAB_SAL.IDEN_AETITLE = TAB_AETITLE.IDEN
+			WHERE e.id_esame_dicom=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="cancellaDocumentoAllegato">				
+			<sql>
+			<![CDATA[
+				declare
+					pIden pls_integer := to_number(?);
+				begin
+					update radsql.documenti_allegati set deleted='S' where iden= pIden;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="aggiornaFiltro">				
+			<sql>
+			<![CDATA[
+				declare
+					pTipo varchar2(10) :=?;
+					pValore varchar2(1000) :=?;
+					pUser varchar2(100):=?;
+				begin
+					update radsql.filtri set lastvaluechar=pValore where tipo= pTipo and user_name=pUser;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getCodCdc">
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			select cod_cdc from radsql.centri_di_costo where cod_dec=? and attivo='S'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDescrFiltroReparto">
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			select descr from radsql.centri_di_costo where cod_dec=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="getCodFiltroTipoDoc">
+		<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			SELECT LASTVALUECHAR AS VALORE FROM RADSQL.FILTRI WHERE USER_NAME=? AND TIPO='400'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDescrFiltroTipoDoc">
+		<catalogo>dati</catalogo>
+		<pool>registryPool_oracle_whale</pool>
+			<sql>
+			<![CDATA[
+			select string_agg(DISPLAY) DESCR from classcode where code in ( select column_value from table (split(?,',')))
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

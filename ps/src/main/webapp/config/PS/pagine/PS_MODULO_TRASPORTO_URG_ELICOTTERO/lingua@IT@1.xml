@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+
+       <lblTitolo>TRASPORTO URGENTE ELICOTTERO</lblTitolo>
+       <fldDati>Dati</fldDati>
+       <lblReparto>Reparto</lblReparto>
+       <lblOspedale>Ospedale</lblOspedale>
+       <lblMedico>Medico</lblMedico>
+       <lblDiagnosi>Diagnosi</lblDiagnosi>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

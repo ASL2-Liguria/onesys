@@ -1,0 +1,70 @@
+.classButtonValida {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/icon/validaUtente.gif);
+	text-align: center;
+	
+}
+
+.classButtonValida A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValida A:hover {
+	background-image:url(../../../imagexPix/button/icon/validaUtente_over.gif);
+}
+/* pulsante di validazione con lucchetto */
+.classButtonValidaLock {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockOpened.gif);
+	text-align: center;
+	
+}
+
+.classButtonValidaLock A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValidaLock A:hover {
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockOpened_over.gif);
+}
+
+/* ****************************** */
+
+/* come prima ma lucchetto chiuso */
+.classButtonValidaLockClosed {
+	width:32px;
+	height:32px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockClosed.gif);
+	text-align: center;
+	
+}
+
+.classButtonValidaLockClosed A{
+	height:21px;
+	display:block;
+}
+
+.classButtonValidaLockClosed A:hover {
+	background-image:url(../../../imagexPix/button/icon/validaUtenteLockClosed_over.gif);
+}
+/* ******* */
+
+
+#idImgSecMed{
+width:32px;
+height:32px;
+display:inline;
+}

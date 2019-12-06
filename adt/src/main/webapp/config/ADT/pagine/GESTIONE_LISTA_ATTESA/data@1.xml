@@ -1,0 +1,35 @@
+<DATI configurazione="begin :stato_pagina := '#STATO_PAGINA#'; :key_query := 'ADT.Q_DATI_LISTA_GESTIONE@ADT'; :where := null; :campo_xml := null; end;">
+    <DATO key_id="radSiNoListaChiamata" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="LISTA_CHIAMATA" db_descrizione="LISTA_CHIAMATA"
+          configurazione_multi_data="ADT.Q_RADIO_SI_NO@ADT"/>
+    <DATO key_id="radSiNoRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ABILITA_RICOVERO" db_descrizione="ABILITA_RICOVERO"
+          configurazione_multi_data="ADT.Q_RADIO_SI_NO@ADT"/>
+    <DATO key_id="iden_cdc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_CDC" db_descrizione="IDEN_CDC"
+          configurazione_multi_data="" />
+    <DATO key_id="descr_cdc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DESCRIZIONE_CDC" db_descrizione="DESCRIZIONE_CDC"
+          configurazione_multi_data="" />
+    <DATO key_id="iden_cdc_pre" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_CDC_PRE" db_descrizione="IDEN_CDC_PRE"
+          configurazione_multi_data="" />
+    <DATO key_id="descr_cdc_pre" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DESCRIZIONE_CDC_PRE" db_descrizione="DESCRIZIONE_CDC_PRE"
+          configurazione_multi_data="" />
+    <DATO key_id="txtNome" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DESCRIZIONE" db_descrizione="DESCRIZIONE"
+          configurazione_multi_data="" />
+    <DATO key_id="txtIdWk" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ID_WK" db_descrizione="ID_WK"
+          configurazione_multi_data="" />
+    <DATO key_id="txtCodiceOrma" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_ORMA" db_descrizione="CODICE_ORMA"
+          configurazione_multi_data="" />
+    <DATO key_id="txtNumeroPazienti" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NUMERO_PAZIENTI" db_descrizione="NUMERO_PAZIENTI"
+          configurazione_multi_data="" />
+    <DATO key_id="txtIdTemplate" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ID_TEMPLATE" db_descrizione="ID_TEMPLATE"
+          configurazione_multi_data="" />
+</DATI>

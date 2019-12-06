@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>UTILITA'</lblTitolo>
+        
+        <tabLink>Link utili</tabLink>
+        <tabCalcolatori>Calcolatori</tabCalcolatori>
+        <tabNoteCUF>Note CUF</tabNoteCUF>
+        
+        <fldLink>Link utili</fldLink>
+        <fldInserimento>Calcolatori</fldInserimento>
+        <fldNoteCUF>Note CUF</fldNoteCUF>
+        
+        <lblNota>Cerca Nota CUF</lblNota>
+        <lblImpossibileNoteCuf>Impossibile visualizzare la Nota CUF</lblImpossibileNoteCuf>
+        <lblErroreNoteCuf>Errore: Parametro URL_NOTE_CUF non configurato. Contattare il servizio di assistenza.</lblErroreNoteCuf>
+        
+		<butCercaNota>Cerca</butCercaNota>
+		<butChiudi>Chiudi</butChiudi>
+		
+    </ROW>
+</ROWSET>

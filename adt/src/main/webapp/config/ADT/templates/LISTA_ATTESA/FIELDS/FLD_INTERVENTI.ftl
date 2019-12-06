@@ -1,0 +1,3 @@
+<@lib.tdAutoComplete idText="txtInterventoICD" idLbl="lblinterventoICD" tradLbl="Intervento" idAutoComplete="acInterventoICD9" query="AUTOCOMPLETE.TMP_INTERVENTI_ORMA" idWk="TMP_WK_INTERVENTI_ORMA" datasource="ADT" binds={"IDEN_LISTA" : "${dati_salvati['ID_LISTA'].getValue()}"} title="Interventi" colspan="2"></@lib.tdAutoComplete>
+<@lib.tdLbl class="tdLbl" id="lblTipoIntervento" value="${traduzione.lblTipoIntervento}" ></@lib.tdLbl>
+<@lib.tdTextarea id="txtTipoIntervento" colspan="4"></@lib.tdTextarea>

@@ -1,0 +1,257 @@
+<DATI configurazione=
+              "begin
+                    :stato_pagina :=  '#STATO_PAGINA#';
+                    if ('#WK_APERTURA#'='CONSOLE')
+                    then :key_query := 'PS.Q_SCHEDA_ANAGRAFICA_CONSOLE@PS';
+
+                    elsif ('#PAZ_SCONOSCIUTO#'='S' and '#STATO_PAGINA#' = 'I')
+                    THEN :key_query := 'PS.Q_PS_CONTATTO_SCONOSCIUTO@PS';
+
+                    else :key_query := 'PS.Q_SCHEDA_ANAGRAFICA@PS';
+
+                    end if;
+                    :where := null;
+                    :campo_xml := null;
+              end;">
+    <DATO key_id="Cognome"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="COGNOME"
+            db_descrizione="COGNOME"
+            configurazione_multi_data="" />
+    <DATO key_id="Nome"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="NOME"
+            db_descrizione="NOME"
+            configurazione_multi_data="" />
+    <DATO key_id="DataNasc"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DATA_NASCITA"
+            db_descrizione="DATA_NASCITA"
+            configurazione_multi_data="" />
+    <DATO key_id="DataMorte"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_MORTE"
+          db_descrizione="DATA_MORTE"
+          configurazione_multi_data="" />
+    <DATO key_id="Sesso"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="SESSO"
+            db_descrizione="SESSO"
+            configurazione_multi_data="PS.Q_SESSO@PS" />
+    <DATO key_id="ComuneNascita"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_COMUNE_NASCITA"
+            db_descrizione="COMUNE_NASCITA"
+            configurazione_multi_data="" />
+    <DATO key_id="CodFisc"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="CODICE_FISCALE"
+            db_descrizione="CODICE_FISCALE"
+            configurazione_multi_data="" />
+    <DATO key_id="radSTP"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="STP"
+            db_descrizione="STP"
+            configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="radENI"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ENI"
+          db_descrizione="ENI"
+          configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="radGIU"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIU"
+          db_descrizione="GIU"
+          configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="txtcodGIU"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_GIU"
+          db_descrizione="COD_GIU"
+          configurazione_multi_data="" />
+    <DATO key_id="h-txtscadcodGIU"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_SCADENZA_GIU"
+          db_descrizione="DATA_SCADENZA_GIU"
+          configurazione_multi_data="" />
+    <DATO key_id="txtcodSTP"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="COD_STP"
+            db_descrizione="COD_STP"
+            configurazione_multi_data="" />
+    <DATO key_id="h-txtscadcodSTP"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DATA_SCADENZA_STP"
+            db_descrizione="DATA_SCADENZA_STP"
+            configurazione_multi_data="" />
+    <DATO key_id="txtcodENI"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_ENI"
+          db_descrizione="COD_ENI"
+          configurazione_multi_data="" />
+    <DATO key_id="h-txtscadcodENI"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_SCADENZA_ENI"
+          db_descrizione="DATA_SCADENZA_ENI"
+          configurazione_multi_data="" />
+    <DATO key_id="hCodComNasc"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COD_COM_NASCITA"
+          db_descrizione="COD_COM_NASCITA"
+          configurazione_multi_data="" />
+    <DATO key_id="readonly"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="READONLY"
+          db_descrizione="READONLY"
+          configurazione_multi_data="" />
+    <DATO key_id="hRiconosciuto"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RICONOSCIUTO"
+          db_descrizione="RICONOSCIUTO"
+          configurazione_multi_data="" />
+    <DATO key_id="StatoCivile"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_STATO_CIVILE"
+            db_descrizione="STATO_CIVILE"
+            configurazione_multi_data="" />
+    <DATO key_id="TitoloStudio"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_LIVELLO_ISTRUZIONE"
+            db_descrizione="DESCR_ISTRUZIONE"
+            configurazione_multi_data="" />
+    <DATO key_id="CodReg"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="cod_reg_nascita"
+            db_descrizione="cod_reg_nascita"
+            configurazione_multi_data="" />
+    <DATO key_id="txtCitt"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_NAZIONE"
+            db_descrizione="NAZIONE"
+            configurazione_multi_data="" />
+    <DATO key_id="cittadinanza"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CITTADINANZA"
+          db_descrizione="CITTADINANZA"
+          configurazione_multi_data="" />
+    <DATO key_id="MedBase"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_MEDICO_BASE"
+            db_descrizione="MEDICO_BASE"
+            configurazione_multi_data="" />
+    <DATO key_id="Prof"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_PROFESSIONE"
+            db_descrizione="PROFESSIONE"
+            configurazione_multi_data="" />
+    <DATO key_id="CellPaz"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="RES_CELLULARE"
+            db_descrizione="RES_CELLULARE"
+            configurazione_multi_data="" />
+    <DATO key_id="Mail"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="EMAIL"
+            db_descrizione="EMAIL"
+            configurazione_multi_data="" />
+    <DATO key_id="ComuneResidenza"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_COMUNE_RESIDENZA"
+            db_descrizione="COMUNE_RESIDENZA"
+            configurazione_multi_data="" />
+    <DATO key_id="IndRes"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="RES_INDIRIZZO"
+            db_descrizione="RES_INDIRIZZO"
+            configurazione_multi_data="" />
+    <DATO key_id="CivRes"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="RES_NUMERO_CIVICO"
+            db_descrizione="RES_NUMERO_CIVICO"
+            configurazione_multi_data="" />
+    <DATO key_id="CAPRes"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="RES_CAP"
+            db_descrizione="RES_CAP"
+            configurazione_multi_data="" />
+    <DATO key_id="ProvRes"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="RES_PROVINCIA"
+            db_descrizione="RES_PROVINCIA"
+            configurazione_multi_data="" />
+    <DATO key_id="CodiceRegionaleRes"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="COD_REG_RESIDENZA"
+            db_descrizione="COD_REG_RESIDENZA"
+            configurazione_multi_data="" />
+    <DATO
+            key_id="ASLResidenza"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ASL_RESIDENZA"
+            db_descrizione="ASL_RESIDENZA_DESCR"
+            configurazione_multi_data="" />
+    <DATO
+            key_id="ASLDomicilio"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="ASL_DOMICILIO"
+            db_descrizione="ASL_DOMICILIO_DESCR"
+            configurazione_multi_data="" />
+
+    <DATO key_id="TelRes"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="RES_TELEFONO"
+            db_descrizione="RES_TELEFONO"
+            configurazione_multi_data="" />
+    <DATO key_id="ComuneDomicilio"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="IDEN_COMUNE_DOMICILIO"
+            db_descrizione="COMUNE_DOMICILIO"
+            configurazione_multi_data="" />
+    <DATO key_id="IndDom"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DOM_INDIRIZZO"
+            db_descrizione="DOM_INDIRIZZO"
+            configurazione_multi_data="" />
+    <DATO key_id="CivDom"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DOM_NUMERO_CIVICO"
+            db_descrizione="DOM_NUMERO_CIVICO"
+            configurazione_multi_data="" />
+    <DATO key_id="CAPDom"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DOM_CAP"
+            db_descrizione="DOM_CAP"
+            configurazione_multi_data="" />
+    <DATO key_id="ProvDom"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DOM_PROVINCIA"
+            db_descrizione="DOM_PROVINCIA"
+            configurazione_multi_data="" />
+
+    <DATO key_id="TelDom"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="DOM_TELEFONO"
+            db_descrizione="DOM_TELEFONO"
+            configurazione_multi_data="" />
+    <DATO key_id="CodiceRegionaleDom"
+            configurazione_stato="begin :stato := 'E'; end;"
+            db_valore="cod_reg_domicilio"
+            db_descrizione="cod_reg_domicilio"
+            configurazione_multi_data="" />
+    <DATO key_id="TesseraSanitaria"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TESSERA_SANITARIA"
+          db_descrizione="TESSERA_SANITARIA"
+          configurazione_multi_data="" />
+    <DATO key_id="h-txtScadTesseraSanitaria"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TESSERA_DATA_SCAD"
+          db_descrizione="TESSERA_DATA_SCAD"
+          configurazione_multi_data="" />
+    <DATO key_id="TelRes"
+          configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RES_TELEFONO"
+          db_descrizione="RES_TELEFONO"
+          configurazione_multi_data="" />
+
+</DATI>
+

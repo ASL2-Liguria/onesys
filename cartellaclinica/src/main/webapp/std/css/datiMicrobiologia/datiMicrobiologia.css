@@ -1,0 +1,188 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th,td{
+	border: 0;
+	font-family: Arial;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+
+/*FILTRI*/
+div#divMenu{width:100%;height:35px;text-align:center;background:#80D1E8;}
+.datepick-trigger{cursor:pointer;width:20px;position:relative;vertical-align:middle;}
+.wrapSezioneMenu{float:left;height:25px;margin:5px;}
+.wrapSezioneMenu > select{border:none;position:relative;vertical-align:middle;}
+.lblMenuDatiMicro{font-size:12px;font-weight:bold;color:#fff;	padding-left:15px;height:25px;line-height:25px;}
+.spnMenuDatiMicro{
+	font-size:12px;
+	display:inline-block;height:25px;line-height:25px;
+	padding-left:10px;padding-right:10px;
+}
+.inpFiltroData{height:15px;line-height:15px;width:65px;font-size:12px;margin-right:2px;position:relative;vertical-align:middle;}
+.HeaderButton{width:25px;height:25px;cursor:pointer;line-height:50px;margin:5px;}
+#refreshDatiMicro{background-image:url(../../../imagexPix/Visualizzatore/ico_refresh.png);float:left;}
+
+/********************************************/
+
+
+
+
+
+
+div#divNull{background: #F90;color:black;text-align:center;margin:0;line-height:25px;}
+#iframeGriglia{width:100%;overflow-y:hidden;overflow-x:scroll;}
+div#divMain{width:100%; overflow-y:hidden;overflow-x:hidden;}
+div#divWrapper{width:100%;overflow-y:hidden;overflow-x:hidden; background-color:#E4EBE5;}
+div#divIntRichieste{float:left; border-left:1px solid #DEE3E0; background-color:#E4EBE5; font-size:12px;text-align:center;}
+
+div#divIntRichieste div {    
+	 border-right:1px; border-top:1px; border-bottom:1px; border-style: solid; border-color:#DEE3E0; vertical-align:middle;
+	font-size:12px;text-align:center;height:30px;background-color:#F6F6F6; float:left;
+	margin-top:113px; 
+}
+
+.noteRichiestaIco{background: transparent url(../../../imagexPix/button/note_pinned.gif) no-repeat; float:left; width: 15px; height: 13px; cursor:hand;}
+
+
+
+div#divIntAntib{height:160px;  overflow-x:hidden; background-color:#E4EBE5;}
+
+.rotate-container {
+    height: 160px;  width: 30px;  margin: 0px auto;
+     background-color: #EFEFEF;float:left;
+}
+
+
+
+.rotate {
+    height: 30px; width: 160px; line-height: 30px;  font-size:12px;
+    border: 1px solid #DEE3E0;  background-color: #F6F6F6; 
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+
+div#divRichieste{
+	color:#fff;	
+	float:left;margin:0;overflow-y:hidden;overflow-x:hidden;
+	
+}
+
+.dataAcc{width:75px;}
+.dataRef{width:60px;}
+.materiale{width:300px;}
+.germe{width:240px;}
+
+table {border-collapse:collapse;}
+div#divRichieste table tr td{
+	height: 28px;
+	border:1px solid #CCC;
+	font-size:10px;
+	text-align:center;
+	color:black;
+	vertical-align:middle; 
+	margin:0px;
+	}
+	
+div#divRichieste table tr.positivo{
+	background-color:white;
+	}	
+
+div#divRichieste table tr.negativo{
+	background-color:#BDFFCD;
+	}
+	
+div#divRichieste table tr.definitiva{
+	background-color:white;
+	}
+
+div#divRichieste table tr.non_definitiva{
+	background-color:#DCE0E0;
+	}
+	
+
+div#divRis{
+	width:auto;
+	position:absolute; 
+	left:509px;
+    float:left;
+    overflow-x:scroll;
+    overflow-y:scroll;
+}
+
+div#divRis table tr td{
+	height: 28px;
+	width:30px;
+	border:1px solid #CCC;
+	font-size:10px;
+	text-align:center;
+	color:black;
+	vertical-align:middle; 
+	margin:0px;
+	background-color: white;
+	}
+
+.tdEmpty{
+	height: 28px;
+	width:0px !important;
+}
+		
+/*table#tableRis tr{height: 31px;}
+table td {
+	border:1px solid #CCC;
+	font-size:10px;text-align:center;color:black;vertical-align:middle; margin:0px;
+}
+
+
+div#divRichieste tr.negativo td{
+	background-color:#BDFFCD;
+}
+
+div#divRichieste tr.positivo td{
+	background-color:white;
+}
+
+
+
+
+
+
+
+
+
+div#divRis{
+	width:auto;background:red; position:absolute; left:509px;
+    float:left;overflow-x:scroll;overflow-y:auto;
+    background-color:red;
+}
+
+div#divRis td{background-color:green;height:23px;width:30px;}
+
+.mic{
+	cursor:hand;
+}
+
+table {border-collapse:collapse;}
+table#tableRichieste tr{height: 100px;}
+table#tableRis tr{height: 31px;}
+table td {
+	border:1px solid #CCC;
+	font-size:10px;text-align:center;color:black;vertical-align:middle; margin:0px;
+}
+
+
+div#divRichieste tr.negativo td{
+	background-color:#BDFFCD;
+}
+
+div#divRichieste tr.positivo td{
+	background-color:white;
+}*/

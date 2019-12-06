@@ -1,0 +1,12 @@
+<INCLUDE>
+	<CSS path="css/PS/ParametriVitali/ParametriVitali.css" />
+    <CSS path="css/jquery-ui.css" />
+    <JS path="config/PS/validator/model/V_DEFAULT.js"/>
+    <JS path="js/PS/DialogPS/DialogPS.js"/>
+    <!--<JS path="config/PS/validator/model/V_PARAMETRI_VITALI.js"/>-->
+    <JS path="js/PS/ParamentriVitali/ControlliParametri.js"/>
+    <JS path="js/PS/ParamentriVitali/ParametriVitali.js"/>
+
+
+
+</INCLUDE>

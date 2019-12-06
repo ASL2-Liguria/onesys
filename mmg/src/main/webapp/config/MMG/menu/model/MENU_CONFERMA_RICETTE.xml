@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<MENU>
+    <ID>MENU_CONFERMA_RICETTE</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+    
+    	<ITEM>
+            <ID>CR_CONFERMA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONFERMA_RICETTE.conferma( rec ); }]]></LINK>
+            <ICON_CLASS>esegui</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return WORKLIST_RICETTE.whereConferma( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblConfermaRicetta</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        
+        <ITEM>
+            <ID>CR_STAMPA</ID>
+            <LINK><![CDATA[ function( rec ){ WORKLIST_RICETTE.stampa( rec ); }]]></LINK>
+            <ICON_CLASS>esegui</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return WORKLIST_RICETTE.whereStampa(rec);} ]]></WHERE>
+            <OUTPUT>traduzione.lblStampaRicetta</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        
+        <ITEM>
+            <ID>CR_CONFERMA_STAMPA</ID>
+            <LINK><![CDATA[ function( rec ){ NS_MENU_CONFERMA_RICETTE.confermaStampa( rec ); }]]></LINK>
+            <ICON_CLASS>esegui</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return WORKLIST_RICETTE.whereConferma( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblConfermaStampa</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+		
+		<ITEM>
+			<ID>CR_CANCELLA</ID>
+			<LINK><![CDATA[function(rec){NS_MENU_ELENCO_RICETTE.cancellaRicetta(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return WORKLIST_RICETTE.whereCancella(rec);}]]></WHERE>
+			<OUTPUT>"Cancella Ricetta"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+    
+    	<ITEM>
+            <ID>CR_INFO</ID>
+            <LINK><![CDATA[ function( rec ){ WORKLIST_RICETTE.showInfoRicetta( rec ); }]]></LINK>
+            <ICON_CLASS>informazioni</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return WORKLIST_RICETTE.whereInfo( rec ); } ]]></WHERE>
+            <OUTPUT>traduzione.lblInfoRicetta</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+	   
+    </LIST>
+    
+</MENU>

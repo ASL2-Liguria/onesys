@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>VISITA</lblTitolo>
+        <butStampa>Salva e Stampa</butStampa>
+        <butCerca>Cerca</butCerca>
+        <butBilanciSalute>Bilanci di Salute</butBilanciSalute>
+        
+        <tabAnamnesi>Anamnesi Patologica Prossima</tabAnamnesi>
+        <tabRilevazioni>Rilevazioni</tabRilevazioni>
+        <tabEsame>Esame Obiettivo</tabEsame>
+        <tabIspezione>Ispezione</tabIspezione>
+        <tabConsiderazioni>Considerazioni Finali</tabConsiderazioni>
+        <tabAltro>Altro </tabAltro>
+        
+        <fldDati>Visita</fldDati>
+        <fldAnamnesi>Anamnesi Patologica Prossima</fldAnamnesi>
+        <fldBMI>B.M.I. - Body Mass Index</fldBMI>
+		<fldCardio>Cuore</fldCardio>
+		<fldPressione>Pressione</fldPressione>
+		<fldTemperatura>Temperatura Corporea</fldTemperatura>
+		<fldPLS>Rilevazioni Pediatriche</fldPLS>
+        <fldEsame>Esame Obiettivo</fldEsame>
+        <fldIspezione>Ispezione</fldIspezione>
+        <fldConsiderazioni>Considerazioni Finali</fldConsiderazioni>
+        <fldAltro>Altro </fldAltro>
+        <fldAltreRil>Altro </fldAltreRil>
+        
+        <lblData>Data</lblData>
+        <lblProblema>Problema</lblProblema>
+        <lblBMI>BMI</lblBMI>
+		<lblPeso>Peso (Kg)</lblPeso>
+		<lblAltezza>Altezza (cm)</lblAltezza>
+		<lblRitmo>Ritmo</lblRitmo>
+		<lblSimmetria>Simmetria</lblSimmetria>
+		<lblAmpiezza>Ampiezza</lblAmpiezza>
+		<lblFrequenza>Frequenza</lblFrequenza>
+		<lblMinima>Minima</lblMinima>
+		<lblMassima>Massima</lblMassima>
+		<lblTemperatura>Temperatura (°C)</lblTemperatura>
+		<lblCirconferenza>Circonferenza Addominale (cm)</lblCirconferenza>
+		<lblAttFisica>Attività Fisica</lblAttFisica>
+		<lblInr>INR</lblInr>
+		<lblTao>TAO</lblTao>
+		<lblGlicemia>Glicemia</lblGlicemia>
+		<lblSaturazione_Ossigeno>Saturazione Ossigeno</lblSaturazione_Ossigeno>
+        
+        
+		<lblErrore>Salvataggio non effettuato. Controllare i dati inseriti</lblErrore>
+		<lblTitoloErrore>Errore</lblTitoloErrore>
+		
+    </ROW>
+</ROWSET>

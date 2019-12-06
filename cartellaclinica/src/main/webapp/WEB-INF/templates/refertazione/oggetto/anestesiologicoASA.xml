@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblSceltaAnestesiologicoASA" TYPE="label" TEXT="Classe ASA"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="radSceltaAnestesiologicoASA" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="1" TEXT="1"/>
+            <OPTIONVAL VALUE="2" TEXT="2"/>
+            <OPTIONVAL VALUE="3" TEXT="3"/>
+            <OPTIONVAL VALUE="4" TEXT="4"/>
+            <OPTIONVAL VALUE="5" TEXT="5"/>
+        </CAMPO>
+        <CAMPO KEY_CAMPO="inputcheckAnestesiologicoASA" TYPE="input" TYPEINPUT="checkbox" TEXT="E"/>
+    </CAMPI>
+</PAGINA>

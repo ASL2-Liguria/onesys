@@ -1,0 +1,283 @@
+<Template seconds="1">
+
+    <Prescrizione i="frequenza" classe="Gruppo" a_globali="tipo=0;None" tipo="0" key="tipo">
+        <Riga classe="Gruppo">
+            <UserInput tipo="text" name="Frequenza" descr="Ogni" a_globali="msg=Frequenza"/>
+            <UserInput classe="Options" tipo="radio" descr="" name="TipoFrequenza"
+                a_globali="msg=Tipo Frequenza">
+                <OPTION value="1">Ore</OPTION>
+                <OPTION value="24">Giorni</OPTION>
+                <OPTION value="168">Settimane</OPTION>
+            </UserInput>
+            <UserInput tipo="text" name="FrequenzaOraria" descr="" a_globali="None"/>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="frequenza_ricalcola" classe="Gruppo" a_globali="tipo=0;None" tipo="0"
+        key="tipo">
+        <Riga classe="Gruppo">
+            <UserInput tipo="checkbox" name="chkPerNumSomministr" a_globali=""
+                descr="Imposta per numero somministrazioni totali"/>
+            <UserInput tipo="text" name="NumSomministr" descr="Numero somministrazioni"
+                a_globali="msg=Numero somministrazioni"/>
+        </Riga>
+
+        <Riga classe="Gruppo">
+            <UserInput tipo="text" name="Frequenza" descr="Ogni" a_globali="msg=Frequenza"/>
+            <UserInput classe="Options" tipo="radio" descr="" name="TipoFrequenza"
+                a_globali="msg=Tipo Frequenza">
+                <OPTION value="1">Ore</OPTION>
+                <OPTION value="24">Giorni</OPTION>
+                <OPTION value="168">Settimane</OPTION>
+            </UserInput>
+            <UserInput tipo="text" name="FrequenzaOraria" descr="" a_globali="None"/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput tipo="checkbox" name="chkRicalcola" a_globali=""
+                descr="Ricalcola orari in base all'effettivo orario di somministrazione"/>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="oraria" classe="Gruppo" a_globali="tipo=1;None" tipo="1" key="tipo">
+        <Riga classe="Gruppo" a_globali="h=2.5">
+            <UserInput classe="Timeline" name="timeline" value="" tipo="timeline"
+                a_globali="msg=Orari"/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput tipo="checkbox" name="Giorno1" a_globali="chkGiorno" descr="Lunedi" value="S"/>
+            <UserInput tipo="checkbox" name="Giorno2" a_globali="chkGiorno" descr="Martedi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno3" a_globali="chkGiorno" descr="Mercoledi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno4" a_globali="chkGiorno" descr="Giovedi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno5" a_globali="chkGiorno" descr="Venerdi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno6" a_globali="chkGiorno" descr="Sabato" value="S"/>
+            <UserInput tipo="checkbox" name="Giorno7" a_globali="chkGiorno" descr="Domenica"
+                value="S"/>
+
+            <UserInput tipo="text" name="GiorniSelezionati" a_globali="None" descr=""/>
+
+            <UserInput tipo="checkbox" name="GiorniTutti" descr="Tutti" value="S"/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="select" descr="Profili Orari" name="ProfiliOrari">
+                <OPTION value=""/>
+                <OPTION value="00:00;08:00;16:00">0,8,16</OPTION>
+                <OPTION value="08:00;20:00">8,20</OPTION>
+                <OPTION value="08:00;12:00;18:00">8,12,18</OPTION>
+                <OPTION value="08:00;12:00;18:00;22:00">8,12,18,22</OPTION>
+                <OPTION value="08:00;16:00">8,16</OPTION>
+                <OPTION value="08:00">8</OPTION>
+                <OPTION value="12:00">12</OPTION>
+                <OPTION value="16:00">16</OPTION>
+                <OPTION value="20:00">20</OPTION>
+                <OPTION value="00:00;08:00;12:00;15:00;18:00;20:00;22:00"
+                    >0,8,12,15,18,20,22</OPTION>
+            </UserInput>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="oraria_cambiadose" classe="Gruppo" a_globali="tipo=1;None" tipo="1" key="tipo">
+        <Riga classe="Gruppo" a_globali="h=2.5">
+            <UserInput classe="Timeline" name="timeline" value="" tipo="timeline"
+                a_globali="msg=Orari"/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput tipo="checkbox" name="Giorno1" a_globali="chkGiorno" descr="Lunedi" value="S"/>
+            <UserInput tipo="checkbox" name="Giorno2" a_globali="chkGiorno" descr="Martedi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno3" a_globali="chkGiorno" descr="Mercoledi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno4" a_globali="chkGiorno" descr="Giovedi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno5" a_globali="chkGiorno" descr="Venerdi"
+                value="S"/>
+            <UserInput tipo="checkbox" name="Giorno6" a_globali="chkGiorno" descr="Sabato" value="S"/>
+            <UserInput tipo="checkbox" name="Giorno7" a_globali="chkGiorno" descr="Domenica"
+                value="S"/>
+
+            <UserInput tipo="text" name="GiorniSelezionati" a_globali="None" descr=""/>
+
+            <UserInput tipo="checkbox" name="GiorniTutti" descr="Tutti" value="S"/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="select" descr="Profili Orari" name="ProfiliOrari">
+                <OPTION value=""/>
+                <OPTION value="00:00;08:00;16:00">0,8,16</OPTION>
+                <OPTION value="08:00;20:00">8,20</OPTION>
+                <OPTION value="08:00;12:00;18:00">8,12,18</OPTION>
+                <OPTION value="08:00;12:00;18:00;22:00">8,12,18,22</OPTION>
+                <OPTION value="00:00;08:00;12:00;15:00;18:00;20:00;22:00"
+                    >0,8,12,15,18,20,22</OPTION>
+            </UserInput>
+        </Riga>
+        <UserInput tipo="checkbox" name="CambiaDosi" descr="Cambia dosi per orario"
+            a_modifica="Disable=S"/>
+        <UserInput tipo="text" name="DosiOrarie" descr="" a_globali="None"/>
+        <HtmlContent>
+            <div id="DivCambiaDosi">.</div>
+        </HtmlContent>
+    </Prescrizione>
+
+    <!-- Giusto per ricordarsi il template: -->
+    <OPTION value="0" a_globali="Obbliga=Frequenza,TipoFrequenza,NumeroGiorni">Frequenza</OPTION>
+    <!-- i="radio_frequenza" -->
+    <OPTION value="1" a_globali="Obbliga=timeline,GiorniSelezionati,NumeroGiorni">Oraria</OPTION>
+    <!-- i="radio_oraria" -->
+    <OPTION value="4" a_globali="Obbliga=ValoreSoglia,NumeroGiorni">Al bisogno</OPTION>
+    <!-- i="radio_albisogno" -->
+
+    <Prescrizione i="albisogno" classe="Gruppo" a_globali="tipo=4;None" tipo="4" key="tipo">
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="select" descr="Rilevazione" name="ParametroRicovero">
+                <QUERY><![CDATA[select '<OPTION value="' || t.IDEN || '" a_globali="codice='|| t.COD_DEC ||'" >' || t.DESCRIZIONE || '</OPTION>' from CC_PARAMETRI_TYPE t join CC_PARAMETRI_REPARTO r on t.iden=r.iden_parametro where r.codice_reparto=CC_TERAPIA.getRepartoAttivo and r.terapia_al_bisogno='S' and t.attivo='S' order by r.ordine]]></QUERY>
+            </UserInput>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="select" descr="valore rilevato" name="CriterioBisogno">
+                <QUERY><![CDATA[select '<OPTION value="' || IDEN || '" a_globali="codice='||CODICE||'">' || DESCRIZIONE || '</OPTION>' from CC_EVENTI_TYPE where ATTIVO='S' and CODICE_GRUPPO='TERAPIEALBISOGNO' order by iden]]></QUERY>
+            </UserInput>
+            <UserInput tipo="text" name="ValoreSoglia" a_globali="msg=Valore soglia;Positive=S"
+                descr="soglia"/>
+            <UserInput tipo="text" name="SomministrazioniGiornaliere"
+                descr="Numero somm. max giorn.:"
+                a_globali="Positive;msg=Numero massimo di somministrazioni giornaliere"/>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="albisognoTempNauseaDoloreDelirium" classe="Gruppo" a_globali="tipo=4;None"
+        tipo="4" key="tipo">
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="select" descr="Rilevazione" name="ParametroRicovero">
+                <QUERY><![CDATA[select '<OPTION value="' || IDEN || '">' || DESCRIZIONE || '</OPTION>' from CC_PARAMETRI_TYPE where COD_DEC in('TEMPERATURA','NAUSEA','DOLORE','DELIRIUM','DIARREA') and ATTIVO='S']]></QUERY>
+            </UserInput>
+            <UserInput classe="Options" tipo="select" descr="valore rilevato" name="CriterioBisogno">
+                <QUERY><![CDATA[select '<OPTION value="' || IDEN || '" a_globali="codice='||CODICE||'">' || DESCRIZIONE || '</OPTION>' from CC_EVENTI_TYPE where ATTIVO='S' and CODICE_GRUPPO='TERAPIEALBISOGNO' order by iden]]></QUERY>
+            </UserInput>
+            <UserInput tipo="text" name="ValoreSoglia" a_globali="msg=Valore soglia;Positive=S"
+                descr="soglia"/>
+            <UserInput tipo="text" name="SomministrazioniGiornaliere"
+                descr="Numero somm. max giorn.:"
+                a_globali="Positive;msg=Numero massimo di somministrazioni giornaliere"/>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="albisognoTempNauseaP_DoloreDelirium" classe="Gruppo" a_globali="tipo=4;None"
+        tipo="4" key="tipo">
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="select" descr="Rilevazione" name="ParametroRicovero">
+                <QUERY><![CDATA[select '<OPTION value="' || IDEN || '">' || DESCRIZIONE || '</OPTION>' from CC_PARAMETRI_TYPE where COD_DEC in('TEMPERATURA','NAUSEA','P_DOLORE','DELIRIUM','DIARREA','TOSSE') and ATTIVO='S']]></QUERY>
+            </UserInput>
+            <UserInput classe="Options" tipo="select" descr="valore rilevato" name="CriterioBisogno">
+                <QUERY><![CDATA[select '<OPTION value="' || IDEN || '" a_globali="codice='||CODICE||'">' || DESCRIZIONE || '</OPTION>' from CC_EVENTI_TYPE where ATTIVO='S' and CODICE_GRUPPO='TERAPIEALBISOGNO' order by iden]]></QUERY>
+            </UserInput>
+            <UserInput tipo="text" name="ValoreSoglia" a_globali="msg=Valore soglia;Positive=S"
+                descr="soglia"/>
+            <UserInput tipo="text" name="SomministrazioniGiornaliere"
+                descr="Numero somm. max giorn.:"
+                a_globali="Positive;msg=Numero massimo di somministrazioni giornaliere"/>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="secondostick" classe="Gruppo" a_globali="tipo=4;None" tipo="4" key="tipo">
+        <Riga classe="Gruppo" a_globali="None">
+            <UserInput classe="Options" tipo="select" descr="Parametro Vitale"
+                name="ParametroRicovero">
+                <QUERY><![CDATA[select '<OPTION value="' || IDEN || '">' || DESCRIZIONE || '</OPTION>' from CC_PARAMETRI_TYPE where COD_DEC='STICK' and ATTIVO='S']]></QUERY>
+            </UserInput>
+            <UserInput classe="Options" tipo="select" descr="valore rilevato" name="CriterioBisogno">
+                <QUERY><![CDATA[select '<OPTION value="' || IDEN || '">' || DESCRIZIONE || '</OPTION>' from CC_EVENTI_TYPE where ATTIVO='S' and CODICE_GRUPPO='TERAPIEALBISOGNO' and CODICE='GREATER']]></QUERY>
+            </UserInput>
+            <UserInput tipo="text" name="ValoreSoglia" descr="soglia" value="0"/>
+            <UserInput tipo="text" name="SomministrazioniGiornaliere"
+                descr="Numero somm. max giorn.:"
+                a_globali="Positive;msg=Numero massimo di somministrazioni giornaliere" value="24"/>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="ciclica" classe="Gruppo" a_globali="tipo=5;None" tipo="5" key="tipo">
+        <Riga classe="Gruppo" a_globali="h=8">
+
+            <Button a_globali="name=btnAddGiorno">Aggiungi</Button>
+
+            <UserInput classe="Options" tipo="radio" name="GiornoZero"
+                a_globali="obligatory=N;msg=Giorno iniziale" a_inserimento="None" value="1">
+                <OPTION value="0" a_globali="">Inizio giorno 0</OPTION>
+                <OPTION value="1" a_globali="">Inizio giorno 1</OPTION>
+            </UserInput>
+
+            <HtmlContent>
+                <div id="DivGiorniCiclo"> </div>
+            </HtmlContent>
+
+            <UserInput tipo="hidden" name="hGiorniCiclo" descr="" a_globali="msg=Giorni ciclo"
+                value=""/>
+        </Riga>
+    </Prescrizione>
+
+    <Prescrizione i="coumadin" classe="Gruppo" a_globali="tipo=6;None" tipo="6" key="tipo">
+        <Riga classe="Gruppo" a_globali="h=2.5">
+            <UserInput classe="Timeline" name="timelineCoumadin" value="" tipo="timeline"
+                a_globali="msg=Orari"/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <UserInput classe="Options" tipo="select" descr="Profili Orari" name="ProfiliOrari">
+                <OPTION value=""/>
+                <OPTION value="08:00#0|08:00#1|08:00#2|08:00#3">8</OPTION>
+                <OPTION value="14:00#0|14:00#1|14:00#2|14:00#3">14</OPTION>
+                <OPTION value="18:00#0|18:00#1|18:00#2|18:00#3">18</OPTION>
+            </UserInput>
+        </Riga>
+        <UserInput tipo="checkbox" name="CambiaDosi" descr="Cambia dosi per orario"
+            a_modifica="Disable=S"/>
+        <UserInput tipo="text" name="DosiOrarie" descr="" a_globali="None"/>
+        <HtmlContent>
+            <div id="DivCambiaDosi">.</div>
+        </HtmlContent>
+    </Prescrizione>
+
+    <Prescrizione i="tao" classe="Gruppo" a_globali="tipo=7;None" tipo="7" key="tipo">
+
+        <Riga classe="Gruppo">
+
+            <UserInput classe="Options" tipo="select" descr="Profili Orari" name="ProfiliOrari">
+                <OPTION value=""/>
+                <OPTION value="16:00">16</OPTION>
+            </UserInput>
+            <UserInput tipo="text" name="NuovoOrario" descr="Nuovo orario" a_globali="Orario=S"/>
+
+        </Riga>
+
+        <Riga classe="Gruppo">
+            <UserInput tipo="text" name="ValueTAO" descr="" a_globali="None=S;msg=Dosaggi"/>
+            <HtmlContent>
+                <div name="HtmlTAO">Compilare il campo 'Numero giorni'</div>
+            </HtmlContent>
+        </Riga>
+
+    </Prescrizione>
+
+    <Prescrizione i="ripianificabile" classe="Gruppo" a_globali="tipo=8;" tipo="8" key="tipo">
+        <Riga classe="Gruppo">
+            <UserInput tipo="text" name="NumeroSomministrazioni" descr="Numero somministrazioni"
+                a_globali=""/>
+        </Riga>
+        <Riga classe="Gruppo">
+            <GruppoDatiDescrizione classe="Label" a_globali="">Pianificabile
+                da</GruppoDatiDescrizione>
+            <UserInput tipo="checkbox" name="PianificabileDaPrescrittore" a_globali=""
+                descr="Prescrittore" value="S"/>
+            <UserInput tipo="checkbox" name="PianificabileDaMedici" a_globali="" descr="Medici"
+                value=""/>
+            <UserInput tipo="checkbox" name="PianificabileDaInfermieri" a_globali=""
+                descr="Infermieri" value=""/>
+        </Riga>
+    </Prescrizione>
+
+    <UserInput i="notemodifica" tipo="textarea" name="NoteModifica" a_inserimento="None"
+        a_globali="rows=5;cols=80" descr="Note modifica terapia"/>
+
+
+</Template>

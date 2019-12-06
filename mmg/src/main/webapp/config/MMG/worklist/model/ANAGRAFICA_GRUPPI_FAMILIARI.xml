@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>ANAGRAFICA_GRUPPI_FAMILIARI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.ANAGRAFICA_GRUPPI_FAMILIARI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE>IDEN_ANAG=-1</WHERE_BASE>
+	<STRUCTURE>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+			<EVENTS>
+				<CLICK>function(rec){$(this).selectedLine('IDEN_ANAG');}</CLICK>
+				<DBLCLICK>function(rec){ GRUPPI_FAMILIARI.addItem( rec ); }</DBLCLICK>
+				<TAPHOLD>function(rec){ GRUPPI_FAMILIARI.addItem( rec ); }</TAPHOLD>
+			</EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+					<ID>
+						<COL>PAZIENTE</COL>
+						<DB>PAZIENTE</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblPaziente</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>550px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>COD_FISC</COL>
+						<DB>COD_FISC</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblCodiceFiscale</DESCRIPTOR>
+					<PROCESS />
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+			</LIST>
+			<SORT>
+				<COLUMN id="PAZIENTE">ASC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

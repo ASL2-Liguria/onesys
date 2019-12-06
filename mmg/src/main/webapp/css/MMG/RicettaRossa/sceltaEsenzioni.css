@@ -1,0 +1,9 @@
+body { width: 960px; }
+
+.tdText{
+	padding-right: 100px;
+}
+
+#fldwkPrestazioniIN, #fldRicPrestazione { width: 45%; float: left; }
+
+#fldwkEsenzioniOUT { width: 45%; float: right; }

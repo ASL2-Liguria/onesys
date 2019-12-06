@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Configurazioni/configurazioneUtenti.js" />
+	<CSS path="css/MMG/Configurazioni/configurazioneUtenti.css" />
+</INCLUDE>

@@ -1,0 +1,209 @@
+
+<PAGINA key_id="SCHEDA_AGENDA">
+
+	<HEADER_PAGE key_id="SCHEDA_AGENDA"
+		valore="DEFAULT_MMG,SCHEDA,SCHEDA_AGENDA#DEFAULT_MMG,SCHEDA_AGENDA"
+		evento="START_END">
+	</HEADER_PAGE>
+		
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#AGENDA_CONFIGURAZIONE#IDEN#IDEN#XML"
+		evento="START_END">
+		
+		<TABULAZIONE.INIT key_id="tab"
+			valore="SchedaAgenda#lblTitolo#butSalva,butChiudi" evento="START">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabAgenda" valore="tabAgenda"
+				evento="START">
+				
+				<!-- FIELDSET_TABLE key_id="fldAgenda" valore="fldAgenda"
+					evento="START">
+					
+					<TR_TD_LABEL_TEXT key_id="DescrizioneAgenda"
+						valore="lblDescrizioneAgenda##txtDescrizioneAgenda"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					
+					<TR_TD_LABEL_DATA key_id="DataInizioAgenda"
+						valore="lblDataInizioAgenda##txtDataInizioAgenda#DataInizioAgenda"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_DATA key_id="DataFineAgenda"
+						valore="lblDataFineAgenda##txtDataFineAgenda#DataFineAgenda"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					
+				</FIELDSET_TABLE-->
+				
+				<FIELDSET_TABLE key_id="fldFasceOrarie" valore="fldFasceOrarie"
+					evento="START">
+					
+					<TR.INIT key_id="trHeader" valore="trHeader" evento="START">
+						
+						<TD_LABEL key_id="lblGiorni" valore="lblGiorni" evento="START"></TD_LABEL>
+						
+						<TD_LABEL key_id="lblMattinoInizio" valore="lblMattinoInizio" evento="START"></TD_LABEL>
+						
+						<TD_LABEL key_id="lblMattinoFine" valore="lblMattinoFine" evento="START"></TD_LABEL>
+						
+						<!-- TD_LABEL key_id="lblPostiMattino" valore="lblPostiMattino" evento="START"></TD_LABEL-->
+						
+						<TD_LABEL key_id="lblPomeriggioInizio" valore="lblPomeriggioInizio" evento="START"></TD_LABEL>
+						
+						<TD_LABEL key_id="lblPomeriggioFine" valore="lblPomeriggioFine" evento="START"></TD_LABEL>
+						
+						<!-- TD_LABEL key_id="lblPostiPomeriggio" valore="lblPostiPomeriggio" evento="START"></TD_LABEL-->
+						
+					</TR.INIT>
+					
+					<TR.INIT key_id="tr1" valore="tr1" evento="START">
+					
+						<TD_LABEL key_id="lblLunedi" valore="lblLunedi" evento="START"></TD_LABEL>
+						
+						<TD_TEXT key_id="txtLunediMattinoInizio" valore="txtLunediMattinoInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtLunediMattinoFine" valore="txtLunediMattinoFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiLunediMattino" valore="txtPostiLunediMattino" evento="START"></TD_TEXT-->
+						
+						<TD_TEXT key_id="txtLunediPomeriggioInizio" valore="txtLunediPomeriggioInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtLunediPomeriggioFine" valore="txtLunediPomeriggioFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiLunediPomeriggio" valore="txtPostiLunediPomeriggio" evento="START"></TD_TEXT-->
+					
+					</TR.INIT>
+					
+					<TR.INIT key_id="tr2" valore="tr2" evento="START">
+						
+						<TD_LABEL key_id="lblMartedi" valore="lblMartedi" evento="START"></TD_LABEL>
+						
+						<TD_TEXT key_id="txtMartediMattinoInizio" valore="txtMartediMattinoInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtMartediMattinoFine" valore="txtMartediMattinoFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiMartediMattino" valore="txtPostiMartediMattino" evento="START"></TD_TEXT-->
+						
+						<TD_TEXT key_id="txtMartediPomeriggioInizio" valore="txtMartediPomeriggioInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtMartediPomeriggioFine" valore="txtMartediPomeriggioFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiMartediPomeriggio" valore="txtPostiMartediPomeriggio" evento="START"></TD_TEXT-->
+						
+						
+					</TR.INIT>
+					
+					<TR.INIT key_id="tr3" valore="tr3" evento="START">
+						
+						<TD_LABEL key_id="lblMercoledi" valore="lblMercoledi" evento="START"></TD_LABEL>
+						
+						<TD_TEXT key_id="txtMercolediMattinoInizio" valore="txtMercolediMattinoInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtMercolediMattinoFine" valore="txtMercolediMattinoFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiMercolediMattino" valore="txtPostiMercolediMattino" evento="START"></TD_TEXT-->
+						
+						<TD_TEXT key_id="txtMercolediPomeriggioInizio" valore="txtMercolediPomeriggioInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtMercolediPomeriggioFine" valore="txtMercolediPomeriggioFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiMercolediPomeriggio" valore="txtPostiMercolediPomeriggio" evento="START"></TD_TEXT-->
+						
+					</TR.INIT>
+					
+					<TR.INIT key_id="tr4" valore="tr4" evento="START">
+						
+						<TD_LABEL key_id="lblGiovedi" valore="lblGiovedi" evento="START"></TD_LABEL>
+						
+						<TD_TEXT key_id="txtGiovediMattinoInizio" valore="txtGiovediMattinoInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtGiovediMattinoFine" valore="txtGiovediMattinoFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiGiovediMattino" valore="txtPostiGiovediMattino" evento="START"></TD_TEXT-->
+						
+						<TD_TEXT key_id="txtGiovediPomeriggioInizio" valore="txtGiovediPomeriggioInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtGiovediPomeriggioFine" valore="txtGiovediPomeriggioFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiGiovediPomeriggio" valore="txtPostiGiovediPomeriggio" evento="START"></TD_TEXT-->
+						
+					</TR.INIT>	
+					
+					<TR.INIT key_id="tr5" valore="tr5" evento="START">
+						
+						<TD_LABEL key_id="lblVenerdi" valore="lblVenerdi" evento="START"></TD_LABEL>
+						
+						<TD_TEXT key_id="txtVenerdiMattinoInizio" valore="txtVenerdiMattinoInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtVenerdiMattinoFine" valore="txtVenerdiMattinoFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiVenerdiMattino" valore="txtPostiVenerdiMattino" evento="START"></TD_TEXT-->
+						
+						<TD_TEXT key_id="txtVenerdiPomeriggioInizio" valore="txtVenerdiPomeriggioInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtVenerdiPomeriggioFine" valore="txtVenerdiPomeriggioFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiVenerdiPomeriggio" valore="txtPostiVenerdiPomeriggio" evento="START"></TD_TEXT-->
+						
+					</TR.INIT>	
+					
+					<TR.INIT key_id="tr6" valore="tr6" evento="START">
+						
+						<TD_LABEL key_id="lblSabato" valore="lblSabato" evento="START"></TD_LABEL>
+						
+						<TD_TEXT key_id="txtSabatoMattinoInizio" valore="txtSabatoMattinoInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtSabatoMattinoFine" valore="txtSabatoMattinoFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiSabatoMattino" valore="txtPostiSabatoMattino" evento="START"></TD_TEXT-->
+						
+						<TD_TEXT key_id="txtSabatoPomeriggioInizio" valore="txtSabatoPomeriggioInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtSabatoPomeriggioFine" valore="txtSabatoPomeriggioFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiSabatoPomeriggio" valore="txtPostiSabatoPomeriggio" evento="START"></TD_TEXT-->
+						
+					</TR.INIT>	
+					
+					<TR.INIT key_id="tr7" valore="tr7" evento="START">
+						
+						<TD_LABEL key_id="lblDomenica" valore="lblDomenica" evento="START"></TD_LABEL>
+						
+						<TD_TEXT key_id="txtDomenicaMattinoInizio" valore="txtDomenicaMattinoInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtDomenicaMattinoFine" valore="txtDomenicaMattinoFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiDomenicaMattino" valore="txtPostiDomenicaMattino" evento="START"></TD_TEXT-->
+						
+						<TD_TEXT key_id="txtDomenicaPomeriggioInizio" valore="txtDomenicaPomeriggioInizio" evento="START"></TD_TEXT>
+						
+						<TD_TEXT key_id="txtDomenicaPomeriggioFine" valore="txtDomenicaPomeriggioFine" evento="START"></TD_TEXT>
+						
+						<!-- TD_TEXT key_id="txtPostiDomenicaPomeriggio" valore="txtPostiDomenicaPomeriggio" evento="START"></TD_TEXT-->
+						
+					</TR.INIT>	
+					
+					
+				</FIELDSET_TABLE>
+				
+				<FIELDSET key_id="fldRiepilogo" valore="fldRiepilogo"
+					evento="START">
+					
+					<DIV key_id="riepilogo" valore="riepilogo" evento="START"></DIV>
+				
+				</FIELDSET>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+			<INPUT.HIDDEN key_id="IDEN_MEDICO" valore="IDEN_MEDICO###IDEN_MEDICO"
+				evento="START">
+			</INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="ORARI" valore="ORARI"
+				evento="START">
+			</INPUT.HIDDEN>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+</PAGINA>
+

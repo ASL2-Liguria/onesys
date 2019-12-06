@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblLateralita" TYPE="label" TEXT="Lateralità" CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="radLateralita" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="0" TEXT="SINISTRO"/>
+            <OPTIONVAL VALUE="1" TEXT="DESTRO"/>
+            <OPTIONVAL VALUE="2" TEXT="BILATERALE"/>
+            <OPTIONVAL VALUE="3" TEXT="NESSUNO"/>
+        </CAMPO>
+    </CAMPI>
+</PAGINA>

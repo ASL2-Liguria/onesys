@@ -1,0 +1,67 @@
+<ROWSET>
+    <ROW>
+   		<lblTitolo>Scheda Utente</lblTitolo>
+        <lblOstetrico>Ostetrico</lblOstetrico>
+        <lblamministrativo>Amministrativo</lblamministrativo>
+        <lblInfermiere>Infermiere</lblInfermiere>
+        <lblMedico>Medico</lblMedico>
+		<tabDatiUtente>Info</tabDatiUtente>
+		<tabRefertazione_Vocale_Sincro>Refertazione/Vocale/Sincro</tabRefertazione_Vocale_Sincro>
+		<tabMasterizzatori>Masterizzatori</tabMasterizzatori>
+		<fldMasterizzatori>Masterizzazione</fldMasterizzatori>
+		<lblMast_Predefinito>Masterizzatore Predefinito</lblMast_Predefinito>
+		<lblMast_Notifica_Errore>Abilita Notifica Errori</lblMast_Notifica_Errore>
+		<lblMast_Notifica_Completato>Abilita Notifica Completati</lblMast_Notifica_Completato>
+		<tabImp_Sistema>Sistema</tabImp_Sistema>
+		<fldImp_Wk_Filtri>Worklist/Filtri</fldImp_Wk_Filtri>
+		<lblWk_Refresh>Worklist Refresh (min.)</lblWk_Refresh>
+		<lblUsername>Username</lblUsername>
+		<fldDatiUtente>Dettaglio</fldDatiUtente>
+		<lblUtente>Utente</lblUtente>
+		<lblTipo_Per>Tipologia</lblTipo_Per>
+		<lblFiltri_Voci_Inattive>Visualizza voci inattive nei Fitri</lblFiltri_Voci_Inattive>
+		<lblFiltri_CdC_Utente>Visualizza solo CDC dell'utente nei Filtri</lblFiltri_CdC_Utente>
+		<lblContext_Menu_Default>Abilita Context Menu di Defaut (SOLO DEBUG)</lblContext_Menu_Default>
+		<fldLDAP>LDAP</fldLDAP>
+		<lblGruppoUtentiLDAP>Gruppo Utenti</lblGruppoUtentiLDAP>
+		<lblScadenzaPasswordLDAP>Scadenza Password (giorni)</lblScadenzaPasswordLDAP>
+        <lblpassword>Password</lblpassword>
+        <lblmedico>Medico</lblmedico>
+        <lblinfermiere>Infermiere</lblinfermiere>
+        <lblMedInf>Tipo utente</lblMedInf>
+		<tabPermissioni>Permissioni</tabPermissioni>
+		<fldPermissioniMenu>Menu</fldPermissioniMenu>
+		<fld_Vocale>Vocale</fld_Vocale>
+		<fld_Refertazione>Refertazione</fld_Refertazione>
+		<lblTipoVocale>Tipo Vocale</lblTipoVocale>
+		<lblCredenziali_Save_Referto>Richiesta credenziali salvataggio Referto</lblCredenziali_Save_Referto>
+		<lblAutosospensione_Referto_Salvataggio>Autosospensione Referto al salvataggio</lblAutosospensione_Referto_Salvataggio>
+		<fldImp_Generali>Generale</fldImp_Generali>
+		<fldSincronizzazione>Sincronizzazione</fldSincronizzazione>
+		<lblLingua>Lingua</lblLingua>
+		<lblSincronizzazione>Abilita Sincro</lblSincronizzazione>
+		<tabWorklist_Filtri>Worklist/Filtri</tabWorklist_Filtri>
+		<fldWorklist>Worklist</fldWorklist>
+		<fldFiltri>Filtri</fldFiltri>
+		<lblLoad_StartUp>Pagina Iniziale</lblLoad_StartUp>
+		<lblProvenienza_Wk_Principale>Scelta Provenienze Wk Principale</lblProvenienza_Wk_Principale>
+		<tabIns_Acc_Esec>Ins/Acc/Esec</tabIns_Acc_Esec>
+		<fldInserimento>Inserimento</fldInserimento>
+		<lblTipoSceltaEsami>Visualizzazione Scelta Esami</lblTipoSceltaEsami>
+		<lblHumanBody>Human Body</lblHumanBody>
+		<lblACR>ACR</lblACR>
+		<lblMantieni_Ultima_Provenienza>Mantieni ultima Provenienza</lblMantieni_Ultima_Provenienza>
+		<lblMantieni_Ultimo_Medico>Mantieni ultimo Medico</lblMantieni_Ultimo_Medico>
+		<fldAccettazione>Accettazione</fldAccettazione>
+		<fldEsecuzione>Esecuzione</fldEsecuzione>
+		<lblEsec_Richiedi_Psw>Richiesta Password</lblEsec_Richiedi_Psw>
+		<lblVisHumanBoby>Visualizza Human Boby</lblVisHumanBoby>
+		<lblEsec_Apri_SchedaEsame>Apri Scheda Esame</lblEsec_Apri_SchedaEsame>
+        <butModifica>Modifica</butModifica>
+        <fldGruppoUtente>Gruppo Utente</fldGruppoUtente>
+        <lblGruppo>Gruppo</lblGruppo>
+        <fldGruppoCDC>Associazione cdc</fldGruppoCDC>
+        <fldPassword>Password</fldPassword>
+        <butResetPassword>Resetta Password</butResetPassword>
+    </ROW>
+</ROWSET>

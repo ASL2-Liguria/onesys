@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* CSS Document */
+body{background:#b9e0ff;}
+
+/* css per la tabella di dati, come ad esempio la worklist */
+
+	fieldset{
+		margin:10px;
+		border:2px solid #fff;
+		padding:5px;
+		}
+		fieldset #ListaEsami{
+			background:#fff;
+			padding:5px;
+			}
+		fieldset legend{
+			font-weight:bold;
+			margin-bottom:10px;
+			}
+
+div#ListaEsami table.TableProfilo
+{
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:left;
+	border: 1px solid #6AA8F2;
+	background-color:#FFC;	
+	border-collapse : collapse;
+	width:100%;	
+}
+
+div#ListaEsami div
+{
+	table-layout:fixed;
+	font: Arial;
+	font-size:10px;
+	text-align:left;
+	width:100%;
+	padding-bottom:1px;
+	padding-top:1px;
+	padding-left:1px;
+	padding-right:1px;
+}
+
+div#ListaEsami div table{
+	
+	font-size:10px;
+	border: 1px solid #729ECF;
+	width:100%;
+
+}
+
+div#ListaEsami div table td
+{
+	width:20%;
+	font-stretch:condensed;
+}
+
+div#ListaEsami div table th
+{
+	width:20%;
+	font-size: 10px;
+    font-weight:bold;
+	padding-left:28px;
+	text-align:left;
+	border-right: 1px #729ECF;
+	text-decoration:underline;
+	cursor: hand;
+
+}
+
+div#ListaEsami div tr
+{
+	height:5px;
+	cursor: hand;
+
+}
+
+div#ListaEsami div.arancio table 
+{
+	background:#FFDFBF;
+}
+
+div#ListaEsami div.azzurro table
+{
+	background:#CEF2F4;
+	
+}
+
+div#ListaEsami div.nero table
+{
+	background:#999;
+}
+
+div#ListaEsami div.rosso table 
+{
+	background:#FFC4C4;
+}
+
+div#ListaEsami div.grigio table
+{
+	background:#CCC;
+}
+
+
+div#ListaEsami div.verde table
+{
+	background:#C6FFC6;
+}
+
+div#ListaEsami div.giallo table
+{
+	background:#FFFFB3;
+}
+
+div#ListaEsami div.altriesami table
+{
+	background:#D9D9FF;
+}
+
+div#ListaEsami div.marrone table
+{
+	background:#FFD7AE;
+}
+
+div#ListaEsami div.marronechiaro table
+{
+	background:#F7EEEE;
+}
+
+div#ListaEsami div.viola table
+{
+	background:#F5DEF3;
+}
+
+div#ListaEsami div.blu table
+{
+	background:#7DBEFF;
+}
+
+div#ListaEsami .nonUrgente {
+
+	color: #CCC;
+
+}
+	
+.pulsante {
+	
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 18px;
+	WIDTH: 105px;
+	BACKGROUND-REPEAT: repeat-x;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FLOAT: right;
+	HEIGHT: 21px;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: bold;
+	
+}
+
+

@@ -1,0 +1,12 @@
+<ROWSET>
+    <ROW>
+        <lblDataMissione>Data</lblDataMissione>
+        <lblOraMissione>Ora (+/- 2h)</lblOraMissione>
+
+        <lblTitolo>CODICI MISSIONE</lblTitolo>
+
+        <lblCodiceAmbulanza>Codice Ambulanza</lblCodiceAmbulanza>
+
+
+    </ROW>
+</ROWSET>

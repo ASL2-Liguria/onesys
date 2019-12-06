@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>isite Integration Test Page</title>
+
+<SCRIPT>
+var stopCalling = false;
+var timingShowStudy = "30000";
+var myTimer;
+var basePacsUser = new Object();
+var basePacsStudy = new Object();
+
+// funzione che fa init
+// della classe che descrive utente per PACS
+function initbasePacsUser(){
+	basePacsUser.LOGIN = "philips";
+	// mettere decodifica
+	basePacsUser.PWD = "polaris";
+}
+
+function initbasePacsStudy(){
+	basePacsStudy.ACCNUM = "";
+	basePacsStudy.AETITLE = "";
+	basePacsStudy.REPARTO = "";
+	basePacsStudy.PATID = "";	
+	basePacsStudy.NODE_NAME = "";		
+}
+
+initbasePacsUser();
+initbasePacsStudy();
+
+
+function startLoopShowStudy(){
+	var strToRun ="actionPacs('SHOWSTUDY',basePacsUser,basePacsStudy,'');";
+	//var strToRun ="alert('ciao');";
+	try{
+		basePacsStudy.ACCNUM = document.getElementById('idAccNum').value;
+		basePacsStudy.PATID = document.getElementById('idPATID').value;
+		myTimer = setInterval ( strToRun, timingShowStudy );
+	}
+	catch(e){
+		alert(e.description);
+	}
+}
+
+</script>
+
+<script type='text/javascript' src="syncPHILIPS_test.js" language='JavaScript'></script>
+
+
+</head>
+
+<body>
+
+<br />
+Patient ID&nbsp;<input type="text"  id="idPATID" name="txtPatId" value="4401922"/>
+<br />
+Accession number list (splitted by *)&nbsp;<input type="text"  id="idAccNum" name="txtAccNum"  value="P10218747*P10218748*P10218749*P10218750" size="40"/><br />
+Accession number to append to open study (only on at a time)&nbsp;
+<input type="text" value="" id="idAccNumToAdd" name="txtAccNumToAdd"/><br />
+<br />
+
+
+<a href="#" onclick="javascript:actionPacs('LOGIN',basePacsUser,basePacsStudy,'');">Lancia e fai login isite</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:startLoopShowStudy();">Loop Open studies</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:basePacsStudy.ACCNUM = document.getElementById('idAccNum').value;basePacsStudy.PATID = document.getElementById('idPATID').value;actionPacs('CLOSE_CURR_SESSION',basePacsUser,basePacsStudy,'');">Close studies</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:actionPacs('QUIT',basePacsUser,basePacsStudy,'');">Logout/Quit</a>&nbsp;&nbsp;
+<a href="#" onclick="javascript:stopCalling = true;">Stop calling</a><HR />
+<div style="display:block; background-color:blue; color:white; width:100%;">Output:&nbsp;<label id="lblOutput"></label> </div>
+</body>
+</html>

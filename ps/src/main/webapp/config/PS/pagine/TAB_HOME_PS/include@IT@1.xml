@@ -1,0 +1,21 @@
+<INCLUDE>
+    <JS path="js/Base/DIALOG.js" />
+    <JS path="js/PS/DialogPS/DialogPS.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js" />
+    <JS path="js/NS_APPLICATIONS.js" />
+    <JS path="js/PS/SchedaAnagrafica/checkDatiFondamentali.js" />
+    <JS path="js/PS/TabHomePS/WhereMenuWk.js" />
+    <JS path="js/ADT/Anagrafica/Anagrafica.js" />
+    <JS path="js/PS/SchedaAnagrafica/SalvataggioAnagrafica.js" />
+    <JS path="js/PS/TabHomePS/Lock.js" />
+    <JS path="js/PS/Obi/OBI.js" />
+    <JS path="js/PS/TabHomePS/WorkStation.js" />
+    <JS path="js/PS/TabHomePS/FunzioniMenu.js" />
+    <JS path="js/PS/TabHomePS/TabHomePs.js" />
+    <JS path="js/PS/TabHomePS/TabWkPs.js" />
+    <JS path="js/PS/TabHomePS/StampePs.js" />
+    <JS path="js/PS/TabHomePS/EliminaEsiti.js" />
+    <JS path="js/Base/jquery.plugin/jquery.tooltipster.js"/>
+    <CSS path="css/PS/TabHomePS/TabHomePS.css" />
+    <CSS path="css/base/jquery.plugin/tooltipster.css"/>
+</INCLUDE>

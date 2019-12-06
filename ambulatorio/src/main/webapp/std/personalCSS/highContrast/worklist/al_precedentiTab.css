@@ -1,0 +1,182 @@
+/* style dei link dei tab NON selezionati */
+
+#div_idTabInfoReferto{
+ float:left;
+}
+
+#div_idTabPrecedenti{
+ float:left;
+ width:280px;
+}
+
+.classTabMiddle A{
+	TEXT-DECORATION: none;
+	color: #000099;
+}
+
+.classTabMiddleSelected A{
+	TEXT-DECORATION: none;
+	color: yellow;
+}
+
+
+.classTabMiddle A:hover {
+	color: #000099;
+	background-color:yellow;
+	TEXT-DECORATION: none;	
+	
+}
+
+table.classTabulator {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+/* info per tabulatore selezionato */
+table.classTabulator td.classTabSxSelected {
+	background-image:url(../../../../imagexPix/tabulator/tabSx_dark_blue.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator td.classTabMiddleSelected {
+	background-image:url(../../../../imagexPix/tabulator/top_tabella_dark_blue.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:yellow;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator td.classTabDxSelected {
+	background-image:url(../../../../imagexPix/tabulator/tabDx_dark_blue.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+/* ************** */
+/* info per tabulatore NON selezionato */
+table.classTabulator td.classTabSx {
+	background-image:url(../../../../imagexPix/tabulator/tabSx_selelected.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator td.classTabMiddle {
+	background-image:url(../../../../imagexPix/tabulator/top_tabella_selelected.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#000099;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator td.classTabDx {
+background-image:url(../../../../imagexPix/tabulator/tabDx_selelected.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+/* ********** */
+
+table.classTabulator td.classButtonHeader {
+background-image:url(../../../../imagexPix/tabulator/top_tabella_dark_blue.gif);
+width:100px; 
+}
+
+/* ********** */
+
+table.classTabulator_blink {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+
+table.classTabulator_blink td.classTabSx {
+	background-image:url(../../../../imagexPix/tabulator/tabSx_blink.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator_blink td.classTabMiddle {
+	background-image:url(../../../../imagexPix/tabulator/top_tabella_blink.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#FFFF00;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator_blink td.classTabDx {
+background-image:url(../../../../imagexPix/tabulator/tabDx_blink.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+
+
+table.classTabulator_blink td.classButtonHeader {
+background-image:url(../../../../imagexPix/tabulator/top_tabella_blink.gif);
+width:100px; 
+}
+
+#lblInfoFiltroRicRem.infoFiltroRemoto{
+	color:yellow;
+	font-size:14px;	
+	font-family: Arial, Helvetica, sans-serif;	
+}
+
+OPTION.precedenti_on{
+	background-color:red;
+	font-size:14px;	
+	font-weight: bold;	
+	font-family: Arial, Helvetica, sans-serif;		
+	color:black;
+}
+
+
+SPAN.resetDaData{
+	width:20px;
+	height:20px;
+	background-image:url(../../../../imagexPix/button/mini/btReset.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	margin-left:5px;
+} 
+
+	/* background-image:url(../../../imagexPix/button/mini/btRefresh.png); */
+	/* 	cursor:pointer; */
+SPAN.refreshDatiRisRemoti{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	margin-left:5px;
+} 
+
+
+#imgDaData{
+	cursor:pointer;
+}
+
+
+div.tabulatorError{
+	display:block;
+	background-color:#036;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	color:white;
+}

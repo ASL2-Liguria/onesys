@@ -1,0 +1,195 @@
+<configuration>
+	<if condition='isDefined("elco.logback.statusListener")'>
+		<then>
+    		<statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+		</then>
+	</if>
+
+    <!-- STDOUT appender -->
+   	<appender name="ELCO_MIDDLEWARE_STDOUT_INTERNAL" class="ch.qos.logback.core.ConsoleAppender">
+		<param name="target" value="System.out"/> 
+	    <encoder>
+			<pattern>${elco.logback.pattern}</pattern>
+		</encoder>
+	</appender>
+    <appender name="ELCO_MIDDLEWARE_ASYNC_STDOUT_INTERNAL" class="ch.qos.logback.classic.AsyncAppender">
+   	    <queueSize>500</queueSize>
+        <appender-ref ref="ELCO_MIDDLEWARE_STDOUT_INTERNAL" />
+    </appender>
+    <!-- STDOUT appender -->
+
+	<appender name="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER" class="ch.qos.logback.classic.sift.SiftingAppender">
+	    <discriminator class="elco.logback.CamelDiscriminator">
+			<key>camel.contextId_camel.routeId</key>
+			<defaultValue>middleware</defaultValue>
+		</discriminator>
+   		<sift>
+			<appender name="FILE-${camel.contextId_camel.routeId}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<fileNamePattern>logs/${camel.contextId_camel.routeId}/%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+        			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+	            		<maxFileSize>${elco.logback.maxFileSize}</maxFileSize>
+	        		</timeBasedFileNamingAndTriggeringPolicy>
+	        	</rollingPolicy>
+				<encoder>
+					<pattern>${elco.logback.pattern}</pattern>
+				</encoder>
+			</appender> 
+		</sift>
+	</appender>
+    <appender name="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+	    <queueSize>500</queueSize>
+        <appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER" />
+    </appender>
+
+	<if condition='isDefined("elco.logback.internalDB")'>
+		<then>
+			<appender name="ELCO_MIDDLEWARE_INTERNALDB" class="elco.logback.appenders.JdbcAppender">
+			    <table>LOGBACK_EVENT</table>
+				<poolName>${elco.internaldb.poolname}</poolName>
+			</appender>
+		    <appender name="ELCO_MIDDLEWARE_ASYNCINTERNALDB" class="ch.qos.logback.classic.AsyncAppender">
+			    <queueSize>500</queueSize>
+		        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+					<level>WARN</level>
+			    </filter>
+		        <appender-ref ref="ELCO_MIDDLEWARE_INTERNALDB" />
+		    </appender>
+		</then>
+	</if>
+
+    <!-- appender for dicom classes that can't use MDC -->
+	<appender name="ELCO_MIDDLEWARE_DICOMAPPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/dicom/%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+   			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+	       		<maxFileSize>${elco.logback.maxFileSize}</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${elco.logback.pattern}</pattern>
+		</encoder>
+	</appender> 
+    <appender name="ELCO_MIDDLEWARE_DICOMAPPENDER_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+	    <queueSize>500</queueSize>
+        <appender-ref ref="ELCO_MIDDLEWARE_DICOMAPPENDER" />
+    </appender>
+    <!-- appender for dicom classes that can't use MDC -->
+
+	<!-- mongoDB appender if enabled -->
+	<if condition='isDefined("elco.mongodb.uri")'>
+		<then>
+			<appender name="ELCO_MONGODB" class="elco.logback.appenders.MongoDBAppender">
+			    <URI>${elco.mongodb.uri}</URI>
+			</appender>
+		    <appender name="ELCO_MONGODB_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+	    	    <queueSize>500</queueSize>
+		        <appender-ref ref="ELCO_MONGODB" />
+		    </appender>
+		</then>
+	</if>
+	<!-- mongoDB appender if enabled -->
+
+	<!-- LOGGERS -->
+	<if condition='isDefined("elco.mongodb.uri")'>
+		<then>
+		    <logger name="org.mongodb" level="INFO" additivity="false">
+				<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC"/>
+			</logger>
+		</then>
+	</if>
+
+    <logger name="ca.uhn" level="WARN" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC"/>
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+
+	<logger name="net.sf" level="WARN" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC"/>
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+
+    <logger name="org.eclipse.jetty" level="INFO" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC"/>
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+
+	<logger name="elco.CamelMain" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC"/>
+		<appender-ref ref="ELCO_MIDDLEWARE_ASYNC_STDOUT_INTERNAL" />
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+
+	<logger name="org.apache.camel.main.MainSupport" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC"/>
+		<appender-ref ref="ELCO_MIDDLEWARE_ASYNC_STDOUT_INTERNAL" />
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+
+	<logger name="elco.telnetd" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC"/>
+		<appender-ref ref="ELCO_MIDDLEWARE_ASYNC_STDOUT_INTERNAL" />
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+
+	<!-- Internal DICOM loggers -->
+	<logger name="elco.dicom" level="INFO" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_DICOMAPPENDER_ASYNC"/>
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+	<logger name="org.dcm4che2" level="INFO" additivity="false">
+		<appender-ref ref="ELCO_MIDDLEWARE_DICOMAPPENDER_ASYNC"/>
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</logger>
+	<!-- Internal DICOM loggers -->
+
+	<root level="INFO">
+		<appender-ref ref="ELCO_MIDDLEWARE_BASE_SIFT_APPENDER_ASYNC" />
+		<if condition='isDefined("elco.logback.internalDB")'>
+			<then>
+				<appender-ref ref="ELCO_MIDDLEWARE_ASYNCINTERNALDB" />
+			</then>
+		</if>
+		<if condition='isDefined("elco.mongodb.uri")'>
+			<then>
+				<appender-ref ref="ELCO_MONGODB_ASYNC" />
+			</then>
+		</if>
+	</root>
+	<!-- LOGGERS -->
+
+	<!-- ADDITIONAL APPENDERS/LOGGERS -->
+	<include optional="true" file="${additionalConfigurationsFile}"/>
+</configuration>

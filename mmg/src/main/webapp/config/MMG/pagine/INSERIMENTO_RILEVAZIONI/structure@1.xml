@@ -1,0 +1,96 @@
+<PAGINA key_id="INSERIMENTO_RILEVAZIONI">
+	<HEADER_PAGE key_id="INSERIMENTO_RILEVAZIONI"
+		valore="DEFAULT_MMG,SCHEDA,INSERIMENTO_RILEVAZIONI#DEFAULT_MMG,INSERIMENTO_RILEVAZIONI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_INSERIMENTO_RILEVAZ#MMG_DATI#MMG_ACCERT_RILEVAZIONI#IDEN#IDEN##VRILEVAZ"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabRilevazioni"
+			valore="inserimentoRilevazioni#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento"
+				valore="tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldData" valore="fldData"
+					evento="START">
+					<TR_TD_LABEL_DATA key_id="Data"
+						valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldTemperatura" valore="fldTemperatura"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Temperatura"
+						valore="lblTemperatura##txtTemperatura###TEMPERATURA" evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldBMI" valore="fldBMI"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Altezza"
+						valore="lblAltezza##txtAltezza###ALTEZZA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Peso" valore="lblPeso##txtPeso###PESO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="B.M.I." valore="lblBMI##txtBMI###BMI"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Circonferenza"
+						valore="lblCirconferenza##txtCirconferenza###CIRCONFERENZA"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_COMBO key_id="cmbAttFisica"
+						valore="lblAttFisica##cmbAttFisica#cmbAttFisica#N#ATT_FISICA_CMB#S"
+						evento="START">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_TEXT key_id="txtAttFisica"
+						valore="lblAttFisicaDett##txtAttFisica###ATT_FISICA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<!-- <TR_TD_LABEL_TEXT key_id="AttFisica"
+						valore="lblAttFisica##txtAttFisica###ATT_FISICA" evento="START">
+					</TR_TD_LABEL_TEXT> -->
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldPressione" valore="fldPressione"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Massima"
+						valore="lblMassima##txtMassima###MASSIMA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Minima"
+						valore="lblMinima##txtMinima###MINIMA" evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldCardio" valore="fldCardio"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Frequenza"
+						valore="lblFrequenza##txtFrequenza###FREQUENZA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Ritmo"
+						valore="lblRitmo##txtRitmo###RITMO" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Ampiezza"
+						valore="lblAmpiezza##txtAmpiezza###AMPIEZZA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Simmetria"
+						valore="lblSimmetria##txtSimmetria###SIMMETRIA" evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldAltro" valore="fldAltro"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Inr" valore="lblInr##txtInr###INR"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Tao" valore="lblTao##txtTao###TAO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Glicemia"
+						valore="lblGlicemia##txtGlicemia###GLICEMIA" evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Saturazione_Ossigeno"
+						valore="lblSaturazione_Ossigeno##txtSaturazione_Ossigeno###SATURAZIONE_OSSIGENO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

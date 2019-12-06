@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Motivo</title>
+<link href='../std/css/attesaRegistra.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/tabulatore.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='../std/jscript/engine/prototype.js' language='JavaScript'></script>
+
+<link href='../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='../std/jscript/calendario/calendarview.js' language='JavaScript'></script>
+
+<script type='text/javascript' src='../std/jscript/orologio/orologio.js' language='JavaScript'></script>
+
+</head>
+
+<body onload="init();" >
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%"  >
+      <tr>
+        <td class='classTabHeaderSx'></td>
+        <td class='classTabHeaderMiddle'>Motivo</td>
+        <td class='classTabHeaderDx'></td>
+  </tr>
+        </table>
+<table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+   <td class='classTdLabel'><label name='lbdataIni' id='lbdataIni'>Data Inizio</label><input id="IdataIni"/></td>
+
+  </tr>
+  <tr>
+    <td class='classTdLabel'><label name='lbdataFine' id='lbdataIFine'>Data Fine</label><input id="IdataFine"/></td>
+   
+  </tr>
+</table>
+
+
+<td class='classTdField'  >&nbsp;</td>
+<table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+       <tr>
+        <td class='classTabFooterSx'>&nbsp;</td>     
+        <td class='classTabHeaderMiddle'>&nbsp;</td> 
+        <td id=tdOK class='classButtonHeader'><div class='pulsante'><a onclick='closeModal();'>OK</a></div></td>
+        <td id=tdChiudi class='classButtonHeader'><div class='pulsante'><a onclick='self.close ();'>Annulla</a></div></td>            
+        <td class='classTabFooterDx'>&nbsp;</td>
+      </tr>
+</table>
+</body>
+<script>
+function init(){
+	
+	document.all.IdataIni.value =window.dialogArguments.dataIni.substring(6,8) + '/' +window.dialogArguments.dataIni.substring(4,6) + '/'+window.dialogArguments.dataIni.substring(0,4) ;
+
+	document.all.IdataFine.value =window.dialogArguments.dataFine.substring(6,8) + '/' +window.dialogArguments.dataFine.substring(4,6) + '/'+window.dialogArguments.dataFine.substring(0,4);
+
+	
+}
+function closeModal(){
+
+	var resp = new Object();
+	resp.dataIni =document.all.IdataIni.value.substring(6,10)+document.all.IdataIni.value.substring(3,5)+document.all.IdataIni.value.substring(0,2);
+
+	resp.dataFine = document.all.IdataFine.value.substring(6,10)+document.all.IdataFine.value.substring(3,5)+document.all.IdataFine.value.substring(0,2);
+
+
+	window.returnValue = resp; 
+	
+	self.close();
+}
+
+
+</script>
+
+</script>
+</html>

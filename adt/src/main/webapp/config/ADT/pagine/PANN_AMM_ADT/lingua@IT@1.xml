@@ -1,0 +1,59 @@
+<ROWSET>
+    <ROW>
+        <filtroListaAttesa>Lista attesa</filtroListaAttesa>
+        <filtroListaChiamata>Liste di chiamata</filtroListaChiamata>
+        <lblDescrLista>Nome lista</lblDescrLista>
+        <lblIdWk>ID WK</lblIdWk>
+        <lblCodiceOrma>Codice ORMA</lblCodiceOrma>
+        <lblNumeroPazienti>Numero pazienti</lblNumeroPazienti>
+        <txtNumeroPazienti>Nr pazienti in WK</txtNumeroPazienti>
+        <lblRepPrericovero>Reparto Prericovero</lblRepPrericovero>
+        <tableGestLista>Dati Lista</tableGestLista>
+        <lblIdTemplate>Id template</lblIdTemplate>
+        <idReparti>Reparti</idReparti>
+        <lblradSiNoChiamata>Lista Chiamata</lblradSiNoChiamata>
+        <lblradSiNoRicovero>Ricovero</lblradSiNoRicovero>
+        <lblDescrListaChiamata>Nome Lista</lblDescrListaChiamata>
+        <lblTitleLista>Pagina Amministrazione liste attesa</lblTitleLista>
+        <lblRepartiLista>Reparti</lblRepartiLista>
+        <lblTitleLista>Pagina gestione liste attesa</lblTitleLista>
+        <tableAmmLista>Lista attesa</tableAmmLista>
+        <lblReparto1>Reparto</lblReparto1>
+        <lblReparto2>Reparto</lblReparto2>
+        <lblReparto3>Reparto</lblReparto3>
+        <lblReparto4>Reparto</lblReparto4>
+        <lblReparto5>Reparto</lblReparto5>
+        <lblReparto6>Reparto</lblReparto6>
+        <lblReparto7>Reparto</lblReparto7>
+        <lblReparto8>Reparto</lblReparto8>
+        <lblReparto9>Reparto</lblReparto9>
+        <idListe>Liste Attesa Associate</idListe>
+        <lblLista1>Lista</lblLista1>
+        <lblLista2>Lista</lblLista2>
+        <lblLista3>Lista</lblLista3>
+        <lblLista4>Lista</lblLista4>
+        <lblLista5>Lista</lblLista5>
+        <lblLista6>Lista</lblLista6>
+        <lblLista7>Lista</lblLista7>
+        <lblLista8>Lista</lblLista8>
+        <lblLista9>Lista</lblLista9>
+        <lblLista10>Lista</lblLista10>
+        <lblLista11>Lista</lblLista11>
+        <lblLista12>lista</lblLista12>
+        <lblLista13>Lista</lblLista13>
+        <lblLista14>Lista</lblLista14>
+        <idReparti>Reparti</idReparti>
+        <cdcPreRicovero>CDC Prericovero</cdcPreRicovero>
+        <lblCdcPre1>CDC Prericovero</lblCdcPre1>
+        <lblCdcPre2>CDC Prericovero</lblCdcPre2>
+        <lblCdcPre3>CDC Prericovero</lblCdcPre3>
+        <lblCdcPre4>CDC Prericovero</lblCdcPre4>
+        <lblCdcPre5>CDC Prericovero</lblCdcPre5>
+        <lblCdcPre6>CDC Prericovero</lblCdcPre6>
+        <lblCdcPre7>CDC Prericovero</lblCdcPre7>
+        <lblCdcPre8>CDC Prericovero</lblCdcPre8>
+        <lblCdcPre9>CDC Prericovero</lblCdcPre9>
+        <lblvuota></lblvuota>
+        <lblvuota></lblvuota>
+    </ROW>
+</ROWSET>

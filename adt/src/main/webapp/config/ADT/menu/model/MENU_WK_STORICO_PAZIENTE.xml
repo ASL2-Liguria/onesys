@@ -1,0 +1,66 @@
+<MENU>
+    <ID>MENU_WK_STORICO_PAZIENTE</ID>
+    <TITLE>"Menu Ricerca Ricoverati"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>MODIFICA_PRERICOVERO</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=INS_PRERICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&ORIGINE=WK_CONTATTI&STATO_PAGINA=E',id:'INS_PRERICOVERO',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ return WHERE_STORICO_PAZIENTE.MODIFICA_PRERICOVERO(rec)}]]></WHERE>
+            <OUTPUT>"Modifica Prericovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    	<ITEM>
+            <ID>MODIFICA_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACC_RICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&STATO_PAGINA=E',id:'ModificaRicovero',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_STORICO_PAZIENTE.MODIFICA_RICOVERO(rec)}]]></WHERE>
+            <OUTPUT>"Modifica Ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PRINT_CERTIFICATO_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){STORICO_PAZIENTE.printCertificatoRicovero(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_STORICO_PAZIENTE.PRINT_CERTIFICATO_RICOVERO(rec)}]]></WHERE>
+            <OUTPUT>"Stampa certificato Ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PRINT_CERTIFICATO_DIMISSIONE</ID>
+            <LINK><![CDATA[function(rec){STORICO_PAZIENTE.printCertificatoDimi(rec[0].IDEN_CONTATTO,'N');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_STORICO_PAZIENTE.PRINT_CERTIFICATO_DIMISSIONE(rec)}]]></WHERE>
+            <OUTPUT>"Stampa certificato Dimissione"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PRINT_CERTIFICATO_DIMISSIONE_DIAGNOSI</ID>
+            <LINK><![CDATA[function(rec){STORICO_PAZIENTE.printCertificatoDimi(rec[0].IDEN_CONTATTO,'S');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_STORICO_PAZIENTE.PRINT_CERTIFICATO_DIMISSIONE_DIAGNOSI(rec)}]]></WHERE>
+            <OUTPUT>"Stampa cert. Dimissione con Diagnosi"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PRINT_VERBALE_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){STORICO_PAZIENTE.printVerbaleRicovero(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WHERE_STORICO_PAZIENTE.PRINT_VERBALE_RICOVERO(rec)}]]></WHERE>
+            <OUTPUT>"Stampa verbale ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

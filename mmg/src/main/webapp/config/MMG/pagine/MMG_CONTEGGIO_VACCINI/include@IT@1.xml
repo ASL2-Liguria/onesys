@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/MMG/Vaccini/Conteggio_Vaccini.css" />
+	<JS path="js/MMG/Vaccini/Conteggio_Vaccini.js" />
+</INCLUDE>
+

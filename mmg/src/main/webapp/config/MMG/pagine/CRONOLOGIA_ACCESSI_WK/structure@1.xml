@@ -1,0 +1,21 @@
+<PAGINA key_id="CRONOLOGIA_ACCESSI_WK">
+	<HEADER_PAGE key_id="CRONOLOGIA_ACCESSI_WK" valore="DEFAULT_MMG,SCHEDA,CRONOLOGIA_ACCESSI_WK#DEFAULT_MMG,CRONOLOGIA_ACCESSI_WK" evento="START_END">
+	</HEADER_PAGE>
+	<TABULAZIONE.INIT key_id="filtri" valore="GestioneAccessiProblemi#lblTitolo#butStampa,butChiudi" evento="START">
+		<TABULAZIONE.CREA_TAB key_id="filtroWkAccessi" valore="filtroWkAccessi" evento="START">
+			<FIELDSET_TABLE key_id="fldFiltri" valore="fldFiltri" evento="START">
+					<TR.INIT key_id="tr1" valore="tr1" evento="START">
+						<TD_LABEL_DATA key_id="DaDataAccesso" valore="lblDaDataAccesso##txtDaDataAccesso#DaDataAccesso#startWithToday:false, format: 'd/m/Y'" evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="ADataAccesso" valore="lblADataAccesso##txtADataAccesso#ADataAccesso#startWithToday:true, format: 'd/m/Y'" evento="START">
+						</TD_LABEL_DATA>	
+						<TD_BUTTON key_id="butApplica" valore="butApplica##2" evento="START"></TD_BUTTON>
+					</TR.INIT>	
+				</FIELDSET_TABLE>
+			<DIV.WORKLIST key_id="wk" valore="divWk" evento="START">
+			</DIV.WORKLIST>
+		</TABULAZIONE.CREA_TAB>
+	</TABULAZIONE.INIT>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+	</FORM>
+</PAGINA>

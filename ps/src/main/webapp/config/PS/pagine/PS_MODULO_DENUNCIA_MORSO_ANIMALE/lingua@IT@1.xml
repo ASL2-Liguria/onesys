@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+       <lblTitolo>DENUNCIA MORSO ANIMALE</lblTitolo>
+       <fldDatiPrincipali>Dati Principali</fldDatiPrincipali>
+       <fldAltreComunicazioni>Altre comunicazioni</fldAltreComunicazioni>
+       <lblLesioni>Affetto da seguenti lesioni:</lblLesioni>
+       <lblGiorniPrognosi>Giorni prognosi</lblGiorniPrognosi>
+       <lblProvocatoDa>Provocato da morso di </lblProvocatoDa>
+       <lblDataAvvenimento>Data avvenimento</lblDataAvvenimento>
+       <lblLuogoAvvenimento>Luogo avvenimento</lblLuogoAvvenimento>
+       <lblDataNecroscopo24>Data</lblDataNecroscopo24>
+       <lblCaratteristicheAnimale>Caratteristiche animale</lblCaratteristicheAnimale>
+       <lblProprietario>Proprietario animale</lblProprietario>
+       <lblResidenzaProprietario>Residenza proprietario</lblResidenzaProprietario>
+       <butStampa>Stampa</butStampa>
+       <butSalva>Salva</butSalva>
+       <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

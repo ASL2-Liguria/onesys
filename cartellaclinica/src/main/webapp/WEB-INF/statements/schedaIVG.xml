@@ -1,0 +1,51 @@
+<root>
+	<statements_list>
+		<statement name="caricaDati">				
+			<sql>
+			<![CDATA[		
+				select /*+ cursor_sharing_exact */
+					xml.*
+				from CC_SCHEDE_XML cc,
+				xmltable(
+					'/PAGINA/CAMPI/CAMPO[
+					   @KEY_CAMPO="txtStatoCivile"
+					or @KEY_CAMPO="hDescrAttivita"
+					or @KEY_CAMPO="txtEtaGestazionale"
+					or @KEY_CAMPO="txtNatiVivi"
+					or @KEY_CAMPO="txtNatiMorti"
+					or @KEY_CAMPO="txtAbortiSpontanei"
+					or @KEY_CAMPO="txtIVG"
+					]' passing cc.contenuto
+				columns
+					CAMPO varchar2(4000) PATH '@KEY_CAMPO',
+					VALORE varchar2(4000) PATH 'text()'
+				) xml
+				where funzione in ('ANAMNESI','DATI_GENERALI') and iden_visita=to_number(?)
+				union all
+				select
+					DECODE(unpivot_row,
+						1, 'txtDataNascita',
+						2, 'txtComuneNascita',
+						3, 'txtComuneResidenza',
+						4, 'txtCittadinanza',
+						5, 'hComuneNascita',
+						6, 'hComuneResidenza',
+						7, 'hCittadinanza'
+					) AS campo,
+					DECODE(unpivot_row,
+						1,  to_char(to_date(a.data, 'YYYYMMDD'), 'DD/MM/YYYY'),
+						2, (select comune from radsql.comuni where xxx_ccom = a.com_nasc),
+						3, (select comune from radsql.comuni where xxx_ccom = a.com_res),
+						4, (select descr from tab_nazioni where iden = A.Iden_Nazione),
+						5, a.com_nasc,
+						6, a.com_res,
+						7, (select cod from tab_nazioni where iden = A.Iden_Nazione)
+					) AS valore
+				from anag a
+				cross join (SELECT level AS unpivot_row FROM dual CONNECT BY level <=7)
+				where a.iden = to_number(?)
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>	

@@ -1,0 +1,125 @@
+body{width:960px;}
+
+#fld1.fldCampi > legend, #fld2.fldCampi > legend, #fld4.fldCampi > legend {
+	font-size: 14px;
+}
+
+#Descrizione_PC {
+	width: 25em;
+}
+
+table.campi tr td.tdLbl{	
+	width: 150px;
+}
+
+#fld2, #fld4 { padding-top: 30px}
+#fld3 { margin: 30px 5px;}
+
+#RR_Printer, #SceltaStampanteRB, #AvvisoDema {
+	width: 50%;
+	height: 26px;
+	border: 1px solid #555;
+}
+
+#RB_Printer{
+	width: 80%;
+	height: 26px;
+	border: 1px solid #555;
+}
+
+#lblPrinter, #lblSceltaStampanteRB, #lblAvvisoDema {
+	padding: 0 15px;
+	font-weight: 700;
+	text-align: right;
+}
+
+td.tdText input, td.tdTags input {
+	
+	width: 150px;
+}
+
+#lblMarBottom, #lblMarTop, #lblB_MarBottom, #lblB_MarTop{
+	
+	text-align: center;
+}
+
+#lblMarRight,  #lblB_MarRight{
+	
+	text-align: left;
+}
+
+td.tdText input, td.tdTags input {
+	
+	text-align: center;
+}
+
+
+#lblRB_Printer {
+	
+	width: 98%;
+	font-weight: 700;
+	height: 24px;
+	padding: 1px 0px 1px 100px;
+	text-align: right;
+}
+
+#fld0 {
+    margin: 10px 5px;
+	
+}
+
+#but_CancellaImpostazioniUtente {
+	height: 25px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+#lblImpostaUtente {
+	
+	padding-bottom: 20px;
+}
+
+#ImpostaUtente {
+	
+	width: auto;
+	margin-bottom: 20px;
+}
+
+#txtConfigStampa {
+	
+	width: 300px;
+}
+
+#but_ConfigurazioniStampa {
+	
+	margin-left: 10px;
+}
+
+#butStampa_di_Prova, #butStampa_di_Prova_RB, #butStampaProvaDema {
+	float: right;
+	margin-right: 10px;
+}
+
+.profilo {
+	background-color: #C3EDFA;
+}
+
+.cancellato {	
+	background-color: #F3FAB6;
+}
+
+.rb_STAMPANTE_DEFAULT {
+	background-color: #0088cc;
+}
+
+.rb_STAMPANTE_RICETTA_ROSSA {
+	background-color: #ff5555;
+}
+
+.rb_STAMPANTE_RICETTA_BIANCA {
+	background-color: white;
+}
+
+.centrale {
+	text-align: center !important;
+}

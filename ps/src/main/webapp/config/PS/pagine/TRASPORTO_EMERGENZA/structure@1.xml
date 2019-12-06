@@ -1,0 +1,28 @@
+<PAGINA key_id="TRASPORTO_EMERGENZA">
+    <HEADER_PAGE key_id="TRASPORTO_EMERGENZA" valore="DEFAULT,SCHEDA,TRASPORTO_EMERGENZA#DEFAULT,TRASPORTO_EMERGENZA" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaCdc" valore="SchedaCdc#lblTitolo#butSalva,butChiudi" evento="START">
+
+                <FIELDSET_TABLE key_id="fldDatiCdc" valore="fldDatiCdc" evento="START">
+
+                    <TR_TD_LABEL_TEXT key_id="Medico" valore="lblMedico##txtMedico###MEDICO###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Telefono" valore="lblTelefono##txtTelefono###TELEFONO###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Reparto" valore="lblReparto##txtReparto###REPARTO###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Ospedale" valore="lblOspedale##txtOspedale###OSPEDALE###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="RepartoDeg" valore="lblRepartoDeg##txtRepartoDeg###REPARTO_DEG###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="OspedaleDeg" valore="lblOspedaleDeg##txtOspedaleDeg###OSPEDALE_DEG###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT_AREA key_id="Diagnosi" valore="lblDiagnosi##txtDiagnosi###DIAGNOSI###" evento="START">
+                    </TR_TD_LABEL_TEXT_AREA>
+
+                </FIELDSET_TABLE>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

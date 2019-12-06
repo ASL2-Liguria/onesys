@@ -1,0 +1,29 @@
+
+    <DATI configurazione=" declare
+		vstato  varchar2(5);
+		vkey    varchar2(4000);
+		vwhere  varchar2(4000);
+		vcampo  varchar2(4000);
+	begin
+	    vstato := '#STATO_PAGINA#';
+
+	        if vstato='E' then
+	            vkey := 'PS.Q_EMPTY@PS';
+	        else
+	            vkey := 'PS.Q_EMPTY@PS';
+	        end if;
+
+	        vwhere := null;
+	        vcampo := null;
+
+	    :stato_pagina := vstato;
+	    :key_query := vkey;
+	    :where := vwhere;
+	    :campo_xml := vcampo;
+
+    end;">
+    <DATO key_id="cmbAree" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="PS.Q_AREE_PS@PS" />
+
+</DATI>

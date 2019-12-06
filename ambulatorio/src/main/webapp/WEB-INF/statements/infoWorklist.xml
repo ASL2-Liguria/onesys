@@ -1,0 +1,12 @@
+<root>
+	<statements_list>
+		<statement name="getProprietaEPrestazione">				
+			<sql>
+			<![CDATA[
+                select PROPRIETA from VIEW_TAB_ESA_PROPRIETA Where iden_esa = to_number(?)
+			]]>
+			</sql><!-- select PROPRIETA from VIEW_AMB_TAB_ESA Where iden= to_number(?) -->
+			<schema>RADSQL</schema>
+		</statement>
+	</statements_list>
+</root>

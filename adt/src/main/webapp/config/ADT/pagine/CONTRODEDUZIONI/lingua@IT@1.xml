@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Controdeduzioni</lblTitolo>
+    	<filtroControdeduzioni>Tabella Contestazioni</filtroControdeduzioni>
+    	<lblAnno>Anno</lblAnno>
+    	<lblRegione>Regione</lblRegione>
+    	<lblCodIstituto>Codici Istituto</lblCodIstituto>
+    </ROW>
+ </ROWSET>

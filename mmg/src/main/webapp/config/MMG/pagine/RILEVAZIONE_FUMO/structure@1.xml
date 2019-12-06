@@ -1,0 +1,32 @@
+<PAGINA key_id="RILEVAZIONE_FUMO">
+	<HEADER_PAGE key_id="RILEVAZIONE_FUMO"
+		valore="DEFAULT_MMG,SCHEDA,RILEVAZIONE_FUMO#DEFAULT_MMG,RILEVAZIONE_FUMO"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_RILEVAZIONE_FUMO#MMG_DATI#MMG_ACCERT_RILEVAZIONI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabInsFumo"
+			valore="nuovaRilFumo#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabFumo" valore="tabFumo"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldFumo" valore="fldFumo"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="Fumo"
+						valore="lblFumoSiNo##Fumo#radFumo#{width:60}#S#FUMO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="NrSigarette"
+						valore="lblNrSigarette##txtNrSigarette###N_SIGARETTE" evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteFumo" valore="fldNoteFumo"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="NoteFumo" valore="txtAreaNoteFumo#NOTE#2"
+						evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

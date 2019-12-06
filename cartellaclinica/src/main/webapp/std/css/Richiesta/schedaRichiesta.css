@@ -1,0 +1,169 @@
+@charset "utf-8";
+/* CSS Document */
+
+.routine {
+
+	margin-top: 2px;
+	background:#F9F9F9;
+	height: 20px;
+	line-height:20px;
+	border: 1px #39F;
+	border-style:solid;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.urgenzaDifferita {
+
+	margin-top: 2px;
+	background:#0F9;
+	height: 20px;
+	line-height:20px;
+	border: 1px #39F;
+	border-style:solid;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.urgenza {
+	
+	margin-top: 2px;
+	background:#FF6;
+	height: 20px;
+	line-height:20px;
+	border: 1px #39F;
+	border-style:solid;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.emergenza {
+	
+	margin-top: 2px;
+	background:#C00;
+	color:#FFF;
+	height: 20px;
+	line-height:20px;
+	border: 1px #39F;
+	border-style:solid;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.pulsanteUrgenza0 a {
+	
+	display:block;
+}
+	
+.pulsanteUrgenza1 a {
+	
+	display:block;
+}
+	
+.pulsanteUrgenza2 a {
+	
+	display:block;
+}
+	
+.pulsanteUrgenza3 a {
+	
+	display:block;
+}
+	
+body { background-color:#b9e0ff; margin:0px; padding:0px; overflow-y: auto;}
+/*body { background-color:#D9D9D9; margin:0px; padding:0px;}*/ /*PROVA SFONDO GRIGIO*/
+form,script{ padding: 0px; margin: 0px;}
+
+div#content{
+	padding: 20px;
+}
+
+div.footer { 
+	bottom:0px;
+}
+
+span.btn {
+	float:right; 
+	margin-bottom:8px;
+	cursor: pointer;
+}
+
+fieldset{
+	border:3px solid #FFF;
+	padding-top:10px;
+	padding-right:15px;
+	padding-left:15px;
+	padding-bottom:5px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+fieldset legend{
+	font-weight:bold;
+	margin-bottom:15px;
+	cursor:pointer;
+}
+
+fieldset label{
+	font-size:12px;
+	cursor:pointer;
+	padding: 2px;
+
+}
+		
+.btPlus {
+	
+	background: url(../../../imagexPix/button/mini/btPlusSquareGreen.png) no-repeat center;
+	cursor: pointer;
+}
+
+.btPlusImp {
+	
+	background: url(../../../imagexPix/button/mini/btPlusSquareGreen.png) no-repeat center;
+	cursor: pointer;
+}
+
+.btMinus {
+	
+	background: url(../../../imagexPix/button/mini/btMinusSquareGreen.png) no-repeat center;
+	cursor: pointer;
+}
+
+.btMinusImp {
+	
+	background: url(../../../imagexPix/button/mini/btMinusSquareGreen.png) no-repeat center;
+	cursor: pointer;
+}
+
+#txtRepartoRic {
+	border: 1px solid #BDBDBD;
+	padding-left:5px;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+.text_class{
+	border: 1px solid #BDBDBD;
+	height: 25px;
+	line-height: 25px;
+	margin-left: 3px;
+	padding-left: 3px;
+	vertical-align: middle;
+}
+
+textarea{
+	border: 1px solid #BDBDBD;
+	margin-left: 3px;
+	padding-left: 3px;
+}
+
+div.classDivEpi{
+    margin: 5px;
+    padding-left: 15px;
+    background: url(../../../imagexPix/icoTxtEpi.png) no-repeat;
+    width: 52px;
+    height: 20px;
+    cursor: pointer;
+    float: right;
+}

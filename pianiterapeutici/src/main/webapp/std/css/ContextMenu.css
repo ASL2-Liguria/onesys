@@ -1,0 +1,178 @@
+img{height:20px;width:20px;}
+
+#contextualMenu{
+	position:absolute;
+	border:1px solid #2E74B9;
+	font-family:Verdana;
+	font-size: 11px;
+	cursor:default;
+	visibility:hidden;
+	z-index:1000;
+}
+
+.ContextMenuLinks {
+	background: #EFF9FE;
+	font-size: 11px;
+	font-family: Verdana;
+	padding: 0px;
+	border-top: Solid 1px #2E74B9;
+	border-left: Solid 1px #2E74B9;
+	border-right: Solid 1px #2E74B9;
+	border-bottom: Solid 1px #2E74B9;
+	cursor: Default;
+}
+
+.ContextMenuOver {
+	background: yellow;
+	color:#000000;
+	font-size: 11px;
+	font-family: Verdana;
+	cursor: Default;	
+}
+.ContextMenuBigOver {
+	background: yellow;
+	color:#000000;
+	font-size: 16px;
+	font-family: Verdana;
+	cursor: Default;	
+}
+.ContextMenuNormal {
+	background:#DDF8FF;
+	color:#000000;
+	font-size: 11px;
+	font-family: Verdana;
+	cursor: Default;
+}
+.ContextMenuBigNormal {
+	background:#DDF8FF;
+	color:#000000;
+	font-size: 16px;
+	font-family: Verdana;
+	cursor: Default;
+}
+.ContextIcon{
+	height:30px;
+	width:30px;	
+	background-color:#FFFFFF;
+}
+
+.ContextNull{
+	height:60px;
+	width:150px;
+	border:1px solid #2E74B9;
+	font-family:Verdana;
+	font-size: 12px;
+	background-color:#FFFFCC;
+	padding-left:3px;
+	padding-top:3px;
+	
+}
+
+.titleMenuOption{
+	height:16px;
+	background-color:#258BF1;
+	color:white;
+	text-align:center;
+	background-image:url(../../imagexPix/bar/titleMenuOption.jpg);
+	background-repeat:repeat-x;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin:0px 0px 2px 0px;	
+}
+
+.contextMenuUl {
+	padding: 0px;
+	margin: 0px;
+	width:250px;
+	list-style:none;
+	background-color:#DDF8FF;
+	border: 10px solid #2E74B9;
+}
+
+.contextMenuUl ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+.contextMenuUl li {
+/*	background: #EFF9FE;*/
+	width:100%;
+	height: 30px;
+	list-style:none;
+	white-space: nowrap;
+	overflow: hidden;
+	
+	font-size: 11px;
+	font-family: Verdana;
+	padding: 0px;
+	/*border-top: Solid 1px #2E74B9;
+	border-left: Solid 1px #2E74B9;
+	border-right: Solid 1px #2E74B9;
+	border-bottom: Solid 1px #2E74B9;*/
+	cursor: Default;
+}
+
+.contextMenuUl li a, .contextMenuUl li a:hover {
+	text-decoration: none;
+	color: #000000;
+	padding: 0.5em;
+	vertical-align: top;
+	width: auto;/*165px*/
+	display: inline-block;
+	overflow: hidden;
+	height: 100%;
+}
+
+.contextMenuUl img {
+	height:24px;
+	width:24px;
+	background-color:#FFFFFF;
+}
+
+.contextMenuUl li ul {
+	display: none;
+}
+
+.contextMenuNode {
+	background-image: url(../../imagexPix/arrow/right.gif);
+	background-position: right center;
+	background-repeat: no-repeat;
+	overflow: visible;
+}
+
+
+.listUl {
+   
+        border: solid 1px #CCC;
+        background: #EEE;
+        padding: 0px;
+        width: 165px;
+}
+
+.listUl LI {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+}
+
+.listUl a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        line-height: 20px;
+        height: 20px;
+        background-position: 6px center;
+        padding: 1px 5px;
+        padding-left: 10px;
+}
+
+.listUl A:hover {
+        color: #FFF;
+        background-color: #3399FF;
+}
+
+/*div.menu{position:absolute;width: 165px;background:#FFF;border:2px solid blue;padding:2px;}
+div.menu div{height:20px;float:none;border:none;color:blue;padding-top:3px;padding-bottom:1px;padding-left:10px;padding-right:10px;background:#FFF;}
+div.menu div:hover{    color:#fff;  
+    background-color:#3875d7;  
+    cursor:pointer;  }*/

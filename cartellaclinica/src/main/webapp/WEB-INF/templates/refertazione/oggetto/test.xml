@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="xsl/test.xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="input1" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="input2" TYPE="input" TYPEINPUT="text"/>
+        <CAMPO KEY_CAMPO="inputcheck" TYPE="input" TYPEINPUT="checkbox"/>
+        <CAMPO KEY_CAMPO="radScelta" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="0"/>
+            <OPTIONVAL VALUE="1"/>
+            <OPTIONVAL VALUE="2"/>
+        </CAMPO>
+        <CAMPO KEY_CAMPO="cmbScelta" TYPE="select">
+            <OPTIONVAL VALUE="0"/>
+            <OPTIONVAL VALUE="1">UNO</OPTIONVAL>
+            <OPTIONVAL VALUE="2">DUE</OPTIONVAL>
+            <OPTIONVAL VALUE="3">TRE</OPTIONVAL>
+        </CAMPO>
+    </CAMPI>
+</PAGINA>

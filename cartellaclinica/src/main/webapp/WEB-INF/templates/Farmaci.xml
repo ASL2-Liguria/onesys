@@ -1,0 +1,95 @@
+<Template seconds="10">
+
+    <Farmaco i="farmaco" ignore="S" iden="" descr="" sostanza="">
+        <Button a_modifica="None">X</Button>
+        <farmaco_nome classe="Gruppo">
+            <DescrizioneFarmaco classe="Label" valuexpath="../../@descr"/>
+            <SostanzaFarmaco classe="Label" valuexpath="../../@sostanza" a_globali="None"/>
+        </farmaco_nome>
+        <UserInput tipo="text" name="VolumeFarmaco" a_globali="None" descr="Volume"/>
+        <UserInput tipo="text" name="DoseFarmaco" a_modifica="Disable"
+            a_globali="TextualPositive=S;obligatory=S;msg=Quantita farmaco;w=2" descr="Quantita'"/>
+        <UserInput classe="Options" tipo="select" a_modifica="Disable" descr="Unita"
+            name="UdmFarmaco" value="">
+            <QUERY default="'cp'" preferred="'gtt|mg'">
+                <![CDATA[
+					select * from table(radsql.retUnitaDiMisuraFarmaci(#default#,#preferred#))	
+				]]>
+            </QUERY>
+        </UserInput>
+    </Farmaco>
+
+    <Farmaco i="farmaco_cerotto" ignore="S" iden="" descr="" sostanza="">
+        <Button a_modifica="None">X</Button>
+        <farmaco_nome classe="Gruppo">
+            <DescrizioneFarmaco classe="Label" valuexpath="../../@descr"/>
+            <SostanzaFarmaco classe="Label" valuexpath="../../@sostanza" a_globali="None"/>
+        </farmaco_nome>
+        <UserInput tipo="text" name="VolumeFarmaco" a_globali="None" descr="Volume"/>
+        <UserInput tipo="text" name="DoseFarmaco" a_modifica="Disable"
+            a_globali="TextualPositive=S;obligatory=S;msg=Quantita farmaco" descr="Quantita'"/>
+        <UserInput classe="Options" tipo="select" a_modifica="Disable" descr="Unita"
+            name="UdmFarmaco" value="">
+            <QUERY default="'tts'" preferred="'mg'">
+                <![CDATA[
+					select * from table(radsql.retUnitaDiMisuraFarmaci(#default#,#preferred#))	
+				]]>
+            </QUERY>
+        </UserInput>
+    </Farmaco>
+
+    <Farmaco i="farmaco_senza_dose" ignore="S" iden="" descr="" sostanza="">
+        <Button a_modifica="None">X</Button>
+        <farmaco_nome classe="Gruppo">
+            <DescrizioneFarmaco classe="Label" valuexpath="../../@descr"/>
+            <SostanzaFarmaco classe="Label" valuexpath="../../@sostanza" a_globali="None"/>
+        </farmaco_nome>
+        <UserInput classe="Options" tipo="select" a_modifica="Disable" descr="Unita"
+            name="UdmFarmaco" value="">
+            <QUERY default="'u'" preferred="''">
+                <![CDATA[
+					select * from table(radsql.retUnitaDiMisuraFarmaci(#default#,#preferred#))	
+				]]>
+            </QUERY>
+        </UserInput>
+    </Farmaco>
+
+    <Farmaco i="solvente" ignore="S" iden="" descr="" sostanza="">
+        <Button a_modifica="None">X</Button>
+        <farmaco_nome classe="Gruppo">
+            <DescrizioneFarmaco classe="Label" valuexpath="../../@descr"/>
+            <SostanzaFarmaco classe="Label" valuexpath="../../@sostanza" a_globali="None"/>
+        </farmaco_nome>
+        <UserInput tipo="text" name="VolumeFarmaco" a_globali="None" descr="Volume"/>
+        <UserInput tipo="text" name="DoseFarmaco" a_modifica="Disable"
+            a_globali="TextualPositive=S;obligatory=S;msg=Quantita solvente;w=2" descr="Quantita'"/>
+        <UserInput classe="Options" tipo="select" a_modifica="Disable" descr="Unita"
+            name="UdmFarmaco" value="">
+            <QUERY default="'ml'" preferred="'sac|fl|cl'">
+                <![CDATA[
+					select * from table(radsql.retUnitaDiMisuraFarmaci(#default#,#preferred#))	
+				]]>
+            </QUERY>
+        </UserInput>
+    </Farmaco>
+
+    <Farmaco i="soluto" ignore="S" iden="" descr="" sostanza="">
+        <Button a_modifica="None">X</Button>
+        <farmaco_nome classe="Gruppo">
+            <DescrizioneFarmaco classe="Label" valuexpath="../../@descr"/>
+            <SostanzaFarmaco classe="Label" valuexpath="../../@sostanza" a_globali="None"/>
+        </farmaco_nome>
+        <UserInput tipo="text" name="VolumeFarmaco" a_globali="None" descr="Volume"/>
+        <UserInput tipo="text" name="DoseFarmaco" a_modifica="Disable"
+            a_globali="TextualPositive=S;obligatory=S;msg=Quantita soluto;w=2" descr="Quantita'"/>
+        <UserInput classe="Options" tipo="select" a_modifica="Disable" descr="Unita"
+            name="UdmFarmaco" value="">
+            <QUERY default="'mg'" preferred="'mcg|fl'">
+                <![CDATA[
+					select * from table(radsql.retUnitaDiMisuraFarmaci(#default#,#preferred#))	
+				]]>
+            </QUERY>
+        </UserInput>
+    </Farmaco>
+
+</Template>

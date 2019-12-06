@@ -1,0 +1,35 @@
+<root>
+    <statements_list>
+        <statement name="isGammaKg">
+            <sql>
+                <![CDATA[
+                SELECT
+                  CASE 
+                    WHEN EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/HtmlContent/script') LIKE '%ModelloTerapiaVelocita.setAbilitaCalcoloGammaChilo(true)%' THEN 'S' 
+                    ELSE 'N' 
+                  END IS_GAMMA_KG
+                FROM radsql.CC_TERAPIE_SCHEDA 
+                WHERE IDEN_TERAPIA = TO_NUMBER(?)                             
+                ]]>
+            </sql>
+        </statement>        
+        <statement name="getParametriTerapia">
+            <sql>
+                <![CDATA[
+                SELECT 
+                    EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="Concentrazione"]/@value') CONCENTRAZIONE
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="Dose"]/@value') DOSE
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/GruppoFarmaci[@tipo="3"]/Farmaco[@iden > 0]/UserInput[@name="DoseFarmaco"]/@value') DOSE_FARMACO
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="Durata"]/@value') DURATA
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="Peso"]/@value') PESO
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="scalaConcentrazione"]/@value') SCALA_CONCENTRAZIONE
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="scalaDose"]/@value') SCALA_DOSE
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="Velocita"]/@value') VELOCITA
+                    , EXTRACTVALUE(XMLTYPE(impostazioni), '/Terapia/Setting/Riga/UserInput[@name="VolumeTotale"]/@value') VOLUME_TOTALE
+                FROM radsql.CC_TERAPIE_SCHEDA 
+                WHERE IDEN_TERAPIA = TO_NUMBER(?)                               
+                ]]>
+            </sql>
+        </statement>        
+    </statements_list>	
+</root>

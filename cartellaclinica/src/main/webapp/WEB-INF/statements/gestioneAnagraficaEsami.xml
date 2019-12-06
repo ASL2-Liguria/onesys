@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>
+        <statement name="getCodDec">
+            <sql>
+                <![CDATA[
+					select iden,cod_dec,descr from tab_esa where cod_dec = ? and rownum=1
+				]]>
+            </sql>
+        </statement>
+        <statement name="getRepartiDestinatari">
+            <sql>
+                <![CDATA[
+					select 
+						ter.reparto_destinazione,
+						cdc.cod_dec,
+						cdc.descr,
+						ter.tipo
+					from 
+						tab_esa_reparto ter
+						join centri_di_costo cdc 
+						on (cdc.cod_cdc = ter.REPARTO_DESTINAZIONE)
+					where cdc.attivo='S'
+					group by 
+						ter.REPARTO_DESTINAZIONE,
+						cdc.descr,
+						cdc.cod_dec,
+						ter.tipo
+					order by cdc.descr asc
+				]]>
+            </sql>
+        </statement>
+<!--         <statement name="tab_esa_reparto.select"> -->
+<!--          	<sql> -->
+<!--                  <![CDATA[ -->
+<!--                  	select COL01 iden_esa,COL02 descr_esa,COL21 destinatario,COL19 struttura,COL18 reparto,COL08 urgenza,COL20 includi, col22 rep_sorg_descr from table( -->
+<!--                  		radsql.getesamirichiedibili( -->
+<!--                  		?,?,?,? -->
+<!--                  		) -->
+<!--                  	)order by COL02 asc				 -->
+<!--  				]]>        	 -->
+<!--          	</sql> -->
+<!-- 		</statement> -->
+        <statement name="tab_esa_reparto.select.reparto">
+         	<sql>
+                 <![CDATA[
+					SELECT ver.iden,
+						ver.descr descr_esa,
+					  	ver.reparto_destinazione,
+					  	ver.tipo,
+					  	ver.struttura_richiedente,
+					  	ver.reparto_sorgente,
+					  	cdc.descr reparto_sorgente_descrizione,
+					  	ver.urgenza,
+					  	ver.includi
+					FROM View_Esa_Reparto ver
+					LEFT OUTER JOIN CENTRI_DI_COSTO cdc ON (ver.REPARTO_SORGENTE = cdc.cod_cdc) 
+					WHERE 
+					ver.reparto_destinazione = ?
+					AND ver.Reparto_Sorgente = ?
+					AND ver.tipo             = ?
+					AND ver.iden_scheda      IS NULL
+					AND ver.urgenza          = ?
+					AND ver.includi          = ?
+					order by ver.descr asc
+ 				]]>        	 
+         	</sql>
+		</statement>
+        <statement name="tab_esa_reparto.select.struttura">
+         	<sql>
+                 <![CDATA[
+					SELECT ver.iden,
+						ver.descr descr_esa,
+					  	ver.reparto_destinazione,
+					  	ver.tipo,
+					  	ver.struttura_richiedente,
+					  	ver.reparto_sorgente,
+					  	cdc.descr reparto_sorgente_descrizione,
+					  	ver.urgenza,
+					  	ver.includi
+					FROM View_Esa_Reparto ver
+					LEFT OUTER JOIN CENTRI_DI_COSTO cdc ON (ver.REPARTO_SORGENTE = cdc.cod_cdc) 
+					WHERE 
+					ver.reparto_destinazione 		= ?
+					AND ver.struttura_richiedente 	= ?
+					AND ver.tipo             		= ?
+					AND ver.iden_scheda      		IS NULL
+					AND ver.urgenza          		= ?
+					AND ver.includi          		= ?
+					AND reparto_sorgente is null
+					order by ver.descr asc
+ 				]]>        	 
+         	</sql>
+		</statement>
+        <statement name="tab_esa_reparto.select.sito">
+         	<sql>
+                 <![CDATA[
+					SELECT ver.iden,
+						ver.descr descr_esa,
+					  	ver.reparto_destinazione,
+					  	ver.tipo,
+					  	ver.struttura_richiedente,
+					  	ver.reparto_sorgente,
+					  	cdc.descr reparto_sorgente_descrizione,
+					  	ver.urgenza,
+					  	ver.includi
+					FROM View_Esa_Reparto ver
+					LEFT OUTER JOIN CENTRI_DI_COSTO cdc ON (ver.REPARTO_SORGENTE = cdc.cod_cdc) 
+					WHERE 
+					ver.reparto_destinazione = ?
+					AND ver.tipo             = ?
+					AND ver.iden_scheda      IS NULL
+					AND ver.urgenza          = ?
+					AND ver.includi          = ?
+					AND ver.struttura_richiedente is null and ver.reparto_sorgente is null
+					order by ver.descr asc
+ 				]]>        	 
+         	</sql>
+		</statement>	
+		<statement name="tab_esa_reparto.sito.escludi">
+		<sql>
+			<![CDATA[
+			declare 
+				pIdenEsa 			pls_integer		:=	to_number(?);
+				pDestinatario 		varchar2(4000)	:=	?;
+        		pTipologiaRichiesta varchar2(4000)	:=	?;
+				pStruttura 			varchar2(4000)	:=	?;
+				pReparto 			varchar2(4000)	:=	?;
+				pUrgenza 			varchar2(4000)	:=	?;
+				pIncludi 			varchar2(4000)	:=	?;
+        		pUteIns 			pls_integer		:=	to_number(?);
+			begin
+				update tab_esa_reparto
+				set
+					includi = 'N', data_mod=sysdate, ute_mod=pUteIns
+				where 
+					iden_esa = pIdenEsa and 
+					reparto_destinazione = pDestinatario and
+					tipo = pTipologiaRichiesta and 
+					reparto_sorgente is null and
+					struttura_richiedente is null and
+					urgenza = pUrgenza;
+				IF SQL%ROWCOUNT = 0 THEN					
+	        		insert into tab_esa_reparto
+	        		(IDEN_ESA,REPARTO_SORGENTE,REPARTO_DESTINAZIONE,TIPO,ATTIVO,STRUTTURA_RICHIEDENTE,URGENZA,UTE_INS,DATA_INS,INCLUDI)
+	        		values
+	        		(pIdenEsa,pReparto,pDestinatario,pTipologiaRichiesta,'S',pStruttura,pUrgenza,pUteIns,sysdate,pIncludi);
+        		END IF;
+			end;
+			
+			
+			]]>
+		</sql>
+		</statement>
+		<statement name="tab_esa_reparto.sito.includi">
+		<sql>
+			<![CDATA[
+			declare 
+				pIdenEsa 			pls_integer		:=	to_number(?);
+				pDestinatario 		varchar2(4000)	:=	?;
+        		pTipologiaRichiesta varchar2(4000)	:=	?;
+				pStruttura 			varchar2(4000)	:=	?;
+				pReparto 			varchar2(4000)	:=	?;
+				pUrgenza 			varchar2(4000)	:=	?;
+				pIncludi 			varchar2(4000)	:=	?;
+        		pUteIns 			pls_integer		:=	to_number(?);
+			begin
+				
+				update tab_esa_reparto
+				set
+					includi = 'S', data_mod=sysdate, ute_mod=pUteIns
+				where 
+					iden_esa = pIdenEsa and 
+					reparto_destinazione = pDestinatario and
+					tipo = pTipologiaRichiesta and 
+					reparto_sorgente is null and
+					struttura_richiedente is null and
+					urgenza = pUrgenza;
+				IF SQL%ROWCOUNT = 0 THEN					
+	        		insert into tab_esa_reparto
+	        		(IDEN_ESA,REPARTO_SORGENTE,REPARTO_DESTINAZIONE,TIPO,ATTIVO,STRUTTURA_RICHIEDENTE,URGENZA,UTE_INS,DATA_INS,INCLUDI)
+	        		values
+	        		(pIdenEsa,pReparto,pDestinatario,pTipologiaRichiesta,'S',pStruttura,pUrgenza,pUteIns,sysdate,pIncludi);
+        		END IF;
+			end;
+			
+			
+			]]>
+		</sql>
+		</statement>
+		<statement name="tab_esa_reparto.reparto.escludi">
+		<sql>
+			<![CDATA[
+			declare 
+				pIdenEsa 			pls_integer		:=	to_number(?);
+				pDestinatario 		varchar2(4000)	:=	?;
+        		pTipologiaRichiesta varchar2(4000)	:=	?;
+				pStruttura 			varchar2(4000)	:=	?;
+				pReparto 			varchar2(4000)	:=	?;
+				pUrgenza 			varchar2(4000)	:=	?;
+				pIncludi 			varchar2(4000)	:=	?;
+        		pUteIns 			pls_integer		:=	to_number(?);
+			begin
+				update tab_esa_reparto
+				set
+					includi = 'N', data_mod=sysdate, ute_mod=pUteIns
+				where 
+					iden_esa = pIdenEsa and 
+					reparto_destinazione = pDestinatario and
+					tipo = pTipologiaRichiesta and 
+					reparto_sorgente =pReparto and
+					struttura_richiedente is null and
+					urgenza = pUrgenza;
+				IF SQL%ROWCOUNT = 0 THEN
+        			insert into tab_esa_reparto
+        			(IDEN_ESA,REPARTO_SORGENTE,REPARTO_DESTINAZIONE,TIPO,ATTIVO,STRUTTURA_RICHIEDENTE,URGENZA,UTE_INS,DATA_INS,INCLUDI)
+        			values
+        			(pIdenEsa,pReparto,pDestinatario,pTipologiaRichiesta,'S',pStruttura,pUrgenza,pUteIns,sysdate,pIncludi);
+        		end if;
+			end;
+			
+			
+			]]>
+		</sql>
+		</statement>		
+		<statement name="tab_esa_reparto.reparto.includi">
+		<sql>
+			<![CDATA[
+			declare 
+				pIdenEsa 			pls_integer		:=	to_number(?);
+				pDestinatario 		varchar2(4000)	:=	?;
+        		pTipologiaRichiesta varchar2(4000)	:=	?;
+				pStruttura 			varchar2(4000)	:=	?;
+				pReparto 			varchar2(4000)	:=	?;
+				pUrgenza 			varchar2(4000)	:=	?;
+				pIncludi 			varchar2(4000)	:=	?;
+        		pUteIns 			pls_integer		:=	to_number(?);
+			begin
+				update tab_esa_reparto
+				set
+					includi = 'S', data_mod=sysdate, ute_mod=pUteIns
+				where 
+					iden_esa = pIdenEsa and 
+					reparto_destinazione = pDestinatario and
+					tipo = pTipologiaRichiesta and 
+					reparto_sorgente =pReparto and
+					struttura_richiedente is null and
+					urgenza = pUrgenza;
+        		IF SQL%ROWCOUNT = 0 THEN
+        			insert into tab_esa_reparto
+        			(IDEN_ESA,REPARTO_SORGENTE,REPARTO_DESTINAZIONE,TIPO,ATTIVO,STRUTTURA_RICHIEDENTE,URGENZA,UTE_INS,DATA_INS,INCLUDI)
+        			values
+        			(pIdenEsa,pReparto,pDestinatario,pTipologiaRichiesta,'S',pStruttura,pUrgenza,pUteIns,sysdate,pIncludi);
+        		end if;
+			end;
+			
+			
+			]]>
+		</sql>
+		</statement>
+				<statement name="tab_esa_reparto.struttura.escludi">
+		<sql>
+			<![CDATA[
+			declare 
+				pIdenEsa 			pls_integer		:=	to_number(?);
+				pDestinatario 		varchar2(4000)	:=	?;
+        		pTipologiaRichiesta varchar2(4000)	:=	?;
+				pStruttura 			varchar2(4000)	:=	?;
+				pReparto 			varchar2(4000)	:=	?;
+				pUrgenza 			varchar2(4000)	:=	?;
+				pIncludi 			varchar2(4000)	:=	?;
+        		pUteIns 			pls_integer		:=	to_number(?);
+			begin
+				update tab_esa_reparto
+				set
+					includi = 'N', data_mod=sysdate, ute_mod=pUteIns
+				where 
+					iden_esa = pIdenEsa and 
+					reparto_destinazione = pDestinatario and
+					tipo = pTipologiaRichiesta and 
+					struttura_richiedente =pStruttura and
+					reparto_sorgente is null and
+					urgenza = pUrgenza;
+				IF SQL%ROWCOUNT = 0 THEN
+        			insert into tab_esa_reparto
+        			(IDEN_ESA,REPARTO_SORGENTE,REPARTO_DESTINAZIONE,TIPO,ATTIVO,STRUTTURA_RICHIEDENTE,URGENZA,UTE_INS,DATA_INS,INCLUDI)
+        			values
+        			(pIdenEsa,pReparto,pDestinatario,pTipologiaRichiesta,'S',pStruttura,pUrgenza,pUteIns,sysdate,pIncludi);
+        		end if;
+			end;
+			
+			
+			]]>
+		</sql>
+		</statement>		
+		<statement name="tab_esa_reparto.struttura.includi">
+		<sql>
+			<![CDATA[
+			declare 
+				pIdenEsa 			pls_integer		:=	to_number(?);
+				pDestinatario 		varchar2(4000)	:=	?;
+        		pTipologiaRichiesta varchar2(4000)	:=	?;
+				pStruttura 			varchar2(4000)	:=	?;
+				pReparto 			varchar2(4000)	:=	?;
+				pUrgenza 			varchar2(4000)	:=	?;
+				pIncludi 			varchar2(4000)	:=	?;
+        		pUteIns 			pls_integer		:=	to_number(?);
+			begin
+				update tab_esa_reparto
+				set
+					includi = 'S', data_mod=sysdate, ute_mod=pUteIns
+				where 
+					iden_esa = pIdenEsa and 
+					reparto_destinazione = pDestinatario and
+					tipo = pTipologiaRichiesta and 
+					struttura_richiedente =pStruttura and
+					reparto_sorgente is null and
+					urgenza = pUrgenza;
+        		IF SQL%ROWCOUNT = 0 THEN
+        			insert into tab_esa_reparto
+        			(IDEN_ESA,REPARTO_SORGENTE,REPARTO_DESTINAZIONE,TIPO,ATTIVO,STRUTTURA_RICHIEDENTE,URGENZA,UTE_INS,DATA_INS,INCLUDI)
+        			values
+        			(pIdenEsa,pReparto,pDestinatario,pTipologiaRichiesta,'S',pStruttura,pUrgenza,pUteIns,sysdate,pIncludi);
+        		end if;
+			end;
+			
+			
+			]]>
+		</sql>
+		</statement>
+	</statements_list>
+</root>

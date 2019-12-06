@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MENU>
+    <CONFIGS default="FENIX">
+        <CONFIG id="FENIX">
+            <CLASSLOADER type="reader">it.elco.menu.components.standard.menuReader</CLASSLOADER>
+            <CLASSLOADER type="menu">it.elco.menu.menuEngine</CLASSLOADER>
+            <CLASSLOADER type="menu_context">it.elco.menu.components.standard.menuContext</CLASSLOADER>
+            <CLASSLOADER type="item">it.elco.menu.components.standard.menuItem</CLASSLOADER>
+            <CLASSLOADER type="list">it.elco.menu.components.standard.menuList</CLASSLOADER>
+        </CONFIG>
+    </CONFIGS>
+</MENU>

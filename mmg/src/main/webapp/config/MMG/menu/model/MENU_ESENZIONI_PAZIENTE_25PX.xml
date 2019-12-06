@@ -1,0 +1,16 @@
+<MENU>
+	<id>MENU_ESENZIONI_PAZIENTE_25PX</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MM.VM</ID>
+			<LINK><![CDATA[function(rec){ESENZIONI.apriPrestazioni(rec);}]]></LINK>
+			<ICON_CLASS>letteradimissioni</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Prestazioni collegate"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

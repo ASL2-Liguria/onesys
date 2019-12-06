@@ -1,0 +1,69 @@
+<PAGINA key_id="SCHEDA_PARTI_ANATOMICHE">
+    <HEADER_PAGE key_id="SCHEDA_PARTI_ANATOMICHE"
+                 valore="DEFAULT,SCHEDA,SCHEDA_PARTI_ANATOMICHE#DEFAULT,SCHEDA_PARTI_ANATOMICHE" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaPartiAnatomiche"
+                          valore="SchedaPartiAnatomiche#lblTitolo#butInserisci,butAnnulla" evento="START">
+
+            <ROW key_id="rowUrgenzaRichieste" valore="rowUrgenzaRichieste" evento="START">
+                <COLUMN_FREE key_id="colUrgenza" valore="colUrgenza" evento="START">
+                    <FIELD_HEADER_TABLE key_id="fldUrgenza" valore="fldUrgenza"	evento="START">
+                        <TR.INIT key_id="trTemplate1" valore="" evento="START">
+                            <TD.INIT key_id="tdTemplate1" valore="1" evento="START">
+                                <TEMPLATE key_id="template" valore ="URGENZA_RICHIESTE/UrgenzaRichiesta.ftl#URGENZA_RICHIESTE/UrgenzaRichiesta.ftl" evento = "START">
+                                </TEMPLATE>
+                            </TD.INIT>
+                        </TR.INIT>
+                    </FIELD_HEADER_TABLE>
+                </COLUMN_FREE>
+            </ROW>
+
+            <ROW key_id="row_1" valore="row_1" evento="START">
+                <COLUMN_FREE key_id="colCorpo" valore="colCorpo" evento="START">
+                    <FIELDSET key_id="fldCorpo" valore="fldCorpo" evento="START">
+                        <HUMAN_BODY key_id="Corpo"
+                                    valore="Omino#ImgOmino#img/omino.png#singleSelect:true, showToolTip:true, fillColor: '999999', fillOpacity: 0.6, onStateChange:function(p){ SCHEDA_PARTI_ANATOMICHE.pulisciFiltroText(); SCHEDA_PARTI_ANATOMICHE.cambiaCorpo(p);}#N"
+                                    evento="START">
+                        </HUMAN_BODY>
+                    </FIELDSET>
+                </COLUMN_FREE>
+
+
+
+
+
+                <COLUMN_FREE key_id="colMetodicaSceltaEsa" valore="colMetodicaSceltaEsa" evento="START">
+
+                    <FIELDSET_TABLE key_id="fldMetodica" valore="fldMetodica" evento="START">
+                        <TR_TD_CHECK key_id="Metodiche"
+                                     valore="Metodiche#chkMetodiche#N#{width:180,callback:function(){ SCHEDA_PARTI_ANATOMICHE.pulisciFiltroText(); SCHEDA_PARTI_ANATOMICHE.getListaEsami();}}"
+                                     evento="START">
+                        </TR_TD_CHECK>
+                    </FIELDSET_TABLE>
+                    <EXCHANGE_LISTS key_id="exchangeSceltaEsami" valore="extSceltaEsame#ComboIn#ComboOut#N#btnControls#{
+                        onlySingleTransfert: true
+                        ,
+                        beforeTransfert:function(obj_from,list_to){return SCHEDA_PARTI_ANATOMICHE.beforeTransfert(obj_from,list_to);}
+                        ,
+                        removeFirstListItems:false
+                        ,
+                        listHeaders : {
+                            listFrom:{
+                                title:'Esami Disponibili',
+                                buttons:[{id:'btnShowAll',text:traduzione.lblVisualizzaTutti}],
+                                search:{label:'Filtro',input:'btnSearchEsa'}
+                                       },
+                            listTo:{
+                                title:'Esami Selezionati',
+                                buttons:[{id:'btnRemoveAll',text:traduzione.lblRimuoviTutti}],
+                                     }
+                            }
+                        }" evento="START">
+                    </EXCHANGE_LISTS>
+                </COLUMN_FREE>
+            </ROW>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

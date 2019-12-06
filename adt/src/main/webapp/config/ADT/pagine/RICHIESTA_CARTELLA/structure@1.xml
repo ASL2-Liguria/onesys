@@ -1,0 +1,81 @@
+<PAGINA key_id="RICHIESTA_CARTELLA">
+	<HEADER_PAGE key_id="RICHIESTA_CARTELLA" valore="DEFAULT,SCHEDA,RICHIESTA_CARTELLA#DEFAULT,RICHIESTA_CARTELLA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#ADT_MOVIMENTI_CARTELLA.SALVA_RICHIESTA#ADT###" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="RICHIESTA_CARTELLA#lblTitolo#butSalvaStampa,butSalva,butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabRichiesta" valore="tabRichiesta" evento="START">
+				<FIELDSET_TABLE key_id="Assistito" valore="idAssistito" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome##txtCognome####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtDataNasc" valore="lblDataNascita##txtDataNasc####S#w80px#N" evento="START">"
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtSesso" valore="lblSesso##txtSesso####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtCodFisc" valore="lblCodiceFiscale##txtCodFisc####S#w130px#N" evento="START">
+						</TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtTelefono" valore="lblTelefono##txtTelefono####S##N" evento="START">
+                        <TD_LABEL_TEXT key_id="IndirizzoResidenza" valore="lblIndirizzoResidenza##txtIndirizzoResidenza####S#w130px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="ComRes" valore="lblComuneResidenza##txtComRes####S#w130px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="ProvinciaResidenza" valore="lblProvinciaResidenza##txtProvinciaResidenza####S#w130px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_LABEL_TEXT key_id="ASLResidenza" valore="lblASLResidenza##txtASLResidenza####S#w130px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtNumNosologico" valore="lblNumNosologico##txtNumNosologico####S#w130px#N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="DatiRichiesta" valore="idDatiRichiesta" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtNumRichiesta" valore="lblNumRichiesta##txtNumRichiesta####S#w130px#N" evento="START">
+						<TD_LABEL_DATA key_id="txtDataRichiesta" valore="lblDataRichiesta#maskData#txtDataRichiesta##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA" evento="START">"
+						</TD_LABEL_DATA>
+						<TD_LABEL_ORA key_id="txtOraRichiesta" valore="lblOraRichiesta##txtOraRichiesta#N" evento="START">
+                        </TD_LABEL_ORA>
+                        <INPUT.HIDDEN key_id="hOraRichiesta" valore="hOraRichiesta" evento="START">
+                    	</INPUT.HIDDEN>
+                    	<TD_CHECK key_id="chkUrgenza" valore="chkUrgenza#chkUrgenza#N#{width:100, ctrl:false}##URGENZA" evento="START">
+						</TD_CHECK>
+                    </TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_COMBO key_id="cmbTipoRichiedente" valore="lblTipoRichiedente##cmbTipoRichiedente#cmbTipoRichiedente#N#SALVA#S#" evento="START">
+						<TD_LABEL_TEXT key_id="txtSpec" valore="lblSpec##txtSpec#####w350px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO key_id="cmbSpecRichiedente" valore="lblSpecRichiedente##cmbSpecRichiedente#cmbSpecRichiedente#N#SALVA#S#" evento="START">
+						<TD_LABEL_TEXT key_id="txtAltroEnte" valore="lblAltroEnte##txtAltroEnte#####w200px#N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_COMBO key_id="cmbModalitaRichiesta" valore="lblModalitaRichiesta##cmbModalitaRichiesta#cmbModalitaRichiesta#N#SALVA#S#" evento="START">
+						<TD_LABEL_COMBO key_id="cmbModalitaConsegna" valore="lblModalitaConsegna##cmbModalitaConsegna#cmbModalitaConsegna#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_TEXTAREA key_id="txtNote" valore="lblNote#txtNote##N#N#N" evento="START"></TD_LABEL_TEXTAREA>
+					</TR_TD_LABEL_COMBO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="DatiSpedizione" valore="idDatiSpedizione" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCo" valore="lblCo##txtCo#####w200px#N" evento="START">
+                        <TD_LABEL_TEXT key_id="txtIndirizzo" valore="lblIndirizzo##txtIndirizzo#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                        <TD_AUTOCOMPLETE key_id="Comune" valore="lblComune#acComune#Comune#txtComune#RichiestaCartellaComuneResidenza#IDEN_COMUNE" evento="START">
+                        </TD_AUTOCOMPLETE>
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="txtCap" valore="lblCAP##txtCap#####w150px#N" evento="START">
+                        <TD_LABEL_TEXT key_id="txtProvincia" valore="lblProvincia##txtProvincia#####w200px#N" evento="START">
+                        </TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+                </FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="StatoRichiesta" valore="idStatoRichiesta" evento="START">
+					<TD_LABEL_COMBO key_id="cmbStatoRichiesta" valore="lblStatoRichiesta##cmbStatoRichiesta#cmbStatoRichiesta#N#SALVA#S#" evento="START">
+					</TD_LABEL_COMBO>
+					<TD_LABEL_DATA key_id="txtDataStato" valore="lblDataStato#maskData#txtDataStato##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##DATA" evento="START">"
+					</TD_LABEL_DATA>
+					<TD_LABEL_ORA key_id="txtOraStato" valore="lblOraStato##txtOraStato#N" evento="START">
+                    </TD_LABEL_ORA>
+                    <INPUT.HIDDEN key_id="hOraStato" valore="hOraStato" evento="START">
+                    </INPUT.HIDDEN>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

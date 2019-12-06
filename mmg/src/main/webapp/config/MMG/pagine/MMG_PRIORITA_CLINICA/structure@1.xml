@@ -1,0 +1,56 @@
+<PAGINA key_id="MMG_PRIORITA_CLINICA">
+	<HEADER_PAGE key_id="MMG_PRIORITA_CLINICA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_PRIORITA_CLINICA#DEFAULT_MMG,MMG_PRIORITA_CLINICA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_PRIORITA_CLINICA#IDEN#IDEN##VPRIORITA_CLINICA" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="MMGPriorClin#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabPrioritaClinica"
+				valore="tabPrioritaClinica" evento="START">
+				<FIELDSET_TABLE key_id="fld1" valore="fld1" evento="START">
+					<TR_TD_LABEL key_id="lblFirst" valore="lblFirst" evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL key_id="lblSec" valore="lblSec" evento="START"></TR_TD_LABEL>
+					<TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome##lettura#NOME" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome##lettura#COGNOME" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="C_F" valore="lblC_F##txtC_F##lettura#COD_FIS" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fld2" valore="fld2" evento="START">
+					<TR_TD_TEXTAREA key_id="Vis_Rich" valore="Vis_Rich#VIS_RICH" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fld3" valore="fld3" evento="START">
+					<TR_TD_RADIO key_id="Modal_Acc" valore="Modal_Acc#radModal_Acc#{width:150}#N#MODAL_ACC" evento="START"></TR_TD_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fld4" valore="fld4" evento="START">
+					<TR_TD_RADIO key_id="Pri_Cli" valore="Pri_Cli#radPri_Cli#{width:100}#N#PRI_CLI" evento="START_END"></TR_TD_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fld5" valore="fld5" evento="START">
+					<FIELDSET_TABLE key_id="fld6" valore="fld6" evento="START">
+						<TR_TD_TEXTAREA key_id="QuadroClinico" valore="txtQuadroClinico#Q_CLINICO" evento="START"></TR_TD_TEXTAREA>
+						<TR_TD_LABEL_COMBO key_id="ProblemiPaziente" valore="lblProblemiPaziente##cmbProblemiPaziente#cmbProblemiPaziente#N#PROBLEMI_PAZIENTE" evento="START">
+							<TD_BUTTON key_id="butInserisci" valore="butInserisci" evento="START"></TD_BUTTON>
+						</TR_TD_LABEL_COMBO>
+					</FIELDSET_TABLE>
+					<FIELDSET_TABLE key_id="fld7" valore="fld7" evento="START">
+						<TR_TD_TEXTAREA key_id="Acc_Eff" valore="txtAcc_Eff#ACC_EFF" evento="START"></TR_TD_TEXTAREA>
+						<TR_TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TR_TD_BUTTON>
+						<!-- <TR.INIT key_id="TR" valore="" evento="START">
+							<TD.INIT key_id="TD" valore="2" evento="START">
+								<TEXTAREA key_id="Acc_Eff" valore="txtAcc_Eff#ACC_EFF" evento="START"></TEXTAREA>
+							</TD.INIT>
+						</TR.INIT>
+						<TR.INIT key_id="tr" valore="" evento="START">
+							<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TD_BUTTON>
+							<TD_TEXT key_id="Accertamenti" valore="Accertamenti##lettura#ACCERTAMENTI" evento="START"></TD_TEXT>
+						</TR.INIT> -->
+					</FIELDSET_TABLE>
+					<FIELDSET_TABLE key_id="fld8" valore="fld8" evento="START">
+						<TR_TD_TEXTAREA key_id="Sosp_Diagn" valore="Sosp_Diagn#SOSP_DIAGN" evento="START"></TR_TD_TEXTAREA>
+					</FIELDSET_TABLE>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

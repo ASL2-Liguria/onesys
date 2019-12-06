@@ -1,0 +1,79 @@
+<root>
+	<statements_list>
+		<statement name="caricaDati">				
+			<sql>
+			<![CDATA[		
+				select /*+ cursor_sharing_exact */
+					xml.*
+				from CC_SCHEDE_METAL met,
+				xmltable(
+					'/PAGINA/CAMPI/CAMPO[
+					   starts-with(@KEY_CAMPO,"txtDataArrivo")
+					or starts-with(@KEY_CAMPO,"txtOraArrivo")
+					or starts-with(@KEY_CAMPO,"txtDataRientro")
+					or starts-with(@KEY_CAMPO,"txtOraRientro")
+					or starts-with(@KEY_CAMPO,"inValMedico")
+					or starts-with(@KEY_CAMPO,"inValInf")
+					or starts-with(@KEY_CAMPO,"hMed")
+					or starts-with(@KEY_CAMPO,"hInf")
+					or @KEY_CAMPO="cmbSedeChiamata"
+					or @KEY_CAMPO="hRepartoAppoggioDescr"
+					or @KEY_CAMPO="hRepartoAppoggioCdc"
+					or @KEY_CAMPO="hParametri"
+					or starts-with(@KEY_CAMPO,"txtDataParametri")
+					or starts-with(@KEY_CAMPO,"txtOraParametri")
+					or starts-with(@KEY_CAMPO,"txtFC")
+					or starts-with(@KEY_CAMPO,"txtPAS")
+					or starts-with(@KEY_CAMPO,"txtPAD")
+					or starts-with(@KEY_CAMPO,"txtSPO")
+					]' passing met.contenuto
+				columns
+					CAMPO varchar2(4000) PATH '@KEY_CAMPO',
+					VALORE varchar2(4000) PATH 'text()'
+				) xml
+				where iden=to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="getIdenScheda">				
+			<sql>
+			<![CDATA[
+				select max(iden) iden from CC_SCHEDE_METAL where iden_visita=to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="recuperaParametriMetal">
+			<sql>
+			<![CDATA[
+				declare
+					parametri varchar2(32767);
+				begin
+					begin
+						select Radsql.getTokenAt(VALORE, 1, '@') into parametri from (
+							select * from Radsql.TAB_AVVERTENZE
+							where tipo_wk ='PARAMETRI_METAL'
+							and iden_visita = to_number(?)
+							and data_ins>=sysdate-3/24
+							order by iden desc
+						) where rownum = 1;
+					exception when NO_DATA_FOUND then
+						parametri := '';
+					end;
+					? := parametri;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="eliminaParametriMetal">
+			<sql>
+			<![CDATA[
+				begin
+					delete from Radsql.TAB_AVVERTENZE
+					where tipo_wk ='PARAMETRI_METAL'
+					and iden_visita = to_number(?);
+				end;
+			]]>
+			</sql>
+		</statement>
+	</statements_list>	
+</root>	

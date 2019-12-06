@@ -1,0 +1,329 @@
+<root>
+    <statements_list>
+        <statement name="CONTROLLOGIACENZA">
+            <sql>
+                <![CDATA[
+                declare
+                    pIdenFarmaco 	pls_integer 	:= ?;
+                    pIdenMagazzino 	pls_integer 	:= ?;
+                    pUnita 			pls_integer 	:= ?;
+                    vDisponibilita 	pls_integer;
+                    vStatus 		varchar2(4000) 	:= '';
+                    vMessage 		varchar2(4000) 	:= '';
+                begin
+
+                    radsql.CONTROLLOGIACENZAFARM(pIdenFarmaco, pIdenMagazzino, pUnita, vStatus, vMessage);
+
+                    ? := vStatus;
+                    ? := vMessage;
+                end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="GET_DISPONIBILITA">
+            <sql>
+                <![CDATA[
+                declare
+                    pIdenFarmaco 		pls_integer 	:= ?;
+                    pIdenMagazzinoProv 	pls_integer 	:= ?;
+                    vDisponibilita 		pls_integer;
+                    vOut      			varchar2(20);
+                begin
+                	-- load disponibilita magazzino di provenienza
+                    begin
+                    	--RADSQL.GEST_LOGS.ERROR('[DECLARE]','[GET_DISPONIBILITA] select DISPONIBILITA from CC_FARMACI_DISPONIBILITA where IDEN_FARMACO = '||pIdenFarmaco||' and IDEN_MAGAZZINO = '||pIdenMagazzinoProv||';');
+                        select DISPONIBILITA into vDisponibilita
+                        from CC_FARMACI_DISPONIBILITA 
+                        where IDEN_FARMACO = pIdenFarmaco and IDEN_MAGAZZINO = pIdenMagazzinoProv;
+                    exception when NO_DATA_FOUND then
+                    	vDisponibilita := 0;
+                    	vOut := RADSQL.CC_INSERISCI_FARMACO(pIdenFarmaco, pIdenMagazzinoProv);
+                    end;
+
+                    ? := vDisponibilita;
+                end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="GET_GIACENZA_MIN">
+            <sql>
+                <![CDATA[
+                declare
+                    pIdenFarmaco 		pls_integer 	:= ?;
+                    pIdenMagazzinoDest 	pls_integer 	:= ?;
+                    vGiacenzaMin 		pls_integer;
+                    vOut      			varchar2(20);
+                begin
+                    -- load giacenza minima magazzino di destinazione
+                   	begin
+                   		--RADSQL.GEST_LOGS.ERROR('[DECLARE]','[GET_GIACENZA_MIN] select GIACENZA_MIN from CC_FARMACI_DISPONIBILITA where IDEN_FARMACO = '||pIdenFarmaco||' and IDEN_MAGAZZINO = '||pIdenMagazzinoDest||';');
+                        select GIACENZA_MIN into vGiacenzaMin
+                        from CC_FARMACI_DISPONIBILITA 
+                        where IDEN_FARMACO = pIdenFarmaco and IDEN_MAGAZZINO = pIdenMagazzinoDest;
+                    exception when NO_DATA_FOUND then
+                        vGiacenzaMin := 10;
+                        vOut := RADSQL.CC_INSERISCI_FARMACO(pIdenFarmaco, pIdenMagazzinoDest);
+                    end;
+
+                    ? := vGiacenzaMin;
+                end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="GET_OLD_DISP_GIAC">
+            <sql>
+                <![CDATA[
+                declare
+                    pIdenFarmaco 		pls_integer 	:= ?;
+                    pIdenMagazzinoDest 	pls_integer 	:= ?;
+                    vDisponibilita 		pls_integer;
+                    vGiacenzaMin 		pls_integer;
+                    vOut      			varchar2(20);
+                begin
+                   	begin
+                   	    --RADSQL.GEST_LOGS.ERROR('[DECLARE]','[GET_OLD_DISP_GIAC] select DISPONIBILITA, GIACENZA_MIN from CC_FARMACI_DISPONIBILITA where IDEN_FARMACO = '||pIdenFarmaco||' and IDEN_MAGAZZINO = '||pIdenMagazzinoDest||';');
+                        select DISPONIBILITA, GIACENZA_MIN into vDisponibilita, vGiacenzaMin
+                        from CC_FARMACI_DISPONIBILITA
+                        where IDEN_FARMACO = pIdenFarmaco and IDEN_MAGAZZINO = pIdenMagazzinoDest;
+                    exception when NO_DATA_FOUND  then
+                    	vDisponibilita 	:= 0;
+                        vGiacenzaMin 	:= 10;
+                        vOut := RADSQL.CC_INSERISCI_FARMACO(pIdenFarmaco, pIdenMagazzinoDest);
+                    end;
+
+                    ? := vDisponibilita;
+                    ? := vGiacenzaMin;
+                end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="CONVERSIONE_IN_UNITA">
+            <sql>
+                <![CDATA[
+                declare
+                    pIdenFarmaco 	pls_integer := ?;
+                    vUnita 			pls_integer;
+                begin
+                   	begin
+                   	    --RADSQL.GEST_LOGS.ERROR('[DECLARE]', '[CONVERSIONE_IN_UNITA] select aucg.UNITA from cc_farmaci CCF, farmadati.archivio_unita_capacita_gramm AUCG where ccf.IDEN = '||pIdenFarmaco||' and ccf.COD_MINSAN10 = aucg.CODICE_PRODOTTO;');
+                        select aucg.UNITA into vUnita
+                        from cc_farmaci CCF, farmadati.archivio_unita_capacita_gramm AUCG
+                        where ccf.IDEN = pIdenFarmaco and ccf.COD_MINSAN10 = aucg.CODICE_PRODOTTO;
+                    exception when NO_DATA_FOUND then
+                    	vUnita := 0;
+                    	RADSQL.GEST_LOGS.ERROR('[DECLARE]', '[CONVERSIONE_IN_UNITA] EXCEPTION: '||SQLERRM);
+                    end;
+
+                    ? := vUnita;
+                end;
+			]]>
+            </sql>
+        </statement>
+        <statement name ="SCARICO_FARM_SOMMINISTRAZIONE">
+            <sql>
+                declare
+                    pcodicemagazzino 		varchar2(4000) 	:= to_char(?);
+                    PIDENSOMMINISTRAZIONI 	varchar2(4000) 	:= to_char(?);
+                    PDATAORA 				varchar2(4000) 	:= to_char(?);
+                    pidenper 				pls_integer 	:= to_number(?);
+
+                    VIDENS ARRAY_VALUE := RADSQL.SPLIT2ARRAY(PIDENSOMMINISTRAZIONI,'|');
+                    IDX PLS_INTEGER;
+                    vDosi 			pls_integer;
+                    viden_magazzino pls_integer;
+
+                    vOut 			varchar2(4000);
+                    vMessage 		varchar2(4000);
+                    vParams 		varchar2(4000);
+
+                    vOutSave 		varchar2(4000) 	:= '';
+                    vMessageSave 	varchar2(4000) 	:= '';
+                    counter 		integer 		:= 0;
+
+                begin
+
+                    select iden into viden_magazzino from cc_farmaci_magazzini where cod_dec = pcodicemagazzino and attivo='S';
+
+                    for IDX in 1..VIDENS.last
+                    LOOP
+
+                        for curfarma in (select iden_farmaco  from CC_TERAPIE_FARMACI_COLLEGATI FC join TAB_CODIFICHE TC on TC.IDEN = FC.UNITA_DI_MISURA where IDEN_DETTAGLIO = VIDENS(IDX))
+                        loop
+                            begin
+                                radsql.CONVERTDOSIUNIT(VIDENS(IDX),vDosi);
+                                exception when NO_DATA_FOUND then
+                                vDosi := 0;
+                                RADSQL.GEST_LOGS.ERROR('[DECLARE]','[SCARICO_FARM_SOMMINISTRAZIONE] EXCEPTION: '||SQLERRM);
+                            end;
+                            radsql.CONTROLLOGIACENZAFARM(curfarma.iden_farmaco, viden_magazzino, vDosi, vOut, vMessage);
+                                
+                            if counter = 0 then
+                                    vOutSave  		:= vOut;
+                                    vMessageSave 	:= vMessage;
+                                    vParams  		:= curfarma.iden_farmaco ||','|| viden_magazzino ||','|| '0' ||','||','|| PDATAORA ||','|| pidenper ||','|| vDosi ||','|| VIDENS(IDX);
+                            else
+                                    vOutSave  		:= vOutSave ||'|'|| vOut;
+                                    vMessageSave 	:= vMessageSave ||'|'||  vMessage;
+                                    vParams  		:= vParams ||'|'|| curfarma.iden_farmaco ||','|| viden_magazzino ||','|| '0' ||','||','|| PDATAORA ||','|| pidenper ||','|| vDosi ||','|| VIDENS(IDX);
+                            end if;
+                                                       
+                            counter := counter + 1;
+                            if vOut = 'OK' then
+                                RADSQL.SCARICO_FARMACI(curfarma.iden_farmaco, viden_magazzino, '0', '', PDATAORA, pidenper, vDosi, VIDENS(IDX));
+                            end if;
+                        end loop;
+
+                    end loop;
+                    ? := vOutSave;
+                    ? := vMessageSave;
+                    ? := vParams;
+                end;
+            </sql>
+        </statement>
+        <statement name ="SCARICOFARM">
+            <sql>
+                begin
+                    radsql.SCARICO_FARMACI(to_number(?), to_number(?), to_number(?) , ?, to_char(?), ?, ?, ?);
+                end;
+            </sql>
+        </statement>
+        <statement name="DETTAGLI_SOMMINISTRAZIONE">
+            <sql>
+                <![CDATA[
+                declare
+                
+                    pIdenDettaglio 		pls_integer := ?;
+                    
+                    vIdenFarmaco		pls_integer;
+                    vFarmaco			varchar2(4000);
+                    vIdenMagazzino 		pls_integer;
+					vCodDec				varchar2(20);
+					vCodCdc				varchar2(20);
+
+                begin
+                    -- recupero informazioni farmaco
+                    begin
+                        --RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_SOMMINISTRAZIONE][FARMACO] select ccf.iden, ccf.describe from cc_terapie_dettagli CCTD join cc_terapie_farmaci_collegati CCTFC on cctfc.IDEN_DETTAGLIO = cctd.IDEN join cc_farmaci CCF on ccf.IDEN = cctfc.IDEN_FARMACO where cctd.IDEN = '||pIdenDettaglio||';');
+	                	select ccf.iden, ccf.describe into vIdenFarmaco, vFarmaco
+						from cc_terapie_dettagli CCTD
+						join cc_terapie_farmaci_collegati CCTFC on cctfc.IDEN_DETTAGLIO = cctd.IDEN
+						join cc_farmaci CCF on ccf.IDEN = cctfc.IDEN_FARMACO
+						where cctd.IDEN = pIdenDettaglio;
+							
+						exception when NO_DATA_FOUND then
+						vIdenFarmaco 	:= 0;
+						vFarmaco		:= '';
+						RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_SOMMINISTRAZIONE][FARMACO] EXCEPTION: '||SQLERRM);
+					end;
+						
+					-- recupero informazioni magazzino
+					begin
+						--RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_SOMMINISTRAZIONE][MAGAZZINO] select ccfm.iden, ccfm.cod_dec, ccfm.cod_cdc from cc_terapie_dettagli CCTD join cc_terapie_ricovero CCTR on cctd.IDEN_TERAPIA = cctr.IDEN join nosologici_paziente NP on cctr.IDEN_VISITA = np.IDEN join cc_farmaci_magazzini CCFM on np.COD_CDC = ccfm.COD_CDC where cctd.IDEN = '||pIdenDettaglio||';');
+						select ccfm.iden, ccfm.cod_dec, ccfm.cod_cdc into vIdenMagazzino, vCodDec, vCodCdc
+						from cc_terapie_dettagli CCTD
+						join cc_terapie_ricovero CCTR on cctd.IDEN_TERAPIA = cctr.IDEN
+						join nosologici_paziente NP on cctr.IDEN_VISITA = np.IDEN
+						join cc_farmaci_magazzini CCFM on np.COD_CDC = ccfm.COD_CDC
+						where cctd.IDEN = pIdenDettaglio;
+							
+						exception when NO_DATA_FOUND then
+						vIdenMagazzino 	:= 0;
+						vCodDec			:= '';
+						vCodCdc			:= '';
+						RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_SOMMINISTRAZIONE][MAGAZZINO] EXCEPTION: '||SQLERRM);
+					end;
+
+                    ? := vIdenFarmaco;
+                    ? := vFarmaco;
+                    ? := vIdenMagazzino;
+                    ? := vCodDec;
+                    ? := vCodCdc;
+                end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="DETTAGLI_MOVIMENTO">
+            <sql>
+                <![CDATA[
+                declare
+                
+                    pIdenMovimento 		pls_integer := ?;
+                    vDataOra			varchar2(10);
+                    vTipoMovimento		varchar2(4000);
+                    vUnita				varchar2(4000);
+                    vLotto				varchar2(4000);
+                    vUtente	 			pls_integer;
+                    vDescr				varchar2(60);
+                    vIdenMagazzino	 	pls_integer;
+                    vCodDec				varchar2(20);
+                    vDescrizione		varchar2(50);
+                    vIdenFarmaco		pls_integer;
+                    vDescribe			varchar2(200);
+                    
+                begin
+                	-- recupero dettagli del movimento
+                    begin
+                        select to_char(DATA_ORA, 'dd/mm/yyyy'), TIPO_MOVIMENTO, UNITA, LOTTO, UTENTE, IDEN_MAGAZZINO, IDEN_FARMACO
+                        into vDataOra, vTipoMovimento, vUnita, vLotto, vUtente, vIdenMagazzino, vIdenFarmaco
+                        from CC_FARMACI_MOVIMENTI 
+                        where IDEN = pIdenMovimento;
+                    
+                    	-- recupero dettagli dell'utente
+                        begin
+                    		select DESCR into vDescr
+                    		from imagoweb.TAB_PER
+                    		where IDEN = vUtente;
+                    		
+                    		exception when NO_DATA_FOUND then
+                    		vDescr := '';
+                    		RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_MOVIMENTO][imagoweb.TAB_PER] EXCEPTION: '||SQLERRM);
+                    	end;
+                    	
+                    	-- recupero dettagli del magazzino
+                        begin
+                    		select COD_DEC, DESCRIZIONE into vCodDec, vDescrizione
+                    		from CC_FARMACI_MAGAZZINI
+                    		where IDEN = vIdenMagazzino;
+                    		
+                    		exception when NO_DATA_FOUND then
+                    		vCodDec 		:= '';
+                    	 	vDescrizione 	:= '';
+                    	 	RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_MOVIMENTO][CC_FARMACI_MAGAZZINI] EXCEPTION: '||SQLERRM);
+                    	end;
+                    	
+                    	-- recupero dettagli del farmaco
+                    	begin
+                    		select DESCRIBE into vDescribe
+                    		from CC_FARMACI
+                    		where IDEN = vIdenFarmaco;
+                    		
+                    		exception when NO_DATA_FOUND then
+                    	 	vDescribe := '';
+                    	 	RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_MOVIMENTO][CC_FARMACI] EXCEPTION: '||SQLERRM);
+                    	end;
+                    	
+                    exception when NO_DATA_FOUND then
+                    	vDataOra		:= '';
+	                    vTipoMovimento	:= '';
+	                    vUnita			:= '';
+	                    vLotto			:= '';
+	                    vUtente 		:= 0;
+	                    vIdenMagazzino 	:= 0;
+	                    vIdenFarmaco	:= 0;
+                    	RADSQL.GEST_LOGS.ERROR('[DECLARE]','[DETTAGLI_MOVIMENTO][CC_FARMACI_MOVIMENTI] EXCEPTION: '||SQLERRM);
+                    end;
+
+                    ? := vDataOra;
+                    ? := vTipoMovimento;
+                    ? := vUnita;
+                    ? := vLotto;
+                    ? := vDescr;
+                    ? := vCodDec;
+                    ? := vDescrizione; 
+                    ? := vDescribe;
+                end;
+			]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

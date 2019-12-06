@@ -1,0 +1,10 @@
+
+body{width:560px; }
+#lblAltezzaCentile,#lblPesoCentile,#lblCirconferenza_CranicaCentile {
+	width:200px;
+	font-style: italic;
+	text-align: left;
+}
+
+.tdText.small {width: 85px;}
+.tdText.small input {width: 80px;}

@@ -1,0 +1,9 @@
+<INCLUDE>
+	<JS path="js/TimePicker/jquery.ptTimeSelect.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/ADT/AccRicovero/AccRicoveroAccessiDH.js"/>
+    <JS path="js/ADT/RiepilogoAccessiDH/RiepilogoAccessiDH.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+</INCLUDE>

@@ -1,0 +1,144 @@
+/*
+<!-- ********************************* -->
+<!-- ****** Icona Gericos ************ -->
+<!-- ********************************* -->
+*/
+.classReqType {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_gericos.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqType A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqType A:hover {
+	color:red;
+	display:block;	
+}
+
+/*
+<!-- ************************************************** -->
+<!-- ****** Icona Gericos per prenotazioni ************ -->
+<!-- ************************************************** -->
+*/
+.classReqTypeBooked {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_gericos_booked.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqTypeBooked A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqTypeBooked A:hover {
+	color:red;
+	display:block;	
+}
+
+/*
+<!-- ************************************************** -->
+<!-- ****** Icona Polaris per prenotazioni ************ -->
+<!-- ************************************************** -->
+*/
+.classReqTypeBookedByPolaris {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_polaris_booked.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classReqTypeBookedByPolaris A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classReqTypeBookedByPolaris A:hover {
+	color:red;
+	display:block;	
+}
+
+/*
+<!-- *************************************** -->
+<!-- ****** Icona Progetto sole ************ -->
+<!-- *************************************** -->
+*/
+
+.classProgettoSole {
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ico_sole.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classProgettoSole A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classProgettoSole A:hover {
+	color:red;
+	display:block;	
+}
+/*
+<!-- ********************************* -->
+<!-- ****** Eco Ostetrica ************ -->
+<!-- ********************************* -->
+*/
+.classEcoOstInfo{
+	width:25px;
+	height:25px;
+	background-image:url(../../../imagexPix/button/icon/ciuccio.gif);
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color:#FFFFFF;
+	text-align: center;
+	padding-top:3px;
+}
+
+.classEcoOstInfo A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: FFFFFF;
+	display:block;
+}
+
+.classEcoOstInfo A:hover{
+	color:red;
+	display:block;
+}

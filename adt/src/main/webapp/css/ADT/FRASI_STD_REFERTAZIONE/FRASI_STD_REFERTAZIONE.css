@@ -1,0 +1,19 @@
+#radCodice{
+	margin-left: 20px;
+}
+
+#txtCodDescr, #txtGruppo {
+	width:150px;
+}
+
+#FRASI_STD_REFERTAZIONE td.tdRadio div {
+	float:right;
+}
+
+body {
+	width:70%;
+	margin:auto;
+}
+div.clsWk {
+    height:500px !important;
+}

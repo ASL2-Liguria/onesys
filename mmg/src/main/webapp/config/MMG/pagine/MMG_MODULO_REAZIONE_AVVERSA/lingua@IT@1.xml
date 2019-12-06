@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>SCHEDA UNICA DI SEGNALAZIONE DI SOSPETTA REAZIONE AVVERSA (ADR)</lblTitolo>
+        <tabParte_I>Informazioni sulla reazione</tabParte_I>
+        <tabParte_II>Informazioni sul farmaco</tabParte_II>
+        <tabParte_III>Informazioni sul segnalatore</tabParte_III>
+        
+        <fldI>Informazioni sulla reazione</fldI>
+        <fldII>Informazioni sul farmaco</fldII>
+        <fldIII>Informazioni sul farmaco</fldIII>
+        <fldIV>Informazioni sul farmaco</fldIV>
+        <fldV>Farmaco/i concomitante/i, dosaggio, via di somministrazione, durata del trattamento</fldV>
+        <fldVI>Uso concomitante di altri prodotti a base di piante officinali, omeopatici, integratori alimentari, etc</fldVI>
+        <fldVII>Condizioni concomitanti predisponenti</fldVII>
+        <fldVIII>Informazioni sul segnalatore</fldVIII>
+        
+        <lblAffCardio>A) Affezioni cardiovascolari</lblAffCardio>
+        <lblAppNotturne>Sindrome delle apnee notturne</lblAppNotturne>
+        <lblDataInsorgenza>Data insorgenza reazione</lblDataInsorgenza>
+        <lbltxtOrigineEtnica>Origine etnica</lbltxtOrigineEtnica>
+        <lbltxtCodSegnalazione>Codice segnalazione</lbltxtCodSegnalazione>
+        <lblDescrReazione>Descrizione della reazione ed eventuale diagnosi</lblDescrReazione>
+        <lblGravitaReazione>Gravità della reazione</lblGravitaReazione>
+        <lblEsami>Eventuali esami di laboratorio rilevanti per ADR</lblEsami>
+        <lblEsito>Esito</lblEsito>
+        <lblDataRisoluzione>Data risoluzione completa</lblDataRisoluzione>
+        <lblDataDecesso>Data decesso</lblDataDecesso>
+        <lblAzioni>Azioni intraprese</lblAzioni>
+        
+        <lbltxtFarmaco1>FARMACO</lbltxtFarmaco1>
+        <lbltxtLotto1>Lotto</lbltxtLotto1>
+        <lbltxtDosaggio1>Dosaggio/die</lbltxtDosaggio1>
+        <lbltxtSomministrazione1>Via di somministrazione</lbltxtSomministrazione1>
+        <lblDataInizio1>Durata dell'uso: dal</lblDataInizio1>
+        <lblDataFine1>al</lblDataFine1>
+        <lblSospesione1>Il farmaco è stato sospeso?</lblSospesione1>
+        <lblReazione1>La reazione è migliorata dopo la sospensione?</lblReazione1>
+        <lblRisomministrazione1>Il framaco è stato ripreso?</lblRisomministrazione1>
+        <lblSintomi1>Sono ricomparsi i sintomi dopo la risomministrazione?</lblSintomi1>
+        <lbltxtMotivo1>Indicazioni o altro motivo per cui il farmaco è stato usato</lbltxtMotivo1>
+        
+        <lbltxtFarmaco2>FARMACO</lbltxtFarmaco2>
+        <lbltxtLotto2>Lotto</lbltxtLotto2>
+        <lbltxtDosaggio2>Dosaggio/die</lbltxtDosaggio2>
+        <lbltxtSomministrazione2>Via di somministrazione</lbltxtSomministrazione2>
+        <lblDataInizio2>Durata dell'uso: dal</lblDataInizio2>
+        <lblDataFine2>al</lblDataFine2>
+        <lblSospesione2>Il farmaco è stato sospeso?</lblSospesione2>
+        <lblReazione2>La reazione è migliorata dopo la sospensione?</lblReazione2>
+        <lblRisomministrazione2>Il framaco è stato ripreso?</lblRisomministrazione2>
+        <lblSintomi2>Sono ricomparsi i sintomi dopo la risomministrazione?</lblSintomi2>
+        <lbltxtMotivo2>Indicazioni o altro motivo per cui il farmaco è stato usato</lbltxtMotivo2>
+        
+        <lbltxtFarmaco3>FARMACO</lbltxtFarmaco3>
+        <lbltxtLotto3>Lotto</lbltxtLotto3>
+        <lbltxtDosaggio3>Dosaggio/die</lbltxtDosaggio3>
+        <lbltxtSomministrazione3>Via di somministrazione</lbltxtSomministrazione3>
+        <lblDataInizio3>Durata dell'uso: dal</lblDataInizio3>
+        <lblDataFine3>al</lblDataFine3>
+        <lblSospesione3>Il farmaco è stato sospeso?</lblSospesione3>
+        <lblReazione3>La reazione è migliorata dopo la sospensione?</lblReazione3>
+        <lblRisomministrazione3>Il framaco è stato ripreso?</lblRisomministrazione3>
+        <lblSintomi3>Sono ricomparsi i sintomi dopo la risomministrazione?</lblSintomi3>
+        <lbltxtMotivo3>Indicazioni o altro motivo per cui il farmaco è stato usato</lbltxtMotivo3>
+        
+        <lblQualifSegnalatore>Qualifica del segnalatore</lblQualifSegnalatore>
+        <lblDataCompilazione>Data di compilazione</lblDataCompilazione>
+        <lbltxtCodiceASL>Codice ASL</lbltxtCodiceASL>
+        <lbltxtNome>Nome</lbltxtNome>
+        <lbltxtCognome>Cognome</lbltxtCognome>
+        <lbltxtIndirizzo>Indirizzo</lbltxtIndirizzo>
+        <lbltxtTelefono>Telefono</lbltxtTelefono>
+        <lbltxtFax>Fax</lbltxtFax>
+        <lbltxtEMail>E-mail</lbltxtEMail>
+        
+        
+        <lblNota_I>se il farmaco sospetto è un vaccino riportare l'anamnesi ed eventuali vaccini somministrati nelle 4 settimane precedenti alla somministrazione</lblNota_I>
+        <lblNota_II>nome della specialità medicinale. Nel caso di vaccini indicare anche il numero di dosi e/o di richiamo e l'ora della somministrazione</lblNota_II>
+        <lblNota_III>riportare risultati e date in cui gli accertamenti sono stati eseguiti</lblNota_III>
+        <lblNota_IV>Ad esempio glaucoma, maculopatie, alterazioni del campo visivo, etc.</lblNota_IV>
+        <lblNota_V>Indicare la data dell'ultima crisi e l'eventuale terapia in atto.</lblNota_V>
+        <lblNota_VI>Ad esempio antidepressivi, ansiolitici, antipsicotici, etc.</lblNota_VI>
+        <lblNota_VII>Ad esempio protesi acustiche, protesi valvolari cardiache, protesi vascolari, etc.</lblNota_VII>
+		
+		<butStampa>Salva e Stampa</butStampa>
+		<butStampaOnly>Stampa</butStampaOnly>
+		
+    </ROW>
+</ROWSET>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl"?>
+<PAGINA>
+    <CAMPI>
+        <CAMPO KEY_CAMPO="lblSceltaAnestesiologicoNYHA" TYPE="label" TEXT="Classe NYHA"
+            CLASS="subTitleLabel"/>
+        <CAMPO KEY_CAMPO="radSceltaAnestesiologicoNYHA" TYPE="input" TYPEINPUT="radio">
+            <OPTIONVAL VALUE="0" TEXT="0"/>
+            <OPTIONVAL VALUE="1" TEXT="1"/>
+            <OPTIONVAL VALUE="2" TEXT="2"/>
+            <OPTIONVAL VALUE="3" TEXT="3"/>
+            <OPTIONVAL VALUE="4" TEXT="4"/>
+        </CAMPO>
+    </CAMPI>
+</PAGINA>

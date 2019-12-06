@@ -1,0 +1,211 @@
+<root>
+	<statements_list>
+		<statement name="getMyMessages">
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+					select * from VIEW_NOTIFICHE_SISTEMA where COD_DEC_TARGET = ? and letto ='N' order by DATA_INSERIMENTO desc
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="getMyMessagesByIdRemoto">
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+					select * from VIEW_NOTIFICHE_SISTEMA where COD_DEC_TARGET = ? and XML_ID_REMOTO = ? order by DATA_INSERIMENTO desc
+			]]>
+			</sql>
+		</statement>		
+		
+		<statement name="getAllMessages">
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+				SELECT NS.IDEN,
+				  NS.messaggio,
+				  NS.DATA_INSERIMENTO,
+				  TP.descr creatore,
+				  NS.COD_DEC_CREATO_DA ,
+				  NS.OGGETTO,
+				  TO_CHAR(NS.DATA_INSERIMENTO, 'dd/mm/yyyy HH24:MI') DATA_INSERIMENTO_ITA,
+				  NS.PROPRIETA
+				FROM NOTIFICHE_SISTEMA NS,
+				  tab_per TP
+				WHERE TP.COD_DEC (+) = NS.COD_DEC_CREATO_DA and NS.deleted ='N'
+				order by DATA_INSERIMENTO desc
+			]]>
+			</sql>
+		</statement>		
+			
+		
+		<statement name="countMyMessages">
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+					select count(IDEN) nmsg from VIEW_NOTIFICHE_SISTEMA where COD_DEC_TARGET = ? and letto ='N'
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="updStatoNotifica">
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+				declare					
+					pIden number := ?;
+					pCodDec varchar2(30) := ?;
+				begin
+					update 
+						NOTIFICHE_SISTEMA_DETT
+					set
+						letto = 'S',
+						DATA_LETTURA = sysdate
+					where
+						IDEN_NOTIFICA=pIden
+						and COD_DEC_PERSONALE = pCodDec;	
+				end;			
+			]]>
+			</sql>
+		</statement>						
+		
+		
+		<statement name="creaNotificaPerTutti">				
+			<sql>
+			<![CDATA[
+				declare
+					vOggetto NOTIFICHE_SISTEMA.OGGETTO%type := ?;
+					pLob NOTIFICHE_SISTEMA.MESSAGGIO%type := ?;
+					vCodDecUtente NOTIFICHE_SISTEMA.COD_DEC_CREATO_DA%type := ?;
+					vIdenInserted number;
+				begin
+					Insert into NOTIFICHE_SISTEMA (COD_DEC_CREATO_DA,OGGETTO, MESSAGGIO) values  (vCodDecUtente,vOggetto,pLob);
+ 			 		select max(iden) into vIdenInserted from NOTIFICHE_SISTEMA where COD_DEC_CREATO_DA = vCodDecUtente;	
+ 					Insert into NOTIFICHE_SISTEMA_DETT (IDEN_NOTIFICA, COD_DEC_PERSONALE) (select vIdenInserted, cod_dec from tab_per);				
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="creaNotificaPerCdc">				
+			<sql>
+			<![CDATA[
+				declare
+					vOggetto NOTIFICHE_SISTEMA.OGGETTO%type := ?;
+					pLob NOTIFICHE_SISTEMA.MESSAGGIO%type := ?;
+					vCodDecUtente NOTIFICHE_SISTEMA.COD_DEC_CREATO_DA%type := ?;
+					vCdc varchar2(4000) := ?;
+					vProprieta varchar2(4000) := ?;
+					vIdenInserted number;
+				begin
+					Insert into NOTIFICHE_SISTEMA (COD_DEC_CREATO_DA,OGGETTO, MESSAGGIO, PROPRIETA) values  (vCodDecUtente,vOggetto,pLob, vProprieta);
+ 			 		select max(iden) into vIdenInserted from NOTIFICHE_SISTEMA where COD_DEC_CREATO_DA = vCodDecUtente;	
+ 					Insert into NOTIFICHE_SISTEMA_DETT (IDEN_NOTIFICA, COD_DEC_PERSONALE) (select vIdenInserted, cod_dec from tab_per  where iden in (select distinct iden_per from imagoweb.web where webuser in (select distinct webuser from imagoweb.web_cdc where REPARTO in (select column_value from table (split(vCdc))))));				
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+
+		<statement name="aggiornaNotifica">				
+			<sql>
+			<![CDATA[
+				declare
+					vOggetto NOTIFICHE_SISTEMA.OGGETTO%type := ?;
+					pLob NOTIFICHE_SISTEMA.MESSAGGIO%type := ?;
+					vCodDecUtente NOTIFICHE_SISTEMA.COD_DEC_CREATO_DA%type := ?;
+					vIden number := ?;
+				begin
+					update NOTIFICHE_SISTEMA set oggetto = vOggetto, messaggio = pLob, COD_DEC_CREATO_DA = vCodDecUtente where iden = vIden;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+
+		<statement name="cancellaNotifica">				
+			<sql>
+			<![CDATA[
+				declare
+					vIden number := ?;
+				begin
+					update NOTIFICHE_SISTEMA set deleted ='S' where iden = vIden;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="whoReadMessage">				
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+				select  * from VIEW_NOTIFICHE_SISTEMA where iden = to_number(?) order by destinatario
+			]]>
+			</sql>
+		</statement>			
+					
+		<statement name="getAllCdc">				
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+				select cod_cdc, descr from centri_di_costo where attivo ='S' order by descr
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="isAnagMedIniziativa">
+			<sql>
+			<![CDATA[
+				select PCK_NOTIFICHE.isPercorsoIniziativa(to_number(?)) esito from dual
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>					
+
+		<statement name="MMG_creaNotifica">				
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>		
+			<sql>
+			<![CDATA[
+				declare
+					PIDENANAG NUMBER:= ?;
+					PIDENMED NUMBER:= ?;
+					PUTENTE  NUMBER:= ?;
+					PIDENACCESSO NUMBER:=null; 
+					PIDENPROBLEMA NUMBER:=null; 
+					P_DATA varchar2(8) := ?;
+					P_NOTEDIARIO clob := ?;
+					PIDENSCHEDA number :=null; 
+					P_TIPO varchar2(4000) := 'MEDICINA_DI_INIZIATIVA';					
+				begin
+					MMG.SP_INS_NOTA_DIARIO(PIDENANAG,PIDENMED,PUTENTE,PIDENACCESSO,PIDENPROBLEMA,P_DATA,P_NOTEDIARIO,PIDENSCHEDA,P_TIPO,?);
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="getAllUsers_MMG">				
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>			
+			<sql>
+			<![CDATA[
+				select 'AMB@'|| w.webuser userkey, tp.descr, tp.iden from imagoweb.web w , radsql.tab_per tp where w.iden_per = tp.iden order by descr
+			]]>
+			</sql>
+		</statement>			
+			
+		<statement name="getAllUsers_AMB">				
+			<schema>RADSQL</schema>		
+			<sql>
+			<![CDATA[
+				select 'AMB@'|| w.webuser userkey, tp.descr, tp.iden from imagoweb.web w , radsql.tab_per tp where w.iden_per = tp.iden order by descr
+			]]>
+			</sql>
+		</statement>				
+		
+			
+	</statements_list>
+</root>

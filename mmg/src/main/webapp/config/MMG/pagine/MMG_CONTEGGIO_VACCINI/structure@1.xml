@@ -1,0 +1,42 @@
+<PAGINA key_id="MMG_CONTEGGIO_VACCINI">
+	<HEADER_PAGE key_id="MMG_CONTEGGIO_VACCINI"
+		valore="DEFAULT_MMG,SCHEDA,MMG_CONTEGGIO_VACCINI#DEFAULT_MMG,MMG_CONTEGGIO_VACCINI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_CONTEGGIO_VACCINI#MMG_DATI#MMG_CONTEGGIO_VACCINI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ConteggioVaccini#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabConteggioVaccini" valore="tabConteggioVaccini"
+				evento="START">
+				<FIELDSET_TABLE key_id="fld0" valore="fld0" evento="START">
+					<TR_TD_LABEL_TEXT key_id="VacciniConsegnati"
+						valore="lblVacciniConsegnati##txtVacciniConsegnati##classe#VACCINI_CONSEGNATI"
+						evento="START_END">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="NrLotto"
+						valore="lblNrLotto##txtNrLotto##classe#NUMERO_LOTTO" evento="START_END">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LINK key_id="VacciniLink" valore="lblVacciniLink#lblVacciniLink"
+						evento="START_END">
+					</TR_TD_LINK>
+					<TR_TD_LABEL_DATA key_id="DataScadenza"
+						valore="lblDataScadenza##DataScadenza#DataScadenza#startWithToday:true,format: 'd/m/Y',direction:true#disabled:false##DATA_SCADENZA"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_RADIO key_id="TipoVaccino"
+						valore="lblTipoVaccino##TipoVaccino#radTipoVaccino#{width:350}#N#TIPO_VACCINO_ANTINFLUENZALE"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fld1" valore="fld1" evento="START">
+					<DIV.WORKLIST key_id="wkConteggi" valore="wkConteggi"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

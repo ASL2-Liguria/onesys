@@ -1,0 +1,21 @@
+  .titolo {
+    padding: 5px 10px;
+    color: white;
+    border-radius: 20px;
+    font: bold 12px "Helvetica Neue", Sans-Serif;
+    text-transform: uppercase;
+    box-shadow: 0 0 7px black;
+    background: #5e87b0;
+    border: 1px solid white;	
+	width:50px;
+  }
+ 
+.clsText
+{
+	    width: 100%;
+}
+
+#divIdoneo
+{
+    width: 100%;
+}

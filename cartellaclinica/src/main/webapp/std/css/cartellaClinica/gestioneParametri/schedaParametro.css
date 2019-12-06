@@ -1,0 +1,22 @@
+body { background:#b9e0ff; /*padding-right:'10px';*/ overflow: visible;}
+
+fieldset{
+	border:4px solid #FFF;
+	padding:5px;
+	}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+
+input {
+	text-align:center;
+}
+label#lblSeparatore {width: 100%;text-align:center;}		
+label#lblAllertaMax, label#lblAllertaMin  {color: orange;}		
+label#lblCriticoMax, label#lblCriticoMin  {color: red;}
+		

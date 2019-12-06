@@ -1,0 +1,63 @@
+<PAGINA key_id="ESAME_OBIETTIVO">
+    <HEADER_REFERTAZIONE key_id="ESAME_OBIETTIVO" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,ESAME_OBIETTIVO#DEFAULT,PS_ESAME_OBIETTIVO" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_ESAME_OBIETTIVO#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="EsameO" valore="ESAME_OBIETTIVO#EsameO#butSalva" evento="START">
+            <INPUT.HIDDEN key_id="hUrgenza" valore="hUrgenza###URGENZA" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hUrgenzaEsame" valore="hUrgenzaEsame###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hUrgenzaLista" valore="hUrgenzaLista###" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hTriageIntervista" valore="hTriageIntervista###TRIA_INTERVISTA" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hStatoListaAttesa" valore="hStatoListaAttesa" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hStatoContatto" valore="hStatoContatto" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hUteRiferimento" valore="hUteRiferimento" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hOreDiffChiusura" valore="hOreDiffChiusura" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hUtenteDimissione" valore="hUtenteDimissione" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hSesso" valore="hSesso" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hDataNascita" valore="hDataNascita" evento="START">
+            </INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hRegime" valore="hRegime" evento="START">
+            </INPUT.HIDDEN>
+
+            <ROW key_id="rowTemplate" valore="rowTemplate" evento="START">
+                <COLUMN_FREE key_id="colTemplate" valore="colTemplate" evento="START">
+                    <FIELD_HEADER_TABLE key_id="fldTemplate" valore="fldTemplate"	evento="START">
+                        <TR.INIT key_id="trTemplate1" valore="" evento="START">
+                            <TD_LABEL key_id="lblTemplate1" valore="lblTemplate1" evento="START">
+                            </TD_LABEL>
+                            <TD.INIT key_id="tdTemplate2" valore="1" evento="START">
+                                <TEMPLATE key_id="template" valore ="CODICE_COLORE/CodiceColore.ftl#CODICE_COLORE/CodiceColore.ftl" evento = "START">
+                                </TEMPLATE>
+                            </TD.INIT>
+                        </TR.INIT>
+                    </FIELD_HEADER_TABLE>
+                </COLUMN_FREE>
+            </ROW>
+            <ROW key_id="rowAllergie" valore="rowAllergie" evento="START">
+                <COLUMN_FREE key_id="colAllergie" valore="colAllergie" evento="START">
+                    <FIELD_HEADER_TABLE key_id="fldAllergie" valore="fldAllergie" evento="START">
+                        <TR_TD_TEXTAREA key_id="txtAllergie" valore="txtAllergie#txtAllergie#N#N#5#N" evento="START">
+                        </TR_TD_TEXTAREA>
+                    </FIELD_HEADER_TABLE>
+                </COLUMN_FREE>
+            </ROW>
+            <ROW key_id="rowEsameObiettivo" valore="rowEsameObiettivo" evento="START">
+                <COLUMN_FREE key_id="colEsameObiettivo" valore="colEsameObiettivo" evento="START">
+                    <FIELD_HEADER_TABLE key_id="fldEsameObiettivo" valore="fldEsameObiettivo" evento="START">
+                        <TR_TD_TEXTAREA key_id="txtEsameObiettivo" valore="txtEsameObiettivo#txtEsameObiettivo#N#N#15#N" evento="START">
+                        </TR_TD_TEXTAREA>
+                    </FIELD_HEADER_TABLE>
+                </COLUMN_FREE>
+            </ROW>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

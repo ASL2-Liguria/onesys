@@ -1,0 +1,23 @@
+.jqueryaccordion li{
+    border-bottom:1px solid #AAA;
+	padding:10px;
+}
+
+
+.jqueryaccordion a{
+    margin:5px 0px;
+    text-decoration:none;
+    color:#2f3040;
+    }	
+  
+.jqueryaccordion a.active {
+    border-right:1px solid #fff;
+    }
+.jqueryaccordion ul li i{
+	float: right;
+	}    
+	
+
+.jqueryaccordion ul{background-color: #efefef}
+.jqueryaccordion ul li ul {width: 80%;background-color: #D8D8D8}
+.jqueryaccordion ul li ul li ul{width: 60%;background-color:#C0C0C0 }

@@ -1,0 +1,29 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_CONSENSO_TRATTAMENTO_DATI'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+	
+		
+	<DATO key_id="radTipoDichiarante" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="RAD_TIPO_DICHIARANTE_CONSENSO" />
+	
+	<DATO key_id="radScelta1A" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radScelta1B" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="radScelta1C" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="radScelta2A1" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radScelta2A2" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radScelta2A3" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radScelta2A4" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radScelta2A5" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radScelta2B1" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="radScelta2B2" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+		
+	<DATO key_id="radTipoSostitutoDichiarante" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="RAD_TIPO_DICHIARAZIONE_SOSTITUTIVA" />
+			
+</DATI>

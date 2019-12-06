@@ -1,0 +1,29 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_MODULO_PATENTE'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+	
+	<DATO key_id="txtNomeCognome" configurazione_stato="begin :stato := 'E'; end;" db_valore="NOME_COGNOME" db_descrizione="NOME_COGNOME" configurazione_multi_data="" />
+	<DATO key_id="txtLuogoNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="COMUNE" db_descrizione="COMUNE" configurazione_multi_data="" />
+	<DATO key_id="txtDataNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="DATA_NASCITA" db_descrizione="DATA_NASCITA" configurazione_multi_data="" />
+	<DATO key_id="txtCodiceFiscale" configurazione_stato="begin :stato := 'E'; end;" db_valore="COD_FISC" db_descrizione="COD_FISC" configurazione_multi_data="" />
+	
+	<DATO key_id="radAffezioniCardioVascolari" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radApparatoRespiratorio" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radApneeNotturne" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radOssigenoTerapia" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radDiabete" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radInsulina" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radMalattieEndocrine" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radApparatoOsteoarticolare" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radMalattieSangue" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radInsufficienzaRenale" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radTrapiantoOrgano" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radApparatoVisivo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radApparatoUditivo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radMalattieSistemaNervoso" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radInfermitaPsichica" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="radInCuraPsichiatrica" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_PASSATO" />
+	<DATO key_id="radSostanzePsicoattive" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_PASSATO" />
+	<DATO key_id="radInCuraSERT" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_PASSATO" />
+	<DATO key_id="radProtesi" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+			
+</DATI>

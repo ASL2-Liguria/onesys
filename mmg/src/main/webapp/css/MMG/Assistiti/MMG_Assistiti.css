@@ -1,0 +1,5 @@
+body { width: 1024px;  }
+
+#butCerca, #butCercaRevocati { float: right; }
+
+#numero_assistiti { padding-left:15px; padding-top:2px; font-weight: bold; height: 20px; line-height: 20px;}

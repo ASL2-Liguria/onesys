@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>RILEVAZIONI</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<tabRilevazioni>Rilevazioni</tabRilevazioni>
+		<tabInserimento>Inserimento</tabInserimento>
+		<tabRiepilogo>Riepilogo</tabRiepilogo>
+		<tabRiepilogoBMI>Riepilogo Rilevamenti BMI</tabRiepilogoBMI>
+		<tabRiepilogoCardio>Riepilogo Rilevamenti Cuore</tabRiepilogoCardio>
+		<tabRiepilogoPressione>Riepilogo Rilevamenti Pressione</tabRiepilogoPressione>
+		
+		<fldData>Data</fldData>
+		<fldBMI>B.M.I. - Body Mass Index</fldBMI>
+		<fldCardio>Cuore</fldCardio>
+		<fldPressione>Pressione</fldPressione>
+		<fldWkBMI>Lista Rilevazioni BMI</fldWkBMI>
+		<fldWkCardio>Lista Rilevazioni Cardio</fldWkCardio>
+		<fldWkPressione>Lista Rilevazioni Cardio</fldWkPressione>
+		<fldTemperatura>Temperatura Corporea</fldTemperatura>
+		<fldAltro>Altro</fldAltro>
+		
+		<lblData>Data rilevazione</lblData>
+		<lblBMI>BMI</lblBMI>
+		<lblPeso>Peso (Kg)</lblPeso>
+		<lblAltezza>Altezza (cm)</lblAltezza>
+		<lblRitmo>Ritmo</lblRitmo>
+		<lblSimmetria>Simmetria</lblSimmetria>
+		<lblAmpiezza>Ampiezza</lblAmpiezza>
+		<lblFrequenza>Frequenza</lblFrequenza>
+		<lblMinima>Minima</lblMinima>
+		<lblMassima>Massima</lblMassima>
+		<lblTemperatura>Temperatura (°C)</lblTemperatura>
+		<lblCirconferenza>Circonferenza Addominale (cm)</lblCirconferenza>
+		<lblAttFisica>Attività Fisica</lblAttFisica>
+		<lblInr>INR</lblInr>
+		<lblTao>TAO</lblTao>
+		<lblGlicemia>Glicemia</lblGlicemia>
+		<lblSaturazione_Ossigeno>Saturazione Ossigeno</lblSaturazione_Ossigeno>
+		
+    </ROW>
+</ROWSET>

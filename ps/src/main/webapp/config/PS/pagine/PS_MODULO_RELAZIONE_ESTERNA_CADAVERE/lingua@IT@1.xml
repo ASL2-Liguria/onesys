@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+       <lblTitolo>RELAZIONE ESTERNA CADAVERE</lblTitolo>
+       <fldDati>Dati</fldDati>
+        <lblSituazioneClinica>Situazione clinica</lblSituazioneClinica>
+        <lblOraIspezione>Ora ispezione</lblOraIspezione>
+        <lblDataIspezione>Data ispezione</lblDataIspezione>
+        <lblOraGiuntoCadavere>Ora arrivo</lblOraGiuntoCadavere>
+        <lblSpecificare>Specificare</lblSpecificare>
+        <lblProvenienza>Provenienza</lblProvenienza>
+        <lblSpecificaProvenienza>Speificare</lblSpecificaProvenienza>
+       <butFirma>Firma</butFirma>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Moduli/MMG_Worklist_Accertamenti.js" />
+	<CSS path="css/MMG/Moduli/MMG_Worklist_Accertamenti.css" />
+</INCLUDE>

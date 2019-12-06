@@ -1,0 +1,44 @@
+<root>
+	<statements_list>
+		<statement name="setStatoDocumenti">
+			<sql>
+			<![CDATA[
+				declare
+					nIden varchar2(5000) := ?;
+				begin
+					update DOCUMENTI_ALLEGATI set DELETED='N' where IDEN in (select to_number(column_value) from table (split(nIden))) and DELETED = 'S';
+					commit;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+		<statement name="whale_setStatoDocumenti">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>		
+			<sql>
+			<![CDATA[
+				declare
+					nIden varchar2(5000) := ?;
+				begin
+					update DOCUMENTI_ALLEGATI set DELETED='N' where IDEN in (select to_number(column_value) from table (split(nIden))) and DELETED = 'S';
+					commit;
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="setStatoDocumentiByAnag">
+			<sql>
+			<![CDATA[
+				begin
+					update DOCUMENTI_ALLEGATI set DELETED='N' where IDEN_ANAG =  to_number(?) and webuser =? ;
+					commit;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+				
+	</statements_list>
+</root>

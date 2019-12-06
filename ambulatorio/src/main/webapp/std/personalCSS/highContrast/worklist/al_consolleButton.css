@@ -1,0 +1,36 @@
+.pulsante {
+	width:105px;
+	height:12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	float:right;
+}
+
+.pulsante A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: yellow;
+	display:block;
+}
+
+.pulsante A:hover {
+	background-image:url(../../../../imagexPix/bar/btYellow.jpg);
+	background-repeat:repeat-x;
+	color: #000099;
+}
+.pulsanteDis {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}

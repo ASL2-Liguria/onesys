@@ -1,0 +1,24 @@
+<PAGINA key_id="INS_OBI">
+    <HEADER_REFERTAZIONE key_id="INS_OBI" valore="DEFAULT,SCHEDA,INS_OBI#DEFAULT,SCELTA_OBI" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati##PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="Scelta_Obi" valore="SCELTA_OBI#Scelta_Obi#butSalva,butChiudi" evento="START">
+            <TABULAZIONE.CREA_TAB key_id="tabDati" valore="tabDati" evento="START">
+                <FIELDSET_TABLE key_id="fldInsObi" valore="fldInsObi" evento="START">
+                    <TR_TD_LABEL_DATA key_id="dataInsOBI" valore="lblDatInsObi##txtDataInsObi#dataInsOBI#startWithToday:true, readonly_element: false, format: 'd/m/Y',direction:false#disabled:false##DATA_INS_OBI" evento="START">
+                        <TD_LABEL_ORA key_id="txtOraInsOBI" valore="lblOraInsOBI##txtOraInsOBI##ORA_INS_OBI" evento="START">
+                        </TD_LABEL_ORA>
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_AUTOCOMPLETE key_id="DiagnosiObi" valore="lblDiagnosiObi#acDiagnosiOBI#DiagnosiObi#txtDiagnosiICD9OBI#OBI_DiagnosiICD9##3#tdICD9OBI" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <!--<TR_TD_LABEL_COMBO key_id="cmbAree" valore="lblAree##cmbAree#cmbAree#N##S#" evento="START">-->
+                    <!--</TR_TD_LABEL_COMBO>-->
+                    <TR_TD_LABEL_TEXTAREA key_id="taDiagnosiTestOBI" valore ="lblDiagnosiDescrittiva##taDiagnosiTestOBI###3" evento ="START">
+                    </TR_TD_LABEL_TEXTAREA>
+                    <TR_TD_LABEL_COMBO key_id="cmbUbicazione" valore="lblcmbUbicazione##cmbUbicazione#cmbUbicazione#N##S##" evento="START">
+                    </TR_TD_LABEL_COMBO>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

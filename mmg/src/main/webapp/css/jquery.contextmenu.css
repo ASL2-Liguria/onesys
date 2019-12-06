@@ -1,0 +1,17 @@
+div.contextMenu{display:none;left:0px;position:absolute;top:0;z-index:100;background-color:#FFF}
+div.contextMenu ul{border:1px solid #4d4d4d;list-style:none;margin:0;padding:0;width:200px}
+div.contextMenu ul p i {position:absolute;top:2px;right:1px;cursor:pointer;font-size:14px;color:#06F;}
+div.contextMenu ul li i {cursor:pointer;font-size:15px;color:#06F;float:right;height:24px;line-height:24px/*position:absolute;top:0px;right:1px;cursor:pointer;font-size:15px;color:#06F;*/}
+ul#contextMenu li{position:relative}
+ul#contextMenu li ul{display:none;left:149px;position:absolute;top:0;background-color:#FFF}
+ul#contextMenu li a{background:url(../img/menuDD/sf-menu.png) repeat-y left top #fff;cursor:pointer; border:0;color:#000;display:block;font-size:11px;padding:5px 5px 5px 30px;text-decoration:none}
+ul#contextMenu li a img{border:none;height:20px;left:3px;position:absolute;top:2px;width:20px}
+ul#contextMenu li span{float:right;font-size:8px;font-weight:700;height:24px;line-height:24px;margin-right:2px;}
+/*ul#contextMenu li a img.infoIcon{border:none;position:relative;bottom:3px;float:right;width:14px;height:14px;}  */
+ul#contextMenu li a i.icon-info-circled{bottom:3px;float:right; font-size: 15px;}
+ul#contextMenu li a.Disabled{opacity:0.4}
+ul#contextMenu li a:hover,ul#contextMenu a.Active{background:#4d4d4d;color:#fff}
+div#obscure{background:url(../img/obscure.png);display:none;height:100%;left:0;position:absolute;top:0;width:100%;z-index:99}
+p.SeparatorHead{border-top:0 !important;margin:0!important}
+p.Separator{margin-top:2px;padding:2px;border-top:1px solid #666;border-bottom:1px solid #666;font-size:10px;font-weight:bold;background-color:#CCC}
+p.SeparatorEmpty{margin:2px 0;padding:0px;border-top:1px solid #666;}

@@ -1,0 +1,29 @@
+body { width: 1024px; }
+
+.exchangeList div.buttons {
+	width: 100px;
+	height:200px;
+	text-align: center; 
+	margin-top: 20px; 
+	padding-top: 90px; 
+}
+
+.exchangeList div.buttons button { width: 50px; margin: 5px auto; display: block; }
+.listFrom, .listTo { height: 200px; }
+
+#fldProprietaFunzione { display: none; }
+
+.butAddOne { background:#9EDDB9; }
+.butRemOne{ background:#fdc4c4; }
+
+#txtMessaggio{ height:80px; border: 1px solid green; }
+#txtDurataMsg{ width:50px; }
+
+#fldFiltriMessaggio legend{
+	width: 100%;
+	text-align:center;
+	color:#c60000;
+	background: #ffffb7;
+	border: 1px solid;
+	padding: 5px;
+}

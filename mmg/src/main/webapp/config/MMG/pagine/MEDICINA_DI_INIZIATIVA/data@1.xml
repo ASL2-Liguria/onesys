@@ -1,0 +1,13 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_MEDICINA_DI_INIZIATIVA'; :where := null; :campo_xml := null; end;">
+
+	<DATO key_id="TipoMedicinaDiIniziativa" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="COD_MEDICINA_INIZIATIVA" db_descrizione="" configurazione_multi_data="CMB_TIPO_MEDICINA_INIZIATIVA" />
+
+	<DATO key_id="DataInizio" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_INIZIO" db_descrizione="" configurazione_multi_data="" />
+		
+	<DATO key_id="DataFine" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="DATA_FINE" db_descrizione="" configurazione_multi_data="" />
+
+</DATI>

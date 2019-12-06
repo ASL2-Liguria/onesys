@@ -1,0 +1,53 @@
+body{background:#b9e0ff;padding-right:10px;}
+
+fieldset{ margin:3px; border:4px solid #FFF; padding:5px; float:none; }
+fieldset legend{ font-weight:bold; margin-bottom:10px; }
+fieldset label{ font-size:12px; cursor:pointer; }
+
+
+div#divProfili{
+	
+	float:none;
+	position:relative;
+}
+
+div#body_omni{
+	
+
+	position:relative;
+	left:0px;
+	top:0px;
+	float:left;
+}
+
+div#oGroupOmni{
+	
+	width:30%;
+	position:relative;
+	/*left:20px;
+	top:20px;*/
+	float:left;
+}
+
+div#divFiltriMetodiche{	
+	
+	width:70%;
+	position:relative;
+	float:right;
+}
+
+div#divElencoEsami{	
+	
+	width:70%;
+	position:relative;
+	float:right;
+}
+
+div#divElencoEsamiScelti{
+	
+	width:70%;
+	position:relative;
+	float:right;
+}
+
+ul{ list-style:none; }

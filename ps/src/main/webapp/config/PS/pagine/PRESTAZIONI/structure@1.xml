@@ -1,0 +1,18 @@
+<PAGINA key_id="PRESTAZIONI">
+    <HEADER_REFERTAZIONE key_id="PRESTAZIONI" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,PRESTAZIONI#DEFAULT,PS_PRESTAZIONI" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="dati" valore="PRESTAZIONI#lblTitolo#" evento="START">
+
+            	 <FIELDSET key_id="fldPrestazioniPS" valore="fldPrestazioniPS" evento="START">
+                	<DIV key_id="wkPrestazioniPS" valore="wkPrestazioniPS" evento="START">
+					</DIV>
+                </FIELDSET>
+          <!--  <FIELDSET key_id="fldPrestazioni" valore="fldPrestazioni" evento="START">
+                	<DIV key_id="wkPrestazioni" valore="wkPrestazioni" evento="START">
+					</DIV>
+                </FIELDSET> -->
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script type="text/javascript"	src="../../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script type="text/javascript" src="../../std/jscript/moduloConsole/jquery.multi-accordion-1.5.3.js"></script>
+
+<script src="../../std/jscript/jQueryOloader/js/jquery.oLoader.min.js"></script>
+
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.widget.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<script type="text/javascript" src="../../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../../std/jscript/optionJsUtil.js"></script>   
+
+
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+<link rel="stylesheet"	href="../../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<script type="text/javascript" language="javascript"	src="../../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/dataTable.css" rel="stylesheet" type="text/css" />
+<link href="css/gestioneNuovoAmbu.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/gestioneNuovoAmbu.js"></script>
+<link href='../../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<script type="text/javascript" src="../../../std/jscript/moduloConsole/jsComboHandler.js"></script>
+
+<link href='../../std/jscript/fancybox/jquery.fancybox-1.3.4.css' type='text/css' rel='stylesheet'>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/configurazioneSezioni.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/objConstructor.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/prototypeObject.js"></script>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Gestione Nuovo ambulatorio</title>
+<style>
+#accordion h3 { padding-left: 20px; }
+button.clsEseguiInterfaccia{
+	width:98%; 
+	margin-top:5px; 
+	margin-bottom:5px;
+	display:block;
+}
+
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body id="myBody">
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Procedure per creazione nuovo ambulatorio</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+    <fieldset>
+    <legend><label>Notifiche</label></legend>
+    <label id='lblLogInfo'></label>
+    </fieldset>    
+    <div id="accordion">
+		<h3><a href="#">1. Creazione centri di costo (Ambulatorio)</a></h3>
+        <div id='sezione_T_CDC'></div>
+		<h3><a href="#">2. Creazione stanza / macchina / area</a></h3>
+        <div id='sezione_T_SALE'></div>
+		<h3><a href="#">3. Creazione agende con orari</a></h3>
+        <div id='sezione_T_SALE2'></div>
+		<h3><a href="#">4. Creazione delle prestazioni</a></h3>
+        <div id='sezione_T_ESA'></div>       
+		<h3><a href="#">5. Associazioni codici ises cup alle prestazioni</a></h3>
+        <div id='sezione_CUP_TAB_ESA'>
+		<button class='clsEseguiInterfaccia' onclick='javascript:creaInterfacciaGestione("CUP_TAB_ESA");'>Inizia configurazione</button>
+        </div>     
+		<h3><a href="#">6. Associazioni esami alle aree</a></h3>
+        <div id='sezione_T_SALE3'></div>      
+		<h3><a href="#">7. Configurazione utenti</a></h3>
+        <div id='sezione_T_WEB'></div>        
+		<h3><a href="#">8. Configurazione utenti Cartella</a></h3>
+        <div id='sezione_T_WEB_WHALE'>Tbd</div>                
+		<h3><a href="#">9. Configurazione tabelle Cartella</a></h3>
+        <div id='sezione_TAB_WHALE'>Tbd</div>                        
+		<h3><a href="#">10. Generazione delle agende</a></h3>
+        <div id='sezione_AGENDA'></div>                
+		<h3><a href="#">11. Configurazione legame Agende Cup - Agende Ambulatorio</a></h3>
+        <div id='sezione_CUP_TAB_AGENDE'>
+        <button class='clsEseguiInterfaccia' onclick='javascript:creaInterfacciaGestione("CUP_TAB_AGENDE");'>Inizia configurazione</button>
+        </div>        
+		<h3><a href="#">12. Configurazione moduli della console di refertazione</a></h3>        
+        <div id='sezione_MODULI_CONSOLE'></div>           
+		<h3><a href="#">13. Configurazione invio a repository</a></h3>        
+        <div id='sezione_CONFIGURA_XDS'>
+        <button class='clsEseguiInterfaccia' onclick='javascript:creaInterfacciaGestione("CONFIGURA_XDS");'>Inizia configurazione</button>
+        </div>               
+		<h3><a href="#">14. Configurazione DB per le stampe</a></h3>
+        <div id='sezione_CONFIGURA_STAMPE'>
+   		<button class='clsEseguiInterfaccia' onclick='javascript:creaInterfacciaGestione("CONFIGURA_STAMPE");'>Inizia configurazione</button>
+        </div>                             
+		<h3><a href="#">15. Configurazione reportistica</a></h3>
+        <div id='sezione_REPORT_FILE'></div>        
+        
+    </div>
+
+     <script>
+		var oTable;
+		$(function() {
+			init();
+	   });	 
+     </script>
+	 
+</body>
+</html>

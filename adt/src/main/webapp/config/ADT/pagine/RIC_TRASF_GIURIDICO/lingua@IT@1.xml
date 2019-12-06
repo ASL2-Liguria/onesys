@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Inserimento</lblTitolo>
+        <tabTrasferimento>Richiesta trasferimento</tabTrasferimento>
+        <butSalva>Salva</butSalva>
+        <butChiudi>Chiudi</butChiudi>
+        <butRepartoAttuale>Reparto Attuale</butRepartoAttuale>
+        <lblSesso>Sesso</lblSesso>
+        <lbloraInizioRicovero>Ora inizio</lbloraInizioRicovero>
+        <lbldatiPaziente>Dati Trasferimento</lbldatiPaziente>
+        <lblDatiTrasferimento>Dati Trasferimento</lblDatiTrasferimento>
+        <lblDataRicovero>Data ricovero</lblDataRicovero>
+        <lblOraRicovero>Ora ricovero</lblOraRicovero>
+        <lblRepartoAttuale>Reparto attuale </lblRepartoAttuale>
+        <lblRepDestinazione>Reparto Giuridico</lblRepDestinazione>
+        <lblData>Data inizio</lblData>
+        <lblRepAss>Reparto assistenziale</lblRepAss>
+        <tableWkTrasferimenti>Riepilogo Trasferimenti</tableWkTrasferimenti>
+        <lblTrasfAmbulanza>Trasferimento in ambulanza</lblTrasfAmbulanza>
+        <idDatiRicoveroAcc>Dati accettazione ricovero</idDatiRicoveroAcc>
+        <lblCartellaAcc>N. Cartella</lblCartellaAcc>
+        <lblDataRicoAcc>Data</lblDataRicoAcc>
+        <lblOraRicoAcc>Ora</lblOraRicoAcc>
+        <lblRepartoAcc1>Reparto</lblRepartoAcc1>
+        <idDegenza>Dati degenza attuale</idDegenza>
+        <lblRepartoAttGiu>Reparto giuridico</lblRepartoAttGiu>
+        <lblRepartoAttAss>Reparto assistenziale</lblRepartoAttAss>
+        <lblDataPartenzaAmbulanza>Data Partenza</lblDataPartenzaAmbulanza>
+        <lblOraPartenzaAmbulanza>Ora Partenza</lblOraPartenzaAmbulanza>
+    </ROW>
+</ROWSET>

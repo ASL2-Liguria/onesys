@@ -1,0 +1,8 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_BY_IDEN'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+	<DATO key_id="Problema" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione=""
+		configurazione_multi_data="R_PROBLEMA_ATTIVO" />
+	<DATO key_id="cmbAttFisica" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_INSERIMENTO_RILEVAZIONI'' and TIPO_DATO=''Attivita_Fisica'''; end;" />
+</DATI>
+

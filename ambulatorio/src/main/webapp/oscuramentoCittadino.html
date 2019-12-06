@@ -1,0 +1,490 @@
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!DOCTYPE html>
+<html>
+   <head>
+	  <meta charset="UTF-8">
+      
+        <link href="std/jscript/jQueryUI/themes/cupertino/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css"/>
+        <script src="std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+        <script src="std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+        <script src="std/jscript/jQueryUI/1.9.1//ui/jquery.ui.widget.js"></script>
+        <script src="std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+    	<script type="text/javascript" src="std/jscript/jsStringUtil.js"></script>    
+        <script type="text/javascript" src="std/jscript/jsHashtable.js"></script>  
+        <script type="text/javascript" src="std/jscript/optionJsUtil.js"></script>                  
+
+      <link href="std/css/button.css" rel="stylesheet" type="text/css" />
+      <link href="std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+      <link href="std/css/normalBody.css" rel="stylesheet" type="text/css" />
+      <link href="std/css/headerTable.css" rel="stylesheet" type="text/css" />
+      <link href="std/css/dataTable.css" rel="stylesheet" type="text/css" />
+      <link href="std/css/filterTable.css" rel="stylesheet" type="text/css" />
+      <link href="std/css/textArea.css" rel="stylesheet" type="text/css" />      
+      
+      
+   	   <script type="text/javascript" src="dwr/interface/CJsUpdate.js"></script>
+       <script type="text/javascript" src="dwr/interface/toolKitDB.js"></script>
+       <script type="text/javascript" src="dwr/engine.js"></script>
+       <script type="text/javascript" src="std/jscript/tutto_schermo.js"></script>
+		<script type='text/javascript' src="std/jscript/json/json2.js" language='JavaScript'></script>
+        <script type='text/javascript' src="std/jscript/json/json_sans_eval.js" language='JavaScript'></script>       
+      
+      <style>
+		#lblPaziente{
+			color:red;
+		}
+	  </style>
+      
+   </head>
+   <body >
+
+      <SCRIPT>
+		var jsonPrivacy = {"COD_OSCURAMENTO":"","VOLERE_CITTADINO":"","PRIVACY_PER_LEGGE":"","PAZIENTE":"","ESA_DESCR":"", "DATA_ESAME":""};
+		ObjDomArray = ['#lblOscuramentoPerVolereCittadino','#lblOscuramentoPerLegge'];		
+		// variabile pubblica per ricevere dei parametri in ingresso
+		var params;
+		// per ora metto valore inesistente per non selezionarne alcuno
+		var valoreDefaultOscuramento = "Z";
+		function getParams() {
+			try{
+				var idx = document.URL.indexOf('?');
+				if (idx != -1) {
+					var tempParams =  new Hashtable();
+					var pairs = document.URL.substring(idx+1,document.URL.length).split('&');
+					for (var i=0; i<pairs.length; i++) {
+						nameVal = pairs[i].split('=');
+						tempParams.put(nameVal[0],nameVal[1]);
+					}
+					return tempParams;
+				}
+			}
+			catch(e){
+				alert("getParams - Error:  "+ e.description);
+			}
+		}		
+		
+		function init(){
+			var sorgente = "";
+			params = getParams();	
+			try{
+				sorgente = params.get("sorgente");
+			}
+			catch(e){
+				alert("Nessun parametro sorgente in ingresso");
+				sorgente = "worklist";
+			}
+			// ****************************
+			// modifica 18-11-2014
+			// devo nascondere la pulsantiera, il salvataggio
+			// verrà richiamato dall'esterno
+			if (sorgente=="modulo_consolle" || sorgente=="consolle"){
+				$("#idFooterButton").hide();
+			}
+			// ***************************			
+			loadInitValue();
+			
+			if (jsonPrivacy.COD_OSCURAMENTO==""){
+				// nuovo
+				$('input:radio[name="rdOscuramento"]').filter('[value=' + valoreDefaultOscuramento +']').attr('checked', true);	
+			}
+			else{
+				$("input[name=rdOscuramento][value=" + jsonPrivacy.COD_OSCURAMENTO + "]").attr('checked', 'checked');
+				selectOptionByValue("cmbOscuramentoPerLegge", jsonPrivacy.PRIVACY_PER_LEGGE);
+				if (jsonPrivacy.VOLERE_CITTADINO=="S"){$("#idVolereCittadino").attr('checked', 'checked');}
+			}
+
+//			nascondiMostraRiga(ObjDomArray,'hide');
+			var radioValue = "";
+			radioValue = $('input:radio[name="rdOscuramento"]:checked').val();
+//			alert(jsonPrivacy.COD_OSCURAMENTO);s
+//			if (radioValue=="N" || radioValue=="" || typeof(radioValue)=="undefined"){
+			if (jsonPrivacy.COD_OSCURAMENTO=="N" || jsonPrivacy.COD_OSCURAMENTO==""){
+				mostraDettOsc(false);
+			}
+			if (getValue("cmbOscuramentoPerLegge")!=""){
+					$('#idVolereLegge').attr('checked', true);
+			}			
+			
+		}
+		
+		function setEvents(){
+			
+			return;
+			// faccio il bind se e solo se provengo dalla console
+			if ( params.get("sorgente")!="worklist"){
+				$.each($("[name='rdOscuramento']"),function(){
+					var obj = $(this);				
+					obj.click(function(){									
+						obj.val() != 'N' ? nascondiMostraRiga(ObjDomArray,'show') : nascondiMostraRiga(ObjDomArray,'hide')										
+					});
+				});
+			}
+			
+		}
+		
+        function salvaOscuramento(){
+			
+			/*var parametriStringa = getStringaParametri(); 
+			 
+			dwr.engine.setAsync(false);	
+			CJsUpdate.call_stored_procedure(parametriStringa, function cbkSaveOscuramento(message){
+				alert(message);			
+			});*/			
+			//chiudi();
+			// ******* nuovo 
+			var CodeValue = $('input:radio[name="rdOscuramento"]:checked').val();
+			// **********
+			if (CodeValue=="" || typeof(CodeValue) == "undefined"){ 
+				alert("Prego selezionare il tipo di oscuramento.");
+				return ;
+			}	
+			// ***************
+			
+			// ************* nuovi ontrolli 13-2-15
+
+			var bolVolereLegge = $('#idVolereLegge').attr('checked')?true:false;
+			var bolVolereCittadino = $('#idVolereCittadino').attr('checked')?true:false;
+
+			if (CodeValue!="N"){
+				if (bolVolereLegge== false && bolVolereCittadino==false){
+					alert('Prego selezionare almeno una voce tra "Volonta\' del cittadino" e "per Legge"');return  false;
+				}
+				if (bolVolereLegge){
+					// verificare che il combo abbia una selezione !!
+					if (getValue("cmbOscuramentoPerLegge")==""){
+						// nessuin valore selezionato
+						alert('Prego inserire una motivazione relativa all\'oscuramento "per Legge"');return  false;
+					}
+				}
+			}
+			// ***************************************
+			
+			
+			var lista = new Array();
+			var valoreXML = getXMLtoSave();
+//			alert(valoreXML);
+			if (valoreXML==""){
+				alert("Errore: xml nullo. Contattare amministratore di sistema");return  false;
+			}
+			lista.push(valoreXML);
+			lista.push(params.get("iden_esame"));
+//			alert(params.get("iden_esame")); return;
+			var out ;
+			switch (params.get("sorgente")){
+				case "worklist":
+					out = getHomeFrame().executeStatement('privacy.xml','updatePrivacyEsameByAccettazione',lista,0);
+					if (out[0] == 'OK') {
+						parent.aggiorna();
+					}
+					else{
+						// errore
+						alert("Errore registrazione modulo privacy. Contattare amministratore di sistema!!\n" + out[1]);return false;
+					}
+					break;
+				case "consolle":
+				case "modulo_consolle":
+					out = getHomeFrame().executeStatement('privacy.xml','updatePrivacyEsameByIden',lista,0);
+					if (out[0] == 'OK') {
+						if (params.get("sorgente")=="modulo_consolle" || params.get("sorgente")=="consolle"){return true;}
+						else{
+							alert("Oscuramento cittadino registrato");
+							chiudi();
+						}
+					}
+					else{
+						// errore
+						alert("Errore registrazione modulo privacy. Contattare amministratore di sistema!\n" + out[1]);return false;
+					}		
+					break;					
+				default:
+					break;
+			}
+        }
+		
+		
+        function chiudi(){
+				switch (params.get("sorgente")){
+					case "consolle":
+					case "modulo_consolle":
+						break;
+					default:
+						parent.jQuery.fancybox.close();											
+						break;
+				}
+        }
+		
+		function getXMLtoSave(){
+			var strOutput = "";
+			var headXml = "<?xml version = '1.0' encoding = 'UTF-8'?><consenso>";
+			var tailXml = "</consenso>";
+			try{
+				var CodeValue = $('input:radio[name="rdOscuramento"]:checked').val();
+				var privacyCittadino = $("#idVolereCittadino").attr("checked")=="checked"?"S":"N";
+				var DescriptorVal = getValue("cmbOscuramentoPerLegge");
+				var DescriptorDescr = getText("cmbOscuramentoPerLegge");
+				
+				strOutput = "<confidentiality-code>" + CodeValue + "</confidentiality-code>";
+				strOutput += "<confidentialy-descriptors>";
+				if (privacyCittadino == "S"){
+					strOutput += "<descriptor key='001'>Volonta' del cittadino</descriptor>";
+				}
+				if (DescriptorVal!=""){
+					strOutput += "<descriptor key='"+ DescriptorVal +"'>"+ DescriptorDescr +"</descriptor>";					
+				}
+				strOutput += "</confidentialy-descriptors>";
+				// ***** nuovo ***
+//				  getTodayStringFormat
+				var codDecUtente = "";
+				if (params.get("sorgente")=="worklist" || params.get("sorgente") =="consolle"){
+					codDecUtente = parent.baseUser.COD_DEC_PERSONALE;
+				}
+				else{
+					// sono dentro iframe del modulo console
+					codDecUtente = parent.parent.baseUser.COD_DEC_PERSONALE;
+				}
+				if (codDecUtente==""){
+					// non dovrebbe mai esserlo, 
+					// per ora lo notifico e basta
+					alert("Errore codDecUtente nullo");
+				}
+				var dataInserimento = "";
+				dataInserimento = dataInserimento.toString().getTodayStringFormat();
+				var now = new Date();
+				var outHour = now.getHours();
+				if(outHour<10){outHour="0" + outHour;}
+				var outMin = now.getMinutes();
+				if(outMin<10){outMin="0"+outMin;}
+			    strOutput += "<utente_inserimento>"+ codDecUtente  + "</utente_inserimento>";
+				// modifica 16-12-14
+				strOutput += "<data_inserimento>" + dataInserimento +" " +outHour+":"+outMin +"</data_inserimento>";
+				// ***************
+				strOutput = headXml + strOutput + tailXml;
+//				alert(strOutput);
+
+			}
+			catch(e){
+				alert("getXMLtoSave - Error: " + e.description);
+			}
+			return strOutput;
+		}
+							
+		
+		//@deprecated
+		function nascondiMostraRiga(pObjDom,pAzione){			
+			$.each(pObjDom,function(index,value){eval("$('"+pObjDom[index]+"').parent().parent()."+pAzione+"()");})
+		}
+		//@deprecated
+		/*function getStringaParametri(){
+		
+			var CodeValue = $('input:radio[name="rdOscuramento"]:checked').val();
+			var DescriptorVal = $('select[name="cmbOscuramentoPerLegge"] option:selected').val();
+			var DescriptorDescr = $('select[name="cmbOscuramentoPerLegge"] option:selected').attr("key"); 			
+			
+			
+			param = 'radsql.sp_save_oscuramento';
+			param += '@V#001$Dipendenza da sostanze psicotrope*006$Interruzione di gravidanza,1157843';			
+			param += '@TRUE';//indica se la procedura ha un output
+			param += '@STRING';//type_return_value
+//			alert(param);
+			
+			return param;
+		}*/ 
+		 
+		function loadInitValue(){
+			// usare VIEW_OSCURAMENTO_ESAME
+			// getPrivacyEsame
+			// passare iden con , separatrice
+			
+			var myLista = new Array();
+			var idenEsami = "";
+			
+			try{
+				idenEsami = params.get("iden_esame");
+			}
+			catch(e){
+				alert("Error iden_esame is null"); return;
+			}
+			
+			try{
+				myLista.push(idenEsami);
+				
+				rs = getHomeFrame().executeQuery('privacy.xml','getPrivacyEsame',myLista);
+				if (rs.next()){
+					jsonPrivacy.COD_OSCURAMENTO = rs.getString("COD_OSCURAMENTO");
+					jsonPrivacy.VOLERE_CITTADINO = rs.getString("VOLERE_CITTADINO");
+					jsonPrivacy.PRIVACY_PER_LEGGE = rs.getString("PRIVACY_PER_LEGGE");
+					// *** nuovo
+					jsonPrivacy.PAZIENTE = rs.getString("PAZIENTE");
+					jsonPrivacy.ESA_DESCR = rs.getString("ESA_DESCR");
+					jsonPrivacy.DATA_ESAME = rs.getString("DATA_ESAME");
+					$("#lblPaziente").html(jsonPrivacy.PAZIENTE);
+//					$("#lblPrestazione").html(jsonPrivacy.ESA_DESCR + " del " + jsonPrivacy.DATA_ESAME);
+				}
+				else{
+					// nuovo 
+					//@TODO
+				}
+//				alert(jsonPrivacy.COD_OSCURAMENTO +" " + jsonPrivacy.VOLERE_CITTADINO  +" " + jsonPrivacy.PRIVACY_PER_LEGGE);
+			}
+			catch(e){
+				alert("loadInitValue - Error: " + e.description);
+			}
+		}
+		
+		
+		function getHomeFrame(){
+			var objHomeFrame;
+			
+			try{
+				switch (params.get("sorgente")){
+					case "worklist":
+						objHomeFrame = top;
+						break;
+					case "consolle":
+						objHomeFrame = parent.top.opener.top;
+						break;
+					case "modulo_consolle":
+						objHomeFrame = parent.parent.top.opener.top;
+						break;
+				}
+				/*
+				if (params.get("sorgente")=="worklist"){
+					objHomeFrame = top;
+				}
+				else{
+					objHomeFrame = parent.top.opener.top;
+				}*/
+			}
+			catch(e){alert(e.description);}
+			return objHomeFrame;
+		}
+		
+		function mostraDettOsc(bolShow){
+			try{
+				if (bolShow){
+					$("#dettOscuramento").show();
+				}
+				else{
+					$("#dettOscuramento").hide();
+				}
+			}
+			catch(e){
+				alert("mostraDettOsc - Error: " + e.description);
+			}
+		}
+		
+		function resetDettOsc(){
+			try{
+				document.getElementById("chkVolereCittadino").checked=false;
+				document.getElementById("cmbOscuramentoPerLegge").options.item(0).selected = true;
+			}
+			catch(e){
+				alert("resetDettOsc - Error: " + e.description);				
+			}
+		}
+		 
+		 
+      </SCRIPT>
+      <form method='POST' name='formDAO' action='SrvDAO' enctype='application/x-www-form-urlencoded'>
+         <table cellpadding='0' cellspacing='0' class='classTabHeader'>
+            <tr>
+               <td class='classTabHeaderSx'></td>
+               <td class='classTabHeaderMiddle'><label id='titoloOscuramento'>Consenso prestazione per FSEP</label> - <label id="lblPaziente"></label><label id="lblPrestazione"></label></td>
+               <td class='classTabHeaderDx'></td>
+            </tr>
+         </table>
+        <div id="btSetOscuramento">
+            <input type="radio" id="radio1" name="rdOscuramento" value="N" onClick="javascript:mostraDettOsc(false);resetDettOsc();"><label for="radio1">Documento non oscurato</label>
+            <input type="radio" id="radio2" name="rdOscuramento" value="R" onClick="javascript:mostraDettOsc(true);"><label for="radio2">Documento oscurato</label>
+            <input type="radio" id="radio3" name="rdOscuramento" value="V" onClick="javascript:mostraDettOsc(true);"><label for="radio3">Oscuramento dell'oscuramento</label>
+        </div>         
+        <div id="dettOscuramento">
+         <table class='classDataEntryTable' id="idTableOscuramento">
+            <tr>
+               <td class="classTdLabel" >
+                  <label id = "lblOscuramentoPerVolereCittadino">Volonta' del cittadino</label>
+               </td>
+			   <td class="classTdField" >
+                  <input  key="001" name="chkVolereCittadino" type='checkbox' id="idVolereCittadino"></input>
+               </td>  
+            </tr>
+            <tr>
+               <td class="classTdLabel" >
+                  <label id = "lblOscuramentoPerLegge">Oscuramento per legge</label>
+               </td>            
+             <td class="classTdField" >
+                  <input  key="002" name="chkVolereLegge" type='checkbox' id="idVolereLegge" onclick="javascript:if (!$('#idVolereLegge').attr('checked')){	$('#cmbOscuramentoPerLegge')[0].selectedIndex = 0;}"></input>&nbsp;<label style="	padding-left:5px;font-family: Arial, Helvetica, sans-serif;font-weight: bold;font-size:12px;line-height:40px;">Motivazione:</label>&nbsp;<select id="cmbOscuramentoPerLegge" onChange="javascript:if(getValue(this.id)!=''){$('#idVolereLegge').attr('checked',true);}else{$('#idVolereLegge').attr('checked',false);}">
+                     <option key=""></option>
+                     <option key="002" value="002">Violenza sessuale</option>
+					 <option key="003" value="003">Pedofilia</option>                     
+                     <option key="004" value="004">Sieropositivita'</option>
+                     <option key="005" value="005">Dipendenza da sostanze stupefacenti</option>
+                     <option key="006" value="006">Dipendenza da sostanze psicotrope</option>
+                     <option key="007" value="007">Dipendenza da alcool</option>                     
+                     <option key="008" value="008">Interruzione volontaria di gravidanza</option>
+                     <option key="009" value="009">Parto in anonimato</option>
+					 <option key="010" value="010">Adozioni nazionali</option>
+					 <option key="010" value="010">Patologie psichiatriche</option>                     
+                  </select>
+               </td> 
+            </tr>
+            <!-- 
+			<tr>
+               <td colspan="1" class="classTdLabel" >
+                  <label id = "lblOscuramentoPerLegge">per Legge</label>
+               </td>
+               <td colspan="2" class="classTdField" >
+                  <select id="cmbOscuramentoPerLegge">
+                     <option key=""></option>
+                     <option key="002" value="002">Violenza sessuale</option>
+					 <option key="003" value="003">Pedofilia</option>                     
+                     <option key="004" value="004">Sieropositivita'</option>
+                     <option key="005" value="005">Dipendenza da sostanze stupefacenti</option>
+                     <option key="006" value="006">Dipendenza da sostanze psicotrope</option>
+                     <option key="007" value="007">Dipendenza da alcool</option>                     
+                     <option key="008" value="008">Interruzione volontaria di gravidanza</option>
+                     <option key="009" value="009">Parto in anonimato</option>
+					 <option key="010" value="010">Adozioni nazionali</option>
+					 <option key="010" value="010">Patologie psichiatriche</option>                     
+                  </select>
+               </td>
+            </tr> -->
+         </table>
+         </div>
+         <table cellpadding='0' cellspacing='0' class='classTabHeader' id='idFooterButton'>
+            <tr>
+               <td class='classTabFooterSx'></td>
+               <td class='classTabHeaderMiddle'><label>&nbsp;</label></td>
+               <td class='classButtonHeader'> 
+                  <div class='pulsante'><a id='regi' href="#" onClick="javascript:salvaOscuramento();return false;">Salva</a></div>
+               </td>
+               <td class='classButtonHeader'>
+                  <div class='pulsante'><a id='chiudi' href='#' onClick="javascript:chiudi();return false;">Chiudi</a></div>
+               </td>
+               <td class='classTabFooterDx'></td>
+            </tr>
+         </table>
+      </form>
+      
+      
+        <script>
+		$(function() {
+
+			   init();
+			   setEvents();
+				$( "#btSetOscuramento" ).buttonset().find('label').width('33%');
+				//$( "#idVolereCittadino" ).button();
+				// bind click event on save bt
+/*				$( "#btSave" ).click(function( event ) {
+				  event.preventDefault();
+				  try{setCallbackValue();}catch(e){;}
+				});*/
+				
+		   });
+
+	</script>
+      
+   </body>
+
+</html>

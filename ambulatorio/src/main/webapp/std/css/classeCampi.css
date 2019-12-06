@@ -1,0 +1,59 @@
+/* CSS Document */
+
+/* classi per evidenziare campi icompleti o sbagliati */
+.campoObbligatorio{
+	background-color:#FFFF99;
+}
+
+.campoErrato{
+	background-color:#F8B6BF;
+}
+
+.campoNormale{
+	background-color:white;
+}
+
+.campoHighlighted{
+	background-color:orange;
+}
+
+.classShowGraph{
+	color:#FFFFFF;
+	font-weight:bold;
+}
+
+SPAN.clsTitlePaziente{
+	color:black;
+}
+
+SPAN.clsTitleEsame{
+	color:black;
+}
+
+
+SPAN.pulsanteInclusione{
+	display:inline-table;
+	background-image:url(../../imagexPix/bar/btLightCyan_50.jpg);
+	height:50px;
+	width:100%;
+	background-repeat:repeat-x;
+	color:yellow;
+	text-align:center;
+	line-height:40px;
+}
+
+SPAN.pulsanteInclusione A{
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+	font-weight:bold;
+	height:50px;
+
+}
+
+SPAN.pulsanteInclusione A:hover {
+	background-image:url(../../imagexPix/bar/btCyan_50.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	font-weight:bold;	
+}

@@ -1,0 +1,4 @@
+<INCLUDE>
+	<CSS path="css/MMG/Riepilogo/Filtri.css" />
+	<JS path="js/MMG/Riepilogo/Filtri.js" />
+</INCLUDE>

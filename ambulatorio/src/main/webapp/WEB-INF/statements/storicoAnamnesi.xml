@@ -1,0 +1,212 @@
+<root>
+	<statements_list>
+
+
+		<statement name="getAnagID1">
+			<sql>
+			<![CDATA[
+				SELECT id1 FROM cod_est_anag where iden_anag = to_number(?)
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>
+
+        <statement name="getElencoAnamnesi">	
+            <pool>elcoPool_whale</pool>
+            <catalogo>dati</catalogo>
+            <sql>
+            <![CDATA[
+SELECT IDEN_DETTAGLIO,
+  DATA_RICOVERO,
+  ORA_RICOVERO,
+  DATA_INIZIO,
+  DATA_FINE,
+  REPARTO,
+  PATOLOGIE,
+  POSITIVITA,
+  PAT_REMOTA,
+  RACCORDO_PAT_REMOTA
+FROM
+  (SELECT np.IDEN IDEN_DETTAGLIO,
+    np.DATA_RICOVERO,
+    np.ORA_RICOVERO,
+    np.NUM_NOSOLOGICO,
+    datetimeconverter(np.data_ricovero
+    ||np.ORA_RICOVERO,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO,
+    CASE
+      WHEN (np.dimesso='S')
+      THEN datetimeconverter(np.data_fine_ricovero
+        ||np.ora_fine_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi')
+      ELSE ''
+    END DATA_FINE,
+    cdc.descr REPARTO,
+    CASE
+      WHEN (ttr.codice IN ('PRE','PRE-DH','PRE-DS'))
+      THEN np.iden
+      WHEN (np.dimesso='S')
+      THEN
+        (SELECT MIN(iden)
+        FROM nosologici_paziente np_link
+        WHERE np_link.parent         = np.iden
+        AND np_link.iden_precedente IS NULL
+        AND deleted                  ='N'
+        )
+      ELSE
+        (SELECT MIN(iden)
+        FROM nosologici_paziente np_link
+        WHERE np_link.parent= np.iden
+        AND deleted         ='N'
+        AND dimesso         ='N'
+        )
+    END LINK_ACCESSO,
+    ttr.descr TIPOLOGIA,
+    /*Gestione Privacy*/
+    datetimeconverter(np.DATA_RICOVERO
+    || np.ORA_RICOVERO, 'yyyyMMddhh24:mi', 'dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO,
+    'dd/MM/yyyy HH:mm' PATTERN,
+    cdc.cod_dec REPARTO_AMMETTENTE,
+    LETTERAPATOLOGIEPOSITIVITA('PATOLOGIE',XML.IDEN_VISITA,XML.IDEN_VISITA_REGISTRAZIONE) "PATOLOGIE",
+    LETTERAPATOLOGIEPOSITIVITA('POSITIVITA',XML.IDEN_VISITA,XML.IDEN_VISITA_REGISTRAZIONE) "POSITIVITA",
+    REPLACE(REPLACE(DBMS_XMLGEN.CONVERT(extract(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNoteRemote"]/text()').getClobVal(), 1),'<','&lt;'),'>','&gt;') "PAT_REMOTA",
+    (SELECT REPLACE(radsql.string_Agg(REPLACE(REPLACE(REPLACE(testo, '<','&lt;'),'>','&gt;'), ',', '&#44;')), ',', '<hr/>') testo
+    FROM SEZIONI_ADDENDUM
+    WHERE key_campo = 'txtNoteRemote'
+    AND iden_visita =np.iden
+    ) "RACCORDO_PAT_REMOTA"
+  FROM nosologici_paziente np
+  JOIN centri_di_costo cdc
+  ON (cdc.cod_cdc = np.cod_cdc)
+  JOIN tab_tipo_ricovero ttr
+  ON (ttr.iden= np.iden_tipo_ricovero)
+  LEFT JOIN cc_schede_xml xml
+  ON (np.iden       =xml.iden_visita
+  AND xml.FUNZIONE  ='ANAMNESI')
+  WHERE np.iden_anag=
+    (SELECT iden_anag
+    FROM cod_est_anag
+    WHERE id1=?
+    )
+  AND accesso=0
+  AND deleted='N'
+  AND ((SELECT
+      CASE
+        WHEN ttr.codice IN ('OBI','PRE','PRE-DH','PRE-DS')
+        THEN 0
+        ELSE
+          (SELECT COUNT(*)
+          FROM nosologici_paziente
+          WHERE parent=np.iden
+          AND accesso =0
+          AND deleted ='N'
+          )
+      END a
+    FROM dual)    =0)
+  AND ttr.codice <> 'PS'
+  )
+WHERE PATOLOGIE        IS NOT NULL
+OR POSITIVITA          IS NOT NULL
+OR PAT_REMOTA          IS NOT NULL
+OR RACCORDO_PAT_REMOTA IS NOT NULL
+ORDER BY data_ricovero desc,
+  ORA_RICOVERO		desc	
+            ]]>
+            </sql>
+        </statement>	
+		
+        <statement name="getAnamnesi">	
+            <pool>elcoPool_whale</pool>
+            <catalogo>dati</catalogo>
+            <sql>
+            <![CDATA[		
+
+SELECT IDEN_DETTAGLIO,
+  DATA_RICOVERO,
+  ORA_RICOVERO,
+  DATA_INIZIO,
+  DATA_FINE,
+  REPARTO,
+  PATOLOGIE,
+  POSITIVITA,
+  PAT_REMOTA,
+  RACCORDO_PAT_REMOTA
+FROM
+  (SELECT np.IDEN IDEN_DETTAGLIO,
+    np.DATA_RICOVERO,
+    np.ORA_RICOVERO,
+    np.NUM_NOSOLOGICO,
+    datetimeconverter(np.data_ricovero
+    ||np.ORA_RICOVERO,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO,
+    CASE
+      WHEN (np.dimesso='S')
+      THEN datetimeconverter(np.data_fine_ricovero
+        ||np.ora_fine_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi')
+      ELSE ''
+    END DATA_FINE,
+    cdc.descr REPARTO,
+    CASE
+      WHEN (ttr.codice IN ('PRE','PRE-DH','PRE-DS'))
+      THEN np.iden
+      WHEN (np.dimesso='S')
+      THEN
+        (SELECT MIN(iden)
+        FROM nosologici_paziente np_link
+        WHERE np_link.parent         = np.iden
+        AND np_link.iden_precedente IS NULL
+        AND deleted                  ='N'
+        )
+      ELSE
+        (SELECT MIN(iden)
+        FROM nosologici_paziente np_link
+        WHERE np_link.parent= np.iden
+        AND deleted         ='N'
+        AND dimesso         ='N'
+        )
+    END LINK_ACCESSO,
+    ttr.descr TIPOLOGIA,
+    /*Gestione Privacy*/
+    datetimeconverter(np.DATA_RICOVERO
+    || np.ORA_RICOVERO, 'yyyyMMddhh24:mi', 'dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO,
+    'dd/MM/yyyy HH:mm' PATTERN,
+    cdc.cod_dec REPARTO_AMMETTENTE,
+    LETTERAPATOLOGIEPOSITIVITA('PATOLOGIE',XML.IDEN_VISITA,XML.IDEN_VISITA_REGISTRAZIONE) "PATOLOGIE",
+    LETTERAPATOLOGIEPOSITIVITA('POSITIVITA',XML.IDEN_VISITA,XML.IDEN_VISITA_REGISTRAZIONE) "POSITIVITA",
+    REPLACE(REPLACE(DBMS_XMLGEN.CONVERT(extract(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNoteRemote"]/text()').getClobVal(), 1),'<','&lt;'),'>','&gt;') "PAT_REMOTA",
+    (SELECT REPLACE(radsql.string_Agg(REPLACE(REPLACE(REPLACE(testo, '<','&lt;'),'>','&gt;'), ',', '&#44;')), ',', '<hr/>') testo
+    FROM SEZIONI_ADDENDUM
+    WHERE key_campo = 'txtNoteRemote'
+    AND iden_visita =np.iden
+    ) "RACCORDO_PAT_REMOTA"
+  FROM nosologici_paziente np
+  JOIN centri_di_costo cdc
+  ON (cdc.cod_cdc = np.cod_cdc)
+  JOIN tab_tipo_ricovero ttr
+  ON (ttr.iden= np.iden_tipo_ricovero)
+  LEFT JOIN cc_schede_xml xml
+  ON (np.iden       =xml.iden_visita
+  AND xml.FUNZIONE  ='ANAMNESI')
+  WHERE np.IDEN =?
+  AND accesso=0
+  AND deleted='N'
+  AND ((SELECT
+      CASE
+        WHEN ttr.codice IN ('OBI','PRE','PRE-DH','PRE-DS')
+        THEN 0
+        ELSE
+          (SELECT COUNT(*)
+          FROM nosologici_paziente
+          WHERE parent=np.iden
+          AND accesso =0
+          AND deleted ='N'
+          )
+      END a
+    FROM dual)    =0)
+  AND ttr.codice <> 'PS'
+  )
+	
+			 ]]>
+            </sql>
+        </statement>				
+		 			
+			
+	</statements_list>
+</root>

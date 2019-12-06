@@ -1,0 +1,21 @@
+body {
+	width: 960px;
+}
+
+.RBpuls {
+	margin-bottom: 5px;
+}
+
+#lblInformativaCertificato
+{
+	width: auto !important;
+	height: auto !important;
+	padding: 5px 10px;
+	margin-top: 15px;
+	line-height: 150%;
+	display: block;
+	text-align: left;
+	color: #444;
+	font-size: 12px;
+	font-weight: 700;
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	
+    	<tabEsenzione>Esenzione</tabEsenzione>
+        <lblTitolo>SCELTA DELLE ESENZIONI</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butRicerca>Ricerca per Descrizione</butRicerca>
+		<butRicercaCodice>Ricerca per Codice</butRicercaCodice>
+		<tabSceltaPosologia>SCELTA ESENZIONI</tabSceltaPosologia>
+		
+		<fldEsenzioni>Lista Esenzioni</fldEsenzioni>
+		<fldEsenzioniPaziente>Lista Esenzioni dell'assistito</fldEsenzioniPaziente>
+		<fldRicerca>Ricerca nella Lista Esenzioni (come default viene ricercato il codice dell'esenzione)</fldRicerca>
+		<lblRicerca>Ricerca</lblRicerca>
+		
+		<tabEsenzioniAssociabili>Esenzioni associabili alla prestazione</tabEsenzioniAssociabili>
+		<fldRicPrestazione>Ricerca Prestazione</fldRicPrestazione>
+        <fldwkPrestazioniIN>Elenco Prestazioni</fldwkPrestazioniIN>
+        <fldwkEsenzioniOUT>Esenzioni Associate</fldwkEsenzioniOUT>
+        <lblCercaPrest>Cerca Prestazione</lblCercaPrest>
+        <butCercaPrest>Cerca</butCercaPrest>
+        
+        <phEsenzioni>Inserisci il codice dell'esenzione ...</phEsenzioni>
+    </ROW>
+</ROWSET>

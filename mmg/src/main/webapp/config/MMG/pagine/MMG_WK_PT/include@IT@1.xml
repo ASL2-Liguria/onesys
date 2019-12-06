@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/PianiTerapeutici/listaPT.js" />
+	<CSS path="css/MMG/PianiTerapeutici/listaPT.css" />
+</INCLUDE>

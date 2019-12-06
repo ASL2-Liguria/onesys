@@ -1,0 +1,5 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_OSCURAMENTI_PAZIENTE'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="GruppoOscurato" configurazione_stato="begin :stato := 'E'; end;" db_valore="GRUPPO_OSCURATO" db_descrizione="GRUPPO_OSCURATO" configurazione_multi_data="R_SI_NO" />
+	
+</DATI>

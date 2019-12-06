@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>3</minChars>
+		<onSelect type="js">
+			<!-- <![CDATA[function(data){/*alert("Hai selezionato: " + data.DESCR);*/}]]> -->
+			<![CDATA[function(data){VACCINO.scelta(data.VALUE);}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>300</width>
+		<zIndex>9999</zIndex>
+		<deferRequestBy>200</deferRequestBy>
+		<storedQuery>AUTOCOMPLETE.AC_VACCINO_TIPO</storedQuery>
+		<maxResults>40</maxResults>
+		<datasource>MMG_DATI</datasource>
+	</AJAX> 
+	<LIST>
+	    <title>Tipologia del Vaccino</title>
+	    <id_wk>AC_VACCINO_TIPO</id_wk>
+	    <onSelect type="js">
+			<!-- <![CDATA[function(ret){/*alert("Hai selezionato: " + data.DESCR);*/}]]> -->
+			<![CDATA[function(data){VACCINO.scelta(data.VALUE);}]]>
+		</onSelect>
+	</LIST>
+
+</AUTOCOMPLETE>	 
+    

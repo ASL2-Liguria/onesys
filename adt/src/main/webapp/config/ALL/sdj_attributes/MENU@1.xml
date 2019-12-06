@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="MENU">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="setId">
+                <PAR value="slidemenu"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="jsm jqueryslidemenu"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extMenu}">
+            <PROC id="generaMenu">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

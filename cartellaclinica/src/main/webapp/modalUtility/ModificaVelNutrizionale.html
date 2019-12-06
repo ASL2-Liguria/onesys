@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/calendario/jquery.datepick.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/attesaRegistra.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/tabulatore.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/dataTable.css' type='text/css' rel='stylesheet'>
+    <link href='../std/css/calendario/jquery.datepick.css' type='text/css' rel='stylesheet'>
+
+    <style>
+            /*scrivi qui css*/
+
+      body{
+          overflow-y: hidden;
+      }
+      #lblRegistra{
+          cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+       <TABLE class=classTabHeader cellSpacing=0 cellPadding=0><TBODY>
+       <TR>
+           <TD class=classTabHeaderSx></TD>
+           <TD class=classTabHeaderMiddle><LABEL id=lblTitle name="lblTitle">Modulo modifica velocità</LABEL></TD>
+           <TD class=classTabHeaderDx></TD></TR></TBODY>
+       </TABLE>
+
+       <TABLE class=classDataEntryTable>
+           <TBODY id="TableBody">
+               <tr>
+                   <td>
+                       <DIV class=left>
+                           <label>Data </label><INPUT style="TEXT-ALIGN: center"  id=txt_data  value="" size=6 name=txt_data>
+                           <label>Ora </label><INPUT style="TEXT-ALIGN: center" onkeyup=oraControl_onkeyup(this); id=txt_ora value="" size=6 name=txt_ora>
+                           <label>Nuova velocità </label><INPUT style="TEXT-ALIGN: center" id=txt_velocità value="" size=6 name=txt_velocità>
+                       </DIV>
+                   </td>
+               </tr>
+           </tbody>
+       </TABLE>
+       <TABLE class=classTabHeader cellSpacing=0 cellPadding=0>
+           <TBODY>
+               <TR>
+                   <TD class=classTabFooterSx></TD>
+                   <TD class=classTabHeaderMiddle>&nbsp;</TD>
+                   <TD class=classButtonHeader>
+                       <DIV class=pulsante onclick="registra()"><A id=lblRegistra >Registra</A></DIV></TD>
+                   <TD style="DISPLAY: none" class=classButtonHeader >
+                   <TD class=classTabFooterDx></TD>
+               </TR>
+           </TBODY>
+       </TABLE>
+</body>
+
+<script type='text/javascript' src='../std/jscript/engine/jquery.js' language='JavaScript'></script>
+<!-- <script type='text/javascript' src='../std/jscript/RicercaPazienti/Ricoverati/scheda_ricovero/gestioneTerapie/PaginaModificaVelocitaNutrizionale.js' language='JavaScript'></script> -->
+<script type='text/javascript' src='../std/jscript/calendario/jquery.datepick.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/engine/toolkit_pagina.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/RicercaPazienti/Ricoverati/scheda_ricovero/gestioneTerapie/SchedaTerapia/gamma_kg.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/RicercaPazienti/Ricoverati/scheda_ricovero/gestioneTerapie/PaginaModificaVelocita.js' language='JavaScript'></script>
+
+<script type="text/javascript">
+    jQuery('#txt_data').datepick({onClose: function(){jQuery(this).focus();}, showOnFocus: false,  showTrigger: '<img class="trigger" src="../imagexPix/calendario/cal20x20.gif" class="trigger"></img>'});
+    jQuery('#txt_ora').blur(function(){
+        var str = this.value.replace(':','');
+          if(!IsNumeric(str)){
+             this.value='';
+             return alert('Attenzione inserire un valore numerico')
+          }else if (str.length!=4 && str.length!=0){
+              this.value='';
+              return alert("Attenzione inserire nel formato correto l'ora (HH:MM)")
+          }
+    });
+    jQuery('#txt_velocità').blur(function(){
+        if(!IsNumeric(this.value.replace(',','.'))){
+            this.value='';
+            return alert('Attenzione inserire un valore numerico')
+        }
+
+    })
+    function registra(){
+        
+        var dose = NS_TERAPIA_DOSAGGIO.calculates(NS_GAMMA_KG.scalaDose, NS_GAMMA_KG.peso, NS_GAMMA_KG.concentrazione, $('#txt_velocità').val()).toString().replace('.',',');
+        var idenTerapia = parent.classMenu.idenTestata;
+        var velocita = document.getElementById('txt_velocità').value.replace('.',',');
+        var data =  document.getElementById('txt_data').value;
+        var ora =  document.getElementById('txt_ora').value;
+        var iden_per = parent.top.baseUser.IDEN_PER;
+        if(velocita=='0') {
+            return alert('ATTENZIONE! Modificare la velocità dal menu del dettaglio se la terapia è già in corso.');
+        }else if(velocita!='' && data!=''&& ora!=''){
+//            alert(data+'\n'+ora +'\n'+velocita +'\n' + parent.classMenu);
+            parent.Reload.terapia(idenTerapia,"terapie.xml","setVelocitàInfusionale",[data,ora,velocita,dose,iden_per,idenTerapia]);
+//        $.fancybox().close;
+        parent.chiudiFinestra();
+        }else{
+            return alert('Attenzione valorizzare tutti i campi');
+        }
+    }
+</script>
+</html>

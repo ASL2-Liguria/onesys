@@ -1,0 +1,13 @@
+
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="ListProfili" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_ACC_GRUPPI" />
+	<DATO key_id="chkRicEsatta" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="Q_RICERCA_ESATTA" />
+	<DATO key_id="Sinonimi" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Frequenza" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="VALUE" db_descrizione="DESCR" configurazione_multi_data="R_SI_NO" />
+</DATI>
+

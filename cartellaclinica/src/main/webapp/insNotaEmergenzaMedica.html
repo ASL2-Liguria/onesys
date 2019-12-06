@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'/>
+	<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'/>
+	<link href='std/css/button.css' type='text/css' rel='stylesheet'/>
+	<script type='text/javascript' src='std/jscript/engine/jquery.js' language='JavaScript'></script>
+	<title>&nbsp;</title>
+	<script>
+	    function init(){
+			$('#txtNote').focus();
+	    }
+		function registra()
+		{
+		  parent.abilitaEmergenzaMedica(true,$('#txtNote').text());
+		  parent.$.fancybox.close();
+		};		
+		function annulla()
+		{
+		 parent.$('#chkEmergenzaMedica').attr('checked',false);
+	      parent.$.fancybox.close();
+		}
+	</script>
+	<style>
+	
+	#txtNote {
+		width: 100%;
+		font-family: Arial;
+	}
+	
+	div.pulsante {
+		cursor: pointer;
+	}
+	
+	</style>
+</head>
+<body onLoad='init();'>
+	<table class="classTabHeader" cellspacing="0" cellpadding="0" width="100%">
+		<tr>
+			<td class="classTabHeaderSx">&nbsp;</td>
+			<td class="classTabHeaderMiddle"><label id="lblTitolo">Emergenza medica</label></td>
+			<td class="classTabHeaderDx">&nbsp;</td>
+		</tr>
+	</table>
+	<div style="width: 100%;padding-top: 5px">
+		&nbsp;<label id="lblTitle"><b>Attenzione! Si sta attivando lo stato di emergenza medica. Potrete accedere alla totalità dei dati del paziente (Art.82 del D.lgs 196/2003). Ogni operazione verrà tracciata e registrata. L'informativa e il consenso al trattamento dei dati personali possono altresì intervenire senza ritardo, successivamente alla prestazione, in caso di:<BR>a) impossibilità fisica, incapacità di agire o incapacità di intendere o di volere dell'interessato, quando non è possibile acquisire il consenso da chi esercita legalmente la potestà, ovvero da un prossimo congiunto, da un familiare, da un convivente o, in loro assenza, dal responsabile della struttura presso cui dimora l'interessato;<BR>b) rischio grave, imminente ed irreparabile per la salute o l'incolumità fisica dell'interessato.<BR></>Procedere?<BR>(In caso affermativo è possibile inserire una motivazione  nel campo di testo seguente)</b></label>
+		<textarea id="txtNote" rows="8"></textarea>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="classTabHeader" width="100%">
+		<tr>
+			<td class="classTabFooterSx">&nbsp;</td>
+			<td class="classTabHeaderMiddle">&nbsp;</td>
+			<td id="tdOK" class="classButtonHeader">
+				<div class="pulsante"><a onclick="registra();">Ok</a></div>
+			</td>
+			<td id="tdChiudi" class="classButtonHeader">
+				<div class="pulsante"><a onclick="annulla();">Annulla</a></div>
+			</td>
+			<td class="classTabFooterDx">&nbsp;</td>
+		</tr>
+	</table>
+</body>
+</html>

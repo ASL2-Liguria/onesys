@@ -1,0 +1,15 @@
+body {
+	width: 960px;
+}
+
+#txtDataInizio, #txtDataFine {
+	width: 150px;
+}
+
+#lblQueryResult {
+	text-align: center;
+}
+
+#fldResult {
+	border: none;
+}

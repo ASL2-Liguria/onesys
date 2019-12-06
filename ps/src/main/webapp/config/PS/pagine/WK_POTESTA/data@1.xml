@@ -1,0 +1,11 @@
+<DATI configurazione=
+              "begin
+                    :stato_pagina :=  '#STATO_PAGINA#';
+                    if('#PAZ_SCONOSCIUTO#'='S') THEN :key_query := 'PS.Q_PS_CONTATTO_SCONOSCIUTO@PS'; else :key_query := 'PS.Q_SCHEDA_ANAGRAFICA@PS'; end if;
+                    :where := null;
+                    :campo_xml := null;
+              end;">
+
+
+</DATI>
+

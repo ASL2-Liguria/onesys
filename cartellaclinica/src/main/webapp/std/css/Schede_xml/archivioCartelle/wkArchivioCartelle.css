@@ -1,0 +1,17 @@
+TABLE#oTable DIV.classArchivio{
+	height: 30px;
+	width: 30px;
+	background-position: top left;
+	background-image: url(../../../../imagexPix/contextMenu/wkArchivioCartelle/archivio.gif);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+TABLE#oTable DIV.classArchivioAnnulla{
+	height: 30px;
+	width: 30px;
+	background-position: top left;
+	background-image: url(../../../../imagexPix/contextMenu/wkArchivioCartelle/archivioAnnulla.gif);
+	background-repeat: no-repeat;
+	cursor: pointer;
+}

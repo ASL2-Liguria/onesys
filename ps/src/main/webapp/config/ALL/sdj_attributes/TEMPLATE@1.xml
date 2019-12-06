@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TEMPLATE">
+        <OBJ classe_id="PATH::div">
+            <PROC id="setId">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extTemplate@EXT_TEMPLATE}">
+            <PROC id="process">
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

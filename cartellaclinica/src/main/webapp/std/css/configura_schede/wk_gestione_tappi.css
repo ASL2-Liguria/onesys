@@ -1,0 +1,97 @@
+
+body {
+
+	padding-left:2px;
+	background: #f7fdfd;
+
+
+}
+
+/* cambio le classi delle wk per il configuratore*/
+table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFFF;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+table.classDataTable td{
+
+	border: 1px solid #6AA8F2;
+}
+TABLE.classDataTable TH {
+	BORDER-BOTTOM: #6aa8f2 1px solid;
+	BORDER-LEFT: #6aa8f2 1px solid;
+	BACKGROUND-COLOR: #9bc8fe;
+	BORDER-TOP: #6aa8f2 1px solid;
+	BORDER-RIGHT: #6aa8f2 1px solid
+}
+
+.classDataTable th {
+	background-color:#9bc8fe;
+	border: 1px solid #0099FF;
+}
+
+.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	color: #333333;
+	background-color:#9bc8fe;
+	font-family: Arial, Helvetica, sans-serif;
+	border:none;
+	border-collapse : collapse;
+}
+
+DIV.classHeaderTabella {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	WHITE-SPACE: nowrap;
+	FONT-SIZE: 12px
+}
+
+div.classDatiTabella{
+	white-space:nowrap;
+}
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+/*fine delle modifiche delle classi delle wk*/
+
+.titolo{
+	background-color:#00F;
+	color:white;
+	text-align:center;
+	font:Arial, Helvetica, sans-serif ;
+	font-size:20px;
+	font-weight:bold;
+}
+
+TR.information{
+	text-align:center;
+	font:Arial, Helvetica, sans-serif ;
+	font-size:12px;
+	font-style:italic;
+
+}
+
+/* Ricerca del Paziente quanto non trova nessun record */
+div.classRicVuota{
+	text-align:center;
+	font-size:16px;
+	white-space:nowrap;
+	font-weight:bold;
+	color:#0000CC;
+}
+
+
+label.labelFiltroView
+{
+	width:240px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

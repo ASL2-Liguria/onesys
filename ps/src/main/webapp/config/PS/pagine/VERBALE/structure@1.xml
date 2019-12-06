@@ -1,0 +1,189 @@
+<PAGINA key_id="VERBALE">
+    <HEADER_REFERTAZIONE key_id="VERBALE" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,VERBALE#DEFAULT,VERBALE" evento="START_END">
+	</HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_VERBALE#PS#" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="VERBALE#lblTitolo#butSalvaBozza,butSalvaVerbale,butFirma" evento="START">
+
+				<INPUT.HIDDEN key_id="hUrgenza" valore="hUrgenza###URGENZA" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUrgenzaEsame" valore="hUrgenzaEsame" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hUrgenzaVerbale" valore="hUrgenzaVerbale" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hEsito" valore="hEsito" evento="START">
+                </INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="hEsitoIden" valore="hEsitoIden" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+				</INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hCatena" valore="hCatena" evento="START">
+				</INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hProblemaPrinc" valore="hProblemaPrinc" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hIdenRicovero" valore="hIdenRicovero" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hIdenSchedaVerbale" valore="hIdenSchedaVerbale" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hCausaEsternaVal" valore="hCausaEsternaVal" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hCausaEsternaDescr" valore="hCausaEsternaDescr" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hComuneEvento" valore="hComuneEvento" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hComuneEventoVal" valore="hComuneEventoVal" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hDataInizioOBI" valore="hDataInizioOBI" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hOraInizioOBI" valore="hOraInizioOBI" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hOraDiffChiusura" valore="hOraDiffChiusura" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hOnereIngresso" valore="hOnereIngresso" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hSubOnereIngresso" valore="hSubOnereIngresso" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hMotivoIngresso" valore="hMotivoIngresso" evento="START">
+                </INPUT.HIDDEN>
+                <INPUT.HIDDEN key_id="hDataMorte" valore="hDataMorte" evento="START">
+                </INPUT.HIDDEN>
+
+                <ROW key_id="rowTemplate" valore="rowTemplate" evento="START">
+                    <COLUMN_FREE key_id="colTemplate" valore="colTemplate" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldTemplate" valore="fldTemplate"	evento="START">
+                            <TR.INIT key_id="trTemplate1" valore="" evento="START">
+                                <TD_LABEL key_id="lblTemplate1" valore="lblTemplate1" evento="START">
+                                </TD_LABEL>
+                                <TD.INIT key_id="tdTemplate2" valore="1" evento="START">
+                                    <TEMPLATE key_id="template" valore = "CODICE_COLORE/CodiceColore.ftl#CODICE_COLORE/CodiceColore.ftl" evento = "START">
+                                    </TEMPLATE>
+                                </TD.INIT>
+                            </TR.INIT>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+                <!--<ROW key_id="rowDimissioni" valore="rowDimissioni" evento="START">
+
+                </ROW>-->
+				<ROW key_id="rowRichieste0" valore="rowRichieste0" evento="START">
+					<COLUMN_FREE key_id="colWkSel" valore="colWkSel" evento="START">
+						<FIELD_HEADER_TABLE key_id="fldDati" valore="fldDati"	evento="START">
+							<TR_TD_LABEL_TEXTAREA key_id="taDiagnosiICD9" valore="lbltaDiagnosiICD9#taDiagnosiICD9#taDiagnosiICD9#N#N" evento="START">
+							</TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_AUTOCOMPLETE key_id="DiagnosiICD9" valore="lblDiagnosiICD9#acDiagnosiICD9#DiagnosiICD9#txtDiagnosiICD91#ADT_DiagnosiICD9###tdICD9" evento="START">
+							</TR_TD_AUTOCOMPLETE>					
+							<TR_TD_AUTOCOMPLETE key_id="DiagnosiSec1" valore="lblDiagnosiSec1#acDiagnosiSec1#DiagnosiSec1#txtDiagnosiICD92#ADT_DiagnosiICD9###tdICD9" evento="START">
+							</TR_TD_AUTOCOMPLETE>
+							<TR_TD_AUTOCOMPLETE key_id="DiagnosiSec2" valore="lblDiagnosiSec2#acDiagnosiSec2#DiagnosiSec2#txtDiagnosiICD93#ADT_DiagnosiICD9###tdICD9" evento="START">
+							</TR_TD_AUTOCOMPLETE>
+							<TR_TD_AUTOCOMPLETE key_id="DiagnosiSec3" valore="lblDiagnosiSec3#acDiagnosiSec3#DiagnosiSec3#txtDiagnosiICD94#ADT_DiagnosiICD9###tdICD9" evento="START">
+							</TR_TD_AUTOCOMPLETE>
+							<TR_TD_AUTOCOMPLETE key_id="DiagnosiSec4" valore="lblDiagnosiSec4#acDiagnosiSec4#DiagnosiSec4#txtDiagnosiICD95#ADT_DiagnosiICD9###tdICD9" evento="START">
+							</TR_TD_AUTOCOMPLETE>
+							<TR_TD_LABEL_TEXT key_id="txtDayPrognosi" valore="lblDayPrognosi##txtDayPrognosi#######" evento="START">
+							</TR_TD_LABEL_TEXT>
+                            <TR_TD_LABEL_RADIO key_id="radPrognosi" valore="lblPrognosi##radPrognosi#radPrognosi#{width:120}#N#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+							<TR_TD_AUTOCOMPLETE key_id="MedicoRef" valore="lblMedicoRef#acMedicoRef#MedicoRef#txtMedicoRef#Medici" evento="START">
+							</TR_TD_AUTOCOMPLETE>
+                            <TR_TD_LABEL_DATA key_id="txtDataDim" valore="lblDataDim##txtDataDim#DataDim#startWithToday:false, readonly_element: false, format: 'd/m/Y'###DATA_DIM" evento="START">
+                            </TR_TD_LABEL_DATA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taPrognosi" valore="lbltaPrognosi#taPrognosi#taPrognosi#N#N#" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taEpicrisi" valore="lblEpicrisi#taEpicrisi#taEpicrisi#N#N#" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                            <TR_TD_LABEL_TEXT key_id="taNumeroPubblicaSicurezza" valore="lblNumeroPubblicaSicurezza#taNumeroPubblicaSicurezza#taNumeroPubblicaSicurezza###S#S#" evento="START">
+                            </TR_TD_LABEL_TEXT>
+                            <TR.INIT key_id="trErrata" valore="" evento="START">
+                            </TR.INIT>
+						</FIELD_HEADER_TABLE>
+					</COLUMN_FREE>
+                    <COLUMN_FREE key_id="colDimissioni" valore="colDimissioni" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldDimissioni" valore="fldDimissioni" evento="START">
+                            <TR_TD_LABEL_RADIO key_id="radSceltaEsito" valore="lblSceltaEsito##radSceltaEsito#radSceltaEsito#{width:300}#N#" evento="START">
+                            </TR_TD_LABEL_RADIO>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+					<COLUMN_FREE key_id="colWkOpzionali" valore="colWkOpzionali" evento="START">
+						<!--*********************OBI************************-->
+						<DIV key_id="divOBI" valore="divOBI#divOpzionali" evento="START">
+							<FIELD_HEADER_TABLE key_id="fldOBI" valore="fldOBI" evento="START">
+                                <TR_TD_LABEL_TEXT key_id="txtDataInizioOBI" valore="lblDataInizioOBI##txtDataInizioOBI####S###" evento="START">
+                                </TR_TD_LABEL_TEXT>
+								<TR_TD_LABEL_RADIO key_id="radOBI" valore="lblOBI##radOBI#radOBI#{width:300}#N#" evento="START">
+								</TR_TD_LABEL_RADIO>
+                                <TR_TD_LABEL_RADIO key_id="radMantieniOBI" valore="lblMantieniOBI##radMantieniOBI#radMantieniOBI##S#" evento="START">
+                                </TR_TD_LABEL_RADIO>
+                            </FIELD_HEADER_TABLE>
+						</DIV>
+						<!--*************DECESSO*************************-->
+						<DIV key_id="divDecesso" valore="divDecesso#divOpzionali" evento="START">
+							<FIELD_HEADER_TABLE key_id="fldDecesso" valore="fldDecesso" evento="START">
+								<TR_TD_LABEL_DATA key_id="txtDataDecesso" valore="lblDataDecesso##txtDataDecesso#DataDecesso#startWithToday:false,readonly_element: false, format: 'd/m/Y'###" evento="START">
+			                    </TR_TD_LABEL_DATA>
+			                    <TR_TD_LABEL_ORA key_id="txtOraDecesso" valore="lblOraDecesso##txtOraDecesso#N" evento="START">
+			                    </TR_TD_LABEL_ORA>
+			                    <TR_TD_AUTOCOMPLETE key_id="ComuneDec" valore="lblComuneDec#acComuneDec#ComuneDec#txtComuneDec#Comuni" evento="START">
+			                    </TR_TD_AUTOCOMPLETE>
+			                    <TR_TD_LABEL_RADIO key_id="radRiscontro" valore="lblRiscontro##radRiscontro#radRiscontro#{width:50}#S#" evento="START">
+			                    </TR_TD_LABEL_RADIO>
+			                    <TR_TD_LABEL_RADIO key_id="radReferto" valore="lblReferto##radReferto#radReferto#{width:50}#S#" evento="START">
+			                    </TR_TD_LABEL_RADIO>
+			                    <TR_TD_LABEL_TEXTAREA key_id="taDecesso" valore="lblDecesso#taDecesso#taDecesso#N#N#" evento="START">
+								</TR_TD_LABEL_TEXTAREA>
+							</FIELD_HEADER_TABLE>
+						</DIV>
+						
+						<!--*************TRASFERIMENTO***********************-->
+						<DIV key_id="divTrasferimento" valore="divTrasferimento#divOpzionali" evento="START">
+							<FIELD_HEADER_TABLE key_id="fldTrasferimento" valore="fldTrasferimento" evento="START">
+								<TR_TD_LABEL_DATA key_id="txtDataTrasferimento" valore="lblDataTrasferimento##txtDataTrasferimento#DataTrasferimento#startWithToday:false,readonly_element: false, format: 'd/m/Y'###" evento="START">
+								</TR_TD_LABEL_DATA>
+								<TR_TD_LABEL_ORA key_id="txtOraTrasferimento" valore="lblOraTrasferimento##txtOraTrasferimento#N" evento="START">
+			                    </TR_TD_LABEL_ORA>
+								<TR_TD_AUTOCOMPLETE key_id="AccMedico" valore="lblAccMedico#acAccMedico#AccMedico#txtAccMedico#Medici" evento="START">
+								</TR_TD_AUTOCOMPLETE>
+								<TR_TD_AUTOCOMPLETE key_id="AccInfermiere" valore="lblAccInfermiere#acAccInfermiere#AccInfermiere#txtAccInfermiere#Infermieri" evento="START">
+                                </TR_TD_AUTOCOMPLETE>
+								<TR_TD_LABEL_COMBO key_id="cmbTrasferimento" valore="lblcmbTrasferimento##cmbTrasferimento#cmbTrasferimento#N##S##" evento="START">
+								</TR_TD_LABEL_COMBO>
+								<TR_TD_LABEL_COMBO key_id="cmbMezzoTrasporto" valore="lblMezzoTrasporto##cmbMezzoTrasporto#cmbMezzoTrasporto#N##S#" evento="START">
+			                    </TR_TD_LABEL_COMBO>
+								<TR_TD_LABEL_COMBO key_id="cmbMotivoTrasf" valore="lblMotivoTrasf##cmbMotivoTrasf#cmbMotivoTrasf#N##S##" evento="START">
+								</TR_TD_LABEL_COMBO>
+								<TR_TD_LABEL_TEXTAREA key_id="taTrasferimento" valore="lbltaTrasferimento#taTrasferimento#taTrasferimento#N#N#" evento="START">
+								</TR_TD_LABEL_TEXTAREA>
+							</FIELD_HEADER_TABLE>
+						</DIV>
+						<!--*************RICOVERO***********************-->
+						<DIV key_id="divRicovero" valore="divRicovero#divOpzionali" evento="START">	
+							<FIELD_HEADER_TABLE key_id="fldRicovero" valore="fldRicovero#fldOpzionali" evento="START">
+                                <TR_TD_LABEL_DATA key_id="txtDataRicovero" valore="lblDataRicovero##txtDataRicovero#DataRicovero#startWithToday:false,readonly_element: false, format: 'd/m/Y'###" evento="START">
+                                </TR_TD_LABEL_DATA>
+                                <TR_TD_LABEL_ORA key_id="txtOraRicovero" valore="lblOraRicovero##txtOraRicovero#N" evento="START">
+                                </TR_TD_LABEL_ORA>
+                                <TR_TD_AUTOCOMPLETE key_id="repRicovero" valore="lblrepRicovero#acrepRicovero#repRicovero#txtrepRicovero#RepartiGiuridiciRicovero" evento="START">
+								</TR_TD_AUTOCOMPLETE>
+								<TR_TD_AUTOCOMPLETE key_id="repAssistenza" valore="lblrepAssistenza#acrepAssistenza#repAssistenza#txtrepAssistenza#RepartiAssistenzialiRicovero" evento="START">
+								</TR_TD_AUTOCOMPLETE>
+								<TR_TD_LABEL_COMBO key_id="cmbTipoRico" valore="lblTipoRico##cmbTipoRico#cmbTipoRico#N##S##" evento="START">
+								</TR_TD_LABEL_COMBO>
+								<TR_TD_LABEL_COMBO key_id="cmbTraumatismo" valore="lblTraumatismo##cmbTraumatismo#cmbTraumatismo#N##S##" evento="START">
+								</TR_TD_LABEL_COMBO>
+                                <TR_TD_AUTOCOMPLETE key_id="CategoriaCausaEsterna" valore="lblCategoriaCausaEsterna#acCategoriaCausaEsterna#CategoriaCausaEsterna#txtCategoriaCausaEsterna#CategoriaCausaEsterna" evento="START">
+                                </TR_TD_AUTOCOMPLETE>
+                                <TR_TD_LABEL_COMBO key_id="cmbCausaEsterna" valore ="lblCausaEsterna##cmbCausaEsterna#cmbCausaEsterna#N##S#" evento="START">
+                                </TR_TD_LABEL_COMBO>
+								<TR_TD_LABEL_COMBO key_id="cmbOnere" valore="lblOnere##cmbOnere#cmbOnere#N##S##" evento="START">
+								</TR_TD_LABEL_COMBO>
+								<TR_TD_LABEL_COMBO key_id="cmbSubOnere" valore="lblSubOnere##cmbSubOnere#cmbSubOnere#N##S##" evento="START">
+								</TR_TD_LABEL_COMBO>
+                                <TR_TD_LABEL_TEXTAREA key_id="taNoteBraccialettoRicovero" valore="lbltaNoteBraccialettoRicovero#taNoteBraccialettoRicovero#taNoteBraccialettoRicovero#N#N#" evento="START">
+                                </TR_TD_LABEL_TEXTAREA>
+							</FIELD_HEADER_TABLE>
+						</DIV> 
+					</COLUMN_FREE>
+				</ROW>
+
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

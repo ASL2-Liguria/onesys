@@ -1,0 +1,127 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_TRASPORTO_URG_AMBULANZA_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_TRASPORTO_URG_AMBULANZA_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+
+
+    <!-- Caricamento Dati -->
+
+    <DATO key_id="txtReparto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REPARTO" db_descrizione="REPARTO"  />
+
+    <DATO key_id="txtRepartoProv" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REPARTO_PROV" db_descrizione="REPARTO_PROV"  />
+
+    <DATO key_id="txtOspedaleProv" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="OSPEDALE_PROV" db_descrizione="OSPEDALE_PROV"  />
+
+    <DATO key_id="txtOspedale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="OSPEDALE" db_descrizione="OSPEDALE"  />
+
+    <DATO key_id="txtMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="MEDICO" db_descrizione="MEDICO"  />
+
+    <DATO key_id="taDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI" db_descrizione="DIAGNOSI"  />
+
+    <DATO key_id="hGlasgow" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GLASGOW" db_descrizione="GLASGOW"  />
+
+    <DATO key_id="hFarmaci" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FARMACI" db_descrizione="FARMACI"  />
+
+    <DATO key_id="hEmoderivati" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="EMODERIVATI" db_descrizione="EMODERIVATI"  />
+
+    <DATO key_id="hProtesi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROTESI" db_descrizione="PROTESI"  />
+
+    <DATO key_id="hSedato" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SEDATO" db_descrizione="SEDATO"  />
+
+    <DATO key_id="hCurarizzato" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CURARIZZATO" db_descrizione="CURARIZZATO"  />
+
+    <DATO key_id="hSaturazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SATURAZIONE" db_descrizione="SATURAZIONE"  />
+
+    <DATO key_id="hFreqCardiaca" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FREQ_CARDIACA" db_descrizione="FREQ_CARDIACA"  />
+
+    <DATO key_id="hFreqResp" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FREQ_RESP" db_descrizione="FREQ_RESP"  />
+
+    <DATO key_id="hPressArteriosa" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PRESSIONE_ARTERIOSA" db_descrizione="PRESSIONE_ARTERIOSA"  />
+
+    <DATO key_id="hVentilazioneSpontanea" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="VENTILAZIONE_SPONTANEA" db_descrizione="VENTILAZIONE_SPONTANEA"  />
+
+    <DATO key_id="hVentilazioneMeccanica" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="VENTILAIONE_MECCANICA" db_descrizione="VENTILAIONE_MECCANICA"  />
+
+    <DATO key_id="hPerfusione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PERFUSIONE" db_descrizione="PERFUSIONE"  />
+
+    <DATO key_id="hPerfusioneCampo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PERFUSIONE_QTA" db_descrizione="PERFUSIONE_QTA"  />
+
+    <DATO key_id="hFarmaciInCorso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="FARMACI_IN_CORSO" db_descrizione="FARMACI_IN_CORSO"  />
+
+    <DATO key_id="hEmoderivatiInCorso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="EMO_IN_CORSO" db_descrizione="EMO_IN_CORSO"  />
+
+    <DATO key_id="hAccVenosoPeriferico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACC_VENOSO_PERIFERICO" db_descrizione="ACC_VENOSO_PERIFERICO"  />
+
+    <DATO key_id="hAccVenosoCentrale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACC_VENOSO_CENTRALE" db_descrizione="ACC_VENOSO_CENTRALE"  />
+
+    <DATO key_id="hDrenaggioToracico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DRENAGGIO_TORACICO" db_descrizione="DRENAGGIO_TORACICO"  />
+
+    <DATO key_id="hImmobilizzazione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IMMOBILIZZAZIONE" db_descrizione="IMMOBILIZZAZIONE"  />
+
+    <DATO key_id="hDocumentazioneAllegata" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DOCUMENTAZIONE" db_descrizione="DOCUMENTAZIONE"  />
+
+    <DATO key_id="hDocumentazioneAltro" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DOCUMENTAZIONE_ALTRO" db_descrizione="DOCUMENTAZIONE_ALTRO"  />
+
+    <DATO key_id="hNote" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTE" db_descrizione="NOTE"  />
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+    <!-- Query multidata -->
+
+
+</DATI>

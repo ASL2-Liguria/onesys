@@ -1,0 +1,73 @@
+body#page{
+	width:960px;
+}
+#fldDP{
+	width:45%;
+	float:left;
+}
+
+#fldInfoPaz{
+	width:45%;
+	float:right;
+}
+
+#fldConsenso{
+	width:62%;
+	float:left;
+}
+
+#fldConsenso legend {
+	
+	background: #F5F5F5;
+	border: 1px solid #fff0c1;
+	padding:5px;
+	padding-right:10px;
+}
+
+#fldNote{
+	display:block;clear:both;
+	width:30%;
+	float:right;
+}
+
+
+#fldRes,#fldRecapitoVisite{
+	width:45%;
+	float:left;
+}
+
+#fldDom{ width:45%;float:right;}
+
+body#page.embedded {
+	background: transparent; 
+	width:100%;
+	margin:0px; padding:0px;
+}
+
+body#page.embedded .iconContainer {
+	display: none;
+}
+
+#taNote{
+	height:75px;
+}
+
+#butStampaRetro{
+	background: white;
+	border:2px solid #E82A36;
+	padding: 5px;
+	float:right;
+}
+
+#butRecepisciConsenso, #butVisualizzaConsenso, #butVisualizzaStoricoConsenso, #butConsensoVergine {
+	min-height: 80px;
+	margin-right: 5px;
+	width: 120px;
+	margin-left:5px;
+	margin-top:5px;
+}
+
+#TR2 {
+	
+	margin-top:5px;
+}

@@ -1,0 +1,16 @@
+<MENU>
+	<id>MENU_PIANI_TERAPEUTICI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>PRESCRIVI</ID>
+			<LINK><![CDATA[function(rec){LISTA_PT.prescrivi(rec[0]);}]]></LINK>
+			<ICON_CLASS>esegui</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE>
+			<OUTPUT>"Prescrivi Farmaco"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

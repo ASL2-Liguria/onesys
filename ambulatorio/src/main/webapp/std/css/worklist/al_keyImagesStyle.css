@@ -1,0 +1,27 @@
+/* CSS Document */
+
+/* div delle keyimages */
+#idDivKeyImages{
+	width:100%;
+	overflow:auto;
+	background-image:url(../../../imagexPix/button/gradient/gradientKeyImage.jpg);
+	background-repeat:repeat;
+	height:100%;
+	display:block;
+	padding:5px 5px 5px 5px;
+}
+
+.ThumbStyle{
+	margin:5px 5px 5px 5px;
+}
+
+.classSRtitle{
+	background-color:yellow;
+	color:blue;
+	background-image:url(../../../imagexPix/button/mini/SR.png);
+	padding-left:18px;
+	background-repeat:no-repeat;
+	cursor:pointer; 
+	
+}
+/* ******************* */

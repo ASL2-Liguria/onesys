@@ -1,0 +1,16 @@
+body {
+	width: 960px;
+}
+
+#butCerca{
+	float:right;
+	margin-right: 20px;
+	width: 70px;
+}
+
+#numero_consensi { padding-left:15px; padding-top:2px; font-weight: bold; height: 20px; line-height: 20px;}
+
+#selezioneFiltroRicette {
+	padding-left:300px;
+	padding-top:20px;
+}

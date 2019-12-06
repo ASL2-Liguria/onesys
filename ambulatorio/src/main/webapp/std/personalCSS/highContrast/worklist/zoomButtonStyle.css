@@ -1,0 +1,30 @@
+/** foglio di stile per i pulsanti dello zoom **/
+
+#zoomContainer{
+
+}
+
+.toRight A{
+	width:21px;
+	height:21px;
+	background-image:url(../../../../imagexPix/button/mini/toRight.gif);
+}
+
+.toRight A:hover {
+	width:21px;
+	height:21px;
+	background-image:url(../../../../imagexPix/button/mini/toRightOver.gif);
+}
+
+.toLeft A{
+	width:21px;
+	height:21px;
+	background-image:url(../../../../imagexPix/button/mini/toLeft.gif);
+}
+
+.toLeft A:hover {
+	width:21px;
+	height:21px;
+	background-image:url(../../../../imagexPix/button/mini/toLeftOver.gif);
+}
+

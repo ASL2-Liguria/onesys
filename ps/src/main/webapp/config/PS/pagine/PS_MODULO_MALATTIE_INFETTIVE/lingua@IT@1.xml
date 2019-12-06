@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+
+       <lblTitolo>MALATTIE INFETTIVE</lblTitolo>
+       <fldDati>Dati</fldDati>
+        <lblProfessione>Professione</lblProfessione>
+        <lblFrequenzaCollettivita>Frequenza in collettività</lblFrequenzaCollettivita>
+        <lblMalattia>Malattia</lblMalattia>
+        <lblAccertamenti>Accertamenti</lblAccertamenti>
+        <lblOsservazioni>Osservazioni</lblOsservazioni>
+        <lblDataInizio>Data inizio</lblDataInizio>
+       <butFirma>Firma</butFirma>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

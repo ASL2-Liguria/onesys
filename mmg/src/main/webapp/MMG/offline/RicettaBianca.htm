@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ricetta</title>
+<style type="text/css">
+
+body {
+	width: 148mm;
+	height: 210mm;
+	background: white;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	font-size: 10pt;
+	position: absolute;
+}
+
+div {
+	position: absolute;
+	display: block;
+/*	border: 1px solid black; test*/
+}
+
+div#ricetta {
+	position: relative;
+	width: 148mm;
+	height: 210mm;
+}
+
+div#firma_medico {
+	left: 10mm; top: 10mm; width: 50mm; height: 30mm; 
+	font-size: 0.9em;
+	text-align: center;
+}
+
+div#data_ricetta {
+	left: 90mm; top: 20mm; width: 30mm; height: 10mm; 
+	font-size: 1.1em;
+}
+
+div#linea{
+	left: 5mm; top: 40mm; width: 130mm; height: 8mm; 
+	border-top:0px;
+	border-left:0px;
+	border-right: 0px;
+	border-bottom: 2px solid black;
+}
+
+div#sig_sigra {
+	left: 5mm; top: 50mm; width: 15mm; height: 8mm; font-size: 1em;
+}
+
+div#paziente {
+	left: 20mm; top: 50mm; width: 110mm; height: 8mm; font-size: 1em;
+}
+div#codice_fiscale {
+	left: 5mm; top: 58mm; width: 130mm; height: 8mm; font-size: 1em;
+}
+div#residenza {
+	left: 5mm; top: 66mm; width: 130mm; height: 8mm; font-size: 1em;
+}
+	
+div#titolo_prescrizione {
+	left: 5mm; top: 80mm;  width: 130mm; height: auto; font-size: 1.4em;
+	font-weight: bold;
+	text-decoration: underline;
+}
+div#prescrizione {
+	left: 5mm; top: 90mm;  width: 130mm; height: 10mm; font-size: 1em;
+	text-align: center;
+}
+div#medico {
+	position: relative;
+	left: 30mm; top: 110mm; width: 100mm; height: 10mm;
+	text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+	<div id="ricetta">
+	
+		<div id="firma_medico"></div>
+		<div id="data_ricetta"></div>
+		<div id="linea"></div>
+		
+		<div id="sig_sigra"></div>
+		<div id="paziente"></div>
+		<div id="codice_fiscale"></div>
+		<div id="residenza"></div>
+		
+		<div id="titolo_prescrizione">PRESCRIZIONE</div>
+		<div id="prescrizione"></div>
+		<div id="medico"></div>
+		
+	</div>
+
+<script type="text/javascript" src="js/LIB.js?vOffline=14"></script>
+<script type="text/javascript" src="js/stampa.js?vOffline=14"></script>
+<script type="text/javascript">
+
+var RICETTA = {
+		
+		prescrizioni: new Array(),
+		
+		init: function() {
+			this.prescrizioni.length = 0;
+		},
+		
+		addPrescrizione: function(prescr, numero) {
+			this.prescrizioni.push({descrizione: prescr, numero: numero});
+			this.popolaPrescrizione();
+		},
+		
+		popolaPrescrizione: function() {
+			this.setElement("prescrizione", "");
+			var p;
+			for (p = 0; p < this.prescrizioni.length; p++) {
+				$("<p>" + this.prescrizioni[p].descrizione + "</p>").appendTo("#prescrizione");
+			}
+			$("#medico").css({top: (110 + p*6.5) + "mm"});
+		},
+		
+		setElement: function(nome, valore) {
+			document.getElementById(nome).innerHTML=valore;
+		},
+		
+		setPaziente: function(paziente) {
+			this.setElement("paziente", paziente);
+		},
+		
+		setSesso: function(sesso) {
+			if (sesso == "M") {
+				this.setElement("sig_sigra", "Il Sig.");
+			} else {
+				this.setElement("sig_sigra", "La Sig.ra");
+			}
+		},
+		
+		setCodiceFiscale: function(codice_fiscale) {
+			this.setElement("codice_fiscale", codice_fiscale);
+		},
+		
+		setResidenza: function(residenza) {
+			this.setElement("residenza", residenza);
+		},
+		
+		setDataRicetta: function(data_ricetta) {
+			this.setElement("data_ricetta", data_ricetta);
+		},
+		
+		setFirmaMedico: function(firma_medico) {
+			this.setElement("firma_medico", firma_medico);
+		},
+		
+		setMedico: function(medico) {
+			this.setElement("medico", medico);
+		}
+};
+
+
+var FARMACI = {
+		
+		_show_farmaco_originale: true,
+		
+		farmaci: new Array(),
+		
+		init: function() {
+			RICETTA.init();
+			this.farmaci.length = 0;
+		},
+		
+		getDescrizione: function(farmaco) {
+			var descrizione;
+			descrizione = farmaco._descrizione;
+			if (farmaco.qta > 1) {
+				descrizione += " n° " + farmaco.qta;
+			}
+			return descrizione;
+		},
+		
+		/* Oggetto farmaco:
+			_descrizione (string) (OBBLIGATORIO)
+			_principio_attivo (string) (OBBLIGATORIO)
+			_posologia (string) (OPZIONALE)
+			_motivo_non_sostituibile (string) (OPZIONALE)
+			qta (int) (OPZIONALE, default 1)
+			note_cuf (string) (OPZIONALE)
+			sost_si_no (S/N) (OPZIONALE)
+		 */
+		add: function(farmaco) {
+			if (!LIB.isValid(farmaco.qta)) {
+				farmaco.qta = 1;
+			}
+			this.farmaci.push(farmaco);
+			RICETTA.addPrescrizione(this.getDescrizione(farmaco), farmaco.qta);
+		},
+};
+
+var ACCERTAMENTI = {
+		
+		accertamenti: new Array(),
+		
+		init: function() {
+			RICETTA.init();
+			this.accertamenti.length = 0;
+		},
+		
+		getDescrizione: function(accertamento) {
+			var descrizione;
+			descrizione = accertamento.accertamento;
+			if (accertamento.qta > 1) {
+				descrizione += " n° " + accertamento.qta;
+			}
+			return descrizione;
+		},
+		
+		add: function(accertamento) {
+			if (!LIB.isValid(accertamento.qta)) {
+				accertamento.qta = 1;
+			}
+			if (RICETTA.prescrizioni.length <= 8) {
+				this.accertamenti.push(accertamento);
+				RICETTA.addPrescrizione(this.getDescrizione(accertamento), accertamento.qta);
+			} else {
+				alert("Massimo 8 accertamenti per ricetta");
+			}
+		}
+};
+
+var TEST = {
+		ricetta: function() {
+			RICETTA.prescrizioni.length=0;
+			RICETTA.setPaziente("COGNOME NOME");
+			RICETTA.setDataRicetta("03/03/2014");
+			RICETTA.setFirmaMedico("Medico Dr MMG<br/>Via dei test<br/>Prove (PV)");
+			
+		},
+		
+		ricettaAccertamenti: function() {
+			TEST.ricetta();
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 1"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 2"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 3"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 4"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 5", numero: 2});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 6"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 7"});
+			ACCERTAMENTI.add({descrizione:"ACCERTAMENTO 8"});
+		},
+		
+		ricettaFarmaci: function() {
+			TEST.ricetta();
+			FARMACI.add({descrizione: "FARMACO 1", numero: 1, note_cuf: "098"});
+			FARMACI.add({descrizione: "FARMACO 2", numero: 2});
+		},
+		
+		test: function() {
+			TEST.ricettaFarmaci();
+			window.setTimeout(function() {
+				RENDER.print(function(dataurl) {
+					home.AppStampa.setSrcFromDataUrl(dataurl);
+					//AppStampa.print("HP LaserJet 400 M401 PCL 6",'{"methods":[{"autoRotateandCenter":[false]},{"setPageSize":[8]},{"setCustomPageDimension":[210.0,297.0,4]},{"setOrientation":[1]},{"setPageScale":[1]},{"setPageMargins":[[11.0,0.0,13.0,200.0],4]}]}');
+					home.AppStampa.print("Microsoft XPS Document Writer",'{"methods":[{"autoRotateandCenter":[false]},{"setPageSize":[8]},{"setCustomPageDimension":[210.0,297.0,4]},{"setOrientation":[1]},{"setPageScale":[1]},{"setPageMargins":[[11.0,0.0,13.0,200.0],4]}]}');
+				});
+			}, 500);
+		}
+}
+
+</script>
+</body></html>

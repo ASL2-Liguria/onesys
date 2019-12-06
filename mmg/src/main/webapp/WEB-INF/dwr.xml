@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://directwebremoting.org/dwr/dwr20.dtd">
+<dwr>
+    <allow>
+        <convert converter="array" match="[L*"/>
+
+        <convert match="java.lang.Exception" converter="exception">
+            <param name='include' value='message'/>
+        </convert>
+        
+        <convert converter="hashmap" match="java.util.HashMap"/>
+        <convert converter="arraylist" match="java.util.ArrayList"/>
+
+        <convert match="java.util.HashMap" converter="hashmap"/>
+
+        <create creator="new" javascript="toolKitDB" scope="script">
+            <param name="class" value="it.elco.dwr.toolKitDB"/>
+        </create>
+
+        <create creator="new" javascript="toolKitPrenotazione" scope="script">
+            <param name="class" value="it.elco.dwr.toolKitPrenotazione"/>
+        </create>
+
+        <create creator="new" javascript="toolKitWK" scope="script">
+            <param name="class" value="it.elco.dwr.toolKitWK"/>
+        </create>
+
+        <create creator="new" javascript="toolKitPacs" scope="script">
+            <param name="class" value="it.elco.dwr.toolKitPacs"/>
+        </create>
+
+        <create creator="new" javascript="toolKitGrid" scope="script">
+            <param name="class" value="it.elco.dwr.toolKitGrid"/>
+        </create>
+		
+        <create creator="new" javascript="dwrLdap" scope="script">
+            <param name="class" value="it.elco.dwr.dwrLdap"/>
+        </create>
+        
+        <create creator="new" javascript="dwrBaseFactory" scope="script">
+            <param name="class" value="it.elco.dwr.dwrBaseFactory"/>
+        </create>
+        
+        <create creator="new" javascript="dwrMMG" scope="script">
+            <param name="class" value="it.elco.mmg.dwr.dwrMMG"/>
+        </create>
+		
+    </allow>
+    
+</dwr>

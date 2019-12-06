@@ -1,0 +1,17 @@
+body{
+	padding:5px;
+	}
+	
+input#txtLuogoNasc{width:100%;}
+input#txtLocalita{width:100%;}
+input#txtLocalita2{width:100%;}
+input#txtICT{width:100%;}
+input#txtQualif{width:100%;}
+input#txtCittad{width:100%;}
+input#txtMedBase{width:100%;}
+input#txtProf{width:100%;}
+
+.lblCodFisc{
+	color:#000;
+	text-decoration:underline;
+	}

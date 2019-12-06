@@ -1,0 +1,68 @@
+#contextualMenu{
+	position:absolute;
+	border:1px solid #2E74B9;
+	font-family:Verdana;
+	font-size: 13px;
+	cursor:default;
+	visibility:hidden;
+}
+
+
+.ContextMenuLinks {
+	background: #EFF9FE;
+	font-size: 13px;
+	font-family: Verdana;
+	padding: 0px;
+	border-top: Solid 1px #2E74B9;
+	border-left: Solid 1px #2E74B9;
+	border-right: Solid 1px #2E74B9;
+	border-bottom: Solid 1px #2E74B9;
+	cursor: Default;
+}
+
+.ContextMenuOver {
+	background: yellow;
+	color:#000000;
+	font-size: 13px;
+	font-family: Verdana;
+	cursor: Default;	
+}
+
+.ContextMenuNormal {
+	background:#DDF8FF;
+	color:#000000;
+	font-size: 13px;
+	font-family: Verdana;
+	cursor: Default;
+}
+
+.ContextIcon{
+	height:30px;
+	width:30px;	
+	background-color:#FFFFFF;
+}
+
+.ContextNull{
+	height:60px;
+	width:150px;
+	border:1px solid #2E74B9;
+	font-family:Verdana;
+	font-size: 14px;
+	background-color:#FFFFCC;
+	padding-left:3px;
+	padding-top:3px;
+	
+}
+
+.titleMenuOption{
+	height:20px;
+	background-color:#258BF1;
+	color:yellow;
+	text-align:center;
+	background-image:url(../../../imagexPix/bar/titleMenuOption_dark_blue.jpg);
+	background-repeat:repeat-x;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: 14px;
+	margin:2px 0px 2px 0px;	
+}

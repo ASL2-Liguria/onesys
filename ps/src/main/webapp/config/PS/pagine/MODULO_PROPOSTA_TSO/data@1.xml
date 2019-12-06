@@ -1,0 +1,45 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_PROPOSTA_TSO_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_PROPOSTA_TSO_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+    <!-- Caricamento Dati -->
+    <DATO key_id="taCondizioniCliniche" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CONDIZIONI_CLINICHE" db_descrizione="CONDIZIONI_CLINICHE"  />
+
+
+
+    <DATO key_id="txtEnteOspedaliero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ENTE" db_descrizione="ENTE"  />
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+
+    <!-- Query multidata -->
+
+</DATI>

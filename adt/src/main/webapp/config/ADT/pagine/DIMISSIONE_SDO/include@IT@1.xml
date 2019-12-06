@@ -1,0 +1,15 @@
+<INCLUDE>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="js/Base/NO-min/Check.js"/>
+    <JS path="config/ADT/validator/model/V_ADT_DIMI.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/Anagrafica/Anagrafica.js"/>
+	<JS path="js/ADT/DimissioneSDO/DimissioneSDO.js"/>
+    <JS path="js/ADT/DimissioneSDO/DimissioneControlli.js"/>
+	<JS path="js/ADT/DimissioneSDO/DimissioneDRG.js"/>
+	<JS path="js/ADT/DimissioneSDO/DimissioneICD.js"/>
+	<JS path="js/ADT/DimissioneSDO/InitDimissioneSDO.js"/>
+	<CSS path="css/ADT/DimissioneSdo/DimissioneSdo.css"/>
+</INCLUDE>

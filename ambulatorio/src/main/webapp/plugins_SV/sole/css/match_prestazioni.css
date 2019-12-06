@@ -1,0 +1,26 @@
+.buttonSole{
+    cursor:pointer;   
+}
+
+th{
+    background-color:#6AA8F2;
+    font-size:12px;
+}
+
+.trTable{
+    font-size:12px;
+}
+.divButton{
+    background-image:url(../../../imagexPix/button/annulamento_richiesta.png);
+    background-repeat:no-repeat;
+    cursor:pointer;
+    height:14px;
+}
+
+.trTableImport{
+    font-size:12px;
+    background-color:#F8F8FF;
+}
+.tdTableImport{
+    
+}

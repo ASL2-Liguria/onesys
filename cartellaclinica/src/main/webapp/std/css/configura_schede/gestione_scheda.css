@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	padding:5px;
+	background:#b9e0ff;
+	overflow:auto;
+	}
+	
+#groupScheda{
+	background:#b9e0ff;
+	border-left:1px solid #85c8fb;
+	border-right:1px solid #85c8fb;
+}
+
+fieldset{
+	margin:10px;
+	border:2px solid #fff;
+	padding:2px;
+	}
+	fieldset .TableProfilo, #ListaEsami{
+		background:#fff;
+		padding:5px;
+		}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+		
+.lblElenco{
+
+	background-color:#DAF5FE;
+	padding-left:5px;
+	height:30px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+	text-align:center;
+	width:100%;
+	vertical-align:middle;
+
+}
+
+.txtReparto {
+
+	background:#FFFFCC;
+
+}
+
+#oIFLayout  {
+
+	background:#b9e0ff;
+
+}

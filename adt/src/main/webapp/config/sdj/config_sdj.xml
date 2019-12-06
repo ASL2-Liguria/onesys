@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SDJ>
+    <!-- Non implementato, serve per la compatibilita' con il vecchio generatore! -->
+    <!--<CLASSLOADER type="config">generatoreEngine.core.loader.standard.standardLoaderConfig</CLASSLOADER>-->
+    <!-- Loader DB -->
+    <!--<CLASSLOADER type="config">sdj.loader.polarisLoaderConfig</CLASSLOADER>-->
+    <!-- Loader su file config.xml -->
+    <CLASSLOADER type="config">sdj.loader.xmlLoaderConfig</CLASSLOADER>
+
+    <LOGGING>
+        <CLASSLOADER type="logger">generatoreEngine.logger.loggerEngine</CLASSLOADER>
+        <CLASSLOADER type="handler">generatoreEngine.logger.loggerEngineHandler</CLASSLOADER>
+        <LEVEL>SEVERE</LEVEL> <!-- NONE, INFO, WARNING, SEVERE -->
+    </LOGGING>
+
+    <CONFIGS default="fenix">
+        <CONFIG id="fenix" type_config_html="structure">
+            <!--<CLASSLOADER type="loader" id="data">sdj.loader.polarisLoaderData</CLASSLOADER>-->
+            <CLASSLOADER type="loader" id="data">it.elco.sdj.loader.XmlLoaderData</CLASSLOADER>
+
+            <!--<CLASSLOADER type="loader" id="engine">sdj.loader.polarisLoaderEngine</CLASSLOADER>-->
+            <CLASSLOADER type="loader" id="engine">sdj.loader.xmlLoaderEngine</CLASSLOADER>
+
+            <CLASSLOADER type="loader" id="structure">sdj.loader.xmlLoaderHtmlStructure</CLASSLOADER>
+            <CLASSLOADER type="loader" id="parameter">sdj.loader.polarisLoaderParameter</CLASSLOADER>
+            <CLASSLOADER type="loader" id="translator">sdj.loader.polarisLoaderTranslator</CLASSLOADER>
+            <CLASSLOADER type="html" id="root">generatoreEngine.components.html.htmlDocument</CLASSLOADER>
+            <!-- Non implementato, serve per la compatibilita' con il vecchio generatore! -->
+            <!-- <CLASSLOADER type="loader" id="html">sdj.loader.polarisLoaderHtml</CLASSLOADER> -->
+
+            <EVENT_CORE>START,END</EVENT_CORE>
+
+            <PATH type="html_library">generatoreEngine.components.html</PATH>
+            <PATH type="extension_library">sdj.extension</PATH>
+            <PATH type="data_library">sdj.data</PATH>
+            <PATH type="switcher_library">sdj.switcher</PATH>
+
+            <MAP_CLASS_HTML>
+                <MAP id="base">.base.htmlTag</MAP>
+                <MAP id="a">.htmlA</MAP>
+                <MAP id="body">.htmlBody</MAP>
+                <MAP id="button">.htmlButton</MAP>
+                <MAP id="col">.htmlCol</MAP>
+                <MAP id="colgroup">.htmlColGroup</MAP>
+                <MAP id="comment">.htmlComment</MAP>
+                <MAP id="div">.htmlDiv</MAP>
+                <MAP id="embed">.htmlEmbed</MAP>
+                <MAP id="html">.htmlDocument</MAP>
+                <MAP id="fieldset">.htmlFieldSet</MAP>
+                <MAP id="form">.htmlForm</MAP>
+                <MAP id="h1">.htmlH1</MAP>
+                <MAP id="h2">.htmlH2</MAP>
+                <MAP id="h3">.htmlH3</MAP>
+                <MAP id="h4">.htmlH4</MAP>
+                <MAP id="h5">.htmlH5</MAP>
+                <MAP id="h6">.htmlH6</MAP>
+                <MAP id="head">.htmlHead</MAP>
+                <MAP id="i">.htmlI</MAP>
+                <MAP id="iframe">.htmlIFrame</MAP>
+                <MAP id="img">.htmlImg</MAP>
+                <MAP id="input">.htmlInput</MAP>
+                <MAP id="label">.htmlLabel</MAP>
+                <MAP id="legend">.htmlLegend</MAP>
+                <MAP id="li">.htmlLi</MAP>
+                <MAP id="link">.htmlLink</MAP>
+                <MAP id="linkcss">.htmlLinkCSS</MAP>
+                <MAP id="linkjs">.htmlLinkJS</MAP>
+                <MAP id="meta">.htmlMeta</MAP>
+                <MAP id="object">.htmlObject</MAP>
+                <MAP id="optgroup">.htmlOptGroup</MAP>
+                <MAP id="option">.htmlOption</MAP>
+                <MAP id="p">.htmlP</MAP>
+                <MAP id="param">.htmlParam</MAP>
+                <MAP id="script">.htmlScript</MAP>
+                <MAP id="select">.htmlSelect</MAP>
+                <MAP id="span">.htmlSpan</MAP>
+                <MAP id="strong">.htmlStrong</MAP>
+                <MAP id="table">.htmlTable</MAP>
+                <MAP id="td">.htmlTd</MAP>
+                <MAP id="th">.htmlTdTh</MAP>
+                <MAP id="textarea">.htmlTextarea</MAP>
+                <MAP id="tbody">.htmlTHeadBodyFoot</MAP>
+                <MAP id="tfoot">.htmlTHeadBodyFoot</MAP>
+                <MAP id="thead">.htmlTHeadBodyFoot</MAP>
+                <MAP id="title">.htmlTitle</MAP>
+                <MAP id="tr">.htmlTr</MAP>
+                <MAP id="ul">.htmlUl</MAP>
+            </MAP_CLASS_HTML>
+        </CONFIG>
+    </CONFIGS>
+</SDJ>

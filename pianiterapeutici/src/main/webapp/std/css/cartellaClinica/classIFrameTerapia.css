@@ -1,0 +1,32 @@
+body
+{
+	overflow:hidden;
+}
+iframe.classIFsearchFarmaci
+{
+	float:right;
+	width:40%;
+	height:440px;
+
+}
+iframe.classIFgenerica{
+	float:left;
+	width:59.9%;
+	height:440px;
+}
+iframe.classIFdettagli{
+	width:100%;
+}
+iframe.classIFdettagliOLD{
+	width:100%;
+}
+iframe.classIFdettagliWk{
+	width:100%;
+}
+#dragObj{
+	position:absolute;
+	background:#FF0;
+	text-align:center;
+	vertical-align:middle;
+	font-size:16px;
+}

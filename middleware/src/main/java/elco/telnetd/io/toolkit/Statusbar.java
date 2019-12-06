@@ -1,0 +1,27 @@
+/* Copyright (c) 2018, EL.CO. SRL.  All rights reserved.
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright
+ * notice, this list of conditions and the following
+ * disclaimer in the documentation and/or other materials provided
+ * with the distribution.
+ * THIS SOFTWARE IS PROVIDED FREE OF CHARGE AND ON AN "AS IS" BASIS,
+ * WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED INCLUDING
+ * WITHOUT LIMITATION THE WARRANTIES THAT IT IS FREE OF DEFECTS, MERCHANTABLE,
+ * FIT FOR A PARTICULAR PURPOSE OR NON-INFRINGING. THE ENTIRE RISK
+ * AS TO THE QUALITY AND PERFORMANCE OF THE SOFTWARE IS WITH YOU.
+ * SHOULD THE SOFTWARE PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL
+ * NECESSARY SERVICING, REPAIR, OR CORRECTION.
+ * IN NO EVENT SHALL ELCO SRL BE LIABLE TO YOU FOR DAMAGES, INCLUDING
+ * ANY GENERAL, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING
+ * OUT OF THE USE OR INABILITY TO USE THE SOFTWARE (INCLUDING, BUT NOT
+ * LIMITED TO, LOSS OF DATA, DATA BEING RENDERED INACCURATE, LOSS OF
+ * BUSINESS PROFITS, LOSS OF BUSINESS INFORMATION, BUSINESS INTERRUPTIONS,
+ * LOSS SUSTAINED BY YOU OR THIRD PARTIES, OR A FAILURE OF THE SOFTWARE
+ * TO OPERATE WITH ANY OTHER SOFTWARE) EVEN IF ELCO SRL HAS BEEN ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGES.
+ */
+package elco.telnetd.io.toolkit;import java.io.IOException;import elco.telnetd.io.BasicTerminalIO;import elco.telnetd.io.terminal.ColorHelper;/** * Class that implements a statusbar, for the bottom of the Terminal Window. */public class Statusbar extends InertComponent {	// Members	private String mStatus;	private int mAlign;	private String mBgColor;	private String mFgColor;	// Constant definitions	public static final int ALIGN_RIGHT = 1;	public static final int ALIGN_LEFT = 2;	public static final int ALIGN_CENTER = 3;	/**	 * Constructor for a simple statusbar instance.	 */	public Statusbar(BasicTerminalIO io, String name) {		super(io, name);	}// constructor	/**	 * Mutator method for the statustext property of the statusbar component.	 *	 * @param text	 *            status String displayed in the titlebar.	 */	public void setStatusText(String text) {		mStatus = text;	}// setStatusText	/**	 * Accessor method for the statustext property of the statusbar component.	 *	 * @return String that is displayed when the bar is drawn.	 */	public String getStatusText() {		return mStatus;	}// getStatusText	/**	 * Mutator method for the alignment property.	 *	 * @param alignment	 *            integer, valid if one of the ALIGN_* constants.	 */	public void setAlignment(int alignment) {		if (alignment < 1 || alignment > 3) {			alignment = 2; // left default		} else {			mAlign = alignment;		}	}// setAlignment	/**	 * Mutator method for the SoregroundColor property.	 *	 * @param color	 *            String, valid if it is a ColorHelper color constant.	 */	public void setForegroundColor(String color) {		mFgColor = color;	}// setForegroundColor	/**	 * Mutator method for the BackgroundColor property.	 *	 * @param color	 *            String, valid if it is a ColorHelper color constant.	 */	public void setBackgroundColor(String color) {		mBgColor = color;	}// setBackgroundColor	/**	 * Method that draws the statusbar on the screen.	 */	@Override	public void draw() throws IOException {		mIO.storeCursor();		mIO.setCursor(mIO.getRows(), 1);		mIO.write(getBar());		mIO.restoreCursor();	}// draw	/**	 * Internal method that creates the true titlebarstring displayed on the terminal.	 */	private String getBar() {		String tstatus = mStatus;		// get actual screen width		int width = mIO.getColumns() - 1;		// get actual statustext width		int textwidth = (int) ColorHelper.getVisibleLength(mStatus);		if (textwidth > width) {			tstatus = mStatus.substring(0, width);		}		textwidth = (int) ColorHelper.getVisibleLength(tstatus);		// prepare a buffer with enough space		StringBuilder bar = new StringBuilder(width + textwidth);		switch (mAlign) {		case ALIGN_LEFT:			bar.append(tstatus);			appendSpaceString(bar, width - textwidth);			break;		case ALIGN_RIGHT:			appendSpaceString(bar, width - textwidth);			bar.append(tstatus);			break;		case ALIGN_CENTER:			int left = (width - textwidth != 0) ? ((width - textwidth) / 2) : 0;			int right = width - textwidth - left;			appendSpaceString(bar, left);			bar.append(tstatus);			appendSpaceString(bar, right);		}		if (mFgColor != null && mBgColor != null) {			return ColorHelper.boldcolorizeText(bar.toString(), mFgColor, mBgColor);		} else if (mFgColor != null && mBgColor == null) { // NOSONAR			return ColorHelper.boldcolorizeText(bar.toString(), mFgColor);		} else if (mFgColor == null && mBgColor != null) { // NOSONAR			return ColorHelper.colorizeBackground(bar.toString(), mBgColor);		} else {			return bar.toString();		}	}// getBar	private void appendSpaceString(StringBuilder bar, int length) {		for (int i = 0; i < length; i++) {			bar.append(" ");		}	}// appendSpaceString}

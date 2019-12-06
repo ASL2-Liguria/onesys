@@ -1,0 +1,9 @@
+<INCLUDE>
+    <JS path="js/PS/SchedeModulistica/ModulisticaFunzioniComuni.js"/>    
+    <JS path="js/PS/Inps/NS_INPS.js"/> 
+    <JS path="js/PS/ModuliStampa/ModuliStampa.js"/>
+
+
+    <JS path="js/PS/ModuliStampa/getStatoPaginaModuli.js"/>
+    <CSS path="css/PS/Modulistica/Modulistica.css"/>
+</INCLUDE>

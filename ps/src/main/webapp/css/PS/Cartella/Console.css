@@ -1,0 +1,189 @@
+html,body{height:100%;overflow:hidden;}
+body{padding:0px !important;position:relative;overflow:hidden;background:#fff !important;}
+
+#w{min-height:100%;}
+
+.ui-resizable {position: relative;}
+.ui-resizable-handle{position:absolute;font-size:0.1px;display:block;}
+.ui-resizable-disabled .ui-resizable-handle,.ui-resizable-autohide .ui-resizable-handle{display:none;}
+.ui-resizable-n { cursor: n-resize; height: 8px; width: 100%; top: 0;/*border-top:1px solid #bcbcbc;*/}
+.ui-resizable-n:hover{border-top:1px solid #000;}
+
+.ui-resizable-e { cursor: e-resize; width: 8px; top: 0; right:0;height: 100%; border-right:1px solid #bcbcbc;}
+.ui-resizable-e:hover{border-right:1px solid #000;}
+.ui-resizable-w { cursor: w-resize; width: 8px; top: 0; height: 100%; border-left:1px solid #bcbcbc;}
+.ui-resizable-w:hover{border-left:1px solid #000;}
+
+/* debug	*/
+#tHeader{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #fff;
+    background:#333;
+    background: -moz-linear-gradient(top,#444 0%,#333);
+    background: -webkit-gradient(linear,left top,left bottom,from(#444),to(#333));
+    border-top:1px solid #666;
+    border-bottom:1px solid #666;
+    border-top: 1px solid #515151;border-bottom: 1px solid #222;
+    text-shadow:
+        0px -1px 0px rgba(000,000,000,0.7),
+        0px 1px 0px rgba(255,255,255,0.3);
+
+    height:52px;
+    overflow:hidden;
+    display:block;
+}
+#tHeader h5{color:#fff;float:left;margin:8px 10px;line-height:18px;}
+#tHeader h5 strong{font-weight:bold;text-transform:capitalize;display:block;}
+#btnLayout{
+    float:right;
+}
+#btnLayout1{
+    float:left;
+}
+#btnLayout button{margin:9px 9px 0 0;padding:4px 6px;font-size: 18px;}
+#btnLayout1 button{margin:9px 9px 9px 9px;padding:4px 6px;font-size: 18px;}
+
+#tWrapper{overflow:hidden;}
+/*#tSx{float:left;overflow:hidden;}*/
+#tSx{position:absolute;top:52px;left:0;overflow:hidden;}
+#tContent{
+    position:absolute;
+    top:52px;
+    left:200px;
+    overflow:hidden;
+    -moz-box-shadow:inset 0px 0px 12px #666;
+    -webkit-box-shadow:inset 0px 0px 12px #666;
+    box-shadow:inset 0px 0px 12px #666;
+    background:url(../../img/loading3.gif) center center no-repeat #ddd;
+    display:block;
+}
+/*#tDx{float:right;overflow:hidden;display:block;position:relative;}*/
+#tDx{position:absolute;top:52px;right:0;overflow:hidden;display:block;}
+
+#tBottom{
+    background:url(../../img/loading3.gif) center center no-repeat #ddd;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    overflow:hidden;
+    border-top:1px solid #ccc;
+}
+
+.ui-resizable-helper{border:1px dotted #333;}
+
+#dText{background:#fff;padding:6px;overflow: hidden;}
+#divVocale{
+    margin:0;
+    padding:0;
+    border:0;
+    background:#fff;
+    overflow:hidden;
+}
+#dText .contentTabs{overflow:hidden;border-left:1px solid #666;border-right:1px solid #666;}
+#dText .footerTabs{}
+#iStruct{}
+
+#divFunzioni{border-left:1px solid #ccc;}
+#infoEsame{border-right:1px solid #ccc;}
+#tBottom{}
+
+.RIQ{border-bottom:1px dotted #ddd;padding:6px;background:#f6f6f6;}
+.RIQ h5{font-size:11px;font-weight:bold;display:block;color:#333;line-height:18px;height:18px;margin-bottom:5px;}
+.RIQ h5 i{font-size:15px;color:#aaa;margin-right:3px;float:left;}
+.RIQ input{padding:0px 4px;margin:0;width:96%;border:1px solid #ddd;height:20px;}
+.RIQ p{margin:0;font-size:11px;}
+
+#PrimoMedico h5:hover, #SecondoMedico h5:hover, #Specializzando h5:hover{text-decoration:underline;cursor:pointer;}
+#PrimoMedico h5:hover > i, #SecondoMedico h5:hover > i, #Specializzando h5:hover > i{color:#333;}
+
+.sosp{color:red !important;font-weight: bold;}
+
+/*RECORDER*/
+.recorder_button{
+    float: none;
+    clear: both;
+    text-align: center;
+}
+
+.recorder_button i{
+    font-size: 18px;
+}
+
+.recorder_button i.icon-record{color:red}
+
+/*#Paziente{cursor:pointer}
+#Paziente:hover{text-decoration:underline;}*/
+
+.mce-btn button {background: #f0f0f0 !important;background-color: #f0f0f0 !important;filter:none !important;color:#444 !important;}
+
+#cmbOpeCdc{width:100%;}
+.ui-accordion .ui-accordion-content-active {overflow: auto !important;}
+.accSpeechmagicActive{height:250px;}
+#accSpeechmagic.ui-accordion .ui-accordion-content-active{overflow:hidden !important;}
+.accListaEsamiActive{min-height:29px;}
+
+div#contaRighe{
+    height: 100%;
+    padding-top:4px;
+}
+
+
+/* SIMONPOPUP INFO ESAME */
+ /*
+.infoEsamePopup table{margin-top: 10px; margin-bottom: 10px; margin-left: 5px; width: 390px;}
+.infoEsamePopup table td{padding: 2px 5px;min-height:12px }
+.infoEsamePopup .descrizione{font-weight: bold; width:165px}
+.infoEsamePopup .contenuto{font-weight: bold;}
+.infoEsamePopup .separatore{font-weight: bold; text-align:center;height: 10px; border-bottom:1px solid #000000}
+.infoEsamePopup .separatoreEsami{font-weight: bold; text-align:center;height: 10px; background-color: #686868; color:white; text-align: center; font-size: 11px;}
+.infoEsamePopup .separatoreEsamiTrasparente{font-weight: bold; text-align:center;height: 15px;}
+.infoEsamePopup .infoComuni:nth-child(odd){background-color: #dddddd;}
+.infoError {padding: 5px 8px;}
+#btnInfo{margin: 9px 0 0 9px;padding: 4px 6px;font-size: 18px;float:left;}
+ */
+.infoEsamePopup {max-height: 550px; overflow: auto}
+.infoEsamePopup table{margin-top: 10px; margin-bottom: 10px; margin-left:1%; margin-right: 1%; width: 98%;}
+.infoEsamePopup table td{padding: 2px 5px;min-height:12px; word-break: break-all; }
+.infoEsamePopup .descrizione{font-weight: bold; width:50%; word-break: break-all;}
+.infoEsamePopup .contenuto{font-weight: bold; width:50%;}
+.infoEsamePopup .separatore{font-weight: bold; text-align:center;height: 10px; border-bottom:1px solid #000000}
+.infoEsamePopup .separatoreEsami{font-weight: bold; text-align:center;height: 10px; background-color: #686868; color:white; text-align: center; font-size: 11px;}
+.infoEsamePopup .separatoreEsamiTrasparente{font-weight: bold; text-align:center;height: 15px;}
+.infoEsamePopup .infoComuni:nth-child(odd){background-color: #dddddd;}
+.infoError {padding: 5px 8px;}
+#btnInfo{margin: 9px 0 0 9px;padding: 4px 6px;font-size: 18px;float:left;}
+
+.testoFormattatoTiny{color:black !important; font-family: Arial, Helvetica, sans-serif; font-size: 11px}
+
+.vumeter{background:#00FF09;border:1px solid #ccc;overflow:hidden;position:relative;width:100px;height:5px;}
+.vumeter>span{background:#fff;width:100%;height:100%;display:block;position:absolute;}
+#vumeter{width:100px;height:9px;margin:7px;float:right;}
+
+#HashTags{
+    width: 90%;
+    height: 150px;
+    overflow: auto;
+}
+
+
+#cercasimili{
+    position: absolute;
+    width: 98%;
+    height: 28px;
+    text-align: center;
+    /*background-color: #ccc;*/
+    border-bottom: 1px  dotted black;
+    border-top: 1px  dotted black;
+    color: white;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+#testoRefSim{
+    padding-left: 10px;
+    font-size: 12px;
+    height: 20px;
+    line-height: 18px;
+    color: #000000;
+    font-weight: bold;
+}

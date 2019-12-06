@@ -1,0 +1,47 @@
+<PAGINA key_id="MMG_MODULO_MALATTIA_INFETTIVA_PED">
+	<HEADER_PAGE key_id="MMG_MODULO_MALATTIA_INFETTIVA_PED"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_MALATTIA_INFETTIVA_PED#DEFAULT_MMG,MMG_MODULO_MALATTIA_INFETTIVA_PED"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_MALATTIA_INFETTIVA_PED#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabModuloMalattiaInfettiva"
+			valore="ModuloMalattiaInfettiva#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabModuloMalattiaInfettiva" valore="tabModuloMalattiaInfettiva" evento="START">
+				<FIELDSET_TABLE key_id="fldOsservazioni" valore="fldOsservazioni" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtProfessione" valore="lblProfessione##txtProfessione###PROFESSIONE" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCittadinanza" valore="lblCittadinanza##txtCittadinanza###CITTADINANZA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCodiceSSN" valore="lblCodiceSSN##txtCodiceSSN###CODICE_SSN" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtASLDomicilio" valore="lblASLDomicilio##txtASLDomicilio###ASL_DOMICILIO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtASLResidenza" valore="lblASLResidenza##txtASLResidenza###ASL_RESIDENZA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtFrqCollettivita" valore="lblFrqCollettivita##txtFrqCollettivita###FRQ_COLLETTIVITA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="Malattia" valore="lblMalattia##Malattia#radMalattia#{width:100}#N#MALATTIA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_DATA key_id="DataInizio" valore="lblDataInizio##txtDataInizio#DataInizio#direction:false, format: 'd/m/Y'#disabled:false##DATA_INIZIO" evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXTAREA key_id="taAccertamenti" valore="lblAccertamenti#taAccertamenti#ACCERTAMENTI" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_RADIO key_id="Tipologia" valore="lblTipologia##Tipologia#radTipologia#{width:330}#N#TIPOLOGIA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="Trattamento" valore="lblTrattamento##Trattamento#radTrattamento#{width:'auto'}#N#TRATTAMENTO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtTipo" valore="lblTipo##txtTipo###TIPO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDurata" valore="lblDurata##txtDurata###DURATA" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldConviventi" valore="fldConviventi" evento="START">
+					<TR_TD_LABEL_RADIO key_id="Controllati" valore="lblControllati##Controllati#radControllati#{width:100}#S#CONTROLLATI" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="PrescrProfilassi" valore="lblPrescrProfilassi##PrescrProfilassi#radPrescrProfilassi#{width:100}#S#PRESCRITTA_PROFILASSI" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldContatti" valore="fldContatti" evento="START">
+					<TR_TD_LABEL_RADIO key_id="SorvSanitaria" valore="lblSorvSanitaria##SorvSanitaria#radSorvSanitaria#{width:100}#S#SORVEGLIANZA_SANITARIA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="FrequenzaCollettivita" valore="lblFrequenzaCollettivita##FrequenzaCollettivita#radFrequenzaCollettivita#{width:'auto'}#N#FREQUENZA_COLLETTIVITA" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtNoteFrequenza" valore="lblNoteFrequenza##txtNoteFrequenza###NOTE_FREQUENZA" evento="START"></TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

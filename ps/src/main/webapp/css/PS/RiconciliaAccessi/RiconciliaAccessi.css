@@ -1,0 +1,29 @@
+#fldPazDestinatario, #fldPazSorgente{
+    width: 45%;
+    float:left;
+}
+#fldEsamiPazienti, #fldAccessi{
+    clear: both;
+}
+
+.exchangeList div.buttons{
+    width: 60px;
+}
+.tabledialog{
+    border: solid 1px black;
+    margin: auto;
+    width: 100%;
+}
+.tabledialog tr td, .infoDati td{
+    padding: 5px;
+    border: solid 1px #000000;
+    text-align: center;
+}
+.tabledialog tr th, .infoTitolo td{
+    width: 70px;
+    height: 20px;
+    border: solid 1px #000000;
+    font-weight: 900;
+    text-align: center;
+    padding: 5px;
+}

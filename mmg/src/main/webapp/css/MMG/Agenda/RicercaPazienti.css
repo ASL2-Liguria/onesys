@@ -1,0 +1,14 @@
+body#page {
+	width:50%;
+	margin:auto;
+	padding:30px;
+	/*background: rgba(0, 0, 0, 0.7);*/
+	background:url(../../../img/obscure.png);
+	overflow:scroll;
+}
+
+#divWk{
+    height: 300px;
+    width: 90%;    
+    margin-left: 1%;
+}

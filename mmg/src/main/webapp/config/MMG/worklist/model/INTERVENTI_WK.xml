@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>INTERVENTI_WK</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.INTERVENTI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_INTERVENTI</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>DATA_INTERVENTO</COL>
+						<DB>DATA_INTERVENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Data"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PRIVACY</COL>
+					</ID>
+					<DESCRIPTOR>" "</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk, td){ return NS_PROCESS_CLASS_MMG.processOscuramento(data, wk, td); }]]></PROCESS>
+					<WIDTH>25px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+					<EVENTS/>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>CODICE_ICD9</COL>
+						<DB>CODICE_ICD9</DB>
+					</ID>
+					<DESCRIPTOR>"Codice ICD9"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE_ICD9</COL>
+						<DB>DESCRIZIONE_ICD9</DB>
+					</ID>
+					<DESCRIPTOR>"Descrizione ICD9"</DESCRIPTOR>
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_INTERVENTO">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

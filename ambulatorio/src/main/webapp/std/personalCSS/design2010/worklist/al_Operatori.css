@@ -1,0 +1,15 @@
+/* css per la tabella di dati, come ad esempio la worklist */
+
+table.Titolo {
+	table-layout:fixed;
+	font-size: 14px;
+	padding-left:5px;
+	color:#000;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:left;
+	border:1px solid #999;
+}
+
+/* ****** */

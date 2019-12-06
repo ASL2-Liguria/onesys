@@ -1,0 +1,10 @@
+/*css essenziale se javascript è abilitato*/
+div.jsenable h3{
+	cursor: pointer;	
+	}
+div.jsenable ul ul{display:none}
+div#nav li.hide ul{display:none}
+div#nav li.show ul{display:block}
+div#nav li.show h3{
+	background: url(../../../../imagexPix/menu/arrow_top_black.jpg) no-repeat 135px center #63615e;
+	}

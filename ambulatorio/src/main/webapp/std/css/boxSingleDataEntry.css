@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#layerDescriptionInsertOuter{
+	background-color:#DCFAFC;
+	width:400px;
+	height:75px;
+	background-image:url(../../imagexPix/bar/btContainer.jpg);
+	background-repeat:repeat-x;
+	border-color:#93F;
+	border-style:groove;
+	border:1px;
+}
+#layerDescriptionInsertInner{
+
+	width:100%;
+	height:50px;
+	visibility:visible;
+	background-image:url(../../imagexPix/button/gradient/gradientKeyImage.jpg);
+	background-repeat:repeat-x;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:center; /*la proprietà text-align con il valore centrato*/
+	line-height: 50px; /*la proprietà line-height con un valore pare a l’altezza*/
+}
+
+DIV#layerTitoloDescriptionInsert{
+	height:24px;
+	text-align:center;
+	line-height:25px;
+	border-bottom-width:1px;
+	border-bottom-color:#93F;
+	border-bottom-style:groove;	
+	
+}
+
+
+SPAN.btPlus{
+	width:21px;
+	height:21px;
+	background-image:url(../../imagexPix/button/mini/btPlus.gif);
+	overflow: hidden;
+	cursor:pointer;
+	visibility:hidden;
+}
+SPAN.btPlus:hover{
+	width:21px;
+	height:21px;
+	background-image:url(../../imagexPix/button/mini/btPlus_over.gif);
+	text-decoration:none;
+	cursor:pointer;	
+}
+
+SPAN.btSpunta{
+	width:32px;
+	height:32px;
+	background-image:url(../../imagexPix/button/toolbar/spunta.png);
+	overflow: hidden;
+	cursor:pointer;
+	display:inline-block;
+	margin:2px 5px;	
+}
+SPAN.btSpunta:hover{
+	width:32px;
+	height:32px;
+	background-image:url(../../imagexPix/button/toolbar/spunta_over.png);
+	text-decoration:none;
+	cursor:pointer;
+}
+
+SPAN.btAnnulla{
+	width:32px;
+	height:32px;
+	background-image:url(../../imagexPix/button/toolbar/annulla.png);
+	overflow: hidden;
+	cursor:pointer;
+	display:inline-block;
+	margin:2px 5px;
+}
+SPAN.btAnnulla:hover{
+	width:32px;
+	height:32px;
+	background-image:url(../../imagexPix/button/toolbar/annulla_over.png);
+	text-decoration:none;
+	cursor:pointer;	
+}
+
+LABEL.lblDescriptionToInsert{
+	margin-left:5px;
+	margin-right:5px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+INPUT.textboxDescriptionToInsert{
+	border:groove;
+	border-width:thin;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+}
+
+LABEL#titoloBoxDescriptionInsert{
+	text-align: center;
+	color:blue;
+	font-weight:bold;
+	font-size:14px;
+	font-family:Arial, Helvetica, sans-serif;
+}

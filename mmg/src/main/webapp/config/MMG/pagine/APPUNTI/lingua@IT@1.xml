@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>Inserimento appunti personali</lblTitolo>
+		<tabAppunti>Inserimento appunto</tabAppunti>
+		<tabListaAppunti>Lista appunti</tabListaAppunti>
+        
+        <fldAppunti>Inserimento di un nuovo appunto relativo all'utente corrente</fldAppunti>
+        <fldTestoAppunti>Inserisci il testo</fldTestoAppunti>
+        
+        <fldFiltriAppunti>Filtri relativi agli appunti salvati</fldFiltriAppunti>
+        
+        <lblTitoloAppunti>Titolo</lblTitoloAppunti>
+        <lblTipologia>Tipologia</lblTipologia>
+        <lblTesto>Testo</lblTesto>
+        
+        <lblDaData>Dal</lblDaData>
+        <lblAData>Al</lblAData>
+        
+        <lblData>Data</lblData>
+        <lblModifica>Modifica</lblModifica>
+        <lblElimina>Elimina</lblElimina>
+        <lblStampa>Stampa</lblStampa>
+        
+        
+        <lblConsigli>CONSIGLI</lblConsigli>
+        <lblProtocolli>PROTOCOLLI</lblProtocolli>
+        <lblGenerico>GENERICO</lblGenerico>
+                
+    </ROW>
+</ROWSET>

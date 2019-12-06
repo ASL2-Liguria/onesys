@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script type="text/javascript"	src="../../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script type="text/javascript" src="../../std/jscript/moduloConsole/jquery.multi-accordion-1.5.3.js"></script>
+
+<script src="../../std/jscript/jQueryOloader/js/jquery.oLoader.min.js"></script>
+
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.widget.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<script type="text/javascript" src="../../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../../std/jscript/optionJsUtil.js"></script>   
+
+
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+<link rel="stylesheet"	href="../../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<script type="text/javascript" language="javascript"	src="../../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/dataTable.css" rel="stylesheet" type="text/css" />
+
+<link href="css/gestioneNuovoAmbu.css" rel="stylesheet" type="text/css" />
+<!--<script type="text/javascript" src="js/gestioneNuovoAmbu.js"></script>-->
+
+<link href='../../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<script type="text/javascript" src="../../../std/jscript/moduloConsole/jsComboHandler.js"></script>
+
+<link href='../../std/jscript/fancybox/jquery.fancybox-1.3.4.css' type='text/css' rel='stylesheet'>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/objConstructor.js"></script> 
+<script type="text/javascript" charset="utf-8" src="js/configurazioneSezioni.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/prototypeObject.js"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Gestione Cup - prestazioni</title>
+<style>
+#accordion h3 { padding-left: 20px; }
+button.clsEseguiInterfaccia{
+	width:98%; 
+	margin-top:5px; 
+	margin-bottom:5px;
+	display:block;
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body id="myBody">
+
+	<table cellpadding='0' cellspacing='0' class="classDataTable" width="99%">
+		<tr>
+			<td class="classTdLabel" >Centro di costo / ambulatorio</td>
+            <td class="classTdField"><select id='ricCdc' ></select></td>
+		</tr>
+	</table>
+ 
+ <script>
+    var gblSezione= "CUP_TAB_ESA";
+	var strLog = "";
+    $(function() {
+               /*
+        $( "button" )
+          .button()
+          .click(function( event ) {
+            event.preventDefault();
+          });		*/
+// 		  	<div class='containerDataTable' id='containerDataTable_CUP_TAB_ESA'></div>           
+		  $("body").append("<div class='containerDataTable' id='containerDataTable_" + gblSezione + "'></div>");		  
+          loadCombo("ricCdc","getAllCdc","");
+          creaTabella();
+   });	 
+    
+	//@deprecated
+	// "ricCdc","getAllCdc",""
+    function loadComboCdc(){
+        try{
+            try{
+                // filtro per jsonModuliAttuale.codCdc 
+                $('#ricCdc').empty();			
+                var rs = parent.getHomeFrame().executeQuery('gestioneNuovoAmbu.xml','getAllCdc',[]);
+                fill_selectFromResultSetWithBlankOption(rs,"ricCdc", "codice", "descrizione", -1);			
+            }catch(e){alert("Errore: getAllCdc");}
+        }
+        catch(e){
+            alert("loadComboSale - Error: " + e.description);
+        }		
+    }	
+	//@deprecated	
+	// "COD_ESA", "getAllEsaCdc","ricCdc"
+	function loadComboEsa(){
+        try{
+            try{
+                // filtro per jsonModuliAttuale.codCdc 
+                $('#COD_ESA').empty();			
+                var rs = parent.getHomeFrame().executeQuery('gestioneNuovoAmbu.xml','getAllEsaCdc',[getValue("ricCdc")]);
+				//function fill_selectFromResultSetWithBlankOption (rs,elemId, chiave, valore, numCaratteri, suffixString, cod_decValue){
+                fill_selectFromResultSetWithBlankOption(rs,"COD_ESA", "codice", "descrizione", 40,"...", "codice");			
+            }catch(e){alert("Errore: getAllEsaCdc");}
+        }
+        catch(e){
+            alert("loadComboEsa - Error: " + e.description);
+        }		
+    }		
+	
+    function loadCombo(id, stm, idComboPerCodiceFiltro){
+        try{
+			var listaParam = new Array();
+            try{
+                // filtro per jsonModuliAttuale.codCdc 
+				if (idComboPerCodiceFiltro!=""){
+					listaParam.push(getValue(idComboPerCodiceFiltro));
+				}
+//				alert(listaParam + "@" + id +"@" +stm );
+                $('#'+ id).empty();			
+                var rs = parent.getHomeFrame().executeQuery('gestioneNuovoAmbu.xml',stm,listaParam);
+                fill_selectFromResultSetWithBlankOption(rs,id, "codice", "descrizione", -1);			
+            }catch(e){alert("Errore: " + stm + "\n" + e.description);} 
+        }
+        catch(e){
+            alert("loadCombo - Error: " + e.description);
+        }		
+    }	
+    
+    function creaTabella(){
+        var urlIFrameGestione = "";
+        var indexToLoad = -1;
+        var objSezione;
+        var strTable ="";
+        var stmToLoad = "";				
+        try{
+            try{
+                var idxA = Object.GetObjectKeyIndex(jsonNoteSezioni.elencoSezioni,gblSezione);
+                var objA = jsonNoteSezioni.elencoSezioni[idxA][gblSezione]; 	
+                urlIFrameGestione = objA.urlIFrameGestione;
+            }catch(e){alert(e.description);urlIFrameGestione=""};
+            indexToLoad = Object.GetObjectKeyIndex(jsonDataInfo.elencoSezioni,gblSezione);
+            if (indexToLoad==-1){
+                alert("Configurazione non trovata per: " + value);
+                return;
+            }
+			$("#containerDataTable_"+ gblSezione).html("");
+            objSezione = jsonDataInfo.elencoSezioni[indexToLoad][gblSezione]; 		
+            stmToLoad = objSezione.stmToLoad;			
+                // caso "classico" di tabella
+            TABLE_BUILDER.setHome(parent.getHomeFrame());
+            TABLE_BUILDER.setSezione(gblSezione);
+            TABLE_BUILDER.setStmToLoad(stmToLoad);
+            TABLE_BUILDER.setFieldsArray(objSezione.fieldsToLoad);
+			TABLE_BUILDER.setFieldsToCreateDelStm(objSezione.fieldsToCreateDelStm);
+            try{
+                strTable = TABLE_BUILDER.getRenderedTable();
+            }
+            catch(e){alert(e.description);}
+            $("#containerDataTable_"+ gblSezione).append(strTable);
+                
+            var oTable = $("#dataTable_" + gblSezione).dataTable({
+            "bPaginate": false,
+            "bLengthChange": true,
+            "bFilter": false,
+            "bSort": true,
+            "bInfo": false,
+            "bAutoWidth": true,
+            "sScrollY": objA.iFrame_height==""?"250px":objA.iFrame_height,
+            "scrollY": objA.iFrame_height==""?"250px":objA.iFrame_height,
+            "scrollX": false,
+            "dom": "frtiS",
+            "deferRender": true,			
+            "bJQueryUI": false,
+            'bRetrieve': true,
+            "oLanguage": {
+                    "sZeroRecords": "Nessun elemento"
+                }
+            });
+            // eventualmente mettere ordinamento
+			// automatico su colonna voluta
+			setTimeout(function (){oTable.fnAdjustColumnSizing();}, 10 );	
+			setTimeout(function (){oTable.fnSort( [ [3,'asc'] ] );},1000);				
+			
+			$("#dataTable_" + gblSezione + " tr").hover(function()
+			{
+				$(this).children("td").removeClass("normal").addClass("highlight");
+			},
+			function()
+			{
+				$(this).children("td").removeClass("highlight").addClass("normal");
+			});		
+				
+
+        }
+        catch(e){
+            alert("creaTabella - Error: " + e.description);
+        }
+    }
+		
+		
+		
+function insertRow(sezione){
+	var strTableHtml= "<table id='dataentryTable_" + gblSezione +"' class='clsDatiTabella'><tbody>'";
+	strTableHtml += "<tr><td class='classTdLabel'>Codice prestazione</td><td><select id='COD_ESA'  gruppo='dataentry_" + gblSezione +"' onchange = \"javascript:$('#DESCR').val(getText('COD_ESA'));\" daSalvare = 'S'></select></td></tr>";
+	strTableHtml += "<tr><td class='classTdLabel'>Descrizione</td><td><input type='text' id='DESCR' gruppo='dataentry_" + gblSezione +"'  maxlength='60'  size='50' daSalvare = 'S'/></td></tr>";
+	strTableHtml += "<tr><td class='classTdLabel'>Codice Ises</td><td><input type='text' id='ISES' gruppo='dataentry_" + gblSezione +"'  maxlength='50'  onblur='javascript:this.value = this.value.toUpperCase();'  size='50' daSalvare = 'S'/></td></tr>";
+	strTableHtml += "</tbody></table>";
+	try{
+		if (getValue("ricCdc")==""){
+			strLog ="Prego selezionare prima un centro di costo / ambulatorio";
+			parent.LOG_FIELD.writeError(strLog);
+			return;
+		}
+		strTableHtml +="<a href='#' onclick='javascript:registra(\"" + gblSezione+"\");'>Registra</a>&nbsp;<a href ='#' onclick='javascript:$.fancybox.close();'>Annulla</a>";		
+		$.fancybox({ 
+			'padding'	: 3,
+			 autoDimensions: true,
+			'width'		: document.documentElement.offsetWidth/10*5,
+			'height'	: document.documentElement.offsetHeight/10*4,
+			'left':	0,
+			'content' : strTableHtml,
+			'hideOnOverlayClick':false,
+			'overlayColor':'#D6D6D6',
+			'showCloseButton':true,
+			'enableEscapeButton':false,
+			onStart		:	function() {
+				//return window.confirm('Continue?');
+			},
+			onCancel	:	function() {
+				//alert('Canceled!');
+			},
+			onComplete	:	function() {
+				//alert('Completed!');
+				loadCombo("COD_ESA", "getAllEsaCdc","ricCdc");
+			},
+			onCleanup	:	function() {
+				//return window.confirm('Close?');
+			},
+			onClosed	:	function() {
+				//return window.confirm('Close?');
+			}
+		});		
+		
+	}
+	catch(e){
+		alert("insertRow - Error:  "+ e.description);
+	}
+}
+
+function deleteRow(sezione, delParam){
+	try{
+		var delParamNormalized = "";
+		delParamNormalized = delParam.replace(/\|/g, "\"");
+		var jsonStmToDel = JSON.parse(delParamNormalized);
+		var listaValori = new Array();
+		
+		for (var k=0;k<jsonStmToDel.stmToDel.length;k++){
+		   for (var prop in jsonStmToDel.stmToDel[k]) {
+//					  alert(prop + " is " + jsonStmToDel.stmToDel[k][prop]);
+			  listaValori.push(jsonStmToDel.stmToDel[k][prop]);
+		   }					
+		}		
+		if (confirm("ATTENZIONE: procedere con la cancellazione del record "+ listaValori[0] + " ?")){
+			try{
+			    ERASER.setHome(parent.getHomeFrame());
+				ERASER.setStmToDel("delDati_" + gblSezione);	
+				ERASER.setValuesArray(listaValori);
+				ERASER.doErase();
+				strLog = "Procedura cancellazione record correttamente eseguita";
+				parent.LOG_FIELD.writeInfo(strLog);
+				// ricarico tabella
+				creaTabella();
+			}
+			catch(e){
+				strLog = e.description;
+				alert(strLog);
+			}
+			finally{
+				$.fancybox.close();
+			}			
+		}		
+				
+	}
+	catch(e){
+		alert("deleteRow - Error:  "+ e.description);
+	}		
+}
+
+
+function registra(){
+	try{			
+		strLog = "";
+		var myListaDati = new Array();
+
+					creaTabella();$.fancybox.close();return;
+
+        SAVER.setHome(parent.getHomeFrame());
+		SAVER.setStmToSave("setDati_" + gblSezione );
+		// cerco collection per gruppo "dataentry_ " + sezione
+		$('input[type="text"][gruppo="dataentry_' + gblSezione + '"][daSalvare="S"], textarea[gruppo="dataentry_'+ gblSezione + '"][daSalvare="S"], select[gruppo="dataentry_'+ gblSezione + '"][daSalvare="S"]').each(function(i){
+			// ATTENZIONE i valori devono esser presei in base al tipo di controllo
+			switch($(this).get(0).tagName){
+				case "INPUT":
+					myListaDati.push($(this).val());
+					break;
+				case "SELECT":
+					myListaDati.push($(this).find('option:selected').val());
+					break;
+				default :
+					myListaDati.push($(this).val());				
+					break;
+			}
+
+		});
+		SAVER.setValuesArray(myListaDati);
+		// ********** da fare 
+		// mettere controllo 
+		// su correttezza dato
+		try{
+			SAVER.doSave();
+			strLog = "Procedura inserimento record correttamente eseguita";
+			parent.LOG_FIELD.writeInfo(strLog);
+			// ricarico tabella
+			creaTabella();
+		}
+		catch(e){
+			strLog = e.description;
+			alert(strLog);
+		}
+		finally{
+			$.fancybox.close();
+		}
+	}
+	catch(e){
+		alert("registra - Error:  "+ e.description);
+	}	
+}
+</script>
+	 
+</body>
+</html>

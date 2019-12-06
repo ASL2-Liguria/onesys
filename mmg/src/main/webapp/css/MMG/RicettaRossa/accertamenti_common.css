@@ -1,0 +1,46 @@
+/******** dialogNotePrestazioni ******************/
+div.dialogNotePrestazioni{
+	width:50%;
+	background:white;
+	padding:10px;
+	font-weight: bold;
+	border:1px solid lightgrey;
+}
+
+div.condizErog {
+	float:left;
+	height:150px;
+	overflow:auto;
+}
+
+div.indAppr {
+	float:right;
+	height:150px;
+	overflow:auto;
+	background: #d2e9ff; /*azzurro chiaro*/
+}
+
+div.titleCondizErog {
+	float:left;
+	height:25px;
+	line-height:5px;
+	background: grey;
+	color:white;
+}
+
+div.titleIndAppr {
+	float:right;
+	height:25px;
+	line-height:5px;
+	background: grey;
+	color:white;
+}
+
+#divDM1996 {
+	font-weight: bold;
+	background: #f88f92;
+}
+
+#divInfoNota {
+	white-space: pre-wrap;
+}

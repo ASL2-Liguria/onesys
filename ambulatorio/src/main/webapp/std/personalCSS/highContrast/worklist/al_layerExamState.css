@@ -1,0 +1,14 @@
+div.livelloStato{
+	background-color:#E8FFFF;
+	border-top: Solid 1px blue;
+	border-left: Solid 1px blue;
+	border-right: Solid 1px blue;
+	border-bottom: Solid 1px blue;
+	padding: 5px,5px, 5px , 5px; 
+	width:250px;
+	font:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	line-height:22px;
+	
+	
+ }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>STORICO DEI RICOVERI</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butSalvataggio>Salva</butSalvataggio>
+		
+		<tabArchivio>Storico dei ricoveri</tabArchivio>
+
+		<fldListaRicoveri>Lista dei ricoveri</fldListaRicoveri>
+		
+    </ROW>
+</ROWSET>

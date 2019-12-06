@@ -1,0 +1,70 @@
+<PAGINA key_id="MMG_RIEPILOGO_INSERIMENTO_PROBLEMA">
+	<HEADER_PAGE key_id="MMG_RIEPILOGO_INSERIMENTO_PROBLEMA"
+		valore="DEFAULT_MMG,SCHEDA,MMG_RIEPILOGO_INSERIMENTO_PROBLEMA#DEFAULT_MMG,MMG_RIEPILOGO_INSERIMENTO_PROBLEMA"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_XML#MMG_DATI#MMG_RIEPILOGO_INSERIMENTO_PROBLEMA#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabRiepilogoInserimentoProblema"
+			valore="RiepilogoInserimentoProblema#lblTitolo#butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabRiepilogo_I" valore="tabRiepilogo_I" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca" evento="START">
+					<!-- <TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Ricerca" valore="lblRicerca##Ricerca###RICERCA" evento="START"></TD_LABEL_TEXT>
+						<TD_BUTTON key_id="but_Cerca" valore="but_Cerca" evento="START_END"></TD_BUTTON>
+					</TR.INIT> -->
+					<TR_TD_LABEL_TEXT key_id="txtProblema" valore="lbltxtProblema##txtProblema###PROBLEMA" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtUtenteInserimento" valore="lbltxtUtenteInserimento##txtUtenteInserimento###UTENTE_INSERIMENTO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDataInserimento" valore="lbltxtDataInserimento##txtDataInserimento###DATA_INSERIMENTO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXTAREA key_id="taNoteInserimento" valore="lblNoteInserimento#taNoteInserimento#NOTE_INSERIMENTO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkVisite" valore="fldwkVisite" evento="START">
+					<DIV.WORKLIST key_id="WkPrestazioni" valore="WkPrestazioni"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkNoteDiario" valore="fldwkNoteDiario" evento="START">
+					<DIV.WORKLIST key_id="wkNoteDiario" valore="wkNoteDiario"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabRiepilogo_II" valore="tabRiepilogo_II" evento="START">
+				<FIELDSET_TABLE key_id="fldwkBMI" valore="fldwkBMI" evento="START">
+					<DIV.WORKLIST key_id="WkBMI" valore="WkBMI"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkTemperatura" valore="fldwkTemperatura" evento="START">
+					<DIV.WORKLIST key_id="WkTemperatura" valore="WkTemperatura"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkRilevazioni" valore="fldwkRilevazioni" evento="START">
+					<DIV.WORKLIST key_id="WkRilevazioni" valore="WkRilevazioni"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabRiepilogo_III" valore="tabRiepilogo_III" evento="START">
+				<FIELDSET_TABLE key_id="fldwkPrescrFarmaci" valore="fldwkPrescrFarmaci" evento="START">
+					<DIV.WORKLIST key_id="WkPrescrFarmaci" valore="WkPrescrFarmaci"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkPrescrAccertamenti" valore="fldwkPrescrAccertamenti" evento="START">
+					<DIV.WORKLIST key_id="WkPrescrAccertamenti" valore="WkPrescrAccertamenti"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwkCertificati" valore="fldwkCertificati" evento="START">
+					<DIV.WORKLIST key_id="WkCertificati" valore="WkCertificati"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

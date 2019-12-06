@@ -1,0 +1,27 @@
+<DATI configurazione="begin :stato_pagina := ''; :key_query := 'PS.Q_LOAD_ANAMNESI_INF@PS';    :where := null;	    :campo_xml := null; end;">
+
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="stato_contatto" db_descrizione="stato_contatto" configurazione_multi_data="" />
+
+    <DATO key_id="hOreDiffChiusura" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ore_diff_chiusura" db_descrizione="ore_diff_chiusura" configurazione_multi_data="" />
+
+    <DATO key_id="hUtenteDimissione" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="utente_dimissione" db_descrizione="utente_dimissione" configurazione_multi_data="" />
+	
+	<DATO key_id="txtAllergie" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="Allergie" db_descrizione="Allergie" configurazione_multi_data="" />
+		
+	<DATO key_id="txtTerInCorso" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="TerInCorso" db_descrizione="TerInCorso" configurazione_multi_data="" />
+		
+	<DATO key_id="txtMalattie" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="Malattie" db_descrizione="Malattie" configurazione_multi_data="" />
+
+	<DATO key_id="txtUltimoPasto" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="UltimoPasto" db_descrizione="UltimoPasto" configurazione_multi_data="" />
+				
+	<DATO key_id="txtInterventoSubito" configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="InterSubito" db_descrizione="InterSubito" configurazione_multi_data="" />
+
+</DATI>

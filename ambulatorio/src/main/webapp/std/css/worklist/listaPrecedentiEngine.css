@@ -1,0 +1,877 @@
+/* normalBody */
+body {
+	background-color:#FFFFCC;
+	margin: 0 0 0 0;
+	background-image:url(../../../imagexPix/wallpaper/pattern_sfondo.gif);
+	font-size: 12px;-family: Arial, Helvetica, sans-serif;
+	padding:0;
+	}
+.Titolo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFFFF;
+	border: 1px solid #3399FF;
+	background-color:#3399FF;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:center; 
+}
+
+.StatoPrenotatoAccettato{
+	background-color:#33CCFF;
+}
+
+.StatoRefertoSospeso{
+	background-color:#FF3333;
+}
+
+.StatoInizioEsecuzione{
+	background-color:#F93;
+}
+
+SPAN.classSpanOmonimo{
+	background-color:#FFC58A;
+	display:block;
+	width:500px;
+	height:200px;
+	line-height:23px;
+	margin-left:-5px;
+	color:black;
+	font-weight:bold;
+	padding-left:5px;
+}
+
+/* usato per definire lo sfondo dei livelli di info*/
+.layerInfo{
+	background-image:url(../../../imagexPix/button/gradient/gradientKeyImage.jpg);
+	background-repeat:repeat;
+	overflow:auto;
+}
+/* titolo delle sezioni definito come span */
+SPAN.spanTitle{
+	color:black;
+	font-weight:bold; 
+	font-size:12px; 
+	display:block; 
+	background-color:#FFC; 
+	width:100%; 
+	text-align:center;	
+}
+
+input.hasDatePick{float:left;}
+
+
+tr.oddRow{background:#white;}
+tr.evenRow{background:#DFFDFF;}
+tr.col_over{background:#FBFEC0;}
+tr.sel{background:yellow;}
+
+/* al_tableDetail.css */
+
+td.classTdLabelNoWidth{
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:10px;	
+}
+td.classTdText{
+	background-color:#DAF5FE;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:10px;	
+	text-align:right;
+	text-decoration: underline;
+	border-bottom:1px;
+}
+
+td.classTdLabel{
+	background-color:#DAF5FE;
+	width:100px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:10px;	
+	white-space:nowrap;
+}
+
+td.classTdField{
+	background-color:#F2FEFF;
+	white-space:nowrap;	
+}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+/* **************************  */
+table#oTable.classDataTable
+{
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #5089FF;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	overflow:hidden;	
+	width: 100%;
+	border-top-width:10px;
+}
+
+table#idHeaderTableWk.classDataTable
+{
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #5089FF;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	overflow:hidden;
+	width: 100%;
+	border-top-width:10px;
+}
+
+table#oTable.classDataTable td{
+	border: 1px solid #83E2BC;
+}
+
+table#idHeaderTableWk.classDataTable th {
+	background-color:#3399FF;
+	border: 1px solid #83E2BC;
+}
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	border-color:#3399FF;
+	border-width:thin;
+	border-style:solid;
+	font-family: Arial, Helvetica, sans-serif;
+	color:white;
+}
+
+div.classDatiTabella{
+	white-space:nowrap;
+}
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+
+.classNormalRow{
+	height:25px;
+}
+
+/* winpopup/button.css */
+
+.pulsante {
+	width:105px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	float:right;
+
+}
+
+.pulsante A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsante A:hover {
+	background-image:url(../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+}
+
+.pulsanteDis {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}
+
+
+.pulsanteSelettore {
+	width:20px;
+	height:20px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-image:url(../../../imagexPix/bar/btBlu.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	margin:2px 0 2px 0;
+	float:right
+}
+
+.pulsanteSelettore A{
+	height:20px;
+	TEXT-DECORATION: none;
+	color: yellow;
+	display:block;
+}
+
+.pulsanteSelettore A:hover {
+	background-image:url(../../../imagexPix/bar/btYellow.jpg);
+	background-repeat:repeat-x;
+	color: blue;
+}
+
+
+
+
+
+.pulsanteInline{
+	height:25px;
+	visibility:visible;
+	cursor:pointer;
+	width:100%;	
+}
+
+
+
+.pulsanteInline A{
+	width:100%;
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height:25px;
+	float:left;
+	background-image:url(../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat:repeat-x;
+	display:block;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.pulsanteInline A:hover {
+	width:100%;	
+	background-image:url(../../../imagexPix/bar/btCyan.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;	
+}
+
+/* uregentColor.css */
+
+.bianco{
+	background-color:'white';
+}
+
+.verde{
+	background-color:'green';
+}
+
+.giallo{
+	background-color: 'yellow';
+}
+
+.rosso{
+	background-color: '#FF0000';
+}
+
+.light_yellow{
+	background-color: #FFFFF0;
+}
+
+
+
+/* ****************** MEDICINA NUCLEARE **************************** */
+.preparato{
+	background-color:#FFFFA8;
+}
+.somministrato{
+	background-color:#FF8080;
+}
+
+
+/* ****************** SCREENING **************************** */
+.screening_no{
+	background-color:#FFFFCC;
+}
+
+.screening_tecnico{
+	background-color:#DFF0FD;
+}
+
+.screening_primo_radiologo{
+	background-color:'yellow';
+}
+
+.screening_non_negativo{
+	background-color:'red';
+}
+
+.screening_approfondimenti{
+	background-color:#0C84E7;
+}
+
+.screening_negativo{
+	background-color:'green';
+}
+
+.screening_discordante{
+	background-color:#FF0000;
+}
+
+
+/* al_precedentiTab.css */
+/* style dei link dei tab NON selezionati */
+
+#div_idTabInfoRefertoInWorklist{
+ float:left;
+ width:600px;
+}
+
+#div_idTabInfoReferto{
+ float:left;
+ width:500px;
+}
+
+#div_idTabPrecedenti{
+/* float:left;*/
+ width:280px;
+}
+
+
+#topRightTabulator{
+	height:25px;
+	float:right;
+	position:absolute;
+	top:0px;
+	right:16px;
+    width: 80px;
+    vertical-align: middle;
+    text-align: center;
+	cursor:pointer;
+}
+
+#topRightTabulator.toMaximize{
+    background-image:url(../../../imagexPix/tabulator/tabUp.png);	
+}
+
+#topRightTabulator.toMinimize{
+    background-image:url(../../../imagexPix/tabulator/tabDown.png);	
+}
+
+
+
+
+.classTabMiddle A{
+	TEXT-DECORATION: none;
+	color: white;
+}
+
+.classTabMiddle A:hover {
+	color:blue;
+	text-decoration:none;
+}
+
+table.classTabulator {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+/* info per tabulatore selezionato */
+table.classTabulator td.classTabSxSelected {
+	background-image:url(../../../imagexPix/tabulator/tabSx.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator td.classTabMiddleSelected {
+	background-image:url(../../../imagexPix/tabulator/top_tabella.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator td.classTabMiddleSelected A{
+	color:yellow;
+	text-decoration:none;
+}
+
+
+
+table.classTabulator td.classTabDxSelected {
+	background-image:url(../../../imagexPix/tabulator/tabDx.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+div.tabulatorError{
+	display:block;
+	background-color:#508AFF;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	color:white;
+}
+
+
+/* ************** */
+/* info per tabulatore NON selezionato */
+table.classTabulator td.classTabSx {
+	background-image:url(../../../imagexPix/tabulator/tabSx_selelected.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator td.classTabMiddle {
+	background-image:url(../../../imagexPix/tabulator/top_tabella_selelected.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	color:#FFFF00;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator td.classTabDx {
+background-image:url(../../../imagexPix/tabulator/tabDx_selelected.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+
+
+table.classTabulator td.classButtonHeader {
+background-image:url(../../../imagexPix/tabulator/top_tabella.gif);
+width:100px; 
+}
+/* ***************************** */
+
+table.classTabulator_blink {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+
+table.classTabulator_blink td.classTabSx {
+	background-image:url(../../../imagexPix/tabulator/tabSx_blink.gif);
+	background-repeat:no-repeat;
+	width:10px;
+}
+
+table.classTabulator_blink td.classTabMiddle {
+	background-image:url(../../../imagexPix/tabulator/top_tabella_blink.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:12px;
+	color:#FFFF00;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+table.classTabulator_blink td.classTabDx {
+background-image:url(../../../imagexPix/tabulator/tabDx_blink.gif);
+background-repeat:no-repeat;
+width:10px;
+}
+
+
+
+table.classTabulator_blink td.classButtonHeader {
+background-image:url(../../../imagexPix/tabulator/top_tabella_blink.gif);
+width:100px; 
+}
+
+.infoFiltroRemoto{
+	color:yellow;
+	font-size:12px;	
+	font-family: Arial, Helvetica, sans-serif;	
+}
+
+OPTION.precedenti_on{
+	background-color:red;
+	font-size:12px;	
+	font-weight: bold;	
+	font-family: Arial, Helvetica, sans-serif;		
+	color:black;
+}
+
+
+SPAN.resetDaData{
+	width:20px;
+	height:20px;
+	background-image:url(../../../imagexPix/button/mini/btReset.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	margin-left:5px;
+} 
+
+	/* background-image:url(../../../imagexPix/button/mini/btRefresh.png); */
+	/* 	cursor:pointer; */
+SPAN.refreshDatiRisRemoti{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+
+	margin-left:5px;
+} 
+
+
+#imgDaData{
+	cursor:pointer;
+}
+
+/* dataTableWithDiv */
+
+/* css per la tabella di dati, come ad esempio la worklist */
+
+div#idLayerTestata{
+	margin:0 0 0 0;
+	height:42px;
+	display:block;
+	top:0;
+	left:0;
+	position:absolute;
+	
+}
+
+div#idLayerWorklist{
+	margin-top:42px;
+	display:block;
+}
+
+
+div#idLayerWorklist table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+div#idLayerWorklist table.classDataTable td{
+	border: 1px solid #6AA8F2;
+}
+
+
+div#idLayerWorklist table.classDataTable th {
+	background-color:#C2FAFE;
+	border: 1px solid #6AA8F2;
+}
+
+
+div#idLayerTestata table.classDataTable {
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: 1px solid #6AA8F2;
+	background-color:#FFFFF0;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+div#idLayerTestata table.classDataTable td{
+	border: 1px solid #6AA8F2;
+}
+
+div#idLayerTestata table.classDataTable th {
+	background-color:#C2FAFE;
+	border: 1px solid #6AA8F2;
+}
+
+
+
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	color: #333333;
+	font-family: Arial, Helvetica, sans-serif;
+	float:left;
+	overflow:hidden;
+}
+
+div#idLayerWorklist div.classDatiTabella{
+	white-space:nowrap;
+	padding-left:5px;
+}
+
+
+
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+
+
+div.classContainerHeader{
+	width:100%;
+	table-layout:fixed;	
+}
+
+div.classResizeColumn{
+	background-color:#00FFFF;
+	width:3px;
+	height:10px;
+	float:right;
+	display:inline;	
+}
+
+
+.classNormalRow{
+	height:25px;
+}
+
+/* ****** */
+
+
+/* -- 23.01.2012 -- */
+
+/* ******************** */
+/* rilevanza casi */
+/* ******************** */
+
+SPAN.pulsanteInclusione{
+	display:inline-table;
+	background-image:url(../../../imagexPix/bar/btLightCyan_50.jpg);
+	height:35px;
+	width:100%;
+	background-repeat:repeat-x;
+	color:yellow;
+	text-align:center;
+	line-height:40px;
+	font-size: 12px;-family: Arial, Helvetica, sans-serif;
+}
+
+SPAN.pulsanteInclusione A{
+	display:inline-table;	
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+	font-weight:bold;
+	height:35px;
+	font-size: 12px;-family: Arial, Helvetica, sans-serif;
+
+}
+
+SPAN.pulsanteInclusione A:hover {
+	background-image:url(../../../imagexPix/bar/btCyan_50.jpg);
+	background-repeat:repeat-x;
+	color: yellow;
+	font-weight:bold;	
+	font-size: 12px;-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+#selectableRilevanza .ui-selecting { background: #FECA40; } 
+#selectableRilevanza .ui-selected { background: #F39814; color: white; }
+#selectableRilevanza { list-style-type: none; margin: 0; padding: 0; }
+#selectableRilevanza li { margin: 2px; padding: 1px; float: left; width: 70px; height: 40px; font-size: 4em; text-align: center; }
+
+
+
+	.ui-autocomplete {
+		max-height: 100px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+		/* add padding to account for vertical scrollbar */
+		padding-right: 2px;
+	}
+
+
+#dialog-form-casi ui-dialog-content ui-widget-content{
+	background: white;
+}
+
+
+SPAN.spanCasiTitle{
+	color:white;
+	font-size:14px; 
+	display:block; 
+	background-color: blue;	 
+	width:100%; 
+	text-align:center;	
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+
+SPAN.spanCasiLabelRicerca{
+	
+	background-color:#33CCFF;
+	display:block; 
+
+	text-align:center;	
+	padding-top:2px;
+	padding-bottom:2px;	
+	color: blue;
+	font-weight:bold; 
+	font-size:14px;	
+	
+}
+
+SPAN#btCloseFilter.spanCasiLabelRicerca{
+	
+	background-color:blue;
+	display:block; 	
+	text-align:center;	
+}
+
+LABEL#lblTitleRicercaCasi{
+	color:black;
+	font-weight:bold; 
+	font-size:14px;	
+}
+
+LABEL.clsLblFiltro{
+	color:blue;
+}
+
+DIV#idFiltriCasi{
+	background-color: #E1E1E1;	
+	font-size: 12px;-family: Arial, Helvetica, sans-serif;
+}
+
+.classNormalRow_casiRow{
+	height:40px;
+}
+
+DIV#idFilterContainer{
+	visibility:visible;
+	display:block;
+}
+
+.cssSelect{
+	color:black;
+	font-size:12px;	
+}
+
+
+
+.caseFormIncomplete{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/form_incompleto.png);
+	display:block;
+}
+
+.caseFormComplete{ 
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	background-image:url(../../../imagexPix/button/mini/form_compilato.png);
+	display:block;
+}
+
+
+.classShowReport{
+	width:20px;
+	height:20px;
+	background-image:url(../../../imagexPix/contextMenu/btShowReport_20.png);
+	cursor:pointer;
+}
+
+.classShowReport A:hover {
+	background-image:url(../../../imagexPix/contextMenu/btShowReport_20.png);
+	background-color: yellow;
+}
+
+.classOpenStructData{
+	width:20px;
+	height:20px;
+	background-image:url(../../../imagexPix/contextMenu/btDtStrutt.png);
+	cursor:pointer;
+}
+
+.classOpenStructData A:hover {
+	background-image:url(../../../imagexPix/contextMenu/btDtStrutt.png);
+	background-color: yellow;
+}
+
+
+.classOpenDiary{
+	width:20px;
+	height:20px;
+	background-image:url(../../../imagexPix/button/mini/ico_diario.png);
+	cursor:pointer;
+}
+
+.classOpenDiary A:hover {
+	background-color: yellow;
+}
+
+.btDiario {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	box-shadow:inset 0px 1px 0px 0px #bee2f9;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #63b8ee), color-stop(1, #468ccf) );
+	background:-moz-linear-gradient( center top, #63b8ee 5%, #468ccf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#63b8ee', endColorstr='#468ccf');
+	background-color:#63b8ee;
+	-webkit-border-top-left-radius:14px;
+	-moz-border-radius-topleft:14px;
+	border-top-left-radius:14px;
+	-webkit-border-top-right-radius:14px;
+	-moz-border-radius-topright:14px;
+	border-top-right-radius:14px;
+	-webkit-border-bottom-right-radius:14px;
+	-moz-border-radius-bottomright:14px;
+	border-bottom-right-radius:14px;
+	-webkit-border-bottom-left-radius:14px;
+	-moz-border-radius-bottomleft:14px;
+	border-bottom-left-radius:14px;
+	text-indent:0;
+	border:1px solid #3866a3;
+	display:inline-block;
+	color:#14396a;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:35px;
+	line-height:35px;
+	width:100%;
+	margin-bottom:5px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #7cacde;
+}
+.btDiario:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #468ccf), color-stop(1, #63b8ee) );
+	background:-moz-linear-gradient( center top, #468ccf 5%, #63b8ee 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#468ccf', endColorstr='#63b8ee');
+	background-color:#468ccf;
+}.btDiario:active {
+	position:relative;
+	top:1px;
+}

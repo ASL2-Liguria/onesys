@@ -1,0 +1,172 @@
+<ROWSET>
+    <ROW>
+        <!-- Label Bottoni -->
+        <butApplicaMissione>Applica</butApplicaMissione>
+        <butMostra>&#x25B2;</butMostra>
+        <butNascondi>&#x25BC;</butNascondi>
+        <!-- Label Filtri -->
+        <filtroCodiciMissione>Codici Missione</filtroCodiciMissione>
+        <filtroAnagrafica>Ricerca anagrafica</filtroAnagrafica>
+        <filtroAttesa>Lista Attesa</filtroAttesa>
+        <filtroAperti>Lista Aperti</filtroAperti>
+        <filtroOBI>Lista OBI</filtroOBI>
+        <filtroChiusi>Lista Chiusi</filtroChiusi>
+        <GestioneEsito>Gestione Esito</GestioneEsito>
+        <filtroCancellati>Lista Cancellati</filtroCancellati>
+        <!-- Campi filtri-->
+        <lblDataMissione>Data</lblDataMissione>
+        <lblOraMissione>Ora (+/- 2h)</lblOraMissione>
+        <lblCodiceAmbulanza>Codice Ambulanza</lblCodiceAmbulanza>
+        <lblCognome>Cognome</lblCognome>
+        <lblNome>Nome</lblNome>
+        <lblCodiceFiscale>Codice Fiscale</lblCodiceFiscale>
+        <lblDaDataAttesa>Da Data</lblDaDataAttesa>
+        <lblDaDataAperti>Da Data</lblDaDataAperti>
+        <lblDaDataOBI>Da Data</lblDaDataOBI>
+        <lblDaDataChiusi>Da Data</lblDaDataChiusi>
+        <lblADataChiusi>A Data</lblADataChiusi>
+        <lblUrgenza>Codice Colore</lblUrgenza>
+        <lblAreeAttesa>Aree</lblAreeAttesa>
+        <lblAreeAperti>Aree</lblAreeAperti>
+        <lblAreeOBI>Aree</lblAreeOBI>
+        <lblTitoloAreeAttesa>Aree Pronto Soccorso</lblTitoloAreeAttesa>
+        <lblTitoloAreeAperti>Aree Pronto Soccorso</lblTitoloAreeAperti>
+        <lblTitoloAreeOBI>Aree Pronto Soccorso</lblTitoloAreeOBI>
+        <lblTitoloUrgenza>Urgenza Triage</lblTitoloUrgenza>
+        <lblTitoloUtenti>Personale</lblTitoloUtenti>
+        <lblUtenti>Medici</lblUtenti>
+        <lblUtentiOBI>Medici</lblUtentiOBI>
+        <lblEsito>Esito</lblEsito>
+        <lblTitoloEsito>Esiti</lblTitoloEsito>
+        <lblResetCampi>Reset Filtri</lblResetCampi>
+        <lblResetCampiGestione>Reset Filtri</lblResetCampiGestione>
+        <lblResetCampiMissione>Reset Filtri</lblResetCampiMissione>
+        <lblCartella>Cartella</lblCartella>
+        <lblAnno>Anno</lblAnno>
+        <lblData>Data Nascita</lblData>
+        <lblDaDataGestEsito>Da data</lblDaDataGestEsito>
+        <lblADataGestEsito>A data</lblADataGestEsito>
+        <!-- Label WK-->
+        <lblWkAnagrafica>Anagrafica</lblWkAnagrafica>
+        <lblWkListaAttesa>Lista Attesa</lblWkListaAttesa>
+        <lblWkListaAperti>Lista Aperti</lblWkListaAperti>
+        <lblListaOBI>Lista OBI</lblListaOBI>
+        <lblWkListaChiusi>Lista Chiusi</lblWkListaChiusi>
+        <lblGestioneEsito>Gestione Esito</lblGestioneEsito>
+        <!-- Intestazioni WK -->
+        <lblCognomeWK>COGNOME</lblCognomeWK>
+        <lblNomeWK>NOME</lblNomeWK>
+        <lblCodiceFiscaleWK>CODICE FISCALE</lblCodiceFiscaleWK>
+        <lblIden>IDEN</lblIden>
+        <lblSesso>SESSO</lblSesso>
+        <lblDataNascita>DATA NASCITA</lblDataNascita>
+        <lblComuneNascita>COMUNE NASCITA</lblComuneNascita>
+        <lblCodDecodifica>CODICE_DECODIFICA</lblCodDecodifica>
+        <lblIdenProvenienza>IDEN_PROVENIENZA</lblIdenProvenienza>
+        <lblIdenContatto>IDEN_CONTATTO</lblIdenContatto>
+        <lblNumPratica>PRATICA</lblNumPratica>
+        <lblDataRegistrazione>REGISTRAZIONE</lblDataRegistrazione>
+        <lblArea>AREA</lblArea>
+        <lblDataUltimaModifica>ULTIMA MODIFICA</lblDataUltimaModifica>
+        <lblUtenteResponsabile>UTENTE RESPONSABILE</lblUtenteResponsabile>
+        <lblMenuPresaInCaricoInf>Presa in Carico Infermieristica</lblMenuPresaInCaricoInf>
+        <lblUbicazione>UBICAZIONE</lblUbicazione>
+        <lblStatoPaziente>STATO PAZIENTE</lblStatoPaziente>
+        <lblProblemaPrincipale>PROBLEMA PRINCIPALE</lblProblemaPrincipale>
+        <lblStatoCartella>STATO CARTELLA</lblStatoCartella>
+        <lblIdenLista>IDEN_LISTA</lblIdenLista>
+        <lblOrdine>ORDINE</lblOrdine>
+        <lblAssistito>ASSISTITO</lblAssistito>
+        <lblMedicoResponsabile>MEDICO RESPONSABILE</lblMedicoResponsabile>
+        <lblStatoAttivita>STATO ATTIVITA'</lblStatoAttivita>
+        <lblDataMorte>DECEDUTO IL</lblDataMorte>
+        <lblInfo>INFO</lblInfo>
+        <lblDettaglioAnag>DETTAGLIO ANAGRAFICA</lblDettaglioAnag>
+        <lblComuneNascita>COMUNE NASCITA</lblComuneNascita>
+        <lblComuneResidenza>COMUNE RESIDENZA</lblComuneResidenza>
+        <lblResIndirizzo>INDIRIZZO RESIDENZA</lblResIndirizzo>
+        <lblResTelefono>TELEFONO</lblResTelefono>
+        <lblCittadinanza>CITTADINANZA</lblCittadinanza>
+        <lblComuneDomicilio>COMUNE DOMICILIO</lblComuneDomicilio>
+        <lblDomIndirizzo>INDIRIZZO DOMICILIO</lblDomIndirizzo>
+        <lblCellulare>CELLULARE</lblCellulare>
+        <lblStatoCivile>STATO CIVILE</lblStatoCivile>
+        <lblNazione>NAZIONE</lblNazione>
+        <lblIdenRichiesta>IDEN_RICHIESTA</lblIdenRichiesta>
+        <lblIdenAnag>IDEN_ANAG</lblIdenAnag>
+        <lblIdenVisita>IDEN_VISITA</lblIdenVisita>
+        <lblNumNosologico>NUM_NOSOLOGICO</lblNumNosologico>
+        <lblPaziente>PAZIENTE</lblPaziente>
+        <lblDescrCdc>DESCR_CDC</lblDescrCdc>
+        <lblDataRichiesta>DATA</lblDataRichiesta>
+        <lblOraRichiesta>ORA</lblOraRichiesta>
+        <lblRichiedente>RICHIEDENTE</lblRichiedente>
+        <lblPrelievoEffettuato>PRELIEVO_EFFETTUATO</lblPrelievoEffettuato>
+        <lblQuesito>QUESITO</lblQuesito>
+        <lblNote>NOTE</lblNote>
+        <lblEsito>ESITO</lblEsito>
+        <lblEsitoOBI>ESITO OBI</lblEsitoOBI>
+        <lblCertificata>CERTIFICATA</lblCertificata>
+        <lblAvvertenze>AVVERTENZE</lblAvvertenze>
+        <lblDiagnosiPrincipale>DIAGNOSI</lblDiagnosiPrincipale>
+        <lblDataChiusura>DATA CHIUSURA</lblDataChiusura>
+        <lblCartellaEsito>CARTELLA</lblCartellaEsito>
+        <lblDataFine>DATA CHIUSURA</lblDataFine>
+        <lblRepartoRicovero>REPARTO</lblRepartoRicovero>
+        <lblUtenteResponsabileId>ID UTENTE RESPONSABILE</lblUtenteResponsabileId>
+        <lblLetto>LETTO</lblLetto>
+        <!-- Label Menu -->
+        <lblMenu>Menu</lblMenu>
+        <lblMenuDettaglioAnag>Dettaglio / Modifica  Anagrafica</lblMenuDettaglioAnag>
+        <lblMenuPresaInCarico>Presa in Carico Medica</lblMenuPresaInCarico>
+        <lblMenuPassaggioDiConsegne>Passaggio di consegna</lblMenuPassaggioDiConsegne>
+        <lblMenuApriConsole>Gestione Cartella</lblMenuApriConsole>
+        <lblMenuTriage>Apertura Cartella</lblMenuTriage>
+        <lblMenuAssociaPaz>Associa Paziente Sconosciuto</lblMenuAssociaPaz>
+        <lblStampaBraccialetto>Stampa Braccialetto</lblStampaBraccialetto>
+        <lblMenuInsPaziente>Inserisci Paziente</lblMenuInsPaziente>
+        <lblMenuPazSconosciuto>Paziente Sconosciuto</lblMenuPazSconosciuto>
+        <lblMenuiPatient>iPatient</lblMenuiPatient>
+        <lblMenuRivaluta>Rivaluta</lblMenuRivaluta>
+        <lblMenuValutaTriage>Triage</lblMenuValutaTriage>
+        <lblMenuRiconcilia>Riconcilia Accessi</lblMenuRiconcilia>
+        <lblAssociaPAZ>Associa a questo Paziente</lblAssociaPAZ>
+        <lblEliminaDimissione>Elimina Esito</lblEliminaDimissione>
+        <lblInviaCartella>Invia Cartella Completa</lblInviaCartella>
+        <lblEliminaObi>Elimina Obi</lblEliminaObi>
+        <lblcancelAmministrativo>Cancellazione Amministrativa</lblcancelAmministrativo>
+        <lblMenuCancellaPresaInCarico>Cancella Presa In Carico</lblMenuCancellaPresaInCarico>
+        <lblMenuRiassociaPaz>Riassocia Paziente</lblMenuRiassociaPaz>
+        <lblSegnalaAllontanato>Segnala Allontanato</lblSegnalaAllontanato>
+        <lblManutenzioneTriage>Manutenzione Triage</lblManutenzioneTriage>
+        <lblSceltaEsito>Scelta Esito</lblSceltaEsito>
+        <lblSegnalaOBI>Inserisci OBI</lblSegnalaOBI>
+        <lblAnnullaOBI>Annulla OBI</lblAnnullaOBI>
+        <lblApriModuli>Apri Modulistica</lblApriModuli>
+        <lblModificaEsito>Modifica Esito</lblModificaEsito>
+        <lblSceltaEsitoOBI>Scelta Esito OBI</lblSceltaEsitoOBI>
+        <lblStampaTriage>Stampa Triage</lblStampaTriage>
+        <lblStampaVerbale>Stampa Verbale</lblStampaVerbale>
+        <lblStampaNumero>Stampa Numero</lblStampaNumero>
+        <lblStampaPrivacy>Stampa Privacy</lblStampaPrivacy>
+        <lblStampaDiarioClinico>Visualizza Diario Clinico</lblStampaDiarioClinico>
+        <lblStampaDiarioOBI>Stampa Diario Clinico</lblStampaDiarioOBI>
+        <lblVisualizzaCartella>Visualizza cartella</lblVisualizzaCartella>
+        <lblStorico>Storico Paziente</lblStorico>
+        <lblManutenzioneCartella>Manutenzione Cartella</lblManutenzioneCartella>
+        <lblMenuPassaggioDiConsegneInf>Passaggio di consegne Infermieristico</lblMenuPassaggioDiConsegneInf>
+        <!--<lblMenuPresaInCaricoInf>Passaggio di consegne infermieristico</lblMenuPresaInCaricoInf>-->
+        <lblMenuPassaggioConsegneInf>Passaggio di consegne infermieristico</lblMenuPassaggioConsegneInf>
+        <lblManutenzioneRivalutazione>Manutenzione Rivalutazione</lblManutenzioneRivalutazione>
+        <lblMenuCompletaRivalutazione>Completa Rivalutazione</lblMenuCompletaRivalutazione>
+        <lblMenuCompletaTriage>Completa Triage</lblMenuCompletaTriage>
+        <lblMenuApriDebbugger>DEBUGGER - APRI CARTELLA</lblMenuApriDebbugger>
+        <lblMenuConsultaCartella>Consulta cartella</lblMenuConsultaCartella>
+
+        <!-- Finte label messe qui altrimenti và in errore la lettura del file-->
+        <tagPerNonAndareInErrore>aaaaaaaaaaa</tagPerNonAndareInErrore>
+        <tagFinale>aaaaaaaa</tagFinale>
+        <wwwww>wwwww</wwwww>
+        <tagUltimo>aaaaaaa</tagUltimo>
+    </ROW>
+</ROWSET>

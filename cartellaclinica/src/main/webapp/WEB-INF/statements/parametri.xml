@@ -1,0 +1,486 @@
+<root>
+	<statements_list>
+		<statement name="getValoriSoglia">
+			<sql>
+			<![CDATA[
+				select separatore,critico_alto,allerta_alto,allerta_basso,critico_basso,
+				critico_alto_2,allerta_alto_2,allerta_basso_2,critico_basso_2
+				from radsql.view_cc_parametri_reparto 
+				where codice_reparto=? and iden_parametro=to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="getValoriUltimeNOre">
+			<sql>
+			<![CDATA[
+				Select 
+					DESCRIZIONE,
+					case when (decodifica is null)
+						then valore
+						else extractvalue(xmltype(DECODIFICA),'/DECODE/VALORE_1[@encoded="'|| valore ||'"]/@decoded')				
+					end VALORE,
+					CLASSE,
+					DATA_ORA,
+					DESCR_UTE,
+					CODICE_REPARTO 
+				from 
+					VIEW_CC_PARAMETRI_RILEVATI
+				where 
+					IDEN_ANAG=to_number(?) 
+					and IDEN_PARAMETRO=to_number(?) 					 
+					and DATE_DIFF<=to_number(?)
+					and valore is not null
+			]]>
+			</sql>
+		</statement>		
+		<statement name="setNota">
+			<sql>
+			<![CDATA[
+				declare 
+					pIdenRiferimento pls_integer:=to_number(?);
+					pIdenParametro pls_integer:=to_number(?);
+					pIdenUte pls_integer:=to_number(?);
+					pData varchar2(8):=?;
+					pOra varchar2(5):=?;
+					pNote varchar2(4000):= ?;
+					vStato varchar2 (1):='E'; 
+				begin
+					
+				insert into radsql.cc_parametri_ricovero (iden_visita,iden_parametro,iden_ute,validita_inizio,data,ora,note,stato)
+					values (pIdenRiferimento,pIdenParametro,pIdenUte,to_date(pData||pOra,'yyyyMMddhh24:mi'),pData,pOra,pNote,vStato);
+				end;
+			]]>
+			</sql>
+		</statement>		
+		<statement name="updNotaRilevazione">
+			<sql>
+			<![CDATA[
+				declare 
+					pIdenParametro pls_integer:=to_number(?);
+					pNote varchar2(4000):= ?;
+				begin
+				update radsql.cc_parametri_ricovero set note=pNote where iden=pIdenParametro;
+				end;
+			]]>
+			</sql>
+		</statement>		
+		<statement name="pianificaRilevazioni">
+			<sql>
+			<![CDATA[
+				declare 
+					pIdenRiferimento pls_integer:=to_number(?);
+					pIdenParametri varchar2(5000) := ?;
+					pIdenUte pls_integer:=to_number(?);
+					pDataInizio varchar2(8):=?;
+					pOraInizio varchar2(5):=?;
+					pNumGiorni pls_integer:=to_number(?);
+					pOrari varchar2(5000):=?;
+					
+					ArIdenParametri     ARRAY_VALUE:=ARRAY_VALUE();
+					ArDettagli          ARRAY_VALUE:=ARRAY_VALUE();
+					ArValoriDettaglio   ARRAY_VALUE:=ARRAY_VALUE();
+					
+					vData date;
+					vIdenInserito pls_integer;
+				begin
+					ArIdenParametri := radsql.split2array(pIdenParametri, '|');
+					ArDettagli := radsql.split2array(pOrari, '|');
+					
+					for idxParametri in ArIdenParametri.first .. ArIdenParametri.last
+					loop		
+					for idxGiorni in 0..pNumGiorni-1
+						loop
+							for idx in ArDettagli.first..ArDettagli.last
+							loop			
+								ArValoriDettaglio := radsql.split2array(ArDettagli(idx), '@');
+								vData := (to_date(ArValoriDettaglio(1)||ArValoriDettaglio(2),'yyyyMMddhh24:mi'))+idxGiorni;
+								cc_parametri.pianificaRilevazione(
+									pIdenRiferimento, 
+									to_number(ArIdenParametri(idxParametri)), 
+									pIdenUte, 
+									vData, 
+									vIdenInserito
+								);
+																
+							end loop;	
+						end loop;	
+					end loop;
+				end;		
+			]]>
+			</sql>
+		</statement>		
+		<statement name="cancella">
+			<sql>
+			<![CDATA[
+			declare 
+				pIdenDettaglio pls_integer := to_number(?);
+				pIdenUte pls_integer := to_number(?);
+				pStato varchar2(1) := 'X';
+				
+				pIdenParametro number;
+				pIdenVisita number;
+				pValore number;
+				pArrivatoDa varchar2(50);
+				pDate date;
+			begin
+				update cc_parametri_ricovero set stato=pStato,iden_ute=pIdenUte,data_ultima_modifica=sysdate,note=null where iden=pIdenDettaglio;
+								
+				-- Controlla che esista la procedura CC_SET_PARAMETRI_DIPENDENTI e aggiorna i valori delle rilevazioni che dipendono da questo parametro
+				begin
+					select iden_parametro, iden_visita, arrivato_da, validita_inizio into pIdenParametro, pIdenVisita, pArrivatoDa, pDate from cc_parametri_ricovero where iden=pIdenDettaglio;
+   					EXECUTE IMMEDIATE 'begin RADSQL.CC_SET_PARAMETRI_DIPENDENTI(:pIdenParametro, :pIdenVisita, :pIdenUte, :pArrivatoDa, :pValore, :pIdenDettaglio, :pStato, :pDate); end;'
+   					USING pIdenParametro, pIdenVisita, pIdenUte, pArrivatoDa, out pValore, in out pIdenDettaglio, pStato, pDate;
+				exception
+					when no_data_found then
+						NULL; -- do nothing
+   					when others then
+      					if SQLCODE != -942 then -- handle SQL error: ORA-00942: table or view does not exist
+	         				RAISE;
+      					end if;
+				end;
+			end;
+			]]>
+			</sql>
+		</statement>		
+		<statement name="annullaPianificati">
+			<sql>
+			<![CDATA[
+				declare
+					vIdenRicovero pls_integer := to_number(?);
+					vIdenParametroType pls_integer := to_number(?);
+					vUtente pls_integer := to_number(?);
+					vDataMin date := to_date(?,'yyyyMMddhh24:mi');
+					vDataMax date;
+					vDataMaxString varchar2(13) := ?;
+					vStato varchar2(1) := 'X';
+				begin
+					if 'x'||vDataMaxString ='x' then
+						vDataMax := to_date('2999123123:59','yyyyMMddhh24:mi');
+					else
+						vDataMax := to_date(vDataMaxString,'yyyyMMddhh24:mi');
+					end if;
+					update cc_parametri_ricovero set stato=vStato,iden_ute=vUtente,data_ultima_modifica=sysdate
+					where IDEN_VISITA in (select iden from nosologici_paziente where iden=vIdenRicovero or parent=vIdenRicovero) and stato='P' and iden_parametro=vIdenParametroType
+						and VALIDITA_INIZIO >= vDataMin 
+						and VALIDITA_INIZIO <= vDataMax;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getUltimiParametriRilevati">
+			<sql>
+			<![CDATA[
+				Select 
+					col01 IDEN_PARAMETRO
+					,col02 DESCRIZIONE
+					, col03 VALORE
+					, col04 ORARIO
+					, col05 COD_DEC 
+				from 
+					table(
+						GET_PARAMETRI_RICOVERO(?,?,?,?)
+					)
+			]]>
+			</sql>
+		</statement>
+		<statement name="setParametro">
+			<sql>
+			<![CDATA[
+				declare
+					pIdenPer 		 pls_integer := to_number(?);
+					pIdenVisita 	 pls_integer := to_number(?);
+					pIdenParametro 	 pls_integer := to_number(?);
+					pIdenSvolto 	 pls_integer := to_number(?);
+					pData 			 varchar2(5000) := ?;
+					pOra 			 varchar2(5000) := ?;
+					pVal_1 			 pls_integer := to_number(?);
+					pVal_2 			 pls_integer := to_number(?);
+					pNote 			 varchar2(5000) := ?;
+					pAreaCorporea 	 varchar2(5000) := ?;
+					pIdenAnag 		 pls_integer := to_number(?);
+					pCodDecParametro varchar2(5000) := ?;
+					pArrivatoDa		varchar2(50) := ?;
+					
+					sOut varchar2(5000) := '';
+					sMetal varchar2(1) := '';
+				begin
+					radsql.CC_PARAMETRO_INSERT (
+						pIdenPer         ,
+						pIdenVisita    ,
+						pIdenParametro   ,
+						pIdenSvolto      ,
+						pData          ,
+						pOra           ,
+						pVal_1           ,
+						pVal_2           ,
+						pNote           ,
+						pAreaCorporea   ,
+						sOut,
+						sMetal,
+						pIdenAnag       ,
+						pCodDecParametro,
+						pArrivatoDa
+					);
+				
+					? := sOut;
+				
+				end;
+			]]>
+			</sql>
+		</statement>		
+		
+		<statement name="setPesoAltezza">
+			<sql>
+				<![CDATA[
+					declare
+						pIdenPer 		pls_integer := to_number(?);
+						pIdenVisita 	pls_integer := to_number(?);
+						pIdenAnag 		pls_integer := to_number(?);
+						pData 			varchar2(5000) := ?;
+						pOra 			varchar2(5000) := ?;
+						pValoreAltezza 	pls_integer := to_number(?);
+						pValorePeso	 	number := ?;
+						pStato			varchar2(1):= ?;
+						pNote 			varchar2(5000) := ?;
+						pAreaCorporea 	varchar2(5000) := ?;
+						pArrivatoDa		varchar2(50) := ?;
+						
+						vIdenParametroAltezza pls_integer := CC_PARAMETRI.decodeCodiceParametro('ALTEZZA');
+   						vIdenParametroPeso 	  pls_integer := CC_PARAMETRI.decodeCodiceParametro('PESO');
+						vIdenValoreAltezza pls_integer;
+					   	vIdenValorePeso pls_integer;					
+					   	vIdenValoreBmi pls_integer;
+					   	vValoreBmi number;
+					   	vIdenValoreBsa pls_integer;
+					   	vValoreBsa number;
+						begin
+							if (pIdenVisita is null) then
+     							pIdenVisita := CORE_API.getIdenVisitaStorico(pIdenAnag);
+   							end if;
+							if (pValoreAltezza is not null) then
+   								CC_PARAMETRI.upsertValue(pIdenVisita, vIdenParametroAltezza, pIdenPer , to_date(pData || pOra, 'yyyyMMddhh24:mi'), pValoreAltezza, null, pNote , pStato, pAreaCorporea , pArrivatoDa , vIdenValoreAltezza);
+   							end if;
+   							if (pValorePeso is not null) then 
+   								CC_PARAMETRI.upsertValue(pIdenVisita, vIdenParametroPeso, pIdenPer , to_date(pData || pOra, 'yyyyMMddhh24:mi'), pValorePeso, null, pNote , pStato, pAreaCorporea , pArrivatoDa , vIdenValorePeso);
+							end if;
+							if (pValoreAltezza is not null and pValorePeso is not null) then
+   								CC_PARAMETRI.setParametroDipendente('BMI', pIdenVisita, pIdenPer, pArrivatoDa, vIdenValoreBmi, vValoreBmi);
+  	 							CC_PARAMETRI.setParametroDipendente('BSA', pIdenVisita, pIdenPer, pArrivatoDa, vIdenValoreBsa, vValoreBsa);
+							end if;
+						end;
+						
+				]]>
+			</sql>
+		</statement>
+		<statement name="getParametriReparto">
+			<sql>
+			<![CDATA[
+				select 
+					t.iden,
+					t.descrizione,
+					t.cod_dec,
+					t.rilevabile,
+					t.sigla,
+					t.valore_minimo,
+					t.valore_massimo
+				from 
+					radsql.cc_parametri_reparto r
+					join cc_parametri_type  t on t.iden = r.iden_parametro
+				where 
+					codice_reparto=?
+					and r.attivo='S'
+				order by
+					t.descrizione
+			]]>
+			</sql>
+		</statement>
+        <statement name="getParametriRepartoConfigurat">
+            <sql>
+                <![CDATA[
+				SELECT
+                    t.iden,
+					t.descrizione,
+					t.cod_dec,
+					t.rilevabile,
+					t.sigla,
+					t.valore_minimo,
+					t.valore_massimo
+                FROM
+                  cc_parametri_type t
+                LEFT OUTER JOIN
+                  (
+                    SELECT
+                      codice_reparto,
+                      iden_parametro
+                    FROM
+                      cc_parametri_reparto
+                    WHERE
+                      codice_reparto = ?
+                  )
+                  r
+                ON
+                  t.iden=r.iden_parametro
+			]]>
+            </sql>
+        </statement>
+		<statement name="getParametriRepartoSezione">
+			<sql>
+			<![CDATA[
+				select 
+					t.iden,
+					t.descrizione,
+					t.cod_dec,
+					t.rilevabile,
+					t.sigla,
+					t.valore_minimo,
+					t.valore_massimo
+				from 
+					radsql.cc_parametri_reparto r
+					join cc_parametri_type  t on t.iden = r.iden_parametro
+				where 
+					codice_reparto=?
+					and r.sezione=?
+					and r.attivo='S' 
+				order by
+					r.ordine
+			]]>
+			</sql>
+		</statement>
+		<statement name="getProfiliReparto">
+			<sql>
+			<![CDATA[		
+				select 
+				  master.cod_gruppo,
+				  master.descr,
+				  cursor(
+					select 
+						slave.cod_dec 
+					from 
+						tab_esa_gruppi slave 
+					where 
+						sito='CCE_PARAMETRIPROFILI' 
+						and cod_gruppo = master.cod_gruppo
+						and reparto = master.reparto
+						and attivo='S'
+				  ) parametri
+				from 
+				  tab_esa_gruppi master
+				where
+				  sito='CCE_PARAMETRIPROFILI'
+				  and attivo = 'S'
+				  and reparto =dbms_lob.substr(imagoweb.pck_configurazioni.getValueCdc(?,'CCE_PARAMETRIPROFILI'),4000,1)
+				group by
+				  master.cod_gruppo, master.descr, master.reparto, master.ordine_gruppo
+				order by
+				  master.ordine_gruppo	
+			]]>
+			</sql>
+		</statement>
+		<statement name="getLastParametro">
+			<sql>
+			<![CDATA[		
+				Declare		
+					pIdenVisita 	Pls_Integer		:= ?;
+					pDataBilancio	Varchar2(4001)	:= ?;
+					pCodParametro	Varchar2(4001)	:= ?;
+					vValParametro	Pls_Integer;
+				Begin
+					select Valore_1 Into vValParametro from 
+					(
+						Select r.Valore_1 
+						From radsql.cc_parametri_ricovero r
+						Where 
+							iden_visita = pIdenVisita and 
+					  		iden_parametro in (select Iden from cc_parametri_type where cod_dec = pCodParametro) and
+					  		validita_inizio >= to_date(pDataBilancio,'yyyyMMddhh24:mi') and validita_inizio <= to_date(pDataBilancio,'yyyyMMddhh24:mi') + 1 
+						Order by validita_inizio desc
+					) Where rownum=1;
+				
+					?	:= vValParametro;
+					
+				Exception When NO_DATA_FOUND Then
+				
+					vValParametro	:= '';
+				
+				End;				
+			]]>
+			</sql>
+		</statement>
+		<statement name="getSumParametro">
+			<sql>
+			<![CDATA[
+				Declare	
+					
+					pIdenVisita 		Pls_Integer		:= ?;
+					pDataBilancioIni	Date			:= to_date(?,'yyyyMMddhh24:mi');
+					pDataBilancioFine	Varchar2(4001)	:= ?;
+					pCodParametro		Varchar2(4001)	:= ?;
+					
+					vValParametro		Varchar2(4001);
+					vDataBilancioFine	Date;
+					vDataBilancioIni	Date			:= pDataBilancioIni;
+					
+					
+				Begin
+					
+					if pDataBilancioFine Is Null Then
+						vDataBilancioFine	:= to_date(vDataBilancioIni,'yyyyMMddhh24:mi') + 1;
+					Else
+						vDataBilancioFine	:= to_date(pDataBilancioFine,'yyyyMMddhh24:mi');
+					End If;					
+					
+					Select To_Char(Decode(sum(valore_1),Null,'',sum(valore_1))) Tot Into vValParametro
+					From cc_parametri_ricovero 
+					Where 
+					  iden_visita in (select iden from nosologici_paziente where parent = pIdenVisita and accesso = 1)
+					  and iden_parametro in (select Iden  from cc_parametri_type where COD_DEC = pCodParametro)
+					  and validita_inizio >= vDataBilancioIni and validita_inizio <= vDataBilancioFine and stato<>'X';
+										
+					? := vValParametro;
+					
+				End;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getLastParametroVal">
+			<sql>
+			<![CDATA[		
+				Declare		
+					pIdenVisita 	Pls_Integer		:= ?;
+					pCodParametro	Varchar2(4001)	:= ?;
+					vValParametro	number;
+				Begin
+					select Valore_1 Into vValParametro from 
+					(
+						Select r.Valore_1 
+						From radsql.cc_parametri_ricovero r
+						Where 
+							iden_visita = pIdenVisita and 
+					  		iden_parametro in (select Iden from cc_parametri_type where cod_dec = pCodParametro)
+					  		and deleted='N' 
+						Order by validita_inizio desc
+					) Where rownum=1;
+					?	:= vValParametro;
+					
+					Exception When NO_DATA_FOUND Then				
+						vValParametro	:= '';				
+				
+				End;				
+			]]>
+			</sql>
+		</statement>
+                <statement name="getLastWeight">
+			<sql>
+			<![CDATA[		
+                            select valore_1 PESO
+                            from cc_parametri_ricovero
+                            where iden = (
+                                select max(iden)
+                                from cc_parametri_ricovero
+                                where iden_parametro=22 and iden_visita=? and stato='E'
+                            )			
+			]]>
+			</sql>
+		</statement>					
+	</statements_list>
+</root>

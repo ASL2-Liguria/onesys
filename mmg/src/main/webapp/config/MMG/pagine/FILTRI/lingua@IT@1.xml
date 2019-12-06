@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabFiltri>Filtri</tabFiltri>
+    	<lblTitolo>Scelta dei filtri</lblTitolo>
+        <Filtri>Filtri Problemi</Filtri>
+        <lblAData>A Data</lblAData>
+        <lblDaData>Da Data</lblDaData>
+        <lblTipoProblema>Tipo Problema</lblTipoProblema>
+        <APERTO>Aperto</APERTO>
+        <CHIUSO_RILEVANTE>Chiuso Rilevante</CHIUSO_RILEVANTE>
+        <CHIUSO>Chiuso</CHIUSO>
+        <lblChiusoAperto>Problema</lblChiusoAperto>
+        <butFiltra>Filtra</butFiltra>
+        <FiltriDiari>Filtri Diari</FiltriDiari>
+        <lblDaDataDiari>Da Data</lblDaDataDiari>
+        <lblADataDiari>A Data</lblADataDiari>
+        <lblNascosto>Visualizza nascosti</lblNascosto>
+        <lbltipoScheda>Tipo Scheda</lbltipoScheda>
+        <butTuttiProblemi>Tutti i problemi</butTuttiProblemi>
+        <butResetProblemi>Reset</butResetProblemi>
+        <butResetDiari>Reset</butResetDiari>
+    </ROW>
+</ROWSET>

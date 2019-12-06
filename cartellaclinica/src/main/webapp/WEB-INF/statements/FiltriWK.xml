@@ -1,0 +1,34 @@
+<root>
+	<statements_list>
+		<statement name="FiltroServiziDestinatari">				
+			<sql>
+			<![CDATA[
+				select codice VALORE, descrizione CAMPO from tab_codifiche where tipo_scheda='VIEW_RICHIESTE_WORKLIST' and tipo_dato = 'SERVIZIO_DESTINATARIO'
+			]]>
+			</sql>
+		</statement>
+		<statement name="FiltroStatoRichiesta">				
+			<sql>
+			<![CDATA[
+				select '''I''' VALORE, 'Inviata' CAMPO from dual 
+					union all 
+				select '''P''' VALORE, 'Prenotata' CAMPO from dual 
+					union all 
+				select '''A''' VALORE, 'Accettata' CAMPO from dual 
+					union all 
+				select '''L''' VALORE, 'Trasferita' CAMPO from dual 
+					union all 
+				select '''E''' VALORE, 'Eseguita' CAMPO from dual 
+					union all
+				select '''R''' VALORE, 'Refertata' CAMPO from dual 
+					union all
+				select '''RP''' VALORE, 'Refertata Parz.' CAMPO from dual 
+					union all 
+				select '''X''' VALORE, 'Annullata' CAMPO from dual 
+					union all
+				select null VALORE, 'Tutte' CAMPO from dual
+			]]>
+			</sql>
+		</statement>		
+	</statements_list>
+</root>

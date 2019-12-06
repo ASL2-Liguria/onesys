@@ -1,0 +1,15 @@
+<INCLUDE>
+	<JS path="js/ADT/TabHomeAdt/TabHomeAdtFunzioniContatto.js"/>
+	<JS path="js/ADT/TabHomeAdt/TabHomeAdtWK.js"/>
+    <JS path="js/ADT/TabHomeAdt/TabHomeAdt.js"/>
+    <JS path="js/ADT/PRIVACY/NS_PRIVACY.js"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Contatto/Permesso.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/Anagrafica/Anagrafica.js"/>  
+    <JS path="js/ADT/WK/NS_ANAGRAFICA.js"/>    
+    <JS path="js/NS_APPLICATIONS.js"/>
+    <CSS path="css/ADT/TAB_HOME_ADT/tab_home_adt.css"/>
+    <JS path="js/Base/NS_FENIX_FILTRI.js"/>
+</INCLUDE>

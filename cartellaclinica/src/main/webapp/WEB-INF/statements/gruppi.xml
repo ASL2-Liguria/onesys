@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>		
+        <statement name="addMembro">		
+            <sql>
+                <![CDATA[
+                    DECLARE
+                        vIdenMembro         PLS_INTEGER     := TO_NUMBER(?);
+                        vTabellaMembro      VARCHAR2(30)    := ?;
+                        vIdenGruppo         PLS_INTEGER     := TO_NUMBER(?);
+                        vUteIns             PLS_INTEGER     := TO_NUMBER(?);
+                        vBidirezionale      VARCHAR2(1)     := ?;
+                    BEGIN
+                        INSERT INTO radsql.GRUPPI_MEMBRI (IDEN_MEMBRO, TABELLA_MEMBRO, IDEN_GRUPPO, UTE_INS)
+                        VALUES (vIdenMembro, vTabellaMembro, vIdenGruppo, vUteIns);
+
+                        IF vBidirezionale = 'S' THEN
+                            INSERT INTO radsql.GRUPPI_MEMBRI (IDEN_MEMBRO, TABELLA_MEMBRO, IDEN_GRUPPO, UTE_INS)
+                            VALUES (vIdenGruppo, 'GRUPPI', vIdenMembro, vUteIns);
+                        END IF;                        
+                    END;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="removeMembro">		
+            <sql>
+                <![CDATA[
+                    DECLARE
+                        vIdenMembro     PLS_INTEGER     := to_number(?);
+                        vTabellaMembro  VARCHAR2(30)    := ?;
+                        vIdenGruppo     PLS_INTEGER     := to_number(?);
+                        vUteIns         PLS_INTEGER     := to_number(?);
+                    BEGIN
+                        UPDATE radsql.GRUPPI_MEMBRI 
+                        SET VALIDITA_FINE = SYSDATE 
+                        WHERE IDEN_MEMBRO = vIdenMembro AND IDEN_GRUPPO = vIdenGruppo AND TABELLA_MEMBRO = vTabellaMembro AND VALIDITA_FINE IS NULL;
+                    END;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="createGruppo">		
+            <sql>
+                <![CDATA[
+                    declare
+                        vCodice GRUPPI.CODICE%TYPE := ?;
+                        vDescrizione GRUPPI.DESCRIZIONE%TYPE := ?;
+                        vTipo GRUPPI.TIPO%TYPE := ?;
+                        vValiditaInizio date := to_date(?,'dd/MM/yyyy');
+                        vUteIns pls_integer := to_number(?);	
+                        vIdenGruppo pls_integer;				
+                    begin
+                        insert into radsql.GRUPPI (codice,descrizione,tipo,validita_inizio,ute_ins)
+                        values(upper(vCodice),vDescrizione,vTipo,vValiditaInizio,vUteIns) 
+                        returning iden into vIdenGruppo;
+                        
+                        ? := vIdenGruppo;
+                    end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="editGruppo">		
+            <sql>
+                <![CDATA[
+                    declare
+                        vCodice GRUPPI.CODICE%TYPE := ?;
+                        vDescrizione GRUPPI.DESCRIZIONE%TYPE := ?;
+                        vTipo GRUPPI.TIPO%TYPE := ?;
+                        vValiditaInizio date := to_date(?,'dd/MM/yyyy');
+                        vValiditaFine date;
+                        vValiditaFineStr varchar2(10) := ?;
+                        vIdenGruppo pls_integer :=?;				
+                    begin
+                        if vValiditaFineStr='' then vValiditaFine:=null;
+                        else vValiditaFine:=to_date(vValiditaFineStr,'dd/MM/yyyy'); end if;
+                        update radsql.GRUPPI set codice=vCodice, descrizione=vDescrizione,tipo=vTipo,validita_inizio=vValiditaInizio,validita_fine=vValiditaFine
+                        where iden=vIdenGruppo;
+                    end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="deleteGruppo">		
+            <sql>
+                <![CDATA[
+                    declare
+                        vIdenGruppo pls_integer := to_number(?);
+                    begin
+                        update radsql.GRUPPI set validita_fine=sysdate where iden=vIdenGruppo;
+                    end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getGruppi">		
+            <sql>
+                <![CDATA[
+                    select t.codice,t.descrizione,t.tipo,t.iden,to_char(t.validita_inizio,'dd/MM/YYYY') validita_inizio,to_char(t.validita_fine,'dd/MM/YYYY') validita_fine 
+                    from TABLE(radsql.GEST_GRUPPI.getGruppi(to_number(?),?,?,to_number(?))) t
+                            where upper(DESCRIZIONE) like upper(?) and codice like upper(?)
+                    order by descrizione asc
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getGruppoByIden">		
+            <sql>
+                <![CDATA[
+                    select codice,descrizione,iden,tipo,to_char(validita_inizio,'dd/MM/YYYY') validita_inizio,to_char(validita_fine,'dd/MM/YYYY') validita_fine 
+                    from GRUPPI where iden=to_number(?)
+                ]]>
+            </sql>
+        </statement>
+    </statements_list>
+</root>

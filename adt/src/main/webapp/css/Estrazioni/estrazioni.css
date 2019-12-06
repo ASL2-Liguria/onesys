@@ -1,0 +1,44 @@
+#fldStatistiche{
+    overflow-y:visible !important;
+}
+#tableSceltaFiltro {
+    width:30%;
+    display:inline-block;
+    float: right;
+}
+#tableFiltri {
+    width:70%;
+    display:inline-block;
+    float:left;
+}
+#tabStatistiche {
+    overflow-y:visible !important;
+}
+
+[id^="gbox_colch"] {
+    margin-left: 10px;
+}
+
+.tdMultiSelect{min-width: 75px;min-height: 60px;}
+.tdText{overflow-y:visible !important;}
+
+div.divtab{overflow-x: visible;}
+div.contentTabs, .contentDiv{
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+}
+table.campi tr td {overflow:visible!important; }
+.ui-jqgrid-bdiv{overflow-y:scroll;}
+
+/* adeguamento tokenizer */
+#butDeleteSavedFilter {display:none}
+.TokenSearch > input {max-height:50px;max-width: 400px;min-width: 250px;}
+ul.TokensContainer {max-height:75px;max-width: 500px;min-width: 400px;}
+.ui-jqgrid .ui-jqgrid-bdiv {
+    position: relative;
+    margin: 0em;
+    padding:0;
+    /*overflow: auto;*/
+    overflow: auto !important;
+    text-align:left;
+}

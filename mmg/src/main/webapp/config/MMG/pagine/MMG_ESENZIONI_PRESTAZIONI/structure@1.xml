@@ -1,0 +1,28 @@
+<PAGINA key_id="MMG_ESENZIONI_PRESTAZIONI">
+	<HEADER_PAGE key_id="MMG_ESENZIONI_PRESTAZIONI"
+		valore="DEFAULT_MMG,SCHEDA,MMG_ESENZIONI_PRESTAZIONI#DEFAULT_MMG,MMG_ESENZIONI_PRESTAZIONI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati##MMG_DATI#MMG_ESENZIONI_PRESTAZIONI#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabPrestazioni"
+			valore="tabPrestazioni#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabWkPrestazioni" valore="tabWkPrestazioni"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca" evento="START">
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Ricerca" valore="lblRicerca##Ricerca###RICERCA" evento="START"></TD_LABEL_TEXT>
+						<TD_BUTTON key_id="but_Cerca" valore="but_Cerca" evento="START_END"></TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldwk" valore="fldwk" evento="START">
+					<DIV.WORKLIST key_id="WkPrestazioni" valore="WkPrestazioni"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

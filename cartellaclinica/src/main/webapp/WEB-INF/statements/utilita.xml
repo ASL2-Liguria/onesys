@@ -1,0 +1,38 @@
+<root>
+	<statements_list>
+		<statement name="descr_centri_di_costo">				
+			<sql>
+			<![CDATA[
+                        select descr from centri_di_costo where cod_cdc in (?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="iden_pro_centri_di_costo">				
+			<sql>
+			<![CDATA[
+                        select 
+                            tbpr.iden 
+                        from 
+                            tab_pro tbpr 
+                            join centri_di_costo cdc on (tbpr.cod_dec = cdc.cod_dec)
+                        where cdc.cod_cdc in (?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="getFlatPassword">				
+			<sql>
+			<![CDATA[
+				declare
+					pUser varchar2(4000) 	:= ?;
+					vOut varchar2(4000):='';
+					vPsw varchar2(4000):='';
+				begin
+				     select webpassword into vPsw from imagoweb.web where webuser=pUser;
+					 select config_web.decrypt(vPsw) into vOut from dual;					 
+					 ?:=vOut;
+				end;
+			]]>
+			</sql>
+		</statement>
+    </statements_list>
+</root>

@@ -1,0 +1,293 @@
+<root>
+	<statements_list>
+        <statement name="AssociaAppuntamenti">
+            <sql>
+                <![CDATA[
+                         declare
+                            pIdenRicovero  pls_integer := to_number(?);
+                            Pidenappuntamenti Varchar2(5000) := ?;
+                            pUser varchar2(5000) := radsql.GET_WEBUSER();
+                            pIdenPer pls_integer := to_number(?);
+                            vArray ARRAY_VALUE := split2array(pIdenAppuntamenti);
+                            idx pls_integer;
+                            vNum pls_integer;
+                            vIden pls_integer;
+                            vIdenVisita pls_integer;
+                            vCount pls_integer;
+                        begin
+                            for idx in vArray.first..vArray.last
+                                loop
+                                    Begin
+                                        Viden := To_Number(Varray(Idx));
+                                        dbms_output.put_line(vIden);
+                                        select
+                                            1 into vNum
+                                        from
+                                            cc_appuntamenti_ricovero new,
+                                            cc_appuntamenti_ricovero old
+                                        where
+                                            new.iden_visita = pIdenRicovero
+                                            and old.iden = to_number(vArray(idx))
+                                            And Old.Data = New.Data;
+
+
+                                         Begin
+                                          Select Iden Into Videnvisita From Nosologici_Paziente Where Parent In (Select Iden_Visita From Cc_Appuntamenti_Ricovero Where Iden = Viden)
+                                          And Data_Ricovero In (Select Data From Cc_Appuntamenti_Ricovero Where Iden = Viden) and deleted = 'N';
+
+                                          Update Nosologici_Paziente
+                                          Set Deleted = 'S'
+                                          where iden = vIdenVisita;
+
+                                        Exception When Others Then
+                                          Radsql.Gest_Logs.Debug('AssociaAppuntamenti','Accesso Da Spostare');
+                                        End;
+
+                                        delete from cc_appuntamenti_ricovero where iden = vIden;
+
+                                    Exception When No_Data_Found Then
+
+                                        begin
+                                          Select iden Into vIdenVisita From Nosologici_Paziente Where parent In (Select Iden_Visita From Cc_Appuntamenti_Ricovero Where Iden = Viden)
+                                          And Data_Ricovero In (Select Data From Cc_Appuntamenti_Ricovero Where Iden = Viden);
+                                          --radsql.gest_logs.debug('AssociaAppuntamenti',Videnvisita||' - '|| Pidenricovero||' - '|| Puser||' - '|| Pidenper);
+
+                                          Gest_Nosologici.Spostaaccesso(Videnvisita, Pidenricovero, Puser, Pidenper);
+                                        Exception When others Then
+                                          radsql.gest_logs.debug('AssociaAppuntamenti',sqlerrm);
+                                        end;
+                                    Gest_Nosologici.Spostaappuntamento(Viden ,Pidenricovero ,Puser ,Pidenper );
+
+                                    end;
+                                End Loop;
+                        End;
+                ]]>
+                <!--update cc_appuntamenti_ricovero set iden_visita = pIdenRicovero where iden=vIden;-->
+            </sql>
+        </statement>
+        <statement name="AssociaRichieste">
+            <sql>
+                <![CDATA[
+                        declare
+                        pIdenRicovero pls_integer := to_number(?);
+                        pIdenRichieste varchar2(5000) := ?;
+                        pUser varchar2(5000) := radsql.GET_WEBUSER();
+                        pIdenPer pls_integer := to_number(?);
+
+                        vArray ARRAY_VALUE := split2array(pIdenRichieste);
+                        idx pls_integer;
+                            begin
+                                for idx in vArray.first..vArray.last
+                                    loop
+                                       GEST_NOSOLOGICI.spostaRichiesta(to_number(vArray(idx)) ,pIdenRicovero ,pUser ,pIdenPer );
+                                    end loop;
+                            end;
+                    ]]>
+                <!--update infoweb.testata_richieste set iden_visita = pIdenRicovero where iden=to_number(vArray(idx));-->
+            </sql>
+         </statement>
+        <statement name="AssociaPrericovero">
+            <sql>
+                <![CDATA[
+                    declare
+                    pIdenRicovero pls_integer := to_number(?);
+                    pIdenPreRicovero pls_integer := to_number(?);
+                    pIdenPer pls_integer := to_number(?);
+                    v_cod_prericovero varchar2(20);
+					v_cod_ricovero varchar2(20);
+					v_cod_cdc varchar2(10);
+					v_data_dim varchar2(20);
+					v_assigning_authority varchar2(50);
+					v_iden_anag pls_integer;
+					v_cod_tipo_pre varchar2(20);
+					v_result varchar2(4000);
+					arResult  ARRAY_VALUE := new ARRAY_VALUE(); 
+                    begin
+                       v_data_dim:=to_char(sysdate,'YYYYMMDDhh24:mi');
+                       select num_nosologico,n.cod_cdc,iden_anag,assigning_authority,t.codice into v_cod_prericovero,v_cod_cdc,v_iden_anag,v_assigning_authority,v_cod_tipo_pre  from nosologici_paziente n join tab_tipo_ricovero t on (n.iden_tipo_ricovero=t.iden) where n.iden=PIDENPRERICOVERO;   
+				
+						select num_nosologico into v_cod_ricovero from nosologici_paziente where iden=pIdenRicovero;  
+											
+   						if(v_assigning_authority='FENIX' and v_cod_tipo_pre<>'OBI') THEN
+
+   							ADT.SP_DISCHARGE_PRERICOVERO@ADT(v_cod_prericovero,v_iden_anag,v_data_dim,pIdenPer, v_result, v_cod_ricovero);
+							
+							commit;
+     						select radsql.split2array(v_result,'|') into arResult from dual; 
+     						if (arResult(1)='KO') then
+          						RAISE_APPLICATION_ERROR(-20001,'Attenzione: si è verificato un errore nella chiusura del pre ricovero e della posizione in lista. Prego contattare l''assistenza con le seguenti informazioni: nosologico, paziente, reparto ---'|| arResult(2));
+     						end if;
+    					END IF;
+                        CC_ASSOCIA_PRERICOVERO(pIdenPreRicovero, pIdenRicovero);
+                    end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="AssociaAccesso">
+            <sql>
+                <![CDATA[
+                declare
+                    PnewIdenRicovero pls_integer := to_number(?);
+                    pIden varchar2(4000) := ?;
+                    pWebUser  varchar2(4000) :=  radsql.GET_WEBUSER();
+                    pIdenper pls_integer := to_number(?);
+                    vArray ARRAY_VALUE := split2array(pIden);
+                    iden pls_integer := null;
+                    idx pls_integer;
+                            begin
+                                for idx in vArray.first..vArray.last
+                                    loop
+                                        iden:=  to_number(vArray(idx));
+                                        gest_nosologici.spostaAccesso(iden, PnewIdenRicovero, pWebUser, pIdenper);
+                                    end loop;
+                            end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="rimuoviAccesso">
+            <sql>
+                <![CDATA[
+                    declare
+                        pIdenRicovero pls_integer := to_number(?);
+                        pIdenAccessi varchar2(5000)  := ?;
+                        pIdenPer pls_integer := to_number(?);
+                        vArray ARRAY_VALUE := split2array(pIdenAccessi);
+                        idx pls_integer;
+                    begin
+                        for idx in vArray.first..vArray.last
+                            loop
+                                update nosologici_paziente set deleted = 'S' where  iden = to_number(vArray(idx));
+                            end loop;
+
+                    end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="rimuoviAppuntamento">
+            <sql>
+                <![CDATA[
+                    declare
+                        pIdenRicovero pls_integer := to_number(?);
+                        pIdenAppuntamenti varchar2(5000) := ?;
+                        vArray ARRAY_VALUE := split2array(pIdenAppuntamenti);
+                        idx pls_integer;
+                    begin
+						for idx in vArray.first..vArray.last
+						loop
+							update radsql.cc_appuntamenti_ricovero set deleted = 'S' where iden = to_number(vArray(idx));
+						end loop;
+					end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="rimuoviRichieste">
+            <sql>
+                <![CDATA[
+                    declare
+                        pIdenRicovero pls_integer := to_number(?);
+                        pIdenRichieste varchar2(5000) := ?;
+                        pIdenPer pls_integer := to_number(?);
+                        vArray ARRAY_VALUE := split2array(pIdenRichieste);
+                        idx pls_integer;
+					begin
+						for idx in vArray.first..vArray.last
+						loop
+							update infoweb.testata_richieste set stato_richiesta = 'X' , UTE_ANNULLA=pIdenPer, DATA_ANNULLAMENTO= to_char(sysdate,'yyyyMMdd'), ORA_ANNULLAMENTO=to_char(sysdate,'hh24:mi') where iden=to_number(vArray(idx));
+						end loop;
+					end;
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getSchedePrericoveroDS">
+            <sql>
+                <![CDATA[
+                    DECLARE 
+                        pIDEN_RICOVERO NUMBER := TO_NUMBER(?);
+                        pLISTA_FUNZIONI VARCHAR2(4000) := ?;
+                        pUSER_ID NUMBER := TO_NUMBER(?);
+                        pPC_ID VARCHAR2(100) := ?;
+                        pUSER_LOGIN VARCHAR2(100) := ?;
+
+                        vLISTA_FUNZIONI ARRAY_VALUE := ARRAY_VALUE();
+                        vCONTENUTO XMLTYPE;
+                        vKEY_LEGAME VARCHAR2(50);
+                        vSITO VARCHAR2(100);
+                        vVERSIONE NUMBER;
+                    BEGIN 
+                        vLISTA_FUNZIONI := SPLIT2ARRAY(pLISTA_FUNZIONI, '#'); 
+                        IF vLISTA_FUNZIONI(1) IS NOT NULL THEN
+                            FOR i IN 1 .. vLISTA_FUNZIONI.COUNT LOOP
+                                BEGIN
+                                    SELECT ccsx.CONTENUTO, ccsx.KEY_LEGAME, ccsx.SITO, ccsx.VERSIONE
+                                    INTO vCONTENUTO, vKEY_LEGAME, vSITO, vVERSIONE 
+                                    FROM radsql.CC_SCHEDE_XML ccsx
+                                    JOIN radsql.NOSOLOGICI_PAZIENTE np1 ON (ccsx.IDEN_VISITA = np1.IDEN)
+                                    JOIN radsql.NOSOLOGICI_PAZIENTE np2 ON (np1.IDEN = np2.PARENT AND np2.IDEN = pIDEN_RICOVERO)
+                                    JOIN radsql.TAB_TIPO_RICOVERO ttr ON (np2.IDEN_TIPO_RICOVERO = ttr.IDEN AND ttr.CODICE IN ('DS','ODS'))
+                                    WHERE ccsx.FUNZIONE =  vLISTA_FUNZIONI(i);
+
+                                    SELECT UPDATEXML(vCONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="IDEN_VISITA"]/text()', pIDEN_RICOVERO) INTO vCONTENUTO FROM DUAL;
+                                    SELECT UPDATEXML(vCONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="IDEN_VISITA_REGISTRAZIONE"]/text()', pIDEN_RICOVERO) INTO vCONTENUTO FROM DUAL;
+                                    SELECT UPDATEXML(vCONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="OPERAZIONE"]/text()', 'IMPORT_RICOVERO_PRECEDENTE') INTO vCONTENUTO FROM DUAL;
+                                    SELECT UPDATEXML(vCONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="USER_ID"]/text()', pUSER_ID) INTO vCONTENUTO FROM DUAL;
+                                    SELECT UPDATEXML(vCONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="PC_ID"]/text()', pPC_ID) INTO vCONTENUTO FROM DUAL;
+                                    SELECT UPDATEXML(vCONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="USER_LOGIN"]/text()', pUSER_LOGIN) INTO vCONTENUTO FROM DUAL;
+
+                                    INSERT INTO radsql.CC_SCHEDE_XML (CONTENUTO, DATA_INS, DATA_ULTIMA_MODIFICA, FUNZIONE, IDEN_VISITA, IDEN_VISITA_REGISTRAZIONE, KEY_LEGAME, SITO, UTE_INS, VERSIONE)
+                                    VALUES (vCONTENUTO, SYSDATE, SYSDATE, vLISTA_FUNZIONI(i), pIDEN_RICOVERO, pIDEN_RICOVERO, vKEY_LEGAME, vSITO, pUSER_ID, vVERSIONE);
+
+                                    EXCEPTION 
+                                        WHEN NO_DATA_FOUND THEN 
+                                            NULL;
+                                            --RADSQL.GEST_LOGS.ERROR('CC_SCHEDE_XML', 'NO DATA FOUND');
+                                END;
+                            END LOOP;  
+                        END IF;  
+                    END;
+                ]]>
+            </sql>
+        </statement> 
+        <statement name="isSchedaImportabile">
+            <sql>
+                <![CDATA[
+                    DECLARE 
+                        pIDEN_RICOVERO NUMBER := TO_NUMBER(?);
+                        pFUNZIONE VARCHAR2(100) := ?;                       
+                        vCODICE VARCHAR2(30);
+                        vOUT VARCHAR2(4000) := '';
+                    BEGIN 
+                        BEGIN
+                            BEGIN
+                                SELECT ttr.CODICE INTO vCODICE
+                                FROM radsql.NOSOLOGICI_PAZIENTE np
+                                JOIN radsql.TAB_TIPO_RICOVERO ttr ON (np.IDEN_TIPO_RICOVERO = ttr.IDEN)
+                                WHERE np.IDEN = pIDEN_RICOVERO; 
+                                
+                                EXCEPTION 
+                                    WHEN NO_DATA_FOUND THEN 
+                                        vOUT := 'S';
+                            END;  
+                            
+                            CASE vCODICE
+                                WHEN 'DS' THEN 
+                                    CASE pFUNZIONE
+                                        WHEN 'QUESTIONARIO_ANAMNESTICO' THEN vOUT := 'N';
+                                        WHEN 'ESAME_OBIETTIVO_DS' THEN vOUT := 'N';
+                                        ELSE vOUT := 'S';
+                                    END CASE;
+                                WHEN 'ODS' THEN 
+                                    CASE pFUNZIONE
+                                        WHEN 'QUESTIONARIO_ANAMNESTICO' THEN vOUT := 'N';
+                                        WHEN 'ESAME_OBIETTIVO_DS' THEN vOUT := 'N';
+                                        ELSE vOUT := 'S';
+                                    END CASE;
+                                ELSE vOUT := 'S';
+                            END CASE;                            
+                            ? := vOUT;
+                        END;
+                    END;
+                ]]>
+            </sql>
+        </statement>                            
+	</statements_list>
+</root>

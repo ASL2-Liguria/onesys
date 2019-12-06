@@ -1,0 +1,17 @@
+<MENU>
+    <ID>MENU_FASCE_ORARIE_IN_AGENDA</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+        <ITEM>
+			<ID>MFOIA.INS</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=SCHEDA_AGENDA_FASCE_ORARIE&IDEN=',id:'SCHEDA_AGENDA_FASCE_ORARIE',fullscreen:true});}]]></LINK>
+            <ICON_CLASS>inserisci-esame</ICON_CLASS>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.inserisci</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+
+    </LIST>
+</MENU>

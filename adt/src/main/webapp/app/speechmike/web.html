@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>FeniX Audio</title></head>
+		<script>
+				function callChange(resp)
+				{
+					//alert(resp);
+					console.log(resp);
+				}
+				
+				function callLoad(resp)
+				{
+					//alert(resp);
+					console.log(resp);
+				}
+				
+				function callSave(resp)
+				{
+					//alert(resp);
+					console.log(resp);
+				}
+		</script>
+    </head>
+    <body id="bodyLogin">
+        <!--<object height="300" name="AppStampa" width="400" type="application/x-java-applet" id="fenixAudio">
+            <param name="archive" value="FenixAudio.jar"/>
+            <param name="code" value="it.elco.multimedia.audio.FenixAudio.class"/>
+            <param name="config" value="{ 'device': { 'class_id': 'it.elco.multimedia.audio.device.SpeechMike', 'button': { '7' : ['record', 'stop'], '49' : ['clear'], '45' : ['delete'], '21' : ['play', 'pause'], '14' : ['forward'], '15' : ['stopMove'], '12' : ['back'], '13' : ['stopMove'], '8' : ['insert'], '9' : ['stop'], '11': ['save'] }, 'config_json': '{\'leds\':{\'record\' : {\'id\': 1, \'color\' : \'spmLEDRed\', \'state\' : \'spmLEDOn\'}, \'insert\' : {\'id\': 1, \'color\' : \'spmLEDRed\', \'state\' : \'spmLEDBlinkFast\'}, \'play\' : {\'id\': 1, \'color\' : \'spmLEDGreen\', \'state\' : \'spmLEDOn\'}, \'forward\' : {\'id\': 2, \'color\' : \'spmLEDGreen\', \'state\' : \'spmLEDBlinkFast\'}, \'back\' : {\'id\': 0, \'color\' : \'spmLEDGreen\', \'state\' : \'spmLEDBlinkFast\'}, \'stop\' : {\'id\': 1, \'color\' : \'spmLEDRed\', \'state\' : \'spmAllLEDsOff\'}, \'stopMove\' : {\'id\': 1, \'color\' : \'spmLEDRed\', \'state\' : \'spmAllLEDsOff\'}}}' }, 	'callback': 	{	'changeStatus': 'callChange',	'loadStatus': 'callLoad',	'saveStatus': 'callSave' 	} }"/>
+        </object>-->
+		<script src="https://www.java.com/js/deployJava.js"></script>
+		<script> 
+			var attributes = {
+				/*code:'components.DynamicTreeApplet',  */width:400, height:300,id:"idApp",name:"nameApp"} ;
+            var parameters = {jnlp_href: 'FenixAudio.jnlp', config: "{ 'device': { 'class_id': 'it.elco.multimedia.audio.device.SpeechMike', 'button': { '7' : ['record', 'stop'], '49' : ['clear'], '45' : ['delete'], '21' : ['play', 'pause'], '14' : ['forward'], '15' : ['stopMove'], '12' : ['back'], '13' : ['stopMove'], '8' : ['insert'], '9' : ['stop'], '11': ['save'] }, 'config_json': '{\\'leds\\':{\\'record\\' : {\\'id\\': 1, \\'color\\' : \\'spmLEDRed\\', \\'state\\' : \\'spmLEDOn\\'}, \\'insert\\' : {\\'id\\': 1, \\'color\\' : \\'spmLEDRed\\', \\'state\\' : \\'spmLEDBlinkFast\\'}, \\'play\\' : {\\'id\\': 1, \\'color\\' : \\'spmLEDGreen\\', \\'state\\' : \\'spmLEDOn\\'}, \\'forward\\' : {\\'id\\': 2, \\'color\\' : \\'spmLEDGreen\\', \\'state\\' : \\'spmLEDBlinkFast\\'}, \\'back\\' : {\\'id\\': 0, \\'color\\' : \\'spmLEDGreen\\', \\'state\\' : \\'spmLEDBlinkFast\\'}, \\'stop\\' : {\\'id\\': 1, \\'color\\' : \\'spmLEDRed\\', \\'state\\' : \\'spmAllLEDsOff\\'}, \\'stopMove\\' : {\\'id\\': 1, \\'color\\' : \\'spmLEDRed\\', \\'state\\' : \\'spmAllLEDsOff\\'}}}' }, 	'callback': 	{	'changeStatus': 'callChange',	'loadStatus': 'callLoad',	'saveStatus': 'callSave' 	} }"} ;
+			//var parameters = {jnlp_href: 'FenixAudio.jnlp', config: "{ 'device': { 'class_id': 'it.elco.multimedia.audio.device.SpeechMike', 'button': { '7' : ['record', 'stop'], '49' : ['clear'], '45' : ['delete'], '21' : ['play', 'pause'], '14' : ['forward'], '15' : ['stopMove'], '12' : ['back'], '13' : ['stopMove'], '8' : ['insert'], '9' : ['stop'], '11': ['save'] } }, 	'callback': 	{	'changeStatus': 'callChange',	'loadStatus': 'callLoad',	'saveStatus': 'callSave' 	} }"} ;
+            //var parameters = {jnlp_href: 'FenixAudio.jnlp'};
+                deployJava.runApplet(attributes, parameters, '1.7');
+		</script>
+    </body>
+</html>

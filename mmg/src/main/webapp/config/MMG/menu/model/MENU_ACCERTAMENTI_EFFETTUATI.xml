@@ -1,0 +1,26 @@
+<MENU>
+	<id>MENU_ACCERTAMENTI_EFFETTUATI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MAE.EA</ID>
+			<LINK><![CDATA[function(rec){WORKLIST_ACCERTAMENTI.estraiAccertamento(rec[0].ACCERTAMENTO);}]]></LINK>
+			<ICON_CLASS>esegui</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Estrai Accertamento"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<!--<ITEM>
+			<LINK><![CDATA[function(rec){WORKLIST_ACCERTAMENTI.cancellaRicetta(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Cancella Ricetta"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>-->
+	</LIST>
+</MENU>

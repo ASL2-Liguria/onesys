@@ -1,0 +1,88 @@
+body{
+	background:#b9e0ff;
+	}
+
+	fieldset{
+		margin:10px;
+		border:2px solid #fff;
+		padding:5px;
+		}
+		fieldset #container{
+			background:#fff;
+			padding:5px;
+			}
+		fieldset legend{
+			font-weight:bold;
+			margin-bottom:10px;
+			}
+		
+#container{
+	background:#b9e0ff;
+	overflow:hidden;
+}
+
+.rigaMat{
+	border:1px solid #729ecf;
+	margin:3px;
+	height:30px;
+	background: #e8f3fe;
+}
+	
+.rigaMat div#inputContainer{
+	width:84%;
+	float:left;	
+}
+
+.rigaMat a{
+	width:15%;
+	height:100%;
+	text-align:center;
+	color:#000;
+	text-transform:uppercase;
+	font-size:12px;
+	font-weight:bold;
+	display:block;
+	float:left;
+
+
+}
+
+.h1 {
+	height:30px;
+	line-height:30px;
+}
+
+.h2 {
+	height:60px;
+	line-height:60px;
+}
+
+.h3 {
+	height:90px;
+	line-height:90px;
+}
+
+span.chkMat{	
+	width:24%;
+	overflow:hidden;
+	float:left;
+}
+	
+span.chkMat input{
+	height:30px;
+	float:left;
+}
+		
+span.chkMat label{
+	height:30px;
+	line-height:30px;
+	cursor:pointer;
+	font-size:10px;
+}
+			
+#mat-u1{background:#DEE0FA;}
+#mat-u2{background:#F4EBDF;}
+#mat-u3{background:#D5FFEA;}
+#mat-u4{background:#FFF0D9;}
+#mat-u5{background:#F7E4FA;}
+#mat-u6{background:#E1E1E1;}

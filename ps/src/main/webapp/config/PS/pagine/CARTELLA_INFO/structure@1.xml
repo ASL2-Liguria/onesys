@@ -1,0 +1,29 @@
+<PAGINA key_id="CARTELLA_INFO">
+	<HEADER_PAGE key_id="CARTELLA_INFO"	valore="DEFAULT,SCHEDA,CARTELLA_INFO#DEFAULT,CARTELLA_INFO" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="CartellaInfo" valore="CartellaInfo##" evento="START">
+			<DIV key_id="menu" valore="menu" evento="START">
+				<DIV key_id="wk" valore="wk" evento="START">
+					<DIV key_id="ContwkPrec" valore="ContwkPrec#divWkMN" evento="START">
+						<DIV key_id="headWkPrec" valore="headWkPrec#headWk" evento="START">
+							<H5 key_id="H5Prec" valore="H5Prec" evento="START">
+							</H5>
+						</DIV>
+						<DIV key_id="wkPrec" valore="wkPrec#wk" evento="START">
+						</DIV>
+					</DIV>
+					<DIV key_id="ContwkStoria" valore="ContwkStoria#divWkMN" evento="START">
+						<DIV key_id="headWkStoria" valore="headWkStoria#headWk" evento="START">
+							<H5 key_id="H5Storia" valore="H5Storia" evento="START">
+							</H5>
+						</DIV>
+						<DIV key_id="wkStoria" valore="wkStoria#wk" evento="START">
+						</DIV>
+					</DIV>
+				</DIV>
+			</DIV>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

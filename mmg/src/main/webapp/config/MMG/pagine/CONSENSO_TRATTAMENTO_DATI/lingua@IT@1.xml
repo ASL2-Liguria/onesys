@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<lblTitolo>CONSENSO AL TRATTAMENTO DEI DATI PERSONALI</lblTitolo>
+		
+		<tabDichiarante>Dichiarante</tabDichiarante>
+		<tabSezione1>Sezione n.1</tabSezione1>
+		<tabSezione2>Sezione n.2</tabSezione2>
+		<tabDichiarazioneSostitutiva>Dichiarazione sostitutiva</tabDichiarazioneSostitutiva>
+
+		<fldDatiDichiarante>
+			Riepilogo dati paziente
+		</fldDatiDichiarante>
+		
+			<lblSottoscrittoNomeCognome>Io sottoscritto/a</lblSottoscrittoNomeCognome>	
+			<lblSottoscrittoLuogoNascita>nato/a a </lblSottoscrittoLuogoNascita>
+			
+			<lblSottoscrittoDataNascita>il</lblSottoscrittoDataNascita>
+		  	<lblSottoscrittoResidente>residente a </lblSottoscrittoResidente>
+		  	
+		  	<lblSottoscrittoCodiceFiscale>codice fiscale</lblSottoscrittoCodiceFiscale>
+		  	
+		  	<lblTipoDichiarante>oppure come:</lblTipoDichiarante>
+	        
+	        <lblGaranteNomeCognome>di</lblGaranteNomeCognome>	
+			<lblGaranteLuogoNascita>nato/a a </lblGaranteLuogoNascita>
+			
+			<lblGaranteDataNascita>il</lblGaranteDataNascita>
+		  	<lblGaranteResidente>residente a</lblGaranteResidente>
+		  	
+		  	<lblGaranteCodiceFiscale>codice fiscale</lblGaranteCodiceFiscale>
+	        
+	        <lblInformativa1>
+	        	Vista l'informativa di cui all'art.13 D.L.gs 196/2003 "Codice in materia di protezione dei dati personali", 
+	        	ricevuta (pubblicata anche sul sito www.asl2.liguria.it), ai sensi dell'art. 81, consapevole, in particolare, 
+	        	che il trattamento riguarda i dati "sensibili" vale a dire "i dati personali idonei a rivelare l'origine razziale ed etnica, 
+	        	le convinzioni religiose, filosofiche o di altro  genere, le opinioni politiche, l'adesione a partitti, sindacati, associazioni, 
+	        	od organizzazione a carattere religioso, filosofico, politico o sindacale, nonchè quelli idonei a rivelare lo stato di salute e la vita sessuale" dichiaro 
+	        	di aver compreso il suo contenuto e presto liberamente e consapevolmente il mio consenso al trattamento dei miei dati sanitari prodotto dall'ASL2 SAVONESE (di seguito ASL2) 
+	        	secondo le seguenti indicazioni (barrare la scelta).
+	        </lblInformativa1>
+        
+        <fldTrattamentoDiBase>
+        	Trattamento di base dei miei dati personali e sensibili per scopi sanitari e loro comunicazione, per finalità di didattica, ricerca e studio di patologie
+        </fldTrattamentoDiBase>
+        
+	        <lblSezione1A>
+	        	Sezione 1A -  Consenso alla gestione di base dei miei dati nell'ASL2: si tratta dei dati prodotti e utilizzati da ASL2 per erogare le prestazioni richieste 
+	        	(il presente consenso come gli altri a seguire è facoltativo, può essere non concesso o revocato in qualsiasi momento con richiesta verbale o con 
+	        	la compilazione di apposito modulo da inoltrare ad ASL2)
+	        </lblSezione1A>
+	        
+		        <lblScelta1A>
+		        	1A - Acconsento al trattamento dei miei dati personali e e sensibili per quanto necessario all'erogazione delle prestazioni che richiederò
+		        </lblScelta1A>
+	        
+	        <lblSezione1B>
+	        	Sezione 1B - Consenso alla comunicazione dei miei dati personali e sensibili
+	        </lblSezione1B>
+	        
+		        <lblScelta1B>
+		        	1B - Acconsento che gli operatori di ASL2 comunichino i miei dati personali e sensibili ai familiari/conviventi ed alle persone che si occupano della 
+		        	mia persona (caregiver) da me espressamente delegate o indicate
+		        </lblScelta1B>
+		        
+		        <lblScelta1BDettaglio>Persone da me indicate a ricevere informazioni sul mio stato di salute</lblScelta1BDettaglio>
+	        
+	        <lblSezione1C>
+	        	Sezione 1C - Consenso alla gestione dei miei dati personali e sensibili per scopi di didattica, ricerca clinica e studio di patologie
+	        </lblSezione1C>
+	        
+		        <lblScelta1C> 
+		        	1C - Acconsento che i miei dati clinici possano essere utilizzati anche per scopi di didattica, ricerca clinica, studio di patologie con l'obiettivo
+		        	di migliorare le conoscenze, le cure e la prevenzione (e fermo restando il loro utilizzo in forma anonima)
+		        </lblScelta1C>
+        
+        <fldTrattamentoStrumentiInformatici>
+        	Trattamento dei miei dati personali e sensibili mediante strumenti informatici
+        </fldTrattamentoStrumentiInformatici>
+        
+        	<lblSezione2A>
+	        	Sezione 2A -  Consenso alla gestione dei miei dati informatizzati per mezzo del Fascicolo Sanitario Elettronico Provinciale 
+	        	(si tratta di tutti i dati che La riguardano prodotti ed utilizzati in rete dalle strutture ospedaliere e territoriali di ASL2 e dagli altri titolari 
+	        	autorizzati ad eccezione dei dati da trattarsi in anonimato per legge o di cui Lei abbia chiesto l'oscuramento. 
+	        	Il presente consenso come gli altri a seguire è facoltativo, può non essere concesso o revocato parzialmente o completamente in qualsiasi momento con richiesta verbale 
+	        	o con la compilazione di apposito modulo da inoltrare ad ASL2)
+	        </lblSezione2A>
+        	
+	        	<lblScelta2A1>
+		        	2A1 - Acconsento alla costituzione del Fascicolo Sanitario Elettronico Provinciale
+		        </lblScelta2A1>
+		        
+		        <lblScelta2A2>
+		        	2A2 - Acconsento all'inserimento dei dati prodotti da ora in poi da ASL2 previo singolo e specifico consenso e salvo il mio diritto all'oscuramenteo 
+		        	da esercitarsi nei modi di cui all'informativa
+		        </lblScelta2A2>
+		        
+		        <lblScelta2A3>
+		        	2A3 - Acconsento all'inserimento nel Fascicolo Sanitario Elettronico Provinciale dei miei dati precedenti già archiviati da ASL2 salvo il diritto all'oscuramento 
+		        	da esercitarsi nei modi di cui all'informativa
+		        </lblScelta2A3>
+		        
+		        <lblScelta2A4>
+		        	2A4 - Acconsento che il mio medico di medicina generale/pediatra, compresi eventuali sostituti, associati, integri il mio Fascicolo Sanitario Elettronico Provinciale, 
+		        	con ogni dato giudicato necessario per la tutela della mia salute, attraverso il profilo sanitario sintetico (patient summary) salvo il mio diritto 
+		        	all'oscuramento da esercitarsi nei modi di cui all'informativa
+		        </lblScelta2A4>
+	        	
+	        	<lblScelta2A5>
+	        		2A5 - Acconsento che i medici operanti nelle strutture di ricovero in regime di sperimentazione gestionale 
+	        		(per ora solo GSL con sede ad Albenga presso l'Ospedale S. Maria della Misericordia), se loro paziente, integrino il mio 
+	        		Fascicolo Sanitario Elettronico Provinciale, con ogni dato giudicato necessario per la tutela della mia salute salvo il mio 
+	        		diritto all'oscuramento da esercitarsi nei modi di cui all'informativa
+	        	</lblScelta2A5>
+        	
+        	<lblSezione2B>
+        		Sezione 2B - Scelta del canale di visibilità per im miei dati informatizzati per soli scopi di prevenzione, diagnosi, cura e riabilitazione (si tratta dei dati prodotti 
+        		da ASL2 che possono essere visionati in rete anche da medici debitamente autorizzati in provincia di Savona solo se riferiti ai loro pazienti)
+        	</lblSezione2B>
+        		
+        		<lblScelta2B1>
+		        	2B1 - Acconsento che i miei dati presenti nel Fascicolo Sanitario Elettronico Provinciale siano consultati dal Medico di Medicina Generale (MMG) e/o Pediatra di 
+		        	Libera Scelta (PLS), da loro sostituti/associati, se loro paziente
+		        </lblScelta2B1>
+        		
+        		<lblScelta2B2>
+		        	2B2 - Acconsento che i dati presenti nel Fascicolo Sanitario Elettronico Provinciale siano consultati da medici operanti nelle strutture di ricovero in regime di 
+		        	sperimentazione gestionale (per ora solo GSL con sede con sede ad Albenga presso l'Ospedale S. Maria della Misericordia), soltanto se loro paziente
+        		</lblScelta2B2>
+        	
+        	<lblDichiarazioneFinale>
+        		Dichiaro esplicitamente di aver compreso l'informativa ricevuta riguardante le modalità con cui l'ASL2 Savonese tratta i miei dati clinici e di esprimere liberamente 
+        		il mio consenso.
+        	</lblDichiarazioneFinale>	
+        	
+        	<lblDataDichiarazione>Data dichiarazione</lblDataDichiarazione>
+        	
+        <fldDichiarazioneSostitutiva>Dichiarazione sostitutiva di atto di notorietà (da compilare con i dati di chi esercita la potestà/tutore)</fldDichiarazioneSostitutiva>	
+        	
+        	<lblInformativa2>Consapevole delle sanzioni penali in caso di dichiarazioni non veritiere richiamate dall'art.76 D.P.R. 445/2000</lblInformativa2>
+        	
+        	<lblSostitutoNomeCognome>Il/la sottoscritto/a</lblSostitutoNomeCognome>	
+			<lblSostitutoLuogoNascita>nato/a a </lblSostitutoLuogoNascita>
+			
+			<lblSostitutoDataNascita>il</lblSostitutoDataNascita>
+		  	<lblSostitutoResidente>residente a </lblSostitutoResidente>
+		  	
+		  	<lblSostitutoDocumentoIdentita>documento di identità</lblSostitutoDocumentoIdentita>
+        			
+        	<lblTipoSostitutoDichiarante>dichiara sotto la propria responsabilità di</lblTipoSostitutoDichiarante>
+        			
+    </ROW>
+</ROWSET>

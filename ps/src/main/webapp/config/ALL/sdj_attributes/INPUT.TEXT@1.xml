@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="INPUT.TEXT">
+        <OBJ classe_id="PATH::input">
+            <PROC id="setType">
+                <PAR value="text"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="setName">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="setValue">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input[.dataHtmlField]">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="setColonnaSave">
+                <PAR type="idx" value="3"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="setReadonly">
+                <PAR type="idx" value="4"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="setToUpper">
+                <PAR type="idx" value="5"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="addAttribute">
+                <PAR value="placeholder"/>
+                <PAR type="idx" value="6"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="addAttribute">
+                <PAR value="autocapitalize"/>
+                <PAR value="off"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="addAttribute">
+                <PAR value="autocorrect"/>
+                <PAR value="off"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::input">
+            <PROC id="addAttribute">
+                <PAR value="autocomplete"/>
+                <PAR value="off"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

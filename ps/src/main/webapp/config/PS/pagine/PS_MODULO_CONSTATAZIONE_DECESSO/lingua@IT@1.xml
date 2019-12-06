@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+        <ROW>
+
+       <lblTitolo>CONSTATAZIONE DECESSO</lblTitolo>
+       <fldDichiarazioneMorte>Dichiarazione di morte</fldDichiarazioneMorte>
+       <fldCertificatoNecroscopico>Certificato Necroscopico</fldCertificatoNecroscopico>
+       <fldCertificatoNecroscopico24>Certificato Necroscopico (prima delle 24 ore)</fldCertificatoNecroscopico24>
+       <lblMedico>Medico</lblMedico>
+       <lblMedico24>Medico</lblMedico24>
+       <lblDataNecroscopo>Data</lblDataNecroscopo>
+       <lblDataCompilazione>Data compilazione</lblDataCompilazione>
+       <lblOraNecroscopo>Ora</lblOraNecroscopo>
+       <lblOraNecroscopo24>Ora</lblOraNecroscopo24>
+       <lblDataNecroscopo24>Data</lblDataNecroscopo24>
+       <lblCausaDecesso>Causa Decesso</lblCausaDecesso>
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

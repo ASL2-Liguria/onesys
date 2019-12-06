@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>FARMACI_ATC</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.FARMACI_ATC</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_FARMACI</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>15px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('CODICE');}</CLICK> 
+                <DBLCLICK>function(rec){WK_FARMACI.choose(rec);}</DBLCLICK>
+                <TAPHOLD>function(rec){WK_FARMACI.choose(rec);}</TAPHOLD>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+				<COLUMN>
+					<ID>
+						<COL>SELEZIONA</COL>
+					</ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                   	<PROCESS type="javascript"><![CDATA[function(data, wk){ return WK_FARMACI.selectFarmaco( data ); }]]></PROCESS>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                
+				<COLUMN>
+					<ID>
+						<COL>CLASSE</COL>
+						<DB>CLASSE</DB>
+					</ID>
+					<DESCRIPTOR>"Cl."</DESCRIPTOR>
+					<WIDTH>20px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>CODICE</COL>
+						<DB>CODICE</DB>
+					</ID>
+					<DESCRIPTOR>"AIC"</DESCRIPTOR>
+					<WIDTH>90px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>FARMACO</COL>
+						<DB>FARMACO</DB>
+					</ID>
+					<DESCRIPTOR>"Farmaco"</DESCRIPTOR>
+					<WIDTH>480px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>SOSTITUIBILE</COL>
+						<DB>SOSTITUIBILE</DB>
+					</ID>
+					<DESCRIPTOR>"Sostituibile"</DESCRIPTOR>
+					<WIDTH>80px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PREZZO_EURO</COL>
+						<DB>PREZZO_EURO</DB>
+					</ID>
+					<DESCRIPTOR>"Prezzo"</DESCRIPTOR>
+					<WIDTH>50px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>INFORMAZIONI</COL>
+					</ID>
+					<DESCRIPTOR>"Informazioni"</DESCRIPTOR>
+                   	<PROCESS type="javascript"><![CDATA[function(data){ return WK_FARMACI.processInfoFarmaco(data); }]]></PROCESS>
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>CONCEDIBILITA</COL>
+						<DB>CONCEDIBILITA</DB>
+					</ID>
+					<DESCRIPTOR>"Concedibilita"</DESCRIPTOR>
+					<WIDTH>0px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+			</LIST>
+			<SORT>
+				<COLUMN id="CLASSE">ASC</COLUMN>
+				<COLUMN id="FARMACO">ASC</COLUMN>
+				<COLUMN id="PREZZO_EURO">ASC</COLUMN>
+				
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

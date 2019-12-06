@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Accesso DSA</lblTitolo>
+    	<tabAccessoDSA>Accesso DSA</tabAccessoDSA>
+    	<idDatiAccessoDSA>Dati accesso</idDatiAccessoDSA>
+    	<lblDataAccesso>Data accesso</lblDataAccesso>
+    	<lblOraIniAccesso>Ora ingresso</lblOraIniAccesso>
+    	<lblOraFineAccesso>Ora uscita</lblOraFineAccesso>
+    	<lblNote>Note</lblNote>
+    </ROW>
+</ROWSET>  

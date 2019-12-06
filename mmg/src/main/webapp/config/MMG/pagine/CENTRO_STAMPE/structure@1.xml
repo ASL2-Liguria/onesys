@@ -1,0 +1,250 @@
+<PAGINA key_id="CENTRO_STAMPE">
+	<HEADER_PAGE key_id="CENTRO_STAMPE"
+		valore="DEFAULT_MMG,SCHEDA,CENTRO_STAMPE#DEFAULT_MMG,CENTRO_STAMPE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab"
+			valore="Stampe#lblTitolo#butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabStampe" valore="tabStampe"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldSezioniStampabili" valore="fldSezioniStampabili"
+					evento="START">
+					<!-- <TR.INIT key_id="tr0" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="intestazioneCartella"
+							valore="lblIntestazioneCartella##intestazioneCartella#radIntestazioneCartella#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+					</TR.INIT>  -->
+					<TR.INIT key_id="tr1" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="SchedaAnagrafica"
+							valore="lblSchedaAnagrafica##SchedaAnagrafica#radSchedaAnagrafica#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+					</TR.INIT>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="PatientSummary"
+							valore="lblPatientSummary##PatientSummary#radPatientSummary#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+					</TR.INIT>
+					<TR.INIT key_id="tr100" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="PatientSummarySintesi"
+							valore="lblPatientSummarySintesi##PatientSummarySintesi#radPatientSummarySintesi#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+					</TR.INIT>
+					<TR.INIT key_id="tr3" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Diario"
+							valore="lblDiario##Diario#radDiario#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="DiarioDaData"
+							valore="lblDiarioDaData##txtDiarioDaData" evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="DiarioAData"
+							valore="lblDiarioAData##txtDiarioAData##startWithToday:true"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr6" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="FarmaciPrescritti"
+							valore="lblFarmaciPrescritti##FarmaciPrescritti#radFarmaciPrescritti#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="FarmaciPrescrittiDaData"
+							valore="lblFarmaciPrescrittiDaData##txtFarmaciPrescrittiDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="FarmaciPrescrittiAData"
+							valore="lblFarmaciPrescrittiAData##txtFarmaciPrescrittiAData##startWithToday:true"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr7" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="AccertamentiPrescritti"
+							valore="lblAccertamentiPrescritti##AccertamentiPrescritti#radAccertamentiPrescritti#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="AccertamentiPrescrittiDaData"
+							valore="lblAccertamentiPrescrittiDaData##txtAccertamentiPrescrittiDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AccertamentiPrescrittiAData"
+							valore="lblAccertamentiPrescrittiAData##txtAccertamentiPrescrittiAData##startWithToday:true"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr8" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="VacciniAntinfluenzali"
+							valore="lblVacciniAntinfluenzali##VacciniAntinfluenzali#radVacciniAntinfluenzali#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="VacciniAntinfluenzaliDaData"
+							valore="lblVacciniAntinfluenzaliDaData##txtVacciniAntinfluenzaliDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="VacciniAntinfluenzaliAData"
+							valore="lblVacciniAntinfluenzaliAData##txtVacciniAntinfluenzaliAData##startWithToday:true"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>	
+					<TR_TD_LABEL_RADIO key_id="TipoVaccino" 
+						valore="lblTipoVaccino##TipoVaccino#radTipoVaccino#{width:350,idxDefault:0}#N#TIPO_VACCINAZION" 
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR.INIT key_id="tr81" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Vaccinazioni"
+							valore="lblVaccinazioni##Vaccinazioni#radVaccinazioni#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="VaccinazioniDaData"
+							valore="lblVaccinazioniDaData##txtVaccinazioniDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="VaccinazioniAData"
+							valore="lblVaccinazioniAData##txtVaccinazioniAData##startWithToday:true"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr9" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="PIP"
+							valore="lblPIP##PIP#radPIP#{width:60,idxDefault:1}#S" evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="PIPDaData" valore="lblPIPDaData##txtPIPDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="PIPAData"
+							valore="lblPIPAData##txtPIPAData##startWithToday:true" evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr91" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="RiepilogoADI"
+							valore="lblRiepilogoADI##RiepilogoADI#radRiepilogoADI#{width:60,idxDefault:1}#S" evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="AdiDaData" valore="lblAdiDaData##txtAdiDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AdiAData"
+							valore="lblAdiAData##txtAdiAData##startWithToday:true" evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr92" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="RiepilogoADP"
+							valore="lblRiepilogoADP##RiepilogoADP#radRiepilogoADP#{width:60,idxDefault:1}#S" evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="AdpDaData" valore="lblAdpDaData##txtAdpDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AdpAData"
+							valore="lblAdpAData##txtAdpAData##startWithToday:true" evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr93" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="RiepilogoRP"
+							valore="lblRiepilogoRP##RiepilogoRP#radRiepilogoRP#{width:60,idxDefault:1}#S" evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="RPDaData" valore="lblRPDaData##txtRPDaData"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="RPAData"
+							valore="lblRPAData##txtRPAData##startWithToday:true" evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr10" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Problemi"
+							valore="lblProblemi##Problemi#radProblemi#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="ProblemiDaData"
+							valore="lblProblemiDaData##txtProblemiDaData" evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="ProblemiAData"
+							valore="lblProblemiAData##txtProblemiAData##startWithToday:true#disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr11" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="TerapieCroniche"
+							valore="lblTerapieCroniche##TerapieCroniche#radTerapieCroniche#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="TerapieCronicheDaData"
+							valore="lblTerapieCronicheDaData##txtTerapieCronicheDaData##disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="TerapieCronicheAData"
+							valore="lblTerapieCronicheAData##txtTerapieCronicheAData##startWithToday:true#disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr12" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Rilevazioni"
+							valore="lblRilevazioni##Rilevazioni#radRilevazioni#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="RilevazioniDaData"
+							valore="lblRilevazioniDaData##txtRilevazioniDaData##disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="RilevazioniAData"
+							valore="lblRilevazioniAData##txtRilevazioniAData##startWithToday:true#disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="tr14" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="StoricoVaccinazioni"
+							valore="lblStoricoVaccinazioni##StoricoVaccinazioni#radStoricoVaccinazioni#{width:60,idxDefault:1}#S"
+							evento="START">
+						</TD_LABEL_RADIO>
+						<TD_LABEL_DATA key_id="StoricoVaccinazioniDaData"
+							valore="lblStoricoVaccinazioniDaData##txtStoricoVaccinazioniDaData##startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="StoricoVaccinazioniAData"
+							valore="lblStoricoVaccinazioniAData##txtStoricoVaccinazioniAData##startWithToday:true#disabled:false"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabLetteraAccompagnamento"
+				valore="tabLetteraAccompagnamento" evento="START">
+				<FIELDSET_TABLE key_id="fldOpzioniStampa" valore="fldOpzioniStampa"
+					evento="START">
+					<TR_TD_LABEL_RADIO key_id="DatiAnagrafici"
+						valore="lblDatiAnagrafici##DatiAnagrafici#radDatiAnagrafici#{width:60,idxDefault:1}#S"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_RADIO key_id="StampaTesto"
+						valore="lblStampaTesto##StampaTesto#radStampaTesto#{width:60,idxDefault:1}#S"
+						evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL key_id="lblTesto" valore="lblTesto"
+						evento="START">
+						<TD key_id="tdText" valore="tdText" evento="START">
+							<DIV key_id="txtTesto" valore="txtTesto" evento="START">
+							</DIV>
+						</TD>
+					</TR_TD_LABEL>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldPaziente" valore="fldPaziente"
+					evento="START">
+					<TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_DATA key_id="DataNascita"
+						valore="lblDataNascita##txtDataNascita#DataNascita" evento="START">
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_RADIO key_id="Sesso"
+						valore="lblSesso##Sesso#radSesso#{width:60}#S" evento="START">
+					</TR_TD_LABEL_RADIO>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

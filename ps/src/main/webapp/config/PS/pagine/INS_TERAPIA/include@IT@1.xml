@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="js/Base/NO-min/jquery.numericInput.js"/>
+	<CSS path="css/PS/Terapia/InsTerapia.css"/>
+    <JS path="config/PS/validator/model/V_FARMACI.js"/>
+    <JS path="js/PS/Terapia/InsTerapia.js"/>
+</INCLUDE>

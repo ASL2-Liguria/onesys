@@ -1,0 +1,198 @@
+<PAGINA key_id="CARTELLA">
+	<HEADER_PAGE key_id="CARTELLA" valore="DEFAULT,CARTELLA#DEFAULT,CARTELLA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<INPUT.HIDDEN key_id="SchedaRefertazione" valore="SchedaRefertazione" evento="START">
+		</INPUT.HIDDEN>
+		<INPUT.HIDDEN key_id="IdenVersioneReferto" valore="IdenVersioneReferto" evento="START">
+		</INPUT.HIDDEN>
+		<INPUT.HIDDEN key_id="hNumeroPratica" valore="hNumeroPratica" evento="START">
+		</INPUT.HIDDEN>
+		<INPUT.HIDDEN key_id="hDataNascita" valore="hDataNascita" evento="START">
+		</INPUT.HIDDEN>
+        <INPUT.HIDDEN key_id="hCodEstAnagId1" valore="hCodEstAnagId1" evento="START">
+        </INPUT.HIDDEN>
+        <INPUT.HIDDEN key_id="hContCodEstCod1" valore="hContCodEstCod1" evento="START">
+        </INPUT.HIDDEN>
+        <INPUT.HIDDEN key_id="hEsamiForensi" valore="hEsamiForensi" evento="START">
+        </INPUT.HIDDEN>
+		<DIV key_id="w" valore="w" evento="START">
+			<DIV key_id="tHeader" valore="tHeader" evento="START">
+                <!--<DIV key_id="btnLayout1" valore="btnLayout1" evento="START">-->
+
+                <!--</DIV>-->
+				<DIV key_id="infoContatto" valore="infoContatto" evento="START">
+
+					<INFO key_id="Paziente" valore="Paziente" evento="START">
+					</INFO>
+					<INFO key_id="numeroPratica" valore="numeroPratica" evento="START">
+					</INFO>
+					<INFO key_id="statoAttivita" valore="statoAttivita" evento="START">
+					</INFO>
+                    <INFO key_id="CodiceColoreAttuale" valore="CodiceColoreAttuale" evento="START">
+                    </INFO>
+                    <INFO key_id="utenteRiferimento" valore="utenteRiferimento" evento="START">
+                    </INFO>
+                    <H5 key_id="H5StatoPaziente" valore="H5StatoPaziente" evento="START">
+                        <LABEL key_id="statoPaziente" valore="statoPaziente#" evento="START">
+                        </LABEL>
+                        <COMBO key_id="cmbStatoPaziente" valore="cmbStatoPaziente#cmbStatoPaziente#N##N" evento="START" >
+                        </COMBO>
+                    </H5>
+                    <INFO key_id="avvisoStorico" valore="avvisoStorico#" evento="START">
+                    </INFO>
+                </DIV>
+				<DIV key_id="btnLayout" valore="btnLayout" evento="START">
+                    <BUTTON_FONT key_id="btnOrganismiMultiresistenti" valore="btnOrganismiMultiresistenti#icon-tint#" evento="START">
+                    </BUTTON_FONT>
+                    <BUTTON_FONT key_id="btnMalRare" valore="btnMalRare#icon-attention#" evento="START">
+                    </BUTTON_FONT>
+                    <BUTTON_FONT key_id="btnAvvertenze" valore="btnAvvertenze#icon-info-circled#" evento="START">
+                    </BUTTON_FONT>
+
+                   <!-- <BUTTON_FONT key_id="btnEspandi" valore="btnEspandi#icon-resize-full-1" evento="START">
+                    </BUTTON_FONT>-->
+                    <BUTTON_FONT key_id="btnBlocca" valore="btnBlocca#icon-lock#" evento="START">
+                    </BUTTON_FONT>
+					<BUTTON_FONT key_id="btnRipristina" valore="btnRipristina#icon-resize-small-1#hide" evento="START">
+					</BUTTON_FONT>
+                    <BUTTON_FONT key_id="btnChiudi" valore="btnChiudi#icon-cancel" evento="START">
+                    </BUTTON_FONT>
+
+				</DIV>
+			</DIV>
+			<DIV key_id="center" valore="center" evento="START">
+				<DIV key_id="tSx" valore="tSx##NS_INFO_ESAME" evento="START">
+					<DIV key_id="infoEsame" valore="infoEsame#accordion" evento="START">
+						<ACCORDION_RIQ key_id="accAccoglienza" valore="accAccoglienza" evento="START">
+                            <DIV_INFO key_id="divAnagrafica" valore="divAnagrafica#lblAnagrafica#pdivAnagrafica" evento="START">
+                            </DIV_INFO>
+                            <!--<DIV_INFO key_id="divPotesta" valore="divPotesta#lblPotesta#pdivPotesta" evento="START">
+                            </DIV_INFO>-->
+							 <DIV_INFO key_id="divDatiAmmi" valore="divDatiAmmi#lblDatiAmmi#pdivDatiAmmi" evento="START">
+							 </DIV_INFO>
+                        </ACCORDION_RIQ>
+						<ACCORDION_RIQ key_id="accCartellaInf" valore="accCartellaInf" evento="START">
+							<DIV_INFO key_id="divAnamnesi" valore="divAnamnesi#lblAnamnesi#pdivAnamnesi" evento="START">
+							</DIV_INFO>
+                            <DIV_INFO key_id="insDiarioInf" valore="insDiarioInf#lblinsDiarioInf#PinsDiarioInf" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divParamVitali" valore="divParamVitali#lblParamVitali#pdivParamVitali" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="insRichieste" valore="insRichieste#lblinsRichieste#PinsRichieste" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divCodiceColore" valore="divCodiceColore#lblCodiceColore#pdivCodiceColore" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="completaTriage" valore="completaTriage#lblcompletaTriage#PcompletaTriage" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="completaRivalutazione" valore="completaRivalutazione#lblcompletaRivalutazione#PcompletaRivalutazione" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="braccialetto" valore="braccialetto#lblBraccialetto#Pbraccialetto" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="insTerapie" valore="insTerapie#lblinsTerapie#PinsTerapie" evento="START">
+                            </DIV_INFO>
+                            <!--<DIV_INFO key_id="divPassaggioInf" valore="divPassaggioInf#lblPassaggioInf#pdivPassaggioInf" evento="START">-->
+                            <!--</DIV_INFO>-->
+						</ACCORDION_RIQ>
+						<ACCORDION_RIQ key_id="accCartellaMed" valore="accCartellaMed" evento="START">
+                            <DIV_INFO key_id="divEsameObiettivo" valore="divEsameObiettivo#lblEsameObiettivo#pdivEsameObiettivo" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="insDiario" valore="insDiario#lblinsDiario#PinsDiario" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divParamVitaliM" valore="divParamVitaliM#lblParamVitali#pdivParamVitaliM" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="insRichiesteM" valore="insRichiesteM#lblinsRichieste#PinsRichiesteM" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="insTerapieM" valore="insTerapieM#lblinsTerapie#PinsTerapieM" evento="START">
+                            </DIV_INFO>
+							<!--<DIV_INFO key_id="divTrasferimento" valore="divTrasferimento#lblTrasferimento#pdivTrasferimento" evento="START">-->
+							<!--</DIV_INFO>-->
+						</ACCORDION_RIQ>
+						<ACCORDION_RIQ key_id="accChiusura" valore="accChiusura" evento="START">
+							<!--<DIV_INFO key_id="divEsito" valore="divEsito#lblEsito#pdivEsito" evento="START">
+							</DIV_INFO>-->
+							<DIV_INFO key_id="divVerbale" valore="divVerbale#lblVerbale#pdivVerbale" evento="START">
+							</DIV_INFO>
+						</ACCORDION_RIQ>
+					</DIV>
+				</DIV>
+				<DIV key_id="tContent" valore="tContent##NS_REFERTO" evento="START">
+					<IFRAME key_id="iContent" valore="iContent" evento="START">
+					</IFRAME>				
+				</DIV>
+				<DIV key_id="tDx" valore="tDx##NS_FUNZIONI" evento="START">
+					<DIV key_id="divFunzioni" valore="divFunzioni#accordion" evento="START">
+                        <ACCORDION_RIQ key_id="accRiepilogo" valore="accRiepilogo" evento="START">
+                            <DIV_INFO key_id="divAndamentoTriage" valore="divAndamentoTriage#lblAndamentoTriage#pdivAndamentoTriage" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divPrestazioni" valore="divPrestazioni#lblPrestazioni#pdivPrestazioni" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divRichieste" valore="divRichieste#lblRichieste#pdivRichieste" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divDiari" valore="divDiari#lblDiari#pdivDiari" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divDiariInf" valore="divDiariInf#lblDiariInf#pdivDiariInf" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divTerapie" valore="divTerapie#lblTerapie#pdivTerapie" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divRivalutazioniMediche" valore="divRivalutazioniMediche#lblRivalutazioniMediche#pdivRivalutazioniMediche" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divRivalutazioniMedichePassate" valore="divRivalutazioniMedichePassate#lblRivalutazioniMedichePassate#pdivRivalutazioniMedichePassate" evento="START">
+                            </DIV_INFO>
+                            <!--<DIV_INFO key_id="divAnamnesiInfRiepilogo" valore="divAnamnesiInfRiepilogo#lblAnamnesiInfRiepilogo#pdivAnamnesiInfRiepilogo" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="divStoriaContatto" valore="divStoriaContatto#lblStoriaContatto#pdivStoriaContatto" evento="START">
+                            </DIV_INFO>-->
+                        </ACCORDION_RIQ>
+                        <ACCORDION_RIQ key_id="accFunzioniStampa" valore="accFunzioniStampa" evento="START">
+                            <DIV_INFO key_id="divModulistica" valore="divModulistica#lblModulistica#pdivModulistica" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="catenaCustodia" valore="catenaCustodia#lblCatenaCustodia#PcatenaCustodia" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="DiariStampa" valore="DiariStampa#lblDiariStampa#PDiariStampa" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="anteprimaTriage" valore="anteprimaTriage#lblanteprimaTriage#PanteprimaTriage" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="anteprima" valore="anteprima#lblAnteprima#Panteprima" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="anteprimaNumero" valore="anteprimaNumero#lblanteprimaNumero#PanteprimaNumero" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="anteprimaPrivacy" valore="anteprimaPrivacy#lblanteprimaPrivacy#PanteprimaPrivacy" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="anteprimaDiarioOBI" valore="anteprimaDiarioOBI#lblanteprimaDiarioOBI#PanteprimaDiarioOBI" evento="START">
+                            </DIV_INFO>
+                        </ACCORDION_RIQ>
+						<ACCORDION_RIQ key_id="riqFunzioniScheda" valore="riqFunzioniScheda" evento="START">
+                            <DIV_INFO key_id="datiStrutturati" valore="datiStrutturati#lblDatiStrutturati#PdatiStrutturati" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="iPatient" valore="iPatient#lbliPatient#PiPatient" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="Prenotazione" valore="Prenotazione#lblPrenotazione#Prenotazione" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="PrenotazioneEsterna" valore="PrenotazioneEsterna#lblPrenotazioneEsterna#PrenotazioneEsterna" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="RicettaRossaFarmaci" valore="RicettaRossaFarmaci#lblRicettaRossaFarmaci#PRicettaRossaFarmaci" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="RicettaRossaPrestazioni" valore="RicettaRossaPrestazioni#lblRicettaRossaPrestazioni#PRicettaRossaPrestazioni" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="WorklistRicette" valore="WorklistRicette#lblWorklistRicette#PWorklistRicette" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="PianiTerapeutici" valore="PianiTerapeutici#lblPianiTerapeutici#PPianiTerapeutici" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="TrasportoNonUrgente" valore="TrasportoNonUrgente#lblTrasportoNonUrgente#PTrasportoNonUrgente" evento="START">
+                            </DIV_INFO>
+                            <DIV_INFO key_id="apriDocumentiPaziente" valore="apriDocumentiPaziente#lblDocumentiPaziente#PDocumentiPaziente" evento="START">
+                            </DIV_INFO>
+                            <!--DIV_INFO key_id="apriRichiestaWhale" valore="apriRichiestaWhale#lblDocumentiPaziente#PRichiestaWhale" evento="START">
+                            </DIV_INFO-->                            
+						</ACCORDION_RIQ>						
+					</DIV>
+				</DIV>
+			</DIV>
+			<DIV key_id="tBottom" valore="tBottom##NS_INFO" evento="START">
+				<IFRAME key_id="iBottom" valore="iBottom" evento="START">
+				</IFRAME>
+			</DIV>
+		</DIV>
+	</FORM>
+</PAGINA>

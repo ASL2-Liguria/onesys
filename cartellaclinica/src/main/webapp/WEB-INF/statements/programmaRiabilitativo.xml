@@ -1,0 +1,286 @@
+<root>
+    <statements_list>
+    	<statement name="getScheda">
+            <sql>
+                <![CDATA[
+                 select iden,convalidato from (select iden,convalidato from programma_riabilitativo where iden_visita=? and deleted='N' order by iden desc) where rownum=1
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getSchedeConvalidate">
+            <sql>
+                <![CDATA[
+                 select iden,to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_convalida from programma_riabilitativo where iden_visita=? and deleted='N' and convalidato='S' order by iden desc  
+                ]]>
+            </sql>
+        </statement>
+        <statement name="convalida">				
+			<sql>
+			<![CDATA[
+				declare
+					pIden pls_integer := to_number(?);
+				begin
+					update programma_riabilitativo set convalidato='S' where iden= pIden;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getRisultatoScalaTCT">
+            <sql>
+                <![CDATA[
+                 select Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtPunteggioTotale"]/text()').Getstringval()||Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTotale"]/text()').Getstringval() risultato,iden from (select contenuto,iden from cc_scale_bck where key_legame=? and iden_visita=? order by iden desc) where rownum=1
+                ]]>
+            </sql>
+        </statement>
+        <statement name="getRisultatoScalaFAC">
+            <sql>
+                <![CDATA[
+                 select Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtScoreTotale"]/text()').Getstringval() risultato,iden from (select contenuto,iden from cc_scale_bck where key_legame=? and iden_visita=? order by iden desc) where rownum=1
+                ]]>
+            </sql>
+        </statement>
+                <statement name="getRisultatoScalaMI">
+            <sql>
+                <![CDATA[
+                 select 'ASDx:'||Extract(CONTENUTO,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTotaleArtoSuperioreDx"]/text()').Getstringval()||'/100, ASSx:'|| Extract(CONTENUTO,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTotaleArtoSuperioreSx"]/text()').Getstringval()||'/100, AIDx:'||Extract(CONTENUTO,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTotaleArtoInferioreDx"]/text()').Getstringval()||'/100, AISx:'||Extract(CONTENUTO,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTotaleArtoInferioreSx"]/text()').Getstringval()||'/100' risultato,iden from (select contenuto,iden from cc_scale_bck where key_legame=? and iden_visita=? order by iden desc) where rownum=1
+                ]]>
+            </sql>
+        </statement>
+                <statement name="getRisultatoScala">
+            <sql>
+                <![CDATA[
+                 select Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTotale"]/text()').Getstringval() risultato,iden from (select contenuto,iden from cc_scale_bck where key_legame=? and iden_visita=? order by iden desc) where rownum=1
+                ]]>
+            </sql>
+        </statement>
+        <statement name="caricaPresidiMedicazioni">
+            <sql>
+                <![CDATA[             
+				SELECT 
+				(SELECT count(*) FROM cc_procedure_ricovero pr JOIN tab_codifiche tc ON (tc.iden=pr.iden_codifica) WHERE pr.iden_visita=? AND pr.deleted='N' and tc.codice='PT_PRESIDIO_CV' AND (pr.validita_fine IS NULL OR pr.validita_fine>sysdate)) CV,
+				(SELECT count(*) FROM cc_procedure_ricovero pr JOIN tab_codifiche tc ON (tc.iden=pr.iden_codifica) WHERE pr.iden_visita=? AND pr.deleted='N' and tc.codice='PT_PRESIDIO_SNG' AND (pr.validita_fine IS NULL OR pr.validita_fine>sysdate)) SNG,
+				(SELECT count(*) FROM cc_procedure_ricovero pr JOIN tab_codifiche tc ON (tc.iden=pr.iden_codifica) WHERE pr.iden_visita=? AND pr.deleted='N' and tc.codice='PT_PRESIDIO_PEG' AND (pr.validita_fine IS NULL OR pr.validita_fine>sysdate)) PEG,
+				(SELECT count(*) FROM cc_procedure_ricovero pr JOIN tab_codifiche tc ON (tc.iden=pr.iden_codifica) WHERE pr.iden_visita=? AND pr.deleted='N' and tc.codice='PT_PRESIDIO_TRACHEOSTOMIA' AND (pr.validita_fine IS NULL OR pr.validita_fine>sysdate)) TRACHEOSTOMIA,
+				(SELECT count(*) FROM cc_procedure_ricovero pr JOIN tab_codifiche tc ON (tc.iden=pr.iden_codifica) WHERE pr.iden_visita=? AND pr.deleted='N' and tc.codice IN ('PT_PRESIDIO_CVC','PT_PRESIDIO_CVP') AND (pr.validita_fine IS NULL OR pr.validita_fine>sysdate)) ACC_VEN,
+				(SELECT count(*) FROM cc_procedure_ricovero pr JOIN tab_codifiche tc ON (tc.iden=pr.iden_codifica) WHERE pr.iden_visita=? AND pr.deleted='N' and tc.tipo_dato IN ('PT_MEDICAZIONE') AND (pr.validita_fine IS NULL OR pr.validita_fine>sysdate)) MEDICAZIONI
+				FROM DUAL
+                ]]>
+            </sql>
+        </statement>
+        <statement name="caricaDatiBarthel">
+            <sql>
+                <![CDATA[
+                 select * from 
+                  (select 
+                    GET_KEY_CAMPO_VALUE(contenuto,'chkAlimentazione') alimentazione,
+                    GET_KEY_CAMPO_VALUE(contenuto,'chkIgienePersonale') igiene_personale,
+                    GET_KEY_CAMPO_VALUE(contenuto,'chkAbbigliamento') abbigliamento,
+                    GET_KEY_CAMPO_VALUE(contenuto,'chkBagnoDoccia') bagno_doccia,
+                    GET_KEY_CAMPO_VALUE(contenuto,'chkContinenzaUrinaria') continenza_urinaria,
+                    GET_KEY_CAMPO_VALUE(contenuto,'chkContinenzaIntestinale') continenza_intestinale,
+                  	GET_KEY_CAMPO_VALUE(contenuto,'chkUsoGabinetto') uso_gabinetto,
+                  	GET_KEY_CAMPO_VALUE(contenuto,'chkTrasferimenti') trasferimenti,
+                  	GET_KEY_CAMPO_VALUE(contenuto,'chkDeambulazione') deambulazione,
+                  	GET_KEY_CAMPO_VALUE(contenuto,'chkUsoCarrozzina') uso_carrozzina,
+                    GET_KEY_CAMPO_VALUE(contenuto,'chkScale') scale                  
+                  from cc_scale_bck 
+                  where iden_visita =? 
+                   and KEY_LEGAME = 'SCALA_BARTHEL'
+                  order by iden desc) where rownum=1
+                ]]>
+            </sql>
+        </statement>
+        <statement name="caricaAltreScale">
+            <sql>
+                <![CDATA[
+                 select s.funzione,s.iden,t.intestazione from(
+				 select funzione,max(iden) iden from cc_scale_bck 
+				 where funzione not in ('SCALA_BARTHEL','SCALA_MOTRICITY_INDEX','SCALA_TCT','SCALA_FAC','SCALA_MMSE') and iden_visita=?
+				 group by funzione having max(iden)>0) s join cc_scale_type t on(t.funzione=s.funzione)
+                ]]>
+            </sql>
+        </statement>
+           <statement name="getStoricoSezione">				
+			<sql>
+			<![CDATA[
+				declare 
+				vCampo varchar2(4000);
+				pIden pls_integer := to_number(?);
+				pSezione varchar2(4000):=?;
+				vOut varchar2(4000) := '';
+				begin
+				for cur in (select p.contenuto,p.data_ultima_modifica,t.descr from radsql_bck.programma_riabilitativo p join tab_per t on (p.user_id=t.iden) where iden_originale=pIden and deleted='N' order by data_ultima_modifica)
+					loop
+					vCampo:=get_key_campo_value(cur.contenuto,'hSez'||pSezione);
+						if(SUBSTR(vCampo, -1)='*') then
+							vOut:=vOut||cur.descr||'|'||to_char(cur.data_ultima_modifica,'DD/MM/YYYY hh24:mi')||'*';
+						end if;
+					end loop;
+				? := vOut;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getIdenBck">				
+			<sql>
+			<![CDATA[
+				declare 
+				vCampo varchar2(4000);
+				pIden pls_integer := to_number(?);
+				pSezione varchar2(4000):=?;
+				vOut varchar2(4000) := '';
+				begin
+				for cur in (select p.contenuto,p.iden from radsql_bck.programma_riabilitativo p join tab_per t on (p.user_id=t.iden) where iden_originale=pIden and deleted='N' order by data_ultima_modifica)
+					loop
+					vCampo:=get_key_campo_value(cur.contenuto,'hSez'||pSezione);
+						if(SUBSTR(vCampo, -1)='*') then
+						    if(vOut is not null) then
+						     vOut:=vOut||',';
+						    end if;
+							vOut:=vOut||cur.iden;
+						end if;
+					end loop;
+				? := vOut;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="ricaricaArea">
+            <sql>
+                <![CDATA[
+					select 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtSitatAreaFunz') txtSitatAreaFunz,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodAreaFunz') txtMetodAreaFunz,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObAreaFunz') txtObAreaFunz,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeAreaFunz') txtOpeAreaFunz,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObStabilita') txtObStabilita,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeStabilita') txtOpeStabilita,
+                  	GET_KEY_CAMPO_VALUE(contenuto,'txtSitAtStabilita') txtSitAtStabilita,
+                  	GET_KEY_CAMPO_VALUE(contenuto,'txtMetodStabilita') txtMetodStabilita,
+                  	GET_KEY_CAMPO_VALUE(contenuto,'txtSitatCutanea') txtSitatCutanea,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodCutanea') txtMetodCutanea,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObCutanea') txtObCutanea,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeCutanea') txtOpeCutanea,   
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtSitatSensoMotorie') txtSitatSensoMotorie,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodSensoMotorie') txtMetodSensoMotorie,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObSensoMotorie') txtObSensoMotorie,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeSensoMotorie') txtOpeSensoMotorie,   
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtSitatMobilita') txtSitatMobilita,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodMobilita') txtMetodMobilita,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObMobilita') txtObMobilita,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeMobilita') txtOpeMobilita,  
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtSitatComRel') txtSitatComRel,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodComRel') txtMetodComRel,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObComRel') txtObComRel,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeComRel') txtOpeComRel, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtSitatFunCogn') txtSitatFunCogn,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodFunCogn') txtMetodFunCogn,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObFunCogn') txtObFunCogn,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeFunCogn') txtOpeFunCogn,  
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtSitatAutonomia') txtSitatAutonomia,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodAutonomia') txtMetodAutonomia,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObAutonomia') txtObAutonomia,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeAutonomia') txtOpeAutonomia, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtSitatRiadattamento') txtSitatRiadattamento,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtMetodRiadattamento') txtMetodRiadattamento,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtObRiadattamento') txtObRiadattamento,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtOpeRiadattamento') txtOpeRiadattamento, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteAbbigliamento') txtNoteAbbigliamento, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteAlimentazione') txtNoteAlimentazione, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteBagno') txtNoteBagno, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteContInt') txtNoteContInt, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteContUri') txtNoteContUri, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteGabinetto') txtNoteGabinetto, 
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteIgiene') txtNoteIgiene,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteTrasferimenti') txtNoteTrasferimenti,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteDeambu') txtNoteDeambu,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteCarrozzina') txtNoteCarrozzina,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtNoteScale') txtNoteScale,                    
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtAlimentazione') txtAlimentazione,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtIgiene') txtIgiene,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtAbbigliamento') txtAbbigliamento,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtBagno') txtBagno,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtContUri') txtContUri,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtContInt') txtContInt,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtGabinetto') txtGabinetto,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtTrasferimenti') txtTrasferimenti,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtDeambu') txtDeambu,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtCarrozzina') txtCarrozzina,
+                    GET_KEY_CAMPO_VALUE(contenuto,'txtScale') txtScale,   
+                    GET_KEY_CAMPO_VALUE(contenuto,'radCV') radCV                 
+                  from programma_riabilitativo
+                  where iden =? 
+                ]]>
+            </sql>
+        </statement>
+        <statement name="checkRegistrazione">
+            <sql>
+                <![CDATA[
+                 select iden from programma_riabilitativo where iden_visita=? and deleted='N' and convalidato='N'
+                ]]>
+            </sql>
+        </statement>
+        <statement name="checkConvalida">
+            <sql>
+                <![CDATA[
+                 select iden from programma_riabilitativo where iden=? and deleted='N' and convalidato='S'
+                ]]>
+            </sql>
+        </statement>
+        <statement name="gestBloccoAree">
+			<sql>
+			<![CDATA[
+			declare
+			  vIdenRic pls_integer:= to_number(?);
+			  vArea  varchar2(200):= ?;
+			  vIdenUte pls_integer:= to_number(?);
+			  vIP varchar2(200):=?;
+			  vNomeHost varchar2(200):=?;
+			  vBloccato varchar2(200);
+			  vAvviso varchar2(4000);
+			  vUteLock  pls_integer;
+			  vPerLock varchar2(4000);
+			  vDateLock date;
+			  vIpLock varchar2(4000);
+			  begin
+			   begin
+			   select UTE_LOCK,DATE_LOCK,IP into vUteLock,vDateLock,vIpLock from ROWS_LOCK where TAB_NAME='PROGRAMMA_RIABILITATIVO' and TAB_IDEN=vIdenRic and funzione = vArea; 
+			   delete ROWS_LOCK where TAB_NAME='PROGRAMMA_RIABILITATIVO' and TAB_IDEN=vIdenRic and ute_lock=vIdenUte and funzione<>vArea;
+			   select descr into vPerLock from TAB_PER where iden=vUteLock;
+		        if vIdenUte=vUteLock then
+		          vBloccato:='N';
+		          vAvviso:='';
+		        else
+		          vBloccato:='S';
+		          vAvviso:= 'Attenzione!  L''area a cui si vuole accedere è in uso.\n' ;
+		          vAvviso := vAvviso || 'Utente: ' || vPerLock ||'\n';
+		          vAvviso := vAvviso || 'Postazione: ' || vIpLock ||'\n';
+		          vAvviso := vAvviso || 'Dalle: ' || to_char(vDateLock,'hh24:mi dd/MM/yyyy') ;
+		        end if;		
+		        exception when no_data_found then
+		        begin
+		          delete ROWS_LOCK WHERE TAB_NAME='PROGRAMMA_RIABILITATIVO' and UTE_LOCK=vIdenUte;
+		          insert into ROWS_LOCK(TAB_NAME,TAB_IDEN,UTE_LOCK,DATE_LOCK,IP,NOME_HOST,FUNZIONE,UTE_SESSION) values ('PROGRAMMA_RIABILITATIVO',vIdenRic,vIdenUte,sysdate,vIP,vNomeHost,vArea,SYS_CONTEXT('USERENV','ACTION'));
+		          vBloccato:='N';
+		        end;
+		      end;		 
+			 ? := vBloccato;
+			 ? := vAvviso;
+			end;				
+			]]>
+			</sql>
+		</statement>
+		<statement name="sbloccaAree">
+			<sql>
+			<![CDATA[
+			declare
+			  vIdenRic pls_integer:= to_number(?);
+			  vIdenUte pls_integer:= to_number(?);
+			  begin
+			    delete ROWS_LOCK WHERE TAB_NAME='PROGRAMMA_RIABILITATIVO' and UTE_LOCK=vIdenUte;
+			 end;				
+			]]>
+			</sql>
+		</statement>
+    </statements_list>
+</root>

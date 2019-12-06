@@ -1,0 +1,30 @@
+<PAGINA key_id="INS_DIARI">
+    <HEADER_REFERTAZIONE key_id="INS_DIARI" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,INS_DIARI#DEFAULT,PS_DIARI" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#PS_SALVATAGGI.FNC_SALVA_DIARI#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="Diari" valore="DIARI#lblTitolo#butSalva" evento="START">
+			<INPUT.HIDDEN key_id="hIdenAnag" valore="hIdenAnag###IDEN_ANAG" evento="START">
+			</INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="hIdenContatto" valore="hIdenContatto###IDEN_CONTATTO" evento="START">
+			</INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="hUteIns" valore="hUteIns###UTE_INS" evento="START">
+			</INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="hUteRiferimento" valore="hUteRiferimento" evento="START">
+            </INPUT.HIDDEN>
+
+                <ROW key_id="rowDiario" valore="rowDiario" evento="START">
+                    <COLUMN_FREE key_id="colDiario" valore="colDiario" evento="START">
+                        <FIELD_HEADER_TABLE key_id="fldDiario" valore="fldDiario" evento="START">
+                            <TR_TD_LABEL_DATA key_id="txtDataIns" valore="lblDataIns##txtDataIns#DataIns#startWithToday:true, readonly_element: false, format: 'd/m/Y'##lblDataIns#DATA_INS" evento="START">
+                            </TR_TD_LABEL_DATA>
+                            <TR_TD_LABEL_ORA key_id="txtOraIns" valore="lblOraIns##txtOraIns##N" evento="START">
+                            </TR_TD_LABEL_ORA>
+                            <TR_TD_LABEL_TEXTAREA key_id="taNoteDiari" valore="lblNoteDiari#taNoteDiari#NOTE#N#N#3" evento="START">
+                            </TR_TD_LABEL_TEXTAREA>
+                        </FIELD_HEADER_TABLE>
+                    </COLUMN_FREE>
+                </ROW>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

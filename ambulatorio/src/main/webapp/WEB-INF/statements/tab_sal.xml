@@ -1,0 +1,101 @@
+<root>
+	<statements_list>
+		<statement name="getDettSala">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					select note, info_dettaglio from tab_sal where iden = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="getSalaByCodDec">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					select descr from tab_sal where cod_dec = ?
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		<statement name="insertSala">
+			<sql>
+			<![CDATA[
+				declare
+					pCod_dec 	varchar2(4000) := ?; 
+					pDescr 	varchar2(4000) := ?; 
+					pAttivo 	varchar2(4000) := ?; 
+					pReparto 	varchar2(4000) := ?; 
+					pAEtitle 	varchar2(4000) := ?; 																				
+					pNote 	varchar2(4000) := ?;
+					pIden 	number ;
+					pLob clob := ?;
+				begin
+					SELECT SEQ_TAB_SAL.nextval INTO pIden from dual; 
+					if pAEtitle ='' then
+						insert into tab_sal (cod_dec, descr, attivo, reparto, iden_aetitle, note, info_dettaglio) values (pCod_dec,pDescr,pAttivo,pReparto,null,pNote,pLob);										
+					else
+						insert into tab_sal (cod_dec, descr, attivo, reparto, iden_aetitle, note, info_dettaglio) values (pCod_dec,pDescr,pAttivo,pReparto,TO_NUMBER(pAEtitle),pNote,pLob);					
+					end if;
+					select max(iden) into pIden from tab_sal where cod_dec = pCod_dec;
+					? := pIden;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="updateSala">
+			<sql>
+			<![CDATA[
+				declare
+					pIden 	number := ?;
+					pCod_dec 	varchar2(4000) := ?; 
+					pDescr 	varchar2(4000) := ?; 
+					pAttivo 	varchar2(4000) := ?; 
+					pReparto 	varchar2(4000) := ?; 
+					pAEtitle 	varchar2(4000) := ?; 																				
+					pNote 	varchar2(4000) := ?;
+					pLob clob := ?;
+				begin
+					if pAEtitle ='' then
+						update tab_sal set cod_dec = pCod_dec,  descr = pDescr, attivo = pAttivo, reparto = pReparto, iden_aetitle = null, note = pNote , info_dettaglio = pLob where iden = pIden;
+					else
+						update tab_sal set cod_dec = pCod_dec,  descr = pDescr, attivo = pAttivo, reparto = pReparto, iden_aetitle = TO_NUMBER(pAEtitle), note = pNote, info_dettaglio = pLob  where iden = pIden;					
+					end if;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>		
+		
+		<statement name="insertOperation">
+			<sql>
+			<![CDATA[
+				declare
+					pRow_id 	number := ?;
+					pOp_type 	varchar2(4000) := ?; 
+					pUser_id 	varchar2(4000) := ?; 
+					pTable_name 	varchar2(4000) := ?; 
+				begin
+					insert into ops_log (row_id, op_type, user_id, table_name) values (pRow_id, pOp_type, pUser_id, pTable_name);
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+		
+		<statement name="getInfoSale">
+			<!-- iden deve essere iden_anag -->				
+			<sql>
+			<![CDATA[
+					select * from tab_sal where iden in (select column_value from table (split(?)))
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+	</statements_list>
+</root>

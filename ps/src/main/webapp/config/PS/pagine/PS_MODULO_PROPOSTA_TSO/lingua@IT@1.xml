@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+        <ROW>
+
+       <lblTitolo>PROPOSTA TSO</lblTitolo>
+       <fldDati>Dati</fldDati>
+       <lblOspedale>Ospedale</lblOspedale>
+       <lblCdc>Centro di costo</lblCdc>
+       <lblEnteOspedaliero>Ente ospedaliero</lblEnteOspedaliero>
+       <lblCondizioniCliniche>Condizioni cliniche</lblCondizioniCliniche>
+
+        <butStampa>Stampa</butStampa>
+        <butSalva>Salva</butSalva>
+        <butFirma>Firma</butFirma>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,117 @@
+#divDettaglioGruppo{background:#b9e0ff;padding-right:10px;}
+
+
+
+fieldset{
+	margin:10px;
+	border:2px solid #fff;
+	background:#0080FF;
+	padding:2px;
+	}
+fieldset .TableProfilo, #ListaEsami{
+	padding:5px;
+}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+		}
+		
+.opacity {
+	
+	filter:alpha(opacity=30);
+	-moz-opacity: 0.01;
+	opacity: 0.01;
+
+}
+		
+div#divElencoEsami
+{
+	position:fixed;
+	width:50%;
+	float:left;
+	display:none;
+}
+
+div#divElencoEsami select
+{
+	height:200px;
+}
+
+div#divElencoScelti
+{
+	position:fixed;
+	width:50%;
+	float:right;
+	display:none;
+}
+
+div#divElencoScelti select
+{
+	height:200px;
+}
+
+div#divDettaglioGruppo
+{
+	display:none;
+}
+
+.pulsante {
+	
+	TEXT-ALIGN: center;
+	LINE-HEIGHT: 18px;
+	WIDTH: 150x;
+	BACKGROUND-REPEAT: repeat-x;
+	FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+	FLOAT: right;
+	HEIGHT: 21px;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: bold;
+}
+
+.listboxVerde {
+
+	background-color:#FFFFCC;
+
+}
+
+.textProfilo {
+
+	background:#FFFFCC;
+	padding-left:5px;
+
+
+}
+
+.ProfiloUrgenza {
+
+	BORDER: #6aa8f2 1px solid;
+	BACKGROUND-COLOR: #FF4A4A;
+	PADDING-LEFT: 5px;
+	WIDTH: 120px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	WHITE-SPACE: nowrap;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: bold;
+	color:#FFFFFF;
+	text-align:center;
+
+}
+
+.ProfiloRoutine {
+	
+	BORDER: #6aa8f2 1px solid;
+	BACKGROUND-COLOR: #FFFFFF;
+	/*PADDING-LEFT: 5px;*/
+	WIDTH: 120px;
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	WHITE-SPACE: nowrap;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: bold;
+	text-align:center;
+
+
+}

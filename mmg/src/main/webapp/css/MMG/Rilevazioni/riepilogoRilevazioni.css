@@ -1,0 +1,6 @@
+body{width:960px;}
+#divWkBMI, #divWkPressione, #divWkCardio, #divWkAlcol, #divWkFumo{ margin: 10px 10px 0 10px;}
+
+#but_BMI, #but_Cuore, #but_Pressione, #but_Temperatura, #but_Alcol, #but_Fumo, #but_Altro, #butCerca { width: 90px;}
+
+#fldRicerca table.campi { table-layout: fixed;}

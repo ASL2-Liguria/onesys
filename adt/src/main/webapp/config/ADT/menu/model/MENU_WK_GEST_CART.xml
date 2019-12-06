@@ -1,0 +1,86 @@
+<MENU>
+    <ID>MENU_WK_GEST_CART</ID>
+    <TITLE>"Menu gestione cartelle"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>RICEVI_ARCHIVIO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.RiceviInArchivio(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella RICEVUTA in ARCHIVIO"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CARTELLA_ARCHIVIATA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaArchiviata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella ARCHIVIATA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CARTELLA_PERSA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaPersa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella PERSA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>   
+        <ITEM>
+            <ID>CARTELLA_SEQ</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaSequestrata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella SEQUESTRATA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CARTELLA_REINVIATA_REPARTO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaReinviata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return NS_HOME_ARCHIVIO_WK.where.isAdt(rec);}]]></WHERE>
+            <OUTPUT>"Cartella reinviata in reparto"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CRONOLOGIA STATI CARTELLA</ID>
+            <LINK><![CDATA[function(rec){if (rec.length>1) home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); else top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=STATO_CARTELLA_CRONO&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA,id:'CronoStatoCartella',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cronologia stato cartella"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>    
+        <ITEM>
+            <ID>ANNULLA ULTIMO STATO CARTELLA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.resetStatoCartella(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla stato cartella"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>VISUALIZZA_VERBALE</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_WK.apriVerbale(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return NS_HOME_ARCHIVIO_WK.where.isPsDiacharged(rec);}]]></WHERE>
+            <OUTPUT>"Visualizza Verbale"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

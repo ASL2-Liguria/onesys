@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script type="text/javascript"	src="../../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script type="text/javascript" src="../../std/jscript/moduloConsole/jquery.multi-accordion-1.5.3.js"></script>
+
+<script src="../../std/jscript/jQueryOloader/js/jquery.oLoader.min.js"></script>
+
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.widget.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<script type="text/javascript" src="../../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../../std/jscript/optionJsUtil.js"></script>   
+
+
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+<link rel="stylesheet"	href="../../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<script type="text/javascript" language="javascript"	src="../../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+
+
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/dataTable.css" rel="stylesheet" type="text/css" />
+
+<!-- <link href="css/gestioneNuovoAmbu.css" rel="stylesheet" type="text/css" />-->
+<!--<script type="text/javascript" src="js/gestioneNuovoAmbu.js"></script>-->
+
+<link href='../../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<script type="text/javascript" src="../../../std/jscript/moduloConsole/jsComboHandler.js"></script>
+
+<link href='../../std/jscript/fancybox/jquery.fancybox-1.3.4.css' type='text/css' rel='stylesheet'>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Gestione XDS</title>
+<style>
+#accordion h3 { padding-left: 20px; }
+button.clsEseguiInterfaccia{
+	width:98%; 
+	margin-top:5px; 
+	margin-bottom:5px;
+	display:block;
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body id="myBody">
+
+	<table cellpadding='0' cellspacing='0' class="classDataTable" width="99%">
+		<tr>
+			<td class="classTdLabel" >Centro di costo / ambulatorio</td>
+            <td class="classTdField"><select id='ricCdc' ></select></td>
+		</tr>
+	</table>
+	<button class='clsEseguiInterfaccia' onclick="javascript:creaRecord('XDS');" >Crea record per configurazione repository</button>
+     <script>
+
+		$(function() {
+			$( "button" )
+			  .button()
+			  .click(function( event ) {
+				event.preventDefault();
+			  });		
+			  
+			  loadComboCdc();
+			  
+	   });	 
+		
+		function loadComboCdc(){
+			try{
+				try{
+					// filtro per jsonModuliAttuale.codCdc 
+					$('#ricCdc').empty();			
+					var rs = parent.getHomeFrame().executeQuery('gestioneNuovoAmbu.xml','getAllCdc',[]);
+					fill_selectFromResultSetWithBlankOption(rs,"ricCdc", "codice", "descrizione", -1);			
+				}catch(e){alert("Errore: getAllCdc");}
+			}
+			catch(e){
+				alert("loadComboSale - Error: " + e.description);
+			}		
+		}		
+		
+		function creaRecord(value){
+			var cdc = "";
+			var strLog = "";
+			var stmToCall = "insertConfigXDS";			
+			try{
+				cdc = getValue("ricCdc");
+				if (cdc==""){
+					strLog = "Selezionare un centro di costo / ambulatorio valido";
+					parent.LOG_FIELD.writeError(strLog );
+					return;
+				}				
+				var stm = parent.getHomeFrame().executeStatement('gestioneNuovoAmbu.xml',stmToCall,[cdc],0);		
+				if (stm[0]!="OK"){
+					strLog = "Errore \n" + stm[1] ;
+					parent.LOG_FIELD.writeError(strLog );
+				}		
+				else{
+					strLog = "Procedura inserimento record correttamente eseguita";
+					parent.LOG_FIELD.writeInfo(strLog);
+				}					
+			}
+			catch(e){
+				alert("creaRecord - Error: " + e.description);
+			}
+			finally{
+				
+			}
+		}
+     </script>
+	 
+</body>
+</html>

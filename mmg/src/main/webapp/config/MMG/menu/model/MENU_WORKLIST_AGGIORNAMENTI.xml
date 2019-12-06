@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<MENU>
+    <ID>MENU_WORKLIST_AGGIORNAMENTI</ID>
+    <TITLE>traduzione.lblMenu</TITLE>
+    <LIST>
+    
+    	<ITEM>
+            <ID>WA_MODIFICA</ID>
+            <LINK><![CDATA[ function( rec ){ AGGIORNAMENTI.modificaAggiornamento(rec, $('#N_SCHEDA').val()); }]]></LINK>
+            <ICON_CLASS>esegui</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return rec.length == 1; } ]]></WHERE>
+            <OUTPUT>traduzione.lblModifica</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        
+        <ITEM>
+            <ID>WA_CANCELLA</ID>
+            <LINK><![CDATA[ function( rec ){ AGGIORNAMENTI.cancellaAggiornamento(rec, 'UPD'); }]]></LINK>
+            <ICON_CLASS>annulla-esecuzione</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return (rec[0].DELETED == "N"); } ]]></WHERE>
+            <OUTPUT>traduzione.lblCancella</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        
+        <ITEM>
+            <ID>WA_ELIMINA</ID>
+            <LINK><![CDATA[ function( rec ){ AGGIORNAMENTI.cancellaAggiornamento(rec, 'DEL'); }]]></LINK>
+            <ICON_CLASS>annulla-esecuzione</ICON_CLASS>
+            <WHERE><![CDATA[ function( rec ){ return rec.length == 1; } ]]></WHERE>
+            <OUTPUT>traduzione.lblElimina</OUTPUT>
+            <CONCEALING>S</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+ 
+	   
+    </LIST>
+    
+</MENU>

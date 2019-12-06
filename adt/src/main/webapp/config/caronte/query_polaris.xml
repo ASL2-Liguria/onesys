@@ -1,0 +1,17 @@
+<?xml version = "1.0"?>
+<!--
+	Mettere le query in ordine alfabetico!
+	ALFABETO : A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+	-->
+<QUERIES>
+    <QUERY_GROUP id="SDJ">
+        <QUERY id="GETREFERTISTRUMENTALI">
+            <SQL>select esa_descr, DATAREFERTAZIONE, medicorefertante, testo_referto  from VIEW_REFERTI_IMMAGINI_WHALE where iden_ref in(
+                (
+                SELECT regexp_substr(x, '[^,]+', 1, level) IDEN FROM (   SELECT :iden_ref X FROM DUAL ) connect by level &lt;= length(x) - length(replace(x,',')) + 1)
+                )
+                and FIRMATO = 'S' order by DAT_ESA_ORDINAMENTO desc
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+</QUERIES>

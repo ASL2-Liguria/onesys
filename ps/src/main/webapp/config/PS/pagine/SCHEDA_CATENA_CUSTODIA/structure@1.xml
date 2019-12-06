@@ -1,0 +1,33 @@
+<PAGINA key_id="SCHEDA_CATENA_CUSTODIA">
+    <HEADER_PAGE key_id="SCHEDA_CATENA_CUSTODIA" valore="DEFAULT,SCHEDA,SCHEDA_CATENA_CUSTODIA#DEFAULT,SCHEDA_CATENA_CUSTODIA" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#GEST_PS_SCHEDE_XML_TEST.SALVA_SCHEDA#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabSchedaCdc" valore="SchedaCdc#lblTitolo#butSalva,butFirma,butChiudi" evento="START">
+
+                <FIELDSET_TABLE key_id="fldDatiCdc" valore="fldDatiCdc" evento="START">
+
+                    <INPUT.HIDDEN key_id="hStatoCustodia" valore="hStatoCustodia" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="hStatoScheda" valore="hStatoScheda" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="hIdenScheda" valore="hIdenScheda" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="IS_DA_FIRMARE" valore="IS_DA_FIRMARE" evento="START">
+                    </INPUT.HIDDEN>
+
+                    <TR_TD_LABEL_TEXT key_id="FarmaciNotizie" valore="lblFarmaciNotizie##txtFarmaciNotizie###FARMACI_NOTIZIE###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_CHECK key_id="chkTest" valore="lblTest#chkTest#chkTest#chkTest#N#{width:250,ctrl:false}#" evento="START">
+                    </TR_TD_LABEL_CHECK>
+                    <TR_TD_LABEL_CHECK key_id="chkConsenso" valore="lblNone#chkConsenso#chkConsenso#chkConsenso#N#{width:1000,ctrl:false}#" evento="START">
+                    </TR_TD_LABEL_CHECK>
+
+                    <TR_TD_LABEL_DATA key_id="txtDataPrelievo" valore="lblDataPrelievo##txtDataPrelievo#DataNasc#startWithToday:false, readonly_element: false, format: 'd/m/Y',direction:false##lblDataPrelievo#" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_ORA key_id="txtOraPrelievo" valore="lblOraPrelievo##txtOraPrelievo##ORA_PRELIEVO" evento="START">
+                    </TR_TD_LABEL_ORA>
+                </FIELDSET_TABLE>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

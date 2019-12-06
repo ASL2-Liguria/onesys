@@ -1,0 +1,25 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_CONFIGURAZIONE_UTENTI'; :where := null; :campo_xml := null; end;">
+	
+	<DATO key_id="TipologiaUtente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="TIPOLOGIA_UTENTE" db_descrizione="TIPOLOGIA_UTENTE" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''CONFIGURAZIONE_UTENTI'' and TIPO_DATO=''TIPOLOGIA_UTENTE'''; end;" />
+
+	<DATO key_id="MostraPassword" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="dematerializzataFarmaci" configurazione_stato="begin :stato := 'E'; end;" db_valore="DEMATERIALIZZATA_FARMACI" db_descrizione="DEMATERIALIZZATA_FARMACI" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="dematerializzataPrestazioni" configurazione_stato="begin :stato := 'E'; end;" db_valore="DEMATERIALIZZATA_PRESTAZIONI" db_descrizione="DEMATERIALIZZATA_PRESTAZIONI" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="amministratore" configurazione_stato="begin :stato := 'E'; end;" db_valore="AMMINISTRATORE" db_descrizione="AMMINISTRATORE" configurazione_multi_data="R_SI_NO" />
+	
+	<DATO key_id="Username" configurazione_stato="begin :stato := 'E'; end;" db_valore="USERNAME" db_descrizione="USERNAME" configurazione_multi_data="" />
+	
+	<DATO key_id="Password" configurazione_stato="begin :stato := 'E'; end;" db_valore="PASSWORD" db_descrizione="PASSWORD" configurazione_multi_data="" />
+
+	<DATO key_id="personale" configurazione_stato="begin :stato := 'E'; end;" db_valore="PERSONALE" db_descrizione="PERSONALE" configurazione_multi_data="" />
+
+	<DATO key_id="txtPersonale" configurazione_stato="begin :stato := 'E'; end;" db_valore="DESCR_PERSONALE" db_descrizione="DESCR_PERSONALE" configurazione_multi_data="" />
+	
+	
+
+	
+</DATI>

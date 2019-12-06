@@ -1,0 +1,7 @@
+<INCLUDE>
+    <JS path="js/ADT/TabHomeDsa/TabHomeDsa.js"/>
+    <JS path="js/ADT/TabHomeDsa/TabHomeDsaProcessData.js"/>
+    <JS path="js/Base/NS_FENIX_FILTRI.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+</INCLUDE>

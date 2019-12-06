@@ -1,0 +1,96 @@
+<PAGINA key_id="MMG_MODULO_PET">
+	<HEADER_PAGE key_id="MMG_MODULO_PET"
+		valore="DEFAULT_MMG,SCHEDA,MMG_MODULO_PET#DEFAULT_MMG,MMG_MODULO_PET"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_XML#MMG_DATI#MMG_MODULO_PET#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ModuloPET#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabModulo" valore="tabModulo"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+					<TR.INIT key_id="TR_1" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Provenienza" valore="lblProvenienza##Provenienza#radProvenienza#{width:100, idxDefault: 0}#N#PROVENIENZA" evento="START"></TD_LABEL_RADIO>
+						<TD_LABEL_TEXT key_id="txtReparto" valore="lblReparto##txtReparto##lettura#REPARTO" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TR_2" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Sesso" valore="lblSesso##Sesso#radSesso#{width:100}#S#SESSO" evento="START"></TD_LABEL_RADIO>
+						<TD_LABEL_RADIO key_id="Barellato" valore="lblBarellato##Barellato#radBarellato#{width:100}#S#BARELLATO" evento="START"></TD_LABEL_RADIO>
+					</TR.INIT>
+					<TR.INIT key_id="TR_3" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="txtPeso" valore="lblPeso##txtPeso##lettura#PESO" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtAltezza" valore="lblAltezza##txtAltezza##lettura#ALTEZZA" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+					<TR.INIT key_id="TR_4" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Autosufficente" valore="lblAutosufficente##Autosufficente#radAutosufficente#{width:100}#S#AUTOSUFFICENTE" evento="START"></TD_LABEL_RADIO>
+						<TD_LABEL_RADIO key_id="Claustrofobico" valore="lblClaustrofobico##Claustrofobico#radClaustrofobico#{width:100}#S#CLAUSTROFOBICO" evento="START"></TD_LABEL_RADIO>
+					</TR.INIT>
+					<TR.INIT key_id="TR_5" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Diabete" valore="lblDiabete##Diabete#radDiabete#{width:100}#S#DIABETE" evento="START"></TD_LABEL_RADIO>
+						<TD_LABEL_RADIO key_id="TerapiaIpoGlic" valore="lblTerapiaIpoGlic##TerapiaIpoGlic#radTerapiaIpoGlic#{width:100}#N#TER_IPOGLIC" evento="START"></TD_LABEL_RADIO>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRichiesta" valore="fldRichiesta" evento="START">
+					<TR.INIT key_id="TR_6" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Richiesta" valore="lblRichiesta##Richiesta#radRichiesta#{width:'auto'}#N#RICHIESTA" evento="START"></TD_LABEL_RADIO>
+						<TD_LABEL_TEXT key_id="txtDett_Richiesta" valore="lblDett_Richiesta##txtDett_Richiesta##lettura#DETT_RICHIESTA" evento="START"></TD_LABEL_TEXT>
+					</TR.INIT>
+					<!-- <TR.INIT key_id="TR_7" valore="" evento="START">
+						<TD_LABEL_RADIO key_id="Diagnosi" valore="lblDiagnosi##Diagnosi#radDiagnosi#{width:100}#N#DIAGNOSI" evento="START"></TD_LABEL_RADIO>
+						<TD.INIT key_id="TD" valore="2" evento="START">
+							<INPUT.TEXT key_id="txtDett_Diagnosi" valore="txtDett_Diagnosi##lettura#DETT_DIAGNOSI" evento="START"></INPUT.TEXT>
+						</TD.INIT>
+					</TR.INIT> -->
+					<TR_TD_LABEL_RADIO key_id="Diagnosi" valore="lblDiagnosi##Diagnosi#radDiagnosi#{width:100}#N#DIAGNOSI" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="txtDett_Diagnosi" valore="lblDett_Diagnosi#txtDett_Diagnosi#DETT_DIAGNOSI" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldQuesito" valore="fldQuesito" evento="START">
+					<TR_TD_LABEL_RADIO key_id="QuesitoClinico" valore="lblQuesitoClinico##QuesitoClinico#radQuesitoClinico#{width:200}#N#QUESITO_CLINICO" evento="START">
+					</TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXT key_id="txtAltro" valore="lblAltro##txtAltro##lettura#ALTRO" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXTAREA key_id="taEsordio" valore="lblEsordio#taEsordio#ESORDIO" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldInterventi" valore="fldInterventi"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="taInterventi" valore="taInterventi#INTERVENTI" evento="START"></TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldCheck" valore="fldCheck" evento="START">
+					<!-- <TR.INIT key_id="TR_8" valore="" evento="START">
+						<TD_CHECK key_id="chkInterventi" valore="chkInterventi#chkInterventi#N#{width:180,ctrl:false}##INTERVENTI" evento="START"></TD_CHECK>
+						<TD_TEXT key_id="txtDett_Interventi" valore="txtDett_Interventi##lettura#DETT_INTERVENTI" evento="START"></TD_TEXT>
+						<TD_LABEL_DATA key_id="DataIntervento" valore="lblDataIntervento##txtDataIntervento#DataIntervento#direction:false,format: 'd/m/Y'#disabled:false##DATA_INTERVENTO" evento="START"></TD_LABEL_DATA>
+					</TR.INIT> -->
+					<TR.INIT key_id="TR_9" valore="" evento="START">
+						<TD_CHECK key_id="chkChemioterapia" valore="chkChemioterapia#chkChemioterapia#N#{width:180,ctrl:false}##CHEMIOTERAPIA" evento="START"></TD_CHECK>
+						<TD_TEXT key_id="txtDett_Chemioterapia" valore="txtDett_Chemioterapia##lettura#DETT_CHEMIOTERAPIA" evento="START"></TD_TEXT>
+						<TD_LABEL_DATA key_id="DataChemioterapia" valore="lblDataChemioterapia##txtDataChemioterapia#DataChemioterapia#direction:false,format: 'd/m/Y'#disabled:false##DATA_CHEMIOTERAPIA" evento="START"></TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="TR_10" valore="" evento="START">
+						<TD_CHECK key_id="chkRadioterapia" valore="chkRadioterapia#chkRadioterapia#N#{width:180,ctrl:false}##RADIOTERAPIA" evento="START"></TD_CHECK>
+						<TD_TEXT key_id="txtDett_Radioterapia" valore="txtDett_Radioterapia##lettura#DETT_RADIOTERAPIA" evento="START"></TD_TEXT>
+						<TD_LABEL_DATA key_id="DataRadioterapia" valore="lblDataRadioterapia##txtDataRadioterapia#DataRadioterapia#direction:false,format: 'd/m/Y'#disabled:false##DATA_RADIOTERAPIA" evento="START"></TD_LABEL_DATA>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldMarker" valore="fldMarker" evento="START">
+					<TR.INIT key_id="TR_11" valore="" evento="START">
+						<TD_CHECK key_id="chkMarkerTum" valore="chkMarkerTum#chkMarkerTum#N#{width:180,ctrl:false}##MARKER_TUMORALE" evento="START"></TD_CHECK>
+						<TD_TEXT key_id="txtDett_MarkerTumFirst" valore="txtDett_MarkerTumFirst##lettura#DETT_MARKER_TUMORALE_FIRST" evento="START"></TD_TEXT>
+						<TD_LABEL_TEXT key_id="txtDett_MarkerValFirst" valore="lblMarkerValFirst##txtDett_MarkerValFirst##lettura#DETT_MARKER_TUM_VAL_FIRST" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_DATA key_id="DataMarkerTumFirst" valore="lblDataMarkerTumFirst##txtDataMarkerTumFirst#DataMarkerTumFirst#direction:false,format: 'd/m/Y'#disabled:false##DATA_MARKER_TUMORALE_FIRST" evento="START"></TD_LABEL_DATA>
+					</TR.INIT>
+					<TR.INIT key_id="TR_12" valore="" evento="START">
+						<TD_LABEL key_id="lblSpazio" valore="lblSpazio##" evento="START"></TD_LABEL>
+						<TD_TEXT key_id="txtDett_MarkerTumSec" valore="txtDett_MarkerTumSec##lettura#DETT_MARKER_TUMORALE_SECOND" evento="START"></TD_TEXT>
+						<TD_LABEL_TEXT key_id="txtDett_MarkerValSec" valore="lblMarkerValSec##txtDett_MarkerValSec##lettura#DETT_MARKER_TUM_VAL_SECOND" evento="START"></TD_LABEL_TEXT>
+						<TD_LABEL_DATA key_id="DataMarkerTumSec" valore="lblDataMarkerTumSec##txtDataMarkerTumSec#DataMarkerTumSec#direction:false,format: 'd/m/Y'#disabled:false##DATA_MARKER_TUMORALE_SECOND" evento="START"></TD_LABEL_DATA>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldTerapia" valore="fldTerapia" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="taTerapia" valore="lblTerapia#taTerapia#TERAPIA" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

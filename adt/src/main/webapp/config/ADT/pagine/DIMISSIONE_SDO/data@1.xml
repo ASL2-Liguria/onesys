@@ -1,0 +1,34 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'SDJ.Q_EMPTY@ADT'; :where := null; :campo_xml := null; end;">
+    <DATO key_id="cmbTipoDimi" configurazione_stato="begin :stato := 'E'; end;"
+           	db_valore="VALUE" db_descrizione="DESCR"
+           	configurazione_multi_data="ADT.Q_TIPO_DIMI@ADT" 
+    	/>
+   	<DATO key_id="cmbIstitutoTrasferimento" configurazione_stato="begin :stato := 'E'; end;"
+          	db_valore="VALUE" db_descrizione="DESCR"
+          	configurazione_multi_data="ADT.Q_ISTITUTO_TRASFERIMENTO@ADT" 
+    	/>                
+   	<DATO key_id="chkDimiProt" configurazione_stato="begin :stato := 'L'; end;"
+       		db_valore="VALUE" db_descrizione="DESCR"
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''ADT_DIMI_PROT'''; end;"
+        />
+    <DATO key_id="chkDimi" configurazione_stato="begin :stato := 'L'; end;"
+          	db_valore="VALUE" db_descrizione="DESCR"
+            configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''ADT_DIMI'''; end;"
+      	/>
+    <DATO key_id="cmbAssDomi" configurazione_stato="begin :stato := 'L'; end;"
+          	db_valore="VALUE" db_descrizione="DESCR"
+          	configurazione_multi_data="ADT.Q_SI_NO@ADT" 
+    	/>
+    <DATO key_id="cmbRefAutop" configurazione_stato="begin :stato := 'L'; end;"
+          	db_valore="VALUE" db_descrizione="DESCR"
+          	configurazione_multi_data="ADT.Q_SI_NO@ADT" 
+    	/>
+    <DATO key_id="chkSdoCompleta" configurazione_stato="begin :stato := 'L'; end;"
+              db_valore="VALUE" db_descrizione="DESCR"
+              configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT_COD_DEC@ADT'; :where := 'attivo=''S'' and tipo = ''ADT_CHK_SDO'''; end;"
+        />
+    <DATO key_id="cmbTraumatismiDimissione" configurazione_stato="begin :stato := 'E'; end;"
+      		db_valore="" db_descrizione=""
+      		configurazione_multi_data="begin :key := 'SDJ.Q_FILL_SELECT@ADT'; :where := 'tipo = ''TRAUMATISMI'' AND ASSIGNING_AUTHORITY_AREA = ''ADT'' '; end;" 
+      	/>
+</DATI>

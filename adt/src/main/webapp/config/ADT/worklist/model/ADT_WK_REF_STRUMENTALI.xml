@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ADT_WK_REF_STRUMENTALI</ID>
+    <ID-QUERY connection="POLARIS">SDJ.GETREFERTISTRUMENTALI</ID-QUERY>
+    <TITLE>"ELENCO REPARTI"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK><![CDATA[function(rec){$(this).selectedLine('', 'clsSel'); $(this).trigger('select');}]]></CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATAREFERTAZIONE</COL>
+                        <DB>DATAREFERTAZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>75px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ESA_DESCR</COL>
+                        <DB>ESA_DESCR</DB>
+                    </ID>
+                    <DESCRIPTOR>"ESAME"</DESCRIPTOR>
+                    <!--<PROCESS type="java"></PROCESS>-->
+                    <PROCESS/>
+                    <WIDTH>250px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>MEDICOREFERTANTE</COL>
+                        <DB>MEDICOREFERTANTE</DB>
+                    </ID>
+                    <DESCRIPTOR>"REFERTANTE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>130px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>TESTO_REFERTO</COL>
+                        <DB>TESTO_REFERTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"COPIA"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){return NS_GESTIONE_DSA.processCopia(data);}]]></PROCESS>
+                    <WIDTH>90px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

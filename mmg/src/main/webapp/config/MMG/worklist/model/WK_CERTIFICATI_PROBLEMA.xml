@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_CERTIFICATI_PROBLEMA</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.WK_CERTIFICATI_PROBLEMA</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_WK_CERTIFICATI_PROBLEMA</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+				<COLUMN>
+					<ID>
+						<COL>DATA_INSERIMENTO_CERTIFICATO</COL>
+						<DB>DATA_INSERIMENTO_CERTIFICATO</DB>
+					</ID>
+					<DESCRIPTOR>"Data Inserimento Certificato"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>CERTIFICATO_RELATIVO</COL>
+						<DB>CERTIFICATO_RELATIVO</DB>
+					</ID>
+					<DESCRIPTOR>"Tipo di certificato"</DESCRIPTOR>           				
+					<WIDTH>400px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_SCADENZA_CERTIFICATO</COL>
+						<DB>DATA_SCADENZA_CERTIFICATO</DB>
+					</ID>
+					<DESCRIPTOR>"Data scadenza certificato"</DESCRIPTOR> 
+					<PROCESS type="java">.processData</PROCESS>          				
+					<WIDTH>400px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_INSERIMENTO_CERTIFICATO">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

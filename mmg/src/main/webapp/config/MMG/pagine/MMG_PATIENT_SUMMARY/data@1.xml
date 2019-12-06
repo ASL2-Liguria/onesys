@@ -1,0 +1,53 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_SCHEDA_PATIENT_SUMMARY'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+	
+	<DATO key_id="CapacitaMotoria" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_PATIENT_SUMMARY'' and TIPO_DATO=''capacitaMotoria'''; end;" />
+	<DATO key_id="ConsensoDonazioneOrgani" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="Alcol" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_ALCOL" />
+	<DATO key_id="Parto" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_PARTO" />
+	<DATO key_id="NatoDa" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_NATO_DA" />
+	<DATO key_id="NoteDipendenze" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ViveSolo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione=""	configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="ViveStruttura" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="UtilizzoServiziSociali" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="PersonaInterdetta" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="PersonaInabilitata" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="Fumo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="ExFumo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="Menopausa" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO_NON_NOTO" />
+	<DATO key_id="Mestruazioni" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Parentela1" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_PARENTELA" />
+	<DATO key_id="Parentela2" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_PARENTELA" />
+	<DATO key_id="Parentela3" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_PARENTELA" />
+	<DATO key_id="ComboMestruazioni" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CMB_GENERICA_MESTRUAZIONI" />
+	<DATO key_id="OrganiMancanti" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Trapianti" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Espianti" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Protesi" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Impianti" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Ausili" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Dipendenze" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="SostanzeTossiche" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="InsNotaCont" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_PATIENT_SUMMARY'' and TIPO_DATO=''InsNotaCont'''; end;" />	
+	<DATO key_id="TipoAllergia" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_ALLERGIA" />
+	<DATO key_id="TipoSostanza" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_TIPOLOGIA_SOSTANZA" />
+	<DATO key_id="RHSanguigno" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_RH_SANGUIGNO" />
+	<DATO key_id="GruppoSanguigno" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_GRUPPO_SANGUIGNO" />
+	<DATO key_id="NonNoteAllergia" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="Q_NON_NOTE_ALLERGIA" />
+	<DATO key_id="Assenza_Allergie" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_ASSENZA_ALLERGIE" />
+	<DATO key_id="NomeMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="NOME_MEDICO" db_descrizione="NOME_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="CognomeMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="COGNOME_MEDICO" db_descrizione="COGNOME_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="CodiceFiscaleMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="COD_FISC_MEDICO" db_descrizione="COD_FISC_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="IndirizzoMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="INDIRIZZO_MEDICO" db_descrizione="INDIRIZZO_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="TelefonoMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="TELEFONO_MEDICO" db_descrizione="TELEFONO_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="EmailMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="EMAIL_MEDICO" db_descrizione="EMAIL_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="EmailPEC" configurazione_stato="begin :stato := 'E'; end;" db_valore="PEC" db_descrizione="PEC" configurazione_multi_data="" />
+	<DATO key_id="FaxMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="FAX_MEDICO" db_descrizione="FAX_MEDICO" configurazione_multi_data="" />
+	
+	
+	<DATO key_id="CellulareMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="CELLULARE_MEDICO" db_descrizione="CELLULARE_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="IndirizzoSecondarioMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="INDIRIZZO_SECONDARIO_MEDICO" db_descrizione="INDIRIZZO_SECONDARIO_MEDICO" configurazione_multi_data="" />
+	<DATO key_id="IndirizzoTerziarioMedico" configurazione_stato="begin :stato := 'E'; end;" db_valore="INDIRIZZO_TERZIARIO_MEDICO" db_descrizione="INDIRIZZO_TERZIARIO_MEDICO" configurazione_multi_data="" />
+	
+</DATI>
+

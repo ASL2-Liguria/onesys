@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+
+
+<root>
+    <statements_list>
+        <statement name="getDataNascitaByIdRemoto">
+            <sql>
+            <![CDATA[
+                select
+                    a.data                 
+                from                 
+                 cod_est_anag cea 
+                 join anag a on a.iden = cea.iden_anag
+                where
+                  cea.id1 = ?
+                  and a.deleted = 'N'
+            ]]>
+            </sql>
+        </statement>         
+        <statement name="getRangeRicoveroByNosologico">
+            <sql>
+            <![CDATA[
+                select
+                    np.data_ricovero                  
+                    , np.data_fine_ricovero                                  
+                from
+                 nosologici_paziente np
+                where
+                 np.num_nosologico = ?
+                 and np.accesso = 0
+                 and np.deleted = 'N'
+            ]]>
+            </sql>
+        </statement> 
+    </statements_list>
+</root>

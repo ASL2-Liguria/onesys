@@ -1,0 +1,109 @@
+body#page{ width: 960px; }
+
+
+#butReset, #butLogin {	
+	margin-left: 0;
+}
+
+#butResetRepe { float: right; margin-right: 9%; }
+
+#fldLoginINPS{
+	width:50%;
+	float:left;
+}
+
+#fldResidenza input, #fldReperibilita input, #fldLavoratore input{
+	width:90%;
+}
+
+
+#lblPin, #lblPwd {
+	
+	font-weight: 700;
+	height: 24px;
+	padding: 1px 5px 0;
+	text-align: right;
+	width: 120px;
+	display:inline-block;
+}
+
+#fldLoginINPS table.campi tr td.tdLblLink {
+	
+	text-align: center;
+}
+
+
+.tdLblLink{
+	
+	width: 100%;
+	margin: 0 auto;
+	background-color: #F2F8FF;
+	border: 1px solid #569AE3;
+	height: 30px;
+}
+
+.tdLblLink a{
+		width: 100%;
+		font-weight: bold;
+		height: 30px;
+}
+
+.tdLblLink a:hover{
+		width: 100%;
+		font-weight: bold;
+		color:#1073DE;
+		height: 30px;
+}
+
+#tableAnteprima{
+	
+	width:700px;
+}
+
+#divRiepilogo{
+	overflow: auto;
+	height: 480px;
+	padding:10px;
+	/*border: 1px solid #97aec6;*/
+	padding-left:20px;
+}
+
+#divRiepilogo td{
+	border: 1px solid #c0c0c0;	
+}
+
+td.labelInt{
+	width:300px;
+	padding:3px;
+	text-align: right;
+	background-color: #f4f4f4;
+}
+
+.labelInt a{
+	
+	font-weight: bold;
+	width: 100px;
+	margin-right:10px;
+}
+
+.labelIntestazione{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	background-color:  #c3dcec;
+}
+
+.labelIntestazione a{
+	width: 100px;
+	margin-right:10px;
+	font-weight: bold;
+	background-color:  #c3dcec;
+}
+
+td.valIns {
+	
+	width: 400px;
+	white-space: nowrap;
+	padding:3px;
+	padding-left: 10px;
+}

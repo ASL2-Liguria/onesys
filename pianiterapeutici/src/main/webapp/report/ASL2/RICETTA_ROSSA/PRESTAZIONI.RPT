@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<inet:Report xmlns:inet="http://www.inetsoftware.de" major_version="8" minor_version="0" major_xml_version="8" minor_xml_version="2" count="3" id="0">
+    <Datasource>
+      <DataSourceConfiguration name="ASL2 Savonese_Whale_Radsql">
+        <property name="alterSession" value="false"/>
+        <property name="aliasToken" value=""/>
+        <property name="initSQL" value=""/>
+        <property name="escapeEverything" value="false"/>
+        <property name="host" value="unisys-db.asl2.liguria"/>
+        <property name="url" value="jdbc:inetora"/>
+        <property name="service" value=""/>
+        <property name="databaseClassName" value=""/>
+        <property name="loginTimeout" value=""/>
+        <property name="logonMode" value="normal"/>
+        <property name="supportsOrderBy" value="true"/>
+        <property name="dedicated" value="false"/>
+        <property name="supportsSQL92" value="false"/>
+        <property name="port9" value="1521"/>
+        <property name="port8" value="1521"/>
+        <property name="port7" value="1521"/>
+        <property name="port10" value="1521"/>
+        <property name="port6" value="1521"/>
+        <property name="port5" value="1521"/>
+        <property name="port4" value="1521"/>
+        <property name="port3" value="1521"/>
+        <property name="host9" value=""/>
+        <property name="port2" value="1521"/>
+        <property name="host8" value=""/>
+        <property name="port1" value="1521"/>
+        <property name="host7" value=""/>
+        <property name="host6" value=""/>
+        <property name="sid" value="unisys"/>
+        <property name="validationQuery" value=""/>
+        <property name="host5" value=""/>
+        <property name="host4" value=""/>
+        <property name="host3" value=""/>
+        <property name="host2" value=""/>
+        <property name="host1" value=""/>
+        <property name="driverLibrary" value=""/>
+        <property name="driverClassName" value="com.inet.ora.OraDriver"/>
+        <property name="user" value="radsql"/>
+        <property name="supportsWhere" value="true"/>
+        <property name="catalog" value=""/>
+        <property name="host10" value=""/>
+        <property name="failover" value="false"/>
+        <property name="password" value="0052F271022D9B2C7CC5E5D0656A005E1C5AFA06102A8B3F7991E6543C46996671"/>
+        <property name="identifierQuoteString" value=""/>
+        <property name="port" value="1521"/>
+        <property name="quotesLowerCase" value="false"/>
+        <property name="opencursors" value="300"/>
+        <property name="queryTimeout" value=""/>
+        <property name="loadbalance" value="false"/>
+        <property name="caseSensitive" value="false"/>
+        <property name="supportsParenthesesForJoin" value="true"/>
+        <property name="savePassword" value="true"/>
+      </DataSourceConfiguration>
+      <Tablesource alias="Query" databaseIdentifier="Query">
+        <Column name="DATA_RICETTA" type="11" />
+        <Column name="IDEN" type="6" />
+        <Column name="NOME_PAZIENTE" type="11" />
+        <Column name="COGNOME_PAZIENTE" type="11" />
+        <Column name="COD_FISC_PAZIENTE" type="11" />
+        <Column name="INDIR" type="11" />
+        <Column name="COM_NASC" type="11" />
+        <Column name="COM_RES" type="11" />
+        <Column name="NOME_MEDICO" type="11" />
+        <Column name="COGNOME_MEDICO" type="11" />
+        <Column name="COD_FISC_MEDICO" type="11" />
+        <Column name="COD_BAR_1" type="11" />
+        <Column name="COD_BAR_2" type="11" />
+        <Column name="PRESTAZIONI" type="11" />
+        <Column name="IDEN_TESTATA" type="6" />
+        <Column name="CUSL" type="11" />
+        <Column name="PROV" type="11" />
+        <Column name="N_SCATOLE" type="6" />
+        <Column name="CODICE" type="11" />
+        <Column name="COD_IDENTIFICATIVO_RICETTA" type="11" />
+        <Column name="PRIMOACCESSO" type="11" />
+        <Column name="CATEGORIA_RICETTA" type="11" />
+        <Column name="PR_URGENTE" type="11" />
+        <Column name="PR_BREVE" type="11" />
+        <Column name="PR_DIFFERITA" type="11" />
+        <Column name="PR_PROGRAMMATA" type="11" />
+        <Column name="QUESITO" type="11" />
+        <Column name="COD1" type="11" />
+        <Column name="COD2" type="11" />
+        <Column name="COD3" type="11" />
+        <Column name="COD4" type="11" />
+        <Column name="COD5" type="11" />
+        <Column name="COD6" type="11" />
+        <Column name="COMUNE" type="11" />
+        <Column name="CONCATENAZIONE_PRESTAZIONI" type="11" />
+        <Column name="DESCR_ICD" type="11" />
+        <Sql>
+          <![CDATA[select 
+   rrt.iden iden_testata,  rrt.iden, rrt.cod_bar_1, rrt.cod_bar_2, rrt.quesito,rrt.cod_bar_1||rrt.cod_bar_2 cod_identificativo_ricetta,
+   a.iden,  a.nome nome_paziente, a.cogn cognome_paziente, a.cod_fisc cod_fisc_paziente, a.indir, a.com_nasc,a.com_res, a.cusl, a.prov,
+   to_char(rrt.data_ricetta, 'ddMMyy') data_ricetta,  c.comune,
+   tp.nome nome_medico, tp.cognome cognome_medico, tp.cod_fisc cod_fisc_medico, 
+   substr(rre.codice,1,1) cod1,   substr(rre.codice,2,1) cod2,   substr(rre.codice,3,1) cod3,   substr(rre.codice,4,1) cod4,   substr(rre.codice,5,1) cod5,   substr(rre.codice,6,1) cod6, rre.codice,
+   (select concat_fields('select descrizione 
+from radsql.rr_prestazioni 
+where iden in (select iden_prescrizione 
+from radsql.rr_ricetta_rossa_dettaglio 
+where iden_testata in '||rrt.iden||')',chr(42))from dual) prestazioni,
+   (select sum(scatole) 
+from RADSQL.rr_ricetta_rossa_dettaglio 
+where iden_testata = rrt.iden) as n_scatole,     
+   concat_fields('select f.dm_codice||''   ''||f.descrizione||''$$''||to_char(d.scatole)||''$$''||d.posologia as concat 
+from radsql.rr_prestazioni f inner join  radsql.rr_ricetta_rossa_dettaglio d on (f.iden = d.iden_prescrizione) 
+where d.iden_testata = '||rrt.iden ,chr(64)) concatenazione_prestazioni,
+   (select decode (categoria_ricetta, 'SSN', '') 
+from RADSQL.rr_ricetta_rossa_testata 
+where iden=rrt.iden) categoria_ricetta,
+   (select decode (classe_priorita, 'U', 'X') 
+from RADSQL.rr_ricetta_rossa_testata 
+where iden=rrt.iden) pr_urgente,
+   (select decode (classe_priorita, 'B', 'X') 
+from RADSQL.rr_ricetta_rossa_testata 
+where iden=rrt.iden) pr_breve,
+   (select decode (classe_priorita, 'D', 'X') 
+from RADSQL.rr_ricetta_rossa_testata 
+where iden=rrt.iden) pr_differita,
+   (select decode (classe_priorita, 'P', 'X') 
+from RADSQL.rr_ricetta_rossa_testata 
+where iden=rrt.iden) pr_programmata,
+   (select decode (categoria_ricetta, 'SSN', '') 
+from RADSQL.rr_ricetta_rossa_testata 
+where iden=rrt.iden) categoria_ricetta,
+   (select  extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDescrizioneICD"]') 
+from rr_ricetta_rossa_scheda rrs 
+where rrs.progressivo=rrt.progressivo) descr_icd,
+   decode(PRIMO_ACCESSO, 'S', 'Primo Accesso', 'Accesso successivo') PrimoAccesso
+from radsql.rr_ricetta_rossa_testata rrt 
+   left join RADSQL.view_rr_esenzioni rre on (rre.iden = rrt.iden_esenzione)
+   inner join radsql.anag a on (a.iden = rrt.iden_anag)
+   left join radsql.comuni c on (a.com_res = c.xxx_ccom or a.com_res = c.xxx_ccom)
+   inner join radsql.tab_per tp on (tp.iden = rrt.iden_medico)
+where rrt.iden = {?pIdenTestata}]]>
+        </Sql>
+      </Tablesource>
+    </Datasource>
+  <Database>
+    <QueryChanges mask="0" count="2">
+      <Attribute name="queryChange" value="null"/>
+      <Attribute name="queryChange" value="null"/>
+    </QueryChanges>
+  </Database>
+  <FormulaFields>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="Paziente"/>
+      <Attribute name="shortName" value="Paziente"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[{Query.COGNOME_PAZIENTE}  + ' ' +  {Query.NOME_PAZIENTE}]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF1"/>
+      <Attribute name="shortName" value="CF1"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[left({Query.COD_FISC_PAZIENTE},1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF2"/>
+      <Attribute name="shortName" value="CF2"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},2,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF3"/>
+      <Attribute name="shortName" value="CF3"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},3,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF4"/>
+      <Attribute name="shortName" value="CF4"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},4,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF5"/>
+      <Attribute name="shortName" value="CF5"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},5,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF6"/>
+      <Attribute name="shortName" value="CF6"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},6,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF7"/>
+      <Attribute name="shortName" value="CF7"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},7,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF8"/>
+      <Attribute name="shortName" value="CF8"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},8,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF9"/>
+      <Attribute name="shortName" value="CF9"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},9,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF10"/>
+      <Attribute name="shortName" value="CF10"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},10,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF11"/>
+      <Attribute name="shortName" value="CF11"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},11,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF12"/>
+      <Attribute name="shortName" value="CF12"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},12,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF13"/>
+      <Attribute name="shortName" value="CF13"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},13,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF14"/>
+      <Attribute name="shortName" value="CF14"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},14,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF15"/>
+      <Attribute name="shortName" value="CF15"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},15,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="CF16"/>
+      <Attribute name="shortName" value="CF16"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.COD_FISC_PAZIENTE},16,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="prov1"/>
+      <Attribute name="shortName" value="prov1"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid ({Query.PROV},1,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="prov2"/>
+      <Attribute name="shortName" value="prov2"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid ({Query.PROV},2,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceASL1"/>
+      <Attribute name="shortName" value="codiceASL1"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CUSL},1,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceASL2"/>
+      <Attribute name="shortName" value="codiceASL2"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CUSL},2,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceASL3"/>
+      <Attribute name="shortName" value="codiceASL3"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CUSL},3,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="dataRicetta1"/>
+      <Attribute name="shortName" value="dataRicetta1"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid( {Query.DATA_RICETTA},1,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="dataRicetta2"/>
+      <Attribute name="shortName" value="dataRicetta2"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid( {Query.DATA_RICETTA},2,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="dataRicetta3"/>
+      <Attribute name="shortName" value="dataRicetta3"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid( {Query.DATA_RICETTA},3,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="dataRicetta4"/>
+      <Attribute name="shortName" value="dataRicetta4"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid( {Query.DATA_RICETTA},4,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="dataRicetta5"/>
+      <Attribute name="shortName" value="dataRicetta5"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid( {Query.DATA_RICETTA},5,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="dataRicetta6"/>
+      <Attribute name="shortName" value="dataRicetta6"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid( {Query.DATA_RICETTA},6,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceEsenzione1"/>
+      <Attribute name="shortName" value="codiceEsenzione1"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CODICE},1,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceEsenzione2"/>
+      <Attribute name="shortName" value="codiceEsenzione2"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CODICE},2,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceEsenzione3"/>
+      <Attribute name="shortName" value="codiceEsenzione3"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CODICE},2,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceEsenzione4"/>
+      <Attribute name="shortName" value="codiceEsenzione4"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CODICE},4,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceEsenzione5"/>
+      <Attribute name="shortName" value="codiceEsenzione5"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CODICE},5,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="codiceEsenzione6"/>
+      <Attribute name="shortName" value="codiceEsenzione6"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CODICE},6,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="tipo_ricetta_2"/>
+      <Attribute name="shortName" value="tipo_ricetta_2"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CATEGORIA_RICETTA},2,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="tipo_ricetta_1"/>
+      <Attribute name="shortName" value="tipo_ricetta_1"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[mid({Query.CATEGORIA_RICETTA},1,1)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="prestazioniWithPoso"/>
+      <Attribute name="shortName" value="prestazioniWithPoso"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[stringVar array prestazioniSplit ="";
+stringVar Array prestazioniDescr ;
+stringVar Array prestazioniDescr2 ;
+stringVar Array prestazioniPoso;
+numbervar i;
+Stringvar ret:="";
+
+stringVar prestazioniConcatenate := ({Query.CONCATENAZIONE_PRESTAZIONI});
+
+numberVar prestazioniNette :=  Length (prestazioniConcatenate)-3;
+stringVar prestazioniToWork := left({Query.CONCATENAZIONE_PRESTAZIONI},prestazioniNette);
+
+if isnull({Query.CONCATENAZIONE_PRESTAZIONI}) then(
+""
+)
+else (
+prestazioniSplit := Split(prestazioniToWork,"$$$,");
+//farmaciDescr := Split(farmaciSplit[1],"!!!");
+//farmaciQta := Split(farmaciSplit[2],"!!!");
+
+ret:="<center><table style='width:100%;font-size:10px'>";
+for i :=1 to Count (prestazioniSplit) step 2 do(
+prestazioniDescr := Split(prestazioniSplit[i],"!!!");
+prestazioniDescr2 := Split(prestazioniSplit[i+1],"!!!");
+if isnull(prestazioniSplit[i+1]) then(
+ret:=ret+"<tr><td style='width:50%;text-align:center'>"+prestazioniDescr[1]+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '+prestazioniDescr[2] +"   </td><td style='width:50%;text-align:center'></td></tr>";
+)
+else(
+ret:=ret+"<tr><td style='width:50%;text-align:center'>"+prestazioniDescr[1]+' &nbsp;&nbsp;&nbsp  '+prestazioniDescr[2] +"   </td><td style='width:50%;text-align:center'>"+prestazioniDescr2[1]+' &nbsp;&nbsp;&nbsp  ' + prestazioniDescr2[2]+"</td></tr>";
+)
+);
+ret:=ret+"</table></center>";
+
+)]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="Quesito&#38;ICD"/>
+      <Attribute name="shortName" value="ICD+QUESITO"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[{Query.QUESITO} & '    ' &  {Query.DESCR_ICD}]]>
+    </Field>
+    <Field type="FormulaField" valueType="11">
+      <Attribute name="name" value="prestazioniWithPoso&#38;Number"/>
+      <Attribute name="shortName" value="prestazioniWithPoso&#38;Number"/>
+      <Attribute name="formula type" value="0"/>
+      <Attribute name="basic syntax" value="false"/>
+      <![CDATA[stringVar array prestazioniSplit ="";
+stringVar Array prestazioniColonna1;
+stringVar Array prestazioniColonna2;
+stringVar Array prestazioniQta ;
+stringVar Array prestazioniPos;
+numbervar i;
+Stringvar ret:="";
+
+stringVar concatenazione := ({Query.CONCATENAZIONE_PRESTAZIONI});
+
+if isnull({Query.CONCATENAZIONE_PRESTAZIONI}) then
+(
+   ""
+)
+else
+(
+   prestazioniSplit := Split(concatenazione,"@");
+	
+   ret:="<center><table style='width:100%;font-size:9.5px'>";
+
+   for i :=1 to Count (prestazioniSplit) step 2 do
+   (
+      prestazioniColonna1 := Split(prestazioniSplit[i],"$$");
+      prestazioniColonna2 := Split(prestazioniSplit[i+1],"$$");
+
+      if isnull(prestazioniSplit[i+1]) then
+	  (
+         ret := ret + "<tr><td style='width:50%;text-align:center'>" + prestazioniColonna1[1] + "    n°: "+ prestazioniColonna1[2];
+         //GESTISCO IL TRATTINO IN CASO DI ASSENZA DI POSOLOGIA
+         if( Length(cstr(prestazioniColonna1[3])) >=1 )then (
+            ret := ret + "  - Sedute: " + prestazioniColonna1[3] + " </td><td style='width:50%;text-align:center'></td>";
+         );
+         ret := ret + " <td></td><td style='width:50%;text-align:center'></td></tr>";
+      )
+      else
+      (
+         ret := ret + "<tr><td style='width:50%;text-align:center'>" + prestazioniColonna1[1] + "    n°: " + prestazioniColonna1[2];
+         //GESTISCO IL TRATTINO IN CASO DI ASSENZA DI POSOLOGIA
+         if( Length(cstr(prestazioniColonna1[3])) >=1 )then (
+            ret := ret + "  -  Sedute: " + prestazioniColonna1[3] + " </td>";
+         );
+         ret := ret + "<td style='width:50%;text-align:center'>"+prestazioniColonna2[1]+"  n°: " + prestazioniColonna2[2];
+         //GESTISCO IL TRATTINO IN CASO DI ASSENZA DI POSOLOGIA
+         if( Length(cstr(prestazioniColonna2[3])) >=1 )then (
+            ret := ret + "  -  Sedute: " + prestazioniColonna2[3] + " </td>";
+         );
+         ret := ret + "<td></td></tr>";
+      )
+   );
+ret:=ret+"</table></center>";
+);
+ret;]]>
+    </Field>
+  </FormulaFields>
+  <PromptFields>
+    <Field type="PromptVarField" valueType="6">
+      <Attribute name="name" value="pIdenTestata"/>
+      <Attribute name="allow_multiple_values" value="false"/>
+      <Attribute name="discrete_or_range" value="0"/>
+      <Attribute name="allow editing" value="true"/>
+      <Attribute name="description_only" value="false"/>
+      <Attribute name="edit mask" value=""/>
+      <Attribute name="prompt_text" value="pIdenTestata"/>
+      <Attribute name="use_range" value="false"/>
+    </Field>
+  </PromptFields>
+  <SQLFields>
+  </SQLFields>
+  <SummaryFields>
+  </SummaryFields>
+  <SortFields>
+  </SortFields>
+  <GroupNameFields count="0">
+  </GroupNameFields>
+  <ReportProperties>
+    <Attribute name="page width" value="10602"/>
+    <Attribute name="page height" value="7937"/>
+    <Attribute name="page orientation" value="1"/>
+    <Attribute name="page margin left" value="0"/>
+    <Attribute name="page margin right" value="0"/>
+    <Attribute name="page margin top" value="57"/>
+    <Attribute name="page margin bottom" value="57"/>
+    <Attribute name="report title" value="Report1"/>
+    <Attribute name="report last saved" value="18 Apr 2012 16:19:59 GMT"/>
+    <Attribute name="report created" value="26 Jul 2011 09:46:21 GMT"/>
+    <Attribute name="mailing label type 1" value=""/>
+    <Attribute name="mailing label type 2" value=""/>
+    <Attribute name="format with multiple columns" value="false"/>
+    <Attribute name="mailing label width" value="0"/>
+    <Attribute name="mailing label height" value="0"/>
+    <Attribute name="mailing label distance vertical" value="0"/>
+    <Attribute name="mailing label distance horizontal" value="0"/>
+    <Attribute name="across then down" value="false"/>
+    <Attribute name="format groups with multiple columns" value="false"/>
+    <Attribute name="distinct" value="false"/>
+    <Attribute name="show suppressed nodes" value="true"/>
+    <Attribute name="ignore filtering" value="false"/>
+    <Attribute name="ignore sorting" value="false"/>
+    <Attribute name="convert date time" value="0"/>
+    <Attribute name="suppress if no rows" value="false"/>
+    <Attribute name="convert null values to default" value="false"/>
+    <Attribute name="hide PageFooter inside ReportHeader" value="false"/>
+    <Attribute name="form print" value="false"/>
+    <Attribute name="printing enabled" value="true"/>
+    <Attribute name="clipboard enabled" value="true"/>
+    <Attribute name="export enabled" value="true"/>
+    <Attribute name="group tree visible" value="true"/>
+  </ReportProperties>
+  <AreaPair type="PageAreaPair" id="0">
+    <Area type="PageHeader" count="1">
+      <Section type="PageHeader" count="0" width="10602" height="0" id="0">
+      </Section>
+    </Area>
+    <Area type="PageFooter" count="1">
+      <Section type="PageFooter" count="0" width="10602" height="0" id="1">
+      </Section>
+    </Area>
+  </AreaPair>
+  <AreaPair type="ReportAreaPair" id="0">
+    <Area type="ReportHeader" count="1">
+      <Section type="ReportHeader" count="0" width="10602" height="0" id="2">
+      </Section>
+    </Area>
+    <Area type="ReportFooter" count="1">
+      <Section type="ReportFooter" count="0" width="10602" height="0" id="3">
+      </Section>
+    </Area>
+  </AreaPair>
+  <AreaPair type="DetailArea" id="1">
+    <Area type="Detail" count="1">
+      <Section type="Detail" count="50" width="10602" height="7350" id="4">
+        <Element type="FieldElement" x_position="9975" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF15"/>
+        </Element>
+        <Element type="FieldElement" x_position="10275" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF16"/>
+        </Element>
+        <Element type="FieldElement" x_position="9705" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF14"/>
+        </Element>
+        <Element type="FieldElement" x_position="9405" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF13"/>
+        </Element>
+        <Element type="FieldElement" x_position="9090" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF12"/>
+        </Element>
+        <Element type="FieldElement" x_position="8790" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF11"/>
+        </Element>
+        <Element type="FieldElement" x_position="8505" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF10"/>
+        </Element>
+        <Element type="FieldElement" x_position="8220" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF9"/>
+        </Element>
+        <Element type="FieldElement" x_position="7920" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF8"/>
+        </Element>
+        <Element type="FieldElement" x_position="7620" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF7"/>
+        </Element>
+        <Element type="FieldElement" x_position="7335" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF6"/>
+        </Element>
+        <Element type="FieldElement" x_position="7035" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF5"/>
+        </Element>
+        <Element type="FieldElement" x_position="6735" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF4"/>
+        </Element>
+        <Element type="FieldElement" x_position="6435" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF3"/>
+        </Element>
+        <Element type="FieldElement" x_position="6150" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF2"/>
+        </Element>
+        <Element type="FieldElement" x_position="5850" y_position="1680" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@CF1"/>
+        </Element>
+        <Element type="FieldElement" x_position="210" y_position="705" width="2340" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.INDIR"/>
+        </Element>
+        <Element type="FieldElement" x_position="240" y_position="240" width="4305" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@Paziente"/>
+        </Element>
+        <Element type="FieldElement" x_position="810" y_position="4890" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <NumberProperties>
+            <Attribute name="n decimal places" value="0"/>
+            <Attribute name="rounding type" value="11"/>
+            <Attribute name="thousand separators symbol" value="."/>
+            <Attribute name="decimal separators symbol" value=","/>
+            <Attribute name="currency symbol" value="€"/>
+          </NumberProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.N_SCATOLE"/>
+        </Element>
+        <Element type="FieldElement" x_position="5970" y_position="2265" width="285" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@prov1"/>
+        </Element>
+        <Element type="FieldElement" x_position="6285" y_position="2250" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@prov2"/>
+        </Element>
+        <Element type="FieldElement" x_position="6600" y_position="2250" width="285" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@codiceASL1"/>
+        </Element>
+        <Element type="FieldElement" x_position="6900" y_position="2250" width="255" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@codiceASL2"/>
+        </Element>
+        <Element type="FieldElement" x_position="7215" y_position="2250" width="270" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@codiceASL3"/>
+        </Element>
+        <Element type="FieldElement" x_position="5475" y_position="4845" width="270" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@dataRicetta1"/>
+        </Element>
+        <Element type="FieldElement" x_position="5805" y_position="4845" width="270" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@dataRicetta2"/>
+        </Element>
+        <Element type="FieldElement" x_position="6120" y_position="4845" width="270" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@dataRicetta3"/>
+        </Element>
+        <Element type="FieldElement" x_position="6435" y_position="4845" width="270" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@dataRicetta4"/>
+        </Element>
+        <Element type="FieldElement" x_position="6765" y_position="4845" width="270" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@dataRicetta5"/>
+        </Element>
+        <Element type="FieldElement" x_position="7095" y_position="4845" width="270" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@dataRicetta6"/>
+        </Element>
+        <Element type="Text" count="1" x_position="10308" y_position="150" width="240" height="300">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="320"/>
+              </FontProperties>
+            <![CDATA[X]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="75" y_position="2235" width="270" height="390">
+          <CommonProperties>
+            <PropertyFormula valueType="8" propertyType="suppress">
+              <Attribute name="name" value="suppress"/>
+              <Attribute name="basic syntax" value="false"/>
+              <![CDATA[not isnull({Query.CODICE})]]>
+            </PropertyFormula>
+          </CommonProperties>
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="2"/>
+              <PropertyFormula valueType="8" propertyType="suppress">
+                <Attribute name="name" value="suppress"/>
+                <Attribute name="basic syntax" value="false"/>
+                <![CDATA[not isnull({Query.CODICE})]]>
+              </PropertyFormula>
+            </CommonProperties>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="320"/>
+              </FontProperties>
+            <![CDATA[X]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="FieldElement" x_position="150" y_position="4350" width="1650" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PRIMOACCESSO"/>
+        </Element>
+        <Element type="FieldElement" x_position="5850" y_position="705" width="3570" height="240">
+          <CommonProperties>
+            <Attribute name="suppress" value="true"/>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COD_IDENTIFICATIVO_RICETTA"/>
+        </Element>
+        <Element type="FieldElement" x_position="2850" y_position="4950" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@tipo_ricetta_1"/>
+        </Element>
+        <Element type="FieldElement" x_position="3150" y_position="4950" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="FormulaField" refname="@tipo_ricetta_2"/>
+        </Element>
+        <Element type="FieldElement" x_position="8880" y_position="3315" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="240"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PR_URGENTE"/>
+        </Element>
+        <Element type="FieldElement" x_position="9330" y_position="3315" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="240"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PR_BREVE"/>
+        </Element>
+        <Element type="FieldElement" x_position="9780" y_position="3315" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="240"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PR_DIFFERITA"/>
+        </Element>
+        <Element type="FieldElement" x_position="10230" y_position="3315" width="300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="240"/>
+          </FontProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.PR_PROGRAMMATA"/>
+        </Element>
+        <Element type="FieldElement" x_position="600" y_position="2250" width="300" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COD1"/>
+        </Element>
+        <Element type="FieldElement" x_position="900" y_position="2250" width="300" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COD2"/>
+        </Element>
+        <Element type="FieldElement" x_position="1200" y_position="2250" width="300" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COD3"/>
+        </Element>
+        <Element type="FieldElement" x_position="1500" y_position="2250" width="300" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COD4"/>
+        </Element>
+        <Element type="FieldElement" x_position="1800" y_position="2250" width="300" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COD5"/>
+        </Element>
+        <Element type="FieldElement" x_position="2100" y_position="2250" width="300" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="2"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COD6"/>
+        </Element>
+        <Element type="FieldElement" x_position="2550" y_position="705" width="3300" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="Query.COMUNE"/>
+        </Element>
+        <Element type="JavaBean" classname="jbarcodebean.JBarcodeBean" paintToImage="false" x_position="4695" y_position="1050" width="5145" height="450">
+          <FontProperties>
+            <Attribute name="font size" value="400"/>
+            <Attribute name="font style" value="1"/>
+          </FontProperties>
+          <GeneralJavaBeanProperties>
+            <Attribute name="scale" value="0.8"/>
+          </GeneralJavaBeanProperties>
+          <JavaBeanProperties>
+            <Attribute name="background" value="-1"/>
+            <Attribute name="barcodeHeight" value="90"/>
+            <Attribute name="code" value=""/>
+            <PropertyFormula valueType="11" propertyType="javaBeanFormula">
+              <Attribute name="name" value="jbf_code"/>
+              <Attribute name="basic syntax" value="false"/>
+              <![CDATA[{Query.COD_FISC_PAZIENTE}]]>
+            </PropertyFormula>
+            <Attribute name="codeType.string" value="Code 39 2:1"/>
+            <Attribute name="showText" value="true"/>
+          </JavaBeanProperties>
+        </Element>
+        <Element type="FieldElement" x_position="1950" y_position="4371" width="5471" height="300">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+            <Attribute name="can grow" value="true"/>
+            <Attribute name="can grow count" value="2"/>
+          </CommonProperties>
+          <FontProperties>
+            <Attribute name="font size" value="160"/>
+          </FontProperties>
+          <Reference name="field" type="FormulaField" refname="@Quesito&#38;ICD"/>
+        </Element>
+        <Element type="FieldElement" x_position="150" y_position="2850" width="7500" height="1350">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <StringProperties>
+            <Attribute name="text interpretation" value="3"/>
+          </StringProperties>
+          <Reference name="field" type="FormulaField" refname="@prestazioniWithPoso&#38;Number"/>
+        </Element>
+      </Section>
+    </Area>
+  </AreaPair>
+</inet:Report>

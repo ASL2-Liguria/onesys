@@ -1,0 +1,111 @@
+<PAGINA key_id="RIEPILOGO_MEDICINA_INIZIATIVA">
+
+	<HEADER_PAGE key_id="RIEPILOGO_MEDICINA_INIZIATIVA"
+		valore="DEFAULT_MMG,SCHEDA,RIEPILOGO_MEDICINA_INIZIATIVA#DEFAULT_MMG,RIEPILOGO_MEDICINA_INIZIATIVA"
+		evento="START_END">
+	</HEADER_PAGE>
+
+	<FORM key_id="dati"
+		valore="dati#SAVE_DATA#MMG_DATI#RIEPILOGO_MEDICINA_INIZIATIVA#IDEN#IDEN"
+		evento="START_END">
+
+		<TABULAZIONE.INIT key_id="tab"
+			valore="MedicinaDiIniziativa#lblTitolo#butDocumenti,butChiudi" evento="START_END">
+
+			<TABULAZIONE.CREA_TAB key_id="tabDiariMedicinaDiIniziativa"
+				valore="tabDiariMedicinaDiIniziativa" evento="START">
+
+				<FIELDSET_TABLE key_id="fldMedicinaDiIniziativa"
+					valore="fldMedicinaDiIniziativa" evento="START">
+
+					<DIV key_id="divWk" valore="divWk" evento="START"></DIV>
+
+				</FIELDSET_TABLE>
+
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabAccertamentiMedIniz"
+				valore="tabAccertamentiMedIniz" evento="START">
+
+				<FIELDSET_TABLE key_id="fldRicercaAcc" valore="fldRicercaAcc"
+					evento="START">
+						
+						<TR.INIT key_id="tr" valore="" evento="START">
+							<TD_LABEL_DATA key_id="DaData"
+								valore="lblDaData##txtDaDataAccertamento#DataInizio#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DA_DATA_ACCERTAMENTO"
+								evento="START">
+							</TD_LABEL_DATA>
+							<TD_LABEL_DATA key_id="AData"
+								valore="lblAData##txtADataAccertamento#DataFine#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##A_DATA_ACCERTAMENTO"
+								evento="START">
+							</TD_LABEL_DATA>
+					</TR.INIT>
+						
+						<TR_TD_LABEL_TEXT key_id="Utente" valore="lblUtente##Utente##lettura#UTENTE_INSERIMENTO"
+							evento="START">
+						</TR_TD_LABEL_TEXT>
+						
+						<TR_TD_LABEL_TEXT key_id="UtenteMedico" valore="lblUtenteMedico##UtenteMedico##lettura#MEDICO"
+							evento="START">
+						</TR_TD_LABEL_TEXT>
+						
+						<TR.INIT key_id="tr3" valore="" evento="START">
+							<TD_BUTTON key_id="butCercaAcc" valore="butCercaAcc#butCercaAcc#5" evento="START">
+							</TD_BUTTON>
+						</TR.INIT>
+						
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldWkAcc"
+					valore="fldWkAcc" evento="START">
+
+					<DIV key_id="divWkAcc" valore="divWkAcc" evento="START"></DIV>
+
+				</FIELDSET_TABLE>
+
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabFarmaciMedIniz"
+				valore="tabFarmaciMedIniz" evento="START">
+
+				<FIELDSET_TABLE key_id="fldRicercaFarmaci" valore="fldRicercaFarmaci"
+					evento="START">
+
+						<TR.INIT key_id="trRicercaFarmaco" valore="" evento="START">
+							<TD_LABEL_DATA key_id="DaDataFarmaco"
+								valore="lblDaData##txtDaData#DataInizioFarmaco#startWithToday:false, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##DA_DATA_FARMACO"
+								evento="START">
+							</TD_LABEL_DATA>
+							<TD_LABEL_DATA key_id="ADataFarmaco"
+								valore="lblAData##txtAData#DataFineFarmaco#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false##A_DATA_FARMACO"
+								evento="START">
+							</TD_LABEL_DATA>
+						</TR.INIT>
+						
+						<TR_TD_LABEL_TEXT key_id="UtenteFarmaci" valore="lblUtente##UtenteFarmaci##lettura#UTENTE_INSERIMENTO"
+							evento="START">
+						</TR_TD_LABEL_TEXT>
+						
+						<TR_TD_LABEL_TEXT key_id="UtenteMedicoFarmaci" valore="lblUtenteMedico##UtenteMedicoFarmaci##lettura#MEDICO"
+							evento="START">
+						</TR_TD_LABEL_TEXT>
+						
+						<TR.INIT key_id="tr3" valore="" evento="START">
+							<TD_BUTTON key_id="butCercaFarmaci" valore="butCercaFarmaci#butCercaFarmaci#5" evento="START">
+							</TD_BUTTON>
+						</TR.INIT>
+						
+				</FIELDSET_TABLE>
+
+				<FIELDSET_TABLE key_id="fldWkFarmaci"
+					valore="fldWkFarmaci" evento="START">
+
+					<DIV key_id="divWkFarmaci" valore="divWkFarmaci" evento="START"></DIV>
+
+				</FIELDSET_TABLE>
+
+			</TABULAZIONE.CREA_TAB>
+
+		</TABULAZIONE.INIT>
+
+	</FORM>
+
+</PAGINA>

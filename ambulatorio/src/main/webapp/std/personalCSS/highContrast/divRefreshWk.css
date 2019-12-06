@@ -1,0 +1,28 @@
+#idRefreshWk{
+	border:1px solid #2E74B9;
+	background-color:#FFFFCC;
+	font-family:Verdana;
+	font-size: 14px;
+	cursor:default;
+	display:none;
+    position: Absolute;
+    top: 50%;
+    left: 50%;
+	margin: -100px, -175px;
+	width:300px;
+	height:80px;
+}
+
+#idTestoRefreshWk{
+	text-align:center;
+	color:#000099;
+	font-weight:bold;
+	margin-top:30px;
+	height:30px;
+}
+
+#idCloseText{
+	text-align:center;
+	background-color:#00CCFF;
+	margin-top:60px;
+}

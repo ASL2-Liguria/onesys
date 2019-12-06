@@ -1,0 +1,1 @@
+document.write('<iframe width="97%" height="550px" src="moduloConsole/PAT_INFETTIVE_con_storia.html" id = "objReportControl"></iframe>');

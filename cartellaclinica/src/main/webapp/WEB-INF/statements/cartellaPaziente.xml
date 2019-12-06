@@ -1,0 +1,602 @@
+<root>
+	<statements_list>
+		<statement name="getPaziente">		
+			<sql>
+			<![CDATA[
+				select
+					/*+first_rows(1)*/				
+					a.IDEN,
+					a.COGN,
+					a.NOME,
+					a.DATA,
+					(select cea.id1 from cod_est_anag cea where cea.iden_anag = a.iden)ID_REMOTO,			
+					a.cogn || ' ' || a.nome || ' ' || datetimeconverter(a.data,'yyyyMMdd','dd/MM/yyyy') INTESTAZIONE,
+                   a.SESSO,
+                   a.COD_FISC,
+                   a.TESSERA_SANITARIA,
+                   a.COM_NASC,
+                   'FALSE' EMERGENZA_MEDICA,
+                   a.DATA_MORTE_CCE,
+                   a.ORA_MORTE_CCE,  
+                   a.IDEN_PER_MORTE_CCE                 
+				from 
+					anag a
+				where
+					a.iden = to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<!--statement name="getUbicazione">		
+			<sql>
+			<![CDATA[
+				select
+					/*+first_rows(1)*/				
+					letti.descrizione LETTO,
+					stanze.descrizione STANZA,
+					reparti.COD_CDC,
+					reparti.descr REPARTO
+				from
+					nosologici_paziente np
+					join cc_letti letti on letti.iden_visita = np.iden
+					join cc_stanze stanze on stanze.iden = letti.iden_stanza
+					join centri_di_costo reparti on reparti.cod_cdc = stanze.codice_reparto
+				where
+					np.iden_anag = to_number(?)
+			]]>
+			</sql>
+		</statement-->		
+		<statement name="getUbicazione">		
+			<sql>
+			<![CDATA[
+				select
+					/*+first_rows(1)*/				
+					letti.descrizione LETTO,
+					stanze.descrizione STANZA,
+					reparti.COD_CDC,
+					reparti.descr REPARTO
+				from
+					nosologici_paziente np
+					left outer join cc_letti letti on letti.iden_visita = np.iden
+					left outer join cc_stanze stanze on stanze.iden = letti.iden_stanza
+					left outer join centri_di_costo reparti on reparti.cod_cdc = stanze.codice_reparto
+				where
+					np.iden = to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="getReparto">		
+			<sql>
+			<![CDATA[
+				select
+					/*+first_rows(1)*/				
+					cdc.COD_CDC,
+					cdc.COD_DEC,
+					cdc.DESCR,
+					tp.iden IDEN_PRO,
+					tp.COD_PRO,
+			        gruppi.codice COD_STRUTTURA,
+          			gruppi.descrizione DESCR_STRUTTURA,
+          			CDC.STRUTTURA STRUTTURA_CDC,
+          			CDC.CODICE_STRUTTURA COD_STRUTTURA_CDC
+				from 
+					centri_di_costo cdc
+					join tab_pro tp on ( tp.cod_dec = cdc.cod_dec)
+					left outer join (
+						select 
+							gm.iden_membro, g.codice, g.descrizione 
+						from
+							gruppi_membri gm 
+							join gruppi g on (g.iden = gm.iden_gruppo and g.tipo='SPECIALITA')
+						where 
+							gm.tabella_membro = 'CENTRI_DI_COSTO'
+					)gruppi on (gruppi.iden_membro = cdc.iden)
+				where
+					cdc.cod_cdc = ?
+			]]>
+			</sql>
+		</statement>
+		<statement name="getEvento">		
+			<sql>
+			<![CDATA[
+				select 
+					/*+first_rows(1)*/
+					np.IDEN,
+					np.ACCESSO,
+					np.IDEN_ANAG,
+					np.COD_CDC,
+					np.NUM_NOSOLOGICO,
+					np.data_ricovero DATA_INIZIO,
+					np.data_ricovero || np.ora_ricovero DATA_ORA_INIZIO,
+					np.data_fine_ricovero DATA_FINE,
+					np.data_fine_ricovero || np.ora_fine_ricovero DATA_ORA_FINE,
+					np.DIMESSO,
+					
+					case
+						when ( np.dimesso='N' and np.data_ricovero >= to_char(sysdate,'yyyyMMdd')) then
+							0
+						when ( np.dimesso='N') then
+							trunc(sysdate,'DD') -to_date(np.data_ricovero,'yyyyMMdd') +1
+						else 
+							to_date(np.data_fine_ricovero,'yyyyMMdd')- to_date(np.data_ricovero, 'yyyyMMdd') +1
+					end DURATA,
+					
+					np.COD_CDC_APPOGGIO,
+					
+					case
+						when (np.accesso=0) then np.parent
+						else null
+					end IDEN_PRERICOVERO,
+					
+					case
+						when (np.accesso=1) then np.parent
+						else np.iden
+					end IDEN_RICOVERO,
+					
+					case 
+					when  (SELECT dbms_lob.substr(imagoweb.PCK_CONFIGURAZIONI.getValueCdc(np.COD_CDC,'ABILITA_ASSOCIAZIONE_PRERICOVERO'),4000,1) FROM DUAL)='S' then
+						CC_RICOVERI.getPresenzaPrericoveri(np.iden_anag, np.data_ricovero,np.cod_cdc)
+          			ELSE
+          			'N' end PRESENZA_PRERICOVERI,
+					case 
+						when  (SELECT dbms_lob.substr(imagoweb.PCK_CONFIGURAZIONI.getValueCdc(np.COD_CDC,'ABILITA_ASSOCIAZIONE_OBI'),4000,1) FROM DUAL)='S' then
+								CC_RICOVERI.getPresenzaObi(np.iden_anag, np.data_ricovero)
+						else
+						'N' end PRESENZA_OBI,
+					case 
+						when  1=(SELECT 1 from radsql.cc_schede_xml where funzione in ('QUESTIONARIO_ANAMNESTICO', 'ESAME_OBIETTIVO_DS', 'DATI_GENERALI_DS') and iden_visita=np.iden and rownum=1) then
+							'S'
+          				else
+          				'N' end CARTELLA_DS,
+					ttr.codice TIPOLOGIA,					
+					CC_RICOVERI.getLinkVisita(np.iden, np.accesso) LINK_ACCESSO,
+					(select codice from tab_mod_dimissione where iden=np.mod_dimissione) CODICE_DIMISSIONE,
+					getCodiceModalitaCartella(  np.iden,?,	? )  CODICE_MODALITA_CARTELLA,
+					np.dea_str,
+			        np.dea_anno,
+			        np.dea_cartella,
+			        np.dea_data_ingresso,
+			        np.dea_ora_ingresso,
+			        np.dea_data_chiusura,
+			        np.dea_ora_chiusura,
+			        case when np.dea_str is not null then
+			        	(select iden from nosologici_paziente where num_nosologico=(np.dea_str||'-'||np.dea_anno||'-'||np.dea_cartella) and deleted='N')
+			        	else null end iden_ps,
+			        np.pre_operatorio,
+			        np.iden_riferimento
+				from 
+					nosologici_paziente np					
+					join tab_tipo_ricovero ttr on (ttr.iden = np.iden_tipo_ricovero)					
+				where
+					np.iden = to_number(?) and np.deleted='N'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getModalitaCartella">
+			<schema>IMAGOWEB</schema>		
+			<sql>
+			<![CDATA[
+				 select
+					/*+first_rows(1)*/
+					FUNZIONE,
+					replace(replace(riferimenti,chr(10),''),chr(9),'') RIFERIMENTI /*rimuovo tab e carriage*/
+				from 
+					config_menu_reparto 
+				where 
+					codice_reparto=dbms_lob.substr(pck_configurazioni.getValueCdc(?,'CARTELLA_PAZIENTE_MODELLI'),4000,1) 
+					and funzione=?
+                                        and attivo='S'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getReparti">				
+			<sql>
+			<![CDATA[
+				 select 
+					tp.IDEN,
+					cdc.descr REPARTO,
+					cdc.COD_CDC
+				from 
+					imagoweb.web_cdc
+					join centri_di_costo cdc on (cdc.cod_cdc = web_cdc.reparto)
+					join tab_pro tp on (tp.cod_dec = cdc.cod_dec)
+				where					
+					web_cdc.webuser=?
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getRicoveri">				
+			<sql>
+			<![CDATA[
+				 select 					
+					np.IDEN,
+					np.NUM_NOSOLOGICO,
+					datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO,
+					case when (np.dimesso='S') then
+						datetimeconverter(np.data_fine_ricovero||np.ora_fine_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi')
+					else
+						' '
+					end DATA_FINE,
+					cdc.descr REPARTO,
+					case
+						when (ttr.codice in ('PRE','PRE-DH','PRE-DS')) then
+							np.iden						
+						when (np.dimesso='S') then
+							(select min(iden) from nosologici_paziente np_link where np_link.parent= np.iden and np_link.iden_precedente is null and deleted='N')
+						else				
+							(select min(iden) from nosologici_paziente np_link where np_link.parent= np.iden and deleted='N' and dimesso='N')		
+					end LINK_ACCESSO,
+					ttr.descr TIPOLOGIA,
+                    /*Gestione Privacy*/
+                    datetimeconverter(np.DATA_RICOVERO || np.ORA_RICOVERO, 'yyyyMMddhh24:mi', 'dd/MM/yyyy hh24:mi') DATA_INIZIO_EVENTO,
+                    'dd/MM/yyyy HH:mm' PATTERN,
+                    cdc.cod_dec REPARTO_AMMETTENTE         
+				from 
+					nosologici_paziente np
+					join centri_di_costo cdc on (cdc.cod_cdc = np.cod_cdc)
+					join tab_tipo_ricovero ttr on (ttr.iden= np.iden_tipo_ricovero)
+				where					
+					np.iden_anag=to_number(?)
+					and accesso=0
+					and deleted='N'
+					and ((select case 
+ 			         when  ttr.codice in ('OBI','PRE','PRE-DH','PRE-DS') then 0
+ 			         else
+ 			      (select count(*) from nosologici_paziente where parent=np.iden and accesso=0 and deleted='N') end a
+			         from dual)=0)
+					and ttr.codice <> 'PS'
+					and cdc.cod_cdc not in ('REP_MET_SV','REP_MET_PL','REP_MET_AL','REP_MET_CA')
+					order by
+					np.data_ricovero
+					, np.ora_ricovero
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getTrasferimenti">				
+			<sql>
+			<![CDATA[
+				 select								
+					np.IDEN,					
+					datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO,
+					case when (np.dimesso='S') then
+						datetimeconverter(np.data_fine_ricovero||np.ora_fine_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi')
+					else
+						' '
+					end DATA_FINE,
+					cdc.descr REPARTO
+				from 					
+					nosologici_paziente np 
+					join centri_di_costo cdc on (cdc.cod_cdc = np.cod_cdc)
+				where
+					np.parent=to_number(?)	
+					and np.deleted='N'
+				order by
+					np.data_ricovero ,
+					np.ora_ricovero
+			]]>
+			</sql>
+		</statement>
+		<statement name="getAccessi">				
+			<sql>
+			<![CDATA[
+				select								
+					np.IDEN,
+					np.DATA_RICOVERO,
+					np.ORA_RICOVERO,
+					datetimeconverter(np.data_ricovero||np.ora_ricovero,'yyyyMMddhh24:mi','dd/MM/yyyy hh24:mi') DATA_INIZIO,							
+					'(' || rank() over(partition by np.parent order by np.data_ricovero asc) || ')' PROGRESSIVO,
+					app.NOTE
+				from 
+					nosologici_paziente np					
+					left outer join cc_appuntamenti_ricovero app on (app.iden_visita = np.parent and app.data=np.data_ricovero)					
+				where
+					np.parent=to_number(?)
+					and np.deleted='N'
+				order by
+					np.data_ricovero desc,
+					np.ora_ricovero desc
+			]]>
+			</sql>
+		</statement>
+		<statement name="getContatti">
+			<sql>		
+			<![CDATA[
+				select
+					np.iden IDEN_VISITA,
+					np.COD_CDC,
+					case
+						when (ttr.codice in ('PRE','PRE-DH')) then np.iden
+						else np_ricovero.iden 
+					end IDEN_RICOVERO,
+					case 
+						when (ttr.codice = 'DH') then 'DH'						
+						when (ttr.codice in ('PRE','PRE-DH')) then 'PRE'
+						else 'ORD'
+					end TIPO_RICOVERO,
+					cdc.descr REPARTO,
+					datetimeconverter(np.data_ricovero,'yyyyMMdd','dd/MM/yyyy') DATA_RICOVERO,
+					case
+						when (np.data_fine_ricovero is not null) then
+							datetimeconverter(np.data_fine_ricovero,'yyyyMMdd','dd/MM/yyyy') 
+						else
+							null
+					end DATA_FINE_RICOVERO,
+					np_ricovero.DIMESSO
+				from
+					nosologici_paziente np
+					join centri_di_costo cdc on (cdc.cod_cdc = np.cod_cdc)
+					join tab_tipo_ricovero ttr on (ttr.iden=np.iden_tipo_ricovero)
+					left outer join nosologici_paziente np_ricovero on (np_ricovero.iden = np.parent and np_ricovero.deleted = 'N')
+				where
+					(np.accesso = 1 or ttr.codice in ('PRE','PRE-DH'))
+					and np.deleted = 'N'
+					and np.iden_anag=to_number(?)
+				order by
+					np.data_ricovero
+					,np.ora_ricovero							
+			]]>
+			</sql>			
+		</statement>
+		<statement name="getAvvertenzaPaziente">		
+			<sql>
+			<![CDATA[
+				 select cc_avvertenze('cartellaPazienteAvvertenza',?,ARRAY_VALUE('IDEN_ANAG','IDEN_VISITA','IDEN_RICOVERO','NUM_NOSOLOGICO','ID_REMOTO'),ARRAY_VALUE(?,?,?,?,?)) AVVERTENZE from dual
+			]]>
+			</sql>
+		</statement>				
+		<statement name="checkAppuntamentoAccesso">		
+			<sql>
+			<![CDATA[
+				declare
+					pWebuser		varchar2(5000)	:= ?;
+					pIdenRicovero	pls_integer		:= to_number(?);
+					vDateOut		varchar2(5000);
+				begin
+					CC_CHECK_APPUNTAMENTO(pWebuser,pIdenRicovero, vDateOut);					
+					? := vDateOut;
+				end;
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getInfoAllergie">		
+			<sql>
+			<![CDATA[
+				select descrizione, deleted from RADSQL.view_cc_allerte_ricovero where tipo in ('ALLERGIA','INTOLLERANZA','REAZIONE_AVVERSA') and iden_anag=to_number(?) and visualizza_in_altri_ricoveri = 'S' and deleted = 'N'
+				order by iden asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoAllergieRicovero">		
+			<sql>
+			<![CDATA[
+				select descrizione, deleted from RADSQL.view_cc_allerte_ricovero where tipo in ('ALLERGIA','INTOLLERANZA','REAZIONE_AVVERSA') and (iden_ricovero = to_number(?) or iden_visita = to_number(?))
+				order by iden asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoAllergieCar">		
+			<sql>
+			<![CDATA[
+				select 0 iden, extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAllergieAnamnesi"]') descrizione, 'N' deleted from radsql.cc_schede_xml where funzione = 'ANAMNESI' and iden_visita = to_number(?)  and extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAllergieAnamnesi"]') ||'null'<>'null'
+				union
+				select iden, descrizione, deleted from RADSQL.view_cc_allerte_ricovero where tipo in ('ALLERGIA','INTOLLERANZA','REAZIONE_AVVERSA') and iden_anag=to_number(?) and visualizza_in_altri_ricoveri = 'S' and deleted = 'N'
+				order by iden asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoAllergieCarRicovero">		
+			<sql>
+			<![CDATA[
+				select 0 iden, extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAllergieAnamnesi"]') descrizione, 'N' deleted from radsql.cc_schede_xml where funzione = 'ANAMNESI' and iden_visita = to_number(?) and extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAllergieAnamnesi"]') ||'null'<>'null'
+				union
+				select iden, descrizione, deleted from RADSQL.view_cc_allerte_ricovero where tipo in ('ALLERGIA','INTOLLERANZA','REAZIONE_AVVERSA') and (iden_ricovero = to_number(?) or iden_visita = to_number(?))
+				order by iden asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoPositivita">		
+			<sql>
+			<![CDATA[
+				select descrizione, deleted from RADSQL.view_cc_positivita_ricovero where iden_anag=to_number(?) and visualizza_in_altri_ricoveri = 'S' and deleted = 'N'
+				order by iden asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoPositivitaRicovero">		
+			<sql>
+			<![CDATA[
+				select descrizione, deleted from RADSQL.view_cc_positivita_ricovero where (iden_ricovero = to_number(?) or iden_visita = to_number(?))
+				order by iden asc
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoPatologie">
+			<sql>
+			<![CDATA[
+				select descrizione, deleted from RADSQL.view_cc_patologie_ricovero where iden_anag=to_number(?) and visualizza_in_altri_ricoveri = 'S' and deleted = 'N'
+				order by iden asc			
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoPatologieRicovero">
+			<sql>
+			<![CDATA[
+				select descrizione, deleted from RADSQL.view_cc_patologie_ricovero where (iden_ricovero = to_number(?) or iden_visita = to_number(?))
+				order by iden asc
+			]]>
+			</sql>
+		</statement>
+        <statement name="getInfoDieta">
+            <sql>
+            <![CDATA[
+			declare
+			pIdenRicovero pls_integer  := to_number(?);
+			vDieta		varchar2(5000) := '';
+			vNote       varchar2(5000) := '';
+			begin
+			  begin
+	            select dieta, note into vDieta,vNote from (select dieta, note from RADSQL.VIEW_DIETA where iden_ricovero=pIdenRicovero and deleted = 'N' order by data_ins desc) where rownum=1;
+			  end;
+
+			? := vDieta;
+			? := vNote;
+			end;
+			]]>
+            </sql>
+        </statement>
+        <statement name="getGruppoSanguigno">
+            <sql>
+            <![CDATA[
+	        SELECT (select descrizione from radsql.tab_codifiche where tipo_scheda='ANAMNESI' AND TIPO_DATO='radGruSan' AND CODICE=extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radGruSan"]')) gruppo,(select descrizione from radsql.tab_codifiche where tipo_scheda='ANAMNESI' AND TIPO_DATO='radFatRH' AND CODICE=extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radFatRH"]')) fattoreRh FROM radsql.cc_schede_xml WHERE funzione = 'ANAMNESI' AND iden_visita  =? AND rownum=1
+			]]>
+            </sql>
+        </statement>
+        <statement name="getRischioGravidanza">
+            <sql>
+            <![CDATA[
+                    SELECT 
+                      (select descrizione 
+                      from radsql.tab_codifiche 
+                      where tipo_scheda='ANAMNESI' AND TIPO_DATO='radRischioGravidanza' AND CODICE=extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radRischioGravidanza"]')) rischio
+                      , extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRischioGravidanza"]') note 
+                    FROM radsql.cc_schede_xml 
+                    WHERE key_legame = 'ANAMNESI' AND iden_visita = ? AND rownum = 1                
+            ]]>
+            </sql>
+        </statement>
+		<statement name="impSchedaXml">	
+			<sql>
+			<![CDATA[
+				declare
+					pFunzione varchar2(5000)			:= ?;
+					pIdenVisita pls_integer				:= to_number(?);
+					pIdenVisitaRegistrazione pls_integer:= to_number(?);
+					pIden pls_integer				:= to_number(?);
+					pUtente pls_integer				:= to_number(?);
+					pReparto varchar2(5000)				:= ?;					
+					pConcatKeyHidden        varchar2(5000)		:= ?;
+                    vArKeyHidden        ARRAY_VALUE;
+                    
+				begin
+					
+					select split2array(pConcatKeyHidden) into vArKeyHidden from dual;                                       
+                                                                                					
+					CC_IMP_SCHEDA (
+						pFunzione,
+						pIdenVisita,
+						pIdenVisitaRegistrazione,
+						pIden,
+						pUtente,
+						pReparto,
+						vArKeyHidden					
+					);
+
+				end;
+			]]>
+			</sql>
+		</statement>		
+		<statement name="getSchedaXml">	
+			<sql>
+			<![CDATA[
+				select 
+					xml.IDEN,
+					xml.DATA_INS,
+					to_char(xml.data_ins, 'yyyyMMdd') DATA_INSERIMENTO,
+					to_char(xml.data_ins, 'hh24:mi') ORA_INSERIMENTO,
+					xml.UTE_INS,
+					xml.IDEN_VISITA_REGISTRAZIONE,
+					xml.KEY_LEGAME,
+					xml.SITO,
+					xml.VERSIONE,
+          			np.COD_CDC
+				from
+					cc_schede_xml xml
+          			join nosologici_paziente np on np.iden = xml.iden_visita_registrazione
+				where
+					funzione=?
+					and iden_visita = to_number(?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="getSchedaBisogno">	
+			<sql>
+			<![CDATA[
+				select 
+					xml.IDEN,
+					xml.DATA_INS,
+					xml.UTE_INS,
+					xml.IDEN_VISITA_REGISTRAZIONE,
+					xml.KEY_LEGAME,
+					xml.SITO,
+					xml.VERSIONE
+				from
+					cc_bisogni_ricovero xml
+				where
+					funzione=?
+					and iden_visita = to_number(?)
+			]]>
+			</sql>
+		</statement>	
+		<statement name="getDatiSpezia">
+			<sql>
+			<![CDATA[
+			declare
+			pIdenAnag pls_integer  := to_number(?);
+			pCodDec 		 varchar2(5000) :=?;
+			vCodFisc		 varchar2(5000) := '';
+			vCodReparto      varchar2(5000) := '';
+			
+			begin
+				begin
+				select cod_fisc into vCodFisc from anag where iden=pIdenAnag;
+				exception when no_data_found then
+				vCodFisc:='';
+				end;
+				begin
+				select codice_esterno_3 into vCodReparto from tab_pro where cod_dec=pCodDec;
+				exception when no_data_found then
+				vCodReparto:='';
+				end;
+				
+			? := vCodFisc;
+			? := vCodReparto;
+			end;
+			]]>
+			</sql>
+        </statement>
+        <statement name="getIdenRicovero">
+			<sql>
+			<![CDATA[
+                select iden from nosologici_paziente where num_nosologico= ? and deleted = 'N' and accesso=0
+			]]>
+			</sql>
+		</statement>	
+		<statement name="InserisciMicroMultiresistente">
+			<sql>
+			<![CDATA[
+			declare
+			  vIdPaziente varchar2(100):= ?;
+			  vData date:= to_date(?,'DD/MM/YYYY');
+			  vGerme varchar2(15):= ?;
+			  vUteIns varchar2(100):= ?;
+			  begin
+			   insert into infoweb.dati_strutt_allerte(stridanalisisingola,idpaziente,positivita,data,utente) values(vGerme,vIdPaziente,'S',vData,vUteIns); 
+			  end;				
+			]]>
+			</sql>
+		</statement>
+		<statement name="getInfoMalattieRare">
+			<sql>
+			<![CDATA[
+			select
+				p.iden,
+				p.codice_icd9 codice,
+				p.descr_icd9 descrizione,
+				p.problema_completo,
+				radsql.concat_fields('select note from mmg.mmg_diario where iden_problema = '||p.iden|| ' and sito = ''PS''','<br/>') note
+			from MMG.VIEW_PROBLEMI p
+			where p.sito = 'PS' and p.iden_anag = ?
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

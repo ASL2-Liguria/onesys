@@ -1,0 +1,21 @@
+body#refertazione {	background: #BBBBBB; padding: 2px;}
+label {margin: 5px 10px; font-size:12px; font-weight: bold;}
+#divHeader {font-size:13px; font-weight: bold;}
+table.campi tr td.tdTextarea textarea { height: 50px;}
+div.showHide, div.spanCons{display: none;	margin: 10px 10px;}
+div.showHide div ,div.showHide select{margin: 10px 10px;}
+button.butInvia{ display: none; }
+div.clsWk div.clsTR26 table tr{	cursor: pointer;}
+div.row div.c-free table.campi tr td.oracontrol input{ width: 60px !important;}
+.trIntestazione th{ border-left: 1px solid #555; background-color: graytext; color:#fff; }
+#divContainer, #butCerca{ margin: 5px 10px; }
+#divHeader{ margin: 10px 10px; }
+#div2{ width: 30%; display: inline-block; }
+#div3{ width: 60%; display: inline-block; }
+#divWk { width: 95%; margin: 5px 5px;}
+#colWkRichieste, #colWkSelezionati, #colProfiliMulti{ width: 49%; }
+#colFiltriProfili, #colAltriDati, #colWkSel{ width: 100%; }
+#cmbRichSel{ height: 160px; background: #DDDDDD; width: 100%; }
+#cmbRepartoCons{ border: 1px solid #555555; height: 24px; line-height: 24px; margin: 5px 10px; }
+#lblPrefGenerali{ font-weight: 700; height: 24px; padding: 1px 5px 0; }
+#txtFiltroText{ background: #FFFFFF; border: 1px solid #555555; height: 24px; line-height: 24px; padding: 0 5px; width: 30%; }

@@ -1,0 +1,85 @@
+body {
+	background-color:#FFFFCC;
+	margin: 0 0 0 0;
+	background-image:url(../../imagexPix/wallpaper/pattern_sfondo.gif);
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	padding:0;
+	}
+
+LABEL.Titolo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFFFF;
+	border: 1px solid #3399FF;
+	background-color:#3399FF;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+}
+
+
+LABEL.TitoloInfoFromWk {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#FFFFFF;
+	border: 1px solid #3399FF;
+	background-color:#3399FF;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+	text-align:center;
+	display:inline-block;
+}
+
+
+
+.StatoPrenotatoAccettato{
+	background-color:#33CCFF;
+}
+
+.StatoRefertoSospeso{
+	background-color:#FF3333;
+}
+
+.StatoInizioEsecuzione{
+	background-color:#F93;
+}
+
+SPAN.classSpanOmonimo{
+	background-color:#FFC58A;
+	display:block;
+	width:500px;
+	height:200px;
+	line-height:23px;
+	margin-left:-5px;
+	color:black;
+	font-weight:bold;
+	padding-left:5px;
+}
+
+/* usato per definire lo sfondo dei livelli di info*/
+.layerInfo{
+	background-image:url(../../imagexPix/button/gradient/gradientKeyImage.jpg);
+	background-repeat:repeat;
+	overflow:auto;
+}
+/* titolo delle sezioni definito come span */
+SPAN.spanTitle{
+	color:black;
+	font-weight:bold; 
+	font-size:12px; 
+	display:block; 
+	background-color:#FFC; 
+	width:100%; 
+	text-align:center;	
+}
+
+input.hasDatePick{float:left;}
+
+
+tr.oddRow{background:#white;}
+tr.evenRow{background:#DFFDFF;}
+tr.col_over{background:#FBFEC0;}
+tr.sel{background:yellow;}

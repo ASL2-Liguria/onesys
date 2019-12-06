@@ -1,0 +1,4 @@
+<INCLUDE>
+    <CSS path="css/Scheda_CDC/SchedaCDC.css" />
+    <JS path="js/GestioneTabelle/SchedaCDC.js" />
+</INCLUDE>

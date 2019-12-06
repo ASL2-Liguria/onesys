@@ -1,0 +1,6 @@
+<INCLUDE>
+	<JS path="js/Base/tinymce4/tinymce.min.js" />
+	<JS path="js/MMG/Amministrazione/Segnalazioni.js" />
+	<CSS path="css/MMG/Amministrazione/Segnalazioni.css" />
+</INCLUDE>
+

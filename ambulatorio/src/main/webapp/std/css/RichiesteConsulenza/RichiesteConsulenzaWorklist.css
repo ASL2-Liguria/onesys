@@ -1,0 +1,24 @@
+.richieste_consulenza_completata {
+	background: url('../../../imagexPix/RichiesteConsulenza/richieste_consulenza_light.png') top right no-repeat;
+}
+
+.richieste_consulenza_annullata, .richieste_consulenza_eliminata {
+	background: url('../../../imagexPix/RichiesteConsulenza/richieste_consulenza_cancel.png') top right no-repeat;
+}
+
+.richieste_consulenza_in_attesa {
+	background: url('../../../imagexPix/RichiesteConsulenza/richieste_consulenza_clock.png') top right no-repeat;
+}
+
+.richieste_consulenza_presa_in_carico {
+	background: url('../../../imagexPix/RichiesteConsulenza/richieste_consulenza_ok.png') top right no-repeat;
+}
+
+.richieste_consulenza_div {
+	display: block;
+	height: 25px;
+	width: 25px;
+	margin: 0;
+	padding: 0;
+	clear: none;
+}

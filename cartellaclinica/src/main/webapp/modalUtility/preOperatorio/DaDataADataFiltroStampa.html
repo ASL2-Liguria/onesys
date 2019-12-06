@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Motivo</title>
+        <link type='text/css' rel='stylesheet' href='../../std/css/attesaRegistra.css' />
+        <link type='text/css' rel='stylesheet' href='../../std/css/calendario/calendarview.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/dataEntryTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/dataTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/headerTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/normalBody.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/tabulatore.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/headerTable.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/normalBody.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/button.css'/>
+        <link type='text/css' rel='stylesheet' href='../../std/css/calendario/jquery.datepick.css'/>        
+    </head>
+    <body>
+        <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%"  >
+            <tr>
+                <td class='classTabHeaderSx'></td>
+                <td class='classTabHeaderMiddle'>Periodo di ricovero</td>
+                <td class='classTabHeaderDx'></td>
+            </tr>
+        </table>
+        <table width="100%" border="1" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="10%" class='classTdLabel'>
+                    <label id='lbdataIni'>Da Data</label>
+                </td>
+                <td width="40%">
+                    <input id="IdataIni" type="text"/>
+                </td>
+                <td width="10%" class='classTdLabel'>
+                    <label id='lbdataIni'>A Data</label>
+                </td>
+                <td width="40%">
+                    <input id="IdataFine" type="text"/>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%" class='classTdLabel'>
+                    <label id='lblTipoRicovero'>Tipologia</label>
+                </td>
+                <td width="40%">
+                    <select id="ItipoFiltroStampa" multiple='multiple'/>
+                </td>
+                <td width="10%" class='classTdLabel'>
+                    <label id='lblReparti'>Reparti</label>
+                </td>
+                <td width="40%">
+                    <select id="Ireparti" multiple='multiple'/>
+                </td>
+            </tr> 
+        </table>
+
+        <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+            <tr>
+                <td class='classTabFooterSx'>&nbsp;</td>     
+                <td class='classTabHeaderMiddle'>&nbsp;</td> 
+                <td class='classButtonHeader'><div class='pulsante' id='btnChiudi'>OK</div></td>
+                <td class='classButtonHeader'><div class='pulsante' id='btnAnnulla'>Chiudi</div></td>            
+                <td class='classTabFooterDx'>&nbsp;</td>
+            </tr>
+        </table>
+        <script type='text/javascript' language='JavaScript' src='../../std/jscript/engine/prototype.js' ></script>
+        <script type='text/javascript' language='JavaScript' src='../../std/jscript/engine/jquery1_7.js' ></script>
+        <script type='text/javascript' language='JavaScript' src='../../std/jscript/calendario/jquery.datepick.js' ></script>
+        <script type='text/javascript' language='JavaScript' src='../../std/jscript/maskedit.js' ></script>
+        <script type='text/javascript' language='JavaScript' src='../../std/jscript/clsUtilities.js' ></script>
+        <script type='text/javascript' language='JavaScript' src='../../std/jscript/Utilita/finestraMotivo/modalUtilityJS/DaDataADataFiltroStampa.js' ></script>
+    </body>
+</html>

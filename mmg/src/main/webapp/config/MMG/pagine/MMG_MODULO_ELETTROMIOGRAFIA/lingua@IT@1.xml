@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabModulo>Modulo Elettromiografia - Elettroneurografia</tabModulo>
+    	
+        <lblTitolo>Richiesta di Elettromiografia - Elettroneurografia</lblTitolo>
+        
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        
+        <lblSospettoDiagnostico>Si prega di indicare il sospetto diagnostico: (Barrare singola voce)</lblSospettoDiagnostico>
+        <fldDettMononeuropatia>Inserire dettaglio per 'Mononeuropatia'</fldDettMononeuropatia>
+        <fldDettAltro>Inserire dettaglio per 'Altro'</fldDettAltro>
+		
+		<fldNumeroTelefono>Recapito</fldNumeroTelefono>
+		<lblNumeroTelefono>Telefono</lblNumeroTelefono>
+		<lblInformativa1>SAVONA</lblInformativa1>
+		<lblInformativa2>Mail: dhneurologia.sv@asl2.liguria.it &lt;br&gt;Fax: 019/8404945</lblInformativa2>
+		<lblInformativa3>PIETRA LIGURE</lblInformativa3>
+		<lblInformativa4>Per appuntamenti l'utente deve telefonare dal LUNEDI' al VENERDI' dalle ore 8,00 alle 13,00</lblInformativa4>
+		<lblInformativa5>Telefono: 019/6232906</lblInformativa5>
+    </ROW>
+</ROWSET>

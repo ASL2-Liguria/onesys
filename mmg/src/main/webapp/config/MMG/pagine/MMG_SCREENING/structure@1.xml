@@ -1,0 +1,35 @@
+<PAGINA key_id="MMG_SCREENING">
+	<HEADER_PAGE key_id="MMG_SCREENING"
+		valore="DEFAULT_MMG,SCHEDA,MMG_SCREENING#DEFAULT_MMG,MMG_SCREENING"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_MMG_SCREENING#MMG_DATI#MMG_SCREENING#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabScreening"
+			valore="Screening#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabLista" valore="tabLista"
+				evento="START">
+				<FIELDSET_TABLE key_id="fldwk" valore="fldwk" evento="START">
+					<DIV.WORKLIST key_id="wkScreening" valore="wkScreening"
+						evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento"
+				valore="tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldInserimento" valore="fldInserimento"
+					evento="START">
+					<TR_TD_LABEL_DATA key_id="DataScreening" valore="lblDataScreening##txtDataScreening#DataScreening####DATA_SCREENING" evento="START"></TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="TipoScreening" valore="lblTipoScreening##txtTipoScreening###TIPO_SCREENING" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_RADIO key_id="SceltaScreening" valore="lblSceltaScreening##SceltaScreening#radSceltaScreening#{width:'auto'}#N#SCELTA_SCREENING" evento="START"></TR_TD_LABEL_RADIO>
+					<TR_TD_LABEL_TEXTAREA key_id="EsitoScreening" valore="lblEsitoScreening#txtEsitoScreening#ESITO_SCREENING" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR.INIT key_id="tr2" valore="" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butInserisci##2" evento="START"></TD_BUTTON>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

@@ -1,0 +1,1257 @@
+var NS_MENU_WORKLIST_ASSISTITI = {
+		
+	//controlla se l'assistito ha dato il consenso al trattamento dei dati o meno
+	checkConsenso: function(data, vSezione){
+
+		var consenso 		= data.CONSENSO_PRIVACY_MMG;
+		var controllo 		= vSezione == 'DATI_DOCUMENTI' ? home.PERMESSI.visioneDatiAsl(data.PERMESSI_LETTURA) : true;
+		var idenAnag 		= data.IDEN_ANAG;
+		var descrMsg 		= '';
+		var ret				= {
+				semaforo: $.Deferred(),
+				bool: false
+		};
+		
+		home.$.NS_DB.getTool({_logger : home.logger}).call_function({
+			id:'MMG_PERMESSI.VERIFICA_VUA',
+			parameter:{
+				"n_iden_utente" : { v : home.baseUser.IDEN_PER, t : 'N'},
+				"n_iden_anag" 	: { v : data.IDEN_ANAG, t : 'N'}
+			}
+		
+		}).done( function(response) {
+			if(consenso == 'N' || response.p_result == 0) {
+				ret.bool = false;
+				descrMsg = home.traduzione.lblDeniedTrattamentoDati;
+			}else{
+				ret.bool = controllo;
+				descrMsg = home.traduzione.lblDeniedVisualizzazioneDati;
+			}
+			
+			//controllo per utente amministratore
+			if( ret.bool == false && home.MMG_CHECK.isAdministrator() ){
+				home.NOTIFICA.warning({ message : 'Consenso negato, accesso consentito ad utente amminstratore', title : 'Administrator' });
+				ret.bool = true;
+			}
+			
+			if(!ret.bool){
+				
+				var arrayButton = 	new Array();
+				
+				arrayButton.push( {label: traduzione.butAnnulla, action: function () { home.$.dialog.hide(); }});
+				
+				home.$.dialog(descrMsg,{
+					'id'				: "dialog",
+					'title'				: 'PRIVACY',
+					'ESCandClose'		: true,
+					'created'			: function(){ $('.dialog').focus(); },
+					'width'				: 800,
+					'showBtnClose'		: false,
+					'modal'				: true,
+					'movable'			: true,
+					'buttons'			: arrayButton
+				});
+			}
+			ret.semaforo.resolve();
+		});
+		
+		return ret;
+	},
+		
+	apriCartellaAssistito: function( data , funzione, callback ){
+		
+		if (typeof funzione == "undefined") {
+			funzione = "CARTELLA";
+		}
+		
+		var chk_cons = NS_MENU_WORKLIST_ASSISTITI.checkConsenso(data, funzione);
+		
+		$.when(chk_cons.semaforo).then(function() {
+			if(!chk_cons.bool){
+				return;
+			}
+		
+			if( NS_MENU_WORKLIST_ASSISTITI.mioAssistito( data.IDEN_MED_BASE ) ){
+				
+				NS_LOADING.showLoading();
+				home.NS_MMG.apriCartella( data.IDEN_ANAG, 'SSN',
+					function(){ 
+						NS_MENU_WORKLIST_ASSISTITI.insertReminderExpiration( data );
+						if( typeof callback == 'function' ){
+							callback();
+						}
+				  } );
+			
+			}else{
+
+				var frame = "<div>"+traduzione.lblMsgRegimeApertura+"</div>";
+				
+				var arrayButton = new Array();
+				arrayButton.push( {label: traduzione.butRegimeLP, action: function() { home.$.dialog.hide(); home.NS_MMG.apriCartella( data.IDEN_ANAG, 'LP' );}});
+				arrayButton.push( {label: traduzione.butRegimeAC, action: function() { home.$.dialog.hide(); home.NS_MMG.apriCartella( data.IDEN_ANAG, 'AC' );}});
+				if (home.MMG_CHECK.isAdministrator()) {
+					arrayButton.push( {label: traduzione.butRegimeSSN, action: function() { home.$.dialog.hide(); home.NS_MMG.apriCartella( data.IDEN_ANAG, 'SSN' );}});
+				}
+				arrayButton.push( {label: traduzione.butAnnulla, action: function () { home.$.dialog.hide(); }});
+									 
+				//home.NS_MMG.confirm("L'Assistito risulta associato ad un altro medico. Aprire la cartella con regime?", function() { home.NS_MMG.apriCartella( data.IDEN_ANAG, 'LP' ); });
+				home.$.dialog(frame,{
+					'id'				: "dialog",
+					'title'				: traduzione.regimeApertura,
+					'ESCandClose'		: true,
+					'created'			: function(){ $('.dialog').focus(); },
+					'width'				: 800,
+					'showBtnClose'		: false,
+					'modal'				: true,
+					'movable'			: true,
+					'buttons'			: arrayButton
+				});
+			}
+		});
+	},
+		
+	apriSchedaAnagrafica: function( data ){
+		NS_MENU_WORKLIST_ASSISTITI.apriCartellaAssistito(data, "CARTELLA", function(){ home.NS_MMG.apri('SCHEDA_ANAGRAFICA_MMG&IDEN=', home.ASSISTITO.IDEN_ANAG ); } );
+	},
+		
+	apriDocumentiPaziente: function( data ){
+		NS_MENU_WORKLIST_ASSISTITI.apriCartellaAssistito(data, "DATI_DOCUMENTI", function () {/*home.NS_MMG.apri( 'DOCUMENTI_PAZIENTE' );*/home.NS_MMG.apriDocumentiPaziente( data );});
+	},
+	 
+	apriDatiStrutturati: function( data ){
+		
+		var chk_cons = NS_MENU_WORKLIST_ASSISTITI.checkConsenso(data, 'DATI_DOCUMENTI');
+		
+		$.when(chk_cons.semaforo).then(function() {
+		
+			if(!chk_cons.bool){
+				return;
+			}
+			
+			if( NS_MENU_WORKLIST_ASSISTITI.mioAssistito( data.IDEN_MED_BASE ) ){
+				
+				home.NS_LOADING.showLoading();
+				home.NS_OBJECT_MANAGER.init( data.IDEN_ANAG, function(){
+	
+					home.MAIN_PAGE.setPatientInfo();	
+					home.MAIN_PAGE.toggleMenu();
+					
+						var 
+						url  =  'servletGeneric?class=cartellaclinica.cartellaPaziente.datiStrutturatiLabo.listDocumentLaboratorioFiltro';
+						url += '&reparto=MMG&nosologico=&elencoEsami=&numRichieste=5&idPatient='+ home.ASSISTITO.ID_REMOTO;
+						url += '&DATA_NASC=' + home.ASSISTITO.DATA_NASCITA_ISO + '&daData=&aData=&provRisultati=&provChiamata=MMG&userLogin='+ home.baseUser.USERNAME +'&idenAnag='+ home.ASSISTITO.IDEN_ANAG + "&modalita=PAZIENTE";
+					
+					url = home.NS_APPLICATIONS.switchTo( 'WHALE', url );
+					
+					home.NS_MMG.openUrl( url, { fullscreen : false, showloading : false }, 'DATI_STRUTTURATI' );
+		
+				});
+			}else{
+
+				var frame = "<div>"+traduzione.lblMsgRegimeAperturaFunzioneND+"</div>";
+				
+				var arrayButton = new Array();
+				arrayButton.push( {label: traduzione.butRegimeLP, action: function() { home.$.dialog.hide(); home.NS_MMG.apriCartella( data.IDEN_ANAG, 'LP' );}});
+				arrayButton.push( {label: traduzione.butRegimeAC, action: function() { home.$.dialog.hide(); home.NS_MMG.apriCartella( data.IDEN_ANAG, 'AC' );}});
+				if (home.MMG_CHECK.isAdministrator()) {
+					arrayButton.push( {label: traduzione.butRegimeSSN, action: function() { home.$.dialog.hide(); home.NS_MMG.apriCartella( data.IDEN_ANAG, 'SSN' );}});
+				}
+				arrayButton.push( {label: traduzione.butAnnulla, action: function () { home.$.dialog.hide(); }});
+									 
+				//home.NS_MMG.confirm("L'Assistito risulta associato ad un altro medico. Aprire la cartella con regime?", function() { home.NS_MMG.apriCartella( data.IDEN_ANAG, 'LP' ); });
+				home.$.dialog(frame,{
+					'id'				: "dialog",
+					'title'				: traduzione.regimeApertura,
+					'ESCandClose'		: true,
+					'created'			: function(){ $('.dialog').focus(); },
+					'width'				: 800,
+					'showBtnClose'		: false,
+					'modal'				: true,
+					'movable'			: true,
+					'buttons'			: arrayButton
+				});
+			}
+		});
+	},
+	
+	//function che controlla se il paziente puo' essere visualizzato dall'utente (gruppo o medico curante).
+	mioAssistito: function( IDEN_MED_BASE ) {
+		
+		home.WORKLIST_RICERCA.idenMedBase = IDEN_MED_BASE;
+		
+		return NS_MMG_UTILITY.checkPresenzaInArray( home.WORKLIST_RICERCA.gruppoMedico.split(','), home.WORKLIST_RICERCA.idenMedBase );
+	},
+	
+    setMedicoPrescrittore: function( data ){
+    	
+    	home.NS_MMG.apri( 'INSERIMENTO_MEDICO', '&IDEN_ANAG='+ data.IDEN_ANAG );
+    },
+    
+    /*
+     * INSERISCE UN PROMEMORIA NELLA BACHECA SE LA DATA DI SCADENZA DELL'ASSISTENZA DEL MEDICO PER IL PAZIENTE CORRENTE E' 
+     * MINORE DI 30 GIORNI DAL MOMENTO IN CUI SI APRE LA CARTELLA PAZIENTE
+     */
+    insertReminderExpiration: function( data ){
+    	
+    	if( LIB.isValid( home.ASSISTITO.SCADENZA_ASSISTENZA ) ){
+    	
+	    	var oggi		= moment( moment().format('YYYYMMDD'),'YYYYMMDD' );
+	    	var	scadenza	= moment( home.ASSISTITO.SCADENZA_ASSISTENZA, 'YYYYMMDD' );
+	    
+	    	var obj = {
+	    		'iden_anag'		: data.IDEN_ANAG,
+	    		'text'			: 'Il giorno '+ scadenza.format('DD/MM/YYYY') +' scadra\' l\'assistenza del medico per il paziente '+ data.PAZIENTE,
+	    		'data_inizio'	: moment().format('YYYYMMDD'),
+	    		'data_fine'		: moment(home.ASSISTITO.SCADENZA_ASSISTENZA, "YYYYMMDD").add( 1, 'M').format('YYYYMMDD'),
+	    		'priorita'		: 3,
+	    		'sezione'		: 'BACHECA_SCADENZA_ASSISTENZA',
+	    		'note'			: 'Questo promemoria e\' stato inserito automaticamente'
+		   	};
+	  
+	    	if( scadenza.diff( oggi, 'days' ) <= 30 && home.ASSISTITO.PROMEMORIA_SCADENZA <= 0 )  {
+	    		
+	    		home.NS_MMG_UTILITY.insertPromemoria(obj);
+	    	}	   
+    	}
+    },
+    
+    tryUpdateAnag:function(rec){
+    	
+    	var dialog = home.NS_MMG.confirm("ATTENZIONE!!! Questa operazione NON è necessaria nel caso in cui il paziente abbia le informazioni allineate (esenzioni, associazione medico paziente).<br><br>"+
+    			"L'operazione tenterà di allineare le informazioni collegate al paziente a quelle presenti su AAC " +
+        			".<br>Nel caso in cui non vengano allineate al primo tentativo, " +
+        			"contattare l'assistenza.<br><br> ATTENZIONE!!! Non è necessario effettuare nuovi tentativi di riallineamento." +
+        			" Continuare con l'operazione?",function() {
+    		
+    		NS_LOADING.showLoading();
+    		
+    		home.$.NS_DB.getTool({_logger : home.logger}).call_procedure({
+
+				id:'RADSQL.ALLINEA_ANAG_VS_AAC_VOUT',
+				parameter: {
+					p_iden_anag			: { v : rec.IDEN_ANAG, t : 'N'},
+					p_iden_per			: { v : home.baseUser.IDEN_PER, t : 'N'},
+					vOut				: { v : null, t : 'V' , d: 'O'}
+				}
+			}).done( function(resp) {
+				home.NOTIFICA.info({
+					title: "Operazione eseguita",
+					message: resp.vOut,
+					timeout:"15"
+				});
+				
+				//rieffettuo la ricerca con i parametri precedentemente inseriti
+				if(home.WORKLIST_RICERCA.butLastAccess.hasClass("selected")){
+					home.WORKLIST_RICERCA.butLastAccess.removeClass("selected");
+					home.WORKLIST_RICERCA.butLastAccess.trigger("click");
+				}else{					
+					home.WORKLIST_RICERCA.butApplica.trigger("click");	
+				}
+				
+				NS_LOADING.hideLoading();
+				
+			}).fail( function(resp) {
+				home.NOTIFICA.error({
+					title:traduzione.lblErrorSave,
+					message:traduzione.lblNoSave
+				});
+				NS_LOADING.hideLoading();
+			});
+			dialog.destroy();
+		});
+    }
+}; 
+
+var NS_MENU_GRAVIDANZA = {
+	
+	inserisciGravidanza: function( rec, n_scheda ){
+		
+		 home.NS_MMG.reloadPage( n_scheda, 'GRAVIDANZA', '&IDEN=' );
+	},
+	
+	modificaGravidanza: function( rec, n_scheda ){
+		
+		home.NS_MMG.reloadPage( n_scheda, 'GRAVIDANZA', '&IDEN=' + rec[0]['IDEN'] );
+	},
+	
+	cancellaGravidanza: function( rec ) {
+		if (home.MMG_CHECK.canDelete(rec[0].UTE_INS, rec[0].IDEN_MED)) {
+			home.NS_MMG.confirm(traduzione.lblConfirmCancella, function()  {
+
+				home.$.NS_DB.getTool({_logger : home.logger}).call_procedure({
+					id:'SP_HIDE_SHOW_PROBLEMA',
+					parameter:{
+
+						"v_iden_problema" 	: { v : rec[0].IDEN_PROBLEMA, t : 'N'},
+						"pUtente" 			: { v : home.baseUser.IDEN_PER, t : 'N'},
+						"pDataHide" 		: { v : '', t : 'V'},
+						"pTypeRequest"	 	: { v : 'DEL', t : 'V' }
+					}
+
+				}).done( function() {
+
+					home.GRAVIDANZA.wkGravidanze.refresh();
+					home.ASSISTITO.setEsenzioni();
+
+					if (home.ASSISTITO.IDEN_PROBLEMA == rec[0].IDEN_PROBLEMA){
+						home.MAIN_PAGE.unsetPatientProblem();
+					}else{
+						home.RIEP_ACCESSI_PROBLEMI.objWk.refresh();
+					}
+				});
+
+				try{
+
+					home.FILTRI_DIARI_WK.objWk.refresh();
+					home.RIEPILOGO.wkDiarioClinico.refresh();
+
+				}catch(e) {}
+			});
+		}
+	},
+	
+	inserisciDataParto: function( rec ){
+		
+		var ta = $("<input/>", { value:rec[0].DATA_PARTO });
+		
+		$.dialog(ta, {
+			'buttons' 			: [{ label: "Annulla", action: function (ctx){ $.dialog.hide(); }}],
+			'title' 			: "Inserisci/Modifica data parto",
+			'ESCandClose'		: true,
+			'created'			: function(){ $('.dialog').focus(); },
+			'height'			: 240,
+			'width'  			: 250
+		});
+		
+		ta.hide().Zebra_DatePicker({always_visible: ta.parent(), direction:false, onSelect: function(data, dataIso) {
+			
+			var parameters = {
+					
+				'PACTION'		:'CLOSE',
+				'vIden'			:rec[0].IDEN,
+				'VDATAMESTRUO'	:rec[0].DATA_ULTIMO_MESTRUO_ISO,//-->non serve
+				'PIDENPROBLEMA'	:rec[0].IDEN_PROBLEMA,
+				'VIDENANAG'		:home.ASSISTITO.IDEN_ANAG,
+				'VIDENMED'		:(home.baseUser.TIPO_UTENTE == 'A' ? null : home.baseUser.IDEN_PER ),
+				'VUTENTE'		:home.baseUser.IDEN_PER,
+				'VIDENACCESSO'	:(home.ASSISTITO.IDEN_ACCESSO || null),
+				'vDataParto'	:dataIso,
+				'vDataPresunta'	:rec[0].DATA_PARTO_PRESUNTA_ISO,//-->non serve
+				'vNote'			:rec[0].NOTE,
+				'vRischio'		:rec[0].RISCHIO
+			};
+		
+		toolKitDB.executeProcedureDatasource( 'SP_GEST_GRAVIDANZA', 'MMG_DATI', parameters, function( response ){
+			
+				var status = response.p_result.split('$')[0], message = response.p_result.split('$')[1];
+				
+				if( status == 'OK' ){
+					
+					home.NOTIFICA.success({ message : message , title : 'Successo!' });
+					home.ASSISTITO.setEsenzioni();
+					home.GRAVIDANZA.loadWkGravidanze();
+					home.FILTRI_DIARI_WK.objWk.refresh();
+					home.RIEP_ACCESSI_PROBLEMI.objWk.refresh();
+				}else{
+					home.NOTIFICA.error({ message : message , title : 'Errore!' });
+				}
+				$.dialog.hide();
+			});
+		}});
+		
+		$(".dp_footer").hide();
+	}
+};
+
+var NS_MENU_ALTRE_STAMPE = {
+	
+		inserisciCertificato: function( rec, n_scheda ){
+			
+			 home.NS_MMG.reloadPage( n_scheda, 'ALTRE_STAMPE', '&IDEN=' );
+		},
+		
+		modificaCertificato: function( rec, n_scheda ){
+			
+			home.NS_MMG.reloadPage( n_scheda, 'ALTRE_STAMPE', '&IDEN=' + rec[0]['IDEN'] );
+		},
+		
+		eliminaCertificato: function( rec ) {
+			
+			if (home.MMG_CHECK.canDelete(rec[0].UTE_INS, rec[0].UTE_INS)) {
+				home.ALTRE_STAMPE.idenCertificato = rec[0]['IDEN'];
+
+				home.NS_MMG.confirm(
+					traduzione.cancella, 
+					function(){	
+						var parameters = { 'pIden' : home.ALTRE_STAMPE.idenCertificato };
+						toolKitDB.executeFunctionDatasource( 'CANCELLA_CERTIFICATO', 'MMG_DATI', parameters, function( response ){
+							var status = response.p_result.split('$')[0], message = response.p_result.split('$')[1];
+							if( status == 'OK' ){
+								home.NOTIFICA.success({ message : message , title : 'Successo!' });
+								home.ALTRE_STAMPE.loadWk();
+							}else{
+								home.NOTIFICA.error({ message : message , title : 'Errore!' });
+							}
+						});
+					}
+				);
+			}
+		}
+};
+
+var NS_MENU_CONFERMA_RICETTE = {
+		
+		whereConferma: function( rec ){
+			
+			var passed = rec.length > 0 ? true : false;
+			
+			for( var i = 0; i < rec.length; i++ ){
+				if( rec[i].CODICE_STATO != 'I' ){
+					passed = false;
+				}
+			}
+			
+			return passed;
+		},
+		
+		conferma: function( rec , vStampa){
+			
+			daStampare = typeof vStampa != 'undefined' ? vStampa : 'N';
+			
+			if(vStampa == 'S'){
+				vProcedure = 'RR_CONFERMA';
+			}else{
+				vProcedure = 'RR_CONFERMA_STAMPA';
+			}
+			
+			NS_MENU_CONFERMA_RICETTE.rec 			= rec;
+			NS_MENU_CONFERMA_RICETTE.vIdenRicette	= new Array();
+			
+			home.NS_MMG.confirm(
+					
+				traduzione.conferma, 
+				
+				function(){
+					
+					for( var i = 0; i < NS_MENU_CONFERMA_RICETTE.rec.length; i++ ){
+						
+						NS_MENU_CONFERMA_RICETTE.vIdenRicette.push( NS_MENU_CONFERMA_RICETTE.rec[i]['IDEN'] );
+					}
+					        
+					NS_MENU_CONFERMA_RICETTE.vIdenRicette = NS_MENU_CONFERMA_RICETTE.vIdenRicette.join(',');
+					
+					home.$.NS_DB.getTool({_logger : home.logger}).call_procedure({
+						
+						id : vProcedure,
+						parameter: {
+							
+							"p_iden_ricetta"	: { v : NS_MENU_CONFERMA_RICETTE.vIdenRicette, t : 'V'},
+							"p_result"			: { t : 'V', d: 'O' }
+						}
+					}).done( function(response) {
+						
+						/* ho confermato e basta */
+						if(vStampa == 'N'){
+
+							var status 	= response.p_result.split('$')[0];
+							var msg 	= response.p_result.split('$')[1];
+
+							if( status == 'OK' ){
+								home.NOTIFICA.success({ message : msg , title : 'Successo!' }) 
+								home.CONFERMA_RICETTE.loadWk();
+							}else{
+								home.NOTIFICA.error({ message : msg , title : 'Errore!'});
+							}
+								
+						/* ho confermato e stampato */
+						}else{
+							
+							/* Devo mandare un oggetto {B: "125,126", F: "123,124", P: "127,128"}*/
+							home.RICETTA_UTILS.stampaRicette(JSON.stringify(obj));
+							home.CONFERMA_RICETTE.loadWk();
+						}
+					});
+				});
+		},
+		
+		confermaStampa:function(){
+			NS_MENU_CONFERMA_RICETTE.conferma( rec , 'S');
+		},
+		
+		stampa:function( rec ){
+			
+			home.NS_LOADING.showLoading();
+			
+			if( typeof rec[0] == 'undefined' ) {
+				var tmp = rec;
+				rec = new Array();
+				rec.push( tmp );
+			}
+			
+			var rec 				= rec;
+			var vIdenRicetteB		= new Array();
+			var vIdenRicetteF		= new Array();
+			var vIdenRicetteP		= new Array();
+			var vIdenRicetteFD		= new Array();
+			var vIdenRicettePD		= new Array();
+			
+			for( var i = 0; i < rec.length; i++ ){
+				
+				var pTipo = rec[i]['TIPO_RICETTA'];
+				
+				if(rec[i]['DEMATERIALIZZATA'] == 'S'){
+					pTipo += 'D';
+				}
+				
+				switch(pTipo){
+				
+					case 'B':
+						vIdenRicetteB.push( rec[i]['IDEN'] );
+						break;
+					
+					case 'F':						
+						vIdenRicetteF.push( rec[i]['IDEN'] );
+						break;
+					
+					case 'P':						
+						vIdenRicetteP.push( rec[i]['IDEN'] );
+						break;
+					
+					case 'FD':						
+						vIdenRicetteFD.push( rec[i]['IDEN'] );
+						break;
+					
+					case 'PD':						
+						vIdenRicettePD.push( rec[i]['IDEN'] );
+						break;
+				}
+			}
+			
+			var obj = {};
+			
+			if(vIdenRicetteB.length > 0){
+				obj['B'] = vIdenRicetteB.toString();
+			}
+			
+			if(vIdenRicetteF.length > 0){
+				obj['F'] = vIdenRicetteF.toString();
+			}
+			
+			if(vIdenRicetteP.length > 0){
+				obj['P'] = vIdenRicetteP.toString();
+			}
+			
+			if(vIdenRicetteFD.length > 0){
+				obj['FD'] = vIdenRicetteFD.toString();
+			}
+			
+			if(vIdenRicettePD.length > 0){
+				obj['PD'] = vIdenRicettePD.toString();
+			}
+
+			/* Devo mandare un oggetto {B: "125,126", F: "123,124", P: "127,128"}*/
+			home.RICETTA_UTILS.stampaRicette(JSON.stringify(obj));
+			
+			home.NS_LOADING.hideLoading();
+			
+			CONFERMA_RICETTE.loadWk();
+		
+		},
+		
+		whereAnnulla: function( rec ){
+			
+			var passed = rec.length > 0 ? true : false;
+			
+			for( var i = 0; i < rec.length; i++ ){
+				if( rec[i].CODICE_STATO != 'C' ){
+					passed = false;
+				}
+			}
+			
+			return passed;
+		},
+		
+		annulla: function( rec ){
+			
+			NS_MENU_CONFERMA_RICETTE.rec 			= rec;
+			NS_MENU_CONFERMA_RICETTE.vIdenRicette	= new Array();
+			
+			home.NS_MMG.confirm( 
+					traduzione.confermaAnnullamento, 
+					function()
+					{
+						
+						for( var i = 0; i < NS_MENU_CONFERMA_RICETTE.rec.length; i++ )
+						{
+							
+							NS_MENU_CONFERMA_RICETTE.vIdenRicette.push( NS_MENU_CONFERMA_RICETTE.rec[i]['IDEN'] );
+							
+						}
+						
+						NS_MENU_CONFERMA_RICETTE.vIdenRicette = NS_MENU_CONFERMA_RICETTE.vIdenRicette.join(',');
+						
+						toolKitDB.executeFunction( 'ANNULLA_CONFERMA_RICETTE', { 'vIdenRicette' : NS_MENU_CONFERMA_RICETTE.vIdenRicette  }, 
+								function( response )
+								{
+							
+									var status = response.p_result.split('$')[0], msg = response.p_result.split('$')[1];
+							
+									status == 'OK' ? home.NOTIFICA.success({ message : msg , title : 'Successo!' }) : home.NOTIFICA.error({ message : msg , title : 'Errore!' });
+									
+									if( status == 'OK' )
+										home.CONFERMA_RICETTE.loadWk();
+								
+								});
+					});
+		}
+};
+
+var NS_MENU_MEDICINA_INIZIATIVA = {
+	
+		inserisci: function( rec, n_scheda ){
+			
+			 home.NS_MMG.reloadPage( n_scheda, 'MEDICINA_DI_INIZIATIVA', '&IDEN=' );
+		},
+		
+		modifica: function( rec, n_scheda ){
+			
+			home.NS_MMG.reloadPage( n_scheda, 'MEDICINA_DI_INIZIATIVA', '&IDEN=' + rec[0]['IDEN'] );
+		}
+};
+
+var NS_MENU_CRONOLOGIA_ACCESSI ={
+		
+		apriCartella: function( rec ){
+			
+			NS_MENU_WORKLIST_ASSISTITI.apriCartellaAssistito( rec ); 
+			NS_FENIX_SCHEDA.chiudi();
+		},
+		
+		cancellaAccesso: function( rec ){
+			
+			home.$.NS_DB.getTool({_logger : home.logger}).call_procedure({
+	            id:'UPD_CAMPO_STORICIZZA',
+	            parameter:
+	            {
+	            	"pIdenPer" 		: { v : home.baseUser.IDEN_PER, t : 'N'},
+					"pTabella" 		: { v : "MMG_ACCESSI", t : 'V'},
+					"pNomeCampo" 	: { v : "DELETED", t : 'V'},
+					"pIdenTabella" 	: { v : rec[0].IDEN_ACCESSO, t : 'N' },
+					"pNewValore" 	: { v : "S", t : 'V' }
+	            }
+			}).done( function() {
+				
+				home.NOTIFICA.success({ message : 'Accesso cancellato correttamente per il paziente '+ rec[0].PAZIENTE, title : 'Successo!' });
+				home.CRONOLOGIA_ACCESSI_ESTERNA.loadWk();
+				
+			});
+		}
+};
+
+var WK_PROBLEMI = {
+		
+		apriRiepilogoProblema:function(obj){
+			
+			var url = "&MEDICO_INSERIMENTO=" + obj[0].DESCR_MED;
+			url += "&DATA_INSERIMENTO=" + obj[0].DATA_INSERIMENTO;
+			url += "&PROBLEMA_COMPLETO=" + obj[0].PROBLEMA_COMPLETO;
+			home.NS_MMG.apri("MMG_RIEPILOGO_INSERIMENTO_PROBLEMA&ID_PROBLEMA=" + obj[0].IDEN + url);
+		},
+
+		aux_chiusura:function(obj){
+			
+			if(confirm("Si vuole chiudere il problema?")){
+				WK_PROBLEMI.chiusuraRapida(obj);
+			}
+		},
+		
+		chiusuraRapida:function(obj, rilevanteSINO){
+			
+			if(obj.CHIUSO == 'S'){
+				return alert("Il problema risulta chiuso");
+			}
+			
+			var param = { 
+					
+					'V_IDEN_PROBLEMA' 	: obj[0].IDEN,
+					'PUTENTE' 			: home.baseUser.IDEN_PER,
+					'PNOTECHIUSURA' 	: 'chiusura rapida da menu contestuale',
+//					'PCHIUSURA' 		: 'S',
+					'PDATACHIUSURA' 	: '',
+					'PRILEVANTE'		: rilevanteSINO
+			};
+
+			toolKitDB.executeProcedureDatasourceOut("SP_CLOSE_PROBLEMA","MMG_DATI",param,{'V_OUT': 'V_OUT'},function(response){
+
+				home.RIEPILOGO.loadWkProblemi();
+			});
+		},
+		
+		inserimentoProblema:function(obj, urlAgg){
+			if(!home.MMG_CHECK.isDead()){return;}
+			var urlAgg = "&PROVENIENZA=RIEPILOGO&IDX="+$("#IDX").val();
+			home.NS_MMG.apri("INSERIMENTO_PROBLEMA"+ urlAgg);
+			
+		},
+		
+		modificaProblema:function(obj){
+			
+			var urlAgg = "&PROVENIENZA=RIEPILOGO&IDX="+$("#IDX").val()+"&IDEN="+ obj[0].IDEN;
+			home.NS_MMG.apri("INSERIMENTO_PROBLEMA" + urlAgg);
+			
+		},
+		
+		chiusuraProblema:function(obj){
+			
+			home.activeWk = home.RIEPILOGO.wkProblemi;
+			var urlAgg = "&PROVENIENZA=RIEPILOGO&IDX="+$("#IDX").val();
+			
+			if(typeof obj != 'undefined'){
+				urlAgg +="&ID_PROBLEMA="+obj[0].IDEN;
+			}
+			
+			if(obj[0].CHIUSO == 'S'){
+				return alert("Il problema risulta chiuso");
+			}
+			
+			home.NS_MMG.apri("CHIUSURA_PROBLEMA" + urlAgg);
+		},
+		
+		openFiltri: function() {
+			var adata = $("#h-adata").val();
+			var dadata = $("#h-dadata").val();
+			var radChiusoAperto = $("#h-radchiusaperto").val();
+			var nascosto = $("#h-nascosto").val();
+			var url = "FILTRI&FILTRO=PROBLEMI&DADATA="+dadata+"&ADATA="+adata+"&CHIUSOAPERTO="+radChiusoAperto+"&NASCOSTO="+nascosto;
+			home.NS_MMG.apri( url );
+		},
+		
+		apriFancybox:function(url){
+			
+			parent.$.fancybox({
+				'padding'	: 1,
+				'width'		: 800,//(home.widthCartella-400),
+				'height'	: 600,//(home.heightCartella-300),
+				'href'		: url,
+				'type'		: 'iframe'
+			});
+			
+		},
+		
+		mostraInPatSummary: function( row, pValore ) {
+			
+			if(!home.MMG_CHECK.isDead()){return;}
+			
+			home.$.NS_DB.getTool({_logger : home.logger}).call_procedure({
+	            id:'UPD_CAMPO_STORICIZZA',
+	            parameter:
+	            {
+	            	"pIdenPer" 			: { v : home.baseUser.IDEN_PER, t : 'N'},
+					"pTabella" 			: { v : "MMG_PROBLEMI", t : 'V'},
+					"pNomeCampo" 		: { v : "PAT_SUMMARY", t : 'V'},
+					"pIdenTabella" 		: { v : row[0].IDEN, t : 'N' },
+					"pNewValore" 		: { v : pValore, t : 'V' },
+					"pStoricizza" 		: { v : "N", t : 'V' },
+					"pCampoIdenWhere" 	: { v : "IDEN", t : 'V' }
+	            }
+			}).done( function() {
+				
+				home.NOTIFICA.success({
+					message: "Salvataggio effettuato",
+				});
+				home.RIEPILOGO.wkProblemi.refresh();
+			});
+		},
+		
+		nascondiProblema:function(obj, typerequest){
+			
+			switch(typerequest){
+			
+				case 'HIDE':
+					if(obj.NASCOSTO == 'S'){
+						home.NOTIFICA.warning({
+							message:traduzione.lblErrorVis,
+							title: 'Attenzione!'
+						});
+						return;
+					}
+					
+					if(!confirm(traduzione.lblNascondiProblema)){
+						return;
+					}
+					break;
+				
+				case 'SHOW':
+					if(obj.NASCOSTO == 'N'){
+						home.NOTIFICA.warning({
+							message:traduzione.lblErrorVis,
+							title: 'Attenzione!'
+						});
+						return;
+					}
+					
+					if(!confirm(traduzione.lblRendiVis)){
+						return;
+					}
+					break;
+				
+				case 'DEL':
+					if(!confirm(traduzione.lblConfirmCancella)){
+						return;
+					}
+					break;
+			}
+
+			home.$.NS_DB.getTool({_logger : home.logger}).call_procedure({
+	            id:'SP_HIDE_SHOW_PROBLEMA',
+	            parameter:
+	            {
+	            	"v_iden_problema" 	: { v : obj[0].IDEN, t : 'N'},
+					"pUtente" 			: { v : home.baseUser.IDEN_PER, t : 'N'},
+					"pDataHide" 		: { v : '', t : 'V'},
+					"pTypeRequest"	 	: { v : typerequest, t : 'V' }
+	            }
+			}).done( function() {
+				if (home.ASSISTITO.IDEN_PROBLEMA == obj[0].IDEN)
+					home.MAIN_PAGE.unsetPatientProblem();
+				else
+					home.RIEPILOGO.wkProblemi.refresh();
+					
+			});
+						
+		},
+		
+		setProblema:function(riga){
+
+			if(typeof riga.CODICE_ICD9 == 'undefined'|| riga.CODICE_ICD9 == ''){
+				WK_PROBLEMI.inserimentoProblema(riga,"&TIPO_INS=MOD&DATA="+riga.DATA+"&DATA_ISO="+riga.DATA_ISO+"&DESCR_PROBLEMA="+riga.PROBLEMA_COMPLETO+"&IDEN_PROBLEMA="+riga.IDEN);
+				return;
+			}
+			
+			home.MAIN_PAGE.setPatientProblem( riga.IDEN, riga.PROBLEMA_COMPLETO );
+			
+		},
+		
+		allega_documento:function(rec){
+			var url_agg = "&IDEN_EPISODIO="+rec[0].IDEN+"&TIPO_EPISODIO=PROBLEMA";
+			/***secondo me e' la pagina DOCUMENTI_ALLEGATI a dover essere chiamata***/
+			home.NS_MMG.apri("DOCUMENTI_ALLEGATI" + url_agg);
+		},
+		
+		oscura: function( rec, val){
+			
+			home.NS_MMG.confirm( (val=='S') ? traduzione.confirmOscura : traduzione.confirmDisoscura , function() {
+
+				home.$.NS_DB.getTool({_logger : home.logger}).call_procedure({
+		            id:'UPD_CAMPO_STORICIZZA',
+		            parameter:
+		            {
+		            	"pIdenPer" 			: { v : home.baseUser.IDEN_PER, t : 'N'},
+						"pTabella" 			: { v : "MMG_PROBLEMI", t : 'V'},
+						"pNomeCampo" 		: { v : "OSCURATO", t : 'V'},
+						"pIdenTabella" 		: { v : rec[0].IDEN, t : 'N' },
+						"pNewValore" 		: { v : val, t : 'V' },
+						"pStoricizza" 		: { v : "S", t : 'V' },
+		            }
+				}).done( function() {
+					home.RIEPILOGO.wkProblemi.refresh();
+				});
+			});
+
+		}
+};
+
+var NS_PT = {
+		
+	stampa:function(data){
+
+		var iden 		= data.IDEN_TESTATA;
+		var query 		= 'PIANI_TERAPEUTICI.VISUALIZZA_PDF';
+		var datasource	= 'WHALE_DATI';
+		
+		home.NS_MMG.caricaDocumento(iden, query, datasource);
+	}
+};
+
+var WK_DIARI = {
+		
+		init: function(){
+		
+			home.WK_DIARI = this;
+			WK_DIARI.body = $("body");
+		},
+
+		inserisci:function(obj){
+			
+			WK_DIARI.apriDialog('Inserimento', 'INS', '');
+		},
+
+		modifica:function(obj){
+			
+			if(obj[0].SCHEDA != 'NOTE' && obj[0].TIPO != 'GRAVIDANZA'){
+				
+				WK_DIARI.apriVisita(obj);
+			}else{
+				
+				var url = '&IDEN='+obj[0].IDEN+'&NOTA='+obj[0].NOTA+'&DATA='+obj[0].DATA_ISO+"&IDEN_PROBLEMA="+obj[0].IDEN_PROBLEMA;
+				WK_DIARI.apriDialog('Modifica', 'MOD', url);
+			}
+		},
+
+		select:function(riga){
+			
+			home.CARTELLA.NOTE = riga.NOTA;
+		},
+		
+		openFiltri: function() {
+			var adata = $("#h-adata").val();
+			var dadata = $("#h-dadata").val();
+			var url = "FILTRI&FILTRO=DIARI&DADATA="+dadata+"&ADATA="+adata;
+			home.NS_MMG.apri( url );
+		},
+		
+		apriDialog : function(title, action, urlAgg) {
+
+			var urlAggio = "&USER_IDEN_PER="+home.baseUser.IDEN_PER+"&PROVENIENZA=RIEPILOGO&IDEN_ANAG="+home.ASSISTITO.getIdenAnag()+"&ACTION="+action+urlAgg;
+			home.NS_MMG.apri( "INSERIMENTO_DIARIO" + urlAggio );
+		},
+		
+		inserisciVisita: function(){	
+			
+			var url;
+			if(home.MMG_CHECK.isPediatra()) {
+				url = "PLS_VISITE";
+			} else {
+				url = "MMG_VISITE";
+			}
+			home.NS_MMG.apri(url + '&PROVENIENZA=RIEPILOGO');
+		},
+		
+		apriVisita: function(riga){
+			
+			var pIden_scheda_xml = riga[0].IDEN;
+			
+			var urlAgg = "&IDEN=" + pIden_scheda_xml;
+			urlAgg += '&IDX='+$("#IDX").val();
+			urlAgg += '&PROVENIENZA=RIEPILOGO'/* + '&IDEN_ANAG=' + home.ASSISTITO.getIdenAnag()*/;
+			home.NS_MMG.apri(riga[0].SCHEDA + urlAgg);
+		},
+		
+		apriElencoVisite: function(riga){
+			
+			var urlAgg = "&PARTENZA=FILTRI_DIARI";
+			urlAgg += '&IDX='+$("#IDX").val();
+			home.NS_MMG.apri("MMG_WK_VISITE" + urlAgg);			
+		},
+		
+		cancella:function(obj){
+			if (home.MMG_CHECK.canDelete(obj[0].UTE_INS, obj[0].IDEN_MED)) {
+				var vAction = 'DEL';
+				var iden_visita = obj[0].IDEN;
+				var scheda = obj[0].SCHEDA;
+				var vType = (scheda != 'NOTE' && scheda !='RILEVAZIONI') ? 'XML' : 'NOTA';
+				
+				switch(vType){
+				
+					case 'XML':
+						
+						var testo_dialog ='';
+						if (scheda.indexOf("VISIT") >= 0){testo_dialog = traduzione.lblConfermaCancellazioneVisita;}
+						if (scheda.indexOf("ANAMNESI") >= 0){testo_dialog = traduzione.lblConfermaCancellazioneAnamnesi;}
+						if (scheda.indexOf("BILANCIO") >= 0){testo_dialog = traduzione.lblConfermaCancellazioneBilancio;}
+						
+						home.$.dialog(testo_dialog,{
+							
+							'title'			:"Attenzione",
+							'ESCandClose'	: true,
+							'created'		: function(){ $('.dialog').focus(); },
+							'buttons'		:[
+			                         {
+			                        	 label : "Si",
+			                        	 action : function() {
+			                        		 toolKitDB.executeProcedureDatasource("DELETE_SCHEDA_XML",'MMG_DATI',{'pIdenScheda': obj[0].IDEN}, function(response){
+			             						home.RIEPILOGO.wkDiarioClinico.refresh();
+			             						home.NOTIFICA.success( { message : 'OK' , title : 'Successo!' } );
+			             						home.$.dialog.hide();
+			             					 });
+			                        	 }
+			                         },
+			                         {
+			                        	 label:"No",
+			                        	 action: function(){home.$.dialog.hide();}
+			                         }]
+						});
+						
+						break;
+					
+					case 'NOTA':
+					default:
+	
+						home.$.dialog(traduzione.lblConfermaCancellazioneNota, {
+							'title'				: "Attenzione",
+							'ESCandClose'		: true,
+							'created'			: function(){ $('.dialog').focus(); },
+							'buttons'			: [
+			                         {
+			                        	 label : "Si",
+			                        	 action : function() {
+			                        		 
+			                        		 var param = {
+			             							'PIDENANAG' 	: home.ASSISTITO.IDEN_ANAG,
+			             							'PIDENMED' 		: home.baseUser.IDEN_PER,
+			             							'PUTENTE' 		: home.baseUser.IDEN_PER,
+			             							'PIDENACCESSO' 	: home.ASSISTITO.IDEN_ACCESSO,
+			             							'PIDENPROBLEMA' : obj[0].IDEN_PROBLEMA, 
+			             							'P_DATA' 		: obj[0].DATA_ISO,
+			             							'P_NOTEDIARIO' 	: obj[0].NOTA,
+			             							'P_IDEN_NOTA'  	: obj[0].IDEN,
+			             							'P_ACTION' 		: vAction
+			             					};
+			                        		 
+			                        		 toolKitDB.executeProcedureDatasourceOut("SP_NOTE_DIARIO",'MMG_DATI',param,{'V_RETURN_DIARIO': 'V_RETURN_DIARIO'}, function(response){
+			                        			home.RIEPILOGO.wkDiarioClinico.refresh();
+			             						home.CARTELLA.NOTE = '';
+			             						home.$.dialog.hide();
+			             					 });
+			                        	 }
+			                         },
+			                         {
+			                        	 label:"No",
+			                        	 action: function(){home.$.dialog.hide();}
+			                         }]
+						});
+	
+						break;
+				}
+			}
+		}
+};
+
+var NS_MENU_SEGNALAZIONI = {
+		
+		whereApri: function( rec ){
+			
+			return rec.length == 1;
+		},
+		
+		apri: function( rec, n_scheda ){
+			
+			home.NS_MMG.reloadPage( n_scheda, 'SEGNALAZIONI', '&IDEN=' + rec[0]['IDEN'] );
+		}
+	};
+
+var NS_MENU_APPUNTI = {
+		
+		whereModifica: function( rec ) {
+			return rec.length == 1;
+		},
+		
+		modifica: function( rec, n_scheda ){
+			home.NS_MMG.reloadPage( n_scheda, 'APPUNTI', '&IDEN=' + rec[0]['IDEN'] );
+		},
+		
+		whereElimina: function( rec ){
+			return rec.length == 1;
+		},
+		
+		elimina: function( rec ){
+			
+			var parameters = { 'nIden' :  { 'v' : rec[0].IDEN, 't' : 'N' } };
+			
+			$.NS_DB.getTool({
+				_logger: home.logger 
+			}).call_function({
+				id:			'MMG.ELIMINA_APPUNTI',
+				parameter:	parameters
+			}).done(function( response ){
+				if( typeof response.p_result != 'undefined' ){
+					home.NOTIFICA.success( { 
+						title:		'Successo!',
+						message:	response.p_result 
+					});
+					home.APPUNTI.loadWk();
+				}
+			}).fail(function( jqXHR, textStatus, errorThrown ) {
+				home.logger.error('Errore NS_MENU_APPUNTI.elimina: ' + errorThrown );
+			});
+		},
+		
+		whereStampa: function( rec ){
+			return rec.length == 1;
+		},
+		
+		stampa: function( rec ){
+			var vIden		= rec[0].IDEN; 
+			var v_report	= 'APPUNTI_MEDICO.RPT';
+			var prompts 	= {
+				pIden:		vIden, 
+				pIdenPer:	home.baseUser.IDEN_PER
+			};
+
+			home.NS_PRINT.print({
+				path_report:	v_report + '&t=' + new Date().getTime(),
+				prompts: 		prompts,
+				show: 			LIB.getParamUserGlobal( 'ANTEPRIMA_STAMPA_MODULI', 'N' ),
+				output: 		'pdf'
+			});
+			
+			home.APPUNTI.toPrint = false;
+		}
+	};
+
+var NS_LISTA_UTENTI = {
+		
+		init:function(){
+			
+			//antiscroll-inner
+			var h = $('.contentTabs').innerHeight() - $('#fldLista').outerHeight(true) -30;
+			var w = $('.contentTabs').innerWidth()-50
+			$("#wkUtenti").height( h ).width(w);
+
+			NS_LISTA_UTENTI.refreshWk();
+		},
+	
+		refreshWk: function(){
+			
+			var vUtente = $("#txtRicerca").val() != '' ? $("#txtRicerca").val().toLowerCase() : 'USERNOTDEFINED';
+			
+			var objWk = new WK({
+				"id"		: 'LISTA_UTENTI',
+    			"aBind"		: ["username"],
+    			"aVal"		: [vUtente],
+    			"container" : 'wkUtenti'
+			});
+			
+			objWk.loadWk();
+		},
+		
+		apri:function(riga){
+			
+			var vUsername = typeof riga[0] == 'undefined' ? riga.USERNAME : riga[0].USERNAME ;
+			
+			home.NS_MMG.apri('CONFIGURAZIONE_UTENTI', "&UTENTE="+vUsername)
+		},
+		
+		inserisci:function(riga){
+			
+			home.NS_MMG.apri("CONFIGURAZIONE_UTENTI","&UTENTE=");
+		},
+		
+		cancella:function(riga){
+			
+			var vUsername = typeof riga[0] == 'undefined' ? riga.USERNAME : riga[0].USERNAME ;
+			var messaggio = traduzione.lblConfirmCancella;
+			messaggio += vUsername;
+			messaggio += '?';
+			
+			home.NS_MMG.confirm(messaggio, function(){ 
+
+				var parameters={
+						"pUsername" : vUsername
+				}
+				
+				$.NS_DB.getTool({
+					_logger: home.logger 
+				}).call_function({
+					id:			'MMG.CANCELLA_UTENTE',
+					parameter:	parameters
+				}).done(function( response ){
+					if( typeof response.p_result != 'undefined' ){
+						home.NOTIFICA.success( { 
+							title:		'Successo!',
+							message:	response.p_result 
+						});
+						NS_LISTA_UTENTI.refreshWk();
+					}
+				}).fail(function( jqXHR, textStatus, errorThrown ) {
+					home.logger.error('Errore NS_MENU_APPUNTI.elimina: ' + errorThrown );
+				});
+			});
+		}
+};
+
+
+var NS_LISTA_GRUPPI = {
+		
+		init:function(){
+			
+			//antiscroll-inner
+			var h = $('.contentTabs').innerHeight() - $('#fldRicercaGruppo').outerHeight(true) - 30;
+			var w = $('.contentTabs').innerWidth()-50
+			$("#wkGruppi").height( h ).width(w);
+
+			NS_LISTA_GRUPPI.refreshWk();
+		},
+	
+		refreshWk: function(pType){
+			
+			if(pType == 'CODICE' && $("#txtRicerca").val() != ''){
+				
+				vCodice = $("#txtRicerca").val().toUpperCase();
+				vGruppo = '';
+			
+			}else{
+				
+				vCodice = '';
+				vGruppo = $("#txtRicerca").val().toUpperCase();
+			
+			}
+
+			var objWk = new WK({
+				"id"		: 'LISTA_GRUPPI',
+    			"aBind"		: ["gruppo","codice"],
+    			"aVal"		: [vGruppo, vCodice],
+    			"container" : 'wkGruppi'
+			});
+			
+			objWk.loadWk();
+		},
+		
+		cancella:function(riga){
+			
+			var vCodice = typeof riga[0] == 'undefined' ? riga.CODICE : riga[0].CODICE ;
+			var messaggio = traduzione.lblConfirmCancellaGruppo;
+			messaggio += vCodice.toString();
+			messaggio += '?';
+			
+			home.NS_MMG.confirm(messaggio, function(){ 
+
+				var parameters={
+						"pCodice" : vCodice
+				}
+				
+				$.NS_DB.getTool({
+					_logger: home.logger 
+				}).call_function({
+					id:			'MMG.CANCELLA_GRUPPO',
+					parameter:	parameters
+				}).done(function( response ){
+					if( typeof response.p_result != 'undefined' ){
+						home.NOTIFICA.success( { 
+							title:		'Successo!',
+							message:	response.p_result 
+						});
+						NS_LISTA_UTENTI.refreshWk();
+					}
+				}).fail(function( jqXHR, textStatus, errorThrown ) {
+					home.logger.error('Errore NS_MENU_APPUNTI.elimina: ' + errorThrown );
+				});
+			});
+		},
+		
+		inserisci:function(riga){
+			
+			home.NS_MMG.apri("CONFIGURAZIONE_GRUPPI","&CODICE_GRUPPO=");
+		},
+		
+		modifica:function(riga){
+			
+			var vCodice = typeof riga[0] == 'undefined' ? riga.CODICE : riga[0].CODICE ;
+			
+			home.NS_MMG.apri("CONFIGURAZIONE_GRUPPI","&CODICE_GRUPPO="+vCodice);
+		},
+		
+		canModify:function(rec) {
+			return LIB.isValid(rec.IDEN) || LIB.isValid(rec[0]) && LIB.isValid(rec[0].IDEN);
+		}
+};

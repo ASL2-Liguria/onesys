@@ -1,0 +1,28 @@
+<INCLUDE>
+	<CSS path="css/mix.css" />
+	<JS path="js/Base/LIB.js" />
+    <JS path="js/Base/NO-min/ecma.js"  condizione="IE" />
+	<JS path="js/Base/NS_LOADING.js" />
+	<JS path="js/Base/NO-min/jquery.dialog.js" />
+	<JS path="js/Base/DIALOG.js" />
+	<JS path="js/Base/NO-min/NS_INFORMATIONS.js" />
+    <JS path="js/Base/NS_VOCAL.js" />
+    <JS path="js/Base/NS_COMANDI_VOCALI.js" />
+    <JS path="js/Base/NO-min/NS_DB.js" />
+    <JS path="js/Base/NS_FENIX_TOP.js" />
+    <JS path="js/Base/NS_FENIX_PRINT.js" />
+    <JS path="js/Base/NS_FENIX_FIRMA.js" />
+    <JS path="js/Base/NS_VOCAL.js" />
+    <JS path="js/PS/Firma/NS_FIRME_PS.js" />
+    <JS path="js/PS/Stampe/NS_PS_PRINT.js" />
+    <JS path="js/PS/NS_FENIX_PS/NS_FENIX_PS.js" />
+    <JS path="js/PS/TabHomePS/Decesso.js" />
+    <JS path="js/PS/TabHomePS/FunzioniGeneriche.js" />
+    <JS path="js/PS/TabHomePS/associazioneMissione118.js" />
+    <DWR path="dwr/engine.js" />
+    <DWR path="dwr/interface/toolKitDB.js" />
+    <DWR path="dwr/interface/dwrBaseFactory.js" />
+</INCLUDE>
+
+
+

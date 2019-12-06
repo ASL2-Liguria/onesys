@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WK_TRASFERIMENTI_PAZIENTE</ID>
+    <ID-QUERY connection="ADT">WORKLIST.WK_TRASFERIMENTI_PAZIENTE</ID-QUERY>
+    <TITLE>"Worklist Trasferimenti Paziente"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+    	<MENU>
+            <ID>MENU_WK_TRASFERIMENTI_PAZIENTE</ID>
+        </MENU>
+    	<ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO</COL>
+                        <DB>IDEN_CONTATTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN CONTATTO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_ACCESSO_CARTELLA</COL>
+                        <DB>IDEN_ACCESSO_CARTELLA</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN_ACCESSO_CARTELLA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO_GIURIDICO</COL>
+                        <DB>IDEN_CONTATTO_GIURIDICO</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN CONTATTO GIURIDICO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>IDEN_CONTATTO_ASSISTENZIALE</COL>
+                        <DB>IDEN_CONTATTO_ASSISTENZIALE</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN CONTATTO ASSISTENZIALE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_STATO</COL>
+                        <DB>CODICE_STATO</DB>
+                    </ID>
+                    <DESCRIPTOR>"STATO"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return NS_WK_TRASFERIMENTI.processRichiestaTrasferimento(data, $(this), td);}]]></PROCESS>
+                    <WIDTH>75px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INIZIO</COL>
+                        <DB>DATA_INIZIO</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA INIZIO"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>125px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_FINE</COL>
+                        <DB>DATA_FINE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA FINE"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>125px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PROGRESSIVO</COL>
+                        <DB>PROGRESSIVO</DB>
+                    </ID>
+                    <DESCRIPTOR>"PROGR."</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>75px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CDC_GIURIDICO</COL>
+                        <DB>CDC_GIURIDICO</DB>
+                    </ID>
+                    <DESCRIPTOR>"REP. GIURIDICO"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CDC_ASSISTENZIALE</COL>
+                        <DB>CDC_ASSISTENZIALE</DB>
+                    </ID>
+                    <DESCRIPTOR>"REP. ASSISTENZIALE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>AMBULANZA</COL>
+                        <DB>AMBULANZA</DB>
+                    </ID>
+                    <DESCRIPTOR>"AMBULANZA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>75px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_PARTENZA_AMBULANZA</COL>
+                        <DB>DATA_PARTENZA_AMBULANZA</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA PARTENZA"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>125px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_ARRIVO_AMBULANZA</COL>
+                        <DB>DATA_ARRIVO_AMBULANZA</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA ARRIVO"</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>125px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DIFF_MINUTI</COL>
+                        <DB>DIFF_MINUTI</DB>
+                    </ID>
+                    <DESCRIPTOR>"TEMPO IMPIEGATO"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){return NS_RICH_TRASF_GIURIDICO.processDiffMinuti(data,wk);}]]></PROCESS>
+                    <WIDTH>75px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN id="IDEN_CONTATTO_ASSISTENZIALE">ASC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

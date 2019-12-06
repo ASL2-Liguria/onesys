@@ -1,0 +1,95 @@
+<MENU>
+	<id>MENU_CERTIFICATI</id>
+	<TITLE>traduzione.lblMenu</TITLE>
+	<LIST>
+		
+		<ITEM>
+			<ID>MC.MOD</ID>
+			<LINK><![CDATA[function(rec){WK_CERTIFICATI.rettificaCertificato(rec);}]]></LINK>
+			<ICON_CLASS>modifica</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].ID_ANNULLAMENTO == null);}]]></WHERE>
+			<OUTPUT>traduzione.lblRettifica</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<!-- <ITEM>
+			<ID>MC.DEL</ID>
+			<LINK><![CDATA[function(rec){WK_CERTIFICATI.annullaCertificato(rec);}]]></LINK>
+			<ICON_CLASS>bidone</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>"Annulla Certificato"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM> -->
+
+		<ITEM>
+			<ID>MC.PRINT</ID>
+			<LINK><![CDATA[function(rec){WK_CERTIFICATI.stampaCertificato(rec,'','NEW','ALL');}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].ID_ANNULLAMENTO == null);}]]></WHERE>
+			<OUTPUT>traduzione.lblStampaCertificato</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MC.PRINT_ONLY_ONE</ID>
+			<LINK><![CDATA[function(rec){WK_CERTIFICATI.stampaCertificato(rec,'','NEW');}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].ID_ANNULLAMENTO == null);}]]></WHERE>
+			<OUTPUT>traduzione.lblStampaOnlyOne</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MC.PRINT_PDF</ID>
+			<LINK><![CDATA[function(rec){WK_CERTIFICATI.stampaCertificato(rec,'S','NEW','ALL');}]]></LINK>
+			<ICON_CLASS>refertazione-strutturata</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].ID_ANNULLAMENTO == null);}]]></WHERE>
+			<OUTPUT>traduzione.lblStampaPdf</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MC.PRINT_OLD</ID>
+			<LINK><![CDATA[function(rec){WK_CERTIFICATI.stampaCertificato(rec,'','OLD','ALL');}]]></LINK>
+			<ICON_CLASS>stampa</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].ID_ANNULLAMENTO == null);}]]></WHERE>
+			<OUTPUT>traduzione.lblStampaOld</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MC.MAIL</ID>
+			<LINK><![CDATA[function(rec){WK_CERTIFICATI.preparaMail(rec);}]]></LINK>
+			<ICON_CLASS>inserisci-esame</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return (rec[0].ID_ANNULLAMENTO == null);}]]></WHERE>
+			<OUTPUT>traduzione.lblMail</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+		<ITEM>
+			<ID>MC.INS_CERTIFICATO</ID>
+			<LINK><![CDATA[function(){WK_CERTIFICATI.inserisciCertificato();}]]></LINK>
+			<ICON_CLASS>avanti</ICON_CLASS>
+			<WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+			<OUTPUT>traduzione.lblInserisciCertificato</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		
+	</LIST>
+</MENU>

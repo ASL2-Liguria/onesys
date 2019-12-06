@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+<style>
+*{
+	margin:0px;
+}
+input{
+
+	width:50px;
+}
+</style>
+<body>
+	<label>Numero cicli</label>
+    <input id="txtNumeroCicli"/>
+    <label>Intervallo cicli</label>
+    <input id="txtIntervalloCicli"/>
+    <label>Giorno di inizio</label>
+    <input type="radio" value="0" name="radGiornoInizio" />0
+    <input type="radio" value="1" name="radGiornoInizio" />1    
+</body>
+<script>
+function getImpostazioni(){
+	var xml = '<root>'
+	
+	xml += '<element name="txtNumeroCicli" value="' + document.getElementById('txtNumeroCicli').value + '"/>';
+	
+	xml += '<element name="txtIntervalloCicli" value="' + document.getElementById('txtIntervalloCicli').value + '"/>';
+	
+	xml += '<element name="radGiornoInizio" value="' + getRadGiornoInizio() + '"/>';
+	
+	xml += '</root>';
+	
+	return xml;
+}
+
+function getRadGiornoInizio(){
+	var ar = document.getElementsByName('radGiornoInizio');
+	for(var i=0;i<ar.length;i++){
+		if(ar[i].checked)return ar[i].value;
+	}
+}
+</script>
+</html>

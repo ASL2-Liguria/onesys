@@ -1,0 +1,9 @@
+<ROWSET>
+    <ROW>
+        <lblCognome>Cognome</lblCognome>
+        <lblNome>Nome</lblNome>
+        <lblCartella>Numero Pratica</lblCartella>
+        <lblResetCampi>Reset</lblResetCampi>
+        <filtroCartelle>Cartelle LOCK</filtroCartelle>
+    </ROW>
+</ROWSET>

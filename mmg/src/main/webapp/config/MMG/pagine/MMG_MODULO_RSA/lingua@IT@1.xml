@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabModulo>Modulo RSA</tabModulo>
+    	
+        <lblTitolo>Richiesta medica di valutazione per l'ammissione alla rete dei servizi di assistenza socio sanitaria territoriale</lblTitolo>
+        
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        
+        <butInserisci>Inserisci</butInserisci>
+        
+        <fldRicovero>PER CUI PROPONE:</fldRicovero>
+        <fldCheck>Il/la Paziente presenta:</fldCheck>
+        
+        <lblData>Data compilazione del modulo</lblData>
+        <lblOspedale>ricoverato/a c/o Ospedale</lblOspedale>
+        <lblReparto>Reparto</lblReparto>
+        <lbltxtAffezioni>Affetto/a da</lbltxtAffezioni>
+        <lblProblemiPaziente>Diagnosi effettuate per il paziente</lblProblemiPaziente>
+        <lblDataDimissione>Data prevista della dimissione</lblDataDimissione>
+        
+        <lblTipRicovero>Tipologia R.S.A.</lblTipRicovero>
+        <lblDettADI>Tipologia A.D.I.</lblDettADI>
+		
+    </ROW>
+</ROWSET>

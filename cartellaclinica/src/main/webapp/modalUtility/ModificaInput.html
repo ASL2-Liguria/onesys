@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'/>
+	<link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'/>
+	<link href='../std/css/button.css' type='text/css' rel='stylesheet'/>
+	<script type='text/javascript' src='../std/jscript/engine/jquery.js' language='JavaScript'></script>
+	<title>&nbsp;</title>
+	<script>
+	//<![CDATA[
+	           
+	    if(typeof window.dialogArguments == "undefined") window.dialogArguments = parent.window.dialogArguments;
+	    
+		function init()
+		{
+			if(dialogArguments!=null){
+				document.title = dialogArguments[0] || "";
+				document.all.lblTitolo.innerHTML = dialogArguments[0] || "&nbsp;";
+				switch(dialogArguments[1]) {
+				case 'E':
+					document.all.lblTitle.innerHTML = '<b>Modifica il testo:</b>';
+					//document.title = "Modifica";
+					$('#txtNote').focus().val(dialogArguments[2]);
+					break;
+				case 'I': default:
+					document.all.lblTitle.innerHTML = '<b>Inserisci il testo:</b>';
+					//document.title = "Inserisci";
+					$('#txtNote').focus().val('');
+					break;
+				}
+			}
+		}
+		
+		function closeModal()
+		{
+			if (arguments.length > 0) {
+				window.returnValue = arguments[0];
+			} else {
+				var text = $('#txtNote').val().replace(/^\s+|\s+$/, '');
+				if (dialogArguments[1] == 'I' && text == '') {
+					alert("Attenzione: il testo non può essere vuoto.");
+					$('#txtNote').val('').focus();
+					return;
+				}
+				window.returnValue = text;
+			    if(typeof parent.window.returnValue !== "undefined") {
+			    	parent.window.returnValue = text;
+			    }
+			}
+			try {
+				parent.$.fancybox.close();
+			} catch(e) {
+				self.close();
+			}
+		}
+		
+		function submit(e) {
+			e = e || window.event;	
+			var charCode = (typeof e.which === "number") ? e.which : e.keyCode;
+			if (charCode == 13) {
+				closeModal();
+			}
+		}
+	//]]>
+	</script>
+	<style>
+	
+	#txtNote {
+		width: 100%;
+		font-family: Arial;
+	}
+	
+	div.pulsante {
+		cursor: pointer;
+	}
+	
+	</style>
+</head>
+<body onload="init();">
+	<table class="classTabHeader" cellspacing="0" cellpadding="0" width="100%">
+		<tr>
+			<td class="classTabHeaderSx">&nbsp;</td>
+			<td class="classTabHeaderMiddle"><label id="lblTitolo">&nbsp;</label></td>
+			<td class="classTabHeaderDx">&nbsp;</td>
+		</tr>
+	</table>
+	<div style="width: 100%;padding-top: 5px">
+		&nbsp;<label id="lblTitle"><b>Valore</b></label>
+		<input type="text" id=txtNote value="" onkeyup="submit()"/>
+	</div>
+	<table cellpadding="0" cellspacing="0" class="classTabHeader" width="100%">
+		<tr>
+			<td class="classTabFooterSx">&nbsp;</td>
+			<td class="classTabHeaderMiddle">&nbsp;</td>
+			<td id="tdOK" class="classButtonHeader">
+				<div class="pulsante"><a onclick="closeModal();">Registra</a></div>
+			</td>
+			<td id="tdChiudi" class="classButtonHeader">
+				<div class="pulsante"><a onclick="closeModal(null);">Annulla</a></div>
+			</td>
+			<td class="classTabFooterDx">&nbsp;</td>
+		</tr>
+	</table>
+</body>
+</html>

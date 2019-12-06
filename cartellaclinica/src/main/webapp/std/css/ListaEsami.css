@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* css per la tabella di dati, come ad esempio la worklist */
+
+
+table.TableProfilo
+{
+	table-layout:fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:12px;
+	text-align:left;
+	border: 1px solid #6AA8F2;
+	background-color:#FFC;	
+	border-collapse : collapse;
+	width:100%;	
+}
+
+div
+{
+	table-layout:fixed;
+	font: Arial;
+	font-size:12px;
+	text-align:left;
+	width:100%;
+	padding-bottom:1px;
+	padding-top:1px;
+	padding-left:1px;
+	padding-right:1px;
+}
+
+div table{
+	
+	font-size:12px;
+	border: 1px solid #729ECF;
+	width:100%;
+
+}
+
+div table td
+{
+	width:20%;
+	font-stretch:condensed;
+}
+
+div table th
+{
+	width:20%;
+	font-size: 12px;
+    font-weight:bold;
+	padding-left:28px;
+	text-align:left;
+	border-right: 1px #729ECF;
+	text-decoration:underline;
+	cursor: hand;
+
+}
+
+.nonUrgente {
+
+	color: #CCC;
+
+}

@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/Base/NS_FENIX_SCHEDA.js" />
+	<JS path="js/MMG/NS_FENIX_SCHEDA_OVERRIDE.js" />
+</INCLUDE>

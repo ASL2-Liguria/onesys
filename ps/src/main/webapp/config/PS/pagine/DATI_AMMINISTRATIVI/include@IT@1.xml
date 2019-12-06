@@ -1,0 +1,4 @@
+<INCLUDE>
+    <JS path="config/PS/validator/model/V_PS_DATI_AMMINISTRATIVI.js"/>
+    <JS path="js/PS/DatiAmministrativi/DatiAmministrativi.js"/>
+</INCLUDE>

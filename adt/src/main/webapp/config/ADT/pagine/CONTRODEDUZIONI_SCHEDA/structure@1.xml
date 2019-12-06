@@ -1,0 +1,158 @@
+<PAGINA key_id="CONTRODEDUZIONI_SCHEDA">
+	<HEADER_PAGE key_id="CONTRODEDUZIONI_SCHEDA" valore="DEFAULT,SCHEDA,CONTRODEDUZIONI_SCHEDA#DEFAULT,CONTRODEDUZIONI_SCHEDA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#ADT_CONTRODEDUZIONI.SALVA_CONTESTAZIONE#ADT###" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="CONTRODEDUZIONI_SCHEDA#lblTitolo#butSalva,butApriSdo,butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabControdeduzioniScheda" valore="tabControdeduzioniScheda" evento="START">
+				<FIELDSET_TABLE key_id="DatiGenerali" valore="idDatiGenerali" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtRegioneAdd" valore="lblRegioneAdd##txtRegioneAdd####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtOspInviante" valore="lblOspInviante##txtOspInviante####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtCodiceIstituto" valore="lblCodiceIstituto##txtCodiceIstituto####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtNumeroScheda" valore="lblNumeroScheda##txtNumeroScheda####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtPosContabile" valore="lblPosContabile##txtPosContabile######N" evento="START">
+						</TD_LABEL_TEXT>
+						<INPUT.HIDDEN key_id="hIDEN" valore="hIDEN###" evento="START">
+                    	</INPUT.HIDDEN>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Errori" valore="idErrori" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtErroriAnag" valore="lblErroriAnag##txtErroriAnag####S##N" evento="START">
+					<TD_LABEL_TEXT key_id="txtErroriRes" valore="lblErroriRes##txtErroriRes####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtErroriPrest" valore="lblErroriPrest##txtErroriPrest####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtErroriRico" valore="lblErroriRico##txtErroriRico####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtErroriChiaveRec" valore="lblErroriChiaveRec##txtErroriChiaveRec####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtErroriImporto" valore="lblErroriImporto##txtErroriImporto####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtErroriDataPrest" valore="lblErroriDataPrest##txtErroriDataPrest####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					<TD_LABEL_TEXT key_id="txtErroriOnere" valore="lblErroriOnere##txtErroriOnere####S##N" evento="START">
+					</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Assistito" valore="idAssistito" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCognome" valore="lblCognome##txtCognome######N" evento="START">
+						<TD_LABEL_TEXT key_id="txtNome" valore="lblNome##txtNome####S##N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_DATA key_id="txtDataNascita" valore="lblDataNascita##txtDataNascita#####w80px#N" evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_TEXT key_id="txtSesso" valore="lblSesso##txtSesso######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtCodFisc" valore="lblCodiceFiscale##txtCodFisc######N" evento="START">
+						</TD_LABEL_TEXT>
+                    </TR_TD_LABEL_TEXT>
+                   <TR_TD_AUTOCOMPLETE key_id="StatoCivile" valore="lblStatoCivile#acStatoCivile#StatoCivile#txtStatoCivile#AnagraficaStatoCivile#" evento="START">
+	                    <TD_AUTOCOMPLETE key_id="ComRes" valore="lblComuneResidenza#acComRes#ComuneResidenza#txtComuneRes#AnagraficaComuneResidenza#" evento="START">
+	                    </TD_AUTOCOMPLETE>
+	                    <TD_AUTOCOMPLETE key_id="AslRes" valore="lblAslRes#acAslRes#AslRes#txtAslRes#AnagraficaAslAssistenza#" evento="START">
+	                    </TD_AUTOCOMPLETE>
+	                    <TD_AUTOCOMPLETE key_id="Citt" valore="lblCittadinanza#acCitt#Citt#txtCitt#AnagraficaNazioni#" evento="START">
+	                    </TD_AUTOCOMPLETE>
+                   </TR_TD_AUTOCOMPLETE>
+                   <TR_TD_LABEL_TEXT key_id="txtRegIniAdd" valore="lblRegIniAdd##txtRegIniAdd#####w30px#N" evento="START">
+                   		<TD_LABEL_TEXT key_id="txtRegNuovaAdd" valore="lblRegNuovaAdd##txtRegNuovaAdd#####w30px#N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtRegRes_Asl" valore="lblRegioneRes_Asl##txtRegRes_Asl######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtAslRes_Asl" valore="lblAslRes_Asl##txtAslRes_Asl######N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="datiSogei" valore="idSogei" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtCodFiscSogei" valore="lblCodiceFiscale##txtCodFiscSogei######N" evento="START">
+						<TD_LABEL_TEXT key_id="txtRegResSogei" valore="lblRegioneRes##txtRegResSogei######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtAslResSogei" valore="lblAslRes##txtAslResSogei######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_AUTOCOMPLETE key_id="ComResSogei" valore="lblComuneResidenza#acComRes#ComuneResidenzaSogei#txtComuneResSogei#AnagraficaComuneResidenza#" evento="START">
+	                    </TD_AUTOCOMPLETE>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="datiRicovero" valore="idRicovero" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataRico" valore="lblDataRicovero##txtDataRicovero#####w80px#N" evento="START">
+						<TD_LABEL_COMBO key_id="cmbRegime" valore="lblRegime##cmbRegime#cmbRegime#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="cmbTipoRico" valore="lblTipoRico##cmbTipoRico#cmbTipoRico#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_COMBO key_id="cmbMotivoDh" valore="lblMotivoDh##cmbMotivoDh#cmbMotivoDh#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TR_TD_LABEL_COMBO key_id="cmbProvenienza" valore="lblProvenienza##cmbProvenienza#cmbProvenienza#N#SALVA#S#" evento="START">
+							<TD_LABEL_COMBO key_id="cmbOnere" valore="lblOnere##cmbOnere#cmbOnere#N#SALVA#S#" evento="START">
+							</TD_LABEL_COMBO>
+							<TD_LABEL_COMBO key_id="cmbTrauma" valore="lblTrauma##cmbTrauma#cmbTrauma#N#SALVA#S#" evento="START">
+							</TD_LABEL_COMBO>
+							<TD_LABEL_TEXT key_id="txtRepAmmi" valore="lblRepAmmi##txtRepAmmi######N" evento="START">
+							</TD_LABEL_TEXT>
+						</TR_TD_LABEL_COMBO>
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="txtNumeroSchedaMadre" valore="lblNumeroSchedaMadre##txtNumeroSchedaMadre####S##N" evento="START">
+						<TD_LABEL_TEXT key_id="txtPesoNasc" valore="lblPesoNasc##txtPesoNasc####S##N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="datiPren" valore="idPren" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataPren" valore="lblDataPren##txtDataPren#####w80px#N" evento="START">
+							<TD_CHECK key_id="cmbLivelloUrg" valore="cmbLivelloUrg#cmbLivelloUrg#N#{width:'200px',single_val:true}##URGENZA" evento="START">
+							</TD_CHECK>
+						</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="datiDimissione" valore="idDimissione" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtDataDimi" valore="lblDataDimi##txtDataDimi#####w80px#N" evento="START">
+						<TD_LABEL_COMBO key_id="cmbModDimi" valore="lblModDimi##cmbModDimi#cmbModDimi#N#SALVA#S#" evento="START">
+						</TD_LABEL_COMBO>
+						<TD_LABEL_TEXT key_id="txtAutopsia" valore="lblAutopsia##txtAutopsia######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtRepDimi" valore="lblRepDimi##txtRepDimi######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtGgDh" valore="lblGgDh##txtGgDh######N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_DATA>
+					<TR_TD_LABEL_TEXT key_id="txtDRG" valore="lblDRG##txtDRG######N" evento="START">
+						<TD_LABEL_TEXT key_id="txtImportoDRG" valore="lblImportoDRG##txtImportoDRG######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtDRGRegRic" valore="lblDRGRegRic##txtDRGRegRic######N" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="txtImportoDRGRegRic" valore="lblImportoDRGRegRic##txtImportoDRGRegRic######N" evento="START">
+						</TD_LABEL_TEXT>
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="ADT_DiagnosiICD9_CDD" valore="idDiagnosi" evento="START">
+					<TR_TD_AUTOCOMPLETE key_id="Diagnosi0" valore="lblDiagnosi0#acDiagnosi0#Diagnosi0#txtDiagnosi0#ADT_DiagnosiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Diagnosi1" valore="lblDiagnosi1#acDiagnosi1#Diagnosi1#txtDiagnosi1#ADT_DiagnosiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Diagnosi2" valore="lblDiagnosi2#acDiagnosi2#Diagnosi2#txtDiagnosi2#ADT_DiagnosiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Diagnosi3" valore="lblDiagnosi3#acDiagnosi3#Diagnosi3#txtDiagnosi3#ADT_DiagnosiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Diagnosi4" valore="lblDiagnosi4#acDiagnosi4#Diagnosi4#txtDiagnosi4#ADT_DiagnosiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Diagnosi5" valore="lblDiagnosi5#acDiagnosi5#Diagnosi5#txtDiagnosi5#ADT_DiagnosiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="Interventi" valore="idInterventi" evento="START">
+					<TR_TD_AUTOCOMPLETE key_id="Intervento0" valore="lblIntervento0#acIntervento0#Intervento0#txtIntervento0#ADT_InterventiICD9_CDD#" evento="START">
+						<TD_LABEL_DATA key_id="txtDataInt0" valore="lblDataInt0##txtDataInt0#####w80px#N" evento="START">
+						</TD_LABEL_DATA>
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Intervento1" valore="lblIntervento1#acIntervento1#Intervento1#txtIntervento1#ADT_InterventiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Intervento2" valore="lblIntervento2#acIntervento2#Intervento2#txtIntervento2#ADT_InterventiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Intervento3" valore="lblIntervento3#acIntervento3#Intervento3#txtIntervento3#ADT_InterventiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Intervento4" valore="lblIntervento4#acIntervento4#Intervento4#txtIntervento4#ADT_InterventiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+					<TR_TD_AUTOCOMPLETE key_id="Intervento5" valore="lblIntervento5#acIntervento5#Intervento5#txtIntervento5#ADT_InterventiICD9_CDD#" evento="START">
+					</TR_TD_AUTOCOMPLETE>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

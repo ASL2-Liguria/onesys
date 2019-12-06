@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>Storico Prescrizioni Farmaco</lblTitolo>
+       	<fldStoricoFarmaci>Prescrizioni</fldStoricoFarmaci>
+       	<tabMain>Storico</tabMain>
+       	<lblCancella>Elimina</lblCancella>
+       	<lblDialogCancella>Cancellare la prescrizione selezionata?</lblDialogCancella>
+       	
+       	<butStampaStorico>Stampa Storico</butStampaStorico>
+       	<butStampaGrafico>Stampa Grafico</butStampaGrafico>
+       	
+       	<tabStoricoTerapia>Storico della terapia</tabStoricoTerapia>
+        <lblDaData>Dal:</lblDaData>
+        <lblAData>Al:</lblAData>
+        
+		<lblTipoSostanza>Tipo Sostanza</lblTipoSostanza>
+        <lblFarmaco>Nome Farmaco</lblFarmaco>
+		<lblPrincipioAttivo>Principio Attivo</lblPrincipioAttivo>
+    </ROW>
+</ROWSET>

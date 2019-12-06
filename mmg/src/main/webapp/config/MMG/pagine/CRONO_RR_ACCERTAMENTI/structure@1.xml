@@ -1,0 +1,30 @@
+<PAGINA key_id="CRONO_RR_ACCERTAMENTI">
+	<HEADER_PAGE key_id="CRONO_RR_ACCERTAMENTI" valore="DEFAULT_MMG,SCHEDA,CRONO_RR_ACCERTAMENTI#DEFAULT_MMG,CRONO_RR_ACCERTAMENTI" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DETTAGLIO_ATTRIBUTI#MMG_DATI#MMG_ACCERTAMENTI_DETTAGLIO#IDEN#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabCrono" valore="cronoRRFarmaci#lblTitolo#butSalva,butChiudi" evento="START_END">
+			<FIELDSET_TABLE key_id="fldTemporanea" valore="fldTemporanea" evento="START">
+				<TR_TD_LABEL_DATA key_id="DaData" valore="lblDaData##txtDaData#DaData#startWithToday:true, format: 'd/m/Y',direction:true#disabled:false##DA_DATA" evento="START">
+				</TR_TD_LABEL_DATA>
+				<TR_TD_LABEL_DATA key_id="AData" valore="lblAData##txtAData#AData#startWithToday:false, format: 'd/m/Y',direction:true#disabled:false##A_DATA" evento="START">
+				</TR_TD_LABEL_DATA>
+				<TR_TD_LABEL_CHECK key_id="Blocco" valore="lblBlocco##Blocco#radBlocco#N#{width:150,ctrl:false}##BLOCCO" evento="START">
+				</TR_TD_LABEL_CHECK>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fldNote" valore="fldNote" evento="START">
+				<TR_TD_TEXTAREA key_id="NotePrescrizione" valore="txtNotePrescrizione#NOTE_PRESCRIZIONE#2" evento="START">
+				</TR_TD_TEXTAREA>
+			</FIELDSET_TABLE>
+			<FIELDSET_TABLE key_id="fldPeriodica" valore="fldPeriodica" evento="START">
+				<TR_TD_LABEL_DATA key_id="DataPartenza" valore="lblDataPartenza##txtDataPartenza#DataPartenza#startWithToday:false, format: 'd/m/Y',direction:true#disabled:false##DATA_PARTENZA" evento="START">
+				</TR_TD_LABEL_DATA>
+				<TR_TD_LABEL_TEXT key_id="ggPeriodo" valore="lblggPeriodo##txtggPeriodo###GIORNI_PERIODO" evento="START">
+				</TR_TD_LABEL_TEXT>
+				<TR_TD_LABEL_TEXTAREA key_id="Note" valore="lblAreaNote#txtAreaNote#NOTE#2" evento="START">
+				</TR_TD_LABEL_TEXTAREA>
+			</FIELDSET_TABLE>
+			<INPUT.HIDDEN key_id="hTipoPeriodo" valore="hTipoPeriodo###TIPO" evento="START">
+			</INPUT.HIDDEN>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

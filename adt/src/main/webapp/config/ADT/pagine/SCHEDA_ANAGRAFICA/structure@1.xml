@@ -1,0 +1,151 @@
+<PAGINA key_id="SCHEDA_ANAGRAFICA">
+    <HEADER_PAGE key_id="SCHEDA_ANAGRAFICA" valore="DEFAULT,SCHEDA,SCHEDA_ANAGRAFICA#DEFAULT,SCHEDA_ANAGRAFICA" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#FNC_SALVA_ANAG#PS#" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabAnag" valore="SchedaAnagrafica#lblTitolo#butStampaDati,butSalva,butChiudi" evento="START_END">
+            <TABULAZIONE.CREA_TAB key_id="tabDatiPrincipali" valore="tabDatiPrincipali" evento="START">
+                <FIELDSET_TABLE key_id="fldDP" valore="fldDP" evento="START">
+                    <TR_TD_LABEL_TEXT key_id="Cognome" valore="lblCognome##txtCognome###COGNOME###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Nome" valore="lblNome##txtNome###NOME###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="DataNasc" valore="lblDataNasc##txtDataNasc#DataNasc#readonly_element: false, format: 'd/m/Y',onSelect: function(){},direction:false#disabled:false##DATA_NASCITA" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_RADIO key_id="Sesso" valore="lblSesso##Sesso#radSesso#{width:'none',idxDefault:2}#S#SESSO" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <INPUT.HIDDEN key_id="hCodComNasc" valore="hCodComNasc###" evento="START">
+                    </INPUT.HIDDEN>
+                    <INPUT.HIDDEN key_id="ID4" valore="ID4" evento="START">
+                    </INPUT.HIDDEN>
+                    <TR_TD_AUTOCOMPLETE key_id="LocResNasc" valore="lblLuogoNasc#acLuogoNascita#LuogoNasc#txtLuogoNasc#AnagraficaComuneNascita#IDEN_COMUNE_NASCITA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="CodFisc" valore="lblCodFisc##txtCodFisc###CODICE_FISCALE" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_RADIO key_id="STP" valore="lblSTP##STP#radSTP#{width:'none',idxDefault:1}#S#STP" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="codSTP" valore="lblcodSTP##txtcodSTP######N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="scadcodSTP" valore="lblscadcodSTP#maskData#txtscadcodSTP##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <!--TR_TD_LABEL_TEXT key_id="scadcodSTP" valore="lblscadcodSTP##txtscadcodSTP####S##N" evento="START">
+                    </TR_TD_LABEL_TEXT-->
+                    <TR_TD_LABEL_RADIO key_id="ENI" valore="lblENI##ENI#radENI#{width:'none',idxDefault:1}#S#STP" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="codENI" valore="lblcodENI##txtcodENI######N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="scadcodENI" valore="lblscadcodENI#maskData#txtscadcodENI##readonly_element: false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y',	formatOut: 'd m Y',disabled:false##" evento="START" >
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_LABEL_RADIO key_id="radGIU" valore="lblGIU##GIU#radGIU#{width:'none',idxDefault:1}#S#GIU" evento="START">
+                    </TR_TD_LABEL_RADIO>
+                    <TR_TD_LABEL_TEXT key_id="txtcodGIU" valore="lblcodGIU##txtcodGIU######N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="txtscadcodGIU" valore="lblscadcodGIU##txtscadcodGIU######N" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <!-- TR_TD_LABEL_TEXT key_id="scadcodENI" valore="lblscadcodENI##txtscadcodENI####S##N" evento="START">
+                    </TR_TD_LABEL_TEXT -->
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldInfoPaz" valore="fldInfoPaz" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="StatoCivile" valore="lblStatoCivile#acStatoCivile#StatoCivile#txtStatoCivile#AnagraficaStatoCivile#IDEN_STATO_CIVILE" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="TitoloStudio" valore="lblTitoloStudio#acTitoloStudio#TitoloStudio#txtTitoloStudio#AnagraficaTitoloStudio#IDEN_TITOLO_STUDIO" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="CodiceRegioneAss" valore="lblCodiceRegioneAss##txtCodiceRegioneAss###ASSISTENZA_COD_REGIONE###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt" valore="lblCitt#acCittadinanza0#Citt#txtCitt0#AnagraficaCittadinanza#IDEN_CITTADINANZA##AUTOCOMPLETECITTADINANZA" evento="START">
+                        <TD.INIT key_id="tdPlus" valore="1#tdPlus#tdPlus" evento="START">
+                            <DIV key_id="divPlus" valore="#divPlus" evento="START"></DIV>
+                        </TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt1" valore="lblCitt1#acCittadinanza1#Citt#txtCitt1#AnagraficaCittadinanza#IDEN_CITTADINANZA1##AUTOCOMPLETECITTADINANZA" evento="START">
+                        <TD.INIT key_id="tdPlus" valore="1#tdPlus#tdPlus" evento="START">
+                            <DIV key_id="divPlus" valore="#divPlus" evento="START"></DIV>
+                        </TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt2" valore="lblCitt2#acCittadinanza2#Citt#txtCitt2#AnagraficaCittadinanza#IDEN_CITTADINANZA2##AUTOCOMPLETECITTADINANZA" evento="START">
+                        <TD.INIT key_id="tdPlus" valore="1#tdPlus#tdPlus" evento="START">
+                            <DIV key_id="divPlus" valore="#divPlus" evento="START"></DIV>
+                        </TD.INIT>
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Citt4" valore="lblCitt3#acCittadinanza3#Citt#txtCitt3#AnagraficaCittadinanza#IDEN_CITTADINANZA3##AUTOCOMPLETECITTADINANZA" evento="START"></TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="Naz" valore="lblNaz#acNaz#Naz#txtNaz#AnagraficaNazioni#" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="MedBase" valore="lblMedBase#acMedBase#MedBase#txtMedBase#AnagraficaMedicoBase#IDEN_MEDICO_BASE" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_AUTOCOMPLETE key_id="ASLAssistenza" valore="lblASLAssistenza#acASLAssistenza#ASLAssistenza#txtASLAssistenza#AnagraficaASLAssistenza#ASL_ASSISTENZA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="tessera" valore="lblTessera##txtTessera###TESSERA" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="scadenzaTessera" valore="lblScadenzaTessera##txtScadenzaTessera#readonly_element: false, format: 'd/m/Y',onSelect: function(){;},direction:false#disabled:true##SCADENZA_TESSERA" evento="START">
+                    </TR_TD_LABEL_DATA>
+                    <TR_TD_AUTOCOMPLETE key_id="Prof" valore="lblProf#acProfessioni#Prof#txtProf#AnagraficaProfessione#IDEN_PROFESSIONE" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="CellPaz" valore="lblCellPaz##txtCellPaz###CELL_PAZIENTE###" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Mail" valore="lblMail##txtMail###EMAIL###N" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Altezza" valore="lblAltezza##txtAltezza###ALTEZZA###w120px_input#lblCm" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="Peso" valore="lblPeso##txtPeso###PESO###w120px_input#lblKg" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_DATA key_id="DataDec" valore="lblDataDec##txtDataDec#DataDec#readonly_element: false, format: 'd/m/Y',onSelect: function(){;},direction:false#disabled:true##DATA_MORTE" evento="START">
+                    </TR_TD_LABEL_DATA>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldNote" valore="fldNote" evento="START">
+                    <TR_TD_TEXTAREA key_id="taNote" valore="taNote#NOTE" evento="START">
+                    </TR_TD_TEXTAREA>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+            <TABULAZIONE.CREA_TAB key_id="tabResDom" valore="tabResDom" evento="START">
+                <FIELDSET_TABLE key_id="fldRes" valore="fldRes" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="ComRes" valore="lblComuneResidenza#acComRes#ComuneResidenza#txtComuneRes#AnagraficaComuneResidenza#IDEN_COMUNE_RESIDENZA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="IndRes" valore="lblIndRes##txtIndRes###RES_INDIRIZZO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CivRes" valore="lblCivRes##txtCivRes###RES_NUMERO_CIVICO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CAPRes" valore="lblCAPRes##txtCAPRes###RES_CAP" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="TelRes" valore="lblTelRes##txtTelRes###RES_TELEFONO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="ProvRes" valore="lblProvRes##txtProvRes###RES_PROVINCIA" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CodiceRegioneRes" valore="lblCodiceRegioneRes##txtCodiceRegioneRes###CODICE_REGIONALE_RES" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_AUTOCOMPLETE key_id="ASLResidenza" valore="lblASLResidenza#acASLResidenza#ASLResidenza#txtASLResidenza#AnagraficaASLStandard#ASL_RESIDENZA" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+                <FIELDSET_TABLE key_id="fldDom" valore="fldDom" evento="START">
+                    <TR_TD_AUTOCOMPLETE key_id="ComDom" valore="lblComuneDomicilio#acComDom#ComuneDomicilio#txtComuneDom#AnagraficaComuneDomicilio#IDEN_COMUNE_DOMICILIO" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                    <TR_TD_LABEL_TEXT key_id="IndDom" valore="lblIndRes##txtIndDom###DOM_INDIRIZZO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CivDom" valore="lblCivRes##txtCivDom###DOM_NUMERO_CIVICO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CAPDom" valore="lblCAPRes##txtCAPDom###DOM_CAP" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="TelDom" valore="lblTelRes##txtTelDom###DOM_TELEFONO" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="ProvDom" valore="lblProvDom##txtProvDom###DOM_PROVINCIA" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_LABEL_TEXT key_id="CodiceRegioneDom" valore="lblCodiceRegioneDom##txtCodiceRegioneDom###CODICE_REGIONALE_DOM" evento="START">
+                    </TR_TD_LABEL_TEXT>
+                    <TR_TD_AUTOCOMPLETE key_id="ASLDomicilio" valore="lblASLDomicilio#acASLDomicilio#ASLDomicilio#txtASLDomicilio#AnagraficaASLStandard#ASL_DOMICILIO" evento="START">
+                    </TR_TD_AUTOCOMPLETE>
+                </FIELDSET_TABLE>
+            </TABULAZIONE.CREA_TAB>
+            <TABULAZIONE.CREA_TAB key_id="tabIndirizzi" valore="tabIndirizzi" evento="START">
+                <DIV key_id="divOperazioni" valore="divOperazioni" evento="START">
+                    <BUTTON key_id="butAddIndirizzo" valore="butAddIndirizzo" evento="START">
+                    </BUTTON>
+                </DIV>
+                <DIV.WORKLIST key_id="divWkIndirizzi" valore="divWkIndirizzi" evento="START">
+                </DIV.WORKLIST>
+            </TABULAZIONE.CREA_TAB>
+            <TABULAZIONE.CREA_TAB key_id="tabEsami" valore="tabEsami" evento="START">
+                <DIV.WORKLIST key_id="divWk" valore="divWk" evento="START">
+                </DIV.WORKLIST>
+            </TABULAZIONE.CREA_TAB>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        <link rel="stylesheet" href="plugin/jqgrid/style/jqgrid.css" type="text/css"/>
+        <link rel="stylesheet" href="plugin/jqgrid/style/jquery-ui-1.10.4.custom.min.css" type="text/css"/>
+		<link rel="stylesheet" href="plugin/redquerybuilder/gwt/dark/dark.css" type="text/css"/>
+		<link rel="stylesheet" href="css/ADT/STATISTICHE/statistiche.css"/>
+			
+		<script type="text/javascript" src="js/Base/LIB.js"></script>
+        <script type="text/javascript" src="plugin/jqgrid/conf/grid.locale-it.js"></script>
+		<script type="text/javascript" src="plugin/jqgrid/jquery.jqGrid.min.js"></script>
+		<script type="text/javascript" src="plugin/redquerybuilder/RedQueryBuilder.nocache.js"></script>
+		<script type="text/javascript" src="plugin/redquerybuilder/RedQueryBuilderFactory.nocache.js"></script>
+		<script type="text/javascript" src="js/ADT/Statistiche/JQGridColumnsModel.js"></script>
+		<script type="text/javascript" src="js/ADT/Statistiche/JQGrid.js"></script>
+		
+		<script type="text/javascript" src="js/ADT/Statistiche/RedQueryBuilderSavedQueries.js"></script>
+		<script type="text/javascript" src="js/ADT/Statistiche/RedQueryBuilderTables.js"></script>
+		<script type="text/javascript" src="js/ADT/Statistiche/RedQueryBuilderTypes.js"></script>
+		<script type="text/javascript" src="js/ADT/Statistiche/RedQueryBuilderGestione.js"></script>
+		<script type="text/javascript" src="js/ADT/Statistiche/Statistica.js"></script>
+        
+        <style>
+            #rqb{width: 40%;display: inline-block;}
+            #debug{width: 40%;display: inline-block;}
+        </style>
+    </head>
+    <body>
+    	<div id ="divMenuSavedQuery"></div>
+
+        <!-- elemento di aggancio a RedQueryBuilder -->
+        <div id="rqb">&nbsp;</div>
+
+        <div><textarea id="debug" cols="80" rows="10">debug output</textarea></div>
+
+		<div id='divButton'>
+        	<input type="button" value="Cerca" id="btnSearch"/>
+        	<!--
+        	Il Bottone di Distruzione della Statistica viene creato nel caption dell WK Stessa 
+        	<input type="button" value="Libera" id="btnUnload"/>
+        	-->
+		</div>
+
+    </body>
+
+</html>

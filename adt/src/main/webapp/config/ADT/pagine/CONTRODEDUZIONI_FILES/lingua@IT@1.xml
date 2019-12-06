@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Controdeduzioni</lblTitolo>
+    	<tabControdeduzioni>Files Contestazioni</tabControdeduzioni>
+    	<fieldsetUploadFile>Gestione file input</fieldsetUploadFile>
+    	<lblFileRegione>Input File regione</lblFileRegione>
+    	<lblAnno>Anno</lblAnno>
+    	<lblRegione>Regione</lblRegione>
+    	<butUpLoad>Carica file selezionato</butUpLoad>
+    	<butGenera>Genera files di output</butGenera>
+    	<fieldsetGeneraFile>Generazione files di output</fieldsetGeneraFile>
+    	<fieldsetOutputControdeduzioni>Gestione file output</fieldsetOutputControdeduzioni>
+    	<lblFileAnagrafico>File anagrafico</lblFileAnagrafico>
+    	<lblFileClinico>File clinico</lblFileClinico>
+    	<btnShowFileAnagrafico>Scarica</btnShowFileAnagrafico>
+    	<btnShowFileClinico>Scarica</btnShowFileClinico>
+    	<fieldsetOutputFile>Output files</fieldsetOutputFile>
+    </ROW>
+ </ROWSET>

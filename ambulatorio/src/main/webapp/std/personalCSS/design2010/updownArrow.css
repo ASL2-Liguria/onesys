@@ -1,0 +1,59 @@
+/** foglio di stile per i pulsanti dello zoom **/
+
+.DivUpArrow{
+	width:12px;
+	height:14px;
+	background: url(../../../imagexPix/button/mini/bw/arrow_up.png) center no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;
+}
+
+.DivDownArrow{
+	width:12px;
+	height:14px;
+	background: url(../../../imagexPix/button/mini/bw/arrow_down.png) center no-repeat;
+	display:inline;
+	position:relative;	
+	cursor:pointer;	
+}
+
+.DivUpArrowSelected{
+	width:13px;
+	height:14px;
+	background: url(../../../imagexPix/button/mini/bw/arrow_up_over.png) center no-repeat;
+	display:inline;
+	position:relative;	
+	cursor:pointer;	
+}
+
+.DivDownArrowSelected{
+	width:13px;
+	height:14px;
+	background: url(../../../imagexPix/button/mini/bw/arrow_down_over.png) center no-repeat;
+	display:inline;
+	position:relative;
+	cursor:pointer;	
+}
+
+#idDragDropResizeElement{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  cursor:w-resize;
+  display:none;
+  top:0;
+  left:0;
+  background:url(../../../imagexPix/button/mini/hResize.gif) center no-repeat;
+  z-index:100;
+}
+
+#idResizeElementForColumn{
+	width:15px;
+	height:20px;
+	display:inline;
+	position:relative;
+	background:url(../../../imagexPix/button/mini/bw/resize4Col.png) center no-repeat;
+	margin-left:-7px;
+	cursor:pointer;	
+}

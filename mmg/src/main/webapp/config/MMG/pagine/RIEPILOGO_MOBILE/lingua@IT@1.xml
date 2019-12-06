@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<ROWSET>
+    
+    <ROW>
+        
+        <lblTitolo>Problemi, diario clinico, farmaci assunti e accertamenti relativi al paziente corrente</lblTitolo>
+        
+		<tabProblemi>Problemi</tabProblemi>
+		
+			<fldProblemi>Lista dei problemi associati al paziente corrente</fldProblemi>
+				
+		<tabDiarioClinico>Diario clinico</tabDiarioClinico>
+		
+			<fldDiarioClinico>Diario clinico del paziente corrente</fldDiarioClinico>	
+				
+        <tabFarmaci>Farmaci</tabFarmaci>
+		
+			<fldFarmaci>Lista dei farmaci assunti dal paziente corrente</fldFarmaci>
+        
+        <tabAccertamenti>Accertamenti</tabAccertamenti>
+		
+			<fldAccertamenti>Lista degli accertamenti associati al paziente corrente</fldAccertamenti>
+        
+        <butApplica>Applica</butApplica>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butInserisci>Inserisci</butInserisci>
+		<lblDaData>Da data</lblDaData>
+		<lblAData>A data</lblAData>
+		<lblStatoProblema>Stato Problema</lblStatoProblema>
+		<butFiltra>Filtra</butFiltra>
+		<butGravidanza>Gravidanza</butGravidanza>
+		<lblNascondiProblema>Si vuole nascondere il problema?</lblNascondiProblema>
+		<lblChiusura>Chiusura con dettaglio</lblChiusura>
+		<lblChiusuraRapida>Chiusura Rapida</lblChiusuraRapida>
+		<lblChiusuraRilevanteRapida>Chiusura Rilevante Rapida</lblChiusuraRilevanteRapida>
+		<lblNascondi>Nascondi</lblNascondi>
+		<lblRendiVisibile>Rendi Visibile</lblRendiVisibile>
+		<lblAllega>Allega documento al problema</lblAllega>
+		<lblRendiVis>Si vuole rendere visibile il problema?</lblRendiVis>
+		<lblErrorVis>Attenzione! È necessario che un problema risulti nascosto per poterlo rendere visibile!</lblErrorVis>
+		<lblConfirmCancella>Cancellare il problema selezionato?</lblConfirmCancella>
+		<lblCancella>Cancella</lblCancella>
+		<lblRiepilogoProblema>Riepilogo Inserimento Problema</lblRiepilogoProblema>
+		<lblMostrainPS>Mostra in Patient Summary</lblMostrainPS>
+		<lblEliminainPS>Nascondi in Patient Summary</lblEliminainPS>
+		<butStampa>Stampa</butStampa>
+		<butInserisci>Inserisci Nota</butInserisci>
+		<butInserisciVisita>Inserisci Visita</butInserisciVisita>
+		<butFiltraDiari>Filtra</butFiltraDiari>
+		<filtroNote>Diario</filtroNote>
+		<lblConfermaCancellazioneVisita>Cancellare la visita selezionata?</lblConfermaCancellazioneVisita>
+		<lblConfermaCancellazioneBilancio>Cancellare il bilancio selezionato?</lblConfermaCancellazioneBilancio>
+		<lblConfermaCancellazioneAnamnesi>Cancellare l'anamnesi selezionata?</lblConfermaCancellazioneAnamnesi>
+		<lblConfermaCancellazioneNota>Cancellare la nota selezionata?</lblConfermaCancellazioneNota>
+		<lblInserisci>Inserisci Nota</lblInserisci>
+		<lblInserisciVisita>Inserisci Visita</lblInserisciVisita>
+		<lblModifica>Visualizza/Modifica</lblModifica>
+		<lblCancella>Cancella</lblCancella>
+		<lblElencoVisite>Elenco Visite</lblElencoVisite>
+		
+    </ROW>
+    
+</ROWSET>

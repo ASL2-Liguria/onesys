@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link href='std/css/textArea.css' type='text/css' rel='stylesheet'>
+<script type='text/javascript' src='std/jscript/fillLabels.js' language='JavaScript'></script>
+<link href='std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/normalBody.css' type='text/css' rel='stylesheet'>
+
+<script type='text/javascript' src='std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<link href='std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/dataEntryTable.css' type='text/css' rel='stylesheet'>
+<link href='std/css/filterTable.css' type='text/css' rel='stylesheet'>
+
+<link rel="stylesheet" type="text/css" href="std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/button.css">
+<link rel="stylesheet" type="text/css" href="std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="std/css/dataEntryTable.css">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>SELEZIONA REPARTO</title>
+<script>
+	
+	function riempiCombo(){
+		
+var oMyObject = window.dialogArguments;
+var arrayReparti = oMyObject.arrRep;
+var defaultRep=oMyObject.defRep
+
+	
+		List=arrayReparti.split('@');
+		for (contatore = 0; contatore < List.length-1 ; contatore++)
+		{
+		
+		document.all.optCDC.options[contatore]=new Option('',escape(List[contatore]),false,false);	
+		document.all.optCDC.options[contatore].innerHTML = List[contatore];	
+		}
+		document.all.optCDC.options.value=defaultRep;
+		}
+	function setta_valori()
+	{
+		window.returnValue=document.all.optCDC.value;
+		//n_copie = document.all.mCi.value;
+		window.close();
+	}
+	
+	var arrayLabelName = new Array('bt');
+	var arrayLabelValue = new Array('OK');
+</script>
+</head>
+<body onLoad='fillLabels(arrayLabelName,arrayLabelValue);document.all.optCDC.focus()'>
+
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Seleziona Scheda da Utilizzare</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td  width="50%" class='classTdLabelNoWidth'>Schede:</td>
+			<td  width="50%" class='classTdField'><select name="optCDC" size="1"></select></td>
+		</tr>
+	</table>
+	
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+			<td class='classTabHeaderMiddle'> </td>
+			<td class='classButtonHeader'><div f class='pulsante' id='bt' onclick="javascript:setta_valori();"></div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+	<script>riempiCombo()</script>
+</body>
+</html>

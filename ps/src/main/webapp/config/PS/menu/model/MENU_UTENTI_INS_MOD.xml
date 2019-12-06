@@ -1,0 +1,26 @@
+<MENU>
+    <ID>MENU_UTENTI_INS_MOD</ID>
+    <TITLE>"Gestione utenti"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>UTEN_INS</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=' + $('input[name="SCHEDA"]').val()+'&STATO_PAGINA=I&USERNAME=',id:'Scheda',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Inserisci utente"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"inserimento"</INFO>
+        </ITEM>
+        <ITEM>
+            <ID>UTEN_MOD</ID>
+            <LINK><![CDATA[function(rec){home.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=' + $('input[name="SCHEDA"]').val()+'&STATO_PAGINA=E&USERNAME='+rec[0].USERNAME+ '&USER='+rec[0].USERNAME+'&MEDICOINFERMIERE='+rec[0].TIPO,id:'Scheda',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Modifica utente"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>"modifica"</INFO>
+        </ITEM>
+    </LIST>
+</MENU>

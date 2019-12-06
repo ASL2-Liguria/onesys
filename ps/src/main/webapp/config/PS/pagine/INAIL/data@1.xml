@@ -1,0 +1,185 @@
+<DATI configurazione="
+    declare
+		vstato  varchar2(5);
+		vkey    varchar2(4000);
+		vwhere  varchar2(4000);
+		vcampo  varchar2(4000);
+	begin
+	    vstato := '#STATO_PAGINA#';
+
+	        if vstato='E' then
+	            vkey := 'PS.Q_LOAD_INAIL_E@PS';
+	        else
+	            vkey := 'PS.Q_LOAD_INAIL_I@PS';
+	        end if;
+
+	        vwhere := null;
+	        vcampo := null;
+
+	    :stato_pagina := vstato;
+	    :key_query := vkey;
+	    :where := vwhere;
+	    :campo_xml := vcampo;
+
+    end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA" configurazione_multi_data="" />
+    <DATO key_id="hDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI" db_descrizione="DIAGNOSI" configurazione_multi_data="" />
+    <DATO key_id="hICD91" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ICD_9_1" db_descrizione="ICD_9_1" configurazione_multi_data="" />
+    <DATO key_id="hICD92" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ICD_9_2" db_descrizione="ICD_9_1" configurazione_multi_data="" />
+    <DATO key_id="hICD93" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ICD_9_3" db_descrizione="ICD_9_1" configurazione_multi_data="" />
+    <DATO key_id="hICD94" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ICD_9_4" db_descrizione="ICD_9_1" configurazione_multi_data="" />
+    <DATO key_id="hICD95" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ICD_9_5" db_descrizione="ICD_9_1" configurazione_multi_data="" />
+
+    <DATO key_id="hEsitoVerbale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESITO" db_descrizione="ESITO" configurazione_multi_data="" />
+    <DATO key_id="hEsitoOBI" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESITO_OBI" db_descrizione="ESITO_OBI" configurazione_multi_data="" />
+    <DATO key_id="hCodice" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_CONTATTO" db_descrizione="CODICE_CONTATTO" configurazione_multi_data="" />
+    <DATO key_id="hIdenPer" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_PER" db_descrizione="IDEN_PER" configurazione_multi_data="" />
+    <DATO key_id="hRiservata" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RISERVATA" db_descrizione="RISERVATA" configurazione_multi_data="" />
+    <DATO key_id="hRiservata" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RISERVATA" db_descrizione="RISERVATA" configurazione_multi_data="" />
+    <DATO key_id="hDomCivico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DOM_NUMERO_CIVICO" db_descrizione="DOM_NUMERO_CIVICO" configurazione_multi_data="" />
+    <DATO key_id="hResCivico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RES_NUMERO_CIVICO" db_descrizione="RES_NUMERO_CIVICO" configurazione_multi_data="" />
+    <DATO key_id="hDomIndirizzo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DOM_INDIRIZZO" db_descrizione="DOM_INDIRIZZO" configurazione_multi_data="" />
+    <DATO key_id="hResIndirizzo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RES_INDIRIZZO" db_descrizione="RES_INDIRIZZO" configurazione_multi_data="" />
+    <DATO key_id="h-radPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TIPO_PROGNOSI" db_descrizione="TIPO_PROGNOSI"
+          configurazione_multi_data="" />
+    <DATO key_id="hGiorniPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIORNI_PROGNOSI" db_descrizione="GIORNI_PROGNOSI"
+          configurazione_multi_data="" />
+    <DATO key_id="hStatoContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="stato_contatto" db_descrizione="stato_contatto"
+          configurazione_multi_data="" />
+    <DATO key_id="hStrutturaPAziente" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STRUTTURA_PAZIENTE" db_descrizione="STRUTTURA_PAZIENTE"
+          configurazione_multi_data="" />
+
+    <!-- Caricamento Dati -->
+    <DATO key_id="taDescrCauseInf" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CAUSE_INFORTUNIO" db_descrizione="CAUSE_INFORTUNIO" configurazione_multi_data="" />
+    <DATO key_id="taPostumiMala" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="POSTUMI" db_descrizione="POSTUMI" configurazione_multi_data="" />
+    <DATO key_id="taRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REPARTO_RICOVERO" db_descrizione="REPARTO_RICOVERO" configurazione_multi_data="" />
+    <DATO key_id="taEsamiSpec" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ESAMI_CURE" db_descrizione="ESAMI_CURE" configurazione_multi_data="" />
+    <DATO key_id="taEvOsservazioni" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="OSSERVAZIONI" db_descrizione="OSSERVAZIONI" configurazione_multi_data="" />
+    <DATO key_id="taRefertiAcc" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ACCERTAMENTI" db_descrizione="ACCERTAMENTI" configurazione_multi_data="" />
+    <DATO key_id="taEsameObi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="VALUTAZIONE_MEDICA" db_descrizione="VALUTAZIONE_MEDICA" configurazione_multi_data="" />
+    <DATO key_id="taDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI" db_descrizione="DIAGNOSI" configurazione_multi_data="" />
+    <DATO key_id="taOssMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PRESCRIZIONI" db_descrizione="PRESCRIZIONI" configurazione_multi_data="" />
+    <DATO key_id="txtProgr" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PROGRESSIVO" db_descrizione="PROGRESSIVO" configurazione_multi_data="" />
+    <DATO key_id="txtInfortunato" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INFORTUNATO" db_descrizione="INFORTUNATO" configurazione_multi_data="" />
+    <DATO key_id="txtCodMedico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_MEDICO" db_descrizione="CODICE_MEDICO" configurazione_multi_data="" />
+    <DATO key_id="txtCodFiscale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="CODICE_FISCALE" db_descrizione="CODICE_FISCALE" configurazione_multi_data="" />
+    <DATO key_id="txtCivico" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NUMERO_CIVICO" db_descrizione="NUMERO_CIVICO" configurazione_multi_data="" />
+    <DATO key_id="txtIndirizzo" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INDIRIZZO" db_descrizione="INDIRIZZO" configurazione_multi_data="" />
+    <DATO key_id="h-txtDataEvento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_EVENTO" db_descrizione="DATA_EVENTO" configurazione_multi_data="" />
+    <DATO key_id="h-txtComuneEv" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_EVENTO_VAL" db_descrizione="COMUNE_EVENTO_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtComuneEv" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_EVENTO_DESCR" db_descrizione="COMUNE_EVENTO_DESCR" configurazione_multi_data="" />
+    <DATO key_id="h-txtDataAbb" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_ABBANDONO" db_descrizione="DATA_ABBANDONO" configurazione_multi_data="" />
+    <DATO key_id="txtOraAbb" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_ABBANDONO" db_descrizione="ORA_ABBANDONO" configurazione_multi_data="" />
+    <DATO key_id="txtDataProg" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_INIZIO_PROGNOSI" db_descrizione="DATA_INIZIO_PROGNOSI" configurazione_multi_data="" />
+    <DATO key_id="txtProgGiorni" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="GIORNI_PROGNOSI" db_descrizione="GIORNI_PROGNOSI" configurazione_multi_data="" />
+    <DATO key_id="txtDataFino" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_FINE_PROGNOSI" db_descrizione="DATA_FINE_PROGNOSI" configurazione_multi_data="" />
+    <DATO key_id="h-txtLuogoRil" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_RILASCIO_VAL" db_descrizione="COMUNE_RILASCIO_VAL" configurazione_multi_data="" />
+    <DATO key_id="txtLuogoRil" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="COMUNE_RILASCIO_DESCR" db_descrizione="COMUNE_RILASCIO_DESCR" configurazione_multi_data="" />
+    <DATO key_id="h-txtDataRila" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_RILASCIO" db_descrizione="DATA_RILASCIO" configurazione_multi_data="" />
+    <DATO key_id="taPostumiMala" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="POSTUMI" db_descrizione="POSTUMI" configurazione_multi_data="" />
+
+
+
+    <!-- Query multidata -->
+    <DATO key_id="cmbSettoreLav" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="SETTORE_LAVORATIVO" db_descrizione="SETTORE_LAVORATIVO"
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''SETTORE_LAVORATIVO'''; end;" />
+    <DATO key_id="radPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''INAIL_PROGNOSI'''; end;" />
+    <DATO key_id="radTipologia" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="begin :key := 'Q_FILL_SELECT@PS'; :where := 'tipo = ''TIPOLOGIA_INAIL'''; end;" />
+
+    <DATO key_id="h-radPrognosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TIPO_PROGNOSI" db_descrizione="TIPO_PROGNOSI"
+          configurazione_multi_data="" />
+
+    <DATO key_id="h-radPostumiMala" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="POSTUMI_SI_NO" db_descrizione="POSTUMI_SI_NO"
+          configurazione_multi_data="" />
+
+    <DATO key_id="h-radTipologia" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TIPOLOGIA" db_descrizione="TIPOLOGIA"
+          configurazione_multi_data="" />
+    <DATO key_id="radPostumiMala" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO@PS" />
+    <DATO key_id="radPericoloV" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO@PS" />
+
+    <DATO key_id="h-radPericoloV" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="PERICOLO_VITA" db_descrizione="PERICOLO_VITA"
+          configurazione_multi_data="" />
+    <DATO key_id="radInvalidPerma" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO@PS" />
+    <DATO key_id="h-radInvalidPerma" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="INVALIDITA_PERMANENTE" db_descrizione="INVALIDITA_PERMANENTE"
+          configurazione_multi_data="" />
+    <DATO key_id="radRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO@PS" />
+    <DATO key_id="h-radRicovero" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RICOVERTATO" db_descrizione="RICOVERTATO"
+          configurazione_multi_data="" />
+    <DATO key_id="radRicaduta" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="" db_descrizione=""
+          configurazione_multi_data="SDJ.R_SI_NO@PS" />
+    <DATO key_id="h-radRicaduta" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RICADUTA" db_descrizione="RICADUTA"
+          configurazione_multi_data="" />
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+</DATI>

@@ -1,0 +1,31 @@
+<rs:SubmitObjectsRequest
+    xmlns:query="urn:oasis:names:tc:ebxml-regrep:query:xsd:2.0"
+    xmlns:rim="urn:oasis:names:tc:ebxml-regrep:rim:xsd:2.0"
+    xmlns:rs="urn:oasis:names:tc:ebxml-regrep:registry:xsd:2.0"
+    xmlns:tns="urn:oasis:names:tc:ebxml-regrep:rim:xsd:2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="urn:ihe:xds:xsd:1.0"
+    xsi:schemaLocation="urn:oasis:names:tc:ebxml-regrep:registry:xsd:2.0 rs.xsd">
+
+    <rim:LeafRegistryObjectList>
+
+
+    <rim:ObjectRef id="urn:uuid:f9653189-fdd2-4c31-afbc-86c96ac8f0ad" />
+    <rim:ClassificationScheme nodeType="EmbeddedPath"
+    id="urn:uuid:6b5aea1a-874d-4603-a4bc-96a0a7b38446" isInternal="true" >
+      <rim:Name>
+        <rim:LocalizedString value="XDSSubmissionSet.patientId"
+    charset="UTF-8" lang="en-us" />
+      </rim:Name>
+      <rim:Description />
+    </rim:ClassificationScheme>
+
+   
+    <rim:ClassificationNode parent="urn:uuid:f9653189-fdd2-4c31-afbc-86c96ac8f0ad" id="urn:uuid:8ea93462-ad05-4cdc-8e54-a8084f6aff94" code="signs" >
+      <rim:Name>
+        <rim:LocalizedString value="signs" charset="UTF-8" lang="en-us" />
+      </rim:Name>
+      <rim:Description/>
+    </rim:ClassificationNode>
+  </rim:LeafRegistryObjectList>
+</rs:SubmitObjectsRequest>

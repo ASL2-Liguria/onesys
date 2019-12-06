@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>MONITORAGGIO FUMO</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		
+		<fldFumo>Fumo</fldFumo>
+		<fldNoteFumo>Note Fumo</fldNoteFumo>
+		
+		<lblFumoSiNo>Fumo</lblFumoSiNo>>
+		<lblAccesso>Tipologia</lblAccesso>
+		<lblNrSigarette>Numero sigarette die</lblNrSigarette>
+		
+		<tabInsFumo>Monitoraggio Fumo</tabInsFumo>
+		<tabFumo>Fumo</tabFumo>
+		
+    </ROW>
+</ROWSET>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<!--<script type="text/javascript" src="../../std/jscript/engine/jquery.js"></script>!-->
+<script type="text/javascript" src="js/jQuery183.js"></script>
+<script type='text/javascript' src='jscript/fillLabels.js' language='JavaScript'></script>
+<script type="text/javascript" src="../../dwr/engine.js"></script>
+<script type="text/javascript" src="../../dwr/util.js"></script>
+<script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+<script type="text/javascript" src="../../std/jscript/json/json2.js"></script>
+<script type="text/javascript" src="../../std/jscript/engine/scandb.js"></script>
+<script type='text/javascript' src='../../std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<script type='text/javascript' src='../NS_MIDDLEWARE.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/scarica_prestazione_sole.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/consolle.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/easyCup.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/wkPlugin.js' language='JavaScript'></script>
+<!--<script type='text/javascript' src='js/dateFormat.js' language='JavaScript'></script>!-->
+<script type='text/javascript' src='flexigrid/js/flexigrid.js' language='JavaScript'></script>
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/button.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<link type='text/css' rel='stylesheet' href='../../std/css/filterTable.css'>
+<link type='text/css' rel='stylesheet' href='../../std/css/textArea.css'>
+<link type='text/css' rel='stylesheet' href='css/scarica_prestazione_sole.css'>
+<link type='text/css' rel='stylesheet' href='flexigrid/css/flexigrid.css'>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+<title>Scarica Prescrizioni</title>
+<style>
+
+fieldset {
+	border:1px solid blue;
+	padding:5px 5px 5px 5px;
+	background-color:#FCFFE1;
+}
+
+legend {
+  padding: 0.2em 0.5em;
+  color:blue;
+  font-family:Tahoma, Geneva, sans-serif;
+  font-size:12px;
+
+}
+</style>
+</head>
+<body onbeforeunload="javascript:NS_SARPED.AnnullaScarico('UNLOAD');">
+<form name=formVisuale id="formVisuale">
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Scarica Prescrizioni</td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td  width="50%" class='classTdLabelNoWidth'>Codice Fiscale Paziente</td>
+			<td  width="50%" class='classTdField'><input name='NcodiceFiscalePaziente' id='codiceFiscalePaziente' maxlength='16'  size='20' type='text' readonly ></td>
+		</tr>
+		<tr>
+			<td  width="50%" class='classTdLabelNoWidth' id = "lblNRE">Codice Ricetta</td>
+			<td  width="50%" class='classTdField'><input name='NNRE' id="NRE" type='text' >
+				<label for="poligrafico" id ="lblPoligrafico" class='classTdLabel'>Poligrafico</label>
+				<input name='poligrafico' id="poligrafico" type='text'></td>
+		</tr>
+		<tr>
+			<td  width="50%" class='classTdLabelNoWidth'>Tipo Ricetta</td>
+			<td  width="50%" class='classTdField'>
+				<input type="radio" name="tipoRicetta" id="TipoDema" value="DEMA" /><label for="TipoDema">Dematerializzata</label>
+				<input type="radio" name="tipoRicetta" id="TipoRossaInfo" value="INFO" /><label for="TipoRossaInfo" id ="lblTipoRossaInfo">Rossa Informatizzata</label>
+				<input type="radio" name="tipoRicetta" id="TipoRossaManuale" value="MANUALE" /><label for="TipoRossaManuale" id ="lblTipoRossaManuale">Rossa</label>
+			</td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader' id="datiRicettaManuale" style="display:none">
+		<tr>
+			<td  width="25%" class='classTdLabelNoWidth'>Data Ricetta</td>
+			<td  width="25%" class='classTdField'><input name='NDataRicettaManuale' id='DataRicettaManuale' type='text'></td>
+			<td  width="25%" class='classTdLabelLink'><LABEL onclick=javascript:launch_scandb_link(this); id=lblMedPrescrittore name="lblMedBase" SCANDB_PROC="TAB_MEDP_SCARICO" SCANDB_RIC="MedicoPrescrittoreManuale">Medico Prescrittore</LABEL></td>
+			<td  width="25%" class='classTdField'><input id="hMedicoPrescrittoreManuale" name="hMedicoPrescrittoreManuale" type="hidden">
+			<INPUT onblur=launch_scandb_text(this); id=MedicoPrescrittoreManuale name=NMedicoPrescrittoreManuale SCANDB_PROC="TAB_MEDP_SCARICO" SCANDB_RIC="MedicoPrescrittoreManuale"  style="width:75%"></td>
+		</tr>
+	</table>
+	
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+                        <td class='classTabHeaderMiddle'> <img id='imgLoader' src='img/loader2.gif' style='width:50px;display:none'/> </td>
+                        <td class='classButtonHeader'><div class='pulsante buttonSole' id='btSarpedOffline' onClick="javascript:NS_SARPED.Offline();" style="display:none">Offline</div></td>
+                        <!--<td class='classButtonHeader'><div class='pulsante buttonSole' id='btPrenota' onclick="javascript:NS_SARPED.Prenota();" style="display:none">Prenota</div></td>-->
+                        <td class='classButtonHeader'><div class='pulsante buttonSole' id='btAccetta' onClick="javascript:NS_SARPED.Accetta();" style="display:none">Accetta</div></td>
+                        <td class='classButtonHeader'><div class='pulsante buttonSole' id='btRipulisci' onClick="HTML.reset();" >Reset</div></td>
+						<td class='classButtonHeader'><div class='pulsante buttonSole' id='btScarica' onClick="javascript:NS_SARPED.ScaricaPrescrizione('I');">Scarica</div></td>
+						<td class='classButtonHeader'><div class='pulsante buttonSole' id='btPrenota' onClick="javascript:NS_SARPED.Prenota('P');">Prenota</div></td>
+						<!--<td class='classButtonHeader'><div class='pulsante buttonSole' id='btDebug' onclick="javascript:deb('DEMA');">Debug Dema</div></td>!-->
+                        <!--<td class='classButtonHeader'><div class='pulsante buttonSole' id='btDebug' onclick="javascript:deb('INF');">Debug RR</div></td>!-->
+						<td class='classButtonHeader'><div class='pulsante buttonSole' id='btClose' onClick="javascript:self.close();">Annulla</div></td>
+						<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+	 <fieldset>
+    <legend>Legenda</legend>
+    <div style="display:block; height:25px; background-color:red;color:white; padding:5px 5px 5px 5px; text-align:center; vertical-align:middle; font-weight:bold; font-size:14px;">'Erogabile': 'K' prestazione non prevista, da sostituire, 'N' NRE gia' erogato, 'A' prestazione gia' accettata, 'S' prestazione scaricabile, 'Z' non erogabile, non sostituibile</div>
+    </fieldset>
+       <!-- <table id="oTablePresc" style="display:none"></table>-->
+</form>	
+	<form accept-charset='UNKNOWN' target='workFrame' method='POST' name='form_accetta_paziente' action='schedaEsame' enctype='application/x-www-form-urlencoded'>
+	<input type="hidden" id="Hiden_esame" name="Hiden_esame" value=""/>
+	<input type="hidden" id="Hiden_esa" name="Hiden_esa" value=""/>
+	<input type="hidden" id="Hiden_anag" name="Hiden_anag" value=""/>
+	<input type="hidden" id="Hiden_esenzione" name="Hiden_esenzione" value=""/>
+	<input type="hidden" id="Hiden_tick" name="Hiden_tick" value=""/>
+	<input type="hidden" id="extra_db"  name="extra_db" value=""/>
+	<input type="hidden" id="txtQuadroClinico" name="txtQuadroClinico"  value=""/>
+	<input type="hidden" id="txtQuesitoClinico" name="txtQuesitoClinico" value=""/>
+	<input type="hidden" id="Hservlet_succ" name="Hservlet_succ" value=""/>
+	<input type="hidden" id="tipo_registrazione" name="tipo_registrazione" value="I"/>
+	<input type="hidden" id="servlet" name="servlet" value=""/>
+	<input type="hidden" id="impegnativa" name="impegnativa" value=""/>
+	<input type="hidden" id="dataricetta" name="dataricetta" value=""/>
+	<input type="hidden" id="Hcodice_lea" name ="Hcodice_lea" value=""/>
+	<input type="hidden" id="Hnum_pre" name ="Hnum_pre" value=""/>
+	<input type="hidden" id="txtCodEsterno6" name ="txtCodEsterno6" value=""/>
+	<input type="hidden" id="Hiden_medi" name="Hiden_medi" value=""/>
+	<input type="hidden" id="Hiden_pro" name ="Hiden_pro" value=""/>
+	<input type="hidden" id="Hiden_mod_prescr" name ="Hiden_mod_prescr" value=""/>
+	<input type="hidden" id="Hiden_mod_acc" name ="Hiden_mod_acc" value=""/>
+	<input type="hidden" id="dema" name ="dema" value=""/>
+	</form>
+<script>NS_SARPED.init();LOGGER.init();        
+		var JSON_AZIENDE = {
+                "080999": "AUSL LABORATORIO",
+                "080908": "Bologna AOSP",
+                "080105": "Bologna AUSL",
+                "080960": "Bologna Rizzoli -II.OO.R.",
+                "080112": "Cesena AUSL",
+                "080909": "Ferrara AOSP",
+                "080109": "Ferrara AUSL",
+                "080111": "Forlì AUSL",
+                "080106": "Imola AUSL",
+                "080904": "Modena AOSP",
+                "080104": "Modena AUSL",
+                "080902": "Parma AOSP",
+                "080102": "Parma AUSL",
+                "080101": "Piacenza AUSL",
+                "080110": "Ravenna AUSL",
+                "080903": "Reggio AOSP",
+                "080103": "Reggio AUSL",
+                "080113": "Rimini AUSL"
+        };
+        
+setTimeout(function(){$("#NRE").focus();},1000);        
+        </script>
+</body>
+</html>

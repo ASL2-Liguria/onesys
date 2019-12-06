@@ -1,0 +1,77 @@
+td.classTdLabelBLU{
+	border: 1px solid #6AA8F2;
+	background-color:#6699FF;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelBLULink{
+	border: 1px solid #6AA8F2;
+	background-color:#6699FF;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+td.classTdLabelAZZURRO{
+	border: 1px solid #6AA8F2;
+	background-color:#33CCFF;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelAZZURROLink{
+	border: 1px solid #6AA8F2;
+	background-color:#33CCFF;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+
+/*
+    td.classTdLabelOB{
+	border: 1px solid #6AA8F2;
+	background-color:#6699FF;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelOBLink{
+	border: 1px solid #6AA8F2;
+	background-color:#6699FF;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+} 
+*/

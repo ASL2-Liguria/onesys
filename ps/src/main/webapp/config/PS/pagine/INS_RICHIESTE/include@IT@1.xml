@@ -1,0 +1,9 @@
+<INCLUDE>
+	<CSS path="css/PS/Richieste/Richieste.css"/>
+	<JS path="config/PS/validator/model/V_PS_INS_RICHIESTE.js"/>
+    <JS path="js/PS/InsRichieste/MainInsRichieste.js"/>
+    <JS path="js/PS/InsRichieste/DatiWkRichieste.js"/>
+    <JS path="js/PS/InsRichieste/InviaRichieste.js"/>
+    <JS path="js/PS/InsRichieste/AppendRichieste.js"/>
+    <JS path="js/PS/InsRichieste/FiltriProfiliRichieste.js"/>
+</INCLUDE>

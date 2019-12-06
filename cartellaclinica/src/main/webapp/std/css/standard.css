@@ -1,0 +1,32 @@
+body { background:#b9e0ff; margin:0px; padding:0px;}
+form,script{ padding: 0px; margin: 0px;}
+
+div#content{
+	padding: 20px;
+}
+
+div.header,div.footer{
+	position: fixed;
+	margin:0px; padding:0px;
+	width:100%;background:url(../../imagexPix/tabheader/sf-menu.gif) repeat-x;
+	font-weight:bold; font-style:normal;color:#FFF; text-align: center;
+}
+div.footer { bottom:0px;}
+
+span.btn {float:right; margin-right: 10px;cursor: pointer;}
+
+fieldset{
+	border:4px solid #FFF;
+	padding:5px;
+	}
+	fieldset legend{
+		font-weight:bold;
+		margin-bottom:10px;
+		}
+	fieldset label{
+		font-size:12px;
+		cursor:pointer;
+}
+		
+input.data {width: 70px;}
+input.ora {width: 35px;}

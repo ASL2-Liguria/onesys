@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="6.0+" version="2.0">
+	<information>
+		<title>Componente per la stampa</title>
+		<vendor>Elco</vendor>
+	</information>
+
+	<security>
+		<all-permissions/>
+	</security>
+
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="SignedFenixAppletASL2.jar" version="3.0" main="true"/>
+		<jar href="JSon.jar" version="1.02" />
+		<jar href="PDFOne.jar" version="1.02" />
+		<jar href="bcpkix-jdk15on-148.jar" version="1.02" />
+		<jar href="bcprov-jdk15on-148.jar" version="1.02" />
+		<jar href="commons-lang-2.6.jar" version="1.02" />
+		<jar href="activemq-all-5.6.0.jar" version="1.02" />		
+		<jar href="xfe_jdk-14.jar" version="1.02" />		
+	</resources>
+	
+	<applet-desc main-class="it.elco.applet.elcoApplet" name="AppStampa" width="1" height="1">
+	</applet-desc>
+</jnlp>

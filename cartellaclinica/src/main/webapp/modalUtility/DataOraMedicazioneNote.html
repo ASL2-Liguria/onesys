@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/headerTable.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/normalBody.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/button.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/orologio/orologio.css' type='text/css' rel='stylesheet'>
+<link href='../std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<title>Conferma Orario</title>
+<style>
+
+.DataAttiva{
+		background:#FECEC2;
+		font-size:16px;
+		font-weight:bold;
+}
+
+div{display:block;}
+div.left{float:left;width:49%;}
+div.right{float:right;width:49%;}
+div.txtRight{text-align:right;}
+
+fieldset{width:98%;margin:3px;}
+textarea{width:99%;}
+</style>
+</head>
+
+<body>
+    <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%"  >
+          <tr>
+            <td class='classTabHeaderSx'></td>
+            <td class='classTabHeaderMiddle'>Seleziona orario</td>
+            <td class='classTabHeaderDx'></td>
+      </tr>
+    </table>        
+	
+	<div>
+    	<div class="left txtRight">
+			<input style="text-align:center"   name='txt_ora' type="text" id='txt_ora' onkeyup='oraControl_onkeyup(this);' onblur='oraControl_onblur(this);'  size="6"/>
+		 	<img src="../imagexPix/calendario/orologio.jpg" onclick= "apriOrologio('txt_ora');"/>        
+        </div>
+        <div class="right" id="ContainerDate">
+        
+        </div>
+    </div>
+
+	<fieldset>
+    	<legend>Medicazione</legend>
+    	<textarea id="txtMedicazione"></textarea>
+    </fieldset>
+    
+	<fieldset>
+    	<legend>Note</legend>
+    	<textarea id="txtNote"></textarea>
+    </fieldset>    
+
+    <table cellpadding='0' cellspacing='0' class='classTabHeader' width="100%" >
+           <tr>
+            <td class='classTabFooterSx'>&nbsp;</td>     
+            <td class='classTabHeaderMiddle'>&nbsp;</td> 
+            <td id=tdOK class='classButtonHeader'><div class='pulsante'><a onclick='aux_registra();'>OK</a></div></td>
+            <td id=tdChiudi class='classButtonHeader'><div class='pulsante'><a onclick='self.close ();'>Annulla</a></div></td>            
+            <td class='classTabFooterDx'>&nbsp;</td>
+          </tr>
+    </table>
+</body>
+<script type='text/javascript' src='../std/jscript/engine/jquery.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/orologio/wz_jsgraphics.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/clsDate.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/engine/toolkit_pagina.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/calendario/calendarview.js' language='JavaScript'></script>
+<script type='text/javascript' src='../std/jscript/orologio/orologio.js' language='JavaScript'></script>
+<script>
+
+var Args = null;
+
+	jQuery(function(){
+		
+		try{
+			Args = window.dialogArguments;
+			
+			if (!check('ora_default',{'NULL':true,'EMPTY':true})){
+				document.getElementById('txt_ora').value = clsDate.getOra(new Date());
+			}else{
+				document.getElementById('txt_ora').value =Args['ora_default'];
+			}
+			
+			if (check('txtMedicazione',{'NULL':true,'EMPTY':true})){
+				document.getElementById('txtMedicazione').innerHTML = Args['txtMedicazione'];
+			}		
+	
+			creaOrologio();
+
+			var convData;
+
+			if(check('array_date',{'NULL':true,'LENGTH':true})){
+				arDate = Args.array_date;
+				for(var i=0;i<arDate.length;i++){
+					
+					convData = arDate[i].substring(6,8) + '/' + arDate[i].substring(4,6) + '/'+ arDate[i].substring(0,4) ;
+					
+					var obj =jQuery('<div'+					
+							(Args['data_default']==arDate[i] ? ' class="DataAttiva" ' : '') + 
+							'><input type="radio" name="radioData" id="'+arDate[i]+'" ' +
+							(Args['data_default']==arDate[i] ? ' checked="checked" ' : '') +
+							'/><label for="'+arDate[i]+'">' + convData +'</label></div>')					
+					.click(function(){toggleRadioData();}) 
+					obj.appendTo(jQuery('#ContainerDate'));																
+				}
+			}
+		}catch(e){
+			alert(e.description);
+		}
+	});
+
+function check(pName,pParam){
+		
+	var Nullable = (typeof pParam['NULL']=='undefined') ? false : pParam['NULL'];
+	var Empty = (typeof pParam['EMPTY']=='undefined') ? false : pParam['EMPTY'];	
+	var Positive = (typeof pParam['POSITIVE']=='undefined') ? false : pParam['POSITIVE'];
+	var Length = (typeof pParam['LENGTH']=='undefined') ? false : pParam['LENGTH'];
+	
+	return (
+			typeof Args[pName] != 'undefined' && 
+			(
+				!Nullable || (Args[pName]!=null)
+			) && 
+			(
+				!Empty || (Args[pName]!='')
+			) && 
+			(
+				!Positive || (Args[pName]>0)
+			) && 
+			(
+				!Length || (Args[pName].length>0)
+			)					
+		)
+}
+
+function toggleRadioData(){
+	jQuery('input[name="radioData"]').parent().attr("class","");
+	jQuery('input[name="radioData"]:checked').parent().attr("class","DataAttiva");
+}
+
+function closeModal()
+{
+	resp = new Object();
+	
+	resp.data = jQuery('input[name="radioData"]:checked').attr("id");
+	resp.ora = jQuery('#txt_ora').attr('value'); 
+	resp.medicazione = jQuery('#txtMedicazione').html(); 
+	resp.note = jQuery('#txtNote').html();
+	
+	var newDate = clsDate.str2date(resp.data,'YYYYMMDD',resp.ora);
+
+	var diff=clsDate.difference.hour(newDate,new Date());
+
+	if(diff>2){
+		if(!confirm("Attenzione!!\n La'ora selezionata differisce di " + diff +" ore dall'ora attuale!\n Si vuole confermare la selezione?"))return;
+	}
+	window.returnValue = resp; 
+	
+	self.close();	
+}
+
+function aux_registra(){
+
+	oraControl_onblur(document.getElementById("txt_ora"));
+
+	if(document.getElementById('txt_ora').value!=''){	
+		closeModal();
+	}
+}
+
+</script>
+
+
+
+</html>

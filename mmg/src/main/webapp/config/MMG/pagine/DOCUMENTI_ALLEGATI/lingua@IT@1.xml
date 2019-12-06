@@ -1,0 +1,25 @@
+<ROWSET>
+    <ROW>
+    
+    	<lblTitolo>Per paziente o episodio</lblTitolo>	
+    		
+    	<tabDocumentiAllegati>Documenti allegati</tabDocumentiAllegati>
+    		
+    		<fldDocumentiAllegati>Elenco</fldDocumentiAllegati>
+    	
+    	<tabAllegaDocumento>Allega un documento</tabAllegaDocumento>
+    	
+    		<fldAllegaDocumento>Allega un nuovo documento</fldAllegaDocumento>
+    			<lblTipoCaricamentoFile>Sorgente</lblTipoCaricamentoFile>
+				<lblNomeAllegato>Nome allegato</lblNomeAllegato>
+				<lblSelezionaScanner>Scanner</lblSelezionaScanner>
+		        <lblAllegaPazienteEpisodio>Allega a</lblAllegaPazienteEpisodio>
+		        <lblAllegaFile>Scegli il file da allegare</lblAllegaFile>
+		        <lblTipoDocAllegato>Dettaglio Tipologia Documento</lblTipoDocAllegato>
+		        
+		<lblVisualizza>Visualizza/Scarica</lblVisualizza>
+		<lblElimina>Elimina</lblElimina>
+		<lblInfoNomeAllegato>In questo campo va inserito il nome identificativo dell'allegato, in modo da trovarlo più facilmente all'interno della lista. Di default viene inserito il nome del file allegato</lblInfoNomeAllegato>
+
+    </ROW>
+</ROWSET>

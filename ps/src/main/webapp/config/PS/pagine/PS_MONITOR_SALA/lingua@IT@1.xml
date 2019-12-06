@@ -1,0 +1,9 @@
+<ROWSET>
+    <ROW>
+           	<lblTitolo>SALA D'ATTESA</lblTitolo>
+       		<fldWkMonitor>Lista di attesa</fldWkMonitor>
+       		<vuoto></vuoto>
+       		<pernonfare></pernonfare>
+       		<lerrore></lerrore>
+    </ROW>
+</ROWSET>

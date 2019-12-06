@@ -1,0 +1,23 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'LOAD_SCHEDA_XML_LAST'; :where := null; :campo_xml := 'CONTENUTO'; end;">
+
+	<DATO key_id="Allattamento" configurazione_stato="begin :stato := 'E'; end;" db_valore="ALLATTAMENTO" db_descrizione="ALLATTAMENTO" configurazione_multi_data="R_ALLATTAMENTO" />
+	<DATO key_id="ReggeCapo_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="REGGECAPO_SI_NO" db_descrizione="REGGECAPO_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ManiAperte_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="MANIAPERTE_SI_NO" db_descrizione="MANIAPERTE_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="MantieneOggetti_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="MANTIENEOGGETTI_SI_NO" db_descrizione="MANTIENEOGGETTI_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="VariaPianto_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="VARIAPIANTO_SI_NO" db_descrizione="VARIAPIANTO_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Sorride_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="SORRIDE_SI_NO" db_descrizione="SORRIDE_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="ReagisceRumori_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="REAGISCERUMORI_SI_NO" db_descrizione="REAGISCERUMORI_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Calma_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="CALMA_SI_NO" db_descrizione="CALMA_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="SegueOggetti_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="SEGUEOGGETTI_SI_NO" db_descrizione="SEGUEOGGETTI_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="FissaOggetti_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="FISSAOGGETTI_SI_NO" db_descrizione="FISSAOGGETTI_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Leucocoria_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="LEUCOCORIA_SI_NO" db_descrizione="LEUCOCORIA_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="Strabismo_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="STRABISMO_SI_NO" db_descrizione="STRABISMO_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="RiflessoPupillare_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="RIFLESSOPUPILLARE_SI_NO" db_descrizione="RIFLESSOPUPILLARE_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="AtteggiamentoPiedi_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="ATTEGGIAMENTOPIEDI_SI_NO" db_descrizione="ATTEGGIAMENTOPIEDI_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="EcografiaBacino_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="ECOGRAFIABACINO_SI_NO" db_descrizione="ECOGRAFIABACINO_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="EmetteSuoni_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="EMETTESUONI_SI_NO" db_descrizione="EMETTESUONI_SI_NO" configurazione_multi_data="R_SI_NO" />
+	<DATO key_id="OcchioNormale_Si_No" configurazione_stato="begin :stato := 'E'; end;" db_valore="OCCHIONORMALE_SI_NO" db_descrizione="OCCHIONORMALE_SI_NO" configurazione_multi_data="R_SI_NO" />
+
+	<DATO key_id="hIden" configurazione_stato="begin :stato := 'E'; end;" db_valore="IDEN" db_descrizione="IDEN" configurazione_multi_data="" />
+</DATI>
+

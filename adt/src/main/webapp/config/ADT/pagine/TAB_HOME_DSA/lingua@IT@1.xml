@@ -1,0 +1,14 @@
+<ROWSET>
+    <ROW>
+    	<filtroDsaAperti>DSA aperti</filtroDsaAperti>
+    	<lblRep>Reparto</lblRep>
+    	<lblRepC>Reparto</lblRepC>
+    	<lblRepRich>Reparto</lblRepRich>
+    	<lblCartella>Cartella</lblCartella>
+    	<filtroDsaChiusi>DSA chiusi</filtroDsaChiusi>
+    	<filtroRichiesteDsa>DSA Order Entry</filtroRichiesteDsa>
+    	<lblDaData>Da data chiusura</lblDaData>
+    	<lblAData>A data chiusura</lblAData>
+    	<lblStatoRichieste>Stato richieste</lblStatoRichieste>
+    </ROW>
+</ROWSET>

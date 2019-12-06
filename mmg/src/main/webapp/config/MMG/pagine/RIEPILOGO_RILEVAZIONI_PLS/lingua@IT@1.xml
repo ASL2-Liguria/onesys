@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabRilevazioniPLS>Rilevazioni PLS</tabRilevazioniPLS>
+        <lblTitolo>RIEPILOGO RILEVAZIONI INSERITE</lblTitolo>
+		<tabRiepilogo>Riepilogo</tabRiepilogo>
+		<tabRiepilogoBMI>BMI</tabRiepilogoBMI>
+		<tabRiepilogoPressione>Pressione</tabRiepilogoPressione>
+		<tabRiepilogoCircCranica>Circonferenza cranica</tabRiepilogoCircCranica>
+		<tabRiepilogoDiaFontanella>Diametro fontanella</tabRiepilogoDiaFontanella>
+		<tabRiepilogoTemperatura>Temperatura</tabRiepilogoTemperatura>
+		<butInserisci>Inserisci nuova rilevazione</butInserisci>
+		<butGrafici>Grafici</butGrafici>
+		
+		<fldRicerca>Ricerca</fldRicerca>
+		<lblDaData>Dal</lblDaData>
+		<lblAData>Al</lblAData>
+		<but_BMI>BMI</but_BMI>
+		<but_CircCranica>Circonferenza Cranica</but_CircCranica>
+		<but_DiaFontanella>Diametro Fontanella</but_DiaFontanella>
+		<but_Pressione>Pressione</but_Pressione>
+		<but_Temperatura>Temperatura</but_Temperatura>
+		<but_Altro>Altro</but_Altro>
+		<lableTipoRilevazione>Tipo Rilevazione</lableTipoRilevazione>
+    </ROW>
+</ROWSET>

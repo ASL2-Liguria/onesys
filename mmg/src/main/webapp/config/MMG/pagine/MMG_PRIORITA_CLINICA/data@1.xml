@@ -1,0 +1,33 @@
+<DATI
+	configurazione="begin 
+	
+   if '#IDEN#' is null then
+
+	   :stato_pagina := 'I'; 
+	   :key_query := 'ACCERTAMENTO_PROBLEMA_RICHIESTO'; 
+	   :where := null; 
+	   :campo_xml := null; 
+   else
+	   :stato_pagina := 'M'; 
+	   :key_query := 'Q_MMG_PRIORITA_CLINICA'; 
+	   :where := null; 
+	   :campo_xml := null; 
+   end if;
+
+end;">
+	<DATO key_id="Acc_Eff" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ACC_EFF" db_descrizione="ACC_EFF" configurazione_multi_data="" />
+	<DATO key_id="Sosp_Diagn" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PROBLEMA" db_descrizione="PROBLEMA" configurazione_multi_data="" />
+	<DATO key_id="Vis_Rich" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="ACCERTAMENTO" db_descrizione="ACCERTAMENTO" configurazione_multi_data="" />
+	<DATO key_id="Modal_Acc" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="MODAL_ACC" db_descrizione="MODAL_ACC" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_PRIORITA_CLINICA'' and TIPO_DATO=''Modal_Acc'''; end;" />
+	<DATO key_id="Pri_Cli" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="PRI_CLI" db_descrizione="PRI_CLI" configurazione_multi_data="begin :key := 'Q_CODIFICHE'; :where := 'TIPO_SCHEDA=''MMG_PRIORITA_CLINICA'' and TIPO_DATO=''Pri_Cli'''; end;" />
+	<DATO key_id="QuadroClinico" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="Q_CLINICO" db_descrizione="Q_CLINICO" configurazione_multi_data="" />
+	<DATO key_id="cmbProblemiPaziente" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="CMB_PROBLEMI_MODULI" />
+</DATI>
+

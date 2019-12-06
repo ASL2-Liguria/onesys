@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+	<AJAX>
+		<serviceUrl>autocompleteAjax</serviceUrl>
+		<minChars>3</minChars>
+		<onSelect type="js">
+			<![CDATA[function(data){;}]]>
+		</onSelect>
+		<maxHeight>400</maxHeight>
+		<width>300</width>
+		<zIndex>9999</zIndex>
+                <datasource>PS</datasource>
+		<deferRequestBy>1000</deferRequestBy>
+                <selectOnSingleResult>false</selectOnSingleResult>
+		<storedQuery>AUTOCOMPLETE.AC_ANAG_CITTADINANZA</storedQuery>
+		<maxResults>15</maxResults>
+	</AJAX> 
+	<LIST>
+	    <title>Cittadinanza</title>
+	    <id_wk>AC_ANAG_CITTADINANZA</id_wk>
+	    <onSelect type="js">
+            <![CDATA[function(data){}]]>
+		</onSelect>
+	</LIST>
+
+</AUTOCOMPLETE>	 
+    

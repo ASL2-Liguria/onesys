@@ -1,0 +1,13 @@
+<INCLUDE>
+	<CSS path="plugin/dhtmlxScheduler/dhtmlxscheduler_dhx_terrace.css" />
+	<CSS path="css/MMG/Agenda/Agenda.css" />
+	<JS path="js/Base/NS_FENIX_SCHEDULER.js" />
+	<JS path="plugin/dhtmlxScheduler/codebase/dhtmlxscheduler.js" />
+	<JS path="plugin/dhtmlxScheduler/codebase/ext/dhtmlxscheduler_editors.js" />
+	<JS path="plugin/dhtmlxScheduler/codebase/ext/dhtmlxscheduler_recurring.js" />
+	<JS path="plugin/dhtmlxScheduler/codebase/ext/dhtmlxscheduler_units.js" />
+	<JS path="plugin/dhtmlxScheduler/codebase/ext/dhtmlxscheduler_limit.js" />
+	<JS path="plugin/dhtmlxScheduler/locale/locale_it.js" />
+	<JS path="js/MMG/Agenda/Scheduler.js" />
+</INCLUDE>
+

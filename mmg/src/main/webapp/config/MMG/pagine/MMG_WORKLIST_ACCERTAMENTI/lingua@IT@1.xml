@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	
+    	<tabLista>Accertamenti</tabLista>
+        <lblTitolo>Lista degli accertamenti effettuati</lblTitolo>
+        <but_Cerca>Ricerca</but_Cerca>
+        <lblRicerca>Ricerca Accertamento</lblRicerca>
+        <fld1>Elenco Accertamenti</fld1>
+			
+    </ROW>
+</ROWSET>

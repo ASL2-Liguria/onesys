@@ -1,0 +1,29 @@
+body { width: 960px;}
+
+#wkPaziente {
+	height: 100px;
+	margin: 10px;
+}
+
+table.campi tr td.tdButton {
+	text-align: right;
+}
+
+#butCerca {
+	margin-right: 16px;
+}
+ 
+.exchangeList div.buttons {
+	width: 60px;
+	padding-top: 80px;
+	min-height: 200px;
+	text-align: center;
+}
+
+#ComboIn, #ComboOut {
+    min-height: 200px;
+}
+
+.containerSX, .containerDx{
+    min-height:200px;
+}

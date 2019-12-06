@@ -1,0 +1,355 @@
+/*html{overflow:hidden;}*/
+body {
+	overflow-x: hidden;
+}
+
+form {
+	margin: 0px;
+}
+
+#divHeader {
+	width: 100%;
+}
+
+#divBody {
+	width: 100%;
+	height: 661px;
+}
+
+#headerLeft {
+	float: left;
+	width: 55%;
+}
+
+#headerRight {
+	float: left;
+	width: 44%;
+}
+
+#sections {
+	background: #E9F3FE;
+	border: blue;
+	padding-left: 5px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 100%;
+	float: left;
+	width: 54%;
+}
+
+#infos {
+	background: #E9F3FE;
+	border: blue;
+	padding: 5px;
+	height: 98%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	float: left;
+	width: 44%;
+}
+/*#infos iframe{height:100%;width:100%;}*/
+#infos div.dataContainer {
+	height: 100%;
+	width: 100%;
+	clear: both; /*overflow-y:scroll;overflow-x:hidden;*/
+}
+
+div.tabHide {
+	display: none;
+}
+
+div.tabShow {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+
+ul {
+	MARGIN: 0px;
+	padding: 0px;
+	FONT: bold 12px Verdana, sans-serif;
+}
+
+ul li {
+	DISPLAY: inline;
+	LINE-HEIGHT: 28px;
+}
+
+ul li a {
+	background: url(../../../../imagexPix/tabulator/normalTab.png) repeat-x;
+	COLOR: black;
+	text-decoration: none;
+	PADDING: 5px 10px;
+	BORDER: 1px solid #E9FEFE;
+}
+
+ul li.active a {
+	background: url(../../../../imagexPix/tabulator/selectedTab.png)
+		repeat-x;
+	COLOR: white;
+}
+
+ul li a:hover {
+	background: url(../../../../imagexPix/tabulator/hoverTab.png) repeat-x;
+	BORDER: 1px solid blue;
+	COLOR: black;
+}
+
+textarea {
+	width: 100%;
+}
+
+span.SubTitleSection {
+	float: left;
+	background: #95BAFF;
+	height: 22px;
+	color: white;
+	FONT: bold 12px Verdana, sans-serif;
+	padding-top: 5px;
+	/*	padding-left:15px;
+	padding-right:15px;	*/
+	width: 100%;
+}
+
+div.row {
+	width: 100%;
+	clear: both;
+}
+
+span.header {
+	width: 30%;
+	float: left;
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: #000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+span.detail {
+	width: 60%;
+	float: left;
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+}
+
+span.detail:hover {
+	background: #FCFDC6;
+}
+
+.right {
+	float: right;
+}
+
+div.ricerca {
+	height: 10%
+}
+
+div.ricerca input {
+	margin: 3px;
+}
+
+div.risultati {
+	height: 230px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+table.risultati {
+	width: 100%;
+}
+
+div.testo {
+	height: 40%;
+	overflow: hidden;
+	display: none;
+	width: 100%;
+}
+
+div.testo input {
+	margin: 3px;
+}
+
+div.testoShow {
+	background: #FFF;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: auto;
+}
+
+a.btn {
+	line-height: 21px;
+	padding: 0px 10px;
+	margin-top: 3px;
+	text-decoration: none;
+	background: url(../../../../imagexPix/bar/btLightCyan.jpg) repeat-x;
+	font-weight: bold;
+	color: blue;
+}
+
+a.btn:hover {
+	text-decoration: none;
+	background: url(../../../../imagexPix/bar/btCyan.jpg) repeat-x;
+	color: yellow;
+}
+
+table {
+	width: 98%;
+	table-layout: auto;
+	white-space: nowrap;
+}
+
+tr:hover th {
+	background: #FCFDC6;
+}
+
+tr:hover td {
+	background: #FCFDC6;
+}
+
+th {
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #e5effd;
+	color: 000;
+	FONT: bold 10px Verdana, sans-serif;
+}
+
+div#infos td,div#divRisultati td,div#divTestoEdit td {
+	padding: 3px;
+	margin: 2px;
+	border: 1px solid #95BAFF;
+	background: #FFF;
+	color: #000;
+	FONT: 10px Verdana, sans-serif;
+}
+
+div.tableButton {
+	margin: 1px;
+	border: 1px solid #95BAFF;
+	color: #95BAFF;
+	width: 15px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+}
+
+div.tableButton:hover {
+	border-color: blue;
+	color: blue;
+}
+
+/*Tabella contenente i dati di laboratorio*/
+.divFiltroLaboratorio {
+	height: 10%;
+	clear: both;
+}
+
+.divTabLaboratorio {
+	height: 90%;
+	overflow: auto;
+}
+
+#tabRisultatiLabo th {
+	text-align: left;
+}
+
+#tabRisultatiLabo tr th,td {
+	font-size: 8px;
+}
+
+#tabRisultatiLabo tr.gruppoEsami th {
+	background: #95BAFF;
+	color: white;
+	FONT: bold 10px Verdana, sans-serif;
+	text-align: center;
+	padding: 0px;
+}
+
+#tabRisultatiLabo .rimosso {
+	background: #DADADA;
+	color: #BBB;
+}
+/*
+<!-- ****************************************** -->
+<!-- ********* Footer  ************************ -->
+<!-- ****************************************** --> 
+*/
+div#footer {
+	color: #FFF;
+	height: 25px;
+	background: url(../../../../imagexPix/tabheader/top_tabella.gif)
+		repeat-x;
+	position: absolute;
+	width: 99%;
+	bottom: 0;
+	padding: 2px;
+	clear: both;
+	overflow: hidden;
+}
+
+.pulsanteBarraFooter A {
+	width: 120px;
+	TEXT-DECORATION: none;
+	color: blue;
+	line-height: 21px;
+	padding-left: 2px;
+	padding-right: 2px;
+	margin-left: 3px;
+	float: right;
+	background-image: url(../../../../imagexPix/bar/btLightCyan.jpg);
+	background-repeat: repeat-x;
+	text-align: center;
+	font-weight: bold;
+	displaY: block;
+}
+
+.pulsanteBarraFooter A:hover {
+	background-image: url(../../../../imagexPix/bar/btCyan.jpg);
+	background-repeat: repeat-x;
+	color: yellow;
+	font-weight: bold;
+}
+
+iframe#frmInserimentoTerapie {
+	width: 99%;
+	height: 99%;
+}
+
+#sections label {
+	FONT: bold 12px Verdana, sans-serif;
+}
+
+.rowDetail SPAN {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	width: 99%;
+	font-size: 12px;
+}
+
+.rowHead SPAN {
+	margin-bottom: 0px;
+	width: 99%;
+	text-align: center;
+	font-size: 12px;
+}
+
+#divTerapie {
+	height: 600px;
+	}
+
+#divDataFineRicovero{
+	height: 26px;
+	width: 245px;
+	display:block;
+	overflow:hidden;
+	}
+/*	#divDataFineRicovero .datepick-trigger{
+		float:right;	
+	}*/

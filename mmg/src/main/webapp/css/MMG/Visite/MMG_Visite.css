@@ -1,0 +1,24 @@
+body{width:960px;}
+
+#fldBMI, #fldCardio{
+
+	width:40%;
+	float:left;
+	clear: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
+
+}
+
+#fldTemperatura, #fldPressione, #fldPLS, #fldAltreRil{
+	width:40%;
+	float:right;
+}
+
+
+#fldPLS {
+	
+	padding-top: 10px;
+}
+
+#fldPressione { height: 99px; }

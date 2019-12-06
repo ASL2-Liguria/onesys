@@ -1,0 +1,19 @@
+BODY {
+    background:#b9e0ff;
+}
+
+fieldset {
+    margin:10px;
+    border:4px solid #FFF;
+    padding:5px;
+}
+
+fieldset legend {
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+fieldset label {
+    font-size:12px;
+    cursor:pointer;
+}

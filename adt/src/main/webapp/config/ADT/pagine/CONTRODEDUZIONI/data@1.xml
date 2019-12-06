@@ -1,0 +1,12 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'SDJ.Q_EMPTY@ADT'; :where := null; :campo_xml := null; end;">
+    <DATO
+        key_id="REGIONI" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_REGIONI@ADT"
+    />
+    <DATO
+        key_id="CODISTITUTI" configurazione_stato="begin :stato := 'E'; end;"
+        db_valore="" db_descrizione=""
+        configurazione_multi_data="ADT.Q_CODISTITUTI@ADT"
+    />
+ </DATI>

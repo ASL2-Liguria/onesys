@@ -1,0 +1,86 @@
+#Worklist .contentTabs{
+    height: 140px;
+}
+.tagList .contentDiv  { 
+height: 300px;
+}
+/*Consensi*/
+.consensoPazienteAssente{
+    float:left;
+    background: url(../../../img/privacy/pcyPaz_assenteInfoCartella.png) no-repeat;
+    width:30px;
+    height:30px;
+    cursor:pointer;}
+.consensoPazienteKO{
+    float:left;
+    background: url(../../../img/privacy/pcyPaz_KOInfoCartella.png) no-repeat ;
+    width:30px;
+    height:30px;
+    cursor:pointer;
+}
+.consensoPazienteOK{
+    float:left;
+    background: url(../../../img/privacy/pcyPaz_OKInfoCartella.png) no-repeat ;
+    width:30px;
+    height:30px;
+    cursor:pointer;
+}
+
+/*Consensi*/
+.EventoAssentePazienteAssente{
+    float:left;
+    background: url(../../../img/privacy/pcyPnull_Enull.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+.EventoAssentePazienteKO{
+    float:left;
+    background: url(../../../img/privacy/pcyPko_Enull.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+.EventoAssentePazienteOK{
+    float:left;
+    background: url(../../../img/privacy/pcyPok_Enull.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+
+.EventoOKPazienteAssente{
+    float:left;
+    background: url(../../../img/privacy/pcyPnull_Eok.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+.EventoOKPazienteKO{
+    float:left;
+    background: url(../../../img/privacy/pcyPko_Eko.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+.EventoOKPazienteOK{
+    float:left;
+    background: url(../../../img/privacy/pcyPok_Eok.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+
+.EventoKOPazienteAssente{
+    float:left;
+    background: url(../../../img/privacy/pcyPnull_Eko.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+.EventoKOPazienteKO{
+    float:left;
+    background: url(../../../img/privacy/pcyPko_Eko.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+.EventoKOPazienteOK{
+    float:left;
+    background: url(../../../img/privacy/pcyPok_Eko.png) no-repeat;
+    width:60px;
+    height:30px;
+    cursor:pointer;}
+

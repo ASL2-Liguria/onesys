@@ -1,0 +1,40 @@
+.exchangeList div.buttons .button{
+	clear: none;
+	margin-bottom:3px;
+}
+
+#exVaccinazioni{
+	width: 100%;
+	margin: auto;
+}
+
+select[name=ComboVaccinazioni]{
+	height:250px;
+	width:250px;
+	
+}
+
+select[name=ComboVaccinazioniOut]{
+	height:250px;
+	width:250px;
+	border: 2px solid #17A62D;
+}
+
+.exchangeList div {
+	float: none;
+	margin: 0;
+}
+
+div.containerList{
+	width:40%
+}
+
+.buttons{
+	height:100px;
+	width:70px;
+	text-align: center;
+}
+
+#idButAddOne{
+	margin-left:130px;
+}

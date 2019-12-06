@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>STORICO_RICOVERI</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.STORICO_RICOVERI</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<!-- <MENU>
+			<ID>MENU_STORICO_RICOVERI</ID>
+		</MENU> -->
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_INIZIO</COL>
+						<DB>DATA_INIZIO</DB>
+					</ID>
+					<DESCRIPTOR>"Data Inizio Ricovero"</DESCRIPTOR>
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_FINE</COL>
+						<DB>DATA_FINE</DB>
+					</ID>
+					<DESCRIPTOR>"Data fine ricovero"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>		           				
+					<WIDTH>120px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>NUM_NOSOLOGICO</COL>
+						<DB>NUM_NOSOLOGICO</DB>
+					</ID>
+					<DESCRIPTOR>"Numero Nosologico"</DESCRIPTOR> 
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>REPARTO</COL>
+						<DB>REPARTO</DB>
+					</ID>
+					<DESCRIPTOR>"Reparto del ricovero"</DESCRIPTOR>
+					<!-- <PROCESS type="javascript"><![CDATA[function(data, wk){alert(10);return $(this).click(function(){wk.data.edit(this,'TEXT');});});}]]></PROCESS> --> 
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>TIPOLOGIA</COL>
+						<DB>TIPOLOGIA</DB>
+					</ID>
+					<DESCRIPTOR>"Tipologia Ricovero"</DESCRIPTOR>
+					<!-- <PROCESS type="javascript"><![CDATA[function(data, wk){alert(10);return $(this).click(function(){wk.data.edit(this,'TEXT');});});}]]></PROCESS> --> 
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				
+				
+			</LIST>
+			<SORT>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

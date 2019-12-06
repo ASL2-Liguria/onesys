@@ -1,0 +1,140 @@
+<root>
+<statements_list>
+<statement name="insertDiario">		
+			<sql>
+			<![CDATA[
+				declare
+					pTipoDiario     varchar2(4001)		:= ?;
+					pIdenVisita 	pls_integer 		:= ?;
+					pNosologico 	varchar2(4001)		:= ?;
+					pReparto	 	varchar2(4001)		:= ?;
+					pUserId		 	varchar2(4001)		:= ?;
+					pUserLogin	 	varchar2(4001)		:= ?;
+					pDescrUte	 	varchar2(4001)		:= ?;
+					pDataEvento	 	varchar2(4001)		:= ?;
+					pOraEvento	 	varchar2(4001)		:= ?;
+					pIdenAnag		pls_integer 		:= ?;
+					pTesto		 	varchar2(32000)		:= ?;
+					
+				begin
+					RADSQL.CC_INSERT_DIARIO_XML(pTipoDiario,pIdenVisita,pNosologico,pReparto,pUserId,pUserLogin,pDescrUte,pDataEvento,pOraEvento,pIdenAnag,pTesto);					
+				end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="cancellaDiarioEpicrisi">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenDiario pls_integer := to_number(?);
+					pTesto		 	varchar2(32000)	   := ?;
+				begin
+					update radsql.cc_diario set deleted='S',motivo_deleted=pTesto where iden= pIdenDiario;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="richiestaInserita">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenNota pls_integer := to_number(?);
+				begin
+					update radsql.cc_diario set flg_inserita='S' where iden= pIdenNota;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="getEpicrisi">				
+			<sql>
+			<![CDATA[
+				select extractValue(contenuto, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO=''txtDiario'']') EPICRISI 
+				from radsql.cc_diario
+				where iden in (
+					select max(iden) IDEN
+					from radsql.cc_diario
+					where tipo_diario = 'EPICRISI' and deleted = 'N'
+					and iden_visita = ?
+				)
+			]]>
+			</sql>
+		</statement>
+		<statement name="getEpicrisiRicovero">				
+			<sql>
+			<![CDATA[
+				select extractValue(contenuto, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO=''txtDiario'']') EPICRISI 
+				from radsql.cc_diario
+				where iden in (
+					select max(iden) IDEN
+					from radsql.cc_diario
+					where tipo_diario = 'EPICRISI' and deleted = 'N'
+					and iden_visita in (
+						select iden from radsql.nosologici_paziente
+						where num_nosologico = ?
+					)
+				)
+			]]>
+			</sql>
+		</statement>
+                <statement name="isAConsulting">
+                    <sql>
+                        <![CDATA[
+                            DECLARE
+                                pIdenDiario pls_integer := ?;
+                                vIdenRef VARCHAR2(100);
+                            BEGIN
+                                BEGIN
+                                    SELECT EXTRACTVALUE(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hIdenRef"]') INTO vIdenRef
+                                    FROM radsql.CC_DIARIO
+                                    WHERE iden = pIdenDiario;
+                                END;
+                                
+                                ? := vIdenRef;
+                            END;
+                        ]]>
+                    </sql>
+                </statement>
+        <statement name="inserisciNotifica">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenDiario pls_integer := to_number(?);
+					pUteIns		pls_integer := to_number(?);
+					vCount number;
+					vOut varchar2(4000):=' ';
+				begin
+					select count(*) into vCount from notifiche where tabella='CC_DIARIO' and iden_tabella=pIdenDiario and attivo='S' and deleted='N';
+				    if (vCount>0) then
+				     vOut:='Diario già notificato';
+					else				  
+					insert into notifiche(iden_per_rich,tipo_ute,tabella,iden_tabella) values(pUteIns,'I','CC_DIARIO',pIdenDiario);
+					end if;
+				 ? := vOut;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="disattivaNotifica">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenDiario pls_integer := to_number(?);
+				begin
+					update notifiche set attivo='N' where tabella='CC_DIARIO' and iden_tabella= pIdenDiario;
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="eliminaNotifica">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenDiario pls_integer := to_number(?);
+				begin
+					update notifiche set deleted='S' where tabella='CC_DIARIO' and iden_tabella= pIdenDiario;
+				end;
+			]]>
+			</sql>
+		</statement>
+		</statements_list>
+</root>

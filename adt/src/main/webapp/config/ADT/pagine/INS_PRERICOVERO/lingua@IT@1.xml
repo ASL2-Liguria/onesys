@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    	<tabInsPre>Prericovero</tabInsPre>
+        <lblTitle>Scheda inserimento prericovero</lblTitle>
+        <IdDatiPaziente>Dati paziente</IdDatiPaziente>
+        <lblCodFisc>Codice fiscale</lblCodFisc>
+        <lblCognome>Cognome</lblCognome>
+        <lblNome>Nome</lblNome>
+        <lblDataNasc>Data nascita</lblDataNasc>
+        <IdLivelloUrgenza>Livello urgenza</IdLivelloUrgenza>
+        <lblReparto>Reparto</lblReparto>
+        <lblRepartoAss>Reparto assistenziale</lblRepartoAss>
+        <lblDataInsPre>Data</lblDataInsPre>
+        <lblMotivo>Motivo/Note</lblMotivo>
+        <lblOraPre>Ora</lblOraPre>
+        <lblRepartoDestinazione>Reparto Destinatario</lblRepartoDestinazione>
+        <IdNote>Note</IdNote>
+        <lblTipo>Tipo Prericovero</lblTipo>
+    </ROW>
+</ROWSET>

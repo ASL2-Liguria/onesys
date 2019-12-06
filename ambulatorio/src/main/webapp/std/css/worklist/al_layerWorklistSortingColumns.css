@@ -1,0 +1,27 @@
+/* CSS Document */
+/* CSS relativo alla generazione del livello */
+/* contenente gli oggetti per l'ordinamento della  */
+/* posizione delle colonne della wk  */
+div#divChangeStatus_container{border: 1px solid #83E2BC;width:300px; background-color:#FFFFF0; top:100px; left:100px; position:absolute;overflow:hidden; height:180px; z-index:1}
+
+div#divSortCol_header {height:20px;line-height:20px;margin:0;
+  padding-left:10px;background-color:#3333FF; color:#FFFFFF; font-size:16px; text-align:center; font-family:Arial, Helvetica, sans-serif}
+div#divSortCol_footer{background-color:#3333FF;}
+
+
+div#divSortCol_wrapper{float:left;width:100%;margin-left:-200px;}
+div#divSortCol_content{ border: 1px solid #AAE2BC;background-color:#D0F0F0;}
+div#divSortCol_rightUp{float:right;width:105px;clear:right;}
+div#divSortCol_rightDown{float:right;clear:right;width:105px}
+div#divSortCol_footer{clear:both;width:100%;  }
+
+LABEL.rdBtChecked{
+	color: red;
+}
+LABEL.rdBtUnChecked{
+	color: black;
+}
+
+LABEL.statoPointer{
+	cursor:pointer;
+}

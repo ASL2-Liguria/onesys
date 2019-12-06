@@ -1,0 +1,271 @@
+<root>
+	<statements_list>
+	    <statement name="caricaAnagraficaMadre">
+			<sql>
+			<![CDATA[
+				SELECT DISTINCT
+					COGN,
+					NOME,
+					SESSO,
+					DATA_NASCITA,
+					COMUNE_NASC,
+					COMUNE_RES,
+					COMUNE_DOM,
+					CITTADINANZA,
+					PROFESSIONE,
+					TEL,
+					ALTEZZA,
+					CREG REGIONE
+				FROM "RADSQL"."VIEW_SCHEDA_ANAGRAFICA"
+				WHERE IDEN IN (SELECT IDEN_ANAG FROM RADSQL.NOSOLOGICI_PAZIENTE WHERE IDEN=?)
+			]]>
+			</sql>
+		</statement>
+	    <statement name="carica36Settimana">
+			<sql>
+			<![CDATA[
+				SELECT
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaAnno"]/text()').Getstringval(), 1) hOstetricaAnno,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaParto"]/text()').Getstringval(), 1) hOstetricaParto,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaSett"]/text()').Getstringval(), 1) hOstetricaSett,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaPeso"]/text()').Getstringval(), 1) hOstetricaPeso,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaSesso"]/text()').Getstringval(), 1) hOstetricaSesso,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaAllatt"]/text()').Getstringval(), 1) hOstetricaAllatt,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNoteOste"]/text()').Getstringval(), 1) txtNoteOste,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRischioGravidanza"]/text()').Getstringval(), 1) txtRischioGravidanza,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtUM"]/text()').Getstringval(), 1) txtUM,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDPP"]/text()').Getstringval(), 1) txtDPP,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtStatura"]/text()').Getstringval(), 1) txtStatura,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtIncPond"]/text()').Getstringval(), 1) txtIncPond,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtBCF"]/text()').Getstringval(), 1) txtBCF,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTT"]/text()').Getstringval(), 1) txtTT,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTT2"]/text()').Getstringval(), 1) txtTT2,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRT"]/text()').Getstringval(), 1) txtRT,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRT2"]/text()').Getstringval(), 1) txtRT2,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtHBsAg"]/text()').Getstringval(), 1) txtHBsAg,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtHCV"]/text()').Getstringval(), 1) txtHCV,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtHIV"]/text()').Getstringval(), 1) txtHIV,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTVR"]/text()').Getstringval(), 1) txtTVR,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtEU"]/text()').Getstringval(), 1) txtEU,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAmn"]/text()').Getstringval(), 1) txtAmn,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtBit"]/text()').Getstringval(), 1) txtBit,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkTT"]/text()').Getstringval(), 1) chkTT,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkTT2"]/text()').Getstringval(), 1) chkTT2,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkRT"]/text()').Getstringval(), 1) chkRT,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkRT2"]/text()').Getstringval(), 1) chkRT2,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkHBsAg"]/text()').Getstringval(), 1) chkHBsAg,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkHCV"]/text()').Getstringval(), 1) chkHCV,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkHIV"]/text()').Getstringval(), 1) chkHIV,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkTVR"]/text()').Getstringval(), 1) chkTVR,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkEU"]/text()').Getstringval(), 1) chkEU,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkAmn"]/text()').Getstringval(), 1) chkAmn,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkBit"]/text()').Getstringval(), 1) chkBit,
+				
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtCognomePadre"]/text()').Getstringval(), 1) txtCognomePadre,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNomePadre"]/text()').Getstringval(), 1) txtNomePadre,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDataNascitaPadre"]/text()').Getstringval(), 1) txtDataNascitaPadre,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtProf"]/text()').Getstringval(), 1) txtProf,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hProf"]/text()').Getstringval(), 1) hProf,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtStaturaPadre"]/text()').Getstringval(), 1) txtStaturaPadre,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtLuogoNasc"]/text()').Getstringval(), 1) txtLuogoNasc,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtCittad"]/text()').Getstringval(), 1) txtCittad,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hCittad"]/text()').Getstringval(), 1) hCittad,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hIdenCittad"]/text()').Getstringval(), 1) hIdenCittad,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRegionePadre"]/text()').Getstringval(), 1) txtRegionePadre,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRecapito1P"]/text()').Getstringval(), 1) txtRecapito1P,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRecapito2P"]/text()').Getstringval(), 1) txtRecapito2P,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRecapito3P"]/text()').Getstringval(), 1) txtRecapito3P
+				
+				FROM CC_SCHEDE_XML 
+				WHERE FUNZIONE = 'SETTIMANA36' AND IDEN_VISITA IN (SELECT PARENT FROM RADSQL.NOSOLOGICI_PAZIENTE WHERE IDEN=?)
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaPartogramma">
+			<sql>
+			<![CDATA[
+				SELECT
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbTipoPartoP"]/text()').Getstringval(), 1) rdoTipoPartoP,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hDataParto"]/text()').Getstringval(), 1) hDataParto,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOraParto"]/text()').Getstringval(), 1) hOraParto,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbTipoTravaglio"]/text()').Getstringval(), 1) cmbTipoTravaglio,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTravaglioDataInizio"]/text()').Getstringval(), 1) txtTravaglioDataInizio,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTravaglioOraInizio"]/text()').Getstringval(), 1) txtTravaglioOraInizio,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hNumeroFigli"]/text()').Getstringval(), 1) txtNumeroGemelli,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbRotturaMembrane"]/text()').Getstringval(), 1) cmbRotturaMembrane,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRotturaMembraneData"]/text()').Getstringval(), 1) txtRotturaMembraneData,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRotturaMembraneOra"]/text()').Getstringval(), 1) txtRotturaMembraneOra,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbLiquidoAmniotico"]/text()').Getstringval(), 1) cmbLiquidoAmniotico,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbLiquidoAmnioticoQ"]/text()').Getstringval(), 1) cmbLiquidoAmnioticoQ,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbTipoPartoTP"]/text()').Getstringval(), 1) cmbTipoPartoTP,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbDistocico"]/text()').Getstringval(), 1) cmbDistocico,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbCesareo"]/text()').Getstringval(), 1) cmbCesareo,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbAnalgesia"]/text()').Getstringval(), 1) cmbAnalgesia,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAnalgesiaEpidurale"]/text()').Getstringval(), 1) txtAnalgesiaEpidurale,
+				
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hPesoNeo"]/text()').Getstringval(), 1) hPesoNeonato,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hNoteFiglio"]/text()').Getstringval(), 1) hNoteFiglio,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hPresentazione"]/text()').Getstringval(), 1) hPresentazione,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hPlacenta"]/text()').Getstringval(), 1) hPlacentaDiametro,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hPeso"]/text()').Getstringval(), 1) hPlacentaPeso,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hMembrane"]/text()').Getstringval(), 1) hMembrane,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hInserzione"]/text()').Getstringval(), 1) hInserzione,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hFunicolo"]/text()').Getstringval(), 1) hFunicolo,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hVasi"]/text()').Getstringval(), 1) hVasi
+				FROM CC_SCHEDE_XML 
+				WHERE FUNZIONE = 'PARTOGRAMMA_PARTO' AND IDEN_VISITA=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaDatiParto">
+			<sql>
+			<![CDATA[
+				SELECT
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbFiglio"]/text()').Getstringval(), 1) cmbFiglio
+				FROM CC_SCHEDE_XML 
+				WHERE FUNZIONE = 'PARTOGRAMMA_PARTO' AND IDEN_VISITA=?
+			]]>
+			</sql>
+		</statement>	
+	    <statement name="caricaAnamnesiRicovero">
+			<sql>
+			<![CDATA[
+				SELECT
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radGruSan"]/text()').Getstringval(), 1) rdoGruppoSanguignoMadre,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="radFatRH"]/text()').Getstringval(), 1) rdoRHMadre,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkFumo"]/text()').Getstringval(), 1) rdoFumo,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="comboAlcol"]/text()').Getstringval(), 1) cmbAlcol,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="rdoDroghe"]/text()').Getstringval(), 1) rdoDroghe,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNoteTerapia"]/text()').Getstringval(), 1) txtNoteTerapia,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNoteRemote"]/text()').Getstringval(), 1) txtNoteRemote,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtUM"]/text()').Getstringval(), 1) txtUM,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDPP"]/text()').Getstringval(), 1) txtDPP,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRischioGravidanza"]/text()').Getstringval(), 1) txtRischioGravidanza,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkAmn"]/text()').Getstringval(), 1) chkAmn,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="chkBit"]/text()').Getstringval(), 1) chkBit,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtAmn"]/text()').Getstringval(), 1) txtAmn,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtBit"]/text()').Getstringval(), 1) txtBit,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNoteOste"]/text()').Getstringval(), 1) txtNoteOste,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaAnno"]/text()').Getstringval(), 1) hOstetricaAnno,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaParto"]/text()').Getstringval(), 1) hOstetricaParto,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaSett"]/text()').Getstringval(), 1) hOstetricaSett,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaPeso"]/text()').Getstringval(), 1) hOstetricaPeso,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaSesso"]/text()').Getstringval(), 1) hOstetricaSesso,
+  				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOstetricaAllatt"]/text()').Getstringval(), 1) hOstetricaAllatt
+				FROM CC_SCHEDE_XML 
+				WHERE FUNZIONE = 'ANAMNESI' AND IDEN_VISITA=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaAccertamentoInfermieristico">
+			<sql>
+			<![CDATA[
+				SELECT 
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtPeso"]/text()').Getstringval(), 1) txtPesoL,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtLunghezza"]/text()').Getstringval(), 1) txtLunghezzaL,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtCircCranica"]/text()').Getstringval(), 1) txtCircCranicaL,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtCircToracica"]/text()').Getstringval(), 1) txtCircToracicaL,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtTemperatura"]/text()').Getstringval(), 1) txtTemperaturaL
+				FROM CC_SCHEDE_XML 
+				WHERE FUNZIONE='ACCERTAMENTO_INFERMIERISTICO' AND IDEN_VISITA=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaEsameObiettivo">
+			<sql>
+			<![CDATA[
+				SELECT 
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtPeso"]/text()').Getstringval(), 1) txtPesoL,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtLunghezza"]/text()').Getstringval(), 1) txtLunghezzaL,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtCircCranica"]/text()').Getstringval(), 1) txtCircCranicaL
+				FROM CC_SCHEDE_XML 
+				WHERE FUNZIONE='ESAME_OBIETTIVO' AND IDEN_VISITA=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaInfermiere">
+			<sql>
+			<![CDATA[
+				SELECT DESCR, IDEN
+				FROM RADSQL.TAB_PER 
+				WHERE IDEN=? AND TIPO = 'I' AND ATTIVO = 'S'
+			]]>
+			</sql>
+		</statement>
+		<statement name="caricaDataNascita">
+			<sql>
+			<![CDATA[
+				SELECT
+					DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hDataParto"]/text()').Getstringval(), 1) DataNascita,
+					DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hOraParto"]/text()').Getstringval(), 1) OraNascita,
+					(SELECT DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="cmbFiglio"]/text()').Getstringval(), 1)
+					FROM CC_SCHEDE_XML
+					WHERE FUNZIONE = 'PARTOGRAMMA_PARTO' AND IDEN_VISITA=?) cmbFiglio
+				FROM CC_SCHEDE_XML
+				WHERE FUNZIONE = 'PARTOGRAMMA_PARTO' AND IDEN_VISITA=?
+		    ]]>
+		    </sql>
+		</statement>
+	 	<statement name="aggiornaParametroPesogNascita">
+			<sql>
+			<![CDATA[
+				Declare
+					pIdenVisita  pls_integer := to_number(?);
+					vIdenAnag    pls_integer := CORE_API.getIdenAnag(pIdenVisita);
+					vPesoNasc    number := null;
+					vRilevazione Radsql.CC_Parametri.rilevazione := null;
+				Begin
+					Begin
+						Select GET_KEY_CAMPO_VALUE(CONTENUTO,'txtPeso') into vPesoNasc from CC_SCHEDE_XML
+						where FUNZIONE = 'ESAME_OBIETTIVO' and IDEN_VISITA = pIdenVisita
+						and  GET_KEY_CAMPO_VALUE(CONTENUTO,'txtPeso') is not null;
+					Exception when no_data_found then
+						Begin
+							Select GET_KEY_CAMPO_VALUE(CONTENUTO,'txtPeso') into vPesoNasc from CC_SCHEDE_XML
+							where FUNZIONE = 'ACCERTAMENTO_INFERMIERISTICO' and IDEN_VISITA = pIdenVisita;
+						Exception when no_data_found then vPesoNasc := null;
+						End;
+					End;
+					
+					vRilevazione := RADSQL.CC_Parametri.GetUltimoValoreValido(vIdenAnag, RADSQL.CC_Parametri.DecodeCodiceParametro('PesogNasc'));
+					If vPesoNasc = vRilevazione.valore Then
+						vPesoNasc := null;
+					End If;
+										
+					? := vPesoNasc;
+				End;
+			]]>
+			</sql>
+		</statement>
+		<statement name="ultimaRilevazione">
+			<sql>
+			<![CDATA[
+				select *
+				from (
+					select
+						valore_1 valore,
+						data,
+						ora,
+						ROW_NUMBER() OVER(order by data desc, ora desc) R_NUM
+					from radsql.cc_parametri_ricovero
+					where Iden_Visita = ?
+					and STATO = 'E' and DELETED='N'
+					and iden_parametro in (
+						select iden from radsql.cc_parametri_type where cod_dec = ?
+					)
+				)
+				where R_NUM=1
+			]]>
+			</sql>
+		</statement>
+		<statement name="controllaFunzioniSalvate">
+		    <sql>
+			<![CDATA[
+				Select funzione, key_legame, iden_riferimento from cc_schede_xml
+				join nosologici_paziente on cc_schede_xml.iden_visita = nosologici_paziente.iden
+				where iden_visita=?
+			]]>
+		    </sql>
+		</statement>
+	</statements_list>
+</root>

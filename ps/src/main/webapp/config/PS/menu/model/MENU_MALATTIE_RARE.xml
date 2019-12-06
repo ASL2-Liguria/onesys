@@ -1,0 +1,47 @@
+<MENU>
+    <ID>MENU_MALATTIE_RARE</ID>
+    <TITLE>traduzione.menuMalattieRare</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>INSERISCI</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                NS_MALATTIE_RARE.apriPaginaInserimento($("#IDEN_ANAG").val(),'I');
+            }]]></LINK>
+            <URL_IMAGE>img/CMenu/apri_datawharehouse.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return $("#READONLY").val()!='S'}]]></WHERE>
+            <OUTPUT>traduzione.menuInserisci</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                NS_MALATTIE_RARE.apriPaginaInserimento($("#IDEN_ANAG").val(),'E', rec[0].IDEN );
+            }]]></LINK>
+            <URL_IMAGE>img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return $("#READONLY").val()!='S' && WHERE_MENU_MALATTIE_RARE.modifica(rec);}]]></WHERE>
+            <OUTPUT>traduzione.menuModifica</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ELIMINA</ID>
+            <LINK><![CDATA[function(rec)
+            {
+                NS_MALATTIE_RARE.deleteMalattia(rec[0].IDEN);
+            }]]></LINK>
+            <URL_IMAGE>img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return $("#READONLY").val()!='S' && WHERE_MENU_MALATTIE_RARE.modifica(rec);}]]></WHERE>
+            <OUTPUT>traduzione.menuDelete</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+    </LIST>
+</MENU>

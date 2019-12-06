@@ -1,0 +1,12 @@
+<PAGINA key_id="DOCUMENTI_WK">
+    <HEADER_PAGE key_id="DOCUMENTI_WK" valore="DEFAULT,SCHEDA,DOCUMENTI_WK#DEFAULT,DOCUMENTI_WK" evento="START_END">
+    </HEADER_PAGE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="tabber" valore="DOCUMENTI_WK#lblTitolo#butChiudi" evento="START">
+               <FIELDSET_TABLE key_id="tableWkDocumenti" valore="tableWkDocumenti" evento="START">
+            	<DIV key_id="divWkDocumenti" valore="divWkDocumenti" evento="START"></DIV>
+            </FIELDSET_TABLE>
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>
+

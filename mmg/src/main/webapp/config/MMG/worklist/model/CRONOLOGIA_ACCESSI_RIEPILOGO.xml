@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>CRONOLOGIA_ACCESSI_RIEPILOGO</ID>
+	<ID-QUERY connection="MMG_DATI">WORKLIST.CRONOLOGIA_ACCESSI_RIEPILOGO</ID-QUERY>
+	<TITLE>traduzione.lblWorklist</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+	<STRUCTURE>
+          <MENU>
+            <ID>WK_MENU_PROBLEMI</ID>
+        </MENU>
+		<!--<GROUP_ROWS>
+			<ID_WORKLIST>CRONOLOGIA_ACCESSI_RIEPILOGO</ID_WORKLIST>
+			<FILTER>
+				<![CDATA[function(rec){var w = $.managerWhere(); w.set('', new Array("iden_anag"), new Array(rec.IDEN.toString())); return w;}]]>
+			</FILTER>
+		</GROUP_ROWS>-->
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(){alert('1');}</CLICK>
+                <DBCLICK>function(){alert('2');}</DBCLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+
+				<COLUMN>
+					<ID>
+						<COL>DATA</COL>
+						<DB>DATA</DB>
+					</ID>
+					<DESCRIPTOR>"Data dell'Accesso"</DESCRIPTOR>
+					<PROCESS type="java">.processData</PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>PROBLEMI</COL>
+						<DB>PROBLEMI</DB>
+					</ID>
+					<DESCRIPTOR>"Problemi Inseriti per l'accesso"</DESCRIPTOR>
+					<WIDTH>400px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+
+				<COLUMN>
+					<ID>
+						<COL>NOTE_DIARIO</COL>
+						<DB>NOTE_DIARIO</DB>
+					</ID>
+					<DESCRIPTOR>"Note Diario Inserite per l'accesso"</DESCRIPTOR>
+					<WIDTH>500px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<!-- <COLUMN>
+					<ID>
+						<COL>NOTE</COL>
+						<DB>NOTE</DB>
+					</ID>
+					<DESCRIPTOR>"Note Dettaglio Accesso"</DESCRIPTOR>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>N</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN> -->
+
+			</LIST>
+			<SORT>
+				<COLUMN id="DATA_ACCESSO">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

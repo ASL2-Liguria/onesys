@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>Screening Colonscopia</title>
+        
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />    
+		<link rel="stylesheet" href="css/ScreeningBox.css" />
+        
+        <script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+		<script src="js/jquery-validate.min.js"></script>
+		<script src="js/engineScreening.js"></script>    
+        
+        <script type="text/javascript" src="../../dwr/engine.js"></script>
+        <script type="text/javascript" src="../../dwr/util.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/eventDWR.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+<!--    <script type="text/javascript" src="../../dwr/interface/toolKitUtility.js"></script>
+        <script type="text/javascript" src="../../std/jscript/engine/eventi.js"></script>
+        <script type="text/javascript" src="../../std/jscript/engine/prototype.js"></script>
+        <script type="text/javascript" src="../../std/jscript/engine/toolkit_pagina.js"></script>     -->
+    </head>
+<body>
+<!----------------------------------------------------------------------------------------------------------------------->
+
+<div data-role="page" id="lesione1" >
+
+<div  data-role="header" class="ui-bar-a ui-header" role="banner"  data-theme="b">
+		<h1 id="titolo_scheda_dett" class="ui-title"  role="heading" aria-level="1">Screening Colonscopia</h1>
+		<div data-role="navbar" class="ui-navbar ui-navbar-noicons" role="navigation">
+			<ul class="ui-grid-b">
+            <li class="ui-block-a"><a id="btn1groupL1" href="#" data-theme="b" class="ui-btn ui-btn-up-a ui-btn-active"><span class="ui-btn-text">Lesione 1</span></a></li>
+            <li class="ui-block-b"><a id="btn2groupL2" href="#" data-theme="b" class="ui-btn ui-btn-up-a"><span class="ui-btn-text">Lesione 2</span></a></li>
+            <li class="ui-block-c"><a id="btn3groupL3" href="#" data-theme="b" class="ui-btn ui-btn-up-a"><span class="ui-btn-text">Lesione 3</span></a></li>
+            <li class="ui-block-c"><a id="btn4groupL4" href="#" data-theme="b" class="ui-btn ui-btn-up-a"><span class="ui-btn-text">Lesione 4</span></a></li>
+            <li class="ui-block-c"><a id="btn5groupL5" href="#" data-theme="b" class="ui-btn ui-btn-up-a"><span class="ui-btn-text">Lesione 5</span></a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div>
+
+    
+<div data-role="content">
+<form>
+<div id="polipi" data-role="fieldcontain">
+    <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+    </fieldset>
+</div>
+<table width="100%" border="1">
+        <tr>
+        <th scope="col" colspan="5">        
+	        <div id="pol1" data-role="fieldcontain">
+    <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+        <div class="lblTitS">Numero Polipi Visualizzati</div><input name="numero_polipi" type="text" id="txtnumero_polipi" placeholder="" value="" size="10" maxlength="10"/>
+        <div class="lblTitS">Numero Polipi Asportati</div><input name="numero_polipi_asportati" type="text" id="txtnumero_polipi_asportati" placeholder="" value="" size="10" maxlength="10"/>
+        <div class="lblTitS">Numero Polipi Recuperati</div><input name="numero_polipi_recuperati" type="text" id="txtnumero_polipi_recuperati" placeholder="" value="" size="10" maxlength="10"/>
+    </fieldset>
+			</div>
+        </th>
+        </tr>
+        <tr>
+        <th width="20%" scope="col">
+        	<div id="1groupL1" data-role="fieldcontain">
+                <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+                    <div class="lblTitS"> Descrizione endoscopica lesione</div>
+                    <input id="chkl1s" name="descrizione_endoscopica_L1" type="checkbox" value="01" /><label for="chkl1s">Sessile</label>
+                    <input id="chkl1p" name="descrizione_endoscopica_L1" type="checkbox" value="02" /><label for="chkl1p">Peduncolato</label>
+                    <input id="chkl1lp" name="descrizione_endoscopica_L1" type="checkbox" value="03" /><label for="chkl1lp">Lesione piatta</label>
+                    <input id="chkl1ls" name="descrizione_endoscopica_L1" type="checkbox" value="04" /><label for="chkl1ls">Lesione Stenosante</label>
+                    <input id="chkl1luv" name="descrizione_endoscopica_L1" type="checkbox" value="05" /><label for="chkl1luv">Lesione ulcero/vegetante</label>
+                </fieldset>
+	        </div>
+        </th>
+          <th width="20%" scope="col"><div id="1groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS" > Descrizione endoscopica lesione</div>
+              <input id="chkl1s2" name="descrizione_endoscopica_L2" type="checkbox" value="01" />
+              <label for="chkl1s2">Sessile</label>
+              <input id="chkl1p2" name="descrizione_endoscopica_L2" type="checkbox" value="02" />
+              <label for="chkl1p2">Peduncolato</label>
+              <input id="chkl1lp2" name="descrizione_endoscopica_L2" type="checkbox" value="03" />
+              <label for="chkl1lp2">Lesione piatta</label>
+              <input id="chkl1ls2" name="descrizione_endoscopica_L2" type="checkbox" value="04" />
+              <label for="chkl1ls2">Lesione Stenosante</label>
+              <input id="chkl1luv2" name="descrizione_endoscopica_L2" type="checkbox" value="05" />
+              <label for="chkl1luv2">Lesione ulcero/vegetante</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="col"><div id="1groupL3" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS" > Descrizione endoscopica lesione</div>
+              <input id="chkl1s3" name="descrizione_endoscopica_L3" type="checkbox" value="01" />
+              <label for="chkl1s3">Sessile</label>
+              <input id="chkl1p3" name="descrizione_endoscopica_L3" type="checkbox" value="02" />
+              <label for="chkl1p3">Peduncolato</label>
+              <input id="chkl1lp3" name="descrizione_endoscopica_L3" type="checkbox" value="03" />
+              <label for="chkl1lp3">Lesione piatta</label>
+              <input id="chkl1ls3" name="descrizione_endoscopica_L3" type="checkbox" value="04" />
+              <label for="chkl1ls3">Lesione Stenosante</label>
+              <input id="chkl1luv3" name="descrizione_endoscopica_L3" type="checkbox" value="05" />
+              <label for="chkl1luv3">Lesione ulcero/vegetante</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="col"><div id="1groupL4" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS" > Descrizione endoscopica lesione</div>
+              <input id="chkl1s4" name="descrizione_endoscopica_L4" type="checkbox" value="01" />
+              <label for="chkl1s4">Sessile</label>
+              <input id="chkl1p4" name="descrizione_endoscopica_L4" type="checkbox" value="02" />
+              <label for="chkl1p4">Peduncolato</label>
+              <input id="chkl1lp4" name="descrizione_endoscopica_L4" type="checkbox" value="03" />
+              <label for="chkl1lp4">Lesione piatta</label>
+              <input id="chkl1ls4" name="descrizione_endoscopica_L4" type="checkbox" value="04" />
+              <label for="chkl1ls4">Lesione Stenosante</label>
+              <input id="chkl1luv4" name="descrizione_endoscopica_L4" type="checkbox" value="05" />
+              <label for="chkl1luv4">Lesione ulcero/vegetante</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="col"><div id="1groupL5" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS" > Descrizione endoscopica lesione</div>
+              <input id="chkl1s5" name="descrizione_endoscopica_L5" type="checkbox" value="01" />
+              <label for="chkl1s5">Sessile</label>
+              <input id="chkl1p5" name="descrizione_endoscopica_L5" type="checkbox" value="02" />
+              <label for="chkl1p5">Peduncolato</label>
+              <input id="chkl1lp5" name="descrizione_endoscopica_L5" type="checkbox" value="03" />
+              <label for="chkl1lp5">Lesione piatta</label>
+              <input id="chkl1ls5" name="descrizione_endoscopica_L5" type="checkbox" value="04" />
+              <label for="chkl1ls5">Lesione Stenosante</label>
+              <input id="chkl1luv5" name="descrizione_endoscopica_L5" type="checkbox" value="05" />
+              <label for="chkl1luv5">Lesione ulcero/vegetante</label>
+            </fieldset>
+          </div></th>
+        </tr>
+        <tr><th width="20%" scope="row"><div id="2groupL1" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <div class="lblTitS"> Dimensione endoscopica(mm)</div>
+            <input name="dimensione_endoscopicaL1" type="text" id="txtdimensioneendoL1" />
+            </fieldset></div></th>
+          <th width="20%" scope="row"><div id="2groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Dimensione endoscopica(mm)</div>
+              <input name="dimensione_endoscopicaL2" id="txtdimensioneendoL2" placeholder="" value="" type="text" />
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="2groupL3" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Dimensione endoscopica(mm)</div>
+              <input name="dimensione_endoscopicaL3" id="txtdimensioneendoL3" placeholder="" value="" type="text" />
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="2groupL4" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Dimensione endoscopica(mm)</div>
+              <input name="dimensione_endoscopicaL4" id="txtdimensioneendoL4" placeholder="" value="" type="text" />
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="2groupL5" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Dimensione endoscopica(mm)</div>
+              <input name="dimensione_endoscopicaL5" id="txtdimensioneendoL5" placeholder="" value="" type="text" />
+            </fieldset>
+          </div></th>
+        </tr>
+        <tr><th width="20%" scope="row"><div id="3groupL1" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <div class="lblTitS"> Procedura diagnostica lesione</div>
+            <input id="chkl1noproc" name="procedura_diagnostica_L1" type="checkbox" value="0" /><label for="chkl1noproc">Nessuna procedura</label>
+            <input id="chkl1biopsia" name="procedura_diagnostica_L1" type="checkbox" value="1"/><label for="chkl1biopsia">Biopsia</label>
+            <input id="chkl1polipectrec" name="procedura_diagnostica_L1" type="checkbox" value="2"/><label for="chkl1polipectrec">Polipectomia con recupero lesione</label>
+            <input id="chkl1polipectnorec" name="procedura_diagnostica_L1" type="checkbox" value="3"/><label for="chkl1polipectnorec">Polipectomia senza recupero</label>
+            </fieldset></div></th>
+          <th width="20%" scope="row"><div id="3groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Procedura diagnostica lesione</div>
+              <input id="chkl1noproc2" name="procedura_diagnostica_L2" type="checkbox" value="0" />
+              <label for="chkl1noproc2">Nessuna procedura</label>
+              <input id="chkl1biopsia2" name="procedura_diagnostica_L2" type="checkbox" value="1"/>
+              <label for="chkl1biopsia2">Biopsia</label>
+              <input id="chkl1polipectrec2" name="procedura_diagnostica_L2" type="checkbox" value="2"/>
+              <label for="chkl1polipectrec2">Polipectomia con recupero lesione</label>
+              <input id="chkl1polipectnorec2" name="procedura_diagnostica_L2" type="checkbox" value="3"/>
+              <label for="chkl1polipectnorec2">Polipectomia senza recupero</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="3groupL3" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Procedura diagnostica lesione</div>
+              <input id="chkl1noproc3" name="procedura_diagnostica_L3" type="checkbox" value="0" />
+              <label for="chkl1noproc3">Nessuna procedura</label>
+              <input id="chkl1biopsia3" name="procedura_diagnostica_L3" type="checkbox" value="1"/>
+              <label for="chkl1biopsia3">Biopsia</label>
+              <input id="chkl1polipectrec3" name="procedura_diagnostica_L3" type="checkbox" value="2"/>
+              <label for="chkl1polipectrec3">Polipectomia con recupero lesione</label>
+              <input id="chkl1polipectnorec3" name="procedura_diagnostica_L3" type="checkbox" value="3"/>
+              <label for="chkl1polipectnorec3">Polipectomia senza recupero</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="3groupL4" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Procedura diagnostica lesione</div>
+              <input id="chkl1noproc4" name="procedura_diagnostica_L4" type="checkbox" value="0" />
+              <label for="chkl1noproc4">Nessuna procedura</label>
+              <input id="chkl1biopsia4" name="procedura_diagnostica_L4" type="checkbox" value="1"/>
+              <label for="chkl1biopsia4">Biopsia</label>
+              <input id="chkl1polipectrec4" name="procedura_diagnostica_L4" type="checkbox" value="2"/>
+              <label for="chkl1polipectrec4">Polipectomia con recupero lesione</label>
+              <input id="chkl1polipectnorec4" name="procedura_diagnostica_L4" type="checkbox" value="3"/>
+              <label for="chkl1polipectnorec4">Polipectomia senza recupero</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="3groupL5" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Procedura diagnostica lesione</div>
+              <input id="chkl1noproc5" name="procedura_diagnostica_L5" type="checkbox" value="0" />
+              <label for="chkl1noproc5">Nessuna procedura</label>
+              <input id="chkl1biopsia5" name="procedura_diagnostica_L5" type="checkbox" value="1"/>
+              <label for="chkl1biopsia5">Biopsia</label>
+              <input id="chkl1polipectrec5" name="procedura_diagnostica_L5" type="checkbox" value="2"/>
+              <label for="chkl1polipectrec5">Polipectomia con recupero lesione</label>
+              <input id="chkl1polipectnorec5" name="procedura_diagnostica_L5" type="checkbox" value="3"/>
+              <label for="chkl1polipectnorec5">Polipectomia senza recupero</label>
+            </fieldset>
+          </div></th>
+        </tr>
+        <tr><th width="20%" scope="row"><div id="4groupL1" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <div class="lblTitS"> Sede lesione (ICD-0)</div>
+            <input id="chkSedeL1es01" name="sede_L1" type="checkbox" value="C18.0" /><label for="chkSedeL1es01">ceco</label>
+            <input id="chkSedeL1es02" name="sede_L1" type="checkbox" value="C18.1" /><label for="chkSedeL1es02">appendice</label>
+            <input id="chkSedeL1es03" name="sede_L1" type="checkbox" value="C18.2" /><label for="chkSedeL1es03">colon ascendente</label>
+            <input id="chkSedeL1es04" name="sede_L1" type="checkbox" value="C18.3" /><label for="chkSedeL1es04">flessura epatica</label>
+            <input id="chkSedeL1es05" name="sede_L1" type="checkbox" value="C18.4" /><label for="chkSedeL1es05">colon trasverso</label>
+            <input id="chkSedeL1es06" name="sede_L1" type="checkbox" value="C18.5" /><label for="chkSedeL1es06">flessura splenica</label>
+            <input id="chkSedeL1es07" name="sede_L1" type="checkbox" value="C18.6" /><label for="chkSedeL1es07">colon discendente</label>
+            <input id="chkSedeL1es08" name="sede_L1" type="checkbox" value="C18.7" /><label for="chkSedeL1es08">colon sigmoideo</label>
+            <input id="chkSedeL1es09" name="sede_L1" type="checkbox" value="C18.9" /><label for="chkSedeL1es09">giunzione sigmoido-rettale</label>
+            <input id="chkSedeL1es10" name="sede_L1" type="checkbox" value="C20.9" /><label for="chkSedeL1es10">retto</label>
+            <input id="chkSedeL1es11" name="sede_L1" type="checkbox" value="C21.1" /><label for="chkSedeL1es11">canale anale</label>
+            </fieldset></div></th>
+          <th width="20%" scope="row"><div id="4groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Sede lesione (ICD-0)</div>
+              <input id="chkSedeL2es01" name="sede_L2" type="checkbox" value="C18.0" />
+              <label for="chkSedeL2es01">ceco</label>
+              <input id="chkSedeL2es02" name="sede_L2" type="checkbox" value="C18.1" />
+              <label for="chkSedeL2es02">appendice</label>
+              <input id="chkSedeL2es03" name="sede_L2" type="checkbox" value="C18.2" />
+              <label for="chkSedeL2es03">colon ascendente</label>
+              <input id="chkSedeL2es04" name="sede_L2" type="checkbox" value="C18.3" />
+              <label for="chkSedeL2es04">flessura epatica</label>
+              <input id="chkSedeL2es05" name="sede_L2" type="checkbox" value="C18.4" />
+              <label for="chkSedeL2es05">colon trasverso</label>
+              <input id="chkSedeL2es06" name="sede_L2" type="checkbox" value="C18.5" />
+              <label for="chkSedeL2es06">flessura splenica</label>
+              <input id="chkSedeL2es07" name="sede_L2" type="checkbox" value="C18.6" />
+              <label for="chkSedeL2es07">colon discendente</label>
+              <input id="chkSedeL2es08" name="sede_L2" type="checkbox" value="C18.7" />
+              <label for="chkSedeL2es08">colon sigmoideo</label>
+              <input id="chkSedeL2es09" name="sede_L2" type="checkbox" value="C18.9" />
+              <label for="chkSedeL2es09">giunzione sigmoido-rettale</label>
+              <input id="chkSedeL2es10" name="sede_L2" type="checkbox" value="C20.9" />
+              <label for="chkSedeL2es10">retto</label>
+              <input id="chkSedeL2es11" name="sede_L2" type="checkbox" value="C21.1" />
+              <label for="chkSedeL2es11">canale anale</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="4groupL3" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Sede lesione (ICD-0)</div>
+              <input id="chkSedeL3es01" name="sede_L3" type="checkbox" value="C18.0" />
+              <label for="chkSedeL3es01">ceco</label>
+              <input id="chkSedeL3es02" name="sede_L3" type="checkbox" value="C18.1" />
+              <label for="chkSedeL3es02">appendice</label>
+              <input id="chkSedeL3es03" name="sede_L3" type="checkbox" value="C18.2" />
+              <label for="chkSedeL3es03">colon ascendente</label>
+              <input id="chkSedeL3es04" name="sede_L3" type="checkbox" value="C18.3" />
+              <label for="chkSedeL3es04">flessura epatica</label>
+              <input id="chkSedeL3es05" name="sede_L3" type="checkbox" value="C18.4" />
+              <label for="chkSedeL3es05">colon trasverso</label>
+              <input id="chkSedeL3es06" name="sede_L3" type="checkbox" value="C18.5" />
+              <label for="chkSedeL3es06">flessura splenica</label>
+              <input id="chkSedeL3es07" name="sede_L3" type="checkbox" value="C18.6" />
+              <label for="chkSedeL3es07">colon discendente</label>
+              <input id="chkSedeL3es08" name="sede_L3" type="checkbox" value="C18.7" />
+              <label for="chkSedeL3es08">colon sigmoideo</label>
+              <input id="chkSedeL3es09" name="sede_L3" type="checkbox" value="C18.9" />
+              <label for="chkSedeL3es09">giunzione sigmoido-rettale</label>
+              <input id="chkSedeL3es10" name="sede_L3" type="checkbox" value="C20.9" />
+              <label for="chkSedeL3es10">retto</label>
+              <input id="chkSedeL3es11" name="sede_L3" type="checkbox" value="C21.1" />
+              <label for="chkSedeL3es11">canale anale</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="4groupL4" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Sede lesione (ICD-0)</div>
+              <input id="chkSedeL4es01" name="sede_L4" type="checkbox" value="C18.0" />
+              <label for="chkSedeL4es01">ceco</label>
+              <input id="chkSedeL4es02" name="sede_L4" type="checkbox" value="C18.1" />
+              <label for="chkSedeL4es02">appendice</label>
+              <input id="chkSedeL4es03" name="sede_L4" type="checkbox" value="C18.2" />
+              <label for="chkSedeL4es03">colon ascendente</label>
+              <input id="chkSedeL4es04" name="sede_L4" type="checkbox" value="C18.3" />
+              <label for="chkSedeL4es04">flessura epatica</label>
+              <input id="chkSedeL4es05" name="sede_L4" type="checkbox" value="C18.4" />
+              <label for="chkSedeL4es05">colon trasverso</label>
+              <input id="chkSedeL4es06" name="sede_L4" type="checkbox" value="C18.5" />
+              <label for="chkSedeL4es06">flessura splenica</label>
+              <input id="chkSedeL4es07" name="sede_L4" type="checkbox" value="C18.6" />
+              <label for="chkSedeL4es07">colon discendente</label>
+              <input id="chkSedeL4es08" name="sede_L4" type="checkbox" value="C18.7" />
+              <label for="chkSedeL4es08">colon sigmoideo</label>
+              <input id="chkSedeL4es09" name="sede_L4" type="checkbox" value="C18.9" />
+              <label for="chkSedeL4es09">giunzione sigmoido-rettale</label>
+              <input id="chkSedeL4es10" name="sede_L4" type="checkbox" value="C20.9" />
+              <label for="chkSedeL4es10">retto</label>
+              <input id="chkSedeL4es11" name="sede_L4" type="checkbox" value="C21.1" />
+              <label for="chkSedeL4es11">canale anale</label>
+            </fieldset>
+          </div></th>
+          <th width="20%" scope="row"><div id="4groupL5" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Sede lesione (ICD-0)</div>
+              <input id="chkSedeL5es01" name="sede_L5" type="checkbox" value="C18.0" />
+              <label for="chkSedeL5es01">ceco</label>
+              <input id="chkSedeL5es02" name="sede_L5" type="checkbox" value="C18.1" />
+              <label for="chkSedeL5es02">appendice</label>
+              <input id="chkSedeL5es03" name="sede_L5" type="checkbox" value="C18.2" />
+              <label for="chkSedeL5es03">colon ascendente</label>
+              <input id="chkSedeL5es04" name="sede_L5" type="checkbox" value="C18.3" />
+              <label for="chkSedeL5es04">flessura epatica</label>
+              <input id="chkSedeL5es05" name="sede_L5" type="checkbox" value="C18.4" />
+              <label for="chkSedeL5es05">colon trasverso</label>
+              <input id="chkSedeL5es06" name="sede_L5" type="checkbox" value="C18.5" />
+              <label for="chkSedeL5es06">flessura splenica</label>
+              <input id="chkSedeL5es07" name="sede_L5" type="checkbox" value="C18.6" />
+              <label for="chkSedeL5es07">colon discendente</label>
+              <input id="chkSedeL5es08" name="sede_L5" type="checkbox" value="C18.7" />
+              <label for="chkSedeL5es08">colon sigmoideo</label>
+              <input id="chkSedeL5es09" name="sede_L5" type="checkbox" value="C18.9" />
+              <label for="chkSedeL5es09">giunzione sigmoido-rettale</label>
+              <input id="chkSedeL5es10" name="sede_L5" type="checkbox" value="C20.9" />
+              <label for="chkSedeL5es10">retto</label>
+              <input id="chkSedeL5es11" name="sede_L5" type="checkbox" value="C21.1" />
+              <label for="chkSedeL5es11">canale anale</label>
+            </fieldset>
+          </div></th>
+        </tr>
+        <tr><th width="20%" scope="row"><div id="5groupL1" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <div class="lblTitS" id="lblTipoIstoLes1"> Tipo istologico lesione (ICD-0)</div>
+            <select id="tipo_istol_L1" name="tipo_istol_L1" data-native-menu="false" >
+<option value="" selected="selected"></option>
+<option value="8245/3">8245/3 - Adenocarcinoide</option>
+<option value="8263/3">8263/3 - Adenocarcinoma in adenoma tubulovilloso</option>
+<option value="8261/3">8261/3 - Adenocarcinoma in adenoma villoso</option>
+<option value="8210/3">8210/3 - Adenocarcinoma in polipo adenomatoso</option>
+<option value="8220/3">8220/3 - Adenocarcinoma in poliposi adenomatoso del colon (C18_)</option>
+<option value="8263/2">8263/2 - Adenocarcinoma in situ in adenoma tubulovilloso</option>
+<option value="8211/2">8211/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8261/2">8261/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8210/2">8210/2 - Adenocarcinoma in situ in polipo adenomatoso</option>
+<option value="8140/2">8140/2 - Adenocarcinoma in situ, NAS</option>
+<option value="8480/3">8480/3 - Adenocarcinoma mucinoso componente mucoide>50%</option>
+<option value="8140/3">8140/3 - Adenocarcinoma</option>
+<option value="8213/0">8213/0 - Adenoma serrato</option>
+<option value="8211/0">8211/0 - Adenoma tubulare</option>
+<option value="8263/0">8263/0 - Adenoma tubulovilloso</option>
+<option value="8261/0">8261/0 - Adenoma villoso NAS</option>
+<option value="8490/3">8490/3 - Carcinoma a cellule con anello a castone</option>
+<option value="8070/3">8070/3 - Carcinoma a cellule squamose</option>
+<option value="8041/3">8041/3 - Carcinoma a piccole cellule</option>
+<option value="8560/3">8560/3 - Carcinoma adenosquamoso</option>
+<option value="8020/3">8020/3 - Carcinoma indifferenziato, NAS</option>
+<option value="8510/3">8510/3 - Carcinoma midollare, NAS</option>
+<option value="8010/3">8010/3 - Carcinoma NAS</option>
+<option value="0002/0">0002/0 - Colite microscopica linfocitaria</option>
+<option value="7400/8">7400/8 - Displasia alto grado</option>
+<option value="7400/6">7400/6 - Displasia basso grado</option>
+<option value="7400/7">7400/7 - Displasia medio grado</option>
+<option value="9120/3">9120/3 - Emangiosarcoma</option>
+<option value="4000/0">4000/0 - Flogosi</option>
+<option value="8890/0">8890/0 - Leiomioma, NAS</option>
+<option value="8890/3">8890/3 - Leiomiosarcoma, NAS</option>
+<option value="9699/3">9699/3 - Linfoma a cellule B della zona marginale, NAS</option>
+<option value="9673/3">9673/3 - Linfoma a cellule mantellari</option>
+<option value="9687/3">9687/3 - Linfoma di Burkitt, NAS (vedere anche 9826/3)</option>
+<option value="9680/3">9680/3 - Linfoma maligno a grandi cellule B, difuso, NAS</option>
+<option value="8820/1">8820/1 - Lipoma, NAS</option>
+<option value="8542/3">8542/3 - Malattia di Paget extramammaria (consigliata sede C21.1)</option>
+<option value="9000/0">9000/0 - Materiale insuff. o inadeguato</option>
+<option value="8720/3">8720/3 - Melanoma maligno, NAS (consigliata sede C21.1)</option>
+<option value="0001/0">0001/0 - Morbo di Chron</option>
+<option value="9570/0">9570/0 - Neuroma, NAS (consigliata sede C18.1)</option>
+<option value="0010/0">0010/0 - Normale morfologia</option>
+<option value="7563/0">7563/0 - Polipo amartomatoso</option>
+<option value="7681/0">7681/0 - Polipo fibroepiteliale</option>
+<option value="7564/0">7564/0 - Polipo Giovanile</option>
+<option value="7204/4">7204/4 - Polipo iperplastico</option>
+<option value="7680/0">7680/0 - Polipo NAS</option>
+<option value="8220/0">8220/0 - Poliposi adenomatosa del colon –Poliposi familiare (C18._)</option>
+<option value="7690/0">7690/0 - Poliposi</option>
+<option value="7682/0">7682/0 - Pseudo Polipo infiammatorio</option>
+<option value="4703/1">4703/1 - Rettocolite ulcerosa</option>
+<option value="9140/3">9140/3 - Sarcoma di Kaposi</option>
+<option value="8240/1">8240/1 - Tumore carcinoide, ad incerto potenziale di malignità</option>
+<option value="8240/3">8240/3 - Tumore carcinoide, NAS (escluso dell’appendice 8240/1)</option>
+<option value="8936/1">8936/1 - Tumore stromale gastrointestinale, NAS</option>
+</select>
+            </fieldset>
+            </div></th>
+          <th width="20%" scope="row"><div id="5groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Tipo istologico lesione (ICD-0)</div>
+              <select id="tipo_istol_L2" name="tipo_istol_L2" data-native-menu="false" >
+<option value="" selected="selected"></option>
+<option value="8245/3">8245/3 - Adenocarcinoide</option>
+<option value="8263/3">8263/3 - Adenocarcinoma in adenoma tubulovilloso</option>
+<option value="8261/3">8261/3 - Adenocarcinoma in adenoma villoso</option>
+<option value="8210/3">8210/3 - Adenocarcinoma in polipo adenomatoso</option>
+<option value="8220/3">8220/3 - Adenocarcinoma in poliposi adenomatoso del colon (C18_)</option>
+<option value="8263/2">8263/2 - Adenocarcinoma in situ in adenoma tubulovilloso</option>
+<option value="8211/2">8211/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8261/2">8261/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8210/2">8210/2 - Adenocarcinoma in situ in polipo adenomatoso</option>
+<option value="8140/2">8140/2 - Adenocarcinoma in situ, NAS</option>
+<option value="8480/3">8480/3 - Adenocarcinoma mucinoso componente mucoide>50%</option>
+<option value="8140/3">8140/3 - Adenocarcinoma</option>
+<option value="8213/0">8213/0 - Adenoma serrato</option>
+<option value="8211/0">8211/0 - Adenoma tubulare</option>
+<option value="8263/0">8263/0 - Adenoma tubulovilloso</option>
+<option value="8261/0">8261/0 - Adenoma villoso NAS</option>
+<option value="8490/3">8490/3 - Carcinoma a cellule con anello a castone</option>
+<option value="8070/3">8070/3 - Carcinoma a cellule squamose</option>
+<option value="8041/3">8041/3 - Carcinoma a piccole cellule</option>
+<option value="8560/3">8560/3 - Carcinoma adenosquamoso</option>
+<option value="8020/3">8020/3 - Carcinoma indifferenziato, NAS</option>
+<option value="8510/3">8510/3 - Carcinoma midollare, NAS</option>
+<option value="8010/3">8010/3 - Carcinoma NAS</option>
+<option value="0002/0">0002/0 - Colite microscopica linfocitaria</option>
+<option value="7400/8">7400/8 - Displasia alto grado</option>
+<option value="7400/6">7400/6 - Displasia basso grado</option>
+<option value="7400/7">7400/7 - Displasia medio grado</option>
+<option value="9120/3">9120/3 - Emangiosarcoma</option>
+<option value="4000/0">4000/0 - Flogosi</option>
+<option value="8890/0">8890/0 - Leiomioma, NAS</option>
+<option value="8890/3">8890/3 - Leiomiosarcoma, NAS</option>
+<option value="9699/3">9699/3 - Linfoma a cellule B della zona marginale, NAS</option>
+<option value="9673/3">9673/3 - Linfoma a cellule mantellari</option>
+<option value="9687/3">9687/3 - Linfoma di Burkitt, NAS (vedere anche 9826/3)</option>
+<option value="9680/3">9680/3 - Linfoma maligno a grandi cellule B, difuso, NAS</option>
+<option value="8820/1">8820/1 - Lipoma, NAS</option>
+<option value="8542/3">8542/3 - Malattia di Paget extramammaria (consigliata sede C21.1)</option>
+<option value="9000/0">9000/0 - Materiale insuff. o inadeguato</option>
+<option value="8720/3">8720/3 - Melanoma maligno, NAS (consigliata sede C21.1)</option>
+<option value="0001/0">0001/0 - Morbo di Chron</option>
+<option value="9570/0">9570/0 - Neuroma, NAS (consigliata sede C18.1)</option>
+<option value="0010/0">0010/0 - Normale morfologia</option>
+<option value="7563/0">7563/0 - Polipo amartomatoso</option>
+<option value="7681/0">7681/0 - Polipo fibroepiteliale</option>
+<option value="7564/0">7564/0 - Polipo Giovanile</option>
+<option value="7204/4">7204/4 - Polipo iperplastico</option>
+<option value="7680/0">7680/0 - Polipo NAS</option>
+<option value="8220/0">8220/0 - Poliposi adenomatosa del colon –Poliposi familiare (C18._)</option>
+<option value="7690/0">7690/0 - Poliposi</option>
+<option value="7682/0">7682/0 - Pseudo Polipo infiammatorio</option>
+<option value="4703/1">4703/1 - Rettocolite ulcerosa</option>
+<option value="9140/3">9140/3 - Sarcoma di Kaposi</option>
+<option value="8240/1">8240/1 - Tumore carcinoide, ad incerto potenziale di malignità</option>
+<option value="8240/3">8240/3 - Tumore carcinoide, NAS (escluso dell’appendice 8240/1)</option>
+<option value="8936/1">8936/1 - Tumore stromale gastrointestinale, NAS</option>
+</select>
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="5groupL3" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Tipo istologico lesione (ICD-0)</div>
+              <select id="tipo_istol_L3" name="tipo_istol_L3" data-native-menu="false" >
+<option value="" selected="selected"></option>
+<option value="8245/3">8245/3 - Adenocarcinoide</option>
+<option value="8263/3">8263/3 - Adenocarcinoma in adenoma tubulovilloso</option>
+<option value="8261/3">8261/3 - Adenocarcinoma in adenoma villoso</option>
+<option value="8210/3">8210/3 - Adenocarcinoma in polipo adenomatoso</option>
+<option value="8220/3">8220/3 - Adenocarcinoma in poliposi adenomatoso del colon (C18_)</option>
+<option value="8263/2">8263/2 - Adenocarcinoma in situ in adenoma tubulovilloso</option>
+<option value="8211/2">8211/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8261/2">8261/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8210/2">8210/2 - Adenocarcinoma in situ in polipo adenomatoso</option>
+<option value="8140/2">8140/2 - Adenocarcinoma in situ, NAS</option>
+<option value="8480/3">8480/3 - Adenocarcinoma mucinoso componente mucoide>50%</option>
+<option value="8140/3">8140/3 - Adenocarcinoma</option>
+<option value="8213/0">8213/0 - Adenoma serrato</option>
+<option value="8211/0">8211/0 - Adenoma tubulare</option>
+<option value="8263/0">8263/0 - Adenoma tubulovilloso</option>
+<option value="8261/0">8261/0 - Adenoma villoso NAS</option>
+<option value="8490/3">8490/3 - Carcinoma a cellule con anello a castone</option>
+<option value="8070/3">8070/3 - Carcinoma a cellule squamose</option>
+<option value="8041/3">8041/3 - Carcinoma a piccole cellule</option>
+<option value="8560/3">8560/3 - Carcinoma adenosquamoso</option>
+<option value="8020/3">8020/3 - Carcinoma indifferenziato, NAS</option>
+<option value="8510/3">8510/3 - Carcinoma midollare, NAS</option>
+<option value="8010/3">8010/3 - Carcinoma NAS</option>
+<option value="0002/0">0002/0 - Colite microscopica linfocitaria</option>
+<option value="7400/8">7400/8 - Displasia alto grado</option>
+<option value="7400/6">7400/6 - Displasia basso grado</option>
+<option value="7400/7">7400/7 - Displasia medio grado</option>
+<option value="9120/3">9120/3 - Emangiosarcoma</option>
+<option value="4000/0">4000/0 - Flogosi</option>
+<option value="8890/0">8890/0 - Leiomioma, NAS</option>
+<option value="8890/3">8890/3 - Leiomiosarcoma, NAS</option>
+<option value="9699/3">9699/3 - Linfoma a cellule B della zona marginale, NAS</option>
+<option value="9673/3">9673/3 - Linfoma a cellule mantellari</option>
+<option value="9687/3">9687/3 - Linfoma di Burkitt, NAS (vedere anche 9826/3)</option>
+<option value="9680/3">9680/3 - Linfoma maligno a grandi cellule B, difuso, NAS</option>
+<option value="8820/1">8820/1 - Lipoma, NAS</option>
+<option value="8542/3">8542/3 - Malattia di Paget extramammaria (consigliata sede C21.1)</option>
+<option value="9000/0">9000/0 - Materiale insuff. o inadeguato</option>
+<option value="8720/3">8720/3 - Melanoma maligno, NAS (consigliata sede C21.1)</option>
+<option value="0001/0">0001/0 - Morbo di Chron</option>
+<option value="9570/0">9570/0 - Neuroma, NAS (consigliata sede C18.1)</option>
+<option value="0010/0">0010/0 - Normale morfologia</option>
+<option value="7563/0">7563/0 - Polipo amartomatoso</option>
+<option value="7681/0">7681/0 - Polipo fibroepiteliale</option>
+<option value="7564/0">7564/0 - Polipo Giovanile</option>
+<option value="7204/4">7204/4 - Polipo iperplastico</option>
+<option value="7680/0">7680/0 - Polipo NAS</option>
+<option value="8220/0">8220/0 - Poliposi adenomatosa del colon –Poliposi familiare (C18._)</option>
+<option value="7690/0">7690/0 - Poliposi</option>
+<option value="7682/0">7682/0 - Pseudo Polipo infiammatorio</option>
+<option value="4703/1">4703/1 - Rettocolite ulcerosa</option>
+<option value="9140/3">9140/3 - Sarcoma di Kaposi</option>
+<option value="8240/1">8240/1 - Tumore carcinoide, ad incerto potenziale di malignità</option>
+<option value="8240/3">8240/3 - Tumore carcinoide, NAS (escluso dell’appendice 8240/1)</option>
+<option value="8936/1">8936/1 - Tumore stromale gastrointestinale, NAS</option>
+</select>
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="5groupL4" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Tipo istologico lesione (ICD-0)</div>
+              <select id="tipo_istol_L4" name="tipo_istol_L4" data-native-menu="false" >
+<option value="" selected="selected"></option>
+<option value="8245/3">8245/3 - Adenocarcinoide</option>
+<option value="8263/3">8263/3 - Adenocarcinoma in adenoma tubulovilloso</option>
+<option value="8261/3">8261/3 - Adenocarcinoma in adenoma villoso</option>
+<option value="8210/3">8210/3 - Adenocarcinoma in polipo adenomatoso</option>
+<option value="8220/3">8220/3 - Adenocarcinoma in poliposi adenomatoso del colon (C18_)</option>
+<option value="8263/2">8263/2 - Adenocarcinoma in situ in adenoma tubulovilloso</option>
+<option value="8211/2">8211/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8261/2">8261/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8210/2">8210/2 - Adenocarcinoma in situ in polipo adenomatoso</option>
+<option value="8140/2">8140/2 - Adenocarcinoma in situ, NAS</option>
+<option value="8480/3">8480/3 - Adenocarcinoma mucinoso componente mucoide>50%</option>
+<option value="8140/3">8140/3 - Adenocarcinoma</option>
+<option value="8213/0">8213/0 - Adenoma serrato</option>
+<option value="8211/0">8211/0 - Adenoma tubulare</option>
+<option value="8263/0">8263/0 - Adenoma tubulovilloso</option>
+<option value="8261/0">8261/0 - Adenoma villoso NAS</option>
+<option value="8490/3">8490/3 - Carcinoma a cellule con anello a castone</option>
+<option value="8070/3">8070/3 - Carcinoma a cellule squamose</option>
+<option value="8041/3">8041/3 - Carcinoma a piccole cellule</option>
+<option value="8560/3">8560/3 - Carcinoma adenosquamoso</option>
+<option value="8020/3">8020/3 - Carcinoma indifferenziato, NAS</option>
+<option value="8510/3">8510/3 - Carcinoma midollare, NAS</option>
+<option value="8010/3">8010/3 - Carcinoma NAS</option>
+<option value="0002/0">0002/0 - Colite microscopica linfocitaria</option>
+<option value="7400/8">7400/8 - Displasia alto grado</option>
+<option value="7400/6">7400/6 - Displasia basso grado</option>
+<option value="7400/7">7400/7 - Displasia medio grado</option>
+<option value="9120/3">9120/3 - Emangiosarcoma</option>
+<option value="4000/0">4000/0 - Flogosi</option>
+<option value="8890/0">8890/0 - Leiomioma, NAS</option>
+<option value="8890/3">8890/3 - Leiomiosarcoma, NAS</option>
+<option value="9699/3">9699/3 - Linfoma a cellule B della zona marginale, NAS</option>
+<option value="9673/3">9673/3 - Linfoma a cellule mantellari</option>
+<option value="9687/3">9687/3 - Linfoma di Burkitt, NAS (vedere anche 9826/3)</option>
+<option value="9680/3">9680/3 - Linfoma maligno a grandi cellule B, difuso, NAS</option>
+<option value="8820/1">8820/1 - Lipoma, NAS</option>
+<option value="8542/3">8542/3 - Malattia di Paget extramammaria (consigliata sede C21.1)</option>
+<option value="9000/0">9000/0 - Materiale insuff. o inadeguato</option>
+<option value="8720/3">8720/3 - Melanoma maligno, NAS (consigliata sede C21.1)</option>
+<option value="0001/0">0001/0 - Morbo di Chron</option>
+<option value="9570/0">9570/0 - Neuroma, NAS (consigliata sede C18.1)</option>
+<option value="0010/0">0010/0 - Normale morfologia</option>
+<option value="7563/0">7563/0 - Polipo amartomatoso</option>
+<option value="7681/0">7681/0 - Polipo fibroepiteliale</option>
+<option value="7564/0">7564/0 - Polipo Giovanile</option>
+<option value="7204/4">7204/4 - Polipo iperplastico</option>
+<option value="7680/0">7680/0 - Polipo NAS</option>
+<option value="8220/0">8220/0 - Poliposi adenomatosa del colon –Poliposi familiare (C18._)</option>
+<option value="7690/0">7690/0 - Poliposi</option>
+<option value="7682/0">7682/0 - Pseudo Polipo infiammatorio</option>
+<option value="4703/1">4703/1 - Rettocolite ulcerosa</option>
+<option value="9140/3">9140/3 - Sarcoma di Kaposi</option>
+<option value="8240/1">8240/1 - Tumore carcinoide, ad incerto potenziale di malignità</option>
+<option value="8240/3">8240/3 - Tumore carcinoide, NAS (escluso dell’appendice 8240/1)</option>
+<option value="8936/1">8936/1 - Tumore stromale gastrointestinale, NAS</option>
+</select>
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="5groupL5" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Tipo istologico lesione (ICD-0)</div>
+              <select id="tipo_istol_L5" name="tipo_istol_L5" data-native-menu="false" >
+<option value="" selected="selected"></option>
+<option value="8245/3">8245/3 - Adenocarcinoide</option>
+<option value="8263/3">8263/3 - Adenocarcinoma in adenoma tubulovilloso</option>
+<option value="8261/3">8261/3 - Adenocarcinoma in adenoma villoso</option>
+<option value="8210/3">8210/3 - Adenocarcinoma in polipo adenomatoso</option>
+<option value="8220/3">8220/3 - Adenocarcinoma in poliposi adenomatoso del colon (C18_)</option>
+<option value="8263/2">8263/2 - Adenocarcinoma in situ in adenoma tubulovilloso</option>
+<option value="8211/2">8211/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8261/2">8261/2 - Adenocarcinoma in situ in adenoma villoso</option>
+<option value="8210/2">8210/2 - Adenocarcinoma in situ in polipo adenomatoso</option>
+<option value="8140/2">8140/2 - Adenocarcinoma in situ, NAS</option>
+<option value="8480/3">8480/3 - Adenocarcinoma mucinoso componente mucoide>50%</option>
+<option value="8140/3">8140/3 - Adenocarcinoma</option>
+<option value="8213/0">8213/0 - Adenoma serrato</option>
+<option value="8211/0">8211/0 - Adenoma tubulare</option>
+<option value="8263/0">8263/0 - Adenoma tubulovilloso</option>
+<option value="8261/0">8261/0 - Adenoma villoso NAS</option>
+<option value="8490/3">8490/3 - Carcinoma a cellule con anello a castone</option>
+<option value="8070/3">8070/3 - Carcinoma a cellule squamose</option>
+<option value="8041/3">8041/3 - Carcinoma a piccole cellule</option>
+<option value="8560/3">8560/3 - Carcinoma adenosquamoso</option>
+<option value="8020/3">8020/3 - Carcinoma indifferenziato, NAS</option>
+<option value="8510/3">8510/3 - Carcinoma midollare, NAS</option>
+<option value="8010/3">8010/3 - Carcinoma NAS</option>
+<option value="0002/0">0002/0 - Colite microscopica linfocitaria</option>
+<option value="7400/8">7400/8 - Displasia alto grado</option>
+<option value="7400/6">7400/6 - Displasia basso grado</option>
+<option value="7400/7">7400/7 - Displasia medio grado</option>
+<option value="9120/3">9120/3 - Emangiosarcoma</option>
+<option value="4000/0">4000/0 - Flogosi</option>
+<option value="8890/0">8890/0 - Leiomioma, NAS</option>
+<option value="8890/3">8890/3 - Leiomiosarcoma, NAS</option>
+<option value="9699/3">9699/3 - Linfoma a cellule B della zona marginale, NAS</option>
+<option value="9673/3">9673/3 - Linfoma a cellule mantellari</option>
+<option value="9687/3">9687/3 - Linfoma di Burkitt, NAS (vedere anche 9826/3)</option>
+<option value="9680/3">9680/3 - Linfoma maligno a grandi cellule B, difuso, NAS</option>
+<option value="8820/1">8820/1 - Lipoma, NAS</option>
+<option value="8542/3">8542/3 - Malattia di Paget extramammaria (consigliata sede C21.1)</option>
+<option value="9000/0">9000/0 - Materiale insuff. o inadeguato</option>
+<option value="8720/3">8720/3 - Melanoma maligno, NAS (consigliata sede C21.1)</option>
+<option value="0001/0">0001/0 - Morbo di Chron</option>
+<option value="9570/0">9570/0 - Neuroma, NAS (consigliata sede C18.1)</option>
+<option value="0010/0">0010/0 - Normale morfologia</option>
+<option value="7563/0">7563/0 - Polipo amartomatoso</option>
+<option value="7681/0">7681/0 - Polipo fibroepiteliale</option>
+<option value="7564/0">7564/0 - Polipo Giovanile</option>
+<option value="7204/4">7204/4 - Polipo iperplastico</option>
+<option value="7680/0">7680/0 - Polipo NAS</option>
+<option value="8220/0">8220/0 - Poliposi adenomatosa del colon –Poliposi familiare (C18._)</option>
+<option value="7690/0">7690/0 - Poliposi</option>
+<option value="7682/0">7682/0 - Pseudo Polipo infiammatorio</option>
+<option value="4703/1">4703/1 - Rettocolite ulcerosa</option>
+<option value="9140/3">9140/3 - Sarcoma di Kaposi</option>
+<option value="8240/1">8240/1 - Tumore carcinoide, ad incerto potenziale di malignità</option>
+<option value="8240/3">8240/3 - Tumore carcinoide, NAS (escluso dell’appendice 8240/1)</option>
+<option value="8936/1">8936/1 - Tumore stromale gastrointestinale, NAS</option>
+</select>
+            </fieldset>
+</div></th>
+        </tr>
+        <tr><th width="20%" scope="row"><div id="6groupL1" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <div class="lblTitS"> Grado displasia lesione (ICD-0)</div>
+            <input id="chkGradoL1Displ1" name="grado_displ_L1" type="checkbox" value="7400/6"/><label for="chkGradoL1Displ1">Basso</label>
+            <input id="chkGradoL1Displ2" name="grado_displ_L1" type="checkbox" value="7400/8"/>
+            <label for="chkGradoL1Displ2">Alto</label>
+            </fieldset>
+            </div></th>
+          <th width="20%" scope="row"><div id="6groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Grado displasia lesione (ICD-0)</div>
+              <input id="chkGradoL2Displ1" name="grado_displ_L2" type="checkbox" value="7400/6"/>
+              <label for="chkGradoL2Displ1">Basso</label>
+              <input id="chkGradoL2Displ2" name="grado_displ_L2" type="checkbox" value="7400/8"/>
+              <label for="chkGradoL2Displ2">Alto</label>
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="6groupL3" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Grado displasia lesione (ICD-0)</div>
+              <input id="chkGradoL3Displ1" name="grado_displ_L3" type="checkbox" value="7400/6"/>
+              <label for="chkGradoL3Displ1">Basso</label>
+              <input id="chkGradoL3Displ2" name="grado_displ_L3" type="checkbox" value="7400/8"/>
+              <label for="chkGradoL3Displ2">Alto</label>
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="6groupL4" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Grado displasia lesione (ICD-0)</div>
+              <input id="chkGradoL4Displ1" name="grado_displ_L4" type="checkbox" value="7400/6"/>
+              <label for="chkGradoL4Displ1">Basso</label>
+              <input id="chkGradoL4Displ2" name="grado_displ_L4" type="checkbox" value="7400/8"/>
+              <label for="chkGradoL4Displ2">Alto</label>
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="6groupL5" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Grado displasia lesione (ICD-0)</div>
+              <input id="chkGradoL5Displ1" name="grado_displ_L5" type="checkbox" value="7400/6"/>
+              <label for="chkGradoL5Displ1">Basso</label>
+              <input id="chkGradoL5Displ2" name="grado_displ_L5" type="checkbox" value="7400/8"/>
+              <label for="chkGradoL5Displ2">Alto</label>
+            </fieldset>
+</div></th>
+        </tr>
+        <tr><th width="20%" scope="row"><div id="7groupL1" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+            <div class="lblTitS"> Data referto istologico</div>
+            <input name="data_ref_isto_L1" id="txtdata_ref_isto_L1" placeholder="" value="" type="text" />
+            </fieldset>
+            </div></th>
+          <th width="20%" scope="row"><div id="7groupL2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Data referto istologico</div>
+              <input name="data_ref_isto_L2" id="txtdata_ref_isto_L2" placeholder="" value="" type="text" />
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="7groupL3" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Data referto istologico</div>
+              <input name="data_ref_isto_L3" id="txtdata_ref_isto_L3" placeholder="" value="" type="text" />
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="7groupL4" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Data referto istologico</div>
+              <input name="data_ref_isto_L4" id="txtdata_ref_isto_L4" placeholder="" value="" type="text" />
+            </fieldset>
+</div></th>
+          <th width="20%" scope="row"><div id="7groupL5" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Data referto istologico</div>
+              <input name="data_ref_isto_L5" id="txtdata_ref_isto_L5" placeholder="" value="" type="text" />
+            </fieldset>
+</div></th>
+        </tr>
+</table>
+<table width="100%" border="1">
+<tr class="ui-block-a"  data-theme="b"><a id="ttlConcl" href="#" data-theme="b" class="ui-btn ui-btn-up-a"><span><font size="+1">Conclusioni</font></span></a></tr>
+
+<tr>
+          <th width="40%" scope="row"><div id="group1concl2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS" > Complicanze tardive entro 2 settimane</div>
+              <input id="chkConclCompl1" name="compl_tard" type="checkbox" value="00"/><label for="chkConclCompl1">Nessuna</label>
+              <input id="chkConclCompl2" name="compl_tard" type="checkbox" value="01"/><label for="chkConclCompl2">Sanguinamento</label>
+              <input id="chkConclCompl3" name="compl_tard" type="checkbox" value="02"/><label for="chkConclCompl3">Perforazione</label>
+              <input id="chkConclCompl4" name="compl_tard" type="checkbox" value="03"/><label for="chkConclCompl4">In attesa di valutazione</label>
+              <input id="chkConclCompl5" name="compl_tard" type="checkbox" value="09"/><label for="chkConclCompl5">Altro ulcero/vegetante</label>
+            </fieldset>
+			<fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Assistenza Ospedaliera</div>
+              <input id="chkAssistOspS" name="AssistOsped" type="checkbox" value="1"/><label for="chkAssistOspS">Sì</label>
+              <input id="chkAssistOspN" name="AssistOsped" type="checkbox" value="2"/><label for="chkAssistOspN">No</label>
+            </fieldset>            
+</div></th>
+          <th width="40%" scope="row"><div id="group3concl2" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+              <div class="lblTitS"> Indicazioni/Conclusioni</div>
+              <input id="chkConclIndic1" name="indic_concl" type="checkbox" value="01"/>
+              <label for="chkConclIndic1">Negativo/FOBT dopo 5 anni</label>
+              <input id="chkConclIndic2" name="indic_concl" type="checkbox" value="02"/>
+              <label for="chkConclIndic2">Indicata chirurgia</label>
+              <input id="chkConclIndic3" name="indic_concl" type="checkbox" value="03"/>
+              <label for="chkConclIndic3">Colon TC virtuale</label>
+              <input id="chkConclIndic4" name="indic_concl" type="checkbox" value="04"/>
+              <label for="chkConclIndic4">Ripetere esame endoscopico</label>
+              <input id="chkConclIndic5" name="indic_concl" type="checkbox" value="05"/>
+              <label for="chkConclIndic5">Altra colonscopia per completare procedura terapeutica</label>
+              <input id="chkConclIndic6" name="indic_concl" type="checkbox" value="06"/>
+              <label for="chkConclIndic6">In attesa di istologia</label>
+              <input id="chkConclIndic7" name="indic_concl" type="checkbox" value="07"/>
+              <label for="chkConclIndic7">Invio a follow up</label>
+              <input id="chkConclIndic8" name="indic_concl" type="checkbox" value="92"/>
+              <label for="chkConclIndic8">FOBT dopo 2 anni</label>              
+              <input id="chkConclIndic9" name="indic_concl" type="checkbox" value="09"/>
+              <label for="chkConclIndic9">Altro</label>
+            </fieldset>
+</div></th>
+<th class="lblTitS" width="20%" scope="row">
+    <div>Data incazione conclusione</div><input name="data_conclusione" id="txtdataconclusione" placeholder="" value="" type="text"/>
+    <div>Follow Up a mesi
+    <select name="followup" id="followup" data-native-menu="true" >
+      <option value="" selected="selected"></option>
+      <option value="6">6 mesi</option>
+      <option value="12">12 mesi</option>
+      <option value="24">24 mesi</option>      
+      <option value="36">36 mesi</option>
+      <option value="60">60 mesi</option>
+    </select></div>
+    <div>Nome Gastroenterologo</div><input name="nome_medico" id="txtmedico" placeholder="" value="" type="text" />
+</th>
+</table>
+</form>
+<div data-theme="b" data-role="footer" data-position="fixed">
+                <h3>
+      </h3>
+                <a data-role="button" href="javascript:self.close();" class="ui-btn-right">
+                    Chiudi
+                </a>
+                <a data-role="button" href="javascript:salva();" class="ui-btn-left">
+                    Salva
+                </a>
+          </div>
+            </div>
+</div>   
+<!----------------------------------------------------------------------------------------------------------------------->
+</body>
+</html>

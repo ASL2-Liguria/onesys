@@ -1,0 +1,592 @@
+table.classDataEntryTableFixed
+{
+	/*table-layout: fixed;*/
+	text-align: left;
+	width: 100%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+table.classDataEntryTable {
+	text-align: left;
+	width: 100%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+table.classDataEntryTableMiddle {
+	text-align: left;
+	width: 50%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+	
+}
+table.classDataEntryTableMiddleRight {
+	text-align: Right;
+	width: 30;
+	border: 0;
+	height:25px;
+	margin: 5px;
+	white-space: nowrap;
+	right: 0;
+}
+
+td.classTdLabelNoWidth{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	right: 0px;
+}
+
+td.classTdLabel{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelObb{
+	border: 1px solid #6AA8F2;
+	background-color:#00D235;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelOpt{
+	border: 1px solid #6AA8F2;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelMiddle{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:50%;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelMiddleOpt{
+	border: 1px solid #83E2BC;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:50%;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelMiddleObb{
+	border: 1px solid #83E2BC;
+	background-color:#00D235;
+	padding-left:5px;
+	width:50%;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+
+td.classTdField{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	white-space: nowrap;
+	font-size:14px;
+}
+
+td.classTdFieldBigBord{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	border-right-style:double;
+	border-left-style:double;	
+}
+
+
+td.classTdSize{
+	font-size:9.5px;
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+}
+
+td.classTdLabelLink{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+td.classTdLabelLinkObb{
+	border: 1px solid #6AA8F2;
+	background-color:#00D235;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+td.classTdLabelLinkOpt{
+	border: 1px solid #6AA8F2;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	cursor:hand;
+	text-decoration: underline;
+	color:blue;
+}
+
+/*APPROPRIATEZZA*/
+td.classTdLabelAppr{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	width:400px;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+}
+
+
+td.classTdLabelApprRef{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	width:400px;
+	background-color:#00CCFF;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+}
+
+
+td.classTdFieldAppr{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	font-size:12px;
+}
+
+td.classTdMetodica{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;/*#83E2BC*/
+	background-color:#F2FEFF;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+}
+
+/*Utilizzato nella Gestione dell'Utente*/
+td.classTdFieldUte{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;/*#83E2BC*/
+	background-color:#F2FEFF;
+	font-size:15px;
+}
+
+/*
+Usato solo in imago_jack.gesPrenotazione.consultazione.calendario.html.cCalendarioHtmlSchema
+*/
+th.classThLabelLink{
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	text-decoration: underline;
+	color:blue;
+}
+
+th.classThLabelLink * {
+	cursor:hand;
+}
+
+table.classDataEntryTableStatic {
+	text-align: left;
+	border: 0;
+	height:25px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+/*FILTRI WORKLIST*/
+td.classTdFiltriLabel{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:15px;
+	right: 0px;
+}
+
+td.classTdFiltriField{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	white-space: nowrap;
+	margin:0;
+	padding:0;
+}
+
+table.classTableFiltri {
+	text-align: left;
+	width: 100%;
+	border: 0;
+	height:50px;
+	margin: 0px;
+	white-space: nowrap;
+}
+
+td.classTabHeaderMiddleFiltri {
+	background-image:url(../../imagexPix/tabheader/top_tabella.gif);
+	background-repeat:repeat-x;
+	text-align: center;
+	font-size:13px;
+	color:#0000FF;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+
+td.classTdLabelBlu{
+	border: 1px solid #6AA8F2;
+	background-color:#A0CBFA;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdFieldBlu{
+	background-color:#A0CBFA;
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	font-size:12px;
+}
+
+
+td.classTdLabelAzzurro{
+	border: 1px solid #6AA8F2;
+	background-color:#33CCFF;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdFieldAzzurro{
+	border: 1px solid #6AA8F2;
+	background-color:#33CCFF;
+	white-space: nowrap;
+	font-size:12px;
+}
+
+td.bt_red
+{
+	background-color: #FF3300;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0;
+	width: 50px;
+	white-space: nowrap;
+	cursor:hand;
+}
+
+td.bt_red_press
+{
+	background-color: #339900;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0;
+	width: 50px;
+	white-space: nowrap;
+	cursor:hand;
+}
+
+td.bt_green
+{
+	background-color: #339900;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0;
+	width: 50px;
+	white-space: nowrap;
+	cursor:hand;
+}
+
+td.bt_green_press
+{
+	background-color: #FF3300;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-align: center;
+	border: 0;
+	width: 50px;
+	white-space: nowrap;
+	cursor:hand;
+}
+
+td.bt_black
+{
+	background-color: #FFFFFF;
+	border: 0;
+	width: 10px;
+	white-space: nowrap;
+}
+
+td.classTdLabel_O{
+	border: 1px solid #6AA8F2;
+	background-color:#00D235;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelLink_O{
+	border: 1px solid #6AA8F2;
+	background-color:#00D235;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabel_I{
+	border: 1px solid #6AA8F2;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdLabelLink_I{
+	border: 1px solid #6AA8F2;
+	background-color:#FDFD00;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+}
+
+td.classTdField_O{
+	border: 1px solid #6AA8F2;
+	background-color:#F2FEFF;
+	white-space: nowrap;
+}
+
+td.classTdField_OXXX{
+	border: 1px solid #006600;
+	background-color:#00FF99;
+	white-space: nowrap;
+}
+
+td.classTdButton{
+	border: 1px solid #FFFF00;
+	background-color:#FFCC00;
+	padding-left:5px;
+	width:200px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	white-space: nowrap;
+	cursor:hand;
+}
+
+td.classTdLabelNoWidthLink{
+	white-space: nowrap;
+	border: 1px solid #6AA8F2;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size:12px;
+	right: 0px;
+	cursor:hand;
+}
+
+/* Stili by Fabrizio per schede Jack */
+
+.lblCodFisc{
+	color:#000;
+	text-decoration:underline;
+	}
+
+.w25p{width:25%;}
+
+.w100perLabel{
+	border:1px solid #6aa8f2;
+	background: #daf5fe;
+	text-align:center;
+	width: 100%;
+	font-size: 12px;
+	font-weight: bold;
+	height:30px;
+	line-height:30px;
+	padding-left:5px;
+	}
+		
+.w60pxLabel{
+	border:1px solid #6aa8f2;
+	background: #daf5fe;
+	font-size: 12px;
+	font-weight: bold;
+	padding-left:5px;
+	}
+	.w60pxLabel label{width:60px;display:block;}
+	
+.w60 input{width:60px;}
+	
+.w100per{border:1px solid #6aa8f2;background: #daf5fe;}
+	.w100per input{width: 100%;}
+	
+.w120px{border:1px solid #6aa8f2;background: #daf5fe;width: 120px;}
+	.w120px input{width: 120px;}
+	
+.w160px{border:1px solid #6aa8f2;background: #daf5fe;width: 160px;}
+	.w160px input{width: 120px;}
+	
+.w20per{
+	border:1px solid #6aa8f2;
+	background: #daf5fe;
+	width: 20%;
+	font-size: 12px;
+	font-weight: bold;
+	height:30px;
+	line-height:30px;
+	padding-left:5px;
+	}
+	
+.radio{text-align:center;border:1px solid #6aa8f2;background:#f2feff;padding:0 5px;}
+	.radio label{font-weight:bold;font-size:12px;}
+.left{text-align:left;}
+	
+.center{text-align:center;border:1px solid #6aa8f2;background:#daf5fe;padding:0 5px;font-weight:bold;}
+.f12 label{font-size:12px;font-weight: bold;padding-right:5px;margin-bottom:2px;height:20px;line-height:20px;}
+.f14{font-size:14px;}
+.h30{height:25px;line-height:25px;}
+.bg{border:1px solid #6aa8f2;background: #daf5fe;}
+
+.readonly, .readonly_no_width{border:1px solid #6aa8f2;background:#daf5fe;}
+	.readonly input{background:#eee;width:100%;}
+	.readonly_no_width input{background:#eee;}
+
+.classTdLabel_O_O{
+	background:#00d235;
+	border: #999 1px solid;
+	font-size: 12px;
+	font-weight:bold;
+	padding-left:5px;
+	}
+	
+.classTdLabel_O_O{
+
+	}
+.classTdLabel_I_I{
+	background:#00d235;
+	border: #6aa8f2 1px solid;
+	font-size: 12px;
+	font-weight:bold;
+	padding-left:5px;
+	}
+	
+.butLevel{
+	border:1px solid #6aa8f2;
+	background: #3C9CFF;
+	width: 20%;
+	font-size: 12px;
+	font-weight: bold;
+	height:30px;
+	padding:5px;
+	text-align:center;
+	text-decoration:underline;
+	color:#efefef;
+	}
+
+td.classTdFiltriField input
+{
+	clear:top;
+	width:25px;
+	height:25px;
+	/*float:left;*/
+}
+
+td.classTdFiltriField label
+{
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:13px;
+	display:block;
+	float:left;
+	line-height:25px;
+}
+
+td.classTdFiltriField input.CheckFloat
+{
+	float:left;
+}

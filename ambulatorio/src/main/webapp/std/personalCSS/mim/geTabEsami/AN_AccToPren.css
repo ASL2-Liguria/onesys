@@ -1,0 +1,22 @@
+/* CSS Document */
+
+/*Sezione Elementi*/
+
+/*Sezione Classi*/
+.FILTAB {WIDTH : 97%;}
+.FILIMGDATA {
+	width:20px;
+	height:20px;
+	/*background-image : url(../../../../imagexPix/calendario/btcalendaoff20X20.gif);*/
+	background-image : url(../../../imagexPix/calendario/calendario.gif);
+	background-repeat:none;
+}
+.FILIMGDATAUP {
+	width:20px;
+	height:20px;
+	/*background-image : url(../../../../imagexPix/calendario/btcalendaon20X20.gif);*/
+	background-image : url(../../../imagexPix/calendario/calendario.gif);
+	cursor : pointer;
+	background-repeat:none;
+}
+

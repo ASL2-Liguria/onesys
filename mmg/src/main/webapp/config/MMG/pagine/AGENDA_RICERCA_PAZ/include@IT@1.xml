@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/MMG/Agenda/RicercaPazienti.js" />
+	<CSS path="css/MMG/Agenda/RicercaPazienti.css" />
+</INCLUDE>

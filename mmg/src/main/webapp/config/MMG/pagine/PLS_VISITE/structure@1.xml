@@ -1,0 +1,44 @@
+<PAGINA key_id="PLS_VISITE">
+	<HEADER_PAGE key_id="PLS_VISITE"
+		valore="DEFAULT_MMG,SCHEDA,PLS_VISITE#DEFAULT_MMG,PLS_VISITE" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_VISITE#MMG_DATI#PLS_VISITE#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="Visite#lblTitolo#butBilanciSalute,butStampa,butSalva,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabVisita" valore="tabVisita"	evento="START">
+				<FIELDSET_TABLE key_id="fldDati" valore="fldDati" evento="START">
+					<TR_TD_LABEL_DATA key_id="txtData" valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA" evento="START">
+						<TD_LABEL_COMBO key_id="Problema" valore="lblProblema##Problema#cmbProblema#N#PROBLEMA#S" evento="START_END"></TD_LABEL_COMBO>
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldVisita" valore="fldVisita" evento="START">
+					<TR_TD_LABEL_TEXTAREA key_id="Anamnesi" valore="lblAnamnesi#Anamnesi#ANAMNESI" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="Ispezione" valore="lblIspezione#Ispezione#ISPEZIONE" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="Esame" valore="lblEsame#Esame#ESAME" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="Altro" valore="lblAltro#Altro#ALTRO" evento="START"></TR_TD_LABEL_TEXTAREA>
+					<TR_TD_LABEL_TEXTAREA key_id="Considerazioni" valore="lblConsiderazioni#Considerazioni#CONSIDERAZIONI#3" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldRilevazioni" valore="fldRilevazioni" evento="START">
+					<TR_TD_LABEL_TEXT key_id="txtPeso" valore="lblPeso##txtPeso###PESO###small" evento="START">
+						<TD_LABEL key_id="PesoCentile" valore="lblPesoCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtAltezza" valore="lblAltezza##txtAltezza###ALTEZZA###small" evento="START">
+						<TD_LABEL key_id="AltezzaCentile" valore="lblAltezzaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtBMI" valore="lblBMI##txtBMI###BMI###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtCirconferenza_Cranica" valore="lblCirconferenza_Cranica##txtCirconferenza_Cranica###CIRCONFERENZA_CRANICA###small" evento="START">
+						<TD_LABEL key_id="txtCirconferenza_CranicaCentile" valore="lblCirconferenza_CranicaCentile" evento="START"></TD_LABEL>
+					</TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtMassima" valore="lblMassima##txtMassima###MASSIMA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtMinima" valore="lblMinima##txtMinima###MINIMA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtTemperatura" valore="lblTemperatura##txtTemperatura###TEMPERATURA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtDiam_Fontanella" valore="lblDiam_Fontanella##txtDiam_Fontanella###DIAM_FONTANELLA###small" evento="START"></TR_TD_LABEL_TEXT>
+					<TR_TD_LABEL_TEXT key_id="txtSaturazione_Ossigeno"
+						valore="lblSaturazione_Ossigeno##txtSaturazione_Ossigeno###SATURAZIONE_OSSIGENO"
+						evento="START">
+					</TR_TD_LABEL_TEXT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

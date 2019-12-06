@@ -1,0 +1,38 @@
+<PAGINA key_id="MEDICINA_DI_INIZIATIVA">
+
+	<HEADER_PAGE key_id="MEDICINA_DI_INIZIATIVA" valore="DEFAULT_MMG,SCHEDA,MEDICINA_DI_INIZIATIVA#DEFAULT_MMG,MEDICINA_DI_INIZIATIVA" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#MEDICINA_INIZIATIVA#IDEN#IDEN" evento="START_END">
+	
+		<TABULAZIONE.INIT key_id="tab" valore="MedicinaDiIniziativa#lblTitolo#butSalva,butChiudi" evento="START_END">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabListaMedicinaDiIniziativa" valore="tabListaMedicinaDiIniziativa" evento="START">
+				
+				<DIV key_id="divWk" valore="divWk" evento="START"></DIV>
+					
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabInserimentoMedicinaDiIniziativa" valore="tabInserimentoMedicinaDiIniziativa" evento="START">
+				
+				<FIELDSET_TABLE key_id="fldMedicinaDiIniziativa" valore="fldMedicinaDiIniziativa" evento="START">
+					
+					<TR_TD_LABEL_COMBO key_id="TipoMedicinaDiIniziativa" 
+						valore="lblTipoMedicinaDiIniziativa##TipoMedicinaDiIniziativa#cmbTipoMedicinaDiIniziativa#N#COD_MEDICINA_INIZIATIVA" evento="START">
+					</TR_TD_LABEL_COMBO>
+					
+					<TR_TD_LABEL_DATA key_id="DataInizio" valore="lblDataInizio##txtDataInizio#DataInizio#format: 'd/m/Y', direction:false###DATA_INIZIO" evento="START">
+					</TR_TD_LABEL_DATA>
+					
+					<TR_TD_LABEL_DATA key_id="DataFine" valore="lblDataFine##txtDataFine#DataFine#format: 'd/m/Y', direction:false###DATA_FINE" evento="START">
+					</TR_TD_LABEL_DATA>
+					
+				</FIELDSET_TABLE>
+				
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+		
+	</FORM>
+	
+</PAGINA>

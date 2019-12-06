@@ -1,0 +1,139 @@
+<root>
+	<statements_list>
+	<statement name="caricaDati">
+			<sql>
+			<![CDATA[
+			declare
+				pIdenVisita    			pls_integer           := to_number(?);
+				pDataTrasf     			varchar2(32000) 		 := '';
+				pOraTrasf     			varchar2(32000) 		 := '';
+				pRepartoDest     		varchar2(32000) 		 := '';
+				pHRepartoDest     		varchar2(32000) 		 := '';
+				pTxtMotivo        		varchar2(32000) 		 := '';
+				pTxtDiagnosi      		varchar2(32000) 		 := '';
+				pTxtDiagnosiPrimoRic    varchar2(32000) 		 := '';
+				pIdenLet				pls_integer;
+				pStato					varchar2(1)				 := '';
+				pHEsami					varchar2(32000)			 := '';
+				pHTerapie				varchar2(32000)			 := '';
+				pHIdenEsami				varchar2(32000)			 := '';
+				pHIdenTerapie			varchar2(32000)			 := '';
+			begin 
+				begin
+				SELECT 
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDataTrasf"]/text()').Getstringval(),
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtOraTrasf"]/text()').Getstringval(),
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtRepartoDest"]/text()').Getstringval(),
+				Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hRepartoDest"]/text()').Getstringval(),
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtMotivo"]/text()').Getstringval(),1),
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDiagnosi"]/text()').Getstringval(),1),
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtDiagnosiPrimoRic"]/text()').Getstringval(),1),
+				iden,
+				stato,
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hEsami"]/text()').Getstringval(),1),
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hTerapie"]/text()').Getstringval(),1),
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hIdenEsami"]/text()').Getstringval(),1),
+				DBMS_XMLGEN.CONVERT(Extract(CONTENUTO, '/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="hIdenTerapie"]/text()').Getstringval(),1)
+				into pDataTrasf,pOraTrasf,pRepartoDest,pHRepartoDest,pTxtMotivo,pTxtDiagnosi,pTxtDiagnosiPrimoRic,pIdenLet,pStato,pHEsami,pHterapie,pHIdenEsami,pHIdenTerapie
+				FROM CC_LETTERA_VERSIONI WHERE FUNZIONE='LETTERA_TRASFERIMENTO' AND IDEN_VISITA=pIdenVisita AND attivo='S';
+--				PROGRESSIVO=(SELECT MAX(PROGRESSIVO) FROM CC_LETTERA_VERSIONI WHERE FUNZIONE='LETTERA_TRASFERIMENTO' AND IDEN_VISITA=pIdenVisita);	
+				exception when no_data_found then
+				begin
+				select extractvalue(contenuto,'/PAGINA/CAMPI/CAMPO[@KEY_CAMPO="txtNoteRicovero"]/text()') into pTxtDiagnosiPrimoRic from cc_schede_xml where funzione='ANAMNESI' and iden_visita=pIdenVisita;
+				exception when no_data_found then
+				null;
+				end;
+				
+				end;
+							
+			? := pDataTrasf;
+			? := pOraTrasf;
+			? := pRepartoDest;
+			? := pHRepartoDest;
+			? := pTxtMotivo;
+			? := pTxtDiagnosi;
+			? := pTxtDiagnosiPrimoRic;
+			? := pIdenLet;
+			? := pStato;
+			? := pHEsami;
+			? := pHTerapie;
+			? := pHIdenEsami;
+			? := pHIdenTerapie;
+			end;
+			]]>
+			</sql>
+		</statement>
+			<statement name="retrieveIdenStato">
+			<sql>
+			<![CDATA[
+				SELECT 
+					iden,
+					stato,
+				FROM 
+					cc_lettera_versioni 
+				WHERE 
+					iden_visita=to_number(?)
+					and funzione=?
+					and attivo='S' 
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDatiEsami">				
+			<sql>
+			<![CDATA[
+				SELECT /*+first_rows(100)*/ DR.IDEN IDEN_DETTAGLIO,SUBSTR(TR.data_esecuzione, 7, 2) || '/' || SUBSTR(TR.data_esecuzione, 5, 2) || '/' || SUBSTR(TR.data_esecuzione, 1, 4) || ' ' || TR.ora_esecuzione DATA_ORA, TR.stato_richiesta STATO, radsql.centri_di_costo.descr DESTINATARIO, TE.descr DESCR_ESAME, (SELECT TC.descrizione FROM RADSQL.tab_codifiche TC WHERE tipo_scheda = 'RICHIESTE' AND tipo_dato='TIPOLOGIA_RICHIESTA' AND codice=tr.tipologia_richiesta) TIPOLOGIA  FROM infoweb.TESTATA_RICHIESTE TR, infoweb.dettaglio_richieste DR,radsql.TAB_ESA TE, RADSQL.centri_di_costo WHERE TR.iden =DR.iden_testata AND DR.iden_tab_esa =TE.iden AND TR.iden_visita=to_number(?) AND TR.stato_richiesta <> 'X' AND TR.cdc = radsql.centri_di_costo.cod_cdc AND tr.tipologia_richiesta NOT IN ('0','3') AND tr.stato_richiesta IN ('I','E','R') ORDER BY tr.tipologia_richiesta, tr.data_richiesta
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDatiEsamiIden">				
+			<sql>
+			<![CDATA[
+				SELECT /*+first_rows(100)*/ DR.IDEN IDEN_DETTAGLIO,SUBSTR(TR.data_esecuzione, 7, 2) || '/' || SUBSTR(TR.data_esecuzione, 5, 2) || '/' || SUBSTR(TR.data_esecuzione, 1, 4) || ' ' || TR.ora_esecuzione DATA_ORA, TR.stato_richiesta STATO, radsql.centri_di_costo.descr DESTINATARIO, TE.descr DESCR_ESAME, (SELECT TC.descrizione FROM RADSQL.tab_codifiche TC WHERE tipo_scheda = 'RICHIESTE' AND tipo_dato='TIPOLOGIA_RICHIESTA' AND codice=tr.tipologia_richiesta) TIPOLOGIA  FROM infoweb.TESTATA_RICHIESTE TR, infoweb.dettaglio_richieste DR,radsql.TAB_ESA TE, RADSQL.centri_di_costo WHERE TR.iden =DR.iden_testata AND DR.iden_tab_esa =TE.iden AND TR.iden_visita=to_number(?) AND  TR.cdc = radsql.centri_di_costo.cod_cdc and DR.IDEN IN (select column_value FROM TABLE(split(?,','))) ORDER BY tr.tipologia_richiesta, tr.data_richiesta
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDatiTerapie">				
+			<sql>
+			<![CDATA[
+				SELECT TR.iden IDEN_TERAPIA, (SELECT REPLACE(wm_concat(FC.descr ||' ' ||FC.sostanza || ' - ' ||fc.dosaggio ||' ' || FC.udm_descr) ,',',chr(13)) FROM view_cc_farmaci_collegati FC WHERE FC.iden_scheda=S.iden) FARMACI, CC_TERAPIA.GETDESCRPRESCRIZIONE(S.impostazioni) POSOLOGIA, case when TO_CHAR(ceil(s.data_fine-sysdate)) is null then 'Fine ricovero' ELSE TO_CHAR(ceil(trunc(s.data_fine)-trunc(sysdate)))  ||' giorni' end DURATA_RESIDUA  FROM CC_TERAPIE_RICOVERO TR JOIN CC_TERAPIE_SCHEDA S ON ( TR.iden=s.iden_terapia ) WHERE tr.deleted ='N' and tr.stato='P' AND (S.data_fine   >=sysdate or S.data_fine is null) and TR.iden_visita  in (select iden from radsql.nosologici_paziente where  num_nosologico=(select num_nosologico from radsql.nosologici_paziente where iden=?)) AND S.STATO='I'
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDatiTerapieIden">				
+			<sql>
+			<![CDATA[
+		    	SELECT TR.iden IDEN_TERAPIA, (SELECT REPLACE(wm_concat(FC.descr ||' ' ||FC.sostanza || ' - ' ||fc.dosaggio ||' ' || FC.udm_descr) ,',',chr(13)) FROM view_cc_farmaci_collegati FC WHERE FC.iden_scheda=S.iden) FARMACI, CC_TERAPIA.GETDESCRPRESCRIZIONE(S.impostazioni) POSOLOGIA,case when TO_CHAR(ceil(s.data_fine-sysdate)) is null then 'Fine ricovero' else  TO_CHAR(ceil(trunc(s.data_fine)-trunc(sysdate)))  ||' giorni' end DURATA_RESIDUA FROM CC_TERAPIE_RICOVERO TR JOIN CC_TERAPIE_SCHEDA S ON ( TR.iden=s.iden_terapia ) WHERE TR.iden_visita =? AND S.STATO='I' and  TR.IDEN IN (select column_value FROM TABLE(split(?,','))) 
+			]]>
+			</sql>
+		</statement>
+		<statement name="getDatiRicovero">				
+			<sql>
+			<![CDATA[
+				select tp.descr as REPARTO,substr(data_ricovero,7,2)||'/'||substr(data_ricovero,5,2)||'/'||substr(data_ricovero,1,4) as DATA_RICOVERO  from nosologici_paziente ns inner join tab_pro tp on (ns.iden_pro=tp.iden) where num_nosologico=? and accesso='0'
+			]]>
+			</sql>
+		</statement>
+		<statement name="retrieveIden">				
+			<sql>
+			<![CDATA[
+				select valore1 from radsql.tab_work where tipo=? and webuser=?
+			]]>
+			</sql>
+		</statement>
+		<statement name="rollbackLetteraTrasferimento">				
+			<sql>
+			<![CDATA[
+				declare
+					pIdenLetteraPrec pls_integer := to_number(?);
+					pIdenLettera pls_integer := to_number(?);
+					pTipoFirma varchar2(5000) := ?;
+				begin
+					update cc_lettera_versioni set attivo='S',deleted='N' where iden=pIdenLetteraPrec;
+					delete from cc_lettera_versioni where iden=pIdenLettera;
+					delete from cc_firma_pdf where iden_tab=pIdenLettera and funzione=pTipoFirma	;
+				end;		
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

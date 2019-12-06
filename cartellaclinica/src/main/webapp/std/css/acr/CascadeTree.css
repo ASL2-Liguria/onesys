@@ -1,0 +1,132 @@
+
+
+body{
+	padding:5px;
+	background:#DAF5FE;
+	overflow:auto;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size: 12px;
+	font-weight:600;
+}
+
+#CascadeTree{
+	border: 2px solid  #6AA8F2;
+	margin-right: 20px;
+	padding: 25px;
+	background:CCE7FC;
+}
+
+#Search {
+	padding: 10px ;
+	border: 2px solid  #6AA8F2;
+	background:CCE7FC;
+	margin: 5px;
+}
+
+#Result li{
+	font-weight:300;
+	padding-bottom:10px;
+	cursor: pointer;
+}
+
+#Result {
+	border: 2px solid  #6AA8F2;
+	background: #FCFCC7;
+	cursor: pointer;
+	padding-right: 25px;
+	padding-left: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#Search label{
+	padding: 5px;
+	margin-right: 5px;
+	margin-left: 5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+}
+
+#CascadeTree ul{ padding-left: 5px; padding-top:5px; }
+
+#CascadeTree li{ padding-left: 5px; padding-top:5px; background: #CCE7FC; }
+
+#CascadeTree a{ cursor: pointer;
+/*float:left;*/
+}
+#CascadeTree a.light{background:#FF0;}
+
+#CascadeTree div{ 
+/*	border: 2px solid  #6AA8F2;*/
+/*	background: #b9e0ff; */
+}
+
+#btnCerca {
+	padding :1px;
+	padding-right: 15px;
+	padding-left: 15px;	
+	position: left;
+	/*border: 2px solid #6AA8F2;*/
+	border: 1px solid #6AA8F2;
+	border-bottom: 2px solid #6AA8F2;
+	border-left: 2px solid #6AA8F2;
+	/*background:#DAF5FE;*/
+	background-color: #FCFCC7;
+	margin-right: 10px;
+	margin-left: 10px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	cursor: pointer;
+}
+
+#btnCerca:hover{
+	background:#b9e0ff;
+	border-bottom: 2px solid white;
+	border-right:  2px solid white;
+}
+
+#btnEsplora {
+	padding :1px;
+	padding-right: 15px;
+	padding-left: 15px;	
+	position: left;
+	/*border: 2px solid #6AA8F2;*/
+	border: 1px solid #6AA8F2;
+	border-bottom: 2px solid #6AA8F2;
+	border-left: 2px solid #6AA8F2;
+	/*background:#DAF5FE;*/
+	background-color: #daf5fe;
+	margin-right: 5px;
+	margin-left: 0px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	cursor: pointer;
+}
+
+#btnEsplora:hover{
+	background:#b9e0ff;
+	border-bottom: 2px solid white;
+	border-right:  2px solid white;
+}
+
+#CascadeTree input {
+	border: 1px solid #6AA8F2;
+	border-bottom: 2px solid #6AA8F2;
+	border-left: 2px solid #6AA8F2;
+	background:#FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;
+	/*background:FCFCC7;*/
+}
+
+
+.divInfo {
+	margin-right:3px;
+	width:20px; 
+	height:18px;
+	cursor: pointer;
+}

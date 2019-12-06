@@ -1,0 +1,594 @@
+/* normalBody */
+body {
+	margin: 0;
+	background-color:#E0E0E0;
+	font-size: 12px;
+	padding:0;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+
+.Titolo {
+	font-size: 14px;
+	color:#000;
+	background:#999;
+	width:100%;
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	height:25px;
+	line-height:20px;
+}
+
+.StatoPrenotatoAccettato{
+	background:#33CCFF;
+}
+
+.StatoRefertoSospeso{
+	background:#FF3333;
+}
+
+.StatoInizioEsecuzione{
+	background:#F93;
+}
+
+/* usato per definire lo sfondo dei livelli di info*/
+.layerInfo{
+	background:url(../../../imagexPix/button/gradient/gradientKeyImage.jpg) repeat;
+	overflow:auto;
+}
+
+SPAN.spanTitle{
+	color:black;
+	font-weight:bold; 
+	font-size:14px; 
+	display:block; 
+	background:#FFC; 
+	width:100%; 
+	text-align:center;	
+}
+
+input.hasDatePick{float:left;}
+
+
+tr.oddRow{background:#fff;}
+tr.evenRow{background:#e6e6e6;}
+tr.col_over{background:#fff9c7;}
+tr.col_over{background:#fff0a9;}
+tr.desel{background:#FFFFF0;}
+tr.sel{background:#ffea00;}
+tr.sel td{background:#ffea00;}
+
+#framesetAssociaTarMed{border:0;}
+
+#form_pag_ric{
+	width:99.5%;
+	margin-top:5px;
+	}
+	
+SPAN.classSpanOmonimo {
+	BACKGROUND-COLOR: #ffc58a;
+	PADDING-LEFT: 5px;
+	WIDTH: 500px;
+	DISPLAY: block;
+	HEIGHT: 200px;
+	COLOR: black;
+	MARGIN-LEFT: -5px;
+	FONT-WEIGHT: bold;
+	line-height:30px;
+}
+
+/* al_tableDetail.css */
+
+td.classTdLabelNoWidth{
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-weight: bold;
+	font-size:12px;	
+}
+td.classTdText{
+	background-color:#DAF5FE;
+	font-size:12px;	
+	text-align:right;
+	text-decoration: underline;
+	border-bottom:1px;
+}
+
+td.classTdLabel{
+	background-color:#DAF5FE;
+	width:100px;
+	font-weight: bold;
+	font-size:12px;	
+	white-space:nowrap;
+}
+
+td.classTdField{
+	background-color:#F2FEFF;
+	white-space:nowrap;	
+}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+/* **************************  */
+table.classDataTable {
+	table-layout:fixed;
+	font-size: 12px;
+	background-color:#999;
+	border-collapse : collapse;
+	overflow:hidden;
+	width: 100%;
+	color:#fff;
+	padding:0;
+	margin:0;
+}
+
+
+table.classDataTable td{
+	background-color:#999;
+	padding-left:5px;
+	border-top:4px solid #999;
+	border-bottom:4px solid #999;
+}
+
+table.classDataTable th {
+	/*background-color:#ececec;*/
+	border: 1px solid #999;
+}
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	color:#fff;
+}
+
+div.classDatiTabella{
+	white-space:nowrap;
+}
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+
+select#idComboRis{
+	height:25px;
+	width:160px;
+}
+select#idComboMetodiche {
+	height:25px;
+	width:160px;
+	}
+
+tr.oddRow td{background:#fff;border:1px solid #ccc; color:#000;}
+tr.evenRow td{background:#e6e6e6;border:1px solid #ccc; color:#000;}
+
+.classDataTable{border:1px solid #999;}
+
+
+/* winpopup/button.css */
+.pulsante {
+	width:105px;
+	height:21px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	text-align: center;
+	line-height:18px;
+	float:right;
+
+}
+
+.pulsante A{
+	height:21px;
+	TEXT-DECORATION: none;
+	color: blue;
+	display:block;
+}
+
+.pulsante A:hover {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010_hover.png) repeat-x;
+	color: #000;
+}
+
+.pulsanteDis {
+	font-size: 14px;
+	background-color: #CCCCCC;
+	background-repeat: repeat-x;
+	text-decoration: none;
+	letter-spacing: normal;
+	text-align: center;
+	word-spacing: normal;
+	white-space: normal;
+	display: block;
+}
+
+
+.pulsanteSelettore {
+	width:20px;
+	height:20px;
+	font-size: 14px;
+	font-weight: bold;
+	background-image:url(../../../../imagexPix/bar/btBlu.jpg);
+	background-repeat:repeat-x;
+	text-align: center;
+	line-height:18px;
+	margin:2px 0 2px 0;
+	float:right
+}
+
+.pulsanteSelettore A{
+	height:20px;
+	TEXT-DECORATION: none;
+	color: yellow;
+	display:block;
+}
+
+.pulsanteSelettore A:hover {
+	background-image:url(../../../../imagexPix/bar/btYellow.jpg);
+	background-repeat:repeat-x;
+	color: blue;
+}
+
+.pulsanteInline{
+	height:25px;
+	visibility:visible;
+	cursor:pointer;
+	width:100%;	
+}
+
+
+
+.pulsanteInline A{
+	width:100%;
+	TEXT-DECORATION: none;
+	color: #000;
+	line-height:25px;
+	float:left;
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	display:block;
+	font-weight:bold;
+	font-size:14px;
+	text-align:center;
+}
+
+.pulsanteInline A:hover {
+	text-decoration:underline;
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010_hover.png) repeat-x;
+}
+
+
+/* uregentColor.css */
+.bianco{
+	background:'white';
+}
+
+.verde{
+	background:'green';
+}
+
+.giallo{
+	background: 'yellow';
+}
+
+.rosso{
+	background: 'red';
+}
+
+/* ****************** MEDICINA NUCLEARE **************************** */
+.preparato{
+	background:#FFFFA8;
+}
+.somministrato{
+	background:#FF8080;
+}
+
+
+/* ****************** SCREENING **************************** */
+.screening_no{
+	background:#FFFFCC;
+}
+
+.screening_tecnico{
+	background:#DFF0FD;
+}
+
+.screening_primo_radiologo{
+	/*background-color:#9AC6FC;*/
+	background:'yellow';
+}
+
+.screening_non_negativo{
+	/*background-color:#50A4F8;*/
+	background:'red';
+}
+
+.screening_approfondimenti{
+	background:#0C84E7;
+}
+
+.screening_negativo{
+	/*background-color:#0743B1;*/
+	background:'green';
+}
+
+.screening_discordante{
+	background:#FF0000;
+}
+
+
+
+
+
+
+
+
+
+/* al_precedentiTab.css */
+/* style dei link dei tab NON selezionati */
+
+#div_idTabInfoReferto{
+ float:left;
+}
+
+#div_idTabPrecedenti{
+ float:left;
+ width:280px;
+ margin-top:5px;
+}
+
+.classTabMiddle A{
+	TEXT-DECORATION: none;
+	color: #000;
+}
+
+.classTabMiddleSelected A{
+	TEXT-DECORATION: none;
+	color: #fff;
+}
+
+
+.classTabMiddle A:hover {
+	TEXT-DECORATION: none;
+	border-bottom:1px dotted #333;
+}
+
+table.classTabulator {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+/* info per tabulatore selezionato */
+table.classTabulator td.classTabSxSelected {
+	background:url(../../../../imagexPix/tabheader/tab_sx_2010_sel.png) no-repeat;
+	width:14px;
+}
+
+table.classTabulator td.classTabMiddleSelected {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010_sel.png) repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#fff;
+	font-weight: bold;
+}
+
+table.classTabulator td.classTabDxSelected {
+	background:url(../../../../imagexPix/tabheader/tab_dx_2010_sel.png) no-repeat;
+	width:14px;
+}
+
+/* ************** */
+/* info per tabulatore NON selezionato */
+table.classTabulator td.classTabSx {
+	background:url(../../../../imagexPix/tabheader/tab_sx_2010.png) no-repeat;
+	width:14px;
+}
+
+table.classTabulator td.classTabMiddle {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#000;
+	font-weight: bold;
+}
+
+table.classTabulator td.classTabDx {
+	background:url(../../../../imagexPix/tabheader/tab_dx_2010.png) no-repeat;
+	width:14px;
+}
+
+/* ********** */
+
+table.classTabulator td.classButtonHeader {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;	
+	width:100px; 
+}
+
+/* ********** */
+
+table.classTabulator_blink {
+text-align: left;
+width: 100%;
+margin-top: 0px;
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px; 
+border: 0;
+height:25px;
+}
+
+table.classTabulator_blink td.classTabSx {
+	background:url(../../../../imagexPix/tabheader/tab_sx_2010.png) no-repeat;
+	width:14px;
+}
+
+table.classTabulator_blink td.classTabMiddle {
+	background:url(../../../../imagexPix/tabheader/top_tabella_2010.png) repeat-x;
+	text-align: center;
+	font-size:14px;
+	color:#000;
+	font-weight: bold;
+}
+
+table.classTabulator_blink td.classTabDx {
+	background:url(../../../../imagexPix/tabheader/tab_dx_2010.png) no-repeat;
+	width:14px;
+}
+
+
+
+table.classTabulator_blink td.classButtonHeader {
+background-image:url(../../../../imagexPix/tabulator/top_tabella_blink.gif);
+width:100px; 
+}
+
+#lblInfoFiltroRicRem.infoFiltroRemoto{
+	color:ff7e00;
+	font-size:14px;
+}
+
+OPTION.precedenti_on{
+	background-color:#ff7e00;
+	font-size:14px;	
+	font-weight: bold;	
+	color:black;
+}
+
+
+SPAN.resetDaData{
+	width:20px;
+	height:20px;
+	background-image:url(../../../../imagexPix/button/mini/btReset.png);
+	background-repeat:no-repeat;
+	cursor:pointer;
+	margin-left:5px;
+} 
+
+	/* background-image:url(../../../imagexPix/button/mini/btRefresh.png); */
+	/* 	cursor:pointer; */
+SPAN.refreshDatiRisRemoti{
+	width:20px;
+	height:20px;
+	background-repeat:no-repeat;
+	margin-left:5px;
+} 
+
+
+#imgDaData{
+	cursor:pointer;
+}
+
+
+div.tabulatorError{
+	display:block;
+	background-color:#036;
+	text-align:center;
+	font-size:14px;
+	font-weight:bold;
+	color:white;
+}
+
+/* dataTableWithDiv */
+/* css per la tabella di dati, come ad esempio la worklist */
+
+div#idLayerTestata{
+	margin:0;
+	height:38px;
+	display:block;
+	top:0;
+	left:0;
+	position:absolute;
+}
+
+div#idLayerWorklist{
+	margin-top:52px;
+	display:block;
+}
+
+tr.oddRow{background:#fff;}
+tr.evenRow{background:#e6e6e6;}
+tr.col_over{background:#fff9c7;}
+tr.col_over{background:#fff0a9;}
+tr.desel{background:#FFFFF0;}
+tr.sel{background:#ffea00;}
+
+
+
+div#idLayerWorklist table.classDataTable {
+	table-layout:fixed;
+	font-size: 13px;
+	border: 1px solid #999;
+	background:#fff;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+div#idLayerWorklist table.classDataTable td{
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+}
+
+
+div#idLayerTestata table.classDataTable {
+	table-layout:fixed;
+	font-size: 12px;
+	border: 1px solid #999;
+	background:#fff;
+	border-collapse : collapse;
+	width:100%;
+	overflow:hidden;
+}
+
+
+div#idLayerWorklist table.classDataTable th {
+	background:#9c9e9f;
+	border: 1px solid #999;
+	height:25px;
+	line-height:25px;
+}
+
+div#idLayerTestata table.classDataTable td{
+	border: 1px solid #999;
+}
+
+div#idLayerTestata table.classDataTable th {
+	background:#9c9e9f;
+	/*
+	border: 1px solid #999;
+	color:#fff;
+	height:25px;
+	line-height:25px;*/
+}
+
+.classNormalRow{
+	height:30px;
+}
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	color: #fff;
+	height:10px;
+	padding-bottom:5px;
+}
+	div.classHeaderTabella a{
+		color:#ffea00;
+		}
+
+div#idLayerWorklist div.classDatiTabella{
+	white-space:nowrap;
+	font-size:12px;
+	padding-left:3px;
+}
+
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}

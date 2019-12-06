@@ -1,0 +1,28 @@
+<PAGINA key_id="RICHIEDI_PREST_DSA">
+	<HEADER_PAGE key_id="RICHIEDI_PREST_DSA" valore="DEFAULT,SCHEDA,RICHIEDI_PREST_DSA#DEFAULT,RICHIEDI_PREST_DSA" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabInfoPrest" valore="tabInfoPrest#lblTitolo#butInvia,butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabPrest" valore="tabPrest" evento="START">
+				<!--  FIELDSET_TABLE key_id="datiGenerali" valore="datiGenerali" evento="START">
+					<TD_LABEL_TEXT key_id="txtMedPresc" valore="lblMedPresc##txtMedPresc####S#w150px#N" evento="START">"
+					</TD_LABEL_TEXT>
+				</FIELDSET_TABLE-->
+				<FIELDSET_TABLE key_id="comboPrestrazioniDsa" valore="idPrestazioniDsa" evento="START">
+					<TR.INIT key_id="trPrestazioniDsa" valore="" evento="START">
+						<TD.INIT key_id="tdPrestazioniDsa" valore="" evento="START">
+							<DIV key_id="cmbPrestazioniDSA" valore="cmbPrestazioniDSA" evento="START">
+								<TD_COMBO_LIST key_id="cmbRichSel" valore="#cmbRichSel#N#" evento="START">
+								</TD_COMBO_LIST>
+								<TD_COMBO_LIST key_id="cmbPrestNoCdc" valore="#cmbPrestNoCdc#N#" evento="START">
+								</TD_COMBO_LIST>
+							</DIV>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="colAltriDati" valore="colAltriDati" evento="START">
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

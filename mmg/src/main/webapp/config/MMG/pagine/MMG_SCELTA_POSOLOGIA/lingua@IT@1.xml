@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>SCELTA DELLA POSOLOGIA</lblTitolo>
+		<butStampa>Stampa</butStampa>
+		<butSalva>Salva</butSalva>
+		<butChiudi>Chiudi</butChiudi>
+		<butConferma>Conferma</butConferma>
+		<butRicerca>Ricerca</butRicerca>
+		<butInserisci>Registra e Inserisci</butInserisci>
+		<butInserisciSTD>Inserisci e Salva STD</butInserisciSTD>
+		
+		<tabSceltaPosologia>SCELTA POSOLOGIA</tabSceltaPosologia>
+		<SceltaPosologia>Scelta Posologia</SceltaPosologia>
+		<CreazionePosologia>Creazione Posologia</CreazionePosologia>
+		
+		<fldQuantita>Quantità</fldQuantita>
+		<fldFrequenza>Frequenza</fldFrequenza>
+		<fldPosologia>Posologia</fldPosologia>
+		<fldImpostati>Lista Posologie</fldImpostati>
+		<fldRicerca>Ricerca nella lista delle posologie</fldRicerca>
+		<lblRicerca>Ricerca</lblRicerca>
+		<lblPastiglia>Quantità (Es. 1 compressa)</lblPastiglia>
+		<lblQuantita>Quante volte</lblQuantita>
+		<lblNote>Descrizione Posologia</lblNote>
+		<lblDose>Quantità (Es. 1 compressa)</lblDose>
+		<lblDoseGiornaliera>Dose Giornaliera</lblDoseGiornaliera>
+		<lblPosologiaSTD>Posologia</lblPosologiaSTD>
+		<lblPersonale>Personale</lblPersonale>
+		<lblQuantitaMisura>Quantità</lblQuantitaMisura>
+		<lblMisura>Unità di Misura</lblMisura>
+		<lblCancella>Cancella Posologia</lblCancella>
+		<lblConfirmCancella>Si desidera cancellare la posologia?</lblConfirmCancella>
+		<lblErrorPersonale>Non si possono cancellare posologie di default</lblErrorPersonale>
+		<lblTitleError>Attenzione</lblTitleError>
+		
+		<lblUno>uno</lblUno>
+		<lblDue>due</lblDue>
+		<lblTre>tre</lblTre>
+		<lblQuattro>quattro</lblQuattro>
+		<lblCinque>cinque</lblCinque>
+		<lblSei>sei</lblSei>
+		<lblSette>sette</lblSette>
+		<lblOtto>otto</lblOtto>
+		<lblNove>nove</lblNove>
+		<lblDieci>dieci</lblDieci>
+		<lblUnQuarto>un quarto</lblUnQuarto>
+		<lblUnTerzo>un terzo</lblUnTerzo>
+		<lblMeta>mezza</lblMeta>
+    </ROW>
+</ROWSET>

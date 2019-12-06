@@ -1,0 +1,19 @@
+<ROWSET>
+    <ROW>
+        <filtroPACAperti>Interventi Chirurgici Ambulatoriali Aperti</filtroPACAperti>
+        <filtroPACChiusi>Interventi Chirurgici Ambulatoriali Chiusi</filtroPACChiusi>
+        <lblCognomePACAperti>Cognome</lblCognomePACAperti>
+        <lblNomePACAperti>Nome</lblNomePACAperti>
+        <lblRepartoPACAperti>Reparto</lblRepartoPACAperti>
+        <lblCartellaPACAperti>Cartella</lblCartellaPACAperti>
+        <lblCognomePACChiusi>Cognome</lblCognomePACChiusi>
+        <lblNomePACChiusi>Nome</lblNomePACChiusi>
+        <lblRepartoPACChiusi>Reparto</lblRepartoPACChiusi>
+        <lblCartellaPACChiusi>Cartella</lblCartellaPACChiusi>
+        <lblDaDataPACChiusi>Da data</lblDaDataPACChiusi>
+        <lblADataPACChiusi>A data</lblADataPACChiusi>
+        <PROVA1></PROVA1>
+        <PROVA2></PROVA2>
+        <PROVA3></PROVA3>
+    </ROW>
+</ROWSET>

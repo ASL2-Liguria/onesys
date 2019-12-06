@@ -1,0 +1,19 @@
+html,body{overflow:hidden; background: #b9e0ff;}
+
+div.intestazione{color:#fff;height:25px;line-height:25px;position:absolute;width:80%;top:3px;left:10%;text-align:center;font: bold 14px Verdana;}
+div.header{width:100%;height:25px;background:#1b519a;}
+div.header div.btn{float:right;width:25px;height:25px;cursor:hand;}
+div.header div.btn:hover{background-color:#FF0;}
+div.chiudi{background:url(../../imagexPix/button/cross.png);}
+div.registra{background:url(../../imagexPix/RichiesteModifica/modifica_valida.png);}
+
+div.Properties{width:98%;margin:3px;border:1px solid #1b519a;padding:2px;background:#f0f9fe;}
+div.Properties input{width:50%}
+div.Ambito{width:98%;margin:3px;border:1px solid #1b519a;padding:2px;background:#f0f9fe;}
+
+div.Ambito div{margin-right:2px;border:1px solid #6fa1d4;float:left;width:150px;background:#e4eef5;}
+div.Properties span{border:1px solid #6fa1d4;background:#e4eef5;padding:2px;}
+div.Properties label{margin-right:2px;}
+
+iframe{border:0px;}
+

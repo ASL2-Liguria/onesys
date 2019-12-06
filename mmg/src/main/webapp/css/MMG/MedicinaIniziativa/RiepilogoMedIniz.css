@@ -1,0 +1,9 @@
+body{
+	width:1280px;
+}
+
+#butCercaAcc, #butCercaFarmaci {
+	float:right;
+	margin-right:50px;
+	width: 150px;
+}

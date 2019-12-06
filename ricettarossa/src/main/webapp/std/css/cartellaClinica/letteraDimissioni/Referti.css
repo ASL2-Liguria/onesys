@@ -1,0 +1,37 @@
+TABLE#oTable DIV.classCopia A {
+	height: 30px;
+	width: 30px;
+	background-position: top left;
+	background-image: url(../../../../imagexPix/contextMenu/ico_copia.gif);
+	background-repeat: no-repeat;
+}
+
+TABLE#oTable TD {
+	height: 35px;
+	min-width: 35px;
+}
+
+TABLE.classTabHeader TD.classTabHeaderSx,TABLE.classTabHeader TD.classTabHeaderMiddle,TABLE.classTabHeader TD.classTabHeaderDx
+	{
+	FONT-SIZE: 180;
+	BACKGROUND-IMAGE: none;
+	HEIGHT: 22px;
+	BORDER-BOTTOM-COLOR: white;
+	PADDING-TOP: 5px;
+	BORDER-TOP-COLOR: white;
+	DISPLAY: inline;
+	BACKGROUND: #95baff;
+	BORDER-RIGHT-COLOR: white;
+	FONT-FAMILY: Verdana;
+	PADDING-RIGHT: 0px;
+	BORDER-LEFT-COLOR: white;
+	PADDING-LEFT: 0px;
+	FONT: bold 12px/normal Verdana, sans-serif;
+	PADDING-BOTTOM: 0px;
+	MARGIN: auto;
+	COLOR: white;
+}
+
+body {
+	overflow-y: scroll;
+}

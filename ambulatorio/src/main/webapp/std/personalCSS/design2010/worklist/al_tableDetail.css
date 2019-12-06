@@ -1,0 +1,86 @@
+
+td.classTdLabelNoWidth{
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-weight: bold;
+	font-size:12px;	
+}
+td.classTdText{
+	background-color:#DAF5FE;
+	font-size:12px;	
+	text-align:right;
+	text-decoration: underline;
+	border-bottom:1px;
+}
+
+td.classTdLabel{
+	background-color:#DAF5FE;
+	width:100px;
+	font-weight: bold;
+	font-size:12px;	
+	white-space:nowrap;
+}
+
+td.classTdField{
+	background-color:#F2FEFF;
+	white-space:nowrap;	
+}
+
+label.nowrap{
+	white-space:nowrap;
+}
+
+
+/* **************************  */
+table.classDataTable {
+	table-layout:fixed;
+	font-size: 12px;
+	background-color:#999;
+	border-collapse : collapse;
+	overflow:hidden;
+	width: 100%;
+	color:#fff;
+	padding:0;
+	margin:0;
+}
+
+
+table.classDataTable td{
+	background-color:#999;
+	padding-left:5px;
+	border-top:4px solid #999;
+	border-bottom:4px solid #999;
+}
+
+table.classDataTable th {
+	/*background-color:#ececec;*/
+	border: 1px solid #999;
+}
+
+div.classHeaderTabella {
+	white-space:nowrap;
+	font-size:12px;
+	color:#fff;
+}
+
+div.classDatiTabella{
+	white-space:nowrap;
+}
+div.classDatiTabellaRossi{
+	white-space:nowrap;
+	color:red;
+}
+
+select#idComboRis{
+	height:25px;
+	width:160px;
+}
+select#idComboMetodiche {
+	height:25px;
+	width:160px;
+	}
+
+tr.oddRow td{background:#fff;border:1px solid #ccc; color:#000;}
+tr.evenRow td{background:#e6e6e6;border:1px solid #ccc; color:#000;}
+
+.classDataTable{border:1px solid #999;}

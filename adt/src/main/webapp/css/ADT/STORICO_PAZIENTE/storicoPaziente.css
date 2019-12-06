@@ -1,0 +1,4 @@
+#divEmergenzaMedica {height:25px; background-color:#EB0E0E; margin-bottom: 4px;}
+#divEmergenzaMedica > label {line-height:25px; display:inline-block; font-size:16px; color:#FFF; padding: 0 5px 0 5px;}
+#lblCheckEmergenzaMedica {float:right;}
+#divEmergenzaMedica > div.divCheck {display:inline-block; float:right;}

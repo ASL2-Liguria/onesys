@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<lblTitolo>Certificato di accertamento delle condizioni psicofisiche per la guida dei veicoli a motore</lblTitolo>
+		
+		<tabCondizioniPsicofisiche>Condizioni psicofisiche</tabCondizioniPsicofisiche>
+		
+		<fldDatiModulo>
+			Riepilogo dati del modulo
+		</fldDatiModulo>		
+		
+			<lblDataCompilazione>Data compilazione</lblDataCompilazione>
+			<lbltxtComune>Comune</lbltxtComune>
+
+		<fldDatiPaziente>
+			Riepilogo dati paziente
+		</fldDatiPaziente>
+		
+			<lblInformativaCertificato>
+			Certificato medico relativo ai precedenti morbosi per l'accertamento delle condizioni psicofisiche per la guida dei veicoli a motore.
+			&lt;br&gt;
+			(art. 119 comma 3 del Codice della Strada come modificato dalla legge 29 luglio 2010 n.120)
+			</lblInformativaCertificato>
+		
+			<lblNomeCognome>Nome e Cognome</lblNomeCognome>	
+			<lblLuogoNascita>Luogo di nascita</lblLuogoNascita>
+			<lblDataNascita>Data di nascita</lblDataNascita>
+		  	<lblCodiceFiscale>Cod. fiscale</lblCodiceFiscale>
+		  	<lblDocumento>Identificato mediante</lblDocumento>
+		  
+		<fldPresenta>Il suddetto paziente presenta</fldPresenta>	  
+		  		
+	  		<lblAffezioniCardioVascolari>Affezioni cardiovascolari</lblAffezioniCardioVascolari>
+			<lblSpecificaAffezioniCardioVascolari>Specificare</lblSpecificaAffezioniCardioVascolari>
+			<lblApparatoRespiratorio>Malattie dell'apparato respiratorio</lblApparatoRespiratorio>
+			<lblSpecificaApparatoRespiratorio>Specificare</lblSpecificaApparatoRespiratorio>
+			<lblApneeNotturne>Sindrome delle apnee notturne</lblApneeNotturne>
+			<lblOssigenoTerapia>Ossigeno terapia in atto</lblOssigenoTerapia>
+			<lblDiabete>Diabete</lblDiabete>
+			<lblInsulina>Terapia con insulina</lblInsulina>
+			<lblMalattieEndocrine>Malattie endocrine</lblMalattieEndocrine>
+			<lblSpecificaMalattieEndocrine>Specificare</lblSpecificaMalattieEndocrine>
+		  		
+		  	<lblApparatoOsteoarticolare>Alterazioni apparato osteoarticolare</lblApparatoOsteoarticolare>
+			<lblSpecificaApparatoOsteoarticolare>Specificare</lblSpecificaApparatoOsteoarticolare>
+			<lblMalattieSangue>Malattie del sangue</lblMalattieSangue>
+			<lblSpecificaMalattieSangue>Specificare</lblSpecificaMalattieSangue>
+			<lblInsufficienzaRenale>Insufficienza renale</lblInsufficienzaRenale>
+			<lblSpecificaInsufficienzaRenale>Specificare</lblSpecificaInsufficienzaRenale>
+			<lblTrapiantoOrgano>Trapianto d'organo</lblTrapiantoOrgano>
+			<lblSpecificaTrapiantoOrgano>Specificare</lblSpecificaTrapiantoOrgano>
+			<lblApparatoVisivo>Alterazioni  apparato visivo</lblApparatoVisivo>
+			<lblSpecificaApparatoVisivo>Specificare (in caso di soggetto monocolo specificare epoca d'insorgenza)</lblSpecificaApparatoVisivo>
+			<lblApparatoUditivo>Alterazioni apparato uditivo</lblApparatoUditivo>
+			<lblSpecificaApparatoUditivo>Specificare</lblSpecificaApparatoUditivo>
+		  	
+		  	<lblMalattieSistemaNervoso>Malattie del sistema nervoso</lblMalattieSistemaNervoso>
+			<lblCentrale>Centrale</lblCentrale>
+			<lblDecadimentoCognitivo>Decadimento cognitivo</lblDecadimentoCognitivo>
+			<lblEpilessia>Epilessia</lblEpilessia>
+			<lblPeriferico>Periferico</lblPeriferico>
+			<lblInfermitaPsichica>Infermità di natura psichica</lblInfermitaPsichica> 
+			<lblInsufficienzaMentale>Insufficienza mentale</lblInsufficienzaMentale>
+			<lblPsicosiDisturbi>Psicosi/Disturbi della personalità</lblPsicosiDisturbi>
+			<lblDepressione>Depressione</lblDepressione>
+			<lblAltreInfermita>Altre infermità</lblAltreInfermita>
+			<lblInCuraPsichiatrica>In cura presso struttura psichiatrica territoriale</lblInCuraPsichiatrica>
+		 	
+		 	<lblSostanzePsicoattive>Sostanze psicoattive</lblSostanzePsicoattive>
+			<lblEtilismo>Etilismo</lblEtilismo>
+			<lblTossicofilie>Tossicofilie</lblTossicofilie>
+			<lblSostanzePsicotrope>Uso di sostanze psicotrope</lblSostanzePsicotrope>
+			<lblInCuraSERT>In cura presso SERT o NOA</lblInCuraSERT> 
+			<lblProtesi>Portatore di protesi</lblProtesi>
+			<lblSpecificaProtesi>Specificare</lblSpecificaProtesi>
+			
+			<lblNota_I>Specificare se soffre di ipertensione arteriosa, pregresso IMA, aritmie, se portatore di PM o ICD, se affetto da valvulopatie, etc.</lblNota_I>
+	        <lblNota_II>Specificare le eventuali complicanze (oculari, nervose, cardiovascolari, etc.).</lblNota_II>
+	        <lblNota_III>Specificarne la gravità e l'eventuale trattamento dialitico.</lblNota_III>
+	        <lblNota_IV>Ad esempio glaucoma, maculopatie, alterazioni del campo visivo, etc.</lblNota_IV>
+	        <lblNota_V>Indicare la data dell'ultima crisi e l'eventuale terapia in atto.</lblNota_V>
+	        <lblNota_VI>Ad esempio antidepressivi, ansiolitici, antipsicotici, etc.</lblNota_VI>
+	        <lblNota_VII>Ad esempio protesi acustiche, protesi valvolari cardiache, protesi vascolari, etc.</lblNota_VII>
+					
+		 	<lblPassato>In passato</lblPassato> 
+
+			<butStampa>Salva e Stampa</butStampa>		
+			<butStampaOnly>Stampa</butStampaOnly>		
+    </ROW>
+</ROWSET>

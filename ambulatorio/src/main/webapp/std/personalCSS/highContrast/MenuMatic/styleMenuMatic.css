@@ -1,0 +1,39 @@
+
+
+
+
+p{	margin:1em 0; }
+
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p{	margin-top:-0.05em;}
+
+h1, h2, h3, h4, h5, h6{ color: #9CA716; margin-bottom:0.5em; }
+
+h1{ font-size:24px;}
+
+h2{	font-size:20px;}
+
+h3{	font-size:18px;}
+
+h4{	font-size:16px;}
+
+h5{	font-size:14px;}
+
+h6{	font-size:12px;}
+
+ol, ul{	margin: 1em 0 1em 2em; }
+
+ol ol, ol ul, ul ol, ul ul{ margin-top:0; margin-bottom:0; }
+
+ol li{	list-style:decimal }
+ol li ol li{ list-style:upper-alpha; }
+ol li ol li ol li{ list-style:upper-roman; }
+
+ul li{ list-style:disc;}
+
+em{font-style:italic;}
+
+strong{font-weight:bold;}
+
+em strong, strong em{ font-weight:bold; font-style:italic; }
+
+

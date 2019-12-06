@@ -1,0 +1,129 @@
+<root>
+	<statements_list>
+
+		
+		<statement name="get_MMGFARMACI">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+				SELECT 
+				/*+first_rows(10)*/ 
+				1 AD,
+				S.CRONICITA H, 
+				S.DATA_ISO D,
+				S.*,tp.descr medico FROM MMG.VIEW_RICETTA_FARMACI S, MMG.tab_per tp
+				WHERE S.IDEN_ANAG = (select iden from anag where cod_fisc = ?)
+				and S.IDEN_MEDICO = tp.iden
+				AND S.DELETED = 'N'
+				AND S.OSCURATO = 'N'
+				AND S.MED_INIZ ='S'
+				order by D DESC
+			]]>
+			</sql>
+		</statement>
+		
+				
+		<statement name="get_MMGACCERTAMENTI">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+			SELECT ric.*,tp.descr medico
+			from MMG.VIEW_RICETTA_ACCERTAMENTI_MI ric, MMG.tab_per tp
+			WHERE ric.IDEN_ANAG = (select iden from anag where cod_fisc = ?)
+		      and ric.IDEN_MEDICO = tp.iden
+			AND ric.OSCURATO = 'N'
+			AND ric.MED_INIZ ='S'
+        		and ric.deleted ='N'
+			ORDER BY ric.DATA_ISO DESC, ric.CRONICITA DESC
+		]]>
+			</sql>
+		</statement>
+		
+		<statement name="get_MMGPROBLEMI">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+select
+VP.ordinamento_problema,
+VP.iden, 
+VP.DATA_INSERIMENTO, VP.data,
+VP.data as data_iso, VP.CHIUSO, VP.CHIUSO_DESCR ||
+decode(vp.nascosto,'S',' (Nascosto)','') || case when PAT_SUMMARY = 'S' THEN ' - [PS]' else '' end CHIUSO_DESCR, VP.PROBLEMA,
+VP.PROBLEMA_COMPLETO,
+VP.PROBLEMA_COMPLETO_INVERTITO, 
+VP.DATA_CHIUSURA, 
+VP.NOTE_CHIUSURA,
+VP.CODICE_ICD9,
+VP.iden_parent,
+VP.IDEN_PARENT_PROBLEMA,
+VP.DESCR_ICD9, vp.oscurato, 
+vp.rischio,
+VP.IDEN_ANAG,
+VP.UTE_INS,
+VP.iden_med,
+VP.IDEN_ACCESSO,
+VP.PAT_SUMMARY,
+VP.NASCOSTO,
+VP.TIPO_PROBLEMA,
+VP.PARENT,
+VP.DESCR_MED from MMG.VIEW_PROBLEMI VP
+where 
+--vp.data between :data_da and :data_a And 
+vp.IDEN_ANAG = (select iden from anag where cod_fisc = ?)
+--and vp.CHIUSO in (select CHIUSO from FLAG_CHIUSO)
+and vp.nascosto ='N'
+and vp.oscurato ='N'
+AND VP.IDEN_PARENT IS NULL
+order by VP.data desc
+				]]>
+			</sql>
+		</statement>
+
+
+		<statement name="get_MMGDIARIO">
+			<pool>elcoPool_whale</pool>
+			<catalogo>dati</catalogo>
+			<sql>
+			<![CDATA[
+				select 
+				coalesce(c.IDEN_SCHEDA_XML,c.IDEN_GRAVIDANZA,c.IDEN) iden,
+				COALESCE (C.MED_INIZ, X.MED_INIZ) AS MEDICINA_INIZIATIVA,
+				COALESCE (C.TIPO_MED_INIZ, X.TIPO_MED_INIZ) AS TIPO_MEDICINA_INIZIATIVA,
+				c.TIPO,
+				c.IDEN_PROBLEMA, 
+				c.data as data, 
+				c.DATA AS DATA_ISO, 
+				c.data_ins AS data_inserimento,
+				c.note AS nota,
+				coalesce(x.oscurato,c.oscurato) as oscurato,
+				(select descr from mmg.DATI$PERSONALE where iden = c.ute_ins) AS medico, 
+				coalesce(x.scheda,c.tipo,'NOTE') SCHEDA, 
+				CASE WHEN 
+				coalesce(x.scheda,c.tipo,'NOTE') IN ('BILANCIO_SALUTE','BILANCIO_SALUTE_1','BILANCIO_SALUTE_2','BILANCIO_SALUTE_3',
+				'BILANCIO_SALUTE_4','BILANCIO_SALUTE_5','BILANCIO_SALUTE_6','BILANCIO_SALUTE_7','BILANCIO_SALUTE_8') THEN 'BILANCI_DI_SALUTE'
+				WHEN coalesce(x.scheda,c.tipo,'NOTE') IN ('ANAMNESI', 'MMG_ANAMNESI_PRE_NEONATALE', 'MMG_VISITE', 'PLS_VISITE', 'VISITA' ) THEN 'VISITE'
+				WHEN coalesce(x.scheda,c.tipo,'NOTE') IN ('RILEVAZIONI') THEN 'RILEVAZIONI' 
+				ELSE 'NOTE' end TIPO_NOTE,
+				c.UTE_INS,
+				c.IDEN_MED,
+				x.iden AS IDEN_SCHEDA
+				from mmg.mmg_diario c
+				left join mmg.MMG_SCHEDE_XML x on
+				c.iden_scheda_xml=x.iden
+				where 
+				-- c.data between :data_da and :data_a and 
+				c.iden_anag = (select iden from anag where cod_fisc = ?)
+				and c.deleted = 'N'
+				order by c.DATA desc
+	
+				]]>
+			</sql>
+		</statement>
+
+
+		
+</statements_list>
+</root>

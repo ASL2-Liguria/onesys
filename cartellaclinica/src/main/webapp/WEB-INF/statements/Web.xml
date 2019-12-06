@@ -1,0 +1,93 @@
+<root>
+	<statements_list>
+	
+		<statement name="setLoadOnStartup">	
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				declare
+					pWebUser 	varchar2(5000) := ?;
+					pUrl		varchar2(5000) := ?;
+				begin
+					update imagoweb.web set loadonstartup= pUrl where webuser= pWebUser;
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="setFiltriWkRichiestePaziente">	
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+				declare
+					
+					pTipo		varchar2(5000) := ?;
+					pWebUser 	varchar2(5000) := ?;
+					
+					pValue2		varchar2(5000) := ?;
+					pTipo2		varchar2(5000) := ?;
+					pWebUser2	varchar2(5000) := ?;
+				
+				begin
+					
+					delete from 
+						RADSQL.FILTRI 
+					where 
+						TIPO = pTipo
+						AND USER_NAME = pWebUser;
+					
+					insert into radsql.filtri (lastvaluechar, tipo, user_name)
+					values (pValue2,pTipo2,pWebUser2);
+					
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="getFiltriWkRichiesteSaved">	
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+			
+					select 
+						lastvaluechar
+					from 
+						radsql.filtri 
+					where 
+						tipo = ?
+						and user_name = ?
+			
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="getCodDec">	
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+			
+					select 
+						wm_concat(cod_dec) COD_DEC
+					from 
+						radsql.centri_di_costo
+					where 
+						cod_cdc IN (SELECT COLUMN_VALUE FROM TABLE(SPLIT(?)))
+			
+			]]>
+			</sql>
+		</statement>
+			<statement name="abilitaLogOutSmartcardJava">	
+			<schema>RADSQL</schema>
+			<sql>
+			<![CDATA[
+			
+					select 
+						imagoweb.pck_configurazioni.getValueSito(?,?) valore
+					from 
+						dual
+			
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

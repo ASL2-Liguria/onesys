@@ -1,0 +1,4 @@
+<INCLUDE>
+	<JS path="js/ADT/Anagrafica/Anagrafica.js"/>  
+    <JS path="js/ADT/DocumentiWK/DocumentiWK.js"/>
+</INCLUDE>

@@ -1,0 +1,41 @@
+<PAGINA key_id="MMG_WK_VISITE">
+	<HEADER_PAGE key_id="MMG_WK_VISITE"
+		valore="DEFAULT_MMG,SCHEDA,MMG_WK_VISITE#DEFAULT_MMG,MMG_WK_VISITE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati#SAVE_DATA#MMG_DATI#MMG_WK_VISITE#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="WKVisite#lblTitolo#butChiudi" evento="START_END">
+			<TABULAZIONE.CREA_TAB key_id="tabWorklist" valore="tabWorklist" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:true, readonly_element: false, format: 'd/m/Y'#disabled:false#lblDaData#DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:true, readonly_element: false, format: 'd/m/Y',onSelect: function(){}#disabled:false#lblAData#DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START">
+						</TD_BUTTON>
+					</TR.INIT>
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL_TEXT key_id="Cognome"
+							valore="lblCognome##Cognome##lettura#COGNOME" evento="START">
+						</TD_LABEL_TEXT>
+						<TD_LABEL_TEXT key_id="Nome" valore="lblNome##Nome##lettura#NOME"
+							evento="START">
+						</TD_LABEL_TEXT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<DIV.WORKLIST key_id="ElencoWork" valore="ElencoWork"
+					evento="START_END">
+				</DIV.WORKLIST>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

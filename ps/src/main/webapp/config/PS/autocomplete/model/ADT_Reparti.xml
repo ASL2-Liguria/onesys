@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){/*alert("You selected: " + data.DESCR);*/}]]>
+        </onSelect>
+        <maxHeight>400</maxHeight>
+        <width>300</width>
+        <zIndex>9999</zIndex>
+        <datasource>PS</datasource>
+        <deferRequestBy>200</deferRequestBy>
+        <storedQuery>AUTOCOMPLETE.ADT_REPARTI</storedQuery>
+        <maxResults>30</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Reparti disponibili</title>
+        <id_wk>ADT_WK_REPARTI</id_wk>
+        <onSelect type="js">
+            <![CDATA[function(ret){/*alert("You selected:" ret.DESCR);*/}]]>
+        </onSelect>
+    </LIST>
+</AUTOCOMPLETE>

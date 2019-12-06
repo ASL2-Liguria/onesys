@@ -1,0 +1,56 @@
+<MENU>
+    <ID>MENU_WK_PAC_APERTI</ID>
+    <TITLE>"Menu Interventi Chirurgici Ambulatoriali Aperti"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>MODIFICA_PAC</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=GESTIONE_PAC&IDEN_ANAGRAFICA=' + rec[0].IDEN_ANAGRAFICA + '&IDEN_CONTATTO=' + rec[0].IDEN_CONTATTO + '&STATO_PAGINA=E', id:'GESTIONE_PAC',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { return true; }]]></WHERE>
+            <OUTPUT>"Modifica"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CHIUDI_PAC</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_PAC.chiudiPAC(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/chiudi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { return true; }]]></WHERE>
+            <OUTPUT>"Chiudi"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_ACCESSO_PAC</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_PAC.inserisciAccessoPAC(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/aggiungi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { return true; }]]></WHERE>
+            <OUTPUT>"Inserisci Accesso"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_PAC</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_PAC.annullaPAC(rec[0]);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/Elimina.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec) { return true; }]]></WHERE>
+            <OUTPUT>"Annulla"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>PRINT_CERTIFICATO_PAC</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_PAC.printCertificato(rec[0].IDEN_CONTATTO);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/stampa.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true; }]]></WHERE>
+            <OUTPUT>"Stampa verbale ricovero"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

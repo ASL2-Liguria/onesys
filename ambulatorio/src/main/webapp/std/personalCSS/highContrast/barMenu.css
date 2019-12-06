@@ -1,0 +1,61 @@
+#barretta {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #000000;
+border-top: 2px solid #FFFFFF;
+border-bottom: 2px solid #FFFFFF;
+padding-left: 1px;
+padding-top: 2px;
+padding-bottom: 2px;
+text-align:right;
+background-image:url(../../../imagexPix/bar/btDarkBlu.jpg);
+height:211px;
+}
+
+#barretta a {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 14px;
+font-weight: bold;
+color: white;
+text-decoration: none;
+margin-right: 2px; 
+}
+
+#barretta a:hover {
+color: black;
+background-color: #FFFF66;
+text-decoration: none;
+}
+
+
+
+#barMenuMain {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #000000;
+border-top: 2px solid #FFFFFF;
+border-bottom: 2px solid #FFFFFF;
+padding-left: 1px;
+padding-top: 2px;
+padding-bottom: 2px;
+text-align:right;
+background-image:url(../../../imagexPix/bar/btDarkBlu.jpg);
+height:211px;
+}
+
+#barMenuMain a {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 14px;
+font-weight: bold;
+color: white;
+text-decoration: none;
+margin-right: 2px; 
+}
+
+#barMenuMain a:hover {
+color: black;
+background-color: #FFFF66;
+text-decoration: none;
+}

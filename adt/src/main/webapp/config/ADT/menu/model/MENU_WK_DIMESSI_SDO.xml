@@ -1,0 +1,67 @@
+<MENU>
+    <ID>MENU_WK_DIMESSI_SDO</ID>
+    <TITLE>"Menu"</TITLE>
+    <LIST>
+    	<ITEM>
+            <ID>DIMISSIONE</ID>
+            <LINK><![CDATA[function(rec){top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACC_RICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&STATO_PAGINA=E&SDO=S',id:'ModificaRicoveroSdo',fullscreen:true});}]]></LINK>
+            <URL_IMAGE>./img/CMenu/esegui.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){ if(home.baseUser.TIPO_PERSONALE == 'M'){return true} else {return false}} ]]></WHERE>
+            <OUTPUT>"Completa dimissione con SDO"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>SET_CARTELLA_COMPLETA</ID>
+            <LINK><![CDATA[function(rec){if (rec[0].STATO_CARTELLA=='ARCHIVIATA') home.NOTIFICA.error({message: "Cartella già ARCHIVIATA , Impossibile Procedere", title: "Error"}); else NS_HOME_ADT.setStatoCartelle(rec,'01','00');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Set cartella CONTROLLATA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>SET_CARTELLA_INVIATA_ARCHIVIO</ID>
+            <LINK><![CDATA[function(rec){if (rec[0].STATO_CARTELLA=='ARCHIVIATA') home.NOTIFICA.error({message: "Cartella già ARCHIVIATA , Impossibile Procedere", title: "Error"}); else NS_HOME_ADT.setStatoCartelle(rec,'02','01');}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Set cartella INVIATA in ARCHIVIO"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>SET_CARTELLE_COMPL_INVIATA_ARCHIVIO</ID>
+            <LINK><![CDATA[function(rec){if (rec[0].STATO_CARTELLA=='ARCHIVIATA') home.NOTIFICA.error({message: "Cartella già ARCHIVIATA , Impossibile Procedere", title: "Error"}); else NS_HOME_ADT.setStatoCartelleCompleteInviate(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella Controllata e Inviata in archivio"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_CARTELLE_INVIATE_OGGI</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT.printCartelleInviateOggi(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/print.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Stampa Cartelle Inviate Oggi"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+         <ITEM>
+            <ID>STAMPA_CARTELLE_IN_REPARTO</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ADT.printCartelleInReparto(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/print.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Stampa Cartelle Ancora In Reparto"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+
+    </LIST>
+</MENU>

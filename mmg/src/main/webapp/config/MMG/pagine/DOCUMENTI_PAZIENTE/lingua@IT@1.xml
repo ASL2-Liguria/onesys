@@ -1,0 +1,16 @@
+<ROWSET>
+    <ROW>
+        
+        <tabDocRepository>Documenti Paziente</tabDocRepository>
+        <fldRicerca>Filtro</fldRicerca>
+        
+		<lblTitolo>Gestione dei documenti</lblTitolo>
+		<lblVisualizza>Visualizza/Scarica</lblVisualizza>
+		<lblRicerca>Tipo di Documento</lblRicerca>
+		<lblDaData>Dal </lblDaData>
+		<lblAData>al </lblAData>
+		
+		<butCerca>Cerca</butCerca>
+		<butUltimi5>Ultimi 5 documenti</butUltimi5>
+    </ROW>
+</ROWSET>

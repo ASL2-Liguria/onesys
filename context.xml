@@ -1,0 +1,28 @@
+<Context>
+
+<Resource name="elcoPool_oracle_whale" auth="Container" type="oracle.ucp.jdbc.PoolDataSource" factory="imago.sql.ElcoPoolFactory" abandonedconnectiontimeout="900" url="jdbc:oracle:thin:@HOSTNAME:PORT:SID"/>
+<Resource name="elcoPool_oracle_unisys" auth="Container" type="oracle.ucp.jdbc.PoolDataSource" factory="imago.sql.ElcoPoolFactory" abandonedconnectiontimeout="900" url="jdbc:oracle:thin:@HOSTNAME:PORT:SID"/>
+<Resource name="registryPool_oracle_whale" auth="Container" type="oracle.ucp.jdbc.PoolDataSource" factory="imago.sql.ElcoPoolFactory" abandonedconnectiontimeout="900" url="jdbc:oracle:thin:@HOSTNAME:PORT:SID"/>
+<Resource name="elcoPool_ambulatorio" auth="Container" type="oracle.ucp.jdbc.PoolDataSource" factory="imago.sql.ElcoPoolFactory" abandonedconnectiontimeout="900" url="jdbc:oracle:thin:@HOSTNAME:PORT:SID"/>
+
+<Parameter name="elcoPool_oracle_whale[user]" value="radsql" override="true" />
+<Parameter name="elcoPool_oracle_whale[password]" value="password" override="true" />
+<Parameter name="elcoPool_oracle_whale[conf][user]" value="imagoweb" override="true" />
+<Parameter name="elcoPool_oracle_whale[conf][password]" value="password" override="true" />
+<Parameter name="elcoPool_oracle_whale[dati][user]" value="radsql" override="true" />
+<Parameter name="elcoPool_oracle_whale[dati][password]" value="password" override="true" />
+
+<Parameter name="elcoPool_oracle_unisys[user]" value="imagoweb" override="true" />
+<Parameter name="elcoPool_oracle_unisys[password]" value="password" override="true" />	
+
+<Parameter name="registryPool_oracle_whale[user]" value="xdsregistry" override="true" />
+<Parameter name="registryPool_oracle_whale[password]" value="password" override="true" />	
+
+<Parameter name="elcoPool_ambulatorio[user]" value="radsql" override="true" />
+<Parameter name="elcoPool_ambulatorio[password]" value="password" override="true" />
+<Parameter name="elcoPool_ambulatorio[conf][user]" value="imagoweb" override="true" />
+<Parameter name="elcoPool_ambulatorio[conf][password]" value="password" override="true" />
+<Parameter name="elcoPool_ambulatorio[dati][user]" value="radsql" override="true" />
+<Parameter name="elcoPool_ambulatorio[dati][password]" value="password" override="true" />
+
+</Context>

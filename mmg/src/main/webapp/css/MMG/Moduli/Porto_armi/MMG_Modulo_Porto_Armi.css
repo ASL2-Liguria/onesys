@@ -1,0 +1,13 @@
+body{width:960px}
+
+#lblIntestazione{text-align: center}
+
+#lblNotaBene{text-align: left}
+
+#fldDatiAssistito, #fldIntestazione, #fldNotaBene{border: none}
+
+#taDettaglio {width: 100%}
+
+.tdCombo {
+	width:88px;
+}

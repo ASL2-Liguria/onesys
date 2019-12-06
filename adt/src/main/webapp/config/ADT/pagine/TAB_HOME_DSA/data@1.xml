@@ -1,0 +1,30 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	<DATO
+        key_id="REPG"
+        configurazione_stato="begin :stato := 'E'; end;"
+        db_valore=""
+        db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE@ADT"
+        />
+        <DATO
+        key_id="CREPG"
+        configurazione_stato="begin :stato := 'E'; end;"
+        db_valore=""
+        db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE@ADT"
+        />
+         <DATO
+        key_id="REPRICH"
+        configurazione_stato="begin :stato := 'E'; end;"
+        db_valore=""
+        db_descrizione=""
+        configurazione_multi_data="ADT.Q_REPARTI_PERSONALE@ADT"
+        />
+        <DATO 
+     	key_id="STATO_RICHIESTE_DSA"
+     	configurazione_stato="begin :stato := 'E'; end;"
+        db_valore=""
+        db_descrizione=""
+        configurazione_multi_data="ADT.Q_STATO_RICHIESTE_DSA@ADT">
+     </DATO>
+</DATI>

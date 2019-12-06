@@ -1,0 +1,212 @@
+<root>
+	<statements_list>
+		<!-- *************************************** -->			
+		<!-- cup_tab_esa -->
+		<!-- *************************************** -->				
+		<statement name="getDati_CUP_TAB_ESA">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+				select COD_ESA,COD_CUP,COD_SOLE,LOG,DESCR,COD_LAT, ISES, ROWID from cup_tab_esa order by descr
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="setDati_CUP_TAB_ESA">				
+			<sql>
+			<![CDATA[
+				declare
+					v_COD_ESA cup_tab_esa.COD_ESA%type := ?;
+					v_ISES cup_tab_esa.ISES%type := ?;										
+				begin
+					insert into cup_tab_esa (COD_ESA, DESCR, ISES) values (v_COD_ESA, v_DESCR, v_ISES);
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>	
+		
+		<statement name="delDati_CUP_TAB_ESA">				
+			<sql>
+			<![CDATA[
+				declare
+					v_COD_ESA cup_tab_esa.COD_ESA%type := ?;
+					v_ISES cup_tab_esa.ISES%type := ?;	
+				begin
+					delete from 	radsql.cup_tab_esa where COD_ESA = 	v_COD_ESA and 	ISES = 	v_ISES;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>			
+
+		<!-- *************************************** -->		
+		<!-- CUP_TAB_AGENDE e  CUP_TAB_CDC -->
+		<!-- *************************************** -->				
+		<statement name="getDati_CUP_TAB_AGENDE">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+				select REPARTO, COD_ISES_UE, CUP_DESCR_CDC, IDEN_PRO, CUP_DESCR_SALA, STZE_STRT0, IDEN_ARE, AMBU_DESCR_AREA,AMBU_DESCR_CDC from VIEW_AMB_CUP_AGENDE order by COD_ISES_UE
+			]]>
+			</sql>
+		</statement>	
+		
+		<statement name="setDati_CUP_TAB_AGENDE">				
+			<sql>
+			<![CDATA[
+				declare
+					v_COD_ISES_UE CUP_TAB_CDC.COD_ISES_UE%type := ?;
+					v_DESCR_UE CUP_TAB_CDC.DESCR_UE%type := ?;
+					v_REPARTO CUP_TAB_CDC.REPARTO%type := ?;
+					v_IDEN_PRO CUP_TAB_CDC.IDEN_PRO%type := ?;
+					v_IDEN_ARE CUP_TAB_AGENDE.IDEN_ARE%type := ?;
+					v_STZE_STRT0 CUP_TAB_AGENDE.STZE_STRT0%type := ?;
+					v_DESCRIZIONE CUP_TAB_AGENDE.DESCRIZIONE%type := ?;
+					v_tmp number;
+				begin
+					-- primo insert su CUP_TAB_CDC
+					select count(COD_ISES_UE) into v_tmp from radsql.CUP_TAB_CDC where COD_ISES_UE =v_COD_ISES_UE;
+					if(v_tmp = 0) then
+						insert into radsql.CUP_TAB_CDC (COD_ISES_UE,DESCR_UE,REPARTO,IDEN_PRO,DATA_ATT,ATTIVO,STZE) values (v_COD_ISES_UE,v_DESCR_UE,v_REPARTO,v_IDEN_PRO,(select to_char(sysdate,'YYYYMMDD') from dual),'S','S');
+					end if;
+					-- secondo insert su CUP_TAB_AGENDE
+					select count(COD_ISES_UE) into v_tmp from radsql.CUP_TAB_AGENDE where COD_ISES_UE =v_COD_ISES_UE and STZE_STRT0 = v_STZE_STRT0;
+					if(v_tmp = 0) then
+						insert into radsql.CUP_TAB_AGENDE (STZE_STRT0,REPARTO,IDEN_ARE,DESCRIZIONE,COD_ISES_UE) values (v_STZE_STRT0,v_REPARTO,v_IDEN_ARE,v_DESCRIZIONE,v_COD_ISES_UE);
+					end if;					
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>				
+		
+		<statement name="delDati_CUP_TAB_AGENDE">				
+			<sql>
+			<![CDATA[
+				declare
+					v_COD_ISES_UE CUP_TAB_CDC.COD_ISES_UE%type := ?;
+					v_STZE_STRT0 CUP_TAB_AGENDE.STZE_STRT0%type := ?;
+				begin
+					delete from 	radsql.CUP_TAB_AGENDE where COD_ISES_UE = 	v_COD_ISES_UE and 	STZE_STRT0 = 	v_STZE_STRT0;
+					delete from 	radsql.CUP_TAB_CDC where COD_ISES_UE = 	v_COD_ISES_UE;
+				end;
+			]]>
+			</sql>
+			<schema>RADSQL</schema>
+		</statement>					
+				
+				
+		<!-- *************************************** -->		
+		<!-- configurazione Stampe e Firma -->
+		<!-- *************************************** -->				
+		<statement name="insertConfigStampe">
+			<schema>IMAGOWEB</schema>			
+			<sql>
+			<![CDATA[
+				declare
+					pCdc 	varchar2(5000) := ?;
+					v_tmp number;
+				begin
+					select count(cdc) into v_tmp from imagoweb.CONFIGURA_STAMPE where cdc =pCdc and FUNZIONE_CHIAMANTE ='LISTA_GIORNATA_STD';
+					if(v_tmp = 0) then
+						Insert into imagoweb.CONFIGURA_STAMPE (FUNZIONE_CHIAMANTE,CDC,NOME_REPORT,NUM_COPIE,FLAG_STD,PROCESSCLASS,RICHIEDI_REPORT,COD_DEC_SAL) values ('LISTA_GIORNATA_STD',pCdc,'lista_pren_giorno.rpt','1','S','src.Sel_Stampa.LISTA_WORKLIST','N',null);
+					end if;
+					
+					select count(cdc) into v_tmp from imagoweb.CONFIGURA_STAMPE where cdc =pCdc and FUNZIONE_CHIAMANTE ='LISTAWK_STD';
+					if(v_tmp = 0) then
+						Insert into imagoweb.CONFIGURA_STAMPE (FUNZIONE_CHIAMANTE,CDC,NOME_REPORT,NUM_COPIE,FLAG_STD,PROCESSCLASS,RICHIEDI_REPORT,COD_DEC_SAL) values ('LISTAWK_STD',pCdc,'LISTAWK.RPT','1','S','src.Sel_Stampa.LISTA_WORKLIST','N',null);
+					end if;
+					
+					select count(cdc) into v_tmp from imagoweb.CONFIGURA_STAMPE where cdc =pCdc and FUNZIONE_CHIAMANTE ='STAMPAWK_PREN';
+					if(v_tmp = 0) then
+						Insert into imagoweb.CONFIGURA_STAMPE (FUNZIONE_CHIAMANTE,CDC,NOME_REPORT,NUM_COPIE,FLAG_STD,PROCESSCLASS,RICHIEDI_REPORT,COD_DEC_SAL) values ('STAMPAWK_PREN',pCdc,'LISTAWK_PREN.RPT','1','S','src.Sel_Stampa.LISTA_WORKLIST','N',null);
+					end if;
+					
+					select count(cdc) into v_tmp from imagoweb.CONFIGURA_STAMPE where cdc =pCdc and FUNZIONE_CHIAMANTE ='RICEVUTA_PRENO_STD';
+					if(v_tmp = 0) then
+						Insert into imagoweb.CONFIGURA_STAMPE (FUNZIONE_CHIAMANTE,CDC,NOME_REPORT,NUM_COPIE,FLAG_STD,PROCESSCLASS,RICHIEDI_REPORT,COD_DEC_SAL) values ('RICEVUTA_PRENO_STD',pCdc,'PRENOTAZIONE_RP.RPT','1','S','src.Sel_Stampa.LISTA_WORKLIST','N',null);
+					end if;
+					
+					select count(cdc) into v_tmp from imagoweb.CONFIGURA_STAMPE where cdc =pCdc and FUNZIONE_CHIAMANTE ='REFERTO_STD';
+					if(v_tmp = 0) then
+						Insert into imagoweb.CONFIGURA_STAMPE (FUNZIONE_CHIAMANTE,CDC,NOME_REPORT,NUM_COPIE,FLAG_STD,PROCESSCLASS,RICHIEDI_REPORT,COD_DEC_SAL) values ('REFERTO_STD',pCdc,'REFERTO_RP.RPT','1','S','src.Sel_Stampa.Elaborazione_referti','N',null);
+					end if;																				
+				end;
+			]]>
+			</sql>
+		</statement>
+		
+		
+		<statement name="insertConfigFirma">
+			<schema>IMAGOWEB</schema>			
+			<sql>
+			<![CDATA[
+				declare
+					pCdc 	varchar2(5000) := ?;
+					v_tmp number;
+				begin
+					select count(cdc) into v_tmp from imagoweb.CONFIG_FIRMA where cdc =pCdc ;
+					if(v_tmp = 0) then
+							Insert into imagoweb.CONFIG_FIRMA (FIRMA_SISS,TYPE_LOG,STAMPA_AUTO,ESCI_AUTO,NUMERO_COPIE,NOME_REPORT,VALIDA,CDC,IDSTRUTTURA,IDSUBSTRUTTURA,CODICEREPARTO,APPL,NOTE_REPE_DEFAULT,OSCURAMENTO_DEFAULT,AUTORIZZAZIONE_DEAFULT,VERSIONE_FIRMA,METODO_XML,URL_DAO) values ('N','3','N','N','1','REFERTO_FIRMA.RPT','N',pCdc,null,null,null,null,null,null,null,'1',null,null);
+					end if;
+					
+				end;
+			]]>
+			</sql>
+		</statement>		
+		
+		<!-- *************************************** -->		
+		<!-- configurazione XDS -->
+		<!-- *************************************** -->		
+		<statement name="insertConfigXDS">
+			<schema>IMAGOWEB</schema>			
+			<sql>
+			<![CDATA[
+				declare
+					pCdc 	varchar2(5000) := ?;
+					v_tmp number;
+				begin
+					select count(VARIABILE) into v_tmp from imagoweb.CONFIGURA_MODULI where VARIABILE =pCdc and modulo ='XDS_CLASSCODE';
+					if(v_tmp = 0) then
+						Insert into imagoweb.CONFIGURA_MODULI (MODULO,VARIABILE,VALORE) values ('XDS_CLASSCODE',pCdc,'cc0013@Referto Visita Specialistica@urn:uuid:41a5887f-8865-4c09-adf7-e362475b143a@ASL2Savonese classCodes');
+					end if;
+				end;
+			]]>
+			</sql>
+		</statement>		
+		<!-- ****************** -->
+		
+		<!-- *************************************** -->		
+		<!-- query per combo -->
+		<!-- *************************************** -->	
+		<statement name="getAllEsaCdc">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+				select cod_esa codice, descr descrizione from TAB_ESA where CDC like (	select rpad(lpad('X', (select ORDINE from CENTRI_DI_COSTO where TIPO_CDC = 1 and COD_CDC = ?), '_'), 1000, '_') from dual )  and attivo ='S' order by descr
+			]]>
+			</sql>
+		</statement>
+		
+		<statement name="getAllAreeCdc">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+				select ta.iden codice, ta.descr descrizione from tab_sal ts, tab_mac tm, tab_are ta where ta.iden_mac = tm.iden and ts.iden = tm.iden_sal and ts.reparto =? order by ta.descr
+			]]>
+			</sql>
+		</statement>		
+		
+		<statement name="getAllCdc">
+			<schema>RADSQL</schema>			
+			<sql>
+			<![CDATA[
+					select cod_cdc codice, descr descrizione from centri_di_costo order by descr
+			]]>
+			</sql>
+		</statement>			
+		
+	</statements_list>
+	
+</root>		

@@ -1,0 +1,58 @@
+input.pressione {
+	background: #FFFFFF;
+	border: 1px solid #555555;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 5px;
+	width: 92px;
+}
+#lblPressSlash{
+    font-weight: 900;
+    font-size: 100%;
+    height: 24px;
+    padding: 1px 2px 0;
+    text-align: right;
+}
+
+#divSliderScalaVas a{
+    background-color: black;
+}
+#divScalaVasImmagini{
+    padding-top: 10px;
+    margin: 0 auto;
+}
+#divScalaVasImmagini span img{
+    /*margin-left: 30px;*/
+    cursor: pointer;
+}
+#divSliderScalaVas{
+    margin: 0 auto;
+}
+#lblGlasgow, #lblStickUri, #lblRTS{
+    cursor:pointer;
+    text-decoration: underline;
+}
+#lblGlasgow:hover, #lblStickUri:hover, #lblRTS:hover{
+    color: blueviolet;
+}
+.tabledialog{
+    border: solid 1px black;
+    margin: auto;
+    width: 100%;
+}
+.tabledialog tr td{
+    padding: 5px;
+    border: solid 1px #000000;
+}
+.tabledialog tr th{
+    width: 70px;
+    height: 20px;
+}
+.tabledialog textarea{width: 100%;}
+
+input[readonly="readonly"]{
+    background-color: #d3d3d3;
+}
+input[type="checkbox"]{
+    cursor : pointer;
+}

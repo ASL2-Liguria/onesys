@@ -1,0 +1,502 @@
+<root>
+	<statements_list>
+	<statement name="getElencoScale">
+            <sql>
+                <![CDATA[
+				select S.FUNZIONE,S.INTESTAZIONE from CC_SCALE_TYPE  S join IMAGOWEB.CONFIG_SCHEDE_REPARTO C ON (S.FUNZIONE=C.FUNZIONE) WHERE C.ATTIVO='S' AND C.CODICE_REPARTO=? and S.FUNZIONE NOT IN ('SCALA_ASHA','SCALA_DOSS')  ORDER BY S.INTESTAZIONE
+			]]>
+            </sql>
+        </statement>
+	<statement name="caricaLingue">
+            <sql>
+                <![CDATA[
+				select trad1 from imagoweb.lingue where origine=?
+			]]>
+            </sql>
+        </statement>
+        <statement name="RISCHIO_TROMBOTICO_INDIVIDUALE">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom1')) "lblTrombDom1",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom2')) "lblTrombDom2",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom3')) "lblTrombDom3",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom4')) "lblTrombDom4",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom5')) "lblTrombDom5",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom6')) "lblTrombDom6",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom7')) "lblTrombDom7",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom8')) "lblTrombDom8",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom9')) "lblTrombDom9",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom10')) "lblTrombDom10",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom11')) "lblTrombDom11",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom12')) "lblTrombDom12",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom13')) "lblTrombDom13",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom14')) "lblTrombDom14",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom15')) "lblTrombDom15",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom16')) "lblTrombDom16",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom17')) "lblTrombDom17",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom18')) "lblTrombDom18",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom19')) "lblTrombDom19",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom20')) "lblTrombDom20",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom21')) "lblTrombDom21",
+				(select tc.descrizione from radsql.tab_codifiche tc where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkTrombDom22')) "lblTrombDom22",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotale') "lblTotale",
+				'STRATIFICAZIONE DEL RISCHIO/PROFILASSI CONSIGLIABILE < 2,5 = BASSO RISCHIO -> Nessuna profilassi <br> > 2,5= ALTO RISCHIO -> EBPM o FONDAPARIMUX 2,5 mg <br> >= 4= -> Considerare l'' aggiunta di MEZZI FISICI (calze antitrombo)' INTESTAZIONE_1
+				from cc_scale_bck bck
+				where key_legame='RISCHIO_TROMBOTICO_INDIVIDUALE' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_BRADEN">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkPercezione')) "lblPercezione",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkUmidita')) "lblUmidita",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkAttivita')) "lblAttivita",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkMobilita')) "lblMobilita",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkNutrizione')) "lblNutrizione",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkPosSciv')) "lblPosSciv",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotale') "lblTotale",
+				'RISCHIO BASSO DA 17 A 20, RISCHIO MEDIO DA 16 A 14, RISCHIO ALTO < 13' INTESTAZIONE_1
+				from cc_scale_bck bck
+				where key_legame='SCALA_BRADEN' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_BARTHEL">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkAlimentazione' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAlimentazione')) "lblAlimentazione",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkIgienePersonale' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkIgienePersonale')) "lblIgienePersonale",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkAbbigliamento' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAbbigliamento')) "lblAbbigliamento",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkBagnoDoccia' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkBagnoDoccia')) "lblBagnoDoccia",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkContinenzaUrinaria' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkContinenzaUrinaria')) "lblContinenzaUrinaria",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkContinenzaIntestinale' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkContinenzaIntestinale')) "lblContinenzaIntestinale",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkUsoGabinetto' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkUsoGabinetto')) "lblUsoGabinetto",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkTrasferimenti' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkTrasferimenti')) "lblTrasferimenti",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkDeambulazione' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkDeambulazione')) "lblDeambulazione",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkScale' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkScale')) "lblScale",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BARTHEL' and tc.tipo_dato='chkUsoCarrozzina' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkUsoCarrozzina')) "lblUsoCarrozzina",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotale') "lblScoreTotale"
+				from cc_scale_bck bck
+				where key_legame='SCALA_BARTHEL' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+         <statement name="SCALA_CONLEY">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkConleyDom1')) "lblConleyDom1",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkConleyDom2')) "lblConleyDom2",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkConleyDom3')) "lblConleyDom3",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkConleyDom4')) "lblConleyDom4",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkConleyDom5')) "lblConleyDom5",
+				(select tc.descrizione
+				from radsql.tab_codifiche tc 
+				where tc.iden =  radsql.get_key_campo_value(bck.contenuto,'chkConleyDom6')) "lblConleyDom6",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotale') "lblTotale"
+				from cc_scale_bck bck
+				where key_legame='SCALA_CONLEY' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+         <statement name="SCALA_TUG">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TUG' and tc.tipo_dato='chkAusili' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAusili'))||' '||radsql.get_key_campo_value(bck.contenuto,'txtAusili') "lblAusili",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotale') "lblScoreTotale",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleCognitive') "lblScoreTotaleCognitive",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleManual') "lblScoreTotaleManual"
+				from cc_scale_bck bck
+				where key_legame='SCALA_TUG' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_MMSE">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				radsql.get_key_campo_value(bck.contenuto,'txtOrientaPunti') "lblOrienta",
+				radsql.get_key_campo_value(bck.contenuto,'txtOrientaSpazPunti') "lblOrientaSpaz",
+				radsql.get_key_campo_value(bck.contenuto,'txtIndicaPunti') "lblIndicaTesto",
+				radsql.get_key_campo_value(bck.contenuto,'txtTest7Punti') "lblTest7",
+				radsql.get_key_campo_value(bck.contenuto,'txtRicordaPunti') "lblRicordaTesto",
+				radsql.get_key_campo_value(bck.contenuto,'txtNominaPunti') "lblNominaTesto",
+				radsql.get_key_campo_value(bck.contenuto,'txtRipetiPunti') "lblRipeti",
+				radsql.get_key_campo_value(bck.contenuto,'txtComandiVerbPunti') "lblComandiVerbTesto",
+				radsql.get_key_campo_value(bck.contenuto,'txtComandiScrPunti') "lblComandiScrTesto",
+				radsql.get_key_campo_value(bck.contenuto,'txtScrittPunti') "lblScrittTesto",
+				radsql.get_key_campo_value(bck.contenuto,'txtDisegnaPunti') "lblDisegnaTesto",				
+				radsql.get_key_campo_value(bck.contenuto,'txtTotale') "lblPunteggio",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotaleNorm') "lblPunteggioNorm"
+				from cc_scale_bck bck
+				where key_legame='SCALA_MMSE' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_RANKIN">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				radsql.get_key_campo_value(bck.contenuto,'txtPunteggio') "lblPunteggio"
+				from cc_scale_bck bck
+				where key_legame='SCALA_RANKIN' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_BBS">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkAusili' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAusili'))||' '||radsql.get_key_campo_value(bck.contenuto,'txtAusili') "lblAusili",
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkDaSedutaAEretta' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkDaSedutaAEretta')) "lblDaSedutaAEretta",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkInPiediSenzaAppoggio' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkInPiediSenzaAppoggio')) "lblInPiediSenzaAppoggio",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkSedutiSenzaAppoggio' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkSedutiSenzaAppoggio')) "lblSedutiSenzaAppoggio",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkDaErettaASeduta' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkDaErettaASeduta')) "lblDaErettaASeduta",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkTrasferimentiLettoSedia' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkTrasferimentiLettoSedia')) "lblTrasferimentiLettoSedia",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkErettaOcchiChiusi' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkErettaOcchiChiusi')) "lblErettaOcchiChiusi",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkErettaPiediUniti' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkErettaPiediUniti')) "lblErettaPiediUniti",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkAvanti90DaEretta' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAvanti90DaEretta')) "lblAvanti90DaEretta",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkRaccogliere' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkRaccogliere')) "lblRaccogliere",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkRuotareTroncoDaEretta' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkRuotareTroncoDaEretta')) "lblRuotareTroncoDaEretta",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkRuotare360' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkRuotare360')) "lblRuotare360",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkAlternareAppoggioPiedi' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAlternareAppoggioPiedi')) "lblAlternareAppoggioPiedi",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkErettaPiediTandem' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkErettaPiediTandem')) "lblErettaPiediTandem",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_BBS' and tc.tipo_dato='chkInPiediSuPiede' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkInPiediSuPiede')) "lblInPiediSuPiede",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotale') "lblScoreTotale",
+				'Interpretazione: 0-20 carrozzina; 21-40 deambulazione con assistenza; 41-56 indipendenza.' INTESTAZIONE_1
+				from cc_scale_bck bck
+				where key_legame='SCALA_BBS' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_DGI">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkAusili' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAusili'))||' '||radsql.get_key_campo_value(bck.contenuto,'txtAusili') "lblAusili",
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkAndaturaSuperficiePiana' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAndaturaSuperficiePiana')) "lblAndaturaSuperficiePiana",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkVariazioneVelocitaAndatura' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkVariazioneVelocitaAndatura')) "lblVariazioneVelocitaAndatura",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkAndaturaTestaX' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAndaturaTestaX')) "lblAndaturaTestaX",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkAndaturaTestaY' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAndaturaTestaY')) "lblAndaturaTestaY",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkAndaturaPerno' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAndaturaPerno')) "lblAndaturaPerno",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkSopraOstacolo' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkSopraOstacolo')) "lblSopraOstacolo",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkIntornoOstacolo' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkIntornoOstacolo')) "lblIntornoOstacolo",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_DGI' and tc.tipo_dato='chkPassi' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPassi')) "lblPassi",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotale') "lblScoreTotale",
+				'Interpretation: < or equal 19/24 predictive of falls in the ederly<BR> > 22/24 safe ambulators.' INTESTAZIONE_1
+				from cc_scale_bck bck
+				where key_legame='SCALA_DGI' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_FAC">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FAC' and tc.tipo_dato='chkAusili' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAusili'))||' '||radsql.get_key_campo_value(bck.contenuto,'txtAusili') "lblAusili",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotale') "lblScoreTotale",
+				'0 -> Nonfunctional ambulator<BR> 1 -> Ambulator, dependent on physical assistance - level I <BR>2 -> Ambulator, dependent on physical assistance - level II<BR>3 -> Ambulator, indipendent on supervision<BR>4 -> Ambulator, indipendent level surface only<BR>5 -> Ambulator indipendent' INTESTAZIONE_1
+				from cc_scale_bck bck
+				where key_legame='SCALA_FAC' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_FM">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				'1. SHOULDER / ELBOW / FOREARM' INTESTAZIONE_0,
+				'1.1 Reflex Activity' INTESTAZIONE_1,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkFlexors' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkFlexors')) "lblFlexors",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkExtensors' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkExtensors')) "lblExtensors",
+				'1.2 Flexors synergy - volitional movement within synergy' INTESTAZIONE_2,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkShoulderRetraction' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkShoulderRetraction')) "lblShoulderRetraction",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkShoulderElevation' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkShoulderElevation')) "lblShoulderElevation",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkShoulderAbduction' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkShoulderAbduction')) "lblShoulderAbduction",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkShoulderRotation' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkShoulderRotation')) "lblShoulderRotation",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkElbowFlexion' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkElbowFlexion')) "lblElbowFlexion",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkForearmSupination' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkForearmSupination')) "lblForearmSupination",
+				'1.3 Extensor synergy - volitional movement within synergy' INTESTAZIONE_3,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkShoulderAdduction' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkShoulderAdduction')) "lblShoulderAdduction",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkElbowExtension' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkElbowExtension')) "lblElbowExtension",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkForearmPronation' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkForearmPronation')) "lblForearmPronation",
+				'1.4 Volitional movement mixing the dynamic flexor and extensor strategies' INTESTAZIONE_4,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkHandOnLumbarSpine' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkHandOnLumbarSpine')) "lblHandOnLumbarSpine",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkDynamicShoulderFlexion' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkDynamicShoulderFlexion')) "lblDynamicShoulderFlexion",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkForearmPronationSupination' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkForearmPronationSupination')) "lblForearmPronationSupination",
+				'1.5 Volitional movements are performed with little or no synergy dependence' INTESTAZIONE_5,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkShoulderAbductionNoSynergy' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkShoulderAbductionNoSynergy')) "lblShoulderAbductionNoSynergy",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkShoulderFlexionNoSynergy' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkShoulderFlexionNoSynergy')) "lblShoulderFlexionNoSynergy",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkForearmPronationNoSynergy' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkForearmPronationNoSynergy')) "lblForearmPronationNoSynergy",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkNormalReflexActivity' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkNormalReflexActivity')) "lblNormalReflexActivity",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleA')||'/36' "lblScoreTotaleA",
+				'2. WRIST' INTESTAZIONE_6,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkWristStabilityElbow90' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkWristStabilityElbow90')) "lblWristStabilityElbow90",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkWristFlexionElbow90' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkWristFlexionElbow90')) "lblWristFlexionElbow90",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkWristStabilityElbow0' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkWristStabilityElbow0')) "lblWristStabilityElbow0",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkWristFlexionElbow0' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkWristFlexionElbow0')) "lblWristFlexionElbow0",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkCircumduction' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkCircumduction')) "lblCircumduction",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleB')||'/10' "lblScoreTotaleB",
+				'3. HAND' INTESTAZIONE_7,			
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkMassFlexion' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkMassFlexion')) "lblMassFlexion",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkMassExtension' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkMassExtension')) "lblMassExtension",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkGraspA' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkGraspA')) "lblGraspA",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkGraspB' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkGraspB')) "lblGraspB",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkGraspC' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkGraspC')) "lblGraspC",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkGraspD' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkGraspD')) "lblGraspD",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkGraspE' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkGraspE')) "lblGraspE",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleC')||'/14' "lblScoreTotaleC",
+				'4. CO-ORDINATION / SPEED' INTESTAZIONE_8,	
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkTremor' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkTremor')) "lblTremor",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkDysmetria' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkDysmetria')) "lblDysmetria",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkSpeed' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkSpeed')) "lblSpeed",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleD')||'/6' "lblScoreTotaleD",
+				'UPPER LIMB SCORE' INTESTAZIONE_9,	
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_FM' and tc.tipo_dato='chkArtoSuperiore' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkArtoSuperiore')) "lblArtoSuperiore",
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotale')||'/66' "lblScoreTotale"
+				from cc_scale_bck bck
+				where key_legame='SCALA_FM' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_HPT">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_HPT' and tc.tipo_dato='chkMano' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkMano')) "lblMano",
+				radsql.get_key_campo_value(bck.contenuto,'txtSec') "lblSec",
+				radsql.get_key_campo_value(bck.contenuto,'txtPegs') "lblPegs"								
+				from cc_scale_bck bck
+				where key_legame='SCALA_HPT' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+         <statement name="SCALA_MOTRICITY_INDEX">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+	       		'ARTO SUPERIORE DESTRO' INTESTAZIONE_1,
+	        	(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoPresaPinzaDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoPresaPinzaDx')) "lblPresaPinzaDx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoFlessioneGomitoDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoFlessioneGomitoDx')) "lblFlessioneGomitoDx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoAbduzioneSpallaDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoAbduzioneSpallaDx')) "lblAbduzioneSpallaDx",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotaleArtoSuperioreDx')||'/100' "lblTotaleArtoSuperioreDx",
+        		'ARTO SUPERIORE SINISTRO' INTESTAZIONE_2,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoPresaPinzaSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoPresaPinzaSx')) "lblPresaPinzaSx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoFlessioneGomitoSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoFlessioneGomitoSx')) "lblFlessioneGomitoSx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoAbduzioneSpallaSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoAbduzioneSpallaSx')) "lblAbduzioneSpallaSx",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotaleArtoSuperioreSx')||'/100' "lblTotaleArtoSuperioreSx",		
+         		'ARTO INFERIORE DESTRO' INTESTAZIONE_3,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoDorsiflessioneCavigliaDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoDorsiflessioneCavigliaDx')) "lblDorsiflessioneCavigliaDx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoEstensioneGinocchioDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoEstensioneGinocchioDx')) "lblEstensioneGinocchioDx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoFlessioneAncaDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoFlessioneAncaDx')) "lblFlessioneAncaDx",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotaleArtoInferioreDx')||'/100' "lblTotaleArtoInferioreDx",
+         		'ARTO INFERIORE SINISTRO' INTESTAZIONE_4,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoDorsiflessioneCavigliaSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoDorsiflessioneCavigliaSx')) "lblDorsiflessioneCavigliaSx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoEstensioneGinocchioSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoEstensioneGinocchioSx')) "lblEstensioneGinocchioSx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_MOTRICITY_INDEX' and tc.tipo_dato='rdoFlessioneAncaSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoFlessioneAncaSx')) "lblFlessioneAncaSx",
+				radsql.get_key_campo_value(bck.contenuto,'txtTotaleArtoInferioreSx')||'/100' "lblTotaleArtoInferioreSx"						
+				from cc_scale_bck bck
+				where key_legame='SCALA_MOTRICITY_INDEX' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_TCT">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TCT' and tc.tipo_dato='rdoGirarsiLatoMalato' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoGirarsiLatoMalato')) "lblGirarsiLatoMalato",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TCT' and tc.tipo_dato='rdoGirarsiLatoSano' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoGirarsiLatoSano')) "lblGirarsiLatoSano",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TCT' and tc.tipo_dato='rdoPassaggioSupinoSeduto' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoPassaggioSupinoSeduto')) "lblPassaggioSupinoSeduto",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TCT' and tc.tipo_dato='rdoEquilibrioDaSeduto' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoEquilibrioDaSeduto')) "lblEquilibrioDaSeduto",
+				radsql.get_key_campo_value(bck.contenuto,'txtPunteggioTotale')||'/100' "lblPunteggioTotale",
+				'Interpretazione: punteggio da 0 (minimo) a 100 (massimo). Un punteggio >=50 a 6 settimane da un ictus preannuncia il recupero della deambulazione a 18 settimane; in pazienti oltre i 70 anni d''età NON ha valore prognostico per il recupero della deambulazione' INTESTAZIONE_1								
+				from cc_scale_bck bck
+				where key_legame='SCALA_TCT' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_TINETTI">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoEquilibrioDaSeduto' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoEquilibrioDaSeduto')) "lblEquilibrioDaSeduto",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoAlzarsiDallaSedia' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoAlzarsiDallaSedia')) "lblAlzarsiDallaSedia",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoTentativoDiAlzarsi' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoTentativoDiAlzarsi')) "lblTentativoDiAlzarsi",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoEquilibrioImmediato' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoEquilibrioImmediato')) "lblEquilibrioImmediato",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoEquilibrioProlungato' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoEquilibrioProlungato')) "lblEquilibrioProlungato",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoSpintaLeggera' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoSpintaLeggera')) "lblSpintaLeggera",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoOcchiChiusi' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoOcchiChiusi')) "lblOcchiChiusi",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoRotazione' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoRotazione')) "lblRotazione",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoSedersi' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoSedersi')) "lblSedersi",
+				radsql.get_key_campo_value(bck.contenuto,'txtPunteggioEquilibrio')||'/16' "lblPunteggioEquilibrio",					
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoPartenza' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoPartenza')) "lblPartenza",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoLunghezzaPassoDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoLunghezzaPassoDx')) "lblLunghezzaPassoDx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoAltezzaPassoDx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoAltezzaPassoDx')) "lblAltezzaPassoDx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoLunghezzaPassoSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoLunghezzaPassoSx')) "lblLunghezzaPassoSx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoAltezzaPassoSx' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoAltezzaPassoSx')) "lblAltezzaPassoSx",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoSimmetriaPasso' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoSimmetriaPasso')) "lblSimmetriaPasso",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoContinuitaPasso' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoContinuitaPasso')) "lblContinuitaPasso",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoTraiettoria' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoTraiettoria')) "lblTraiettoria",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoStabilita' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoStabilita')) "lblStabilita",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TINETTI' and tc.tipo_dato='rdoCammino' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'rdoCammino')) "lblCammino",
+				radsql.get_key_campo_value(bck.contenuto,'txtPunteggioAndatura')||'/12' "lblPunteggioAndatura",	
+				radsql.get_key_campo_value(bck.contenuto,'txtTinettiScore')||'/28' "lblTinettiScore",
+				'Interpretazione: <20 = rischio di cadute estremamente elevato; 20-23 = rischio di cadute elevato; 24-27 = rischio di caduta poco elevato; 28 = situazione di normalità.' INTESTAZIONE_1								
+				from cc_scale_bck bck
+				where key_legame='SCALA_TINETTI' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_TIS">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				'EQUILIBRIO STATICO DA SEDUTO' INTESTAZIONE_1,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaESS' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaESS')) "lblPosizioneDiPartenzaESS",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaESS2' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaESS2')) "lblPosizioneDiPartenzaESS2",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaESS3' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaESS3')) "lblPosizioneDiPartenzaESS3",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleESS')||'/7' "lblScoreTotaleESS",
+				'EQUILIBRIO DINAMICO DA SEDUTO' INTESTAZIONE_2,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS')) "lblPosizioneDiPartenzaEDS",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS2' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS2')) "lblPosizioneDiPartenzaEDS2",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS3' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS3')) "lblPosizioneDiPartenzaEDS3",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS4' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS4')) "lblPosizioneDiPartenzaEDS4",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS5' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS5')) "lblPosizioneDiPartenzaEDS5",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS6' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS6')) "lblPosizioneDiPartenzaEDS6",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS7' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS7')) "lblPosizioneDiPartenzaEDS7",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS8' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS8')) "lblPosizioneDiPartenzaEDS8",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS9' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS9')) "lblPosizioneDiPartenzaEDS9",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaEDS10' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaEDS10')) "lblPosizioneDiPartenzaEDS10",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleEDS')||'/10' "lblScoreTotaleEDS",
+				'COORDINAZIONE' INTESTAZIONE_3,				
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaC' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaC')) "lblPosizioneDiPartenzaC",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaC2' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaC2')) "lblPosizioneDiPartenzaC2",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaC3' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaC3')) "lblPosizioneDiPartenzaC3",
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_TIS' and tc.tipo_dato='chkPosizioneDiPartenzaC4' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkPosizioneDiPartenzaC4')) "lblPosizioneDiPartenzaC4",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleC')||'/6' "lblScoreTotaleC",
+				'TRUNK IMPAIRMENT SCALE' INTESTAZIONE_4,
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotaleTIS')||'/23' "lblScoreTotaleTIS",
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote"
+				from cc_scale_bck bck
+				where key_legame='SCALA_TIS' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+         <statement name="SCALA_10MWT">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_10MWT' and tc.tipo_dato='chkAusili' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAusili'))||' '||radsql.get_key_campo_value(bck.contenuto,'txtAusili') "lblAusili",
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote",
+				'Velocità scelta spontaneamente' INTESTAZIONE_1,
+				radsql.get_key_campo_value(bck.contenuto,'txtP1VSpon') "lblP1VSpon",	
+				radsql.get_key_campo_value(bck.contenuto,'txtP2VSpon') "lblP2VSpon",
+				radsql.get_key_campo_value(bck.contenuto,'txtP3VSpon') "lblP3VSpon",
+				radsql.get_key_campo_value(bck.contenuto,'txtMediaVSpon') "lblMediaVSpon",
+				radsql.get_key_campo_value(bck.contenuto,'txtMSecVSpon') "lblMSecVSpon",
+				radsql.get_key_campo_value(bck.contenuto,'txtMMinVSpon') "lblMMinVSpon",	
+				'Massima velocità' INTESTAZIONE_2,
+				radsql.get_key_campo_value(bck.contenuto,'txtP1VMax') "lblP1VMax",	
+				radsql.get_key_campo_value(bck.contenuto,'txtP2VMax') "lblP2VMax",
+				radsql.get_key_campo_value(bck.contenuto,'txtP3VMax') "lblP3VMax",
+				radsql.get_key_campo_value(bck.contenuto,'txtMediaVMax') "lblMediaVMax",
+				radsql.get_key_campo_value(bck.contenuto,'txtMSecVMax') "lblMSecVMax",
+				radsql.get_key_campo_value(bck.contenuto,'txtMMinVMax') "lblMMinVMax"						
+				from cc_scale_bck bck
+				where key_legame='SCALA_10MWT' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+        <statement name="SCALA_6MWT">
+            <sql>
+                <![CDATA[
+				select
+				to_char(data_ultima_modifica,'DD/MM/YYYY hh24:mi') data_reg,
+				(select tc.descrizione from radsql.tab_codifiche tc where TIPO_SCHEDA='SCALA_6MWT' and tc.tipo_dato='chkAusili' and tc.codice =  radsql.get_key_campo_value(bck.contenuto,'chkAusili'))||' '||radsql.get_key_campo_value(bck.contenuto,'txtAusili') "lblAusili",
+				radsql.get_key_campo_value(bck.contenuto,'txtNote') "lblNote",
+				radsql.get_key_campo_value(bck.contenuto,'txtScoreTotale') "lblScoreTotale",	
+				radsql.get_key_campo_value(bck.contenuto,'txtPause') "lblPause",			
+				'A riposo' INTESTAZIONE_1,
+				radsql.get_key_campo_value(bck.contenuto,'txtBorgMRiposo') "lblBorgMRiposo",	
+				radsql.get_key_campo_value(bck.contenuto,'txtBorgRiposo') "lblBorgRiposo",
+				radsql.get_key_campo_value(bck.contenuto,'txtFCRiposo') "lblFCRiposo",
+				radsql.get_key_campo_value(bck.contenuto,'txtSpO2Riposo') "lblSpO2Riposo",	
+				'A fine test' INTESTAZIONE_2,
+				radsql.get_key_campo_value(bck.contenuto,'txtBorgMFine') "lblBorgMFine",	
+				radsql.get_key_campo_value(bck.contenuto,'txtBorgFine') "lblBorgFine",
+				radsql.get_key_campo_value(bck.contenuto,'txtFCFine') "lblFCFine",
+				radsql.get_key_campo_value(bck.contenuto,'txtSpO2Fine') "lblSpO2Fine"				
+				from cc_scale_bck bck
+				where key_legame='SCALA_6MWT' and iden_visita=?
+				order by data_ultima_modifica desc
+			]]>
+            </sql>
+        </statement>
+	</statements_list>
+</root>

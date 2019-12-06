@@ -1,0 +1,4 @@
+<INCLUDE>       
+    <JS path="js/PS/Inps/NS_INPS.js"/> 
+    <JS path="js/PS/Inps/Inps.js"/>    
+</INCLUDE>

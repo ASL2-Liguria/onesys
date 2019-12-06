@@ -1,0 +1,9 @@
+.btnAddFunicolo{
+	BACKGROUND: url(../../../../../imagexPix/button/mini/btPlusSquareGreen.png) no-repeat center 50%;
+	CURSOR: pointer
+}
+
+.btnRemoveFunicolo{
+	BACKGROUND: url(../../../../../imagexPix/button/mini/btMinusSquareGreen.png) no-repeat center 50%;
+	CURSOR: pointer
+}

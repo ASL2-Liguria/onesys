@@ -1,0 +1,68 @@
+<root>
+	<statements_list>
+		<statement name="insert">				
+			<sql>
+			<![CDATA[
+				declare
+					pCodice varchar2(5000) 	:= ?;
+					pReparto varchar2(5000) := ?;
+					pTesto varchar2(5000) 	:= ?;
+					pIdenMed pls_integer 	:= to_number(?);				
+					pFunzione varchar2(5000):= ?;
+					pUtente	pls_integer		:= to_number(?);
+				begin
+					insert into CC_TESTI_STD
+						(CODICE_REPARTO, IDEN_MED, CODICE, TESTO, FUNZIONE, DATA_INS ,UTE_INS) values 
+						(pReparto, pIdenMed, pCodice, pTesto, pFunzione, SYSDATE, pUtente);
+				end;
+			]]>
+			</sql>
+		</statement>
+		<statement name="update">				
+			<sql>
+			<![CDATA[
+				declare
+					pCodice varchar2(5000) 	:= ?;
+					pReparto varchar2(5000) := ?;
+					pTesto varchar2(5000) 	:= ?;
+					pIdenMed pls_integer 	:= to_number(?);
+					pFunzione varchar2(5000):= ?; 
+					pUtente	pls_integer		:= to_number(?);				
+				begin
+					update CC_TESTI_STD 
+					set TESTO = pTesto,
+					DATA_MOD = sysdate,
+					IDEN_MED = pIdenMed,
+					ute_mod	= pUtente
+					where CODICE = pCodice 
+					and CODICE_REPARTO = pReparto;
+				end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="delete">				
+			<sql>
+			<![CDATA[
+				declare
+					pCodice varchar2(5000) 	:= ?;
+					pReparto varchar2(5000) := ?;				
+				begin
+					delete from CC_TESTI_STD where CODICE_REPARTO= pReparto and CODICE= pCodice;
+				end;
+			]]>
+			</sql>
+		</statement>	
+		<statement name="load">				
+			<sql>
+			<![CDATA[
+				select 
+					TESTO
+				from
+					RADSQL.VIEW_CC_TESTI_STD
+				where
+					IDEN = ?
+			]]>
+			</sql>
+		</statement>	
+	</statements_list>
+</root>

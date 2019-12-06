@@ -1,0 +1,22 @@
+<PAGINA key_id="RICHIESTE">
+    <HEADER_REFERTAZIONE key_id="RICHIESTE" valore="DEFAULT,SCHEDA,SCHEDA_REFERTAZIONE,RICHIESTE#DEFAULT,PS_RICHIESTE" evento="START_END">
+    </HEADER_REFERTAZIONE>
+    <FORM key_id="dati" valore="dati#SP_STANDARD#POLARIS_DATI#ANAGRAFICA#IDEN#IDEN_ANAG" evento="START_END">
+        <TABULAZIONE.INIT key_id="dati" valore="RICHIESTE#lblTitolo#" evento="START">
+
+			 <INPUT.HIDDEN key_id="hNome" valore="hNome" evento="START">
+			</INPUT.HIDDEN>
+			 <INPUT.HIDDEN key_id="hCognome" valore="hCognome" evento="START">
+			</INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="hCatena" valore="hCatena" evento="START">
+			</INPUT.HIDDEN>
+			<INPUT.HIDDEN key_id="hCodiceContatto" valore="hCodiceContatto" evento="START">
+			</INPUT.HIDDEN>
+                <FIELDSET key_id="fldRichieste" valore="fldRichieste" evento="START">
+                	<DIV key_id="wkRichieste" valore="wkRichieste" evento="START">
+					</DIV>
+                </FIELDSET>
+
+        </TABULAZIONE.INIT>
+    </FORM>
+</PAGINA>

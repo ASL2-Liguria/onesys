@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<script type="text/javascript" src="../../std/jscript/engine/jquery.js"></script>
+<script type='text/javascript' src='../../std/jscript/fillLabels.js' language='JavaScript'></script>
+<script type="text/javascript" src="../../dwr/engine.js"></script>
+<script type="text/javascript" src="../../dwr/util.js"></script>
+<script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+<script type="text/javascript" src="../../std/jscript/json/json2.js"></script>
+<script type='text/javascript' src='../../std/jscript/optionJsUtil.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/elabora_prestazioni.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/consolle.js' language='JavaScript'></script>
+<script type='text/javascript' src='flexigrid/js/flexigrid.js' language='JavaScript'></script>
+<script type='text/javascript' src='js/wkPlugin.js' language='JavaScript'></script>
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/headerTable.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/button.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/ImageX.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataTable.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<link type='text/css' rel='stylesheet' href='../../std/css/filterTable.css'>
+<link type='text/css' rel='stylesheet' href='../../std/css/textArea.css'>
+<link type='text/css' rel='stylesheet' href='css/scarica_prestazione_sole.css'>
+<link type='text/css' rel='stylesheet' href='flexigrid/css/flexigrid.css'>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Ricerca Prestazioni</title>
+</head>
+<body>
+<form id="formElementi">
+    	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle' id="sostituzione">Sostituzione Prestazione</td>
+			<td class='classButtonHeader'><div class='pulsante buttonSole' id='btClose' onclick="javascript:NS_ELABORA.Ricerca()">Ricerca</div></td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td  width="50%" class='classTdLabelNoWidth'>DESCRIZIONE PRESTAZIONE</td>
+			<td  width="50%" class='classTdField'><input name='nDescrPrestazione' id='DescrPrestazione' maxlength='16'  size='20' type='text' ></td>
+		</tr>
+	</table>
+        <div id="divWk"></div>
+	<table cellpadding='0' cellspacing='0' class='classTabHeader'>
+		<tr>
+			<td class='classTabFooterSx'></td>
+			<td class='classTabHeaderMiddle'> </td>
+                        <td class='classButtonHeader'><div class='pulsante buttonSole' id='btImporta' onclick="javascript:NS_ELABORA.importa();">Sostituisci</div></td>
+			<td class='classButtonHeader'><div class='pulsante buttonSole' id='btClose' onclick="javascript:self.close()">Annulla</div></td>
+			<td class='classTabFooterDx'></td>
+		</tr>
+	</table>
+</form>	
+<form id="frmOffline">
+        <div id="divWkOffline" style="display:none">
+            <table cellpadding='0' cellspacing='0' class='classTabHeader'>
+                    <tr>
+                            <td class='classTabHeaderSx'></td>
+                            <td class='classTabHeaderMiddle'>Prestazioni in ricetta</td>
+                            <td class='classTabHeaderDx'></td>
+                    </tr>
+            </table>
+
+                <table id="tblPrestazioniOffline" >
+                    <tr id="trHeader">
+                        <th style="width:10%">Progressivo</th>
+                        <th style="width:50%">Prestazione</th>
+                    </tr>
+                </table>
+            <table cellpadding='0' cellspacing='0' class='classTabHeader'>
+                    <tr>
+                            <td class='classTabFooterSx'></td>
+                            <td class='classTabHeaderMiddle'> </td>
+                            <td class='classButtonHeader'><div class='pulsante buttonSole' id='btConferma' onclick="javascript:NS_ELABORA.conferma();">Conferma</div></td>
+                            <td class='classTabFooterDx'></td>
+                    </tr>
+            </table>
+        </div>
+</form>
+</body>
+</html>

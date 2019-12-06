@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+        <lblTitolo>Modulo di richiesta e questionario per esame RM</lblTitolo>
+        <butStampaInformativa>Stampa Consenso Informato</butStampaInformativa>
+        <butStampaIndicazioni>Stampa Indicazioni</butStampaIndicazioni>
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        <butCerca>Inserisci Accertamento</butCerca>
+        <butInserisci>Inserisci</butInserisci>
+        
+        <tabDati>Dati assistito</tabDati>
+        <tabQuestionario_I>Questionario Anamnestico</tabQuestionario_I>
+        <tabQuestionario_II>Questionario Risonanza Magnetica Con MDC</tabQuestionario_II>
+        
+        <fldNotizie_Clin>Notizie Cliniche</fldNotizie_Clin>
+        <fldIndagine>Indagine Proposta</fldIndagine>
+        <fldQuesito>Quesito Diagnostico</fldQuesito>
+        
+        <fldContrAssolute>Controindicazioni Assolute</fldContrAssolute>
+        <fldContrRelative>Controindicazioni Relative</fldContrRelative>
+        <fldRisonanzaMDC>In caso di Risonanza con MDC</fldRisonanzaMDC>
+        <fldCreatininemia>Creatininemia</fldCreatininemia>
+        
+        <lblCollaborazione>Paziente collaborante </lblCollaborazione>
+        <lblPeso>Peso (Kg)</lblPeso>
+        <lblProblemiPaziente>Diagnosi effettuate per il paziente</lblProblemiPaziente>
+        
+        <lblPaceMaker>Pace-maker cardiaco</lblPaceMaker>
+        <lblDispoEleNR>Dispositivi elettromeccanici non rimovibili</lblDispoEleNR>
+        	<lblInfoDispoEleNR>-Pompe per infusione di insulina o altri farmaci &lt;br&gt;-neurostimolatori impiantati nel cranio o nella colonna vertebrale</lblInfoDispoEleNR>
+        <lblClipVascolari>Clips vascolari e corpi estranei ferromagnetiche in sedi vitali</lblClipVascolari>
+        <lblFiltriStentSpirali>Filtri, Stent e Spirali endovascolari ferromagnetici</lblFiltriStentSpirali>
+        <lblCatetere>Catetere Swan-Ganz</lblCatetere>
+        <lblMedicazioniTransdermiche>Medicazioni transdermiche che contengono metalli</lblMedicazioniTransdermiche>
+        <lblProtesi>Protesi del Cristallino con anse e punti intraoculari ferromagnetici</lblProtesi>
+        	<lblInfoProtesi>Non più in commercio dopo il 1990</lblInfoProtesi>
+        <lblCorpiEstranei>Corpi estranei ferromagnetici in sedi non vitali</lblCorpiEstranei>
+	    <lblClipsMet>Clips o ltri dispositivi metallici non ferromagnetici</lblClipsMet>
+	    <lblFiltriStentSpiraliNon>Filtri, Stent e Spirali di qualsiasi tipo</lblFiltriStentSpiraliNon>
+	    	<lblInfoFiltriStentSpiraliNon>Prima di 6 settimane dall'impianto</lblInfoFiltriStentSpiraliNon>
+	    <lblShunt>Vecchi tipi di shunt ventricolo peritoneale</lblShunt>
+	    <lblProtesiOrtMet>Protesi Ortopediche metalliche (artefatti)</lblProtesiOrtMet>
+	    <lblEspansori>Espansori mammari temporanei con parti metalliche, impiantati dopo mastectomia per ricostruzione</lblEspansori>
+	    <lblIud>IUD e diaframmi uterini</lblIud>
+	    <lblTatuaggi>Tatuaggi molto estesi con pigmenti colorati in rosso</lblTatuaggi>
+	    <lblMesiGravidanza> Primi tre mesi di gravidanza</lblMesiGravidanza>
+	    <lblDataUltimoMestruo>Data ultime mestruazioni</lblDataUltimoMestruo>
+	    <lblRischioAllergico>Comprovato rischio allergico</lblRischioAllergico>
+	    <lblAllegieMetalli>Allergie ai metalli (es. nichel)</lblAllegieMetalli>
+	    <lblGraveInsufficienzaEpatuic>Grave Insugfficienza Epatica</lblGraveInsufficienzaEpatuic>
+	    <lblCreatininemia>Creatininemia (valore)</lblCreatininemia>
+	    <lblDataCreatininemia>Data esame</lblDataCreatininemia>
+	    <lblAllergieMetalli>Allergie ai metalli (es.nichel)</lblAllergieMetalli>
+	    <lblGraveInsufficienzaEpatica>Grave insufficienza epatica</lblGraveInsufficienzaEpatica>
+	    <lblInsufficienzaRenale>Insufficienza renale</lblInsufficienzaRenale>
+	    <lblCreatininemia>Creatininemia (valore)</lblCreatininemia>
+	    <lblDataCreatininemia>Data esame</lblDataCreatininemia>
+	    
+	    <lblSpecificare>Se SI specificare</lblSpecificare>
+	    
+	</ROW>
+</ROWSET>

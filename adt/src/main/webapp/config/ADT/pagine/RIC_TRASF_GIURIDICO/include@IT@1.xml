@@ -1,0 +1,10 @@
+<INCLUDE>
+	<CSS path="css/ADT/Trasferimenti/RichTrasf.css"/>
+    <JS path="js/TimePicker/jquery.meio.mask.js"/>
+    <JS path="js/Base/GestTime.js"/>
+    <JS path="config/ADT/validator/model/V_ADT_TRASF_GIU.js"/>
+    <JS path="js/ADT/Contatto/ContattoMethods.js"/>
+    <JS path="js/ADT/Contatto/Contatto.js"/>
+    <JS path="js/ADT/Trasferimenti/Trasferimenti.js"/>
+    <JS path="js/ADT/Trasferimenti/InitTrasferimenti.js"/>
+</INCLUDE>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <tabInfoTerGiorn>Prospetto giornaliero delle terapie</tabInfoTerGiorn>
+        <lblTitolo></lblTitolo>
+        
+        <lblNomeFarmaco>Nome farmaco</lblNomeFarmaco>
+        <lblInformativa>In questa sezione l'utente potrà compilare, in modo semplice, un prospetto giornaliero per i farmaci selezionati.</lblInformativa>
+        <lblInformativa2>Nelle caselle grigie si potranno inserire orari (e modificare quelli esistenti) o eventuali indicazioni
+        sulla cadenza temporale della posologia.</lblInformativa2> 
+        <lblInformativa3>Nelle caselle bianche sottostanti invece si potranno inserire le indicazioni riguardanti la quantità di farmaco da assumere</lblInformativa3>
+        <lblPosologia>Posologia (nelle caselle bianche) e Orari (nelle caselle grigie)</lblPosologia>
+        <lblNota>Nota:</lblNota>
+        
+        <otto>8.00</otto>
+		<voidfirst></voidfirst>
+		<dodici>12.00</dodici>
+		<voidsecond></voidsecond>
+		<diciannove>19.00</diciannove>
+		<ventidue>22.00</ventidue>
+		
+    </ROW>
+</ROWSET>

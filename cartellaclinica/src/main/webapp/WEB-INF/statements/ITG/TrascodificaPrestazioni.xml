@@ -1,0 +1,20 @@
+<root>
+    <statements_list>
+        <statement name="getPrestazioniLaboratorio">				
+            <sql>
+            <![CDATA[
+                    select
+                        te.iden ID                                   
+                        , te.cod_esa CODICE
+                        , te.descr DESCRIZIONE
+                     from
+                        tab_esa te
+                     where
+                        te.metodica in ('L', 'A')
+                        and te.attivo = 'S'
+                        and te.data_ultima_modifica >= to_date(?, 'yyyyMMddhh24:mi')
+            ]]>
+            </sql>
+        </statement>		
+    </statements_list>
+</root>

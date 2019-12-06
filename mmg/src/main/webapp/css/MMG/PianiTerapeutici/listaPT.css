@@ -1,0 +1,7 @@
+body { width: 1024px; }
+
+div.clsWk div.clsWkScroll table tr td {
+	/* text-overflow: ellipsis; */
+	max-width: 100%;
+	padding: 10px;
+}

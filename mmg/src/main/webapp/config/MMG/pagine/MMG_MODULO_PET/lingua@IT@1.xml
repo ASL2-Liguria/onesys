@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+    
+    	<tabModulo>Modulo PET</tabModulo>
+    	
+        <lblTitolo>Modulo di richiesta per esame PET</lblTitolo>
+        
+        <fldInterventi>Interventi chirurgici (sede)</fldInterventi>
+        
+        <butStampa>Salva e Stampa</butStampa>
+        <butStampaOnly>Stampa</butStampaOnly>
+        
+        <lblProvenienza>Provenienza</lblProvenienza>
+        <lblReparto>Reparto</lblReparto>
+        <lblSesso>Sesso</lblSesso>
+        <lblBarellato>Barellato</lblBarellato>
+        <lblPeso>Peso (Kg)</lblPeso>
+        <lblAltezza>Altezza (cm)</lblAltezza>
+        <lblAutosufficente>Autosufficente / Collaborante</lblAutosufficente>
+        <lblClaustrofobico>Claustrofobico</lblClaustrofobico>
+        <lblDiabete>Diabete mellito</lblDiabete>
+        <lblTerapiaIpoGlic>Terapia ipoglicemizzante</lblTerapiaIpoGlic>
+        <lblRichiesta>Richiesta di</lblRichiesta>
+        <lblDett_Richiesta>(specificare la regione)</lblDett_Richiesta>
+        <lblDiagnosi>Tipo diagnosi</lblDiagnosi>
+        <lblDett_Diagnosi>Diagnosi</lblDett_Diagnosi>
+        <lblQuesitoClinico>Quesito clinico</lblQuesitoClinico>
+        <lblEsordio>Esordio della malattia e notizie anamnestiche</lblEsordio>
+        <lblDataIntervento>data</lblDataIntervento>
+        <lblDataChemioterapia>data ultimo ciclo</lblDataChemioterapia>
+        <lblDataRadioterapia>data ultimo ciclo</lblDataRadioterapia>
+        <lblDataMarkerTumSec>data</lblDataMarkerTumSec>
+        <lblDataMarkerTumFirst>data</lblDataMarkerTumFirst>
+        <lblMarkerValSec>Valore (v.n.)</lblMarkerValSec>
+        <lblMarkerValFirst>Valore (v.n.)</lblMarkerValFirst>
+        <lblTerapia>Terapia attuale</lblTerapia>
+		
+    </ROW>
+</ROWSET>

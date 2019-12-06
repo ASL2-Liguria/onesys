@@ -1,0 +1,5 @@
+<INCLUDE>
+	<CSS path="css/PS/SchedeModulistica/ModuloTrasportoUrgElicottero/ModuloTrasportoUrgElicottero.css"/>
+    <JS path="js/PS/SchedeModulistica/ModulisticaFunzioniComuni.js"/>
+    <JS path="js/PS/SchedeModulistica/ModuloTrasportoUrgElicottero/ModuloTrasportoUrgElicottero.js"/>
+</INCLUDE>

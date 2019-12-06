@@ -1,0 +1,38 @@
+<root>
+	<statements_list>
+		<statement name="save">				
+			<schema>IMAGOWEB</schema>
+			<sql>
+			<![CDATA[
+				declare
+					pConfigurazione varchar2(4000):=?;
+					pStampante		varchar2(4000):=?;
+					pIp				varchar2(4000):=?;
+				begin
+					update configura_pc
+					set   
+						uso_applet_stampa = 'S',
+  						CONFIGURAZIONE_APPLET_RICETTA = pConfigurazione,
+  						printername_ricetta_rossa=pStampante
+  					where ip=pIp;
+  				end;
+			]]>
+			</sql>
+
+		</statement>
+		<statement name="loadConf">				
+			<sql>
+			<![CDATA[
+				select 
+					CONFIGURAZIONE_APPLET_RICETTA,
+					PRINTERNAME_RICETTA_ROSSA,
+					CONFIGURAZIONE_APPLET_BIANCA,														
+					PRINTERNAME_RICETTA_BIANCA,
+					CONFIGURAZIONE_APPLET_DEMA,
+					PRINTERNAME_RICETTA_DEMA	
+				from imagoweb.configura_pc where ip = ?
+			]]>
+			</sql>
+		</statement>
+	</statements_list>
+</root>

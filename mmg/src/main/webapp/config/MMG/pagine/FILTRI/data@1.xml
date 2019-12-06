@@ -1,0 +1,23 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	<DATO 
+		key_id="radChiusAperto" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="VALUE" 
+		db_descrizione="DESCR" 
+		configurazione_multi_data="R_CHIUSO_APERTO" 
+	/>
+	<!-- DATO 
+		key_id="tipoScheda" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="VALUE" 
+		db_descrizione="DESCR" 
+		configurazione_multi_data="R_TIPO_SCHEDA" 
+	/-->
+	<DATO 
+		key_id="radNascosto" 
+		configurazione_stato="begin :stato := 'E'; end;" 
+		db_valore="" 
+		db_descrizione="" 
+		configurazione_multi_data="R_SI_NO" 
+	/>
+</DATI>

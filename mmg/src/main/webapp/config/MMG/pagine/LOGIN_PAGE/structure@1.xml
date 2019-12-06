@@ -1,0 +1,47 @@
+<PAGINA key_id="LOGIN_PAGE">
+	<HEADER key_id="LOGIN_PAGE" valore="LOGIN_PAGE#DEFAULT_MMG,LOGIN_PAGE#OneSys Login#bodyLogin" evento="START_END">
+	</HEADER>
+	<IMG key_id="logo" valore="logo#img/OnesysMMG.png#253#169" evento="START">
+<!-- 	<IMG key_id="logo" valore="logo#img/logoFenix.png#253#169" evento="START"> -->
+	</IMG>
+	<DIV key_id="divFormLogin" valore="divFormLogin" evento="START">
+		<HRIQ key_id="divHeaderLogin" valore="lblTitHeaderLogin" evento="START">
+		</HRIQ>
+		<DIV key_id="contentLogin" valore="contentLogin" evento="START">
+			<FORM key_id="formLogin" valore="formLogin" evento="START_END">
+				<LABEL_TEXT key_id="username" valore="lblUsername#username##field" evento="START">
+				</LABEL_TEXT>
+				<LABEL_PASSWORD key_id="password" valore="lblPassword#password##field" evento="START">
+				</LABEL_PASSWORD>
+				<INPUT.HIDDEN key_id="codice" valore="codice" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="ipRilevato" valore="ipRilevato" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="nomeHost" valore="nomeHost" evento="START">
+				</INPUT.HIDDEN>
+				<INPUT.HIDDEN key_id="forceLogout" valore="forceLogout#N" evento="START">
+				</INPUT.HIDDEN>
+			</FORM>
+			<DIV key_id="errorMsg" valore="errorMsg#hide" evento="START">
+			</DIV>
+			<BUTTON key_id="butLogin" valore="butLogin" evento="START">
+			</BUTTON>
+			<BUTTON key_id="butCambia" valore="butCambia" evento="START">
+			</BUTTON>
+		</DIV>
+	</DIV>
+	<OBJECT key_id="AppStampa" valore="AppStampa#text/plain#0px#0px" evento="START"> <!--AppStampa#application/x-java-applet#0px#0px#APPLET_MMG_LOGIN-->
+<!--		<SCRIPT key_id="NoApplet" evento="START" valore="js/Base/NOAPPLET.js"></SCRIPT>
+ 		<PARAM key_id="jnlp_href" valore="jnlp_href#AppStampaEager.jnlp" evento="START"></PARAM> 
+		<PARAM key_id="logoutOnDestroy" valore="logoutOnDestroy#N" evento="START"></PARAM>
+		<PARAM key_id="initial_focus" valore="initial_focus#false" evento="START"></PARAM>-->
+	</OBJECT>
+	<STATUS_BAR key_id="statusBar" valore="statusBar" evento="START">
+		<DIV key_id="statSx" valore="statSx" evento="START">
+			<STATUS_BAR_H5 key_id="h5NomeHost" valore="h5NomeHostTit#h5NomeHostVal" evento="START">
+			</STATUS_BAR_H5>
+		</DIV>
+		<DIV key_id="statDx" valore="statDx" evento="START">
+		</DIV>
+	</STATUS_BAR>
+</PAGINA>

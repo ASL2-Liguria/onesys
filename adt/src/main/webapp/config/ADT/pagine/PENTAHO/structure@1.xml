@@ -1,0 +1,9 @@
+<PAGINA key_id="PENTAHO">
+	<HEADER_PAGE key_id="PENTAHO" valore="DEFAULT,SCHEDA,PENTAHO#DEFAULT" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati##ADT###" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="PENTAHO##" evento="START">
+            <IFRAME key_id="iframe" valore="iframe##" evento="START"></IFRAME>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

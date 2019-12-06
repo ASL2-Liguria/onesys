@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>ADT_PRESTAZIONI_DSA</ID>
+    <ID-QUERY connection="WHALE">WORKLIST.WK_PRESTAZIONI_DSA</ID-QUERY>
+    <TITLE>"Worklist prestazioni DSA"</TITLE>
+    <PAGER>N</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE></WHERE_BASE>
+    <LIMIT_ROWS>200</LIMIT_ROWS>
+    <STRUCTURE>
+    	<ROWS>
+            <ALTERNATE_COLOR>N</ALTERNATE_COLOR>
+            <HEIGHT>20px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('*', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+            	<COLUMN>
+                    <ID>
+                        <COL>IDEN_ACCERTAMENTO</COL>
+                        <DB>IDEN_ACCERTAMENTO</DB>
+                    </ID>
+                    <DESCRIPTOR>"IDEN ACCERT."</DESCRIPTOR>
+                    <!--<PROCESS type="javascript"><![CDATA[$(this).openDetailRow]]></PROCESS>-->
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INS</COL>
+                        <DB>DATA_INS</DB>
+                    </ID>
+                    <DESCRIPTOR>"DATA INS."</DESCRIPTOR>
+                    <!--<PROCESS type="javascript"><![CDATA[$(this).openDetailRow]]></PROCESS>-->
+                    <WIDTH>70px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PROGRESSIVO</COL>
+                        <DB>PROGRESSIVO</DB>
+                    </ID>
+                    <DESCRIPTOR>"COD.DSA"</DESCRIPTOR>
+                    <!--<PROCESS type="javascript"><![CDATA[$(this).openDetailRow]]></PROCESS>-->
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_ISES</COL>
+                        <DB>CODICE_ISES</DB>
+                    </ID>
+                    <DESCRIPTOR>"CODICE ISES"</DESCRIPTOR>
+                    <!--<PROCESS type="javascript"><![CDATA[function(data, wk){return WORKLIST.processColPaziente(data,wk);}]]></PROCESS>-->
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PRESTAZIONE</COL>
+                        <DB>PRESTAZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"PRESTAZIONE"</DESCRIPTOR>
+                    <!--<PROCESS type="javascript"><![CDATA[function(data, wk){return WORKLIST.processColPaziente(data,wk);}]]></PROCESS>-->
+                    <WIDTH>500px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_PRESTAZIONE</COL>
+                        <DB>CODICE_PRESTAZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"COD. PREST."</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>85px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_REGIONALE</COL>
+                        <DB>CODICE_REGIONALE</DB>
+                    </ID>
+                    <DESCRIPTOR>"COD. REG."</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>85px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CODICE_MINISTERIALE</COL>
+                        <DB>CODICE_MINISTERIALE</DB>
+                    </ID>
+                    <DESCRIPTOR>"COD. PREST."</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>80px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>LATERALITA</COL>
+                        <DB>LATERALITA</DB>
+                    </ID>
+                    <DESCRIPTOR>"LAT."</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>30px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>QUANTITA</COL>
+                        <DB>QUANTITA</DB>
+                    </ID>
+                    <DESCRIPTOR>"N. PREST"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>60px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>N</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>  
+                <COLUMN>
+                    <ID>
+                        <COL>COD_ESENZIONE</COL>
+                        <DB>COD_ESENZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"COD.ESENZ"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_ESECUZ</COL>
+                        <DB>DATA_ESECUZ</DB>
+                    </ID>
+                    <DESCRIPTOR>"Data Esecuzione"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ESENZIONE</COL>
+                        <DB>ESENZIONE</DB>
+                    </ID>
+                    <DESCRIPTOR>"ESENZIONE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DM_CODICE</COL>
+                        <DB>DM_CODICE</DB>
+                    </ID>
+                    <DESCRIPTOR>"DM CODICE"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>ID_NOTA</COL>
+                        <DB>ID_NOTA</DB>
+                    </ID>
+                    <DESCRIPTOR>"ID NOTA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>GENETICA</COL>
+                        <DB>GENETICA</DB>
+                    </ID>
+                    <DESCRIPTOR>"GENETICA"</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>50px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>XML_CONDIZIONI_INDICAZIONI</COL>
+                        <DB>XML_CONDIZIONI_INDICAZIONI</DB>
+                    </ID>
+                    <DESCRIPTOR>"CONDIZIONI"</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk, td){return processColumnErogabilita(data, wk, td);}]]></PROCESS>
+                    <WIDTH>200px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVABLE>S</MOVABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+            	<COLUMN id="DATA_INS">ASC</COLUMN>
+            	<COLUMN id="CODICE_MINISTERIALE">ASC</COLUMN>
+                <COLUMN id="PRESTAZIONE">ASC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

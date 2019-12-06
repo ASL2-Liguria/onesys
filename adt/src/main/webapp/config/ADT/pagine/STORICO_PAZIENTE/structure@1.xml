@@ -1,0 +1,19 @@
+<PAGINA key_id="STORICO_PAZIENTE">
+	<HEADER_PAGE key_id="STORICO_PAZIENTE" valore="DEFAULT,SCHEDA,STORICO_PAZIENTE#STORICO_PAZIENTE" evento="START_END">
+	</HEADER_PAGE>		
+	<FORM key_id="dati" valore="dati#SP_STANDARD#ADT###" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="STORICO_PAZIENTE#lblTitolo#butChiudi" evento="START">
+                <TABELLA.INIT key_id="tableStorico" valore="" evento="START">
+                    <TR.INIT key_id="rigaStorico1" valore="" evento="START">
+                        <TD.INIT key_id="tdStorico" valore="" evento="START">
+                        	<DIV key_id="divEmergenzaMedica" valore="divEmergenzaMedica" evento="START">
+                        		<LABEL key_id="lblEmergenzaMedica" valore="lblEmergenzaMedica" evento="START"></LABEL>
+                        		<DIV_CHECK key_id="chkEmergenzaMedica" valore="chkEmergenzaMedica#chkEmergenzaMedica#N#{width:150, ctrl:false}##EMERGENZA_MEDICA" evento="START"></DIV_CHECK>
+                        	</DIV>
+                            <DIV key_id="divWkStorico" valore="divWkStorico" evento="START"></DIV>
+                        </TD.INIT>
+                    </TR.INIT>
+                </TABELLA.INIT>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

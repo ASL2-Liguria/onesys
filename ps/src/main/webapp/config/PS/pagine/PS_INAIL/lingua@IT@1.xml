@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>INAIL</lblTitolo>
+            <lblProgr>Progressivo</lblProgr>
+            <lblInfortunato>Infortunato</lblInfortunato>
+            <lblCodFiscale>Codice fiscale</lblCodFiscale>
+            <lblSettoreLav>Settore lavorativo</lblSettoreLav>
+            <lblDescrCauseInf>Descrizione Cause e Circostanze Infortunio</lblDescrCauseInf>
+            <lblComuneEv>Comune Evento</lblComuneEv>
+            <lblDataEvento>Data Evento</lblDataEvento>
+            <lblDataAbb>Data Abbandono Lavoro</lblDataAbb>
+            <lblOraAbb>Ora Abbandono Lavoro</lblOraAbb>
+            <lblPostumiMala>Postumi di altre malattie pregresse</lblPostumiMala>
+            <lblCodMedico>Codice Medico</lblCodMedico>
+            <lblPrognosi>Tipo Prognosi</lblPrognosi>
+            <lblPericoloV>Pericolo di Vita</lblPericoloV>
+            <lblInvalidPerma>Invalidità Permanente</lblInvalidPerma>
+            <lblRicaduta>Ricaduta</lblRicaduta>
+            <lblDataProg>Data Inizio Prognosi</lblDataProg>
+            <lblProgGiorni>Giorni Prognosi</lblProgGiorni>
+            <lblDataFino>Data Fine Prognosi</lblDataFino>
+            <lblRicovero>Ricovero Ospedaliero</lblRicovero>
+            <lbltaRicovero>Reparto Ricovero</lbltaRicovero>
+            <lblLuogoRil>Comune Luogo Rilascio</lblLuogoRil>
+            <lblDataRila>Data Rilascio</lblDataRila>
+            <lblEsamiSpec>Esami e Cure</lblEsamiSpec>
+            <lblEvOsservazioni>Eventuali osservazioni</lblEvOsservazioni>
+            <lblRefertiAcc>Accertamenti praticati</lblRefertiAcc>
+            <lblEsameObi>Valutazione Medica</lblEsameObi>
+            <lblDiagnosi>Diagnosi</lblDiagnosi>
+            <lblOssMedico>Prescrizioni Terapeutiche</lblOssMedico>
+            <lblTipologia>Tipologia</lblTipologia>
+            <lblCivico>Numero civico</lblCivico>
+            <lblIndirizzo>Indirizzo</lblIndirizzo>
+            <butStampa>Stampa</butStampa>
+            <butFirma>Firma</butFirma>
+            <butSalva>Salva</butSalva>
+    </ROW>
+</ROWSET>

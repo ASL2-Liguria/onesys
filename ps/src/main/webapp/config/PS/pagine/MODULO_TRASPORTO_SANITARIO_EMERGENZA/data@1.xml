@@ -1,0 +1,52 @@
+<DATI configurazione="
+
+    declare
+      vstato  varchar2(5);
+        vkey    varchar2(4000);
+        vwhere  varchar2(4000);
+        vcampo  varchar2(4000);
+        begin
+        vstato := '#STATO_PAGINA#';
+
+        if vstato='E' then
+        vkey := 'PS.Q_LOAD_TRASPORTO_SANITARIO_EMERGENZA_E@PS';
+        else
+        vkey := 'PS.Q_LOAD_TRASPORTO_SANITARIO_EMERGENZA_I@PS';
+        end if;
+
+        vwhere := null;
+        vcampo := null;
+
+        :stato_pagina := vstato;
+        :key_query := vkey;
+        :where := vwhere;
+        :campo_xml := vcampo;
+
+        end;">
+
+    <!-- Campi nascosti -->
+    <DATO key_id="hStatoScheda" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="STATO_SCHEDA" db_descrizione="STATO_SCHEDA"/>
+
+
+    <!-- Caricamento Dati -->
+    <DATO key_id="txtRecapito" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="RECAPITO" db_descrizione="RECAPITO"  />
+    <DATO key_id="txtTrasportoDi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="TRASPORTO_DI" db_descrizione="TRASPORTO_DI"  />
+    <DATO key_id="txtReparto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="REPARTO" db_descrizione="REPARTO"  />
+    <DATO key_id="txtOspedale" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="OSPEDALE" db_descrizione="OSPEDALE"  />
+    <DATO key_id="taDiagnosi" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DIAGNOSI" db_descrizione="DIAGNOSI"  />
+
+    <DATO key_id="hIDEN" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN" db_descrizione="IDEN"  />
+
+
+
+    <!-- Query multidata -->
+
+
+</DATI>

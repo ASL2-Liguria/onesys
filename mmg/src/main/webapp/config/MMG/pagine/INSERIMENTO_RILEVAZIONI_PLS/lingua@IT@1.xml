@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>RILEVAZIONI</lblTitolo>
+		
+		<tabRilevazioni>Rilevazioni</tabRilevazioni>
+		<tabInserimento>Inserimento</tabInserimento>
+		
+		<fldRilevazioni>Rilevazioni Pediatriche</fldRilevazioni>
+		
+		<lblData>Data rilevazione</lblData>
+		<lblBMI>BMI</lblBMI>
+		<lblPeso>Peso (Kg)</lblPeso>
+		<lblPesoCentile>...</lblPesoCentile>
+		<lblAltezza>Altezza (cm)</lblAltezza>
+		<lblAltezzaCentile>...</lblAltezzaCentile>
+		<lblMinima>Pressione minima</lblMinima>
+		<lblMassima>Pressione massima</lblMassima>
+		<lblTemperatura>Temperatura (°C)</lblTemperatura>
+		<lblCirconferenza_Cranica>Circonferenza Cranica (cm)</lblCirconferenza_Cranica>
+		<lblCirconferenza_CranicaCentile>...</lblCirconferenza_CranicaCentile>
+		<lblDiam_Fontanella>Diametro Fontanella (cm)</lblDiam_Fontanella>
+		<lblSaturazione_Ossigeno>Saturazione Ossigeno</lblSaturazione_Ossigeno>
+		
+    </ROW>
+</ROWSET>

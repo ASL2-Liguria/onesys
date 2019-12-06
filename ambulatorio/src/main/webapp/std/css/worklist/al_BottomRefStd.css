@@ -1,0 +1,40 @@
+
+table.classDataEntryTable {
+	width: 100%;
+	border: 0;
+	height:25px;
+	margin: 0px;
+}
+
+td.classTdLabelNoWidth{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;	
+}
+td.classTdText{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-size:14px;	
+        text-align:right;
+        text-decoration: underline;
+        border-bottom:1px;
+}
+
+td.classTdLabel{
+	border: 1px solid #83E2BC;
+	background-color:#DAF5FE;
+	padding-left:5px;
+	width:120px;
+	font-family: Arial, Helvetica, sans-serif;	
+	font-weight: bold;
+	font-size:12px;	
+}
+
+td.classTdField{
+	border: 1px solid #83E2BC;
+	background-color:#F2FEFF;
+}

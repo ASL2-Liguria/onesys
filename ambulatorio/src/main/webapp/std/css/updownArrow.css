@@ -1,0 +1,60 @@
+/** foglio di stile per i pulsanti dello zoom **/
+
+.DivUpArrow{
+	width:15px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowUp.gif);
+	display:inline;
+	position:relative;
+	cursor:w-resize;
+
+	
+}
+
+.DivDownArrow{
+	width:15px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowDown.gif);
+	display:inline;
+	position:relative;	
+}
+
+.DivUpArrowSelected{
+	width:15px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowUp_over.gif);
+	display:inline;
+	position:relative;	
+	cursor:w-resize;	
+}
+
+.DivDownArrowSelected{
+	width:15px;
+	height:15px;
+	background-image: url(../../imagexPix/button/mini/arrowDown_over.gif);
+	display:inline;
+	position:relative;	
+}
+
+#idDragDropResizeElement
+{
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  cursor:w-resize;
+  display:none;
+  top:0;
+  left:0;
+  background-image:url(../../imagexPix/button/mini/hResize.gif);
+  z-index:100;
+}
+
+
+#idResizeElementForColumn{
+	width:15px;
+	height:15px;
+	display:inline;
+	position:relative;
+	background-image:url(../../imagexPix/button/mini/resize4Col.gif);
+	
+}

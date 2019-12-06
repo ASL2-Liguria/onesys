@@ -1,0 +1,10 @@
+<DATI
+	configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_EMPTY'; :where := null; :campo_xml := null; end;">
+	<DATO key_id="Pastiglia" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_QTA_PASTIGLIA" />
+	<DATO key_id="Misura" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_UNITA_MISURA" />
+	<DATO key_id="VoltePeriodiche" configurazione_stato="begin :stato := 'E'; end;"
+		db_valore="" db_descrizione="" configurazione_multi_data="R_QTA_TEMPISTICA" />
+</DATI>
+

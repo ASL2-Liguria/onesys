@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Configurazione Stampante</title>
+<link href='std/css/calendario/calendarview.css' type='text/css' rel='stylesheet'>
+<link href='std/css/iFrameStampa.css' type='text/css' rel='stylesheet'>
+</head>
+<body>
+<!-- 	<object height="300px" name="AppStampa" width="20px" type="application/x-java-applet" id="AppStampa"> -->
+<!-- 		<param name="loadAQ" value="false"/> -->
+<!-- 		<param name="archive" value="std/app/SignedFenixApplet.jar"/> -->
+<!-- 		<param name="code" value="it.elco.applet.elcoApplet"> -->
+<!--  		<param name="jnlp_href" value="std/app/AppStampaEager.jnlp"/>  -->
+<!-- 		<param name="loadStampe" value="true"/> -->
+<!-- 		<param name="loadFirma" value="false"/> -->
+<!-- 		<param name="loadSCL" value="false"/> -->
+<!-- 		<param name="wmode" value="transparent"/> -->
+<!-- 		<param name="ShowMediaTrays" value="S"/> -->
+<!-- 		<param name="logoutOnDestroy" value="N"/> -->
+<!-- 	</object> -->
+<div id="main" class="main">
+<!-- 	Stampa -->
+<!-- 	<select id="tipo"></select> -->
+	<div class="container">
+		<label>Stampante</label> 
+		<select id="stampante"></select>
+	
+	</div>
+	<div class="container">
+		<label>Configurazione di stampa</label>
+		<select id="configurazione"></select>
+	</div>
+	<div class="container">
+		<input type="text" id="configurazione_selezionata"></input>
+	</div>
+	<div class="container-button">
+		<div class="button"  id="salva" >SALVA</div>
+		<div class="button" id="carica" >CARICA DA DB</div>
+	</div>
+		
+<div class="istruzioni">
+	<h4>Istruzioni per configurazione:</h4>
+	<pre>
+autoRotateAndCenter: true/false (consigliato false)
+setPageSize: 8 (custom)
+setCustomPageDimension: [[larghezza, altezza], unita misura]
+setOrientation: Orientation_PORTRAIT = 1, Orientation_LANDSCAPE = 2
+setPageScale: SCALE_NONE = 0, SCALE_FIT_TO_PRINTER_MARGINS = 1, SCALE_REDUCE_TO_PRINTER_MARGINS = 2
+setPageMargins: [[left, top, right, bottom], unita misura]
+
+Unita misura (ultimo parametro di alcune funzioni): MU_MM = 4, MU_INCHES = 3, MU_POINTS = 1
+</pre>
+</div>
+</div>
+<div>
+	
+</div>
+
+
+</body>
+<script type="text/javascript" src="std/jscript/jquery-1.6.2.min.js" language='JavaScript'></script>
+<script type="text/javascript" src="std/jscript/NS_PRINT_CONFIG.js" language='JavaScript'></script>
+</html>

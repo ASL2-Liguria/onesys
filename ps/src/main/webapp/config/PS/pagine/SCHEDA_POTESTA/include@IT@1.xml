@@ -1,0 +1,11 @@
+<INCLUDE>
+    <JS path="js/PS/Potesta/SchedaPotesta.js"/>
+    <JS path="js/PS/Potesta/SetPotesta.js"/>
+    <JS path="plugin/jsrender/jsrender.js"/>
+    <JS path="js/PS/SchedaAnagrafica/SalvataggioAnagrafica.js"/>
+    <JS path="js/PS/SchedaAnagrafica/ns_controllo_cod_fisc.js"/>
+    <JS path="config/PS/validator/model/V_PS_ANAGRAFICA.js"/>
+    <CSS path="css/PS/SchedaPotesta/SchedaPotesta.css"/>
+
+
+</INCLUDE>

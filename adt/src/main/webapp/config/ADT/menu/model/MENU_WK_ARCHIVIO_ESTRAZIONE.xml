@@ -1,0 +1,76 @@
+<MENU>
+    <ID>MENU_WK_ARCHIVIO_ESTRAZIONE</ID>
+    <TITLE>"Menu estrazione cartelle"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>ANALISI_GROUPER</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.calcolaDRG(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Calcolo DRG e tariffazione"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>TARIFFA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.setTariffa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Esegui tariffazione"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>   
+        <ITEM>
+            <ID>CARTELLA_ARCHIVIATA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_CARTELLE.setStatoCartellaArchiviata(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Cartella ARCHIVIATA"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>MODIFICA_RICOVERO</ID>
+            <LINK><![CDATA[function(rec){if (rec.length>1) home.NOTIFICA.error({message: "Selezionare una singola cartella", title: "Error"}); else top.NS_FENIX_TOP.apriPagina({url:'page?KEY_LEGAME=ACC_RICOVERO&IDEN_ANAG='+rec[0].IDEN_ANAGRAFICA+'&IDEN_CONTATTO='+rec[0].IDEN_CONTATTO+'&STATO_PAGINA=E',id:'ModificaRicovero',fullscreen:true})}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Modifica Ricovero"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+             <ITEM>
+            <ID>ANNULLA_DRG_TARIFFA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.AnnullaDrg_e_Tariffa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla drg e tariffa"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_DRG</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.annullaDrg(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla drg"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>ANNULLA_TARIFFA</ID>
+            <LINK><![CDATA[function(rec){NS_HOME_ARCHIVIO_DRG.annullaTariffa(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>"Annulla tariffa"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

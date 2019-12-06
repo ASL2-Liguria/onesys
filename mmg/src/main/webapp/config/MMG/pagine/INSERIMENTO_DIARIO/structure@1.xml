@@ -1,0 +1,35 @@
+<PAGINA key_id="INSERIMENTO_DIARIO">
+	<HEADER_PAGE key_id="INSERIMENTO_DIARIO"
+		valore="DEFAULT_MMG,SCHEDA,INSERIMENTO_DIARIO#DEFAULT_MMG,INSERIMENTO_DIARIO"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_INSERIMENTO_DIARIO#MMG_DATI#MMG_SCHEDE_XML#IDEN#IDEN"
+		evento="START_END">
+		<TABULAZIONE.INIT key_id="tabDiario"
+			valore="inserimentoDiario#lblTitolo#butStampa,butSalva,butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabInserimento"
+				valore="tabInserimento#tabInserimento" evento="START">
+				<FIELDSET_TABLE key_id="fldDiario" valore="fldDiario"
+					evento="START">
+					<TR_TD_LABEL_COMBO key_id="Problema"
+						valore="lblProblema##Problema#cmbProblema#N#PROBLEMA#S" evento="START_END">
+					</TR_TD_LABEL_COMBO>
+					<TR_TD_LABEL_DATA key_id="Data"
+						valore="lblData##txtData#Data#startWithToday:true, format: 'd/m/Y'#disabled:false##DATA"
+						evento="START">
+					</TR_TD_LABEL_DATA>
+				</FIELDSET_TABLE>
+				<FIELDSET_TABLE key_id="fldNoteDiario" valore="fldNoteDiario"
+					evento="START">
+					<TR_TD_TEXTAREA key_id="Nota" valore="txtNote#NOTE#12"
+						evento="START">
+					</TR_TD_TEXTAREA>
+				</FIELDSET_TABLE>
+				<INPUT.HIDDEN key_id="action" valore="hAction###ACTION"
+					evento="START">
+				</INPUT.HIDDEN>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

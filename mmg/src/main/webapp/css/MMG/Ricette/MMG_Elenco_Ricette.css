@@ -1,0 +1,24 @@
+body{width:960px;}
+
+#butCerca{
+	float:right;
+	margin-right: 20px;
+	width: 70px;
+}
+
+#divInfoSearch {
+	padding-bottom: 10px;
+	color: grey;
+	font-style: italic;
+	font-size: 14px;
+	float:left;
+	width: 700px;
+}
+
+#radStampate {
+	text-align: center;
+}
+
+#fldRicerca td.tdLbl {
+	width: 120px;
+}

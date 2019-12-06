@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AUTOCOMPLETE>
+    <AJAX>
+        <serviceUrl>autocompleteAjax</serviceUrl>
+        <minChars>2</minChars>
+        <onSelect type="js">
+            <![CDATA[function(data){if($("#cmbTipoRichiedente").find("option:selected").attr("data-codice") != "01"){$("#txtCap").val(data.CAP);$("#txtProvincia").val(data.PROVINCIA);}}]]>
+        </onSelect>
+        <deferRequestBy>200</deferRequestBy>
+        <datasource>ADT</datasource>
+        <storedQuery>AUTOCOMPLETE.AC_ANAG_COMUNE</storedQuery>
+        <maxResults>40</maxResults>
+    </AJAX>
+    <LIST>
+        <title>Luogo Residenza</title>
+        <id_wk>AC_ANAG_COMUNE_RESIDENZA</id_wk>
+    </LIST>
+</AUTOCOMPLETE>	 
+    

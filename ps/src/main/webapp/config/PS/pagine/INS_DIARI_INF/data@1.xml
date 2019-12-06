@@ -1,0 +1,46 @@
+
+    <DATI configurazione=" declare
+		vstato  varchar2(5);
+		vkey    varchar2(4000);
+		vwhere  varchar2(4000);
+		vcampo  varchar2(4000);
+	begin
+	    vstato := '#STATO_PAGINA#';
+
+	        if vstato='E' then
+	            vkey := 'PS.Q_LOAD_DIARI@PS';
+	        else
+	            vkey := 'PS.Q_SCHEDA_DIARI@PS';
+	        end if;
+
+	        vwhere := null;
+	        vcampo := null;
+
+	    :stato_pagina := vstato;
+	    :key_query := vkey;
+	    :where := vwhere;
+	    :campo_xml := vcampo;
+
+    end;">
+
+
+    <DATO key_id="taNoteDiari" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="NOTE" db_descrizione="NOTE" configurazione_multi_data=""/>
+    <DATO key_id="h-txtDataIns" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_MOD" db_descrizione="DATA_MOD" configurazione_multi_data=""/>
+    <DATO key_id="txtOraIns" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_MOD" db_descrizione="ORA_MOD" configurazione_multi_data=""/>
+    <DATO key_id="hIdenContatto" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="IDEN_CONTATTO" db_descrizione="IDEN_CONTATTO" configurazione_multi_data=""/>
+    <DATO key_id="hUteIns" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTE_INS" db_descrizione="UTE_INS" configurazione_multi_data=""/>
+    <DATO key_id="hUteRiferimento" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="UTE_RIFERIMENTO" db_descrizione="UTE_RIFERIMENTO" configurazione_multi_data=""/>
+    <DATO key_id="hUteRiferimento" configurazione_stato="begin :stato := 'I'; end;"
+          db_valore="UTE_RIFERIMENTO" db_descrizione="UTE_RIFERIMENTO" configurazione_multi_data=""/>
+    <DATO key_id="data_ingresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="DATA_INGRESSO" db_descrizione="DATA_INGRESSO" configurazione_multi_data=""/>
+    <DATO key_id="ora_ingresso" configurazione_stato="begin :stato := 'E'; end;"
+          db_valore="ORA_INGRESSO" db_descrizione="ORA_INGRESSO" configurazione_multi_data=""/>
+
+</DATI>

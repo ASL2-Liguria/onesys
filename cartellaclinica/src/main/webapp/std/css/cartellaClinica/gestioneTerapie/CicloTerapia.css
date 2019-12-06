@@ -1,0 +1,477 @@
+*{
+	margin:0px;
+	padding:0px;
+	/*border:0px;*/
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+}
+
+html{}
+
+body{
+	height:100%;
+	overflow:hidden;
+	background:url(../../../../imagexPix/img/sfBody.png) repeat-x;
+}
+
+input{
+	height:18px;
+	line-height:18px;
+}
+
+fieldset{
+	/*width:48%;*/
+	display:inline;
+	margin:0 10px;
+	padding:5px;
+	border:1px solid #3c6eab;
+	}
+	fieldset legend{
+		color:#3c6eab;
+		font-weight:bold;padding:0 5px;
+	}
+	fieldset > div{
+		margin-top:10px;	
+	}
+
+table{
+	font-size:10px;
+	background:#1E46A6;
+}
+
+tr.Title{
+
+	height:20px;
+	padding-top:3px;
+
+}
+
+	tr.Title td{
+		/*background-image:url(../../../../imagexPix/bar/sf_turni.jpg);*/
+		background-repeat:repeat-x ;
+		background-position:bottom;
+		color:white;
+		font-weight:bold;
+		padding:0 5px;
+		position:relative;
+	}
+	
+	tr.Title td div{
+		position:absolute;
+		right: 2px;
+		top:5px;
+		/*visibility:hidden;*/
+	}
+	
+	tr.Title td div:hover{
+		cursor:pointer;
+	}
+	
+	tr.Title td:hover div{
+		float:right;
+		visibility:visible;
+		border:1px solid #F90;
+		color:#F90;		
+	}	
+
+tr.Header{
+	height:22px;
+	background-image:url(../../../../imagexPix/img/bars.png);
+	background-position: 0 -72px;
+	background-repeat:repeat-x
+	
+}
+
+	tr.Header td{		
+		font-weight:bold;
+		text-align:center;
+		border-right:1px solid #CCC;
+		position:relative;
+		color:#FFF;
+	}
+	
+	tr.Header td div{
+		position:absolute;
+		right:2px;
+		top:6px;
+	}	
+
+tr.Date{
+	height:25px;	
+	border-left:1px solid #CCC;	
+}
+
+	tr.Date th{
+		background:#FFF;
+		border-right:1px solid #CCC;
+		border-bottom:1px solid #CCC;
+		position:relative;
+		border:1px solid #1E46A6;
+	}
+	
+	tr.Date th div.label{
+		width:30px;
+	}
+	
+
+tr.Sala{
+	height:22px;	
+	border-left:1px solid #CCC;	
+}
+
+	tr.Sala th{
+		background:#FFF;
+		border-right:1px solid #CCC;
+		position:relative;
+		text-align:right;
+		padding-right:20px;
+	}
+
+	tr.Sala td{
+		background:#FFF;
+		border-right:1px solid #CCC;
+		position:relative;
+		text-align:center;
+	}
+
+
+tr.Detail{
+	height:16px;	
+	border-left:1px solid #CCC;	
+}
+
+	tr.Detail td{
+
+		background:#FFF;
+		border-right:1px solid #CCC;
+		border-bottom:1px solid #CCC;
+		position:relative;
+		border:1px solid #1E46A6;
+	}
+	
+	tr.Detail td input{
+		width:35px;
+	}
+
+
+	tr.Detail td div[name="addOrario"] , tr.Detail td div[name="addFarmaco"]{
+		position:absolute;
+		bottom:0;
+		right:0;
+		visibility:hidden;		
+	}
+	
+	tr.Detail > td:hover{
+		border:1px solid #F93;
+	}
+	
+	tr.Detail td:hover div[name="addOrario"] , tr.Detail td:hover div[name="addFarmaco"]{
+		visibility:visible;
+	}
+	
+	tr.Detail td table td{
+		border:none;
+		background:none;
+	}
+
+div.Detail{
+	font-size:10px;
+	float:left;
+	margin-right:3px;
+	margin-left:3px;
+}
+
+	div.Detail div.Left{
+		width:5px;
+		background:url(../../../../imagexPix/bar/14/sx-white.png) no-repeat;
+	}	
+	
+	div.Detail div{
+		background-image:url(../../../../imagexPix/bar/14/sf-white.png);
+		background-repeat: repeat-x;
+		height:14px;
+		float:left;
+	}
+	
+	div.Detail div div[name="removeOrario"]{
+		margin-left:3px;
+	}
+	
+	div.Detail div.Right{
+		width:5px;
+		background:url(../../../../imagexPix/bar/14/dx-white.png) no-repeat;
+	}
+
+div.Impostazioni{
+	display:block;
+	/*width:95%;	*/
+	/*background:url(../../../../imagexPix/img/sfTable.png) #ececec repeat-x;*/
+	padding:3px;
+
+}
+
+	div.Impostazioni > div{
+		display:block;
+		height:30px;
+	}
+	
+	div.Impostazioni div.Label{
+		width:100px;
+		float:left;
+		font-weight:bold;
+		height:18px;
+		line-height:18px;
+	}
+	
+	div.Impostazioni div.Data{
+		width:150px;
+		float:left;
+	}
+	
+	div.Impostazioni div.Button{
+		width:10%;
+		float:left;
+	}		
+
+div#tabs{
+	margin-top:5px;
+	clear:both;
+}
+
+ul.ulTabs{
+	height:30px;
+	list-style: none;
+    margin:0;
+    padding:0;
+	/*overflow:hidden;*/
+	}
+	ul.ulTabs li {
+		background:url(../../../../imagexPix/img/sfTabs.png) ;
+		float: left;
+		margin: 0 1px 0 0;
+		padding-left: 10px;
+		margin-right: 4px;
+		}
+		ul.ulTabs li.tabActive{
+			background-position:0 -30px;
+			}
+			ul.ulTabs li.tabActive *{
+				background-position:100% -30px;
+				color:#fff;				
+			}
+	ul.ulTabs li * {
+		background: url(../../../../imagexPix/img/sfTabs.png) 100% 0;
+		color: #000;
+		float: left;
+		height: 30px;
+		line-height: 30px;
+		padding-right: 10px;
+		text-decoration: none;
+		display: block;
+		margin-right:-5px;	
+		text-transform:capitalize;
+		font-weight:bold;
+		cursor:pointer;
+		font-size:12px;
+	}
+
+	div.divtab{
+		background-image:url(../../../../imagexPix/img/sfTable.png);
+		background-repeat:repeat-x;
+		background-color:#fff;
+		border:1px solid #666;
+		border-top:0;		
+		overflow:auto;
+	}
+	div#headerTabs,div.Header{
+		background-image:url(../../../../imagexPix/img/bars.png);
+		background-position:0 0px;
+		background-repeat:repeat-x;
+		background-color:#ccc;
+		border:1px solid #666;
+		border-top:0;
+		color:#000;
+		height:24px;
+		margin-top:-1px;
+		padding:0 7px;
+	}
+		div#headerTabs h2,div.Header h2{line-height:24px;font-weight:bold;font-size:12px;color:white;}
+	#contentTabs{margin-top:-1px;border-left:1px solid black;border-right:1px solid black;padding:0 0;overflow-x:hidden;overflow-y:scroll;}
+	div#footerTabs{
+		background-image:url(../../../../imagexPix/img/bars.png);
+		background-position:0 0px;
+		background-repeat:repeat-x;
+		background-color:#ccc;
+		border-left:1px solid #666;
+		border-right:1px solid #666;
+		color:#fff;
+		height:24px;
+		margin-top:-1px;
+		padding:0 2px;
+		clear:both;
+		}
+
+div.buttons{float:right;}
+a.button{
+	margin: 3px 0 0 5px;
+	width:90px;
+	height:18px;
+	line-height:18px;
+	background:url(../../../../imagexPix/img/button.png) 0 0 no-repeat;
+	display:block;
+	float:left;
+	color:#fff;
+	text-align:center;
+	font-size:11px;
+	text-decoration:none;
+	font-weight:bold;
+	text-transform:capitalize;
+	cursor:pointer;
+	}
+	a.button.disabled{background:url(../../../../imagexPix/img/button.png) 0 -36px no-repeat;}
+	a.button:active{background:url(../../../../imagexPix/img/button.png) 0 -18px no-repeat;}
+
+div.Tab{
+	display:none;
+	/*overflow-y:scroll;*/
+	/*overflow-x:hidden;*/
+}
+
+table.Farmaci{
+	background:none;
+}
+table.Farmaci td.solvente{}
+table.Farmaci td.soluto{color:red;}
+table.Farmaci td.farmaco{}
+
+iframe{
+	display:none;
+	width:49%;
+}
+
+input.modified{
+	border:1px solid red;
+}
+
+input.adeguato{
+	background:#FFFCCE;
+}
+
+div.add{
+	cursor:pointer;
+	width:16px;
+	height:16px;
+	background-image:url(../../../../imagexPix/jquery-ui/ui-lightness/ui-icons_ef8c08_256x240.png) !important;
+	background-position:0px -194px;
+}
+
+div.remove{
+	cursor:pointer;
+	width:12px;
+	height:12px;
+	background-image:url(../../../../imagexPix/jquery-ui/ui-lightness/ui-icons_ef8c08_256x240.png) !important;
+	background-position:-178px -98px;
+}
+
+div.previous{
+	position:absolute;
+	left:0px;
+	top:4px;
+	cursor:pointer;
+	width:16px;
+	height:16px;
+	background-image:url(../../../../imagexPix/jquery-ui/ui-lightness/ui-icons_ef8c08_256x240.png) !important;
+	background-position:-96px -48px;
+}
+
+div.next{
+	position:absolute;
+	right:0px;
+	top:4px;	
+	cursor:pointer;
+	width:16px;
+	height:16px;
+	background-image:url(../../../../imagexPix/jquery-ui/ui-lightness/ui-icons_ef8c08_256x240.png) !important;
+	background-position:-32px -48px;
+}
+
+div.yesterday{
+	position:absolute;
+	top:6px;
+	left:5px;	
+	width:6px;
+	height:6px;
+}
+
+div.today{
+	position:absolute;
+	top:2px;
+	left:18px;
+	right:18px;	
+	height:16px;
+}
+
+div.today input{
+	float:left;
+}
+
+div.today label{
+	cursor:hand;
+}
+
+div.tomorrow{
+	position:absolute;
+	top:6px;
+	right:5px;	
+	width:6px;
+	height:6px;
+}
+
+.classTDVerde{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2ECC71', endColorstr='#20864b',GradientType=0);
+    
+    border:1px solid #20864b;
+    color:#000;
+}
+
+.classTDVerde.Sel{
+	filter:none;
+	background:#27AE60;
+}
+
+.classTDGiallo{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffec64', endColorstr='#ffab23',GradientType=0);
+    border:1px solid #f59c00;
+    color:#000;
+}
+
+.classTDGiallo.Sel{
+	filter:none;
+	background:#ffec64;
+}
+
+.classTDRosso{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1500', endColorstr='#bf0a01',GradientType=0);
+    border:1px solid #bf0a01;
+    color:#fff;
+}
+
+.classTDRosso.Sel{
+	filter:none;
+	background:#ff1500; 
+}
+
+.classTDGrigio{
+    color:#aaa;
+    cursor:default;
+    border:1px solid #666;
+    background:#ddd;
+}
+
+.classTDGrigio input{
+	display:none;
+}
+
+.ui-progressbar-value{
+	background-color:#ec8e0c;
+}

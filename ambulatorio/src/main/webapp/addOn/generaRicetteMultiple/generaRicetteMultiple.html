@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+<!-- <link href='../std/css/textArea.css' type='text/css' rel='stylesheet'> -->
+<link rel="stylesheet" href="../../std/jscript/jQueryUI/1.9.1/themes/cupertino/jquery.ui.all.css">
+<script src="../../std/jscript/jQueryUI/1.9.1/jquery-1.8.2.js"></script>
+<script type="text/javascript"	src="../../std/jscript/jQueryUI/1.9.1/jquery-ui-1.9.1.custom.js"></script>
+<script src="../../std/jscript/jQueryOloader/js/jquery.oLoader.min.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.core.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.widget.js"></script>
+<script src="../../std/jscript/jQueryUI/1.9.1/ui/jquery.ui.button.js"></script>
+<script type="text/javascript"	src="../../std/jscript/jQueryUI/1.9.1/ui/i18n/jquery.ui.datepicker-it.js"></script>
+<script type="text/javascript" src="../../std/jscript/jsStringUtil.js"></script>    
+<script type="text/javascript" src="../../std/jscript/jsHashtable.js"></script>  
+<script type="text/javascript" src="../../std/jscript/optionJsUtil.js"></script>   
+<script type="text/javascript" src="../../std/jscript/logElcoObject.js"></script>
+
+<script type='text/javascript' src="../../std/jscript/json/json2.js" language='JavaScript'></script>
+<script type='text/javascript' src="../../std/jscript/json/json_sans_eval.js" language='JavaScript'></script>
+
+<link rel="stylesheet"	href="../../std/jscript/jqDataTable/media/css/demo_table_jui.css">
+<script type="text/javascript" language="javascript"	src="../../std/jscript/jqDataTable/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/ZeroClipboard.js"></script>
+<script type="text/javascript" charset="utf-8" src="../../std/jscript/jqDataTable/media/js/TableTools.js"></script>
+
+
+<script type="text/javascript" src="../../std/jscript/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="../../std/jscript/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link href="../../std/jscript/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet" type="text/css" />
+
+<link href='../../std/css/moduloConsole/baseCss.css' type='text/css'	rel='stylesheet'>
+<link href='../../std/css/moduloConsole/commonStyleForm.css'	type='text/css' rel='stylesheet'>
+<link href='../../std/css/button.css' type='text/css' rel='stylesheet'>
+
+<link href="../../std/css/dataEntryTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/headerTable.css" rel="stylesheet" type="text/css" />
+<link href="../../std/css/dataTable.css" rel="stylesheet" type="text/css" />
+<link href="css/generaRicetteMultiple.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/generaRicetteMultiple.js"></script>
+<script type='text/javascript' src='../../dwr/util.js' language='JavaScript'></script>
+<script type='text/javascript' src='../../dwr/engine.js' language='JavaScript'></script>
+<script type="text/javascript" src="../../dwr/interface/CJsEMEseguiEsame.js"></script>
+
+
+
+
+<link href='../../std/css/filterTable.css' type='text/css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="../../std/css/attesaRegistra.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/normalBody.css">
+<link rel="stylesheet" type="text/css" href="../../std/css/dataEntryTable.css">
+<script type="text/javascript" src="../../dwr/interface/functionDwr.js"></script>
+<script type="text/javascript" src="../../dwr/interface/eventDWR.js"></script>
+<script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Generazione ricette multiple</title>
+<style>
+
+SELECT.clsComboElenco{
+	font-size:10px;
+}
+
+.wideTextBox{ 
+    border: 1px solid #09F; 
+    width: 95%; 
+}
+
+.wideTextBox:hover{ 
+    border: 1px solid #039; 
+}
+
+table#TAB_ESAMI tr { height: 30px }
+
+SPAN.esitoKO{
+	display:block;
+	width:30px;
+	height:30px;
+	background-color:#F30;	
+}
+
+SPAN.esitoOK{
+	display:block;
+	width:30px;
+	height:30px;
+	background-color:#3F0;	
+}
+
+SPAN.chkSelezionato{
+	margin:3px 3px 3px 3px;
+	display:block;
+	width:30px;
+	height:30px;
+	background-color:#F30;
+	cursor:pointer;
+}
+
+SPAN.chkNonSelezionato{
+	margin:3px 3px 3px 3px;
+	display:block;
+	width:30px;
+	height:30px;
+	cursor:pointer;	
+}
+
+INPUT.radioBigger{
+	display:block;
+	width:30px;
+	height:30px;
+}
+
+#TAB_ESAMI td.highlight {
+	background-color:#F5F27E;
+}
+
+
+.ui-dialog .ui-button {
+	height:30px !important;
+}
+.ui-dialog .ui-button.ui-state-hover {
+ color: #fff;
+ background: #0078a3 url("button-hovered.jpg") repeat-x;
+}
+
+LABEL#lblGiornoErogazione{
+	color:black;
+}
+
+.colFiltro {
+	text-align:left;
+}
+
+LABEL#lblAttesa{
+	color:yellow;
+	font-size:14px;
+}
+
+
+SPAN.infoDettIcon{
+	background-image:url(../../imagexPix/button/mini/infoNorma.png);
+	display:block;
+	width:20px;
+	height:20px;	
+	cursor:pointer;
+}
+</style>
+
+</head>
+
+
+
+<body style="height:500px" id="myBody">
+<!--<div style='display:block; height:25px; background-color:red;color:white; padding:5px 5px 5px 5px; text-align:center; vertical-align:middle; font-weight:bold; font-size:14px;' id='infoImpegnativa'><label id='lblAttesa'></label>Alcune prestazioni possono non essere selezionabili perch&egrave; manca il Quesito o la Priorit&agrave;</div>-->
+    <div style="overflow:hidden; height:650px;">
+	<table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+		<tr>
+			<td class='classTabHeaderSx'></td>
+			<td class='classTabHeaderMiddle'>Gererazione ricette&nbsp;<label id='lblInfoCdc'></label>&nbsp;-&nbsp;<label id='lblInfoDate'></label></td>
+			<td class='classTabHeaderDx'></td>
+		</tr>
+	</table>
+	<table cellpadding='0' cellspacing='0' class="classDataTable" width="99%" id="tableDates">
+		<tr>
+			<td class="classTdLabel" >Dalla data</td>
+            <td class="classTdField"><input type="text" name="DALLA_DATA" id="DALLA_DATA" size="10" obbligatorio='N' formato='S' /></td>
+			<td class="classTdLabel" >Alla data</td>
+            <td class="classTdField"><input type="text" name="ALLA_DATA" id="ALLA_DATA" size="10" obbligatorio='N' formato='S'/></td>  
+<!--            <td> <div class='pulsante'><a id='regi' href="javascript:ricerca();">Ricerca</a></div></td>          -->
+		</tr>
+	</table>    
+    <button id="btRicerca"  width="100%" class="primary">Ricerca</button>    
+    <hr/>
+    <div id="divTAB_ESAMI">
+    <table cellpadding="0" cellspacing="0" border="0" width="95%" id="TAB_ESAMI" >
+    <thead>
+        <tr>
+        	<th>#</th>
+            <th>&nbsp;</th>            
+            <th>&nbsp;</th>    
+            <th>&nbsp;</th>                                                
+            <th>Paziente</th>
+            <th>Esame</th>   
+            <th>Data esame</th>                    
+            <th>Quesito</th>               
+            <th>Esenzione</th>               
+			<th>Priorit&agrave;</th> 
+            <th>Primo Accesso</th>           
+			<th>Tipo Ricetta</th>                       
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+	<tfoot>
+    <!--
+		<tr>
+        	<th></th>
+        	<th></th>
+        	<th></th>
+        	<th></th>            
+			<th>Filtra per :</th>            
+			<th  id="colCombo_6" class ="colFiltro"></th>
+			<th  id="colCombo_7" class ="colFiltro"></th>
+		</tr>
+        -->
+	</tfoot>    
+    </table>	
+	</div>
+     <table cellpadding='0' cellspacing='0' class='classTabHeader' width="99%">
+        <tr>
+           <td class='classTabFooterSx'></td>
+           <td class='classTabHeaderMiddle'><label>&nbsp;</label></td>
+           <td class='classButtonHeader'> 
+              <div class='pulsante'><a id='regi' href="javascript:generaRicette();">Genera ricette</a></div>
+           </td>
+           <td class='classButtonHeader'>
+              <div class='pulsante'><a id='chiudi' href='javascript:chiudi(false);'>Chiudi</a></div>
+           </td>
+           <td class='classTabFooterDx'></td>
+        </tr>
+     </table>    
+     </div>
+     
+
+    
+     <script>
+		var oTable;
+		$(function() {
+			init();
+	
+			$( '#btRicerca' ).button().click(function( event ) {
+				ricerca();
+				event.preventDefault();
+			}).css('width','100%');			
+	   });	 
+     </script>
+	 
+</body>
+</html>

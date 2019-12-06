@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean class="elco.middleware.camel.beans.IntegrationModuleGroovy" id="integrationModuleGroovy">
+   		<constructor-arg index="0" value="compressfile.groovy"/>
+        <constructor-arg index="1" value="true"/>
+	</bean>
+
+	<camelContext id="CompressFileContext" xmlns="http://camel.apache.org/schema/spring">
+	    <route id="CompressFileRoute">
+		    <from uri="elcotimer://test?period=10"/>
+	        <setProperty propertyName="CHARSET_NAME"><constant>ISO-8859-15</constant></setProperty>
+  			<bean ref="integrationModuleGroovy"/>
+
+	  		<onException>
+				<exception>java.lang.Exception</exception>
+				<handled><constant>true</constant></handled>
+	 	        <log message="${exception.stacktrace}" loggingLevel="ERROR"/>
+			</onException>
+  		</route>
+  	</camelContext>
+</beans>

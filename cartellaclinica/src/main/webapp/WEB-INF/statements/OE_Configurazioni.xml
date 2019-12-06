@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <statements_list>
+        <statement name="AddEsameConfigurazione">
+            <sql>
+                BEGIN
+                    insert into
+                    radsql.tab_esa_reparto
+                    (IDEN_ESA, REPARTO_SORGENTE, REPARTO_DESTINAZIONE, TIPO, ATTIVO)
+                    values
+                    (?,?,?,?,'S');
+                END;
+            </sql>
+        </statement>
+        <statement name="RemoveEsameConfigurazione">
+            <sql>
+                BEGIN
+                    delete from
+                    radsql.tab_esa_reparto
+                    where IDEN_ESA = ?
+                    AND
+                    REPARTO_SORGENTE = ?
+                    AND
+                    REPARTO_DESTINAZIONE= ?;
+                END;
+            </sql>
+        </statement>
+    </statements_list>
+</root>

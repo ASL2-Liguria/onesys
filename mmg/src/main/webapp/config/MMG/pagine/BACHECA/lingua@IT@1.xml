@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<tabBacheca>Bacheca</tabBacheca>
+		<tabASL>Comunicazioni ASL</tabASL>
+		<tabAggiornamenti>Aggiornamenti del software MMG</tabAggiornamenti>
+		<tabInserimento>Inserimento nuovo avviso/promemoria</tabInserimento>
+		<lblTitolo>Bacheca</lblTitolo>
+		
+		<fldComunicazioniASL>Comunicazioni ASL</fldComunicazioniASL>
+		
+		<fldNuovoPromemoria>Nuovo promemoria</fldNuovoPromemoria>
+		<lblDescrizione>Descrizione</lblDescrizione>
+		<lblDataInizio>Data inizio validità</lblDataInizio>
+		<lblDataFine>Data fine validità</lblDataFine>
+		<lblMostraUtente>Mostra solo al mio utente</lblMostraUtente>
+		<lblAssociaPaziente>Associa al paziente corrente</lblAssociaPaziente>
+		<lblPriorita>Priorità</lblPriorita>
+		<lblNessunaPriorita>Nessuna</lblNessunaPriorita>
+		<lblBassaPriorita>Bassa</lblBassaPriorita>
+		<lblMediaPriorita>Media</lblMediaPriorita>
+		<lblAltaPriorita>Alta</lblAltaPriorita>
+		<lblSezione>Sezione di appartenenza</lblSezione>
+		<lblAllegaFile>Allega un documento</lblAllegaFile>
+		<lblNote>Note</lblNote>
+		
+       	<fldAssociaPaziente>Associa il promemoria a un paziente</fldAssociaPaziente>
+       	<lblCognome>Cognome</lblCognome>
+       	<lblNome>Nome</lblNome>
+       	
+       	<lblDataAggiornamento>Data aggiornamento</lblDataAggiornamento>
+       	<lblTitoloAggiornamento>Titolo</lblTitoloAggiornamento>
+       	<lblDescrizioneAggiornamento>Contenuto dell'aggiornamento</lblDescrizioneAggiornamento>
+        
+        <erroreAllegato>Si è verificato un errore durante il salvataggio dell'allegato.</erroreAllegato>
+        <cancellaPromemoria>Sei sicuro di voler eliminare il promemoria selezionato?</cancellaPromemoria>
+        
+    </ROW>
+</ROWSET>

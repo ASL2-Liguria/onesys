@@ -1,0 +1,12 @@
+<ROWSET>
+    <ROW>
+        <lblIndirizzo>Indirizzo</lblIndirizzo>
+        <lblTipoIndirizzo>Tipo</lblTipoIndirizzo>
+        <lblComuneIndirizzo>Comune</lblComuneIndirizzo>
+        <lblNazioneIndirizzo>Nazione</lblNazioneIndirizzo>
+        <butAddIndirizzo>Inserisci nuovo indirizzo</butAddIndirizzo>
+        <menuIndirizzi>Indirizzo</menuIndirizzi>
+        <menuInserisciIndirizzo>Inserisci</menuInserisciIndirizzo>
+        <menuModificaIndirizzo>Apri scheda</menuModificaIndirizzo>
+    </ROW>
+</ROWSET>
