@@ -6,7 +6,6 @@ publiccodeYmlVersion: '0.3'
 name: ONESYS
 url: 'https://github.com/ASL2-Liguria/onesys'
 releaseDate: '2019-11-18'
-logo: onesys/src/main/webapp/images/logo.jpg
 developmentStatus: stable
 softwareType: standalone/web
 platforms:
