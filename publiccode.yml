@@ -73,6 +73,8 @@ description:
       8. Cartella Medici di Medicina Generale / Pediatri di Libera Scelta,
       integrata nel sistema di dossier sanitario, con condivisione del patient summary del paziente;
       
+      9. Portale gestione consensi
+      
     features:
       - Pronto Soccorso
       - Cartella di ricovero
@@ -81,3 +83,4 @@ description:
       - Cartella medici di medicina generale
       - ADT
       - Prescrizione piani terapeutici
+      - Portale consensi
