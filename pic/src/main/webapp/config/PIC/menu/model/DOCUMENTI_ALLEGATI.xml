@@ -1,0 +1,26 @@
+<MENU>
+    <ID>DOCUMENTI_ALLEGATI</ID>
+    <TITLE>traduzione.Menu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>APRI_DOCUMENTO</ID>
+            <LINK><![CDATA[function(rec){javascript:NS_WORKLIST_DOCUMENTI.apriDocumentoAllegato(rec[0].URL_DOCUMENTO,rec[0].MIME_TYPE,rec[0].NOME_FILE);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/apri_scheda.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.SegrApri</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>CANCELLA_DOCUMENTO</ID>
+            <LINK><![CDATA[function(rec){NS_WORKLIST_DOCUMENTI.cancella('DOCUMENTI_ALLEGATI',rec[0].IDEN);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/inserisci_esame.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+            <OUTPUT>traduzione.SegrCancella</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

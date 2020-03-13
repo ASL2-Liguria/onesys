@@ -1,0 +1,29 @@
+<?xml version = "1.0"?>
+<QUERIES>
+    <QUERY_GROUP id="DATI">
+        <QUERY id="NOTE">
+            <SQL>
+				SELECT IDEN, VALORE, IDEN_PERSONALE 
+				FROM NOTE 
+				WHERE IDEN_PERSONALE = :iden_personale AND ATTIVO = 'S'
+			</SQL>
+        </QUERY>
+	</QUERY_GROUP>
+	<QUERY_GROUP id="SDJ">
+        <QUERY id="Q_EMPTY">
+            <SQL>
+				SELECT NULL VALUE, NULL DESCR 
+				FROM DUAL
+			</SQL>
+        </QUERY>	
+	    <QUERY id="R_SI_NO">
+            <SQL>
+				SELECT /*+first_rows(10)*/ 'S' VALUE, 'lblSi' DESCR 
+				FROM DUAL 
+				UNION ALL
+				SELECT /*+first_rows(10)*/ 'N' VALUE, 'lblNo' DESCR 
+				FROM DUAL
+			</SQL>
+        </QUERY>
+	</QUERY_GROUP>
+</QUERIES>

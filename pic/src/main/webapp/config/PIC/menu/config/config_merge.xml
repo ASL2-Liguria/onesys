@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<MERGES>
+    <MERGE>
+        <PATH value="//MENU/LIST" id_node="ITEM">
+            <CONDITION value="ID/text()"></CONDITION>
+        </PATH>
+    </MERGE>
+</MERGES>

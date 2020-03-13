@@ -1,0 +1,280 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<QUERIES>
+    <QUERY_GROUP id="DATI"/>
+
+    <QUERY_GROUP id="FILTRI"/>
+    
+    <QUERY_GROUP id="MODULI_CONSENSO"/>
+                                            
+    <QUERY_GROUP id="WORKLIST"/>
+
+    <QUERY_GROUP id="AUTOCOMPLETE">
+        <QUERY id="AC_COMUNI">
+            <SQL>Select 
+            	IDEN VALUE
+            	, DESCRIZIONE DESCR
+            	, CAP
+            	, PROVINCIA
+            	, DATA_INIZIO_VALIDA
+            	, DATA_FINE_VALIDA
+            	, CODICE_COMUNE
+            	, CODICE_REGIONE
+            	, CODICE_USL 
+            	from COMUNI 
+            	WHERE DESCRIZIONE like :descr 
+            	{#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_COMUNI_RES">
+            <SQL>Select
+                IDEN VALUE
+                , DESCRIZIONE DESCR
+                , CAP
+                , PROVINCIA
+                , DATA_INIZIO_VALIDA
+                , DATA_FINE_VALIDA
+                , CODICE_COMUNE
+                , CODICE_REGIONE
+                , CODICE_USL
+                from COMUNI
+                WHERE DESCRIZIONE like :descr AND ATTIVO = 'S'
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="AC_PERSONALE">
+            <SQL>Select * 
+            	from TABELLA_PERSONALE 
+            	WHERE DESCR like :descr 
+            	AND ATTIVO = 'S'
+            	{#ORDER#}
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+
+    <QUERY_GROUP id="SDJ">
+        <QUERY id="Q_EMPTY">
+            <SQL>
+				SELECT NULL VALUE, NULL DESCR 
+				FROM DUAL
+			</SQL>
+        </QUERY>
+        <QUERY id="Q_CONSENSO_UNICO">
+            <SQL>
+                SELECT /*+first_rows(1)*/
+                PMC.IDEN
+                , PMC.TIPO_DICHIARANTE
+				, PMC.GARANTE_NOME
+				, PMC.GARANTE_COGNOME
+                , PMC.GARANTE_LN
+                , PMC.GARANTE_DN
+                , PMC.GARANTE_R
+				, PMC.GARANTE_INDIRIZZO
+                , PMC.GARANTE_TESSERA_SANITARIA
+                , PMC.GARANTE_CF
+                , PMC.GARANTE_DOCUMENTO_IDENTITA
+                , PMC.GARANTE_DOC_RILASCIATO_DA
+                , PMC.TRATTAMENTO_DATI SCELTA_A1
+                , PMC.INTEGRAZIONE_FUTURA SCELTA_A2_2
+                , PMC.INTEGRAZIONE_PASSATA SCELTA_A2_3
+                , PMC.DATA_DIC
+                , PMC.SOSTITUTO_NC
+                , PMC.SOSTITUTO_LN
+                , PMC.SOSTITUTO_DN
+                , PMC.SOSTITUTO_R
+				, PMC.SOSTITUTO_INDIRIZZO
+                , PMC.SOSTITUTO_DI
+                , PMC.TIPO_SOSTITUTO_DICHIARANTE
+				, PMC.SOTTOSCRITTO_NOME
+				, PMC.SOTTOSCRITTO_COGNOME
+                , PMC.SOTTOSCRITTO_LN
+                , PMC.SOTTOSCRITTO_DN
+                , PMC.SOTTOSCRITTO_R
+				, PMC.SOTTOSCRITTO_INDIRIZZO
+                , PMC.SOTTOSCRITTO_TESSERA_SANITARIA
+                , PMC.SOTTOSCRITTO_CF
+                , PMC.SOTTOSCRITTO_NUM_DOC
+                , PMC.SOTTOSCRITTO_DOC_EMESSO
+                , PMC.SOTTOSCRITTO_DATA_DOC
+                , PMC.SOTTOSCRITTO_NOME_PROPRIO
+                , PMC.UTE_INS VERSIONE_MODULO
+                , PMC.UTE_DIC
+                , PMC.CONSULTAZIONE_PASSATO
+                , PMC.CONSULTAZIONE_FUTURO
+                , TO_CHAR(PMC.DATA_INS, 'YYYYMMDD') DATA_INS_ISO
+                , TO_CHAR(PMC.DATA_INS, 'DD/MM/YYYY') DATA_INS
+                , TP.DESCR DESCR_UTE_INS
+                FROM PIC_MODULI_CONSENSO PMC
+				JOIN TABELLA_PERSONALE TP ON TP.COD_DEC = PMC.UTE_INS
+                WHERE PMC.PATIENT_ID = TO_NUMBER(:anagrafica) 
+                AND PMC.ATTIVA = 'S' AND PMC.REVOCATO = 'N' 
+                AND PMC.REVOCA = 'N' AND PMC.TIPO = :tipo 
+                AND PMC.DELETED = 'N' AND PMC.TITOLARE_TRATTAMENTO = :titolare_trattamento
+            </SQL>            
+            <BINDS>
+                <BIND id="anagrafica" value="#PATIENT_ID#" type="N"></BIND>
+                <BIND id="tipo" value="#TIPO_CONSENSO#" type="V"></BIND>
+                <BIND id="titolare_trattamento" value="#TITOLARE_TRATTAMENTO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="RAD_STATO_OSCURAMENTO">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'STATO_OSCURAMENTO' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="CHK_PAZ_INCAPACE">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'PAZIENTE_INCAPACE' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="CHK_VIS_INFORMATIVA">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'VIS_INFORMATIVA' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_INS_DSE">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'INSERIMENTO_DSE' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_OSC_DSE">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'OSCURAMENTO_DSE' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_INS_FSE">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'INSERIMENTO_FSE' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_OSC_FSE">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'OSCURAMENTO_FSE' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY> 
+        <QUERY id="CHK_NOME_PROPRIO">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'NOME_PROPRIO' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_TIPO_DICHIARANTE_CONSENSO">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'TIPO_DICHIARANTE_CONSENSO' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="RAD_TIPO_DICHIARAZIONE_SOSTITUTIVA">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'TIPO_DICHIARAZIONE_SOSTITUTIVA' and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="RICARICA_CAREGIVER">
+            <SQL>
+				SELECT
+                    IDEN
+					, AUTORIZZA_CAREGIVER_ST_SALUTE RAD_STATO_SALUTE
+					, CAREGIVER_STATO_SALUTE STATO_SALUTE
+					, AUTORIZZA_CAREGIVER_UBICAZIONE RAD_UBICAZIONE
+					, CAREGIVER_UBICAZIONE UBICAZIONE 
+				from PIC_MODULI_CONSENSO 
+				where ATTIVA = 'S' 
+				and PATIENT_ID = :patient_id
+				and (
+						(TIPO = 'CAREGIVER_EVENTO' and iden_evento = :iden_evento) 
+						or 
+						(TIPO = 'CAREGIVER_PAZIENTE' and :iden_evento IS NULL) 
+					) 
+				and TITOLARE_TRATTAMENTO = :titolare_trattamento
+            </SQL>
+            <BINDS>
+                <BIND id="patient_id" value="#PATIENT_ID#" type="V"></BIND>
+                <BIND id="iden_evento" value="#NOSOLOGICO_PAZIENTE#" type="V"></BIND>
+                <BIND id="titolare_trattamento" value="#TITOLARE_TRATTAMENTO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_VALUES_CONSENSO_UNICO">
+            <SQL>
+                SELECT /*+first_rows(1)*/
+                PMC.IDEN
+                , PMC.TRATTAMENTO_DATI 
+                , PMC.INTEGRAZIONE_FUTURA 
+                , PMC.INTEGRAZIONE_PASSATA 
+                FROM PIC_MODULI_CONSENSO PMC
+                WHERE PMC.PATIENT_ID = TO_NUMBER(:anagrafica) 
+                AND PMC.ATTIVA = 'S' AND PMC.REVOCATO = 'N' 
+                AND PMC.REVOCA = 'N' AND PMC.TIPO = :tipo 
+                AND PMC.DELETED = 'N' AND PMC.TITOLARE_TRATTAMENTO = :titolare_trattamento
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_CONSENSO_DOCUMENTO">
+            <SQL>		
+				select 
+				  (select PKG_PIC_DOCUMENTO.IS_INDICIZZATO_FSE(:iden_documento) from dual) IND_FSE,
+				  (select con11 from con c where c.parent = :iden_documento and c.con2 = 'DSE.alimentazione') DSE_INSERIMENTO,
+				  (select con11 from con c where c.parent = :iden_documento and c.con2 = 'DSE.oscuramento') DSE_OSCURAMENTO,
+				  (select con11 from con c where c.parent = :iden_documento and c.con2 = 'FSE.alimentazione') FSE_INSERIMENTO,
+				  (select con11 from con c where c.parent = :iden_documento and c.con2 = 'FSE.oscuramento') FSE_OSCURAMENTO,
+				  (SELECT NODEREPRESENTATION FROM CLASSIFICATION WHERE CLASSIFICATIONSCHEME = 'urn:uuid:f4f85eac-e6cb-4883-b524-f2705394840f' AND CLASSIFIEDOBJECT = :iden_documento) STATO_OSCURAMENTO
+				from dual
+			</SQL>
+            <BINDS>
+                <BIND id="iden_documento" value="#ID_DOCUMENTO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_CONSENSO_EVENTO">
+            <SQL>
+                SELECT /*+first_rows(1)*/
+                    IDEN
+                	, EXTRACTVALUE(PRIVACY_EVENTO, '//confidentiality-code') CONF_CODE
+  					, EXTRACTVALUE(PRIVACY_EVENTO, '//DSE.alimentazione') DSE_INSERIMENTO
+  					, EXTRACTVALUE(PRIVACY_EVENTO, '//DSE.oscuramento') DSE_OSCURAMENTO
+					, EXTRACTVALUE(PRIVACY_EVENTO, '//paziente-non-capace') PAZIENTE_NON_CAPACE
+                FROM PIC_MODULI_CONSENSO 
+                WHERE PATIENT_ID = TO_NUMBER(:patient_id) AND IDEN_EVENTO = :nosologico AND TIPO = 'CONSENSO_EVENTO' AND ATTIVA = 'S'
+            </SQL>
+            <BINDS>
+                <BIND id="patient_id" value="#PATIENT_ID#" type="N"></BIND>
+                <BIND id="nosologico" value="#NOSOLOGICO_PAZIENTE#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_REPORT_CONSENSO">
+            <SQL>
+        		select CODICE_DECODIFICA 
+        		FROM TIPI WHERE ATTIVO = 'S' 
+        		AND TIPO = 'REPORT_CONSENSO' 
+        		AND DESCRIZIONE = :key_legame 
+        		AND PARAMETRI = :tipo_report
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+    
+    <QUERY_GROUP id="XDSREGISTRY"/>
+</QUERIES>

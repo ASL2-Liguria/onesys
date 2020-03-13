@@ -1,0 +1,20 @@
+<INCLUDE>
+    <CSS path="css/mix.css" />
+    <JS path="js/Base/LIB.js" />
+    <JS path="js/Base/NO-min/ecma.js" condizione="IE" />
+	<!-- polyfill per JSON in IE7 -->
+    <JS path="js/PIC/polyfillIE7.js" condizione="IE 7" />
+    <!--<JS path="js/Base/NS_FENIX_CANVAS.js" />-->
+    <JS path="js/Base/NOAPPLET.js" />
+    <JS path="js/Base/DIALOG.js" />
+    <JS path="js/Base/NS_FENIX_FIRMA.js" />
+    <JS path="js/Base/NS_VOCAL.js" />
+    <DWR path="dwr/engine.js" />
+    <DWR path="dwr/interface/toolKitDB.js" />
+    <JS path="js/Base/NS_FENIX_PRINT.js" />
+    <JS path="js/Base/NS_FENIX_TOP.js" />
+    <JS path="js/Base/NS_COMANDI_VOCALI.js" />
+    <JS path="js/PIC/pic-service.js" />
+    <JS path="js/PIC/NS_FENIX_PIC.js" />
+    <JS path="js/PIC/NS_MAIN_PAGE.js" />
+</INCLUDE>

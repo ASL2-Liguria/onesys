@@ -1,0 +1,8 @@
+<INCLUDE>
+    <CSS path="css/PIC/Consensi/Documenti.css" />
+    <JS path="config/PIC/validator/model/V_CONSENSO_DOCUMENTI.js" />
+    <JS path="js/PIC/PROCESS_CLASS.js" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/Consensi/Documenti.js" />
+</INCLUDE>

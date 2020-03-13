@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="ICON_FONT">
+        <OBJ classe_id="PATH::i*">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::i">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::i">
+            <PROC id="appendAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

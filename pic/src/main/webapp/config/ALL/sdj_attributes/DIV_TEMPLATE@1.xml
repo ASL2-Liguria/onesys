@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="DIV_TEMPLATE">
+        <OBJ classe_id="PATH::div{.extDivTemplate}">
+            <PROC id="generateHtmlByTemplate">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

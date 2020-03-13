@@ -1,0 +1,41 @@
+<PAGINA key_id="CONSENSO_DOCUMENTI">
+    
+    <HEADER_PAGE key_id="CONSENSO_DOCUMENTI" valore="DEFAULT_PIC,SCHEDA,CONSENSO_DOCUMENTI#DEFAULT,CONSENSO_DOCUMENTI" evento="START_END"></HEADER_PAGE>
+    
+    <FORM key_id="dati" valore="dati#PKG_PIC_DOCUMENT0.ESEGUI#PORTALE_PIC##IDEN#IDEN##" evento="START_END">
+        
+        <TABULAZIONE.INIT key_id="tab" valore="Consenso#lblTitolo#butSalva,butOscura,butAttiva,butChiudi" evento="START_END">
+
+            <INPUT.HIDDEN key_id="h-action" 			valore="h-action" 				evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-anagrafica" 		valore="h-anagrafica" 			evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-assigningAuthority" valore="h-assigningAuthority" 	evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-listaIdenDocumenti" valore="h-listaIdenDocumenti" 	evento="START"></INPUT.HIDDEN>  
+            <INPUT.HIDDEN key_id="h-tipo" 				valore="h-tipo" 				evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-uteIns" 			valore="h-uteIns" 				evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-versione" 			valore="h-versione" 			evento="START"></INPUT.HIDDEN>
+            
+            <TABULAZIONE.CREA_TAB key_id="tabWK" valore="tabWK" evento="START">
+	            <FIELDSET key_id="fldListaDocumenti" valore="fldListaDocumenti" evento="START">
+	                <DIV key_id="divWkDocumentiAttivati" 	valore="divWkDocumentiAttivati" 	evento="START"></DIV>
+	                <DIV key_id="divWkDocumentiOscurati" 	valore="divWkDocumentiOscurati" 	evento="START"></DIV>
+	                <DIV key_id="divWkDocumentiInespressi" 	valore="divWkDocumentiInespressi" 	evento="START"></DIV>
+	            </FIELDSET>
+            </TABULAZIONE.CREA_TAB>
+            
+            <TABULAZIONE.CREA_TAB key_id="tabDichiarazioneSostitutiva" valore="tabDichiarazioneSostitutiva" evento="START">
+	            <LABEL key_id="lblInformativa2" valore="lblInformativa2" evento="START"></LABEL>                		
+	            <FIELDSET_TABLE key_id="fldDichiarazioneSostitutiva" valore="fldDichiarazioneSostitutiva" evento="START">
+	                <TR_TD_LABEL_TEXT   key_id="txtSostitutoNomeCognome"        valore="lblSostitutoNomeCognome##txtSostitutoNomeCognome"                                                                                           evento="START"></TR_TD_LABEL_TEXT>
+	                <TR_TD_LABEL_TEXT   key_id="txtSostitutoLuogoNascita"       valore="lblSostitutoLuogoNascita##txtSostitutoLuogoNascita"                                                                                         evento="START"></TR_TD_LABEL_TEXT>
+	                <TR_TD_LABEL_DATA   key_id="txtSostitutoDataNascita"        valore="lblSostitutoDataNascita##txtSostitutoDataNascita#SostitutoDN#startWithToday:false, format: 'd/m/Y', view: 'month'#separatorIn: '/',separatorOut: '/',formatIn: 'd m Y', disabled:false###SOSTITUTO_DN"             evento="START"></TR_TD_LABEL_DATA>
+	                <TR_TD_LABEL_TEXT   key_id="txtSostitutoResidente"          valore="lblSostitutoResidente##txtSostitutoResidente"                                                                                               evento="START"></TR_TD_LABEL_TEXT>
+	                <TR_TD_LABEL_TEXT   key_id="txtSostitutoDocumentoIdentita"  valore="lblSostitutoDocumentoIdentita##txtSostitutoDocumentoIdentita"                                                                               evento="START"></TR_TD_LABEL_TEXT>
+	                <TR_TD_LABEL_RADIO  key_id="radTipoSostitutoDichiarante"    valore="lblTipoSostitutoDichiarante##radTipoSostitutoDichiarante#radTipoSostitutoDichiarante#{width:400}#N"                                         evento="START"></TR_TD_LABEL_RADIO>
+	            </FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+            
+        </TABULAZIONE.INIT>
+        
+    </FORM>
+    
+</PAGINA>

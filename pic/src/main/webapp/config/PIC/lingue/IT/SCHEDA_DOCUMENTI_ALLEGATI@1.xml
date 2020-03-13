@@ -1,0 +1,14 @@
+<ROWSET>
+    <ROW>
+        <fldAllegato>Allegato</fldAllegato>
+        <lblTipologiaAllegato>Tipologia</lblTipologiaAllegato>
+        <lblTitolo>Allega documenti</lblTitolo>
+        <lblNomeAllegato>Nome allegato</lblNomeAllegato>
+        <lblAllegaPazienteEpisodio>Allega a</lblAllegaPazienteEpisodio>
+        <lblAllegaFile>Scegli il file da allegare</lblAllegaFile>
+        <butImporta>Importa da PC</butImporta>
+        <butAcquisisci>Acquisisci da Scanner</butAcquisisci>
+        <butChiudi>Chiudi</butChiudi>
+        <lblTipologiaAllegato>Tipologia</lblTipologiaAllegato>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TEXTAREA">
+        <OBJ classe_id="PATH::textarea[.dataHtmlField]">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::textarea">
+            <PROC id="addAttribute">
+                <PAR value="name"/>
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::textarea">
+            <PROC id="setColonnaSave">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::textarea">
+            <PROC id="setToUpper">
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::textarea">
+            <PROC id="setReadonly">
+                <PAR type="idx" value="3"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::textarea">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="5"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::textarea">
+            <PROC id="appendAttribute">
+                <PAR value="rows"/>
+                <PAR type="idx" value="4"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

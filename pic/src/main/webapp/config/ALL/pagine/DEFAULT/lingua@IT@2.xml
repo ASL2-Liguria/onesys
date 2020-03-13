@@ -1,0 +1,172 @@
+<ROWSET>
+    <ROW>
+        <Mesi>Gennaio,Febbraio,Marzo,Aprile,Maggio,Giugno,Luglio,Agosto,Settembre,Ottobre,Novembre,Dicembre</Mesi>
+        <Giorni>Domenica,Lunedì,Martedì,Mercoledì,Giovedì,Venerdì,Sabato</Giorni>
+        <lunedi>Lun</lunedi>
+        <martedi>Mar</martedi>
+        <mercoledi>Mer</mercoledi>
+        <giovedi>Gio</giovedi>
+        <venerdi>Ven</venerdi>
+        <sabato>Sab</sabato>
+        <domenica>Dom</domenica>
+        <menuVuoto>Nessuna voce disponibile</menuVuoto>
+        <lblSconosciuto>Sconosciuto</lblSconosciuto>
+        <lblMaschio>Maschio</lblMaschio>
+        <lblFemmina>Femmina</lblFemmina>
+        <lblSingola>Singola</lblSingola>
+        <lblMultipla>Multipla</lblMultipla>
+        <lblVisualizzaTutti>Visualizza Tutti</lblVisualizzaTutti>
+        <lblRimuoviTutti>Rimuovi Tutti</lblRimuoviTutti>
+        <lblSi>Sì</lblSi>
+        <lblNo>No</lblNo>
+        <Menu>Menu</Menu>
+        <lblOk>Ok</lblOk>
+        <lblPaziente>Paziente</lblPaziente>
+        <lblEsame>Esame</lblEsame>
+        <lblAttenzione>Attenzione</lblAttenzione>
+        <lblAnnulla>Annulla</lblAnnulla>
+        <lblCampiImportanti><![CDATA[Campi importanti non compilati.<br /> Continuare?]]></lblCampiImportanti>
+        <lblCerca>Cerca</lblCerca>
+        <lblCodice>Codice</lblCodice>
+        <lblDescrAbbr>Descr.</lblDescrAbbr>
+        <lblCodDescr>Cod+Descr.</lblCodDescr>
+        <lblOnere>Onere</lblOnere>
+        <lblDescrizione>Descrizione</lblDescrizione>
+        <lblStato>Stato</lblStato>
+        <lblSala>Sala</lblSala>
+        <lblAttivi>Attivi</lblAttivi>
+        <lblNonAttivi>Non Attivi</lblNonAttivi>
+        <lblEntrambi>Entrambi</lblEntrambi>
+        <lblGruppo>Gruppo</lblGruppo>
+        <lblOrdine>Ordine</lblOrdine>
+        <lblMetodica>Metodica</lblMetodica>
+        <lblMetodiche>Metodiche</lblMetodiche>
+        <lblApparato>Apparato</lblApparato>
+        <lblOrgano>Organo</lblOrgano>
+        <lblBranca>Branca</lblBranca>
+        <lblSchedaAppropriatezza>Scheda Appropriatezza</lblSchedaAppropriatezza>
+        <lblCodifica>Codifica</lblCodifica>
+        <lblCodEsa>Codice Esame</lblCodEsa>
+        <lblCodSirm>Codice Sirm</lblCodSirm>
+        <lblCodMin>Codice Ministeriale</lblCodMin>
+        <lblCodCup>Codice Cup</lblCodCup>
+        <lblCodDec>Codice Decodifica</lblCodDec>
+        <lblCodGruppo>Codice Gruppo</lblCodGruppo>
+        <lblCodSottogruppo>Codice Sottogruppo</lblCodSottogruppo>
+        <lblCdC>Ospedale/Reparto</lblCdC>
+        <lblDescr>Descrizione</lblDescr>
+        <lblMdC>Mezzo di Contrasto</lblMdC>
+        <lblCodiceDecodifica>Codice Decodifica</lblCodiceDecodifica>
+        <lblTitolo>Titolo</lblTitolo>
+        <lblTelefono>Telefono</lblTelefono>
+        <lblNome>Nome</lblNome>
+        <lblCognome>Cognome</lblCognome>
+        <lblDataNascita>Data Nascita</lblDataNascita>
+        <lblCodiceFiscale>Codice Fiscale</lblCodiceFiscale>
+        <lblIndirizzo>Indirizzo</lblIndirizzo>
+        <lblEmail>Email</lblEmail>
+        <lblTipoMedico>Tipo Medico</lblTipoMedico>
+        <lblProfiloVocale>Profilo Vocale</lblProfiloVocale>
+        <lblMedicoReparto>Medico Reparto</lblMedicoReparto>
+        <lblMedicoMammo>Medico Mammografia</lblMedicoMammo>
+        <lblAttivo>Attivo</lblAttivo>
+        <lblProvenienze>Provenienze</lblProvenienze>
+        <lblTit_Dottore>DOTT.</lblTit_Dottore>
+        <lblTit_Dottoressa>DOTT.SSA</lblTit_Dottoressa>
+        <lblTit_Infermiere>INF.</lblTit_Infermiere>
+        <lblTit_Infermiera>INF.RA</lblTit_Infermiera>
+        <lblTit_Signore>SIG.</lblTit_Signore>
+        <lblTit_Signora>SIG.RA</lblTit_Signora>
+        <lblTit_Tecnico>TEC.</lblTit_Tecnico>
+        <lblEsente>Esente</lblEsente>
+        <lblPrivato>Privato</lblPrivato>
+        <lblTicket>Ticket</lblTicket>
+        <lblIntramoenia>Intramoenia</lblIntramoenia>
+        <lblInterno>Interno</lblInterno>
+        <lblEsterno>Esterno</lblEsterno>
+        <lblProntoSoccorso>Pronto Soccorso</lblProntoSoccorso>
+        <lblAltriOspedali>Altri Ospedali</lblAltriOspedali>
+        <lblAllegaDocumento>Allega Documento</lblAllegaDocumento>
+        <lblCancellaDocumento>Cancella Documento</lblCancellaDocumento>
+        <lblLiberaProfessione>Libera Prof.</lblLiberaProfessione>
+        <selAllTags>Seleziona Tutti</selAllTags>
+        <deselAllTags>Deseleziona Tutti</deselAllTags>
+        <okTags>Applica</okTags>
+        <closeTags>Chiudi</closeTags>
+        <acList>Autocomplete List</acList>
+        <acListCerca>Cerca</acListCerca>
+        <acListChiudi>Chiudi</acListChiudi>
+        <acListRicercaSensibile>Ricerca Sensibile</acListRicercaSensibile>
+        <butDeselAll>Desel. Tutto</butDeselAll>
+        <butSelAll>Sel. Tutto</butSelAll>
+        <butApplica>Applica</butApplica>
+        <butResetDati>Reset Dati</butResetDati>
+        <butSalva>Salva</butSalva>
+        <butRegistra>Registra</butRegistra>
+        <butChiudi>Chiudi</butChiudi>
+        <butAnnulla>Annulla</butAnnulla>
+        <butAnnullaRichiesta>Annulla Richiesta</butAnnullaRichiesta>
+        <butAddOne>&gt;</butAddOne>
+        <butAddAll>&gt;&gt;</butAddAll>
+        <butRemAll>&lt;&lt;</butRemAll>
+        <butRemOne>&lt;</butRemOne>
+        <lblFiltro>Filtro</lblFiltro>
+        <lblInserimento>Inserimento</lblInserimento>
+        <lblModifica>Modifica</lblModifica>
+        <lblFiltriPersonali>Filtri Personali</lblFiltriPersonali>
+        <butSaveStatoFiltri>Salva stato filtri</butSaveStatoFiltri>
+        <ttCancella>Cancella</ttCancella>
+        <ttUtilizza>Utilizza</ttUtilizza>
+        <okSalvataggioFiltriPersonali>Salvataggio filtri personali riuscito</okSalvataggioFiltriPersonali>
+        <koSalvataggioFiltriPersonali>Errore salvataggio Filtri Personali</koSalvataggioFiltriPersonali>
+        <nomeObbligatorio>Nome Obbligatorio</nomeObbligatorio>
+        <successSave>Salvataggio effettuato correttamente</successSave>
+        <successTitleSave>Success!</successTitleSave>
+        <successRefertoAnnullato>Referto Annullato</successRefertoAnnullato>
+        <errorSave>Errore durante il salvataggio</errorSave>
+        <errorTitleSave>Error!</errorTitleSave>
+        <cellaDisabilitata>Cella disabilitata</cellaDisabilitata>
+        <lblSegreteria>Segreteria</lblSegreteria>
+        <validRequired>Il campo è Obbligatorio</validRequired>
+        <validImportant>Il campo è importante</validImportant>
+        <validEmail>Inserire un indirizzo mail valido</validEmail>
+        <validUrl>Inserire una URL valida</validUrl>
+        <validNumber>Inserire solo numeri</validNumber>
+        <validDigits>Inserire solo caratteri</validDigits>
+        <validMinlength>Lunghezza minima {0} caratteri</validMinlength>
+        <validMaxlength>Lunghezza massima {0} caratteri</validMaxlength>
+        <validRangelength>Inserire un valore di lunghezza compresa tra {0} e {1} caratteri</validRangelength>
+        <validRange>Inserire un valore compreso tra {0} e {1}</validRange>
+        <validMax>Il valore deve essere minore o uguale a {0}</validMax>
+        <validMin>Il valore deve essere maggiore o uguale a {0}</validMin>
+        <validFixedLength>Il valore deve essere {0} caratteri</validFixedLength>
+        <validHours>Il valore dell'ora deve essere in formato hh:mm [00:00 - 23:59]</validHours>
+        <validDate>Il valore della data deve essere in formato dd/mm/yyyy  </validDate>
+        <atLeast>Inserire almeno {0} opzione/opzioni</atLeast>
+        <lblNoTemplate>Template non trovato</lblNoTemplate>
+        <lblConfirmOperazione>Sicuro di voler confermare l'operazione?</lblConfirmOperazione>
+        <lblConferma>Conferma</lblConferma>
+        <lblMasterizza>Masterizza CD</lblMasterizza>
+        <lblOpzioniMasterizzazione>Opzioni di masterizzazione</lblOpzioniMasterizzazione>
+        <lblMedico>Medico</lblMedico>
+        <lblNote>Note</lblNote>
+        <lblBassa>Bassa</lblBassa>
+        <lblNormale>Normale</lblNormale>
+        <lblAlta>Alta</lblAlta>
+        <lblPriorita>Priorità</lblPriorita>
+        <lblNCopie>Num. Copie</lblNCopie>
+        <lblRobot>Robot</lblRobot>
+        <titPrenotazioniPaziente>Prenotazioni Paziente</titPrenotazioniPaziente>
+        <titEsamiDaEseguire>Esami non ancora eseguiti</titEsamiDaEseguire>
+        <mPacsAetitle>Pacs AETiltle</mPacsAetitle>
+        <mPacsScanAetitle>Scan Pacs AETitle</mPacsScanAetitle>
+        <mTestSimone>Test Simone</mTestSimone>
+        <errLoadPianificazione>Errore nel caricamento delle pianificazioni</errLoadPianificazione>
+        <errFormatoOra>Formato ora sbagliato (richiesto hh:mm)</errFormatoOra>
+        <descObbligatoria>La descrizione è obbligatoria</descObbligatoria>
+        <lblLato>Lato</lblLato>
+        <mGruppiParametri>Gestione Gruppi Parametri</mGruppiParametri>
+
+        <msgEsaDateDiff>Esami con date differenti</msgEsaDateDiff>
+    </ROW>
+</ROWSET>

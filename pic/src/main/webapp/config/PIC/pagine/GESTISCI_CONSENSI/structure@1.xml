@@ -1,0 +1,21 @@
+<PAGINA key_id="GESTISCI_CONSENSI">
+
+    <HEADER_PAGE key_id="GESTISCI_CONSENSI" valore="DEFAULT_PIC,SCHEDA,GESTISCI_CONSENSI#DEFAULT,GESTISCI_CONSENSI" evento="START_END"></HEADER_PAGE>
+
+    <FORM key_id="dati" valore="dati##PORTALE_PIC##IDEN#IDEN##" evento="START_END">
+
+        <TABULAZIONE.INIT key_id="tab" valore="GestisciConsensi#lblTitolo#butChiudi" evento="START_END">
+
+            <FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca" evento="START">
+            	<TR_TD_LABEL_TEXT key_id="txtRicerca" valore="lbltxtRicerca##txtRicerca" evento="START"></TR_TD_LABEL_TEXT>
+            	<TR_TD_LABEL_RADIO  key_id="radStatoConsenso" valore="lblradStatoConsenso##radStatoConsenso#radStatoConsenso#{width:100, idxDefault:2, ctrl:true}#N" evento="START"></TR_TD_LABEL_RADIO>
+            </FIELDSET_TABLE>
+			<FIELDSET key_id="fld_Consensi" valore="fld_Consensi" evento="START">
+	            <FIELDSET_TABLE key_id="fldConsensi" valore="fldConsensi" evento="START">
+	            </FIELDSET_TABLE>
+			</FIELDSET>
+        </TABULAZIONE.INIT>
+
+    </FORM>
+
+</PAGINA>

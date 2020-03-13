@@ -1,0 +1,9 @@
+<INCLUDE>
+    <CSS path="config/PIC/pagine/CONSENSI/CONSENSO_CANALE_VISIBILITA_MMG/ConsensoCanaleVisibilitaMMG.css"/>
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_CANALE_VISIBILITA_MMG/V_CONSENSO_CANALE_VISIBILITA_MMG.js" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/PIC_bridge.js"/>
+    <JS path="config/PIC/pagine/CONSENSI/Core.js" />
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_CANALE_VISIBILITA_MMG/ConsensoCanaleVisibilitaMMG.js"/>
+</INCLUDE>

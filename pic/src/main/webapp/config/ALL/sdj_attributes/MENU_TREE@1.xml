@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="MENU_TREE">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="jquerytree"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extMenuTree}">
+            <PROC id="generaTree">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

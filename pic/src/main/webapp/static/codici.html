@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fenix Codici</title>
+        <style type="text/css">
+            body{
+                background: #cdcdcd;
+            }
+            .clsTitle{
+                padding:3px;
+                border: 1px solid #666;
+                background: -moz-linear-gradient(top,#eee 0%,#bbb);
+                background: -webkit-gradient(linear, left top, left bottom, from(#eee),to(#bbb));
+                background: linear-gradient(to bottom, #eee 5%, #bbb 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#BBBBBB',GradientType=0);
+            }
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript">
+            window.onresize = function(){window.resizeTo(300,300);}
+            function GetURLParameter(sParam)
+            {
+                var sPageURL = window.location.search.substring(1);
+                var sURLVariables = sPageURL.split('&');
+                for (var i = 0; i < sURLVariables.length; i++)
+                {
+                    var sParameterName = sURLVariables[i].split('=');
+                    if (sParameterName[0] == sParam)
+                    {
+                        return (sParameterName[1] !=="null")?sParameterName[1]:"";
+                    }
+                }
+            }
+            $(document).ready(function(){
+
+               $("body").append("<h3 class='clsTitle'>Patient ID: </h3><h3>"+GetURLParameter('ID_PAZ_DICOM')+"</h3>");
+               $("body").append("<h3 class='clsTitle'>ID Dicom: </h3><h3>"+GetURLParameter('ID_DICOM')+"</h3>");
+
+            });
+        </script>
+    </body>
+</html>

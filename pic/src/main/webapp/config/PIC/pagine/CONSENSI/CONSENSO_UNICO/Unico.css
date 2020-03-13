@@ -1,0 +1,95 @@
+body {
+    width: 960px;
+    margin: auto;
+}
+
+.RBpuls {
+    margin-bottom: 5px;
+}
+
+#fldTrattamentoDiBase, 
+#fldTrattamentoDatiPersonali, 
+#fldConsensoDSE, 
+#fldTrattamentoStrumentiInformatici, 
+#fldTrattamentoStrumentiInformatici2 {
+	border: none;
+}
+
+#divTrattamentoDatiPersonali, #divConsensoDSE {
+	text-align: center;
+    font-weight: 700;
+}
+
+#lblTrattamentoDatiPersonali, #lbldivConsensoDSE {
+	font-size: 25px;
+}
+
+#fldradScelta1A, #fldTrattamentoStrumentiInformatici1, #fldTrattamentoStrumentiInformatici3 {
+	border: none;
+	width: 300px;
+  	margin: auto;
+	text-align: center;
+}
+
+label[id^="lblInformativa"], table.campi tr td.tdLbl[id^="lblSezione"], #lblDichiarazioneFinale {
+    width: auto !important;
+    height: auto !important;
+    padding: 5px 10px;
+    margin-top: 15px;
+    line-height: 150%;
+    display: block;
+    text-align: left;
+    color: #444;
+    border: 1px solid black;
+}
+
+label[id^="lblInformativa"] {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+table.campi tr td.tdLbl[id^="lblScelta"] {
+    font-weight: 400;
+    padding-left: 35px;
+    text-align: left;
+}
+
+#fldTrattamentoDiBase .RadioBox, 
+#fldTrattamentoDiBase table.campi tr td.tdText,
+
+#fldTrattamentoStrumentiInformatici .RadioBox, 
+#fldTrattamentoStrumentiInformatici table.campi tr td.tdText {
+    padding-left: 35px;
+}
+
+td.tdData input {
+    margin-left: 10px;
+}
+
+#txtSottoscrittoDataNascita, #txtGaranteDataNascita, #txtSostitutoDataNascita {
+    margin-left: 0;
+}
+
+#fldDichiarazione table.campi tr td.tdLbl {
+	width: 45%;
+	text-align: left;
+}
+
+#fldDichiarazione table.campi tr td.tdACList {
+	width: 45%;
+	text-align: left;
+}
+
+#fldDichiarazione table.campi tr {
+	height: 25px;
+	/* oppure $('#txtOperatoreDichiarazione').parent().height(25) */
+}
+
+#lblTipoDichiarante {
+	text-align: left;
+	width: auto;
+}
+
+#lblOperatoreDichiarazione {
+	text-align: left;
+}

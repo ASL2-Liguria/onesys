@@ -1,0 +1,21 @@
+<PAGINA key_id="ELENCO_ACCESSI">
+	<HEADER_PAGE key_id="ELENCO_ACCESSI"
+		valore="DEFAULT_PIC,SCHEDA,ELENCO_ACCESSI#DEFAULT,ELENCO_ACCESSI"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_DATA#MMG_DATI#ELENCO_ACCESSI#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="ElencoAccessi#lblTitolo#butStampa,butChiudi" evento="START">
+						
+			<TABULAZIONE.CREA_TAB key_id="tabElencoAccessi" valore="tabElencoAccessi" evento="START">
+				<FIELDSET key_id="fldElencoAccessi" valore="fldElencoAccessi" evento="START">
+					<DIV.WORKLIST key_id="divWkElencoAccessi" valore="divWkElencoAccessi" evento="START">
+					</DIV.WORKLIST>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

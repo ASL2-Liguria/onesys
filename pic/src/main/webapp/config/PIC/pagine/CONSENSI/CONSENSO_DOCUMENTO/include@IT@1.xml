@@ -1,0 +1,8 @@
+<INCLUDE>
+    <CSS path="config/PIC/pagine/CONSENSI/CONSENSO_DOCUMENTO/Documento.css"/>
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_DOCUMENTO/V_CONSENSO_DOCUMENTO.js" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js"/>
+    <JS path="js/PIC/PIC_bridge.js"/>
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_DOCUMENTO/Documento.js"/>
+</INCLUDE>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TABELLA.INIT">
+        <OBJ classe_id="PATH::table*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="campi tblFiltri"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

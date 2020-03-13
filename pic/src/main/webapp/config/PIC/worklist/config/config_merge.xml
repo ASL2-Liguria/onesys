@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<MERGES>
+    <MERGE>
+        <PATH value="//WORKLIST/STRUCTURE/COLUMNS/LIST" id_node="COLUMN">
+            <CONDITION value="ID/COL/text()"></CONDITION>
+        </PATH>
+    </MERGE>
+    <MERGE>
+        <PATH value="//WORKLIST/STRUCTURE/COLUMNS" id_node="SORT">
+            <CONDITION clean="TRUE"></CONDITION>
+        </PATH>
+    </MERGE>
+</MERGES>

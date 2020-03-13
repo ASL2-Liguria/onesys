@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="FIELD_HEADER">
+        <OBJ classe_id="PATH::h5">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="fldHeader"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::h5">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::h5.span[.dataHtmlField]">
+            <PROC id="setTagValue">
+                <PAR translate="true" type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

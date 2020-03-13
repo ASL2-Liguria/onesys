@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_REPOSITORY_DSE</ID>
+	<ID-QUERY connection="PORTALE_PIC">XDSREGISTRY.DOCUMENTI_DSE</ID-QUERY>
+	<TITLE>"Elenco Documenti"</TITLE>
+	<PAGER>S</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_WK_REPOSITORY_DSE</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('ID');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+                <COLUMN>
+					<ID>
+						<COL>APRI</COL>
+					</ID>
+					<DESCRIPTOR></DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return PROCESS_CLASS.processClassApri(data, wk, LOG_DSE.apriDocRep);
+                        }]]></PROCESS>
+					<WIDTH>20px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DSE</COL>
+					</ID>
+                    <DESCRIPTOR>"DSE"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return DOCUMENTI_PAZIENTE_DSE.setIconDSE(data);
+                        }]]></PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+			
+				<COLUMN>
+					<ID>
+						<COL>DATA_DOCUMENTO</COL>
+						<DB>DATA_DOCUMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Data Documento"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return PROCESS_CLASS.processClassDataISO( data.DATA_DOCUMENTO ); }]]></PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>NOSOLOGICO</COL>
+						<DB>NOSOLOGICO</DB>
+					</ID>
+					<DESCRIPTOR>"Nosologico"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>N</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Documento"</DESCRIPTOR>           				
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>REPARTOEROG</COL>
+						<DB>REPARTOEROG</DB>
+					</ID>
+					<DESCRIPTOR>"Struttura erogante"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>AUTORE</COL>
+						<DB>AUTORE</DB>
+					</ID>
+					<DESCRIPTOR>"Autore"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PRESTASSOCIATE</COL>
+						<DB>PRESTASSOCIATE</DB>
+					</ID>
+					<DESCRIPTOR>"Esami associati"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="CREATIONTIME">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

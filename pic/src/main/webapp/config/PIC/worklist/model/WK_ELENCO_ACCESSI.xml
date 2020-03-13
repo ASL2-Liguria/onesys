@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_ELENCO_ACCESSI</ID>
+	<ID-QUERY connection="ANAGRAFICA">WORKLIST.ELENCO_ACCESSI</ID-QUERY>
+	<TITLE>traduzione.lblWkVersioniConsensoUnico</TITLE>
+	<PAGER>S</PAGER>
+	<!-- <LIMIT_ROWS>1000</LIMIT_ROWS> -->
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+				<COLUMN>
+					<ID>
+						<COL>DATA_INS</COL>
+						<DB>DATA_INS</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblWkAccData</DESCRIPTOR>
+                    <PROCESS/>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+                    <ID>
+                        <COL>DATA_END</COL>
+                        <DB>DATA_END</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblWkLOGDataFine</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				<COLUMN>
+                    <ID>
+                        <COL>DESCR</COL>
+                        <DB>DESCR</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblWkAccUserDescr</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>180px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				<COLUMN>
+					<ID>
+						<COL>ACTION_DESCR</COL>
+						<DB>ACTION_DESCR</DB>
+					</ID>
+					<DESCRIPTOR>traduzione.lblWkAccAction</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return PROCESS_CLASS.processClassActionDescr(data);
+                        }]]></PROCESS>
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				<COLUMN>
+                    <ID>
+                        <COL>IDEN</COL>
+                        <DB>IDEN</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblWkAccIden</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+				<COLUMN>
+                    <ID>
+                        <COL>ID</COL>
+                        <DB>ID</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblWkAccID</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return ELENCO_ACCESSI.processClassSetLink(data);
+                        }]]></PROCESS>
+                    <WIDTH>180px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+			</LIST>									
+			<SORT>
+				<COLUMN id="ACTION_DATE">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

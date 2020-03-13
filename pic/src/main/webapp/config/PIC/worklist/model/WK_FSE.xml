@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_FSE</ID>
+	<ID-QUERY connection="PORTALE_PIC"></ID-QUERY>
+	<TITLE>"Elenco Documenti FSE"</TITLE>
+	<PAGER>N</PAGER>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_WK_FSE</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('ID_DOCUMENTO');}</CLICK>
+                <DBLCLICK><![CDATA[function(rec){ DOCUMENTI_PAZIENTE_FSE.checkApriDocFSE(rec); } ]]></DBLCLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+                <COLUMN>
+					<ID>
+						<COL>APRI</COL>
+					</ID>
+					<DESCRIPTOR></DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return PROCESS_CLASS.processClassApri(data, wk, DOCUMENTI_PAZIENTE_FSE.checkApriDocFSE);
+                        }]]></PROCESS>
+					<WIDTH>20px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DISPLAY_TIPO_DOC</COL>
+						<DB>DISPLAY_TIPO_DOC</DB>
+					</ID>
+					<DESCRIPTOR>"Tipo Documento"</DESCRIPTOR>           				
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCR_AZIENDA_PRODUTTRICE</COL>
+						<DB>DESCR_AZIENDA_PRODUTTRICE</DB>
+					</ID>
+					<DESCRIPTOR>"Azienda Produttrice"</DESCRIPTOR>           				
+					<WIDTH>300px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DATA_CREAZIONE</COL>
+						<DB>DATA_CREAZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Data Creazione"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return PROCESS_CLASS.processClassDataISO(data.DATA_CREAZIONE);
+                        }]]></PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>ID_DOCUMENTO</COL>
+						<DB>ID_DOCUMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Documento"</DESCRIPTOR>           				
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="ID_DOCUMENTO">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

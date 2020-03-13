@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>CONSENSO AL TRATTAMENTO DEI DATI PERSONALI</lblTitolo>
+		
+        <tabDichiarante>Dichiarante</tabDichiarante>
+        <tabSezione1>Sezione n.1</tabSezione1>
+        <tabSezione2>Sezione n.2</tabSezione2>
+        <tabDichiarazioneSostitutiva>Dichiarazione sostitutiva</tabDichiarazioneSostitutiva>
+
+        <fldDatiDichiarante>
+            Riepilogo dati paziente
+        </fldDatiDichiarante>
+		
+	        <lblSottoscrittoNomeCognome>Io sottoscritto/a</lblSottoscrittoNomeCognome>
+			<lblSottoscrittoNome>(nome)</lblSottoscrittoNome>
+			<lblSottoscrittoCognome>Io sottoscritto/a (cognome)</lblSottoscrittoCognome>
+	        <lblSottoscrittoLuogoNascita>nato/a a </lblSottoscrittoLuogoNascita>
+	        <lblSottoscrittoLuogoNasc>nato/a a</lblSottoscrittoLuogoNasc>
+	        
+	        <lblAcComuniCap>CAP</lblAcComuniCap>
+	        <lblAcComuniDescrizione>Descrizione</lblAcComuniDescrizione>
+	        <lblAcComuniProvincia>Provincia</lblAcComuniProvincia>
+	        <lblAcComuniInizioValidita>Inizio validità</lblAcComuniInizioValidita>
+	        <lblAcComuniFineValidita>Fine validità</lblAcComuniFineValidita>
+				
+	        <lblSottoscrittoDataNascita>il</lblSottoscrittoDataNascita>
+	        <lblSottoscrittoResidente>residente a </lblSottoscrittoResidente>
+	        <lblSottoscrittoRes>residente a </lblSottoscrittoRes>
+	        <lblSottoscrittoIndirizzo>indirizzo</lblSottoscrittoIndirizzo>
+			
+			<lblSottoscrittoTesseraSanitaria>tessera sanitaria</lblSottoscrittoTesseraSanitaria>
+	        <lblSottoscrittoCodiceFiscale>codice fiscale</lblSottoscrittoCodiceFiscale>
+	        
+	        <lblSottoscrittoTelefono>telefono</lblSottoscrittoTelefono>
+	        <lblSottoscrittoEMail>e-mail </lblSottoscrittoEMail>
+	        <lblSottoscrittoDocumentoIdentita>doc. di identità</lblSottoscrittoDocumentoIdentita>
+	        <lblSottoscrittoNumeroDocumento>documento d'identità n°</lblSottoscrittoNumeroDocumento>
+	        <lblSottoscrittoDocumentoEmesso>rilasciato da</lblSottoscrittoDocumentoEmesso>
+	        <lblSottoscrittoDataEmissione>il</lblSottoscrittoDataEmissione>
+			
+			<lblTipoDichiarante>Oppure, consapevole delle sanzioni penali in caso di dichiarazioni non veritiere richiamate dall'art.76 D.P.R. 445/2000, in qualità di:</lblTipoDichiarante>
+			<!-- <lblTipoDichiarante>Oppure, rendendo dichiarazione ai sensi degli art. 47 e 76 del D.P.R 445/2000, in qualità di:</lblTipoDichiarante> -->	
+	        <!-- <lblTipoDichiarante>oppure come:</lblTipoDichiarante> -->
+		        
+	        <lblGaranteNomeCognome>di</lblGaranteNomeCognome>	
+			<lblGaranteNome>di (nome)</lblGaranteNome>
+			<lblGaranteCognome>(cognome)</lblGaranteCognome>
+	        <lblGaranteLuogoNascita>nato/a a </lblGaranteLuogoNascita>
+	        <lblGaranteDataNascita>il</lblGaranteDataNascita>
+	        <lblGaranteResidente>residente a</lblGaranteResidente>
+	        <lblGaranteIndirizzo>indirizzo</lblGaranteIndirizzo>
+			<lblGaranteTesseraSanitaria>tessera sanitaria</lblGaranteTesseraSanitaria>
+	        <lblGaranteCodiceFiscale>codice fiscale</lblGaranteCodiceFiscale>
+	        <lblGaranteDocumentoIdentita>documento d'identità n°</lblGaranteDocumentoIdentita>
+	        <lblGaranteRilasciatoDa>rilasciato da</lblGaranteRilasciatoDa>
+	        
+	        <lblInformativaIns>
+	            Letta e compresa l'informativa anche relativa al trattamento dei propri dati personali in formato cartaceo ed elettronico effettuato da ASL2
+	            con il proprio personale consapevole che tale consenso consente di compiere sui dati operazioni di carattere generale ad es.tenuta, 
+	            lettura e conservazione del singolo dato o gruppo di dati anagrafici, sensibili (di salute, razziali, sessuali, religiosi, giudiziari etc.)
+	            e soggetti ad anonimato (art. 12 informativa) per compiere operazioni elementari  cfr punto 2.1 dell’ informativa
+	        </lblInformativaIns>
+	        
+	        <lblInformativaMod>
+	            Vista l'informativa di cui all'art.13 D.L.gs 196/2003 "Codice in materia di protezione dei dati personali", 
+	            ricevuta unitamente al presente modulo di consenso (nonchè pubblicata anche sul sito www.asl2.liguria.it), ai sensi dell'art. 81, consapevole, in particolare, 
+	            che il trattamento riguarda i dati "sensibili" vale a dire "i dati personali idonei a rivelare l'origine razziale ed etnica, 
+	            le convinzioni religiose, filosofiche o di altro genere, le opinioni politiche, l'adesione a partiti, sindacati, associazioni, 
+	            od organizzazioni a carattere religioso, filosofico, politico o sindacale, nonchè quelli idonei a rivelare lo stato di salute e la vita sessuale", 
+	            avendo compreso il contenuto della suddetta informativa, dichiaro
+				a far data dalla sottoscrizione della presente, di voler liberamente e consapevolmente modificare i contenuti del consenso al trattamento dei miei dati sanitari prodotti 
+				dall’ASL2 SAVONESE (di seguito ASL2) da me precedentemente prestato a codesta Azienda secondo le seguenti indicazioni (barrare le scelte). 
+	            Dichiaro altresì di essere a conoscenza che i seguenti consensi sono facoltativi, possono essere non concessi o revocati in qualsiasi momento 
+	            con richiesta verbale o con la compilazione di apposito modulo da inoltrare all'ASL2.
+	        </lblInformativaMod>
+        
+        <fldTrattamentoDiBase>
+            <!-- Trattamento di base dei miei dati personali e sensibili per scopi sanitari e loro comunicazione, per finalità di didattica, ricerca e studio di patologie -->
+        </fldTrattamentoDiBase>
+        
+        <lblTrattamentoDatiPersonali>
+        	CONSENSO GENERALE AL TRATTAMENTO DEI DATI PERSONALI
+        </lblTrattamentoDatiPersonali>
+        	
+        	<lblScelta1A>
+	            ESPRIME IL CONSENSO GENERALE AL TRATTAMENTO DEI DATI PERSONALI (in formato cartaceo ed elettronico) ED AUTORIZZA ASL2 ED I SUOI OPERATORI A TRATTARE 
+	            I SUOI DATI PERSONALI, DI SALUTE, SENSIBILI E SOGGETTI AD ANONIMATO IN FORMATO CARTACEO ED ELETTRONICO PER OPERAZIONI ELEMENTARI
+	        </lblScelta1A>
+        
+        <fldTrattamentoStrumentiInformatici>
+            <!-- Trattamento dei miei dati personali e sensibili mediante strumenti informatici -->
+        </fldTrattamentoStrumentiInformatici>    
+        
+        	<lbldivConsensoDSE>
+        		CONSENSO FACOLTATIVO AL TRATTAMENTO DEI DATI PERSONALI CON DOSSIER SANITARIO ELETTRONICO
+        	</lbldivConsensoDSE>
+        	<lblInformativaDSE>
+        		Letta e compresa l'informativa relativa al trattamento dei propri dati personali compresi quelli di salute ed esclusi i dati soggetti 
+        		ad anonimato per legge (di norma oscurati automaticamente) effettuato da ASL2 tramite il proprio personale con il Dossier Sanitario Elettronico 
+        		e consapevole che il relativo consenso è FACOLTATIVO,
+        	</lblInformativaDSE>
+        
+	        <lblSezione2A>
+	            <!-- Il presente consenso si riferisce alla gestione dei miei dati informatizzati per mezzo del Fascicolo Sanitario Elettronico Provinciale.
+	            Si tratta di tutti i dati che mi riguardano prodotti ed utilizzati in rete dalle strutture ospedaliere e territoriali di ASL2 e dagli altri titolari 
+	            autorizzati, ad eccezione dei dati da trattarsi in anonimato per legge o di cui io abbia chiesto l'oscuramento. -->
+	        </lblSezione2A>
+	        
+	        <lblScelta2A>
+	            ESPRIME IL CONSENSO FACOLTATIVO ALLA COSTITUZIONE DEL PROPRIO DOSSIER  SANITARIO ELETTRONICO ED ALLA SUA INTEGRAZIONE CON I DATI DI SALUTE 
+	            PRODOTTI DA ASL2 DA ORA IN POI  
+	        </lblScelta2A>
+	        
+	        <lblScelta2Abis>
+	            esclusi i dati soggetti ad anonimato e salvo l'esercizio del diritto di oscuramento/non-visibilità a dossier da esercitarsi 
+	            caso per caso all'atto di formazione del dato/documento  
+	        </lblScelta2Abis>
+	        
+	        <lblScelta2B>
+	            ESPRIME IL CONSENSO AD INSERIRE NEL PROPRIO DOSSIER SANITARIO ELETTRONICO I DATI DI SALUTE PREGRESSI ELABORATI DA ASL2 A DECORRERE DAL 2001 AD OGGI CON ESCLUSIONE 
+	            DEI DATI SOGGETTI AD ANONIMATO DI NORMA OSCURATI AUTOMATICAMENTE DALL'AZIENDA
+	        </lblScelta2B>
+	        	
+	        <lblDichiarazioneFinale>
+	            Dichiaro esplicitamente di aver compreso l'informativa ricevuta riguardante le modalità con cui l'ASL2 Savonese tratta i miei dati 
+	            personali e sensibili e di esprimere liberamente il mio consenso.
+	        </lblDichiarazioneFinale>	
+        	
+        <fldDichiarazione>Dichiarazione del consenso</fldDichiarazione>
+	        <lblDataDichiarazione>Data in cui l'operatore ha acquisito la dichiarazione di consenso</lblDataDichiarazione>
+	        <lblOperatoreDichiarazione>Operatore che ha acquisito la dichiarazione di consenso</lblOperatoreDichiarazione>
+	        <lblAcDescrizionePersonale>Nome</lblAcDescrizionePersonale>
+	        <lblAcCodicePersonale>Codice</lblAcCodicePersonale>
+        <fldRegistrazione>Registrazione del consenso</fldRegistrazione>
+	        <lblDataRegistrazione>Data registrazione</lblDataRegistrazione>
+	        <lblOperatoreRegistrazione>Operatore registrazione</lblOperatoreRegistrazione>
+        	
+        <fldDichiarazioneSostitutiva>Dichiarazione sostitutiva di atto di notorietà (da compilare con i dati di chi esercita la potestà/tutore)</fldDichiarazioneSostitutiva>	
+        	
+	        <lblInformativa2>Consapevole delle sanzioni penali in caso di dichiarazioni non veritiere richiamate dall'art.76 D.P.R. 445/2000</lblInformativa2>
+	        	
+	        <lblSostitutoNomeCognome>Il/la sottoscritto/a</lblSostitutoNomeCognome>	
+	        <lblSostitutoLuogoNascita>nato/a a </lblSostitutoLuogoNascita>
+	        <lblSostitutoDataNascita>il</lblSostitutoDataNascita>
+	        <lblSostitutoResidente>residente a </lblSostitutoResidente>
+			<lblSostitutoIndirizzo>indirizzo </lblSostitutoIndirizzo>
+	        <lblSostitutoDocumentoIdentita>documento di identità</lblSostitutoDocumentoIdentita>
+	        <lblTipoSostitutoDichiarante>dichiara sotto la propria responsabilità di</lblTipoSostitutoDichiarante>
+        			
+    </ROW>
+</ROWSET>

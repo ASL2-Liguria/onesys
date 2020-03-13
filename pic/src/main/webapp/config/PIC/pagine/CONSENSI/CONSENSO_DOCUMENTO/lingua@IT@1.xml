@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>CONSENSO AL TRATTAMENTO DEI DATI PERSONALI</lblTitolo>
+        
+        <fldStatoOscuramento>
+        	Indicare per il documento il grado di sensibilità che si desidera attribuire
+        </fldStatoOscuramento>        
+        	<lblStatoOscuramento>Stato oscuramento</lblStatoOscuramento>
+        
+        <fldDSE>
+        	DSE - Dossier Sanitario Elettronico
+        </fldDSE>
+        	<lblVisInfoDSE>Il paziente ha preso visione e compreso l'informativa fornita riguardante il DSE</lblVisInfoDSE>
+        	<lblInfoDSE>Il paziente ha preso visione e compreso l'informativa fornita riguardante il DSE</lblInfoDSE>
+        	<lblInserimentoDSE>Il paziente vuole oscurare o rendere visibile questo dato nel suo DSE? (questa scelta determina la visibilità o meno del dato nel suo Dossier Sanitario Elettronico e deve essere acquisita dal paziente)"</lblInserimentoDSE>
+        	<lblVisib>Responsabilità personale per mancata richiesta al paziente</lblVisib>
+        	<lblNONVisib>Responsabilità personale per mancata richiesta al paziente</lblNONVisib>        	
+        	
+        	<lblVisib_old>Questa scelta determina la visibilita' di questo dato tramite DSE consultabile dal professionista sanitario che l'ha o che l'avra' in cura</lblVisib_old>
+        	<lblNONVisib_old>Questa scelta determina la NON visibilita' di questo dato tramite DSE consultabile dal professionista sanitario che l'ha o che l'avra' in cura</lblNONVisib_old>
+        
+        <fldFSE>
+        	FSE - Fascicolo Sanitario Elettronico
+        </fldFSE>
+        	<lblVisInfoFSE>Il paziente ha preso visione e compreso l'informativa fornita riguardante il FSE</lblVisInfoFSE>
+        	<lblInfoFSE>Il paziente ha preso visione e compreso l'informativa fornita riguardante il FSE</lblInfoFSE>
+        	<lblInserimentoFSE>Vuole il paziente inserire il dato in oggetto a FSE?</lblInserimentoFSE>
+        	<lblOscuramentoFSE>Il paziente vuole oscurare o rendere visibile questo dato nel suo FSE? (questa scelta determina la visibilità o meno del dato nel suo Fascicolo Sanitario Elettronico e deve essere acquisita dal paziente)" </lblOscuramentoFSE>
+        	
+        
+        <fldlblWarning>
+        </fldlblWarning>
+        	<lblWarning>Il consenso rilasciato dal paziente viene espresso su un documento già acquisito dal repository clinico</lblWarning>
+        	        
+    </ROW>
+</ROWSET>

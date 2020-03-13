@@ -1,0 +1,8 @@
+<INCLUDE>
+    <CSS path="config/PIC/pagine/CONSENSI/CONSENSO_EVENTO/Evento.css"/>
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_EVENTO/V_CONSENSO_EVENTO.js" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js"/>
+    <JS path="js/PIC/PIC_bridge.js"/>
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_EVENTO/Evento.js"/>
+</INCLUDE>

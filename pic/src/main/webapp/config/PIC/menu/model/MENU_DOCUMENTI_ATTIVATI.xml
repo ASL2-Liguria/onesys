@@ -1,0 +1,16 @@
+<MENU>
+	<ID>MENU_DOCUMENTI_ATTIVATI</ID>
+	<TITLE>"MENU"</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWR.VD</ID>
+			<LINK><![CDATA[function(rec){NS_FUNCTIONS.gestOscSingleDoc(rec);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return (LIB.isValid(rec));}]]></WHERE>
+			<OUTPUT>"Conferimento/Oscuramento documento"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

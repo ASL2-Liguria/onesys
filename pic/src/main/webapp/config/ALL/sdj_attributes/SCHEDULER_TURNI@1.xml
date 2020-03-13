@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="SCHEDULER_TURNI">
+        <OBJ classe_id="PATH::div">
+            <PROC id="setId">
+                <PAR value="sTurni"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_container"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="style"/>
+                <PAR value="width:100%;height:100%;"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@30">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_navline"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@30.div@31">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_prev_button"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@30.div@32">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_next_button"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@30.div@33">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_today_button"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@30.div@36">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_date"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@50">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_header"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@60">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dhx_cal_data"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

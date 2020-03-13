@@ -1,0 +1,34 @@
+<ROWSET>
+   <ROW>
+        <mMenu>MENU</mMenu>
+        <ttmMenu>Menu</ttmMenu>        
+        <mAnagrafica>Anagrafica</mAnagrafica>
+        <ttmAnagrafica>Anagrafica</ttmAnagrafica>
+        <mTest>Test</mTest>
+        <ttmTest>Test</ttmTest>        
+        <mStampa>STAMPA</mStampa>
+        <ttStampa>Stampa</ttStampa>
+        <mStampaInformativaPrivacy>Stampa Informativa Privacy</mStampaInformativaPrivacy>
+        <ttStampaInformativaPrivacy>Stampa Informativa Privacy</ttStampaInformativaPrivacy>
+        <mStampaInformativaPrivacyMMG>Stampa Informativa Privacy MMG</mStampaInformativaPrivacyMMG>
+        <ttStampaInformativaPrivacyMMG>Stampa Informativa Privacy MMG</ttStampaInformativaPrivacyMMG>
+        <mStampaConsensoPrivacy>Stampa Consenso Privacy</mStampaConsensoPrivacy>
+        <ttStampaConsensoPrivacy>Stampa Consenso Privacy</ttStampaConsensoPrivacy>
+        <mStampaInformativaCaregiver>Stampa Informativa Caregiver</mStampaInformativaCaregiver>
+        <ttmStampaInformativaCaregiver>Stampa Informativa Caregiver</ttmStampaInformativaCaregiver>
+        <mStampaRevocaConsenso>Stampa Revoca Consenso</mStampaRevocaConsenso>
+        <ttmStampaRevocaConsenso>Stampa Revoca Consenso</ttmStampaRevocaConsenso>
+        <mStampaCareGiver>Stampa Caregiver</mStampaCareGiver>
+        <ttmStampaCareGiver>Stampa Caregiver</ttmStampaCareGiver>
+        <mAuditLog>Audit LOG</mAuditLog>
+        <ttmAuditLog>Riepilogo LOG per Audit</ttmAuditLog>
+        <mWkFatturazione>Wk Fatturazione</mWkFatturazione>
+        <mTestSchede>Test Schede</mTestSchede>
+        <mSchedaPolitrauma>Scheda Politrauma</mSchedaPolitrauma>
+        <mRiepilogoPrenotazione>Riepilogo Prenotazione</mRiepilogoPrenotazione>
+        <mSchedaLingua>Scheda Lingua</mSchedaLingua>
+        <mWkList>Lista Worklist</mWkList>
+        <mRicercaMMG>Ricerca MMG</mRicercaMMG>
+        <ttmRicercaMMG>Ricerca MMG</ttmRicercaMMG>
+    </ROW>
+</ROWSET>

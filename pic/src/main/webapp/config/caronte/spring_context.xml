@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="elcoInfo" class="it.elco.listener.ElcoContextInfo" lazy-init="false"/>
+
+    <bean id="ElcoFactoryFenix" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="file:#{elcoInfo.getContextPath() + 'config/caronte/connection_fenix.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="ElcoFactoryRegistry" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="file:#{elcoInfo.getContextPath() + 'config/caronte/connection_registry.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="ElcoFactoryAnagrafica" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="file:#{elcoInfo.getContextPath() + 'config/caronte/connection_anagrafica.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="ElcoFactoryAmbulatorio" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="file:#{elcoInfo.getContextPath() + 'config/caronte/connection_ambulatorio.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="ElcoFactoryADT" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="file:#{elcoInfo.getContextPath() + 'config/caronte/connection_adt.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="ElcoFactoryEventi" class="it.elco.caronte.factory.config.ConfigConnection" scope="prototype">
+        <property name="propertiesConnection">
+            <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+                <property name="location" value="file:#{elcoInfo.getContextPath() + 'config/caronte/connection_eventi.properties'}"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="POLARIS_SDJ" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryFenix"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="SDJ"/>
+                <!-- Opzionale, se non viene impostato il suo valore sarà uguale al POOL.USERNAME... -->
+                <!--<entry key="CONNECTION.ACTION" value="SDJ"/>-->
+                <entry key="POOL.ID" value="SDJ"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_sdj.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="CONFIG_WEB" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryFenix"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="CONFIG_WEB"/>
+                <entry key="POOL.ID" value="WEB"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_config.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="POLARIS_DATI" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryFenix"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="POLARIS_DATI"/>
+                <entry key="POOL.ID" value="DATI"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_dati.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="PORTALE_PIC" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryRegistry"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="XDSREGISTRY"/>
+                <entry key="POOL.ID" value="PORTALE_PIC"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_portale_pic.xml</value>
+                <value>config/caronte/query_consensi.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="ANAGRAFICA" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryAnagrafica"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="RADSQL"/>
+                <entry key="POOL.ID" value="ANAGRAFICA"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_anagrafica.xml</value>
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="WHALE" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryAnagrafica"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="RADSQL"/>
+                <entry key="POOL.ID" value="WHALE"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="AMBULATORIO" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryAmbulatorio"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="RADSQL"/>
+                <entry key="POOL.ID" value="AMBULATORIO"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="ADT" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryADT"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="ADT"/>
+                <entry key="POOL.ID" value="ADT"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+            </util:list>
+        </property>
+    </bean>
+
+    <bean id="EVENTI" class="it.elco.caronte.factory.config.ConfigUser">
+        <property name="configConnection" ref="ElcoFactoryEventi"/>
+
+        <property name="propertiesConnection">
+            <map>
+                <entry key="CONNECTION.USER" value="RADSQL"/>
+                <entry key="POOL.ID" value="EVENTI"/>
+            </map>
+        </property>
+
+        <property name="listQuery">
+            <util:list value-type="java.lang.String">
+                <value>config/caronte/query_eventi.xml</value>
+            </util:list>
+        </property>
+    </bean>
+    
+    <bean id="PredicateXdsDocumentFactory" class="it.elco.fenix.pic.predicate.PredicateXdsDocumentFactoryImpl" lazy-init="true">
+        <constructor-arg>
+            <bean class="it.elco.fenix.pic.bean.builder.RichiestaAutorizzazioniPrivacyBuilder">
+                <constructor-arg>
+                    <bean class="it.elco.fenix.pic.bean.builder.AssistitoBuilder"/>
+                </constructor-arg>               
+            </bean> 
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="it.elco.fenix.pic.bean.builder.XdsDocumentBuilder"/>
+        </constructor-arg>        
+        <constructor-arg value="config/PIC/privacy.properties"/>
+    </bean> 
+</beans>

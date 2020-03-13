@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <title>Valutazione Pre-Endoscopica</title>
+        
+		<link rel="stylesheet" href="css/jquery-ui.css" />
+        <link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />    
+        
+        <link rel="stylesheet" href="css/Valutazione.css" />            
+
+        <script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/jquery.mobile-1.2.0.min.js"></script>
+        
+		<script src="js/engineValuazione.js"></script>    
+        
+        <script type="text/javascript" src="../../dwr/engine.js"></script>
+        <script type="text/javascript" src="../../dwr/util.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/eventDWR.js"></script>
+        <script type="text/javascript" src="../../dwr/interface/toolKitDB.js"></script>
+        
+    </head>
+<body>
+<!----------------------------------------------------------------------------------------------------------------------->
+<div data-role="header" class="ui-bar-a ui-header" role="banner"  data-theme="b">
+	<h1 id="titolo_scheda" class="ui-title"  role="heading" aria-level="1">Valutazione Pre-Endoscopica:</h1>
+	<h3 id="titolo_scheda_dett" class="ui-title"  role="heading" aria-level="1">Paziente</h3>
+</div> 
+<div data-role="collapsible-set" data-theme="b">
+  <form>
+        <div data-role="collapsible" data-collapsed="false" >
+            <h3>AMMISSIONE</h3>
+            <fieldset data-role="controlgroup" data-type="vertical" data-mini="true">
+                <div class="titolo">Idoneo?</div>
+                <div id="divIdoneo">
+                    <input id="chkIdoneoS" name="idoneo" type="checkbox" value="S" /><label for="chkIdoneoS">Sì</label>
+                    <input id="chkIdoneoN" name="idoneo" type="checkbox" value="N" /><label for="chkIdoneoN">No</label>
+				</div>
+				<div id="divNote" class="titolo">Note</div>
+		            <textarea name="txtnoteAmm" rows="8" id="txtnoteAmm" placeholder="" class="clsText"></textarea>
+            </fieldset>                
+        </div>
+    <div data-role="collapsible" data-collapsed="false">
+            <h3>DIMISSIONE</h3>
+                <div class="titolo">Note</div>
+            <textarea name="txtnoteDim" rows="8" id="txtnoteDim" placeholder="" class="clsText"></textarea>
+      </div>
+</form>
+<div data-theme="b" data-role="footer" data-position="fixed">
+                <h3>
+      </h3>
+                <a data-role="button" href="javascript:self.close();" class="ui-btn-right">
+                    Chiudi
+                </a>
+                <a data-role="button" href="javascript:salva();" class="ui-btn-left">
+                    Salva
+                </a>
+  </div>
+</div>
+</div>    
+<!----------------------------------------------------------------------------------------------------------------------->
+</body>
+</html>

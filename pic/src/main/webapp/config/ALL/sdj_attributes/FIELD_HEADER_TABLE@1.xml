@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="FIELD_HEADER_TABLE">
+        <OBJ classe_id="PATH::div(FIELD_HEADER)">
+            <PROC id="VOID">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.table@1*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="campi"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.table@1">
+            <PROC id="appendAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

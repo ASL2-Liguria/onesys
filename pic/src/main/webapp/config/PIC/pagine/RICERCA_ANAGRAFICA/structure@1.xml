@@ -1,0 +1,22 @@
+<PAGINA key_id="RICERCA_ANAGRAFICA">
+    <HEADER_WK key_id="RICERCA_ANAGRAFICA" valore="DEFAULT,WK,RICERCA_ANAGRAFICA#DEFAULT,WORKLIST" evento="START_END"></HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wk" valore="Worklist#butAllegaByBarcode,butAzzeraFiltri,butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRicercaAnagrafica" valore="filtroRicercaAnagrafica#RICERCA_ANAGRAFICA" evento="START">
+            <TABELLA.INIT key_id="table" valore="" evento="START">
+                <TR.INIT key_id="r1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="r1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="r2" valore="" evento="START">
+                    <FILTRO_DATA key_id="DataNascita" valore="lblDataNasc#txtDataNasc#DataNascita####data_nascita##V" evento="START"></FILTRO_DATA>
+                </TR.INIT>
+                <TR.INIT key_id="r2" valore="" evento="START">
+                    <FILTRO_TEXT key_id="r2" valore="lblCodFisc#txtCodFisc#codice_fiscale##T" evento="START"></FILTRO_TEXT>
+                </TR.INIT>                                
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>      
+    </TABULAZIONE.FILTRI>
+</PAGINA>
+

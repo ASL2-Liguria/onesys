@@ -1,0 +1,36 @@
+<MENU>
+    <ID>MENU_RICERCA_MMG</ID>
+    <TITLE>"Menu Ricerca MMG"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>GESTISCI_DOCUMENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) {WK_RICERCA_MMG.apriGestisciDocumenti(rec[0]);}
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WK_RICERCA_MMG.recSingoloSelezionato(rec);}]]></WHERE>
+            <OUTPUT>"Gestisci documenti"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>Gestisci documenti</INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>AGGIUNGI_DOCUMENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) {WK_RICERCA_MMG.aggiungiDocumento(rec[0]);}
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return WK_RICERCA_MMG.recSingoloSelezionato(rec);}]]></WHERE>
+            <OUTPUT>"Aggiungi documenti"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>Aggiungi documenti</INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+    </LIST>
+</MENU>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+	<ID>WK_REPOSITORY</ID>
+	<ID-QUERY connection="PORTALE_PIC">XDSREGISTRY.DOCUMENTI</ID-QUERY>
+	<TITLE>"Elenco Documenti"</TITLE>
+	<PAGER>N</PAGER>
+    <!--id del Bean da utilizzare per ottenere il predicato per filtrare la wk lato java (PAGER DEVE ESSERE = N!!)-->
+    <PREDICATE-FACTORY-BEAN>PredicateXdsDocumentFactory</PREDICATE-FACTORY-BEAN>
+	<SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+	<STRUCTURE>
+		<MENU>
+			<ID>MENU_WK_REPOSITORY</ID>
+		</MENU>
+		<ROWS>
+			<ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+			<HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('ID');}</CLICK>
+            </EVENTS>
+		</ROWS>
+		<COLUMNS>
+			<LIST>
+			
+                <COLUMN>
+					<ID>
+						<COL>APRI</COL>
+					</ID>
+					<DESCRIPTOR></DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return PROCESS_CLASS.processClassApri(data, wk, LOG_DSE.apriDocRep);
+                        }]]></PROCESS>
+					<WIDTH>20px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>N</RESIZABLE>
+				</COLUMN>
+				
+				<!-- <COLUMN>
+					<ID>
+						<COL>INFO</COL>
+					</ID>
+                    <DESCRIPTOR>" "</DESCRIPTOR>
+                   	<PROCESS type="javascript"><![CDATA[function(data, wk){ return NS_PROCESS_CLASS.setOpenDocument( data ); }]]></PROCESS>
+					<WIDTH>20px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+                </COLUMN> -->
+			
+				<COLUMN>
+					<ID>
+						<COL>DATA_DOCUMENTO</COL>
+						<DB>DATA_DOCUMENTO</DB>
+					</ID>
+					<DESCRIPTOR>"Data Documento"</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk){ return PROCESS_CLASS.processClassDataISO( data.DATA_DOCUMENTO ); }]]></PROCESS>
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>NOSOLOGICO</COL>
+						<DB>NOSOLOGICO</DB>
+					</ID>
+					<DESCRIPTOR>"Nosologico"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>N</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>DESCRIZIONE</COL>
+						<DB>DESCRIZIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Documento"</DESCRIPTOR>           				
+					<WIDTH>150px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>REPARTOEROG</COL>
+						<DB>REPARTOEROG</DB>
+					</ID>
+					<DESCRIPTOR>"Struttura erogante"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>AUTORE</COL>
+						<DB>AUTORE</DB>
+					</ID>
+					<DESCRIPTOR>"Autore"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<COLUMN>
+					<ID>
+						<COL>PRESTASSOCIATE</COL>
+						<DB>PRESTASSOCIATE</DB>
+					</ID>
+					<DESCRIPTOR>"Esami associati"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN>
+				
+				<!-- <COLUMN>
+					<ID>
+						<COL>VERSIONE</COL>
+						<DB>VERSIONE</DB>
+					</ID>
+					<DESCRIPTOR>"Versione"</DESCRIPTOR>           				
+					<WIDTH>100px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN> -->
+				
+				<!-- <COLUMN>
+					<ID>
+						<COL>PATIENTID</COL>
+						<DB>PATIENTID</DB>
+					</ID>
+					<DESCRIPTOR>"Id Paziente"</DESCRIPTOR>           				
+					<WIDTH>200px</WIDTH>
+					<VISIBLE>S</VISIBLE>
+					<SORTABLE>S</SORTABLE>
+					<MOVABLE>S</MOVABLE>
+					<RESIZABLE>S</RESIZABLE>
+				</COLUMN> -->
+				
+			</LIST>
+			<SORT>
+				<COLUMN id="CREATIONTIME">DESC</COLUMN>
+			</SORT>
+		</COLUMNS>
+	</STRUCTURE>
+</WORKLIST>

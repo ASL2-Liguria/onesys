@@ -1,0 +1,26 @@
+<PAGINA key_id="GESTIONE_DSE">
+	<HEADER_PAGE key_id="GESTIONE_DSE"
+		valore="DEFAULT_PIC,SCHEDA,GESTIONE_DSE#DEFAULT,GESTIONE_DSE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_DATA#MMG_DATI#GESTIONE_DSE#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="GestioneDSE#lblTitolo#butChiudi" evento="START">
+			
+			<TABULAZIONE.CREA_TAB key_id="tabDocDSE" valore="tabDocDSE" evento="START">
+				<FIELDSET key_id="fldWKDSE" valore="fldWKDSE" evento="START">
+					<DIV.WORKLIST key_id="ElencoWorkDSE" valore="ElencoWorkDSE"	evento="START"></DIV.WORKLIST>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabEventiDSE" valore="tabEventiDSE" evento="START">
+				<FIELDSET key_id="fldWKEventiDSE" valore="fldWKEventiDSE" evento="START">
+					<DIV.WORKLIST key_id="ElencoWorkEventiDSE" valore="ElencoWorkEventiDSE"	evento="START"></DIV.WORKLIST>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

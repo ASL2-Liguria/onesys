@@ -1,0 +1,16 @@
+<MENU>
+    <ID>DOCUMENTI_ALLEGATI2</ID>
+    <TITLE>traduzione.Menu</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>M_CANCELLA_DOCUMENTO</ID>
+            <LINK><![CDATA[function(rec){NS_WORKLIST_DOCUMENTI_ALLEGATI.cancella(rec);}]]></LINK>
+            <URL_IMAGE>./img/CMenu/rimuovi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return NS_WORKLIST_DOCUMENTI_ALLEGATI.whereCancella(rec);}]]></WHERE>
+            <OUTPUT>traduzione.lblCancellaDocumento</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

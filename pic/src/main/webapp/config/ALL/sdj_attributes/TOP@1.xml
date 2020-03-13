@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TOP">
+        <OBJ classe_id="PATH::">
+            <PROC id="setOutputHtmlCompressed">
+                <PAR value="N"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="LOADER::translator">
+            <PROC id="loadTranslation">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.meta">
+            <PROC id="VOID"/>
+        </OBJ>
+        <OBJ classe_id="PATH::head.title">
+            <PROC id="setTagValue">
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head.script">
+            <PROC id="appendContent">
+                <PAR value="window.name = 'home';var home = window;"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head{.extHtmlHead@EXT_DEFAULT}">
+            <PROC id="set_origine">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::head{.extHtmlHead@EXT_DEFAULT}">
+            <PROC id="work"/>
+        </OBJ>
+        <OBJ classe_id="PATH::head{.extPrintBaseObj}">
+            <PROC id="printBaseObj">
+                <PAR value="S"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::body*">
+            <PROC id="VOID"/>
+        </OBJ>
+    </ATTR>
+    <ATTR ev="END" id="TOP">
+        <OBJ classe_id="PATH::body*{.extHtmlHead@EXT_DEFAULT}">
+            <PROC id="work"/>
+        </OBJ>
+        <OBJ classe_id="PATH::body.form{.extHtmlForm@EXTRA_FIELD}">
+            <PROC id="appendFormExtern"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

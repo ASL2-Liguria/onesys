@@ -1,0 +1,25 @@
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Storico Consensi</lblTitolo>
+		<fldVersioniInner></fldVersioniInner>
+		<lblNomeAssistito>Nome</lblNomeAssistito>
+		<lblCognomeAssistito>Cognome</lblCognomeAssistito>
+		<btnCercaVersione>Cerca</btnCercaVersione>
+		
+		<!-- LABEL FILTRO ASSISTITI -->
+		<lblTipoConsenso>Tipo Consenso</lblTipoConsenso>
+		<butCerca>Cerca</butCerca>
+		<!-- INTESTAZIONE WK ASSISTITI -->
+		<lblWkVersConsUniDataDic>Data Dichiarazione</lblWkVersConsUniDataDic>
+		<lblWkVersConsTipo>Tipo Consenso</lblWkVersConsTipo>
+		<lblWkVersConsIdenRevoca>Iden Revoca</lblWkVersConsIdenRevoca>
+		<lblWkVersConsUniUteDic>Utente Dichiarazione</lblWkVersConsUniUteDic>
+		<lblWkVersConsUniDataIns>Data Inserimento</lblWkVersConsUniDataIns>
+		<lblWkVersConsUniUteIns>Utente Inserimento</lblWkVersConsUniUteIns>
+		<lblWkVersConsUniVersione>Versione</lblWkVersConsUniVersione>
+		<lblWkVersConsUniAssAut>Assigning Authority</lblWkVersConsUniAssAut>
+		<lblWkVersConsUniDataMod>Data Modifica</lblWkVersConsUniDataMod>
+		<lblWkVersConsUniUteMod>Utente Modifica</lblWkVersConsUniUteMod>
+		<!-- MENU CONTESTUALE WK ASSISTITI -->
+    </ROW>
+</ROWSET>

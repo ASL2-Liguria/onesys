@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="SPINNER">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="numericInput"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="appendAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.i@1">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="icon-minus"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div(INPUT.TEXT)">
+            <PROC id="VOID">
+                <PAR type="idx" value="3"/>
+                <PAR type="idx" value="4"/>
+                <PAR type="idx" value="5"/>
+                <PAR type="idx" value="6"/>
+                <PAR type="idx" value="7"/>
+                <PAR type="idx" value="8"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.i@2">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="icon-plus"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extSpinner@EXT_SPINNER}">
+            <PROC id="setConfigPlugin">
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extSpinner@EXT_SPINNER}">
+            <PROC id="generaScript">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

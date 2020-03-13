@@ -1,0 +1,21 @@
+<INCLUDE>
+	<CSS path="css/mix.css" />
+	<JS path="js/Base/LIB.js" />
+	<JS path="js/Base/NO-min/ecma.js" condizione="IE" />
+	<!-- polyfill per JSON in IE7 -->
+    <JS path="js/PIC/polyfillIE7.js" condizione="IE 7" />
+	<JS path="js/Base/NO-min/infoDialog.js" />
+	<JS path="js/Base/tinymce4/tinymce.min.js" />
+	<JS path="js/Base/NO-min/jquery.combolist.js" />
+	<DWR path="dwr/engine.js" />
+	<DWR path="dwr/interface/toolKitDB.js" />
+	<DWR path="dwr/interface/toolKitWK.js" />
+	<JS path="js/Base/NS_WORKLIST_COMPONENT.js" />
+	<!-- <JS path="js/Base/NS_PROCESS_CLASS.js" /> -->
+	<JS path="js/Base/NS_FENIX.js" />
+	<CSS path="css/ie7.css" condizione="IE 7" />
+	<!-- <JS path="js/NS_SCRIPT_WK.js" /> -->
+	<!-- JS path="js/Refertazione/FUNZIONI_WK_REFERTAZIONE.js" />
+	<CSS path="css/eoc.css" /-->
+</INCLUDE>
+

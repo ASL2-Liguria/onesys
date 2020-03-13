@@ -1,0 +1,16 @@
+<MENU>
+	<ID>MENU_EVENTI_INESPRESSI</ID>
+	<TITLE>"MENU"</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MEI.APRI_CONSENSO_EVENTO</ID>
+			<LINK><![CDATA[function(rec){NS_EVENTI.checkIfApriConsenso(rec[0]);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1);}]]></WHERE>
+			<OUTPUT>"Apri CONSENSO evento"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

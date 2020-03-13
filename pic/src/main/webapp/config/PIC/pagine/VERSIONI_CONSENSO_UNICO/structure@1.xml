@@ -1,0 +1,20 @@
+<PAGINA key_id="VERSIONI_CONSENSO_UNICO">
+	<HEADER_PAGE key_id="VERSIONI_CONSENSO_UNICO" valore="DEFAULT,SCHEDA,VERSIONI_CONSENSO_UNICO#DEFAULT,VERSIONI_CONSENSO_UNICO" evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati" valore="dati" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber" valore="VERSIONI_CONSENSO_UNICO#lblTitolo#butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabVersioni" valore="tabVersioni" evento="START">
+				<FIELDSET_TABLE key_id="fldVersioniInner" valore="fldVersioniInner" evento="START">
+					<TR_TD_LABEL_CHECK key_id="chkTipoConsenso" valore="lblTipoConsenso##chkTipoConsenso#chkTipoConsenso#N#{width:'auto', ctrl:false}##" evento="START">
+						<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TD_BUTTON>
+					</TR_TD_LABEL_CHECK>
+					<TR.INIT key_id="trSceltaVersioni" valore="" evento="START">
+						<TD.INIT key_id="tdSceltaVersioni" valore="3" evento="START">
+							<DIV key_id="wkVersioniConsensoUnico" valore="wkVersioniConsensoUnico" evento="START"></DIV>
+						</TD.INIT>	
+					</TR.INIT>
+				</FIELDSET_TABLE>
+			</TABULAZIONE.CREA_TAB>
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>

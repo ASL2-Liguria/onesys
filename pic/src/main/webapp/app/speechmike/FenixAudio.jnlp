@@ -1,0 +1,36 @@
+<jnlp spec="1.0+" href="FenixAudio.jnlp">
+    <information>
+        <title>Fenix Audio</title>
+        <vendor>Elco</vendor>
+    </information>
+
+    <security>
+        <all-permissions/>
+    </security>
+
+    <resources>
+        <j2se version="1.7+" href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="FenixAudio.jar" main="true"/>
+		<jar href="args4j-2.0.1.jar"/>
+		<jar href="jave-1.0.2.jar"/>
+		<jar href="JSon.jar"/>
+		<jar href="com4j.jar"/>
+        <property name="java.library.path" value="." />
+    </resources>
+
+	<resources os="Windows" arch="x86">
+		<nativelib href="com4j-x86.jar"/>
+	</resources>
+
+    <resources os="Windows" arch="amd64">
+        <nativelib href="com4j-amd64.jar"/>
+    </resources>
+
+	<applet-desc
+            name="Fenix Audio recorder"
+            main-class="it.elco.multimedia.audio.FenixAudio"
+            width="400" height="300">
+    </applet-desc>
+	
+    <update check="background"/>
+</jnlp>

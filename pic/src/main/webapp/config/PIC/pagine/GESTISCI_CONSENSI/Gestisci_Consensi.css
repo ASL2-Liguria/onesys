@@ -1,0 +1,45 @@
+body {
+    width	: 740px;
+    margin	: auto;
+}
+
+#fldConsensi {
+ 	overflow-y: scroll;
+ 	height: 220px;
+ 	border: none;
+}
+
+.row {
+	width : 98%;
+	padding: 5px;
+	margin: 5px; 
+	background-color: #E8E6DF;
+}
+
+.attivo {
+ 	background-color	: #a9f3a9;
+}
+
+.iconadisattiva {
+	color		: #d6c5c5;
+	cursor 		: default;
+}
+
+.divTasti {
+	text-align	: center; 
+	width		: 35%; 
+	float		: right;
+}
+
+.divConsenso {
+	width		: 60%; 
+	float		: left;
+	font-size	: large;
+	text-align	: center; 
+}
+
+.tasto {
+	width		: 20px;
+	height		: 20px;
+	font-size	: large;
+}

@@ -1,0 +1,43 @@
+<PAGINA key_id="CAREGIVER">
+
+    <HEADER_PAGE key_id="CAREGIVER" valore="DEFAULT_PIC,SCHEDA,CONSENSI/CAREGIVER#DEFAULT,CONSENSI/CAREGIVER" evento="START_END"></HEADER_PAGE>
+
+    <FORM key_id="dati" valore="dati#PKG_PIC_EVENTO.CAREGIVER#PORTALE_PIC##IDEN#IDEN##" evento="START_END">
+
+        <TABULAZIONE.INIT key_id="tab" valore="Caregiver#lblTitolo#butSalva,butStampa,butChiudi" evento="START_END">
+
+            <INPUT.HIDDEN key_id="h-action" valore="h-action" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-anagrafica" valore="h-anagrafica" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-assigningAuthority" valore="h-assigningAuthority" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-nosologicoPaziente" valore="h-nosologicoPaziente" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-tipo" valore="h-tipo" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-uteIns" valore="h-uteIns" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-versione" valore="h-versione" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-idenConsenso" valore="h-idenConsenso" evento="START"></INPUT.HIDDEN>
+
+            <FIELDSET_TABLE key_id="fldCaregiver" valore="fldCaregiver" evento="START">
+                <DIV key_id="divCaregiverPaziente" valore="divCaregiverPaziente" evento="START">
+                    <LABEL key_id="lblCaregiverPaziente" valore="lblCaregiverPaziente" evento="START"></LABEL>
+                </DIV>
+                <!--<TR_TD_LABEL key_id="lblCaregiverPaziente" valore="lblCaregiverPaziente##3" evento="START"></TR_TD_LABEL>-->
+                <TR_TD_LABEL key_id="lblCaregiverEvento" valore="lblCaregiverEvento##3" evento="START"></TR_TD_LABEL>
+                <TR_TD_LABEL key_id="lblCaregiverVoid" valore="lblCaregiverVoid##3" evento="START"></TR_TD_LABEL>
+                <!--<TR.INIT key_id="TR1" valore="" evento="START">
+                    <TD.INIT key_id="TD1" valore="" evento="START">
+                        <LABEL key_id="lblCaregiverStatoSalute" valore="lblCaregiverStatoSalute" evento="START"></LABEL>
+                    </TD.INIT>
+                </TR.INIT>-->
+                <TR_TD_LABEL key_id="lblCaregiverStatoSalute" valore="lblCaregiverStatoSalute##3" evento="START"></TR_TD_LABEL>
+                <TR_TD_RADIO key_id="radCaregiverStatoSalute" valore="radCaregiverStatoSalute#radCaregiverStatoSalute#{width:50}#S" evento="START">
+                	<TD_TEXT key_id="txtCaregiverStatoSalute" valore="txtCaregiverStatoSalute#####N" evento="START"></TD_TEXT>
+                </TR_TD_RADIO>
+                <TR_TD_LABEL key_id="lblCaregiverUbicazione" valore="lblCaregiverUbicazione##2" evento="START"></TR_TD_LABEL>
+                <TR_TD_RADIO key_id="radCaregiverUbicazione" valore="radCaregiverUbicazione#radCaregiverUbicazione#{width:50}#S" evento="START">
+                	<TD_TEXT key_id="txtCaregiverUbicazione" valore="txtCaregiverUbicazione#####N" evento="START"></TD_TEXT>
+                </TR_TD_RADIO>
+            </FIELDSET_TABLE>
+        </TABULAZIONE.INIT>
+
+    </FORM>
+
+</PAGINA>

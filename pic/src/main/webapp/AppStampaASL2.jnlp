@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="6.0+" codebase="" href="AppStampaASL2.jnlp" version="2.7.4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="jnlp.xsd"
+>
+	<information>
+		<title>ElcoApplet 2.7.4</title>
+		<vendor>Elco</vendor>
+		<offline-allowed/>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<update check="always" policy="always" />
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="app/SignedFenixAppletASL2.jar" version="2.7.4" main="true" />
+		<jar href="app/JSon.jar" version="1.0.9" download="lazy" />
+		<jar href="app/JTwain.jar" version="1.0.9" download="lazy" />
+		<jar href="app/PDFOne.jar" version="1.0.9" download="lazy" />
+		<jar href="app/bcpkix-jdk15on-148.jar" version="1.0.9" download="lazy" />
+		<jar href="app/bcprov-jdk15on-148.jar" version="1.0.9" download="lazy" />
+		<jar href="app/commons-io-2.5.jar" version="1.0.9" download="lazy" />
+		<jar href="app/commons-lang3-3.4.jar" version="1.0.9" download="lazy" />
+		<jar href="app/commons-logging-1.2.jar" version="1.0.9" download="lazy" />
+		<jar href="app/httpclient-4.5.2.jar" version="1.0.9" download="lazy" />
+		<jar href="app/httpcore-4.4.5.jar" version="1.0.9" download="lazy" />
+		<jar href="app/itextpdf-5.5.9.jar" version="1.0.9" download="lazy" />
+		<jar href="app/jaf.jar" version="1.0.9" download="lazy" />
+		<jar href="app/javamail.jar" version="1.0.9" download="lazy" />
+	</resources>
+	<applet-desc
+		main-class="it.elco.applet.elcoApplet"
+		name="AppStampa"
+		width="1"
+		height="1"
+	>
+		<param name="jtwain_dll" value="app/AspriseJTwain.dll"/>
+<!--
+		<param name="loadStampe" value="true"/>
+		<param name="wmode" value="transparent"/>
+		<param name="loadFirma" value="false"/>
+		<param name="loadSCL" value="false"/>
+		<param name="loadAQ" value="false"/>
+		<param name="ShowMediaTrays" value="S"/>
+		<param name="brokerUrl" value="tcp://192.168.3.10:61616" />
+		<param name="logoutOnDestroy" value="N" />
+-->
+	</applet-desc>
+</jnlp>

@@ -1,0 +1,38 @@
+<ROWSET>
+    <ROW>
+        <fldFunzioni>Funzioni</fldFunzioni>
+        <butIngrandisci>Ingrandisci</butIngrandisci>
+        <butDiminuisci>Diminuisci</butDiminuisci>
+        <butPagPrec>Pag. Precedente</butPagPrec>
+        <butPagSucc>Pag. Successiva</butPagSucc>
+        <butPagPrima>Prima Pagina</butPagPrima>
+        <butPagUltima>Ultima Pagina</butPagUltima>
+        <butRuotaOrario>Ruota Orario</butRuotaOrario>
+        <butRuotaAnti>Ruota Antiorario</butRuotaAnti>
+        <butEstraiTesto>Estrai Testo</butEstraiTesto>
+        <butChiudi>Chiudi</butChiudi>
+        <fldFunzioniStampa>Funzioni Stampa</fldFunzioniStampa>
+        <fldInfoDocumento>Info Documento</fldInfoDocumento>
+        <butStampa>Stampa</butStampa>
+        <butStampaSu>Stampa Su</butStampaSu>
+        <butSalvaSuFile>Salva Su File</butSalvaSuFile>
+        <lblNumPagine>Numero Pagine</lblNumPagine>
+        <lblPin>Pin</lblPin>
+        <butFirma>Firma</butFirma>
+        <fldFunzioniFirma>Funzioni Firma</fldFunzioniFirma>
+        <butValida>Valida</butValida>
+        <butValidaEsci>Valida e Torna Worklist</butValidaEsci>
+        <butValidaStampaEsci>Valida, Stampa  e Torna Worklist</butValidaStampaEsci>
+        <fldFunzioniValida>Funzioni Validazione</fldFunzioniValida>
+        <fldFunzioniRitornaWk>Funzioni Chiudi E Torna</fldFunzioniRitornaWk>
+        <butChiudiReturnWorklist>Chiudi e Torna Worklist</butChiudiReturnWorklist>
+        <lblPassword>Psw</lblPassword>
+        <h5NomeHostTit>Hostname:</h5NomeHostTit>
+        <h5UsernameTit>Username:</h5UsernameTit>
+        <h5DebugTit>Debug:</h5DebugTit>
+        <lblGoWkSysAdmin>Vai alla worklist System Admin</lblGoWkSysAdmin>
+        <lblNewRichMod>Sono presenti nuove richieste modifica</lblNewRichMod>
+        <msgConfirmApriOrdineSolaLettura>Impossibile modificare ordine già  preso in carico, aprire in sola lettura?</msgConfirmApriOrdineSolaLettura>
+        
+    </ROW>
+</ROWSET>

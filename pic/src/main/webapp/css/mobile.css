@@ -1,0 +1,381 @@
+/************************************************************************************
+	
+	SCHEDE
+	
+************************************************************************************/
+.hide-when-mobile {
+	display: none!important;	
+}
+
+html, body {
+	-webkit-text-size-adjust: auto; /* Automatically adjusted for Safari on iPhone. */
+	-ms-text-size-adjust: auto; 
+}
+
+body#wk, body#page {
+	padding: 5px 0 0 0;
+	overflow: auto;
+}
+
+body#page {
+	width: 100% !important;
+	margin: 0;	
+}
+
+#content {
+	margin-top: 0;	
+}
+
+.contentTabs {
+	width: 100% !important;
+}
+
+div.divtab {
+	padding: 0 2px;
+}
+
+ul.ulTabs, div.headerTabs, div.footerTabs, div.headerTabs .iconContainer {
+	height: 35px;
+	line-height: 35px;
+}
+
+div.headerTabs .iconContainer {
+	padding-top: 0;
+}
+
+div.headerTabs h2, ul.ulTabs li {
+	font-size: 13px;
+	line-height: 35px;
+}
+
+ul.ulTabs li  {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+div.headerTabs .iconContainer i {
+	font-size: 20px;
+}
+
+ul.ulTabs li {
+	padding: 0 8px;
+}
+
+#content {
+	margin-top: 35px;
+}
+
+
+body#page .contentDiv, body#page div.contentTabs, body#page .jspContainer {
+	margin-right: 1px;
+}
+
+fieldset.fldCampi legend {
+	font-size: 13px;
+}
+
+iframe.iScheda {
+	top: 40px;
+}
+
+#statusBar {
+	display: none;
+} 
+
+/************************************************************************************
+	
+	MENU
+	
+************************************************************************************/
+#divInfo {
+	height: 40px;	
+}
+
+#divInfo span {
+	font-size: 14px;
+}
+
+#divInfo i, #divInfo span i {
+	font-size: 22px;
+	vertical-align: middle;
+}
+
+#divInfo #dettaglioPaziente {
+	padding-top:2px;
+}
+
+.jsm ul li ul {
+	top: 35px !important;
+}
+
+div#menuBar, .jsm ul li a {
+	height: 35px;
+	line-height: 35px;
+	font-size: 13px;
+}
+
+#menuShortcut>ul {
+	height: 35px;
+	line-height: 35px;
+}
+
+#menuShortcut>ul>li {
+	padding: 5px 0;
+}
+
+#menuShortcut>ul>li a i {
+	font-size: 22px;
+}
+
+#linkBacheca #dettaglioBacheca {
+	width: 16px;
+	height: 16px;
+	left: 22px;
+	font-size: 11px;
+	line-height: 16px;
+}
+
+/************************************************************************************
+	
+	FORM
+	
+************************************************************************************/
+table.campi tr td.tdLbl {
+	height: 30px;
+	font-size: 13px;
+}
+
+td.tdTags input, td.tdText input,
+td.tdData input,
+td.tdAC input, td.tdTags input, td.tdText input
+{
+	width: 95% !important;
+	min-width: 150px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 13px;
+}
+
+td.tdData input {
+	max-width: 150px;
+}
+
+.RBpuls {
+	padding: 0 5px 0 2px;
+	height: 30px;
+	line-height: 30px;
+}
+.RBpuls span {
+	font-size: 13px;
+}
+
+.RBpuls>i {
+	margin-right: 5px;
+	margin-top: 8px;	
+}
+
+button {
+	min-width: 50px;
+	padding: 6px 12px;
+	color: #444;
+	font-size: 12px;
+	text-transform: uppercase;
+}
+
+div.footerTabs button {
+	margin-top: 3px;
+}
+
+button.Zebra_DatePicker_Icon_Inside {
+	margin-top: 8px;
+}
+
+/************************************************************************************
+	
+	WORKLIST
+	
+************************************************************************************/
+
+div.clsWk th, div.clsWk table tr , div.clsWk div.clsWkHdFix {
+	height: 32px !important;
+	line-height: 32px !important;
+}
+
+div.clsWk div.clsWkScroll table tr td div, div.clsWk div.clsWkHdFix table thead tr th {
+	font-size: 14px !important;
+}
+
+.worklist-icon {
+	font-size: 22px !important;
+	margin-left: 3px;
+	margin-right: 6px;
+}
+
+div.clsWk .openCM {
+	color: #3d3d3d;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	z-index: 100;
+}
+
+/************************************************************************************
+	
+	CONTEXT MENU
+	
+************************************************************************************/
+
+div.contextMenu ul {
+	width: 300px;
+}
+
+p.Separator {
+	font-size: 12px;
+}
+
+div.contextMenu ul p i {
+	font-size: 18px;
+}
+
+ul.cMenu li a {
+	font-size: 13px;
+	padding: 8px;
+}
+
+/************************************************************************************
+	
+	NOTIFICHE
+	
+************************************************************************************/
+
+#ambiance-notification {
+	top: 2px;
+	right: 2px;
+}
+
+.ambiance-default, .ambiance-error, .ambiance-info, .ambiance-success, .ambiance-warning {
+	margin: 2px;
+	padding: 8px;
+	width: 400px !important;
+}
+
+.ambiance, .ambiance-title {
+	font-size: 14px;
+}
+
+.ambiance-close  {
+	font-size: 22px !important;
+}
+
+/************************************************************************************
+	
+	LOGIN
+	
+************************************************************************************/
+img#logo {
+	margin-top: 40px;
+}
+
+.hRiq26 .hC, #formLogin label {
+	font-size: 14px;	
+}
+
+#formLogin input {
+	height: 35px;
+	line-height: 35px;
+	font-size: 14px;
+}
+
+/************************************************************************************
+	
+	DIALOG
+	
+************************************************************************************/
+.dialog_header .hC, .dialog-content-inner { font-size: 14px; }
+
+
+/************************************************************************************
+	
+	RESPONSIVE TABLE HACK 
+	
+************************************************************************************/
+
+	.clsWk .clsWkHdFix, 
+	.clsWk .clsWkLdg, 
+	.clsWk .clsWkFt {
+		display: none !important;
+	}
+	
+	.clsWk table, 
+	.clsWk thead, 
+	.clsWk tbody, 
+	.clsWk th, 
+	.clsWk td, 
+	.clsWk tr {
+	     display: block !important;
+	     -webkit-user-select: none !important;
+	     -webkit-touch-callout: none !important;
+	 }
+	 
+	 .clsWk thead {
+	 	display: none !important; 
+	 }
+	 
+	 div.clsWk table tr {
+	 	border: 1px solid #e5e5e5 !important;
+	 	height: auto !important;
+	 	line-height: 130% !important;
+	 	padding: 5px !important;
+	 
+	 	position: relative !important;
+}
+	 
+	 .clsWk table tr td {
+	 	position: relative !important;
+	 	border-bottom: none !important;
+	 	padding: 10px !important;
+	 	text-align: right;
+	}
+	
+	.clsWk table tr td:first-child, .clsWk table tr td:first-child div {
+		width: 35px !important;
+		height: 35px !important;
+		padding: 0 !important;
+	
+		position: absolute !important;
+}
+	
+	.clsWk table tr td:first-child div {
+		position: relative !important;
+		display: block !important;
+	}
+	
+	div.clsWk div.clsWkScroll table tr.clsSel td:first-child {
+		background: #f8f8f8!important;
+	}
+	
+	.clsWk table tr td:first-child i {
+		font-size: 20px;
+	}
+	 
+	 .clsWk table tr td[data-header=" "] {
+	 	display: none !important;
+	 }
+	 
+	.clsWk table tr td:before { 
+		content: attr(data-header);
+		position: absolute !important;
+		width: 30% !important;
+		font-weight: bold; 
+		text-align: right;
+	}
+	
+	.clsWk table tr td div  {
+		display: inline !important;
+		padding-left: 35%;
+	}
+	
+	.clsWk table tr td div div {
+		padding-left: 0;
+	}
+	

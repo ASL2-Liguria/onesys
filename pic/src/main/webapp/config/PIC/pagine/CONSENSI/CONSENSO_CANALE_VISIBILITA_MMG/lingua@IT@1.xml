@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+        <lblTitolo>CONSENSO AL TRATTAMENTO DEI DATI PERSONALI</lblTitolo>
+		
+        <tabDichiarante>Dichiarante</tabDichiarante>
+        <tabSezione1>Sezione n.1</tabSezione1>
+        <tabSezione2>Sezione n.2</tabSezione2>
+        <tabDichiarazioneSostitutiva>Dichiarazione sostitutiva</tabDichiarazioneSostitutiva>
+
+        <fldDatiDichiarante>
+            Riepilogo dati paziente
+        </fldDatiDichiarante>
+		
+	        <lblSottoscrittoNomeCognome>Io sottoscritto/a</lblSottoscrittoNomeCognome>
+			<lblSottoscrittoNome>(nome)</lblSottoscrittoNome>
+			<lblSottoscrittoCognome>Io sottoscritto/a (cognome)</lblSottoscrittoCognome>
+	        <lblSottoscrittoLuogoNascita>nato/a a </lblSottoscrittoLuogoNascita>
+	        <lblSottoscrittoLuogoNasc>nato/a a</lblSottoscrittoLuogoNasc>
+	        
+	        <lblAcComuniCap>CAP</lblAcComuniCap>
+	        <lblAcComuniDescrizione>Descrizione</lblAcComuniDescrizione>
+	        <lblAcComuniProvincia>Provincia</lblAcComuniProvincia>
+	        <lblAcComuniInizioValidita>Inizio validità</lblAcComuniInizioValidita>
+	        <lblAcComuniFineValidita>Fine validità</lblAcComuniFineValidita>
+				
+	        <lblSottoscrittoDataNascita>il</lblSottoscrittoDataNascita>
+	        <lblSottoscrittoResidente>residente a </lblSottoscrittoResidente>
+	        <lblSottoscrittoRes>residente a </lblSottoscrittoRes>
+	        <lblSottoscrittoIndirizzo>indirizzo</lblSottoscrittoIndirizzo>
+			
+			<lblSottoscrittoTesseraSanitaria>tessera sanitaria</lblSottoscrittoTesseraSanitaria>
+	        <lblSottoscrittoCodiceFiscale>codice fiscale</lblSottoscrittoCodiceFiscale>
+	        
+	        <lblSottoscrittoTelefono>telefono</lblSottoscrittoTelefono>
+	        <lblSottoscrittoEMail>e-mail </lblSottoscrittoEMail>
+	        <lblSottoscrittoDocumentoIdentita>doc. di identità</lblSottoscrittoDocumentoIdentita>
+	        <lblSottoscrittoNumeroDocumento>documento d'identità n°</lblSottoscrittoNumeroDocumento>
+	        <lblSottoscrittoDocumentoEmesso>rilasciato da</lblSottoscrittoDocumentoEmesso>
+	        <lblSottoscrittoDataEmissione>il</lblSottoscrittoDataEmissione>
+			
+			<lblTipoDichiarante>Oppure, consapevole delle sanzioni penali in caso di dichiarazioni non veritiere richiamate dall'art.76 D.P.R. 445/2000, in qualità di:</lblTipoDichiarante>
+			<!-- <lblTipoDichiarante>Oppure, rendendo dichiarazione ai sensi degli art. 47 e 76 del D.P.R 445/2000, in qualità di:</lblTipoDichiarante> -->	
+	        <!-- <lblTipoDichiarante>oppure come:</lblTipoDichiarante> -->
+		        
+	        <lblGaranteNomeCognome>di</lblGaranteNomeCognome>	
+			<lblGaranteNome>di (nome)</lblGaranteNome>
+			<lblGaranteCognome>(cognome)</lblGaranteCognome>
+	        <lblGaranteLuogoNascita>nato/a a </lblGaranteLuogoNascita>
+	        <lblGaranteDataNascita>il</lblGaranteDataNascita>
+	        <lblGaranteResidente>residente a</lblGaranteResidente>
+	        <lblGaranteIndirizzo>indirizzo</lblGaranteIndirizzo>
+			<lblGaranteTesseraSanitaria>tessera sanitaria</lblGaranteTesseraSanitaria>
+	        <lblGaranteCodiceFiscale>codice fiscale</lblGaranteCodiceFiscale>
+	        <lblGaranteDocumentoIdentita>documento d'identità n°</lblGaranteDocumentoIdentita>
+	        <lblGaranteRilasciatoDa>rilasciato da</lblGaranteRilasciatoDa>
+        
+        <lblTrattamentoDatiPersonali>
+        	CONSENSO GENERALE AL TRATTAMENTO DEI DATI PERSONALI
+        </lblTrattamentoDatiPersonali>
+        
+        	<lbldivConsensoMMG>
+        		CONSENSO RELATIVO ALLA COMUNICAZIONE ON LINE AL MEDICO DI FAMIGLIA/PEDIATRA LIBERA SCELTA (MMG/PLS) 
+        		E LORO SOSTITUTI DI ESAMI, REFERTI E DOCUMENTI SANITARI
+        	</lbldivConsensoMMG>
+        	
+        	<lblInformativaMMG>
+        		Letta e compresa l’Informativa relativa alla comunicazione dei propri dati personali in formato elettronico effettuato
+				da ASL 2 al suo MMG/ PLS , mediante proprio personale, e consapevole che tale consenso ,da conferire una tantum, è
+				valido per tutta la durata del rapporto fiduciario con il medico di medicina generale / pediatra e consente all’ azienda
+				di rendere visibili on line al medico scelto e, in caso di assenza al suo sostituto, se da lei autorizzato, esami, referti e
+				documenti sanitari elaborati e custoditi in formato digitale da ASL2
+        	</lblInformativaMMG>
+	        
+	        <lblConsensoMMGFuturo>
+	            ESPRIME AD ASL 2 , IL PROPRIO CONSENSO FACOLTATIVO A COMUNICARE / RENDERE VISIBILI ON LINE
+				AL MEDICO DI FAMIGLIA /PEDIATRA (MMG /PLS) E LORO SOSTITUTI ESAMI, REFERTI E DOCUMENTI
+				SANITARI ELABORATI E CUSTODITI IN FORMATO DIGITALE DA ASL2 DA ORA IN POI
+	        </lblConsensoMMGFuturo>
+	        
+	        <lblConsensoMMGPassato>
+	            AD ASL 2 , IL PROPRIO CONSENSO FACOLTATIVO A COMUNICARE / RENDERE VISIBILI ON LINE AL
+				MEDICO DI FAMIGLIA /PEDIATRA (MMG /PLS) E LORO SOSTITUTI ESAMI, REFERTI E DOCUMENTI
+				SANITARI ELABORATI E CUSTODITI IN FORMATO DIGITALE DA ASL2 DAL 2002 AD OGGI
+	        </lblConsensoMMGPassato>
+        	
+        <fldDichiarazione>Dichiarazione del consenso</fldDichiarazione>
+	        <lblDataDichiarazione>Data in cui l'operatore ha acquisito la dichiarazione di consenso</lblDataDichiarazione>
+	        <lblOperatoreDichiarazione>Operatore che ha acquisito la dichiarazione di consenso</lblOperatoreDichiarazione>
+	        <lblAcDescrizionePersonale>Nome</lblAcDescrizionePersonale>
+	        <lblAcCodicePersonale>Codice</lblAcCodicePersonale>
+        <fldRegistrazione>Registrazione del consenso</fldRegistrazione>
+	        <lblDataRegistrazione>Data registrazione</lblDataRegistrazione>
+	        <lblOperatoreRegistrazione>Operatore registrazione</lblOperatoreRegistrazione>
+        	
+        <fldDichiarazioneSostitutiva>Dichiarazione sostitutiva di atto di notorietà (da compilare con i dati di chi esercita la potestà/tutore)</fldDichiarazioneSostitutiva>	
+        	
+	        <lblInformativa2>Consapevole delle sanzioni penali in caso di dichiarazioni non veritiere richiamate dall'art.76 D.P.R. 445/2000</lblInformativa2>
+	        	
+	        <lblSostitutoNomeCognome>Il/la sottoscritto/a</lblSostitutoNomeCognome>	
+	        <lblSostitutoLuogoNascita>nato/a a </lblSostitutoLuogoNascita>
+	        <lblSostitutoDataNascita>il</lblSostitutoDataNascita>
+	        <lblSostitutoResidente>residente a </lblSostitutoResidente>
+			<lblSostitutoIndirizzo>indirizzo </lblSostitutoIndirizzo>
+	        <lblSostitutoDocumentoIdentita>documento di identità</lblSostitutoDocumentoIdentita>
+	        <lblTipoSostitutoDichiarante>dichiara sotto la propria responsabilità di</lblTipoSostitutoDichiarante>
+        			
+    </ROW>
+</ROWSET>

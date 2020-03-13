@@ -1,0 +1,37 @@
+<!-- saved from url=(0013)about:internet -->
+<html>
+<head>
+    <title>iSite Fenix Plugin</title>
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">-->
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script>var traduzione = {}</script>
+    <script language="javascript" src="NS_FENIX_PLUGIN.js?o=2"></script>
+    <script language="javascript" src="../../js/Base/LIB.js?o=2"></script>
+    <script language="javascript" src="../../js/Base/NO-min/NS_CONSOLEJS.js?o=2"></script>
+    <link rel="stylesheet" href="../../css/mix.css?t=7" type="text/css"/>
+
+</head>
+<body onload="NS_FENIX_PLUGIN.init();">
+<!--
+http://192.168.3.116:8081/fenix/plugin/iSite_Radiology/FenixPlugin.html
+-->
+<object name="AppLogin" type="application/x-java-applet" width="1" height="1" id="AppLogin">
+    <param name="archive" value="SignedElcoLoginApplet.jar">
+    <param name="code" value="it.elco.login.appletLogin">
+</object>
+
+<p>
+    <a href="javascript:NS_FENIX_PLUGIN.init();" id="apriFenix">apri fenix</a>
+    <br />
+    <a href="javascript:NS_FENIX_PLUGIN.chiudiFenix();" id="chiudiFenix">chiudi fenix</a>
+    <br />
+    <a href="javascript:NS_FENIX_PLUGIN.apriConsole();" id="apriConsole">apri console</a>
+    <br />
+    <a href="javascript:NS_FENIX_PLUGIN.chiudiConsole();" id="chiudiConsole">chiudi console</a>
+    <a href="javascript:NS_CONSOLEJS.toggleConsole();" id="apriConsoleJs">Apri Console JS</a>
+</p>
+
+
+</body>
+</html>

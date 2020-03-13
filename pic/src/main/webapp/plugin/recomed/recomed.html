@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <title>Test</title>
+    <!--<link rel="stylesheet" href="jquery/themes/smoothness/jquery-ui.css">-->
+    <style>html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;/*vertical-align: middle;/*vertical-align:baseline*/}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a:active,a:focus{border:none;outline:0;}input[type="text"],textarea,select{outline:none;}*{outline:none;}</style>
+
+    <link  rel="stylesheet" href="recomed/easy-z-modal/src/ezmodal.css">
+    
+    <script src="recomed/jquery/jquery-1.11.2.min.js"></script>
+    <script src="recomed/easy-z-modal/src/ezmodal.js"></script>
+
+    <!--<script type="text/javascript" src="recomed/jquery.js"></script>-->
+    <script type="text/javascript" src="recomed/recomed_quill_api.js"></script>
+    <script type="text/javascript" src="recomed/wsrecomed.js"></script>
+
+    <script>
+        var home = null;
+        var wnd = window;
+        var n = 0;
+        while (wnd.name != "home" && n < 5)
+        {
+            wnd = wnd.parent;
+            n++;
+        }
+        home = (n<5) ? wnd : window;
+        var isIE10 = false;
+
+        if (navigator.userAgent.indexOf("MSIE 10") > -1) {
+            // this is internet explorer 10
+            isIE10 = true;
+        }
+
+        var isIE = (navigator.userAgent.indexOf("MSIE") != -1);
+
+        var isIE11 = /rv:11.0/i.test(navigator.userAgent);
+
+        function logOn(){
+            recomed.logOn(home.baseUser.CODICE_VOCALE, null, null);
+
+        }
+
+        function logOff(){
+            recomed.logOff();
+        }
+
+        function saveRecording() {
+            recomed.saveRecording(null, null);
+        }
+
+        function onLoad(){
+            try{
+
+                //RecomedEditorApi.init();
+                if(isIE || isIE10 || isIE11){
+                    //alert("IE");
+                    //RecomedEditorApi.init();
+                } else {
+                    //alert("not IE");
+                    RecomedEditorApi.init();
+                }
+
+
+            }catch(ex){
+                alert("onLoad: " + ex);
+            }
+        }
+
+        function onDicationStarted(){
+            // TODO
+        }
+
+        function onDictationStopped() {
+            // TODO
+        }
+
+        function onLogOnEvent(userName) {
+		//RecomedEditorApi.setFontSize('14px');
+        //RecomedEditorApi.setFontFamily('sans-serif');
+		RecomedEditorApi.mFontSize = "14px";
+        RecomedEditorApi.mFontFamily = "sans-serif";
+
+            parent.RECOMED_QUILL.setUserAndSetFocusOnReportControl();
+        }
+
+        function onConnectedEvent(){
+            if(isIE || isIE10 || isIE11){
+
+                /*RecomedEditorApi.init();
+                 RecomedEditorApi.setFontSize('18px');
+                 RecomedEditorApi.setFontFamily('sans-serif');
+                 recomed.logOn("test", null, null);*/
+
+                //alert("IE");
+                RecomedEditorApi.init();
+          
+                logOn();
+
+            } else {
+                //alert("chrome");
+                
+                logOn();
+            }
+
+        }
+
+        function getVisibleText(){
+            return RecomedEditorApi.getVisibleText();
+        }
+
+        function getPlainText(){
+            var text = RecomedEditorApi.getText("plain");
+
+            return text;
+        }
+
+        function setPlainText(val){
+
+            RecomedEditorApi.setText(txtArea.value, "plain");
+        }
+
+        function getHtmlText(){
+            var text = RecomedEditorApi.getText("html");
+          return text;
+        }
+
+        function setHtmlText(val){
+            RecomedEditorApi.setText(val, "html");
+        }
+
+        function insertText(val){
+
+            RecomedEditorApi.insertText(val, "plain");
+        }
+        function insertHtml(val){
+
+            RecomedEditorApi.insertText(val, "html");
+        }
+
+    </script>
+
+</head>
+<body onLoad="onLoad()">
+<div id="recomed-text-editor"></div>
+<script type="text/javascript">
+
+    recomed.initialize();
+
+    recomed.setOnLogOnCallback(onLogOnEvent);
+    recomed.setOnConnectedCallback(onConnectedEvent);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+body {
+    width: 960px;
+    margin: auto;
+}
+
+.RBpuls {
+    margin-bottom: 5px;
+}
+
+#lblInserimentoDSE {
+	text-align: left;
+	padding-top: 20px;
+}
+
+#lblVisInfoDSE, #lblPazInc {
+	text-align: left;
+	width: 470px;;
+}
+
+#lblVisib, #lblNONVisib {
+	text-align: left;
+	font-style: italic;
+	padding-left: 50px;
+	border: 1px solid black;
+}
+
+#radInserimentoDSE,
+#radOscuramentoDSE {
+	margin-left: 50px;
+}

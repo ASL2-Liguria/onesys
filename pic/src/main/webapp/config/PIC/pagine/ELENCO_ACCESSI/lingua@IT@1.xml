@@ -1,0 +1,15 @@
+<ROWSET>
+    <ROW>      	
+        	
+    	<tabElencoAccessi>Elenco accessi</tabElencoAccessi>
+			<lblWkAccData>In data</lblWkAccData>
+			<lblWkLOGDataFine>Data chiusura</lblWkLOGDataFine>
+			<lblWkAccWebuser>Utente web</lblWkAccWebuser>
+			<lblWkAccUserDescr>Nome utente</lblWkAccUserDescr>
+			<lblWkAccAction>Motivazione</lblWkAccAction>
+			<lblWkAccModule>Modulo</lblWkAccModule>
+			<lblWkAccIden>Iden</lblWkAccIden>
+			<lblWkAccID>Identificativo  Consenso / Documento / Nosologico</lblWkAccID>
+			<lblWkAccFunzione>Funzione</lblWkAccFunzione>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,79 @@
+<PAGINA key_id="DOCUMENTI_PAZIENTE">
+	<HEADER_PAGE key_id="DOCUMENTI_PAZIENTE"
+		valore="DEFAULT_PIC,SCHEDA,DOCUMENTI_PAZIENTE#DEFAULT,DOCUMENTI_PAZIENTE"
+		evento="START_END">
+	</HEADER_PAGE>
+	<FORM key_id="dati"
+		valore="dati#SAVE_DATA#MMG_DATI#DOCUMENTI_PAZIENTE#IDEN#IDEN" evento="START_END">
+		<TABULAZIONE.INIT key_id="tabber"
+			valore="DocumentiPaziente#lblTitolo#butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabDocRepository"
+				valore="tabDocRepository" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:false, direction:false, readonly_element: false, format: 'd/m/Y', start_date: -3#disabled:true#lblDaData#DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:true, readonly_element: false, format: 'd/m/Y'#disabled:true#lblAData#DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR_TD_LABEL_CHECK key_id="Ricerca"
+						valore="lblRicerca##Ricerca#chkRicerca#N#{width:150}###4" evento="START">
+					</TR_TD_LABEL_CHECK>
+					<TR.INIT key_id="TR" valore="" evento="START">
+						<TD_LABEL key_id="lbl_" valore="lbl_##" evento="START">></TD_LABEL>
+						<TD.INIT key_id="TDLBL" valore="2" evento="START">
+							<LABEL key_id="lblUltimi5" valore="lblUltimi5#lblUltimi5" evento="START">></LABEL>
+						</TD.INIT>
+						<TD.INIT key_id="TD" valore="4" evento="START">
+							<BUTTON key_id="butUltimi5" valore="butUltimi5" evento="START"></BUTTON>
+							<BUTTON key_id="butCerca" valore="butCerca" evento="START"></BUTTON>
+						</TD.INIT>
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fldWK" valore="fldWK" evento="START">
+					<DIV.WORKLIST key_id="ElencoWork" valore="ElencoWork" evento="START"></DIV.WORKLIST>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			
+			<TABULAZIONE.CREA_TAB key_id="tabDocFSE" valore="tabDocFSE" evento="START">
+				<FIELDSET_TABLE key_id="fldRicercaFSE" valore="fldRicercaFSE" evento="START">
+					<TR.INIT key_id="trDataFSE" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaDataFSE"
+							valore="lblDaDataFSE##txtDaDataFSE#DaDataFSE#startWithToday:false, direction:false, readonly_element: false, format: 'd/m/Y', start_date: -3#disabled:true#lblDaDataFSE#DATA_INIZIO_FSE"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_DATA key_id="ADataFSE"
+							valore="lblADataFSE##txtADataFSE#ADataFSE#startWithToday:true, readonly_element: false, format: 'd/m/Y'#disabled:true#lblADataFSE#DATA_FINE_FSE"
+							evento="START">
+						</TD_LABEL_DATA>
+					</TR.INIT>
+					<TR_TD_LABEL_CHECK key_id="RicercaFSE"
+						valore="lblRicercaFSE##RicercaFSE#chkRicercaFSE#N#{width:220,ctrl:false}###4" evento="START">
+					</TR_TD_LABEL_CHECK>
+					<TR_TD_LABEL_RADIO  key_id="radEmergenzaFSE" 
+						valore="lblEmergenzaFSE##radEmergenzaFSE#radEmergenzaFSE#{width:50, idxDefault:1}#N" evento="START">
+						<TD.INIT key_id="TDFSE" valore="3" evento="START">
+							<BUTTON key_id="butCercaFSE" valore="butCercaFSE" evento="START"></BUTTON>
+						</TD.INIT>
+					</TR_TD_LABEL_RADIO>
+					<!-- <TR.INIT key_id="TRFSE" valore="" evento="START">
+						<TD.INIT key_id="TDFSE" valore="4" evento="START">
+							<BUTTON key_id="butCercaFSE" valore="butCercaFSE" evento="START"></BUTTON>
+						</TD.INIT>
+					</TR.INIT> -->
+					<TR_TD_LABEL_TEXTAREA key_id="taNoteEmergenzaFSE" valore="lbltaNoteEmergenzaFSE#taNoteEmergenzaFSE#NOTE_EMERGENZA_FSE###3#N" evento="START"></TR_TD_LABEL_TEXTAREA>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fldWKFSE" valore="fldWKFSE" evento="START">
+					<DIV.WORKLIST key_id="ElencoWorkFSE" valore="ElencoWorkFSE"	evento="START"></DIV.WORKLIST>
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>
+			
+		</TABULAZIONE.INIT>
+	</FORM>
+</PAGINA>
+

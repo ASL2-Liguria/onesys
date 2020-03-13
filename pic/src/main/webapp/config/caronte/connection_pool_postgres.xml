@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Serve per prendersi le informazioni da System... -->
+    <bean id="string" class="java.lang.String" scope="prototype"/>
+    <bean id="system" class="java.lang.System" scope="prototype"/>
+    <bean id="shortcut" class="it.elco.toolkit.toolKitShortcut"/>
+
+    <!-- Connection Pool -->
+    <bean id="poolConnection" class="it.elco.caronte.factory.pools.ElcoPoolOracle">
+        <property name="settings">
+            <props>
+                <prop key="serverName">${CONNECTION.SERVERNAME}</prop>
+                <prop key="password">${CONNECTION.PASSWORD}</prop>
+                <prop key="databaseName">${CONNECTION.DATABASENAME}</prop>
+                <prop key="portNumber">${CONNECTION.PORTNUMBER}</prop>
+                <prop key="connectionFactoryClassName">org.postgresql.ds.PGPoolingDataSource</prop>
+
+            </props>
+        </property>
+
+        <!-- Servono al PoolDataSource (in casi particolari possono essere sovrascritti) -->
+        <property name="connectionProperties">
+            <props>
+                <prop key="defaultRowPrefetch">600</prop>
+                <prop key="defaultBatchValue">1</prop>
+                <prop key="remarksReporting">false</prop>
+                <prop key="oracle.jdbc.ReadTimeout">300000</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Gestore delle query (QUERY.LIST_FILES viene valorizzato dal factory) -->
+    <bean id="QUERY.LIST_FILES" class="java.util.ArrayList" lazy-init="true"/>
+
+    <bean id="queryManager" class="it.elco.caronte.query.QueryManager" lazy-init="true" scope="prototype">
+        <property name="idSource" value="${POOL.ID}"/>
+        <property name="listFilesQuery" ref="QUERY.LIST_FILES"/>
+    </bean>
+
+    <!-- Oggetto DataSource -->
+    <bean id="dataSource" class="it.elco.caronte.datasource.ElcoOracleDataSource" scope="prototype" depends-on="poolConnection">
+        <constructor-arg index="0" ref="poolConnection"/>
+        <constructor-arg index="1" value="${POOL.ID}"/>
+        <constructor-arg index="2" value="${CONNECTION.USER}"/>
+
+        <property name="action" value="${CONNECTION.ACTION}"/>
+        <property name="module" value="${CONNECTION.MODULE}"/>
+        <property name="clientID" value="#{shortcut.generateClientID()}"/>
+    </bean>
+
+    <!-- Oggetti per l'estrazione dei dati -->
+    <bean id="lobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" scope="prototype"/>
+    <bean id="elcoResultExtract" class="it.elco.caronte.jdbc.extractor.ElcoResultSetExtractor" scope="prototype"/>
+
+    <!-- Oggetto JdbcTamplate (il constructor-arg viene sovrascritto dal factory) -->
+    <bean id="jdbcTemplate" class="it.elco.caronte.jdbc.ElcoJdbcTemplate" scope="prototype">
+        <constructor-arg ref="dataSource"/>
+
+        <property name="selfExtractor" ref="elcoResultExtract"/>
+    </bean>
+
+    <!-- Oggetto DataManager (i constructor-arg vengono sovrascritti dal factory) -->
+    <bean id="dataManager" class="it.elco.caronte.dataManager.DataManager" scope="prototype">
+        <constructor-arg index="0" ref="dataSource"/>
+        <constructor-arg index="1" ref="jdbcTemplate"/>
+
+        <property name="queryManager" ref="queryManager"/>
+    </bean>
+
+    <!-- Oggetti per richiamare funzioni, procedure e blocchi di codice sql (il constructor-arg viene sovrascritto dal factory) -->
+    <bean id="callFunction" class="it.elco.caronte.call.CallFunction" scope="prototype" lazy-init="true">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="callProcedure" class="it.elco.caronte.call.CallProcedure" scope="prototype" lazy-init="true">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+
+    <bean id="callStatement" class="it.elco.caronte.call.CallStatement" scope="prototype" lazy-init="true">
+        <constructor-arg ref="dataSource"/>
+
+        <property name="queryManager" ref="queryManager"/>
+    </bean>
+</beans>

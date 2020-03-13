@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="INFO_ESAME">
+        <OBJ classe_id="PATH::div{.extInfoEsame}">
+            <PROC id="generaInfoEsame">
+                <PAR value="InfoEsame"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

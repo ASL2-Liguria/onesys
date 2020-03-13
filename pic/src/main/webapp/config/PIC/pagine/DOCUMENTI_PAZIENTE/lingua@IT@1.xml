@@ -1,0 +1,46 @@
+<ROWSET>
+    <ROW>
+    
+    	<!-- <tabDocAllegati>Allega nuovo documento</tabDocAllegati>
+		<tabDocRepository>Documenti salvati</tabDocRepository>
+		
+        <fldAllegato>Inserimento nuovo allegato</fldAllegato>
+        <fldAllegati>Visualizza Documenti Allegati</fldAllegati> -->
+        
+        <tabDocRepository>Documenti Paziente</tabDocRepository>
+        
+        <tabDocAllegati>Documenti Allegati</tabDocAllegati>
+		
+	        <fldAllegato>Inserimento Nuovo Allegato</fldAllegato>
+	        <fldAllegati>Visualizza Documenti Allegati</fldAllegati>
+	        <fldElencoAllegati>Elenco Documenti Allegati</fldElencoAllegati>
+	        <fldRicerca>Filtro</fldRicerca>
+	        
+	        <lblNomeAllegato>Nome allegato</lblNomeAllegato>
+	        <lblAllegaPazienteEpisodio>Allega a</lblAllegaPazienteEpisodio>
+	        <lblAllegaFile>Scegli il file da allegare</lblAllegaFile>
+	        <lblTipoDocAllegato>Dettaglio Documento</lblTipoDocAllegato>
+			<lblTitolo>Gestione dei documenti</lblTitolo>
+			<lblCancella>Cancella</lblCancella>
+			<lblVisualizza>Visualizza/Scarica</lblVisualizza>
+			<lblElimina>Elimina</lblElimina>
+			<lblRicerca>Tipo di Documento</lblRicerca>
+			<lblDaData>Dal </lblDaData>
+			<lblAData>al </lblAData>
+			
+			<butImportaDaScanner>Scannerizza</butImportaDaScanner>
+			<butCerca>Cerca</butCerca>
+			<butUltimi5>Ultimi 5 documenti</butUltimi5>
+			
+        <tabDocFSE>Documenti FSE</tabDocFSE>
+        	<fldRicercaFSE>Filtri</fldRicercaFSE>
+        	<lblDaDataFSE>Da Data</lblDaDataFSE>
+        	<lblADataFSE>A Data</lblADataFSE>
+        	<lblRicercaFSE>Tipo di Documento</lblRicercaFSE>
+        	<lblEmergenzaFSE>Emergenza</lblEmergenzaFSE>
+        	<lbltaNoteEmergenzaFSE>Emergenza (specificare)</lbltaNoteEmergenzaFSE>
+        	<butCercaFSE>Cerca nel FSE</butCercaFSE>
+        	<fldWKFSE>Documenti FSE</fldWKFSE>
+        	
+    </ROW>
+</ROWSET>

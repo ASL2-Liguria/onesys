@@ -1,0 +1,13 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_CONSENSO_DOCUMENTO@PORTALE_PIC'; :where := null; :campo_xml := null; end;">
+    
+    <DATO key_id="h-indFSE" configurazione_stato="begin :stato := 'E'; end;" db_valore="IND_FSE" db_descrizione="IND_FSE" configurazione_multi_data="" />
+    <DATO key_id="radStatoOscuramento" configurazione_stato="begin :stato := 'E'; end;" db_valore="STATO_OSCURAMENTO" db_descrizione="STATO_OSCURAMENTO" configurazione_multi_data="RAD_STATO_OSCURAMENTO@PORTALE_PIC" />
+    
+    <DATO key_id="chkVisInfoDSE" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_VIS_INFORMATIVA@PORTALE_PIC" />
+    <!-- <DATO key_id="radInserimentoDSE" configurazione_stato="begin :stato := 'E'; end;" db_valore="DSE_INSERIMENTO" db_descrizione="DSE_INSERIMENTO" configurazione_multi_data="RAD_INS_DSE@PORTALE_PIC" /> -->
+	<DATO key_id="radOscuramentoDSE" configurazione_stato="begin :stato := 'E'; end;" db_valore="DSE_OSCURAMENTO" db_descrizione="DSE_OSCURAMENTO" configurazione_multi_data="RAD_OSC_DSE@PORTALE_PIC" />
+	
+	<DATO key_id="chkVisInfoFSE" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="CHK_VIS_INFORMATIVA@PORTALE_PIC" />
+	<DATO key_id="radInserimentoFSE" configurazione_stato="begin :stato := 'E'; end;" db_valore="FSE_INSERIMENTO" db_descrizione="FSE_INSERIMENTO" configurazione_multi_data="RAD_INS_FSE@PORTALE_PIC" />
+	<DATO key_id="radOscuramentoFSE" configurazione_stato="begin :stato := 'E'; end;" db_valore="FSE_OSCURAMENTO" db_descrizione="FSE_OSCURAMENTO" configurazione_multi_data="RAD_OSC_FSE@PORTALE_PIC" />
+</DATI>

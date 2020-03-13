@@ -25,6 +25,8 @@ interne e la consultazione dei relativi referti;
 >
 8. Cartella Medici di Medicina Generale / Pediatri di Libera Scelta, integrata nel
 sistema di dossier sanitario, con condivisione del patient summary del paziente;
+>
+9. Portale Consensi.
 
 Il rilevante punto di forza del progetto ONE.SYS è costituito dall’unificazione, all’interno di un unico ambiente, di tutte le informazioni sanitarie inerenti i contatti del paziente con l’Azienda, consentendo:
 1. l’implementazione di un sistema di single sign on, con identificazione del paziente
@@ -67,8 +69,10 @@ Il repository è costituito dai seguenti sottoelementi:
 >
 8. ONE.SYS MMG;
 >
-9. ONE.SYS REPOSITORY;
+9. ONE.SYS PORTALE CONSENSI;
 >
-10. MIDDLEWARE.
+10. ONE.SYS REPOSITORY;
+>
+11. MIDDLEWARE.
 
 file readme presente in ogni sottocartella

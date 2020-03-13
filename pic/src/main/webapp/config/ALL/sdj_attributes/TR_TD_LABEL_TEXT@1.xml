@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TR_TD_LABEL_TEXT">
+        <OBJ classe_id="PATH::tr*">
+            <PROC id="VOID"/>
+        </OBJ>
+        <OBJ classe_id="PATH::tr(TD_LABEL)">
+            <PROC id="VOID">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::tr(TD_TEXT)">
+            <PROC id="VOID">
+                <PAR type="idx" value="2"/>
+                <PAR type="idx" value="3"/>
+                <PAR type="idx" value="4"/>
+                <PAR type="idx" value="5"/>
+                <PAR type="idx" value="6"/>
+                <PAR type="idx" value="7"/>
+                <PAR type="idx" value="8"/>
+                <PAR type="idx" value="9"/>
+                <PAR type="idx" value="10"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

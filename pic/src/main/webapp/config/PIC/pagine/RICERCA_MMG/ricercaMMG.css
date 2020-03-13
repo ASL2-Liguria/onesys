@@ -1,0 +1,32 @@
+#tblDocumentsMMG {
+    table-layout: fixed;
+    width: 100%;
+    /*border-collapse: collapse;*/
+    border: 1px solid #686868;
+}
+
+#tblDocumentsMMG thead {
+    background-color: #686868;
+    color: #ffffff;
+}
+
+#tblDocumentsMMG tbody tr:nth-child(even) {
+    background-color: #cdcdcd;
+}
+
+#thId {
+    width: 5%;
+}
+
+#thNome {
+    width: 20%
+}
+
+#thIcons {
+    width: 10%;
+}
+
+td .tasto {
+    display: inline;
+    margin: auto;
+}

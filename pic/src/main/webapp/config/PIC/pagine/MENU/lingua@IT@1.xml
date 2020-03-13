@@ -1,0 +1,26 @@
+<ROWSET>
+   <ROW>
+        <mMenu>MENU</mMenu>
+        <ttmMenu>Menu</ttmMenu>        
+        <mAnagrafica>Anagrafica</mAnagrafica>
+        <ttmAnagrafica>Anagrafica</ttmAnagrafica>
+        <mTest>Test</mTest>
+        <ttmTest>Test</ttmTest>        
+        <mStampa>STAMPA</mStampa>
+        <ttStampa>Stampa</ttStampa>
+        <mStampaInformativaPrivacy>Stampa Informativa Privacy</mStampaInformativaPrivacy>
+        <ttStampaInformativaPrivacy>Stampa Informativa Privacy</ttStampaInformativaPrivacy>
+        <mStampaInformativaCaregiver>Stampa Informativa Caregiver</mStampaInformativaCaregiver>
+        <ttmStampaInformativaCaregiver>Stampa Informativa Caregiver</ttmStampaInformativaCaregiver>
+        <mStampaConsensoPrivacy>Stampa Consenso Privacy</mStampaConsensoPrivacy>
+        <ttStampaConsensoPrivacy>Stampa Consenso Privacy</ttStampaConsensoPrivacy>               
+        <mWkFatturazione>Wk Fatturazione</mWkFatturazione>
+        <mTestSchede>Test Schede</mTestSchede>
+        <mSchedaPolitrauma>Scheda Politrauma</mSchedaPolitrauma>
+        <mRiepilogoPrenotazione>Riepilogo Prenotazione</mRiepilogoPrenotazione>
+        <mSchedaLingua>Scheda Lingua</mSchedaLingua>
+        <mWkList>Lista Worklist</mWkList>
+        <mRicercaMMG>Ricerca MMG</mRicercaMMG>
+        <ttmRicercaMMG>Ricerca MMG</ttmRicercaMMG>
+    </ROW>
+</ROWSET>

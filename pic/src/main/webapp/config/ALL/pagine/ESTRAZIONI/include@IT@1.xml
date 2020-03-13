@@ -1,0 +1,15 @@
+<INCLUDE>
+    <CSS path="css/Estrazioni/estrazioni.css"/>
+    <CSS path="plugin/jqgrid/style/jqgrid.css"/>
+    <CSS path="plugin/jqgrid/style/jquery-ui-1.10.4.custom.min.css"/>
+    <CSS path="plugin/tokenize/jquery.tokenize.css"/>
+
+    <JS path="plugin/tokenize/jquery.tokenize.js"/>
+    <JS path="plugin/jqgrid/conf/grid.locale-it.js"/>
+    <JS path="plugin/jqgrid/jquery.jqGrid.min.js"/>
+    <JS path="plugin/alasql/alasql.min.js"/>
+    <JS path="js/Estrazioni/Statistica.js"/>
+    <JS path="js/Estrazioni/Grid.js"/>
+    <JS path="js/Estrazioni/Filter.js"/>
+
+</INCLUDE>

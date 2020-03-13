@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>CONSENSO AL TRATTAMENTO DEI DATI PERSONALI</lblTitolo>
+        
+        
+        
+        <fldStatoOscuramento>
+        	Indicare per il documento il grado di sensibilità che si desidera attribuire
+        </fldStatoOscuramento>        
+        	<lblStatoOscuramento>Stato oscuramento</lblStatoOscuramento>
+        
+        <fldDSE>
+        	DSE - Dossier Sanitario Elettronico
+        </fldDSE>
+        	<lblPazInc>Non è stato possibile interpellare il paziente perchè affetto da incapacità di fatto (Stato da certificare a cura del medico)</lblPazInc>
+        	<lblVisInfoDSE>Il paziente ha preso visione e compreso l'informativa fornita riguardante il DSE</lblVisInfoDSE>
+        	<lblInfoDSE>Il paziente ha preso visione e compreso l'informativa fornita riguardante il DSE</lblInfoDSE>
+        	<lblInserimentoDSE_old>Vuole il paziente oscurare il dato in oggetto a DSE?</lblInserimentoDSE_old>
+        	<lblInserimentoDSE>Il paziente vuole oscurare o rendere visibile questo dato nel suo DSE? (questa scelta determina la visibilità o meno del dato nel suo Dossier Sanitario Elettronico e deve essere acquisita dal paziente)</lblInserimentoDSE>
+        	<lblVisib>Responsabilità personale per mancata richiesta al paziente</lblVisib>
+        	<lblNONVisib>Responsabilità personale per mancata richiesta al paziente</lblNONVisib>
+        	
+        	<lblVisib_old>Questa scelta determina la visibilita' di questo dato tramite DSE consultabile dal professionista sanitario che l'ha o che l'avra' in cura</lblVisib_old>
+        	<lblNONVisib_old>Questa scelta determina la NON visibilita' di questo dato tramite DSE consultabile dal professionista sanitario che l'ha o che l'avra' in cura</lblNONVisib_old>
+        
+    </ROW>
+</ROWSET>

@@ -1,0 +1,366 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align: middle;/*vertical-align:baseline*/}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}a:active,a:focus{border:none;outline:0;}
+
+body {
+    background: url(../img/sf.gif);
+    font: 12px Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+textarea {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    min-width: 200px;
+    min-height: 50px;
+    text-align: left;
+    border: 1px solid #ccc;
+}
+
+/**************************************************************************
+*   CONTAINERS
+***************************************************************************/
+
+#main {
+    width: 99%;
+    max-width: 1920px;
+    display: block;
+    margin: 5px auto;
+    padding: 0;
+}
+
+#container_sx {
+    width: 50%;
+    background: #fff url(../img/bars.png) bottom left repeat-x;
+    display: block;
+    float: left;
+    border: 1px solid #333;
+    border-top: none;
+    padding-bottom: 25px;
+}
+
+#container_dx {
+    width: 49%;
+    float: right;
+}
+
+#container_dx_top, #container_dx_bottom {
+    background: #fff;
+    text-align: center;
+    display: block;
+    border: 1px solid #333;
+    border-top: none;
+}
+
+#container_dx_top {
+    margin-top: 24px;
+    margin-bottom: 12px;	
+}
+
+#container_sx span.title, #container_dx_top span.title, #container_dx_bottom span.title {
+    background: url(../img/bars.png);
+    height: 24px;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    line-height: 24px;
+    padding-left: 5px;
+    text-align: center;
+}
+
+/**************************************************************************
+*   NAV
+***************************************************************************/
+ul#nav {
+    background: url(../img/sf.gif);
+    list-style:none;
+    margin: 0 -1px 0px -1px;
+    overflow:hidden;
+    padding:0
+}
+
+ul#nav li {
+    background: url(../img/tabs.png);
+    width: 60px;
+    height: 24px;
+    float: left;
+    display: none;    
+    margin-right: 1px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+ul#nav li a {    
+    color: #000;
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    height: 24px;
+    line-height: 24px;
+    text-decoration: none;    
+}
+
+ul#nav li.active {
+    display: block;
+}
+
+ul#nav li a:hover {
+    text-decoration: underline;
+}
+
+/**************************************************************************
+*   CORPO TAB
+***************************************************************************/
+
+div.corpotab { 
+    clear: both;
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+div.corpotab.active {
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+div.corpotab ul {
+    text-align: left;
+    margin: 0;
+    padding: 0 5px;
+}
+
+div.corpotab ul li {
+    display: block;
+    background: #fff;
+    margin: 2px 0;
+    padding: 0;
+}
+
+div.corpotab ul li.hidden {
+    display: none;
+}
+
+div.corpotab ul li a {
+    background: #e8e8e8;
+    border: 1px solid blue;
+    display: block;
+    border: 1px solid blue;
+    padding: 4px 5px;
+    margin: 0;
+    width: 45%;
+}
+
+div.corpotab ul li:hover a {
+    background: #245699 url(../img/arrow_right_hover.png) bottom right no-repeat;
+    color: #fff;
+}
+
+div.corpotab ul li a.last {
+    background:url(../img/avanti.png) repeat-x;
+    font-weight: bold;
+}
+
+div.corpotab ul li a.last:hover {
+    background: #245699 url(../img/arrow_right_hover.png) bottom right no-repeat;
+    color: #fff;
+}
+
+div.corpotab ul li textarea {
+    display: block;
+    padding: 0 5px;
+    padding: 4px 5px;
+    margin: 0;
+    min-height: 300px;
+    width:99%;
+}
+
+
+div.corpotab ul li a.avanti {
+    /*background: #fff url(../img/arrow_right.png) bottom right no-repeat;*/
+    background:url(../img/avanti.png) repeat-x;
+    font-weight: bold;
+    width: 15%;
+    float: right;
+    text-align:center;
+}
+
+div.corpotab ul li a.avanti:hover {
+    background: #245699 url(../img/arrow_right_hover.png) bottom right no-repeat;
+    color: #fff;
+    width: 15%;
+    float: right;
+    text-align:center;	
+}
+
+/**************************************************************************
+*   RIASSUNTO
+***************************************************************************/
+
+ul#riassunto {
+    background: #fff;
+    width: 100%;
+    text-align: left;
+    float: left;
+    display: block;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+ul#riassunto li {
+    font-size: 10px;
+    display: block;
+}
+
+ul#riassunto li a {
+    display: block;
+    margin: 0 2px;
+    padding: 2px 10px;
+}
+
+ul#riassunto li a:hover {
+    color: red;
+}
+
+ul#riassunto li a.bold {
+    font-weight: bold;
+    border-top: 1px dotted #333;
+    padding: 2px 5px;
+}
+
+/**************************************************************************
+*   REFERTO
+***************************************************************************/
+
+#container_dx_bottom textarea {
+    width: 92%;    
+}
+
+/**************************************************************************
+*   DIALOG
+***************************************************************************/
+
+#dialog {
+    background: #fff url(../img/bars.png) bottom left repeat-x;
+    padding-bottom: 25px;
+    width: 30%;
+    height: 165px;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    border: 1px solid #333;
+    border-top: none;
+    z-index: 1000;
+    text-align: center;
+}
+
+#dialog span.title {
+    background: url(../img/bars.png);
+    height: 24px;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    line-height: 24px;
+    padding-left: 5px;
+    text-align: left;
+}
+
+#dialog textarea {
+    margin: 4px auto;
+    min-height: 130px;
+}
+
+#choose {
+    background: #fff url(../img/bars.png) bottom left repeat-x;
+    padding-bottom: 25px;
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    border: 1px solid #333;
+    border-top: none;
+    z-index: 1000;
+    text-align: center;
+}
+
+#choose span.title {
+    background: url(../img/bars.png);
+    height: 24px;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    line-height: 24px;
+    padding-left: 5px;
+    text-align: left;
+}
+
+#choose ul li {
+    background: #e8e8e8;
+    border: 1px solid blue;
+    display: block;
+    border: 1px solid blue;
+    padding: 4px 5px;
+    margin: 10px 10%;
+    width: 80%;
+    cursor: pointer;
+}
+
+#choose ul li:hover {
+    background: #245699 url(../img/arrow_right_hover.png) bottom right no-repeat;
+    color: #fff;
+}
+
+.opacity {
+    opacity: 0.1;
+    filter: alpha(opacity = 10);
+}
+
+/*****************************************************************************
+*   PRELOAD
+/****************************************************************************/
+
+#preload {
+    background: #000;
+    padding-bottom: 25px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 25;
+    text-align: center;
+    opacity: 0.8;
+    filter: alpha(opacity = 80);
+}
+
+#img_preload {
+    position:absolute;
+    top:50%;
+    left:50%;
+}
+/*******************************************************************************/
+
+/**************************************************************************
+*   BUTTONS
+***************************************************************************/
+div.buttonContainer{height:25px;background: #fff url(../img/bars.png) bottom left repeat-x;}
+a.button{background:url(../img/button.png);float:left;margin:3px 10px 0 0;padding-left:10px;text-decoration:none; float: right;}
+a.button span{background:url(../img/button.png) 100% 0;color:#fff;display:block;float:left;font-size:11px;font-weight:700;height:18px;line-height:18px;margin-right:-5px;padding-right:10px;text-decoration:none}
+a.button:active{background:url(../img/button.png) 0 -18px}
+a.button:active span{background:url(../img/button.png) 100% -18px}
+a.button.buttonHidden span {display:none;}

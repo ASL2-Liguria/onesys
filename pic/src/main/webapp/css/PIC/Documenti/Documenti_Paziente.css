@@ -1,0 +1,5 @@
+body{ width: 960px; margin: auto; }
+#butCerca, #butUltimi5 { float: right }
+#lblUltimi5 { font-weight: bold; color: red;}
+
+#fldWK { border: none; }

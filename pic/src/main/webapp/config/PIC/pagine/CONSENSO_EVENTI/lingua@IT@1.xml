@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        
+		<lblTitolo>CONSENSO AL TRATTAMENTO DEI DATI PERSONALI</lblTitolo>
+		
+		<tabWK>Lista eventi</tabWK>
+		<tabDichiarazioneSostitutiva>Dichiarazione sostitutiva</tabDichiarazioneSostitutiva>
+		
+		<butOscura>Oscura</butOscura>
+		<butAttiva>Attiva</butAttiva>
+        	
+        <fldDichiarazioneSostitutiva>Dichiarazione sostitutiva di atto di notorietà (da compilare con i dati di chi esercita la potestà/tutore)</fldDichiarazioneSostitutiva>
+        <fldListaEventi>Lista Eventi</fldListaEventi>	
+        	
+        	<lblInformativa2>Consapevole delle sanzioni penali in caso di dichiarazioni non veritiere richiamate dall'art.76 D.P.R. 445/2000</lblInformativa2>
+        	
+        	<lblSostitutoNomeCognome>Il/la sottoscritto/a</lblSostitutoNomeCognome>	
+			<lblSostitutoLuogoNascita>nato/a a </lblSostitutoLuogoNascita>
+			
+			<lblSostitutoDataNascita>il</lblSostitutoDataNascita>
+		  	<lblSostitutoResidente>residente a </lblSostitutoResidente>
+		  	
+		  	<lblSostitutoDocumentoIdentita>documento di identità</lblSostitutoDocumentoIdentita>
+        			
+        	<lblTipoSostitutoDichiarante>dichiara sotto la propria responsabilità di</lblTipoSostitutoDichiarante>
+        			
+    </ROW>
+</ROWSET>

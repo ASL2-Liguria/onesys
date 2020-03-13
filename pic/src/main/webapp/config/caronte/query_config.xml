@@ -1,0 +1,1247 @@
+<?xml version = "1.0"?>
+<QUERIES>
+    <QUERY id="INCLUDE_FILES_JS">
+        <SQL>select PATH_FILE,CONDIZIONE,TIPO from VIEW_INCLUDE_FILES_JS where ORIGINE = :origine and LINGUA = :lingua and SITO = :sito and VERSIONE = :versione</SQL>
+    </QUERY>
+    <QUERY id="INCLUDE_FILES_CSS">
+        <SQL>select PATH_FILE,CONDIZIONE,TIPO from VIEW_INCLUDE_FILES_CSS where ORIGINE = :origine and LINGUA = :lingua and SITO = :sito and VERSIONE = :versione</SQL>
+    </QUERY>
+
+    <QUERY id="BASEUSER">
+        <SQL>UTILITY_WEB.GET_UTENTE</SQL>
+    </QUERY>
+    <QUERY id="BASEGLOBAL">
+        <SQL>UTILITY_WEB.GET_GLOBALI</SQL>
+    </QUERY>
+    <QUERY id="BASEPC">
+        <SQL>UTILITY_WEB.GET_PC</SQL>
+    </QUERY>
+    <QUERY id="BASEPERMISSION">
+        <SQL>select * from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) WHERE VALORE is not null</SQL>
+    </QUERY>
+    <QUERY id="PARAMETRI_GRUPPI">
+        <SQL>Select UTILITY_WEB.GET_PARAMETRI_GRUPPO(:request,:versione,:sito,:id,:tipi,:gruppo) XML from dual </SQL>
+    </QUERY>
+    <QUERY id="MENU">
+        <SQL>select M.ID_LINK,M.LINK,M.ORDINE,M.TOOLTIP,M.CLASSE from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN) and m.sito = :sito and attivo = 'S') {#ORDER#}</SQL>
+    </QUERY>
+    <QUERY id="UL_MENU">
+        <SQL>select ID_LINK,DESCRIZIONE,URL_IMAGE,LINK,ORDINE,TOOLTIP,CLASSE from table(utility_web.get_permission(null,:versione,:sito,:tipo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN)) where SITO = :sito and VERSIONE = :versione and ATTIVO = :attivo and ID_MENU = :id_menu and TIPO = :tipo and LINGUA = :lingua {#ORDER#}</SQL>
+    </QUERY>
+    <QUERY id="MENU_GENERICO">
+        <SQL>
+        	select M.ID_LINK, M.LINK, M.DESCRIZIONE, M.ORDINE, M.PERMISSIONE, M.TOOLTIP, M.URL_IMAGE, M.CLASSE from MENU M
+			join table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P on P.ID=m.ID_LINK
+			where M.SITO = :sito and M.VERSIONE = :versione and M.ATTIVO = 'S' and M.ID_MENU = :id_menu and M.TIPO = :tipo and M.LINGUA = :lingua {#ORDER#}
+        </SQL>
+    </QUERY>
+    <QUERY id="DYNAMIC_TABS">
+        <SQL>select ID_TAB,COMPORTAMENTO from DYNAMIC_TABS where ID_GRUPPO = :id_gruppo and sito = :sito and ATTIVO = :attivo {#ORDER#}</SQL>
+    </QUERY>
+    <QUERY id="PERMISSIONI_DESCR">
+        <SQL>select 0 VALUE,'Disable' DESCR from dual union all select 3 VALUE,'Read' DESCR from dual  union all select 6 VALUE,'Standard' DESCR from dual union all select 9 VALUE,'Admin' DESCR from dual</SQL>
+    </QUERY>
+    <QUERY id="SCHEDA_REFERTAZIONE">
+        <SQL>
+            with LIST_CDC as (select to_number(regexp_substr(x, '[^,]+', 1, level)) ID
+                              from(select :iden_cdc x from dual)
+                              connect by level &lt;= length(x) - length(replace(x, ',')) + 1),
+                 LIST_NOM as (select to_number(regexp_substr(x, '[^,]+', 1, level)) ID
+                              from(select :iden_nomenclatore x from dual)
+                              connect by level &lt;= length(x) - length(replace(x, ',')) + 1)
+            select /*+first_rows(1)*/ distinct KEY_LEGAME, '{key_legame:'''||KEY_LEGAME||''',parametri:'||PARAMETRI||'}' SCHEDA
+            from SCHEDE_REFERTAZIONE inner join LIST_CDC on (SCHEDE_REFERTAZIONE.IDEN_CDC = LIST_CDC.ID) and
+                                     inner join LIST_NOM on (SCHEDE_REFERTAZIONE.IDEN_NOMENCLATORE = LIST_NOM.ID)
+            {#ORDER#}
+        </SQL>
+    </QUERY>
+    <QUERY id="REFERTI_STRUTTURATI_ESAMI">
+        <SQL><![CDATA[ select SR.IDEN,
+            SR.IDEN_CDC,
+            SR.IDEN_NOMENCLATORE,
+            N.DESCRIZIONE DESCR_NOMENCLATORE,
+            SR.TEMPLATE,
+            SR.PARAMETRI,
+            SR.PROCEDURA_SAVE,
+            ED.IDEN IDEN_DETTAGLIO,
+            RF.XML_DATA.getClobVal() DATI_STRUTTURATI
+            from SCHEDE_REFERTAZIONE SR
+            INNER JOIN DATI$NOMENCLATORE N on(SR.IDEN_NOMENCLATORE = N.IDEN)
+            INNER JOIN DATI$ESAMI_DETTAGLIO ED on(ED.IDEN_NOMENCLATORE = N.IDEN )
+            INNER JOIN DATI$ESAMI_TESTATA ET on(ED.IDEN_TESTATA = ET.IDEN and ET.IDEN_CDC = SR.IDEN_CDC)
+            LEFT OUTER JOIN DATI$REFERTI_STRUTTURATI RF on (RF.IDEN_ESAME_DETTAGLIO = ED.IDEN)
+            where SR.ATTIVO = 'S' and SR.TEMPLATE is not null and ED.IDEN in (select regexp_substr(x, '[^,]+', 1, level) ID
+            from(select :iden_dettaglio x from dual)
+            connect by level <= length(x) - length(replace(x, ',')) + 1)  ]]>
+        </SQL>
+    </QUERY>
+    <QUERY id="SCHEDE_APPROPRIATEZZA_ESAMI">
+        <SQL><![CDATA[ select SA.IDEN,
+            SA.IDEN_CDC,
+            SA.IDEN_NOMENCLATORE,
+            N.DESCRIZIONE DESCR_NOMENCLATORE,
+            SA.TEMPLATE,
+            SA.PARAMETRI,
+            SA.SITO,
+            SA.ATTIVO,
+            SA.PROCEDURA_SAVE,
+            SA.APERTURA_ESECUZIONE,
+            SA.PROCEDURA_SAVE_ESECUZIONE,
+            SA.COD_TEMPLATE,
+            ED.IDEN IDEN_DETTAGLIO,
+            AE.DATI_APPROPRIATEZZA.getClobVal() DATI_APPROPRIATEZZA
+            from SCHEDE_APPROPRIATEZZA SA
+            INNER JOIN DATI$NOMENCLATORE N on(SA.IDEN_NOMENCLATORE = N.IDEN)
+            INNER JOIN DATI$ESAMI_DETTAGLIO ED on(ED.IDEN_NOMENCLATORE = N.IDEN )
+            INNER JOIN DATI$ESAMI_TESTATA ET on(ED.IDEN_TESTATA = ET.IDEN and ET.IDEN_CDC = SA.IDEN_CDC)
+            INNER JOIN DATI$PROVENIENZE P on (ET.IDEN_PROVENIENZA = P.IDEN)
+            LEFT OUTER JOIN DATI$APPROPRIATEZZA_ESAME AE on (AE.IDEN_ESAME_DETTAGLIO = ED.IDEN)
+            where ED.IDEN in (select regexp_substr(x, '[^,]+', 1, level) ID
+            from(select :iden_dettaglio x from dual)
+            connect by level <= length(x) - length(replace(x, ',')) + 1) and P.TIPO_PROVENIENZA = 'E' ]]>
+        </SQL>
+    </QUERY>
+    <QUERY id="SCHEDE_CONSENSO_ESAMI">
+        <SQL><![CDATA[ select SC.IDEN,
+            SC.IDEN_CDC,
+            SC.IDEN_NOMENCLATORE,
+            SC.TEMPLATE,
+            SC.PARAMETRI,
+            SC.SITO,
+            SC.ATTIVO,
+            SC.PROCEDURA_SAVE,
+            SC.APERTURA_ESECUZIONE,
+            SC.PROCEDURA_SAVE_ESECUZIONE,
+            SC.COD_TEMPLATE,
+            ed.iden IDEN_DETTAGLIO,
+            null DATI,
+            n.descrizione DESCR_NOMENCLATORE
+            from dati$esami_dettaglio ed
+            inner join dati$esami_testata et on (ed.iden_testata=et.iden)
+            inner join dati$nomenclatore n on (ed.iden_nomenclatore=n.iden)
+			inner join SCHEDE_CONSENSO SC on(sc.iden_cdc=et.iden_cdc and sc.iden_nomenclatore=ed.iden_nomenclatore)
+            WHERE ed.iden = :iden_dettaglio
+        ]]>
+        </SQL>
+    </QUERY>
+    <!--<QUERY id="SCHEDA_REFERTAZIONE">
+        <SQL>
+            select /*+first_rows(1)*/ distinct KEY_LEGAME, '{key_legame:'''||KEY_LEGAME||''',parametri:'||PARAMETRI||'}' SCHEDA
+            from SCHEDE_REFERTAZIONE where IDEN_CDC in (select column_value from table(split(:iden_cdc))) and
+            IDEN_NOMENCLATORE in (select column_value from table(split(:iden_nomenclatore))) {#ORDER#}
+        </SQL>
+    </QUERY>-->
+    <QUERY id="LIST_PARAMS">
+        <SQL>select IDEN,NOME from PARAMETRI where GRUPPO =:gruppo AND ID_GRUPPO = :id_gruppo {#ORDER#}</SQL>
+    </QUERY>
+    <QUERY id="VAL_PARAMS">
+        <SQL>select VALORE from PARAMETRI WHERE IDEN = :iden </SQL>
+    </QUERY>
+    <QUERY id="LIST_PARAMS_FN">
+        <SQL>SELECT FX_GET_PARAMS_UTE(:utente,:parametro,:sito) FROM DUAL</SQL>
+    </QUERY>
+    <QUERY_GROUP id="PERMISSION">
+        <QUERY id="CONFIG_MENU_PRINCIPALE">
+            <SQL>
+                with PD as (select /*+first_rows(10)*/ * from table(utility_web.get_permission(null,1,'','MENU',:gruppo_permessi)))
+                SELECT m.IDEN,m.ID_LINK CHIAVE,
+                m.ID_MENU,
+                M.DESCRIZIONE DESCRIZIONE,
+                M.ORDINE ORDINE,
+                nvl2( p.id,'icon-check-1','icon-check-empty') ICON_CLASS,
+                p.id
+                FROM MENU m
+                left outer join PD P on P.id = m.iden
+                WHERE m.id_menu='PRINCIPALE'
+                AND m.attivo   ='S' and m.sito= :sito  {#ORDER#}
+            </SQL>
+        </QUERY>
+        <QUERY id="LISTA_GRUPPI">
+            <SQL>select /*+first_rows(10)*/  GRUPPO,ID,VALORE from PERMESSI where ID_GRUPPO = :id_gruppo and SITO = :sito</SQL>
+            <BINDS>
+                <BIND id="id_gruppo" value="#ID_GRUPPO#" type="V"></BIND>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+    </QUERY_GROUP>
+
+    <QUERY_GROUP id="WORKLIST">
+        <QUERY id="GRUPPI_PERMESSI">
+            <SQL>select /*+first_rows(10)*/ distinct ID_GRUPPO from PERMESSI where ID_GRUPPO like :descr and SITO = :sito
+                 union
+                 select /*+first_rows(10)*/ distinct ID_GRUPPO from PERMESSI where ID_GRUPPO like :descr and SITO = 'ALL' {#ORDER#}
+            </SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="MODULI">
+            <SQL>
+                select LINK,TOOLTIP,ID_MENU from menu where sito = 'RIS' and tipo = 'MODULI' and attivo = 'S'
+            </SQL>
+        </QUERY>
+        <QUERY id="SCHEDE_REFERTAZIONE">
+            <SQL>
+                with LIST_ATTIVO as (select regexp_substr(x, '[^,]+', 1, level) ID
+                from(select :attivo x from dual)
+                connect by level &lt;= length(x) - length(replace(x, ',')) + 1)
+                Select SR.IDEN,SR.IDEN_CDC,CDC.DESCRIZIONE DESCR_CDC,SR.IDEN_NOMENCLATORE,N.DESCRIZIONE DESCR_NOMENCLATORE,SR.TEMPLATE,SR.KEY_LEGAME
+                from SCHEDE_REFERTAZIONE SR
+                inner join LIST_ATTIVO on (SR.ATTIVO = LIST_ATTIVO.ID)
+                inner join DATI$CENTRI_DI_COSTO CDC  on (CDC.IDEN = SR.IDEN_CDC)
+                inner join DATI$NOMENCLATORE N on (N.IDEN = SR.IDEN_NOMENCLATORE)
+                WHERE N.DESCRIZIONE like :descr AND N.CODICE_DECODIFICA like :codice
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+
+    TODO: Temporaneo!!!
+    <QUERY_GROUP id="SDJ">
+
+        <QUERY id="CONFIGURA_MENU_PRINCIPALE">
+            <SQL>select 'N' SEL,S.IDEN,S.ID_LINK,S.ORDINE,S.TOOLTIP from (
+            select M.IDEN,M.ID_LINK,M.ORDINE,M.TOOLTIP from MENU M where tipo='BAR' and id_menu='PRINCIPALE' and sito = :sito and attivo='S'
+            minus
+            select M.IDEN,M.ID_LINK,M.ORDINE,M.TOOLTIP from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN)) where tipo='BAR' and id_menu='PRINCIPALE')S
+            union all
+            select 'S' SEL,M.IDEN,M.ID_LINK,M.ORDINE,M.TOOLTIP from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN)) where tipo='BAR' and id_menu='PRINCIPALE' ORDER BY ORDINE
+            </SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="versione" value="#VERSIONE#" type="V"></BIND>
+                <BIND id="gruppo_permessi" value="#ID_GRUPPO#" type="V"></BIND>
+                <BIND id="gruppo" value="MENU" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONFIGURA_MINI_MENU">
+            <SQL>select 'N' SEL,S.IDEN,S.ID_LINK,S.ORDINE,S.TOOLTIP from (
+            select M.IDEN,M.ID_LINK,M.ORDINE,M.TOOLTIP from MENU M where tipo='MINI_MENU' and id_menu='MINI_MENU' and sito = :sito and attivo='S'
+            minus
+            select M.IDEN,M.ID_LINK,M.ORDINE,M.TOOLTIP from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN)) where tipo='MINI_MENU' and id_menu='MINI_MENU')S
+            union all
+            select 'S' SEL,M.IDEN,M.ID_LINK,M.ORDINE,M.TOOLTIP from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN)) where tipo='MINI_MENU' and id_menu='MINI_MENU' ORDER BY ORDINE
+            </SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="versione" value="#VERSIONE#" type="V"></BIND>
+                <BIND id="gruppo_permessi" value="#ID_GRUPPO#" type="V"></BIND>
+                <BIND id="gruppo" value="MINI_MENU" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONFIGURA_UL_MENU">
+            <SQL>select 'N' SEL,S.IDEN,S.ID_LINK,S.ID_MENU,S.ORDINE,S.TOOLTIP from (
+                select M.IDEN,M.ID_LINK,M.ID_MENU,M.ORDINE,M.TOOLTIP from MENU M where tipo='UL_MENU' and sito = :sito and attivo='S'
+                minus
+                select M.IDEN,M.ID_LINK,M.ID_MENU,M.ORDINE,M.TOOLTIP from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN)) where tipo='UL_MENU')S
+                union all
+                select 'S' SEL,M.IDEN,M.ID_LINK,M.ID_MENU,M.ORDINE,M.TOOLTIP from table(utility_web.get_permission(null,:versione,:sito,:gruppo,:gruppo_permessi)) P inner join MENU M on(P.ID=to_char(m.IDEN)) where tipo='UL_MENU' ORDER BY ID_MENU
+            </SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="versione" value="#VERSIONE#" type="V"></BIND>
+                <BIND id="gruppo_permessi" value="#ID_GRUPPO#" type="V"></BIND>
+                <BIND id="gruppo" value="UL_MENU" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_GRUPPI_UTENTE_SEL">
+            <SQL>select /*+first_rows(10)*/ COLUMN_VALUE VALUE,COLUMN_VALUE DESCR from table(select split( (select /*+first_rows(1)*/ ID_GRUPPO  from(select /*+first_rows(1)*/  ID_GRUPPO from PARAMETRI_GRUPPO where ID = :username and TIPO = 'UTENTI' and GRUPPO = 'PERMESSI_GRUPPO' and ATTIVO = 'S' and SITO = :sito and  VERSIONE = 1 UNION ALL select /*+first_rows(1)*/  ID_GRUPPO from PARAMETRI_GRUPPO where ID = :username and TIPO = 'UTENTI' and GRUPPO = 'PERMESSI_GRUPPO' and ATTIVO = 'S' and SITO = 'ALL' and  VERSIONE = 1)where rownum &lt;= 1),'.') from dual) WHERE COLUMN_VALUE is not NULL</SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="username" value="#USER#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_GRUPPI_UTENTE_NOT_SEL">
+            <SQL>
+                SELECT /*+first_rows(10)*/ DISTINCT ID_GRUPPO VALUE , ID_GRUPPO DESCR FROM PERMESSI WHERE  sito = :sito UNION SELECT /*+first_rows(10)*/ DISTINCT ID_GRUPPO VALUE , ID_GRUPPO DESCR  FROM  PERMESSI   WHERE   sito = 'ALL'
+                MINUS
+                ( SELECT  COLUMN_VALUE as VALUE,  COLUMN_VALUE as DESCR  FROM  TABLE  ( split( ( SELECT   /*+first_rows(1)*/    ID_GRUPPO    FROM   (SELECT  /*+first_rows(1)*/ ID_GRUPPO  FROM  PARAMETRI_GRUPPO WHERE ID = :username AND TIPO = 'UTENTI'  AND GRUPPO   = 'PERMESSI_GRUPPO'  AND ATTIVO   = 'S'            AND SITO = :sito  AND VERSIONE = 1  ) WHERE  rownum >= 1  ),'.')   )  WHERE COLUMN_VALUE IS NOT NULL
+                )
+            </SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="username" value="#USER#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CHECK_CONSENSO_REFERTO">
+            <SQL>select  /*+first_rows(1)*/ &apos;S&apos;  VALUE ,&apos;lblConsensoReferto&apos;  DESCR,&apos;CBcolorRed&apos; CLASS  from dual</SQL>
+        </QUERY>
+        <QUERY id="CHECK_GARANZIA_TEMPI_ATTESA">
+            <SQL>select  /*+first_rows(1)*/ &apos;S&apos;  VALUE ,&apos;lblGaranziaTempiAttesa&apos;  DESCR,&apos;CBcolorDefault&apos; CLASS  from dual</SQL>
+        </QUERY>
+        <QUERY id="CHECK_METODICHE">
+            <SQL>select  /*+first_rows(100)*/ CODICE_DECODIFICA  VALUE ,PARAMETRI  DESCR  from DATI$TIPI WHERE TIPO=&apos;METODICA&apos; AND ATTIVO =&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CHECK_PRESTAZIONE_PRIMO_ACCESSO">
+            <SQL>select  /*+first_rows(1)*/ &apos;S&apos;  VALUE ,&apos;lblPrestazionePrimoAccesso&apos;  DESCR,&apos;CBcolorDefault&apos; CLASS  from dual</SQL>
+        </QUERY>
+        <QUERY id="CHECK_PRONTA_DISP">
+            <SQL>select  /*+first_rows(1)*/ &apos;S&apos;  VALUE ,&apos;lblProntaDisp&apos;  DESCR,&apos;CBcolorRed&apos; CLASS  from dual</SQL>
+        </QUERY>
+        <QUERY id="CHECK_TRATTAMENTO_DATI_ESA">
+            <SQL>select  /*+first_rows(1)*/ &apos;S&apos;  VALUE ,&apos;lblTrattamentoDatiEsa&apos;  DESCR,&apos;CBcolorRed&apos; CLASS  from dual</SQL>
+        </QUERY>
+        <QUERY id="CHECK_URGENZE">
+            <SQL>select /*+first_rows(10)*/   CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR,PARAMETRI CLASS from DATI$TIPI WHERE TIPO=&apos;URGENZA&apos; ORDER BY VALUE ASC</SQL>
+        </QUERY>
+        <QUERY id="CHK_DX_SX">
+            <SQL>select /*+first_row(10)*/ 'DX' VALUE, lblDestra DESCR from dual union all select /*+first_row(10)*/ 'SX' VALUE, lblSinistra DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="CHK_GIORNI_SETTIMANA">
+            <SQL>SELECT /*+first_rows(10)*/ &apos;1&apos; VALUE, &apos;lblLunedi&apos; DESCR FROM DUAL UNION ALL SELECT &apos;2&apos; VALUE, &apos;lblMartedi&apos; DESCR FROM DUAL UNION ALL SELECT &apos;3&apos; VALUE, &apos;lblMercoledi&apos; DESCR FROM DUAL UNION ALL SELECT &apos;4&apos; VALUE, &apos;lblGiovedi&apos; DESCR FROM DUAL UNION ALL SELECT &apos;5&apos; VALUE, &apos;lblVenerdi&apos; DESCR FROM DUAL UNION ALL SELECT &apos;6&apos; VALUE, &apos;lblSabato&apos; DESCR FROM DUAL UNION ALL SELECT &apos;7&apos; VALUE, &apos;lblDomenica&apos; DESCR FROM DUAL</SQL>
+        </QUERY>
+        <QUERY id="CHK_TEST_CLASS">
+            <SQL>select /*+first_rows(1)*/ &apos;S&apos; VALUE, &apos;Consenso&apos; DESCR, &apos;CBcolorRed&apos; CLASS from dual UNION ALL select /*+first_rows(1)*/ &apos;S2&apos; VALUE, &apos;Consenso2&apos; DESCR, &apos;CBcolorGreen&apos; CLASS from dual UNION ALL select /*+first_rows(1)*/ &apos;S3&apos; VALUE, &apos;Consenso2&apos; DESCR, &apos;CBcolorYellow&apos; CLASS from dual</SQL>
+        </QUERY>
+        <QUERY id="CMB_GRUPPI_UTENTI">
+            <SQL>select  /*+first_rows(10)*/ distinct ID_GRUPPO  VALUE ,ID_GRUPPO DESCR  from PERMESSI </SQL>
+        </QUERY>
+        <QUERY id="CMB_AGENDA_FASCE_ORARIE">
+            <SQL>select  /*+first_rows(100)*/ IDEN VALUE ,dati$get_giorni_settimana(giorni_attivi) || &apos; dalle &apos; || ora_inizio || &apos; alle &apos; ||ora_fine  DESCR  from dati$AGENDA_FASCE_ORARIE ORDER BY DESCRIZIONE</SQL>
+        </QUERY>
+        <QUERY id="CMB_AGENDA_FASCE_ORARIE_OLD">
+            <SQL>select  /*+first_rows(100)*/ IDEN VALUE ,DESCRIZIONE DESCR  from dati$AGENDA_FASCE_ORARIE ORDER BY DESCRIZIONE</SQL>
+        </QUERY>
+        <QUERY id="CHECK_AUTORIZZA_MDC">
+            <SQL>select  /*+first_rows(1)*/ &apos;S&apos;  VALUE ,&apos;lblAutorizMDC&apos;  DESCR,&apos;CBcolorRed&apos; CLASS  from dual</SQL>
+        </QUERY>
+        <QUERY id="CMB_AGENDE">
+            <SQL>SELECT /*+first_rows(100)*/ IDEN VALUE, DESCRIZIONE DESCR FROM DATI$AGENDA WHERE ATTIVO = &apos;S&apos; ORDER BY DESCRIZIONE</SQL>
+        </QUERY>
+        <QUERY id="CMB_CDC_NOT_SEL">
+            <SQL>select  CDC.IDEN VALUE,CDC.DESCRIZIONE DESCR from DATI$CENTRI_DI_COSTO CDC left outer join DATI$CENTRI_DI_COSTO_ASSOCIATI CDC_AS ON (CDC.IDEN=CDC_AS.IDEN_CDC and CDC_AS.TABELLA_IDEN= :id_tabella  and CDC_AS.TABELLA_NOME=:tabella) where CDC_AS.IDEN is null</SQL>
+            <BINDS>
+                <BIND id="id_tabella" value="#IDEN#" type="N"></BIND>
+                <BIND id="tabella" value="#TABELLA#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_CDC_SEL">
+            <SQL>select CDC_AS.IDEN_CDC VALUE,CDC.DESCRIZIONE DESCR from DATI$CENTRI_DI_COSTO_ASSOCIATI CDC_AS INNER JOIN DATI$CENTRI_DI_COSTO CDC ON (CDC.IDEN=CDC_AS.IDEN_CDC)  WHERE CDC_AS.TABELLA_IDEN= :id_tabella and CDC_AS.TABELLA_NOME=:tabella</SQL>
+            <BINDS>
+                <BIND id="id_tabella" value="#IDEN#" type="N"></BIND>
+                <BIND id="tabella" value="#TABELLA#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_DIRECTORY_REPORT">
+            <SQL>select /*+first_rows(100)*/  CDC.IDEN VALUE,CDC.DESCRIZIONE DESCR from DATI$CENTRI_DI_COSTO CDC WHERE CDC.ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_VOCALI">
+            <SQL>select /*+first_rows(10)*/ P.ID_GRUPPO VALUE,P.ID_GRUPPO DESCR FROM PARAMETRI P WHERE P.NOME ='NAMESPACE_VOCALE' and P.ATTIVO='S'</SQL>
+        </QUERY>
+        <QUERY id="CMB_PACS">
+            <SQL>select /*+first_rows(10)*/ P.ID_GRUPPO VALUE,P.ID_GRUPPO DESCR FROM PARAMETRI P WHERE P.NOME ='NAMESPACE_PACS' and P.ATTIVO='S'</SQL>
+        </QUERY>
+        <QUERY id="CMB_CONFIGURAZIONE_ETICHETTE">
+            <SQL>select /*+first_rows(10)*/ P.ID_GRUPPO VALUE,P.ID_GRUPPO DESCR FROM PARAMETRI P WHERE P.NOME ='ETICHETTA_CONFIGURAZIONE' and P.ATTIVO='S'</SQL>
+        </QUERY>
+        <QUERY id="CMB_ESECUZIONE">
+            <SQL>select /*+first_rows(10)*/ P.ID_GRUPPO VALUE,P.ID_GRUPPO DESCR FROM PARAMETRI P WHERE P.GRUPPO ='UTENTI_GRUPPO' AND P.NOME ='ABILITA_FINE_ESECUZIONE' and P.ATTIVO='S'</SQL>
+        </QUERY>
+        <QUERY id="CMB_GENERICA_ALCOL">
+            <SQL>select /*+first_rows(10)*/ codice value, descrizione descr from mmg.mmg_codifiche where tipo_dato = :tipo_dato AND ATTIVO = &apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_GENERICA_VACCINAZIONI">
+            <SQL>select /*+first_rows(10)*/ codice value, descrizione descr from mmg.mmg_codifiche where tipo_dato = &apos;VACCINAZIONE&apos; AND ATTIVO = &apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_GRUPPI_UTENTI">
+            <SQL>select  /*+first_rows(10)*/ distinct ID_GRUPPO  VALUE ,ID_GRUPPO DESCR  from CONFIG$PERMESSI WHERE SITO = :sito </SQL>
+        </QUERY>
+        <QUERY id="CMB_GRUPPO_TIPI">
+            <SQL>select  /*+first_rows(100)*/ DISTINCT TIPO  VALUE ,TIPO DESCR  from DATI$TIPI</SQL>
+        </QUERY>
+        <QUERY id="CMB_LINGUE">
+            <SQL>select /*+first_rows(10)*/   CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from DATI$TIPI WHERE TIPO=&apos;LINGUA&apos; ORDER BY DESCR ASC</SQL>
+        </QUERY>
+        <QUERY id="CMB_METODICA">
+            <SQL>select CODICE_DECODIFICA VALUE,DESCRIZIONE  DESCR from DATI$TIPI WHERE TIPO = :metodica</SQL>
+            <BINDS>
+                <BIND id="metodica" value="METODICA" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_MODALITA_ACCESSO">
+            <SQL>Select /*+first_row(10)*/ IDEN VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;ACCESSO&apos; AND ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_MODALITA_PRESCRITTIVA">
+            <SQL>Select /*+first_row(10)*/ IDEN VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;MODALITA_PRESCRITTIVA&apos; AND ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_NOMENCLATORE">
+            <SQL>select descrizione descr,iden value ,tbl.*  from table(DATI$GESTIONE_RIS_ESAMI.GET_LISTA_NOMENCLATORE(:request)) tbl</SQL>
+            <BINDS>
+                <BIND id="request" value="#REQUEST#" type="C"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_NOTIFICHE_PC">
+            <SQL>select  /*+first_rows(100)*/  IP  VALUE ,IP DESCR  from PC WHERE ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_NOTIFICHE_SUONI">
+            <SQL>Select /*+first_row(10)*/ CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;SUONO&apos;  AND ATTIVO=&apos;S&apos;  ORDER BY DESCR ASC</SQL>
+        </QUERY>
+        <QUERY id="CMB_NOTIFICHE_TIPO_PERSONALE">
+            <SQL>select  /*+first_rows(100)*/  CODICE_DECODIFICA  VALUE ,DESCRIZIONE DESCR  from DATI$TIPI WHERE TIPO=&apos;PERSONALE&apos; AND  ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_NOTIFICHE_UTENTI">
+            <SQL>select  /*+first_rows(100)*/  USERNAME  VALUE ,USERNAME DESCR  from UTENTI WHERE ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_ONERE">
+            <SQL>select  /*+first_rows(100)*/ IDEN  VALUE ,DESCRIZIONE DESCR  from DATI$ONERE WHERE ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_PAGINE">
+            <SQL>select  /*+first_rows(100)*/ 'page?KEY_LEGAME=' || KEY_LEGAME  VALUE ,KEY_LEGAME DESCR  from SDJ$HTML_STRUTTURA_CONFIG WHERE ATTIVO='S' and SITO = :sito
+                union
+                select  /*+first_rows(100)*/ 'page?KEY_LEGAME=' || KEY_LEGAME  VALUE ,KEY_LEGAME DESCR  from SDJ$HTML_STRUTTURA_CONFIG WHERE ATTIVO='S' and SITO = 'ALL'
+            </SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_PERSONALE">
+            <SQL>select /*+first_rows(100)*/   IDEN VALUE,DESCRIZIONE DESCR from DATI$PERSONALE ORDER BY DESCR ASC</SQL>
+        </QUERY>
+        <QUERY id="CMB_RADIOFARMACO">
+            <SQL>select /*+first_rows(100)*/  mg.IDEN VALUE,mg.DESCRIZIONE DESCR from polaris_dati.magazzini_articoli mg where stato_fisico=&apos;LIQUIDO&apos; and tracciante=&apos;S&apos; and attivo=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_SALA_AREA">
+            <SQL>select /*+first_rows(10)*/   S.IDEN  || &apos;/&apos; || A.IDEN VALUE,S.DESCRIZIONE || &apos;/&apos; || A.DESCRIZIONE DESCR ,CDC.IDEN IDEN_CDC,CDC.DESCRIZIONE DESCRIZIONE_CDC
+                from DATI$SALA_AREA S
+                inner join DATI$SALA_AREA A on (S.IDEN = A.IDEN_PADRE AND S.TIPO =&apos;SALA&apos; AND A.TIPO=&apos;AREA&apos; AND A.ATTIVO=&apos;S&apos; AND S.ATTIVO=&apos;S&apos; AND A.IDEN_PADRE is not null)
+                inner join DATI$CENTRI_DI_COSTO_ASSOCIATI CDC_A on(CDC_A.TABELLA_IDEN=S.IDEN AND CDC_A.TABELLA_NOME=&apos;SALA_AREA&apos; and CDC_A.ATTIVO=&apos;S&apos;)
+                inner join DATI$CENTRI_DI_COSTO CDC on (CDC_A.IDEN_CDC=CDC.IDEN AND CDC.ATTIVO=&apos;S&apos;)
+                ORDER BY DESCR ASC</SQL>
+        </QUERY>
+        <QUERY id="CMB_SCHEDA_ESAME_NOMENCLATORE">
+            <SQL>select /*+first_rows(10)*/  T2.IDEN VALUE, T2.DESCRIZIONE DESCR from DATI$ESAMI_DETTAGLIO T1 inner join DATI$NOMENCLATORE T2 on (T2.IDEN = T1.IDEN_NOMENCLATORE and T1.DELETED = &apos;N&apos;) where T1.IDEN_TESTATA = :iden_testata and nvl(&apos;#ASSOCIA_ESAME#&apos;, &apos;N&apos;) = &apos;N&apos;</SQL>
+            <BINDS>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_SEGRETERIA_DOCUMENTAZIONE">
+            <SQL>SELECT /*+first_rows(10)*/ CODICE_DECODIFICA VALUE, DESCRIZIONE DESCR FROM DATI$TIPI WHERE TIPO=&apos;SEGRETERIA_DOCUMENTAZIONE&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_SEGRETERIA_FORMATO">
+            <SQL>SELECT /*+first_rows(10)*/ CODICE_DECODIFICA VALUE, DESCRIZIONE DESCR FROM DATI$TIPI WHERE TIPO=&apos;SEGRETERIA_FORMATO&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_SEGRETERIA_PROTOCOLLO_STAMPA">
+            <SQL>SELECT /*+first_rows(10)*/ CODICE_DECODIFICA VALUE, DESCRIZIONE DESCR FROM DATI$TIPI WHERE TIPO=&apos;SEGRETERIA_PROTOCOLLO_STAMPA&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_SEGRETERIA_STATO_CARTELLA">
+            <SQL>SELECT /*+first_rows(10)*/ CODICE_DECODIFICA VALUE, DESCRIZIONE DESCR FROM DATI$TIPI WHERE TIPO=&apos;SEGRETERIA_STATO_CARTELLA&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_SEGRETERIA_SUPPORTO_EROGAZIONE">
+            <SQL>SELECT /*+first_rows(10)*/ CODICE_DECODIFICA VALUE, DESCRIZIONE DESCR FROM DATI$TIPI WHERE TIPO=&apos;SEGRETERIA_SUPPORTO_EROGAZIONE&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_SESSO">
+            <SQL>select /*+first_rows(10)*/ &apos;Sesso 1&apos; OPTGROUP, &apos;M&apos; VALUE, &apos;lblMaschio&apos; DESCR from dual union all select /*+first_rows(10)*/ &apos;Sesso 1&apos; OPTGROUP, &apos;F&apos; VALUE, &apos;lblFemmina&apos; DESCR from dual union all select /*+first_rows(10)*/ &apos;Sesso 1&apos; OPTGROUP, &apos;U&apos; VALUE, &apos;lblSconosciuto&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;Sesso 2&apos; OPTGROUP, &apos;M2&apos; VALUE, &apos;lblMaschio&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;Sesso 2&apos; OPTGROUP, &apos;F2&apos; VALUE, &apos;lblFemmina&apos; DESCR from dual union all select /*+first_rows(10)*/ &apos;Sesso 2&apos; OPTGROUP, &apos;U2&apos; VALUE, &apos;lblSconosciuto&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="CMB_STATO_PAZIENTE">
+            <SQL>select  /*+first_rows(10)*/ IDEN  VALUE ,DESCRIZIONE DESCR  from DATI$STATO_PAZIENTE WHERE ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_STATO_REFERTAZIONE">
+            <SQL>select CODICE VALUE,DESCRIZIONE DESCR from DATI$STATO_ESAME</SQL>
+            <BINDS>
+                <BIND id="min_codice" value="0" type="N"></BIND>
+                <BIND id="max_codice" value="12" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CMB_SUONI_WK">
+            <SQL>Select /*+first_row(10)*/ CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;SUONO&apos;  AND ATTIVO=&apos;S&apos;  ORDER BY DESCR ASC</SQL>
+        </QUERY>
+        <QUERY id="CMB_TIPO_DAY_SERVICE">
+            <SQL>Select /*+first_row(10)*/ IDEN VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;DAY_SERVICE&apos;  AND ATTIVO=&apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="CMB_TIPO_VOCALE">
+            <SQL>select /*+first_rows(10)*/   CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from DATI$TIPI WHERE TIPO=&apos;VOCALE&apos;   union all SELECT &apos;NULL&apos; VALUE,&apos;NESSUNO&apos; DESCR FROM DUAL ORDER BY DESCR ASC</SQL>
+        </QUERY>
+        <QUERY id="CONSOLE">
+            <SQL>select /*+first_row(1)*/
+                distinct ANAG.IDEN IDEN_ANAGRAFICA,
+                anag.cognome || &apos; &apos; || anag.nome || &apos; &apos; || datetimeconverter(anag.data_nascita, &apos;yyyyMMdd&apos;, &apos;dd/MM/yyyy&apos;) paziente,
+                ANAG.DATA_NASCITA,
+                et.iden_cdc IDEN_CDC_REF,
+                TO_CHAR(sysdate,&apos;DD/MM/YYYY&apos;) DATA_REFERTO_FORMAT,
+                dati$concat_fields(&apos;select nomenclatore.descrizione  from esami_dettaglio inner join nomenclatore on (esami_dettaglio.iden_nomenclatore=nomenclatore.iden) where IDEN_TESTATA IN (&apos;|| :iden_testata ||&apos;)  and deleted=&apos;&apos;N&apos;&apos;&apos;,&apos;,&apos;,&apos;&lt;br /&gt;&apos;) TESTO_HTML,
+                (SELECT /*+first_rows(1)*/ DISTINCT chr(123) || &apos;key_legame:&apos;&apos;&apos;||KEY_LEGAME||&apos;&apos;&apos;,parametri:&apos;||PARAMETRI||&apos;,procedura:&apos;&apos;&apos;||PROCEDURA_SAVE|| &apos;&apos;&apos;&apos; || chr(125) FROM CONFIG$SCHEDE_REFERTAZIONE WHERE IDEN_CDC IN (SELECT TO_NUMBER(COLUMN_VALUE) FROM TABLE(SPLIT(:iden_cdc))) AND IDEN_NOMENCLATORE IN (SELECT TO_NUMBER(COLUMN_VALUE) FROM TABLE(SPLIT(:iden_nomenclatore))) and sito = :sito and attivo = &apos;S&apos;) SCHEDA,
+                et.quadro_clinico Quadro,
+                et.quesito_clinico Quesito,
+                et.note Note,
+                et.autorizza_mdc mdc,
+                &apos;N&apos; sospeso,
+                :iden_per utente_modifica,
+                (select max(stato) from dati$esami_dettaglio where iden IN (select column_value from table(split(:iden_dettaglio))) ) max_stato
+                FROM DATI$ESAMI_DETTAGLIO ED
+                INNER JOIN DATI$ESAMI_TESTATA ET ON (ET.IDEN = ED.IDEN_TESTATA)
+                INNER JOIN DATI$ANAGRAFICA ANAG ON (ANAG.IDEN = ET.IDEN_ANAGRAFICA)
+                INNER JOIN DATI$PROVENIENZE PRO ON (PRO.IDEN = ET.IDEN_PROVENIENZA)
+                WHERE IDEN_TESTATA IN (select column_value from table(split(:iden_testata))) </SQL>
+            <BINDS>
+                <BIND id="iden_per" value="#IDEN_PER#" type="N"></BIND>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="V"></BIND>
+                <BIND id="iden_dettaglio" value="#IDEN_DETTAGLIO#" type="V"></BIND>
+                <BIND id="iden_nomenclatore" value="#IDEN_NOMENCLATORE#" type="V"></BIND>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="iden_cdc" value="#IDEN_CDC#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONSOLE_ANAGRAFICA">
+            <SQL>select /*+first_rows(1)*/ ANAG.IDEN IDEN_ANAGRAFICA, ANAG.DATA_NASCITA, ANAG.COGNOME || &apos; &apos; || ANAG.NOME || &apos; &apos; || DATETIMECONVERTER(ANAG.DATA_NASCITA, &apos;yyyyMMdd&apos;, &apos;dd/MM/yyyy&apos;) PAZIENTE, AGEINYEARS(ANAG.DATA_NASCITA) ETA_ANNI, AGEINMONTHS(ANAG.DATA_NASCITA) ETA_MESI from DATI$ANAGRAFICA ANAG where iden = :iden_anagrafica</SQL>
+            <BINDS>
+                <BIND id="iden_anagrafica" value="#IDEN_ANAGRAFICA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONSOLE_BCK">
+            <SQL>select /*+first_row(1)*/
+                distinct ANAG.IDEN IDEN_ANAGRAFICA,
+                anag.cognome || &apos; &apos; || anag.nome || &apos; &apos; || datetimeconverter(anag.data_nascita, &apos;yyyyMMdd&apos;, &apos;dd/MM/yyyy&apos;) paziente,
+                ANAG.DATA_NASCITA,
+                et.iden_cdc IDEN_CDC_REF,
+                TO_CHAR(sysdate,&apos;DD/MM/YYYY&apos;) DATA_REFERTO_FORMAT,
+                (SELECT /*+first_rows(1)*/ DISTINCT chr(123) || &apos;key_legame:&apos;&apos;&apos;||KEY_LEGAME||&apos;&apos;&apos;,parametri:&apos;||PARAMETRI||&apos;,procedura:&apos;&apos;&apos;||PROCEDURA_SAVE|| &apos;&apos;&apos;&apos; || chr(125)  FROM CONFIG$SCHEDE_REFERTAZIONE WHERE IDEN_CDC IN (SELECT TO_NUMBER(COLUMN_VALUE) FROM TABLE(SPLIT(:iden_cdc))) AND IDEN_NOMENCLATORE IN (SELECT TO_NUMBER(COLUMN_VALUE) FROM TABLE(SPLIT(:iden_nomenclatore))) and sito = :sito and attivo = &apos;S&apos;) SCHEDA,
+                et.quadro_clinico Quadro,
+                et.quesito_clinico Quesito,
+                et.note Note,
+                et.autorizza_mdc Mdc
+                FROM DATI$ESAMI_DETTAGLIO ED
+                INNER JOIN DATI$ESAMI_TESTATA ET ON (ET.IDEN = ED.IDEN_TESTATA)
+                INNER JOIN DATI$ANAGRAFICA ANAG ON (ANAG.IDEN = ET.IDEN_ANAGRAFICA)
+                INNER JOIN DATI$PROVENIENZE PRO ON (PRO.IDEN = ET.IDEN_PROVENIENZA)
+                WHERE IDEN_TESTATA IN (select column_value from table(split(:iden_testata)))
+            </SQL>
+        </QUERY>
+        <QUERY id="CONSOLE_DOC_ALLEGATI">
+            <SQL>select /*+first_rows(1)*/ nome_file, to_char(data_inserimento,&apos;YYYYMMDD&apos;) data_inserimento, mime_type from dati$documenti_allegati where IDEN_ESAMI_TESTATA in (select to_number(column_value) from table(split(:iden_testata))) and deleted = &apos;N&apos;</SQL>
+            <BINDS>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONSOLE_INFO_ESAME">
+            <SQL>select /*+first_rows(1)*/ iden, quadro_clinico ieQuadro,quesito_clinico ieQuesito,note ieNote,autorizza_mdc ieMdc from dati$esami_testata et where et.iden in (select to_number(column_value) from table(split(:iden_testata)))</SQL>
+            <BINDS>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONSOLE_LISTA_ESAMI">
+            <SQL>SELECT /*+first_row(10)*/ ED.IDEN ID,N.DESCRIZIONE DESCR,ed.id_dicom FROM DATI$ESAMI_DETTAGLIO ED INNER JOIN DATI$NOMENCLATORE N ON (N.IDEN = ED.IDEN_NOMENCLATORE) where IDEN_TESTATA IN (select column_value from table(split(:iden_testata)))</SQL>
+            <BINDS>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONSOLE_REFERTO">
+            <SQL>with ver_ref as (select /*+first_rows(1)*/ * from table(dati$gestione_ris_referti.get_ultima_versione(:iden_referto)))
+                select /*+first_row(1)*/
+                r.iden,
+                r.iden_cdc iden_cdc_ref,
+                r.data_referto,
+                to_char(to_date (r.data_referto,&apos;YYYYMMDD&apos;),&apos;DD/MM/YYYY&apos;) || &apos; h&apos; || r.ora_referto data_referto_format,
+                rt.testo,
+                /* il replace &lt; con &lt;spazio, serve per bugfix di tinymce */
+                regexp_replace(regexp_replace(nvl(rt.testo_html, dbms_xmlgen.convert(rt.testo,0)), &apos;&amp;lt;&apos;, &apos;&amp;lt; &apos;), CHR(13) || CHR(10), &apos;&lt;br /&gt;&apos;) testo_html,
+                rt.testo_rtf,
+                r.iden_primo_medico,
+                dati$get_descrizione_personale(r.iden_primo_medico) primo_medico,
+                r.iden_secondo_medico,
+                dati$get_descrizione_personale(r.iden_secondo_medico) secondo_medico,
+                r.iden_specializzando,
+                dati$get_descrizione_personale(r.iden_specializzando) specializzando,
+                ver_ref.iden iden_versione_referto,
+                r.sospeso,
+                r.utente_modifica,
+                (select wm_concat(iden) from dati$esami_dettaglio where iden_referto = :iden_referto and deleted = &apos;N&apos;) iden_dettagli,
+                (select max(stato) from dati$esami_dettaglio where iden_referto = :iden_referto and deleted = &apos;N&apos;) max_stato,
+                (select /*+first_rows(1)*/ anag.cognome || &apos; &apos; || anag.nome || &apos; &apos; || datetimeconverter(anag.data_nascita, &apos;yyyyMMdd&apos;, &apos;dd/MM/yyyy&apos;) from dati$anagrafica anag where iden = :iden_anagrafica) paziente,
+                (select /*+first_rows(1)*/ anag.data_nascita from dati$anagrafica anag where iden = :iden_anagrafica) data_nascita,
+                (select /*+first_rows(1)*/ distinct chr(123) || &apos;key_legame:&apos;&apos;&apos;||key_legame||&apos;&apos;&apos;,parametri:&apos;||parametri||&apos;,procedura:&apos;&apos;&apos;||procedura_save|| &apos;&apos;&apos;&apos; ||chr(125)  from config$schede_refertazione where iden_cdc in (select to_number(column_value) from table(split(:iden_cdc))) and iden_nomenclatore in (select to_number(column_value) from table(split(:iden_nomenclatore))) and sito = :sito and attivo = &apos;S&apos;) scheda,
+                (select /*+first_rows(1)*/ quadro_clinico from dati$esami_testata where IDEN IN (select column_value from table(split(:iden_testata))) and rownum &lt;= 1) QUADRO,
+                (select /*+first_rows(1)*/ quesito_clinico from dati$esami_testata where IDEN IN (select column_value from table(split(:iden_testata))) and rownum &lt;= 1) QUESITO,
+                (select /*+first_rows(1)*/ note from dati$esami_testata where iden in (select column_value from table(split(:iden_testata))) and rownum &lt;= 1) note,
+                (select /*+first_rows(1)*/ autorizza_mdc from dati$esami_testata where iden in (select column_value from table(split(:iden_testata))) and rownum &lt;= 1) mdc
+                from dati$referti r
+                inner join dati$referti_testo rt on (r.iden = rt.iden_referto)
+                left outer join ver_ref on (ver_ref.iden_referto = r.iden)
+                where r.iden = :iden_referto </SQL>
+            <BINDS>
+                <BIND id="iden_referto" value="#IDEN_REFERTO#" type="N"></BIND>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="V"></BIND>
+                <BIND id="iden_nomenclatore" value="#IDEN_NOMENCLATORE#" type="V"></BIND>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="iden_cdc" value="#IDEN_CDC#" type="V"></BIND>
+                <BIND id="iden_anagrafica" value="#IDEN_ANAGRAFICA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="CONSOLE_SCHEDA_REFERTAZIONE">
+            <SQL>select /*+first_rows(1)*/ distinct CHR(123) || &apos;key_legame:&apos;&apos;&apos;||KEY_LEGAME||&apos;&apos;&apos;,parametri:&apos;||PARAMETRI||&apos;,procedura:&apos;||PROCEDURA_SAVE|| CHR(125) SCHEDA from CONFIG$SCHEDE_REFERTAZIONE WHERE IDEN_CDC IN (SELECT TO_NUMBER(COLUMN_VALUE) FROM TABLE(SPLIT(:iden_cdc))) AND IDEN_NOMENCLATORE IN (SELECT TO_NUMBER(COLUMN_VALUE) FROM TABLE(SPLIT(:iden_nomenclatore)))</SQL>
+        </QUERY>
+        <QUERY id="PARAMS_LIST_GROUP">
+            <SQL>select /*+first_rows(100)*/  DISTINCT ID_GRUPPO VALUE,ID_GRUPPO DESCR FROM PARAMETRI WHERE GRUPPO = :gruppo and ID_GRUPPO NOT IN (
+                SELECT ID_GRUPPO FROM PARAMETRI_GRUPPO WHERE GRUPPO = :gruppo AND ID = :to_config) ORDER BY ID_GRUPPO</SQL>
+            <BINDS>
+                <BIND id="gruppo" value="#GRUPPO#" type="V"></BIND>
+                <BIND id="to_config" value="#TO_CONFIG#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="PARAMS_LIST_PARAMS_GLOBAL">
+            <SQL>SELECT /*+first_rows(100)*/ IDEN VALUE ,NOME DESCR FROM  PARAMETRI WHERE ID_GRUPPO = :gruppo and SITO= :sito
+                union all
+                SELECT /*+first_rows(100)*/ IDEN VALUE ,NOME DESCR FROM  PARAMETRI WHERE ID_GRUPPO = :gruppo and SITO= 'ALL' order by DESCR
+            </SQL>
+            <BINDS>
+                <BIND id="gruppo" value="#GRUPPO#" type="V"></BIND>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="PARAMS_LIST_PARAMS_GROUP">
+            <SQL>SELECT /*+first_rows(100)*/ ID_GRUPPO VALUE ,ID_GRUPPO DESCR FROM PARAMETRI_GRUPPO WHERE GRUPPO = :gruppo AND ID = :to_config</SQL>
+            <BINDS>
+                <BIND id="gruppo" value="#GRUPPO#" type="V"></BIND>
+                <BIND id="to_config" value="#TO_CONFIG#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_GRUPPO_PERMESSI">
+            <SQL>
+                select GRUPPO,ID,VALORE from table(utility_web.get_permission(null,:versione,:sito,:gruppo,'RIS_DEVELOPER.' || :gruppo_permessi)) WHERE VALORE is not null order by GRUPPO
+            </SQL>
+            <BINDS>
+                <BIND id="gruppo_permessi" value="#ID_GRUPPO#" type="V"></BIND>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+                <BIND id="versione" value="1" type="V"></BIND>
+                <BIND id="gruppo" value="ALL" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_PARAMETRI_GLOBALI">
+            <SQL>select /*+first_rows(100)*/ NOME,VALORE,DESCRIZIONE,SITO from PARAMETRI P WHERE P.GRUPPO = P.ID_GRUPPO and P.GRUPPO ='GLOBALI' and ATTIVO='S' and SITO ='ALL'
+                union all
+                select /*+first_rows(100)*/ NOME,VALORE,DESCRIZIONE,SITO from PARAMETRI P WHERE P.GRUPPO = P.ID_GRUPPO and P.GRUPPO ='GLOBALI' and ATTIVO='S' and SITO = 'RIS'
+            </SQL>
+            <BINDS>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_SCHEDE_REFERTAZIONE">
+            <SQL>select /*+first_rows(100)*/ IDEN,
+                IDEN_CDC,
+                IDEN_NOMENCLATORE,
+                KEY_LEGAME,
+                PARAMETRI,
+                SITO,
+                ATTIVO,
+                PROCEDURA_SAVE,
+                APERTURA_ESECUZIONE,
+                PROCEDURA_SAVE_ESECUZIONE,
+                TEMPLATE from SCHEDE_REFERTAZIONE SR WHERE SR.IDEN = :iden
+            </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_GGP">
+            <SQL>
+                select /*+first_rows(10)*/ GRUPPO,ID_GRUPPO,NOME,VALORE,ATTIVO,DESCRIZIONE,SITO  from PARAMETRI where  ATTIVO='S' and ID_GRUPPO = :id_gruppo and SITO ='ALL'
+                union all
+                select /*+first_rows(10)*/ GRUPPO,ID_GRUPPO,NOME,VALORE,ATTIVO,DESCRIZIONE,SITO from PARAMETRI where  ATTIVO='S' and ID_GRUPPO = :id_gruppo and SITO = :sito
+            </SQL>
+            <BINDS>
+                <BIND id="id_gruppo" value="#ID_GRUPPO#" type="V"></BIND>
+                <BIND id="sito" value="#SITO#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_ASSOCIAZIONE_AREA_AGENDA">
+            <SQL>select /*+first_rows(1)*/
+                DESCRIZIONE AS TITOLO
+                FROM DATI$SALA_AREA WHERE IDEN = :iden</SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_ASSOCIAZIONE_AREA_ESAME">
+            <SQL>select /*+first_rows(1)*/
+                DESCRIZIONE AS TITOLO
+                FROM DATI$SALA_AREA WHERE IDEN = :iden</SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_CIS_STRESS_TEST">
+            <SQL>select /*+first_rows(10)*/ tab.CONTENUTO.getClobVal() CONTENUTO from cardio$cardio_schede_xml tab where tab.IDEN =:iden</SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_CMB_MAGAZZINI">
+            <SQL>select -1 VALUE , &apos;&apos; DESCR FROM DUAL UNION ALL select IDEN VALUE,DESCRIZIONE DESCR from MAGAZZINO$MAGAZZINI M where attivo=&apos;S&apos;</SQL>
+        </QUERY>
+
+        <QUERY id="Q_CONSOLE_CDC_PER">
+            <SQL>SELECT  /*+first_rows(1)*/ CDC.IDEN VALUE, CDC.DESCRIZIONE DESCR FROM DATI$CENTRI_DI_COSTO_ASSOCIATI CA INNER JOIN DATI$CENTRI_DI_COSTO CDC ON (CDC.IDEN = CA.IDEN_CDC) where CA.TABELLA_NOME = &apos;PERSONALE&apos; and tabella_iden = :iden_per</SQL>
+            <BINDS>
+                <BIND id="iden_per" value="#IDEN_PER#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_CONSULTA_PRENOTAZIONE">
+            <SQL>select /*+first_rows(1)*/ 1 VALUE from DUAL</SQL>
+        </QUERY>
+        <QUERY id="Q_EMPTY">
+            <SQL>select null VALUE, null DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_COMBO">
+            <SQL>select /*+first_row(10)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS VALUE FROM DATI$TIPI WHERE  attivo=&apos;S&apos; {and 1=1} order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_FILL_RADIO">
+            <SQL>select /*+first_row(10)*/ DESCRIZIONE AS DESCR, CODICE_DECODIFICA AS VALUE FROM DATI$TIPI WHERE  attivo=&apos;S&apos; {and 1=1} order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_FILTRO_CDC">
+            <SQL>select /*+first_rows(10)*/ cdc.iden value, cdc.descrizione descr
+                from config$utenti u
+                inner join dati$personale p on (p.iden = u.iden_per)
+                inner join dati$centri_di_costo_associati cdcass on (cdcass.tabella_nome = 'PERSONALE' and cdcass.tabella_iden = p.iden)
+                inner join dati$centri_di_costo cdc on (cdc.iden = cdcass.iden_cdc and cdc.attivo ='S') where u.username = :username </SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_CDC_CONSULTA">
+            <SQL>select /*+first_rows(10)*/ cdc.iden value, cdc.descrizione descr
+                from config$utenti u
+                inner join dati$personale p on (p.iden = u.iden_per)
+                inner join dati$centri_di_costo_associati cdcass on (cdcass.tabella_nome = &apos;PERSONALE&apos; and cdcass.tabella_iden = p.iden)
+                inner join dati$centri_di_costo cdc on (cdc.iden = cdcass.iden_cdc and cdc.attivo = &apos;S&apos;) where username = :username</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_MN_ESAME">
+            <SQL>select /*+first_rows(10)*/ iden value,descrizione descr from polaris_dati.nomenclatore</SQL>
+        </QUERY>
+        <QUERY id="Q_FILTRO_PRENOTAZIONE_AREE">
+            <SQL>select /*+first_row(10)*/  AR.IDEN value, AR.DESCRIZIONE DESCR from DATI$SALA_AREA AR inner join DATI$FILTRI F on F.CODICE_NUMBER = AR.IDEN_PADRE where F.ID_FILTRO = &apos;FILTRO_SALE_PRENOTAZIONE&apos; and USERNAME = :username and AR.ATTIVO = &apos;S&apos; and AR.TIPO=&apos;AREA&apos;  order by AR.DESCRIZIONE</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_PRENOTAZIONE_SALE">
+            <SQL>select /*+first_row(10)*/  SA.IDEN value, SA.DESCRIZIONE DESCR from DATI$SALA_AREA SA inner join DATI$CENTRI_DI_COSTO_ASSOCIATI CDCA on (CDCA.TABELLA_IDEN = SA.IDEN and CDCA.TABELLA_NOME = &apos;SALA_AREA&apos; ) inner join DATI$FILTRI F on F.CODICE_NUMBER = CDCA.IDEN_CDC where F.ID_FILTRO = &apos;FILTRO_CDC_PRENOTAZIONE&apos; and USERNAME = :username and SA.ATTIVO = &apos;S&apos; and CDCA.ATTIVO = &apos;S&apos; order by SA.DESCRIZIONE</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_STATO_ESAME">
+            <SQL>select /*+first_rows(10)*/ CODICE value, DESCRIZIONE DESCR from DATI$STATO_ESAME where FILTRO = &apos;S&apos; and ATTIVO = &apos;S&apos; order by ORDINE</SQL>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_AREE_CONSULTA">
+            <SQL>select /*+first_row(10)*/  AR.IDEN value, AR.DESCRIZIONE DESCR from DATI$SALA_AREA AR inner join DATI$FILTRI F on F.CODICE_NUMBER = AR.IDEN_PADRE where F.ID_FILTRO = &apos;FILTRO_SALE_CONSULTA&apos; and USERNAME = :username and AR.ATTIVO = &apos;S&apos; and AR.TIPO=&apos;AREA&apos;  order by AR.DESCRIZIONE</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_DAY_END_CONSULTA">
+            <SQL>select /*+first_rows(1)*/ CODICE_VARCHAR VALUE,CODICE_VARCHAR DESCR FROM DATI$FILTRI WHERE ID_FILTRO = &apos;FILTRO_DAY_END_CONSULTA&apos; AND USERNAME = :username</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_DAY_NAME_CONSULTA">
+            <SQL>select /*+first_rows(1)*/ CODICE_VARCHAR VALUE FROM DATI$FILTRI WHERE ID_FILTRO = &apos;FILTRO_DAY_NAME_CONSULTA&apos; AND USERNAME = :username</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_DAY_START_CONSULTA">
+            <SQL>select /*+first_rows(1)*/ CODICE_VARCHAR VALUE FROM DATI$FILTRI WHERE ID_FILTRO = &apos;FILTRO_DAY_START_CONSULTA&apos; AND USERNAME = :username</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_MEDICI">
+            <SQL>select /*+first_rows(1)*/ 0 VALUE, &apos;Tutti&apos; DESCR from DUAL union all select /*+first_row(100)*/ IDEN VALUE, DESCRIZIONE DESCR from DATI$PERSONALE where TIPO_PERSONALE = &apos;M&apos; and TIPO_MEDICO = &apos;R&apos; and ATTIVO = &apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_METODICHE">
+            <SQL>select /*+first_rows(10)*/ CODICE_DECODIFICA VALUE, DESCRIZIONE DESCR from DATI$TIPI where TIPO = &apos;METODICA&apos; and ATTIVO = &apos;S&apos; order by DESCR</SQL>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_MONTH_CONSULTA">
+            <SQL>select /*+first_rows(1)*/ CODICE_VARCHAR VALUE FROM DATI$FILTRI WHERE ID_FILTRO = &apos;FILTRO_MONTH_CONSULTA&apos; AND USERNAME = :username</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_PROVENIENZE">
+            <SQL>select /*+first_rows(10)*/ distinct TPRO.IDEN value,  TPRO.DESCRIZIONE DESCR from DATI$PROVENIENZE TPRO inner join DATI$CENTRI_DI_COSTO_ASSOCIATI CDCA on (CDCA.TABELLA_IDEN = TPRO.IDEN and CDCA.TABELLA_NOME = &apos;PROVENIENZE&apos; ) inner join DATI$FILTRI F on F.CODICE_NUMBER = CDCA.IDEN_CDC where F.ID_FILTRO = &apos;FILTRO_CDC_WORKLIST&apos; and TPRO.ATTIVO = &apos;S&apos; and CDCA.ATTIVO = &apos;S&apos; and username = :username order by TPRO.DESCRIZIONE</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_SALE">
+            <SQL>select /*+first_row(10)*/  SA.IDEN value, SA.DESCRIZIONE DESCR from DATI$SALA_AREA SA inner join DATI$CENTRI_DI_COSTO_ASSOCIATI CDCA on (CDCA.TABELLA_IDEN = SA.IDEN and CDCA.TABELLA_NOME = &apos;SALA_AREA&apos; ) inner join DATI$FILTRI F on F.CODICE_NUMBER = CDCA.IDEN_CDC where F.ID_FILTRO = &apos;FILTRO_CDC_WORKLIST&apos; and USERNAME = :username and SA.ATTIVO = &apos;S&apos; and CDCA.ATTIVO = &apos;S&apos; order by SA.DESCRIZIONE</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_SALE_CONSULTA">
+            <SQL>select /*+first_rows(10)*/  sa.iden value, sa.descrizione descr from dati$sala_area sa inner join dati$centri_di_costo_associati cdca on (cdca.tabella_iden = sa.iden and cdca.tabella_nome = &apos;SALA_AREA&apos; ) inner join DATI$FILTRI F on (F.CODICE_NUMBER = CDCA.IDEN_CDC and f.sito = &apos;FENIX&apos;) inner join DATi$CENTRI_DI_COSTO CDC on ( cdc.iden = cdca.iden_cdc ) where F.ID_FILTRO = &apos;FILTRO_CDC_CONSULTA&apos;   and USERNAME = :username  and SA.ATTIVO = &apos;S&apos;  and CDCA.ATTIVO = &apos;S&apos;  order by SA.DESCRIZIONE</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_URGENZE">
+            <SQL>select /*+first_rows(1)*/ &apos;-1&apos; VALUE, &apos;lblTutte&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;0&apos; VALUE, &apos;lblNonUrgente&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;1&apos; VALUE, &apos;lblUrgenteDifferibile&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;2&apos; VALUE, &apos;lblUrgente&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;3&apos; VALUE, &apos;lblEmergenza&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_FILTRO_WK_WEEK_CONSULTA">
+            <SQL>select /*+first_rows(1)*/ CODICE_VARCHAR VALUE FROM DATI$FILTRI WHERE ID_FILTRO = &apos;FILTRO_WEEK_CONSULTA&apos; AND USERNAME = :username</SQL>
+            <BINDS>
+                <BIND id="username" value="#USERNAME#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_INFO_REFERTO_DETTAGLIO">
+            <SQL>select /*+first_rows(1)*/
+                TO_CHAR(TO_DATE (R.DATA_REFERTO,&apos;YYYYMMDD&apos;),&apos;DD/MM/YYYY&apos;) DATA_REFERTO,
+                R.DATE_SOSPESO,
+                DATI$GET_DESCRIZIONE_CDC(ET.IDEN_CDC) CDC,
+                RT.TESTO,
+                RT.SUGGERIMENTI,
+                RT.CONCLUSIONI,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;10&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;10&quot;]/@D&apos;) pren_ins,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;10&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;10&quot;]/@D&apos;) PREN_MOD,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;30&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;30&quot;]/@D&apos;) acc_ins,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;30&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;30&quot;]/@D&apos;) acc_MOD,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;50&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;50&quot;]/@D&apos;) esec_ins,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;50&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;50&quot;]/@D&apos;) esec_MOD,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;120&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/I/S[@V=&quot;120&quot;]/@D&apos;) ref_ins,
+                dati$get_descrizione_personale(extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;120&quot;]/@U&apos;)) || &apos; - &apos; || extractvalue(ed.stato_cronologia, &apos;/E/U/S[@V=&quot;120&quot;]/@D&apos;) ref_MOD,
+                dati$get_descr_esami(:iden_testata) || &apos; - &apos; || to_char(to_date (ed.data_esame,&apos;YYYYMMDD&apos;),&apos;DD/MM/YYYY&apos;) || &apos; h&apos; || ed.ora_esame titolo,
+                to_char(to_date (ed.data_esame,&apos;YYYYMMDD&apos;),&apos;DD/MM/YYYY&apos;) || &apos; h&apos; || ed.ora_esame data_esame,
+                dati$get_descr_esami(:iden_testata) esame,
+                dati$get_descrizione_personale(ed.iden_medico_refertante) med_ref,
+                dati$get_descrizione_personale(et.iden_medico_inviante) med_inv,
+                dati$get_descrizione_personale(ed.iden_medico_esecutore_1) med_esec,
+                dati$get_descrizione_personale(ed.iden_infermiere_1) infermiere,
+                et.quesito_clinico,
+                et.quadro_clinico,
+                et.note,
+                et.autorizza_mdc,
+                ed.iden_referto,et.iden_anagrafica, ed.iden iden_dettaglio, ed.iden_testata, et.iden_provenienza, et.iden_cdc
+                from dati$esami_testata et
+                inner join dati$esami_dettaglio ed on (et.iden = ed.iden_testata and et.deleted = &apos;N&apos; and ed.deleted = &apos;N&apos;)
+                inner join dati$provenienze prov on (prov.iden = et.iden_provenienza /*and prov.attivo = &apos;S&apos;*/)
+                left outer join dati$referti r on (r.iden = ed.iden_referto)
+                left outer join dati$referti_testo rt on (rt.iden_referto = ed.iden_referto)
+                where ET.IDEN = :iden_testata and ED.iden = :iden_dettaglio</SQL>
+            <BINDS>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="N"></BIND>
+                <BIND id="iden_dettaglio" value="#IDEN_DETTAGLIO#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_INTEGRAZIONI_INTEGRAZIONI">
+            <SQL>select NOME_INTEGRAZIONE descr,Route_Log value,BEAN_LOG from dati$INTEGRAzIONI_CONF_DEST where Bean_Log is not null and Route_Log is not null</SQL>
+        </QUERY>
+        <QUERY id="Q_INT_EST">
+            <SQL>select /*+first_rows(1)*/ &apos;I&apos; value, &apos;lblInterno&apos; descr from dual union all select /*+first_rows(1)*/ &apos;E&apos; value, &apos;lblEsterno&apos; descr from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_LEVEL_INTEGRAZIONI">
+            <SQL>select /*+first_rows(1)*/ &apos;&apos; value, &apos;Tutti&apos; descr from dual  union all select /*+first_rows(1)*/ &apos;DEBUG&apos; value, &apos;DEBUG&apos; descr from dual  union all  select /*+first_rows(1)*/ &apos;INFO&apos; value, &apos;INFO&apos; descr from dual union all  select /*+first_rows(1)*/ &apos;WARNING&apos; value, &apos;WARNING&apos; descr from dual union all  select /*+first_rows(1)*/ &apos;ERROR&apos; value, &apos;ERROR&apos; descr from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_LIST_TEST">
+            <SQL>select /*+first_rows(1)*/ iden id, cognome || &apos; &apos; || nome DESCR,cognome,nome from dati$anagrafica where cognome like &apos;ABAC%&apos;</SQL>
+        </QUERY>
+        <QUERY id="Q_MAT_ESA">
+            <SQL>SELECT a.iden VALUE,a.descrizione DESCR FROM magazzino$articoli a where iden not in (select tabella_iden_erogante
+                from dati$gruppo_associazione where tabella_nome_erogante =&apos;ARTICOLI&apos; and attivo=&apos;S&apos; AND TABELLA_IDEN_NOMENCLATORE = :iden_nomenclatore AND  TABELLA_NOME_NOMENCLATORE =&apos;NOMENCLATORE&apos; )
+            </SQL>
+            <BINDS>
+                <BIND id="iden_nomenclatore" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_MOVIMENTI">
+            <SQL>select  MV.DATA_BOLLA,MV.DATA_ORDINE,MV.DATA_SCADENZA,MV.DATA_TARATURA,MV.DATA_MOVIMENTO,A.DESCRIZIONE AS ARTICOLO,MV.IDEN_PRODUTTORE,TP.DESCRIZIONE AS PRODUTTORE,TP2.DESCRIZIONE AS CAUSALE,TP2.IDEN AS IDEN_CAU
+                ,CODICE_LOTTO, NUMERO_BOLLA,TIPO_UTILIZZO,ORA_TARATURA,QUANTITA,mg.descrizione AS MAGAZZINO,MG.IDEN AS IDEN_MAGAZZINO,A.IDEN IDEN_ART,GIACENZA,NUMERO_ORDINE,G.G.SCORTA_MINIMA,MV.IDEN IDEN_MOVIMENTO,MV.NOTE  FROM
+                MAGAZZINO$MOVIMENTI MV INNER JOIN MAGAZZINO$ARTICOLI A ON A.IDEN = MV.IDEN_ARTICOLO LEFT JOIN DATI$TIPI TP ON TP.IDEN = MV.IDEN_PRODUTTORE
+                LEFT JOIN MAGAZZINO$GIACENZE G ON A.IDEN = G.IDEN_ARTICOLO
+
+                LEFT JOIN DATI$TIPI TP2 ON TP2.IDEN = MV.IDEN_CAUSALE LEFT JOIN MAGAZZINO$MAGAZZINI MG ON MG.IDEN = MV.IDEN_MAGAZZINO WHERE MV.IDEN = :IDEN_MOVIMENTO</SQL>
+            <BINDS>
+                <BIND id="iden_movimento" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_PANNELLO_PRIMARIO">
+            <SQL>SELECT /*+first_rows(1)*/ &apos;PANNELLO PRIMARIO PER L&apos;&apos;UTENTE &apos; || UPPER( USERNAME ) AS TITOLO FROM CONFIG$UTENTI WHERE IDEN = :iden_utente</SQL>
+            <BINDS>
+                <BIND id="iden_utente" value="#IDEN_UTENTE#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_RICHIESTE_MODIFICA_I">
+            <SQL>select /*+first_rows(1)*/
+                (select /*+first_rows(1)*/ per.descrizione || &apos; - &apos; || tipi.descrizione from dati$personale per inner join dati$tipi tipi on (per.tipo_personale = tipi.codice_decodifica and per.iden = :iden_per)) richiedente,
+                a.id_paz_dicom,
+                a.cognome,
+                a.nome,
+                a.data_nascita,
+                a.sesso,
+                comuni.descrizione comune_nascita,
+                a.note,
+                ed.data_esame,
+                ed.ora_esame,
+                ed.id_dicom,
+                nom.descrizione tipo_esame,
+                (select /*+first_rows(1)*/ pro.tipo_provenienza from dati$provenienze pro inner join dati$esami_testata et on (et.iden_provenienza = pro.iden) inner join dati$esami_dettaglio ed on (ed.iden_testata = et.iden and ed.iden = :iden_dettaglio)) tipo_provenienza
+                from dati$anagrafica a
+                left outer join dati$comuni comuni on (comuni.iden = a.iden_comune_nascita)
+                left outer join dati$esami_dettaglio ed on (ed.iden = :iden_dettaglio)
+                left outer join dati$nomenclatore nom on (nom.iden = ed.iden_nomenclatore)
+                where a.iden = :iden_anagrafica
+            </SQL>
+            <BINDS>
+                <BIND id="iden_per" value="#IDEN_PER#" type="N"></BIND>
+                <BIND id="iden_dettaglio" value="#IDEN_DETTAGLIO#" type="N"></BIND>
+                <BIND id="iden_anagrafica" value="#IDEN_ANAGRAFICA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_RICHIESTE_MODIFICA_M">
+            <SQL>SELECT /*+first_rows(1)*/ per.descrizione || &apos; - &apos; || tipi.descrizione richiedente,rm.tipo_richiesta,a.id_paz_dicom,a.cognome,a.nome,a.data_nascita,A.sesso,
+                comuni.descrizione comune_nascita,A.note,ed.data_esame,ed.ora_esame,ed.id_dicom,nom.descrizione tipo_esame,rm.iden_dettaglio,pro.tipo_provenienza tipo_provenienza,
+                rm.xml.getClobVal() XML FROM DATI$RICHIESTE_MODIFICA rm
+                left outer join dati$anagrafica a on (a.iden = rm.iden_anagrafica) left outer join dati$comuni comuni on (comuni.iden = a.iden_comune_nascita)
+                INNER JOIN dati$personale per ON (per.iden = rm.iden_ope_richiesta) INNER JOIN dati$tipi tipi ON (per.tipo_personale = tipi.codice_decodifica)
+                LEFT OUTER JOIN dati$esami_dettaglio ed ON (ed.iden = rm.iden_dettaglio) LEFT OUTER JOIN dati$esami_testata et ON (et.iden = ed.iden_testata)
+                LEFT OUTER JOIN dati$nomenclatore nom ON (nom.iden = ed.iden_nomenclatore) LEFT OUTER JOIN dati$provenienze pro ON (et.iden_provenienza = pro.iden)
+                WHERE rm.iden = :iden_richiesta </SQL>
+            <BINDS>
+                <BIND id="iden_richiesta" value="#IDEN_RICHIESTA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_RM_CDC">
+            <SQL>SELECT /*+first_rows(10)*/ DISTINCT cdc.iden VALUE,cdc.descrizione descr FROM dati$centri_di_costo cdc inner join dati$centri_di_costo_associati cdca on (cdca.iden_cdc = cdc.iden and cdca.tabella_iden = :iden_per and tabella_nome = &apos;PERSONALE&apos;) where cdc.attivo = &apos;S&apos; order by cdc.descrizione</SQL>
+            <BINDS>
+                <BIND id="iden_per" value="#IDEN_PER#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_RM_RICHIEDENTE">
+            <SQL>select /*+first_rows(1)*/ 0 VALUE, &apos;Tutti&apos; DESCR from DUAL union all select /*+first_row(100)*/ IDEN VALUE, DESCRIZIONE DESCR from DATI$PERSONALE where ATTIVO = &apos;S&apos;</SQL>
+        </QUERY>
+        <QUERY id="Q_RM_STATO">
+            <SQL>select /*+first_rows(10)*/ codice_decodifica value,descrizione descr from dati$tipi where tipo = &apos;STATO_RICHIESTA_MODIFICA&apos; order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_RM_TIPO">
+            <SQL>select /*+first_rows(10)*/ iden value,descrizione descr from dati$tipi where tipo = &apos;TIPO_RICHIESTA_MODIFICA&apos; order by ordine</SQL>
+        </QUERY>
+        <QUERY id="Q_RM_TIPO_FILTERED">
+            <SQL>select /*+first_rows(10)*/ iden value,descrizione descr, codice_decodifica cod_dec from dati$tipi where tipo = &apos;TIPO_RICHIESTA_MODIFICA&apos; and parametri = :tipo_richiesta order by ordine</SQL>
+            <BINDS>
+                <BIND id="tipo_richiesta" value="#TIPO_RICHIESTA#" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_AGENDA">
+            <SQL>select /*+first_rows(1)*/
+                distinct agenda.iden,
+                agenda.codice_decodifica,
+                agenda.descrizione,
+                agenda.deleted,
+                agenda.attivo,
+                (select min(to_char(trunc(to_date(anno || &apos;0101&apos;,&apos;yyyymmdd&apos;),&apos;iyyy&apos;) + (numero_settimana - 1) * 7, &apos;yyyymmdd&apos;)) from dati$agenda_periodo_attivita where iden_agenda = :iden) da_data,
+
+                (select max(to_char((trunc(to_date(anno || &apos;0101&apos;,&apos;yyyymmdd&apos;),&apos;iyyy&apos;) + (numero_settimana - 1) * 7) + 6, &apos;yyyymmdd&apos;)) from dati$agenda_periodo_attivita where iden_agenda = :iden) A_DATA,
+
+                &apos;[&apos; || (select /*+first_rows(10)*/ wm_concat(distinct chr(123) || &apos;iden:&apos; || fascia.iden || &apos;,descr:&apos; || &apos;&apos;&apos;&apos; || dati$get_giorni_settimana(giorni_attivi) || &apos; dalle &apos; || ora_inizio || &apos; alle &apos; ||ora_fine|| &apos;&apos;&apos;,impostazione:&apos; || impostazione || chr(125)) from dati$agenda_fasce_orarie fascia inner join dati$agenda_periodo_orario periodo on (periodo.iden_fascia_oraria = fascia.iden) inner join dati$agenda_periodo_attivita attivita on (periodo.iden_periodo_attivita = attivita.iden) where attivita.iden_agenda = :iden) || &apos;]&apos; JSON
+                from dati$agenda agenda
+                WHERE agenda.IDEN = :iden </SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_AGENDA_FASCE_ORARIE">
+            <SQL>select /*+first_rows(1)*/ * from DATI$AGENDA_FASCE_ORARIE WHERE IDEN = :iden</SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_ANAGRAFICA">
+            <SQL>select /*+first_rows(1)*/
+                cod.CODICE_1,
+                cod.CODICE_2,
+                cod.CODICE_3,
+                cod.CODICE_4,
+                cod.CODICE_5,
+                cod.CODICE_6,
+                cod.CODICE_7,
+                cod.CODICE_8,
+                cod.CODICE_9,
+                cod.CODICE_10,
+                com_nasc.descrizione comune_nascita,
+                com_nasc.codice_comune codice_comune_nascita,
+                com_nasc.codice_regione codice_regione_nascita,
+                com_nasc.codice_usl usl_nascita,
+                com_res.descrizione comune_residenza,
+                com_res.codice_comune codice_comune_residenza,
+                com_res.codice_regione codice_regione_residenza,
+                com_res.codice_usl usl_residenza,
+                com_dom.descrizione comune_domicilio,
+                com_dom.codice_comune codice_comune_domicilio,
+                com_dom.codice_regione codice_regione_domicilio,
+                com_dom.codice_usl usl_domicilio,
+                prof.descrizione professione,
+                dati$get_descrizione_personale(anag.iden_medico_base) medico_base,
+                naz.descrizione cittadinanza,
+                dati$GET_DESCRIZIONE_TIPI(anag.tessera_beneficiario) beneficiario,
+                dati$get_descrizione_tipi(anag.iden_titolo) titolo,
+                dati$GET_DESCRIZIONE_TIPI(anag.IDEN_STATO_CIVILE) stato_civile,
+                anag.*
+                from dati$anagrafica anag
+                left outer join dati$comuni com_nasc on (com_nasc.iden=anag.iden_comune_nascita)
+                left outer join dati$comuni com_res on (com_res.iden=anag.iden_comune_residenza)
+                left outer join dati$comuni com_dom on (com_dom.iden=anag.iden_comune_domicilio)
+                left outer join dati$professioni prof on (prof.iden=anag.iden_professione)
+                left outer join dati$nazioni naz on (naz.iden=anag.iden_nazione)
+                left outer join dati$anagrafica_codici_esterni cod on (cod.iden_anagrafica = anag.iden)
+                where anag.iden  = :iden_anagrafica
+            </SQL>
+            <BINDS>
+                <BIND id="iden_anagrafica" value="#IDEN_ANAG#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_ARTICOLI">
+            <SQL>select TP.DESCRIZIONE DESCR_TIPO,EMIVITA,FORMA_CHIMICA,DATA_TARATURA,UNITA_MISURA,NUCLIDE,COSTO_UNITARIO,CODICE_BARRE,A.DESCRIZIONE DESCRIZIONE_ART,CODICE_ARTICOLO,
+
+                MDC,CONTO_DEPOSITO,STATO_FISICO,A.ATTIVO AS ART_ATTIVO,A.IDEN_TIPO,TP_AZI.DESCRIZIONE DESCR_PRODUTTORE,A.IDEN_PRODUTTORE
+
+                from MAGAZZINO$ARTICOLI A inner join DATI$TIPI TP ON TP.IDEN = A.IDEN_TIPO LEFT JOIN DATI$TIPI TP_AZI  ON TP_AZI.IDEN = A.IDEN_PRODUTTORE
+                where A.IDEN = :iden_articolo</SQL>
+            <BINDS>
+                <BIND id="iden_articolo" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_CDC">
+            <SQL>select /*+first_rows(1)*/ * from DATI$CENTRI_DI_COSTO where IDEN = :id_cdc</SQL>
+            <BINDS>
+                <BIND id="id_cdc" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_COMUNE">
+            <SQL>select /*+first_row(1)*/ * from POLARIS_DATI.VIEW_COMUNI where IDEN = :id_comune</SQL>
+            <BINDS>
+                <BIND id="id_comune" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_DOCUMENTI_ALLEGATI">
+            <SQL>select /*+first_rows(1)*/ * from DATI$DOCUMENTI_ALLEGATI</SQL>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_ESAME">
+            <SQL>select /*+first_rows(1)*/ * from table(DATI$GESTIONE_RIS_ESAMI.GET_SCHEDA_ESAME(:iden_testata,:request, &apos;ALL&apos;, &apos;1&apos;))</SQL>
+            <BINDS>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="N"></BIND>
+                <BIND id="request" value="#REQUEST#" type="C"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_INDIRIZZO">
+            <SQL>SELECT /*+first_rows(1)*/
+                IND.*,
+                CASE WHEN IDEN_COMUNE IS NOT NULL THEN DESCRIZIONE_COMUNE ELSE &apos;&apos; END AC_COMUNE,
+                CASE WHEN TIPO_INDIRIZZO IS NOT NULL THEN DESCRIZIONE_INDIRIZZO ELSE &apos;&apos; END AC_TIPO,
+                naz.descrizione nazione
+                FROM DATI$INDIRIZZI IND
+                LEFT OUTER JOIN DATI$NAZIONI NAZ ON (NAZ.IDEN = IND.IDEN_NAZIONE)
+                where ind.iden = :iden_indirizzo </SQL>
+            <BINDS>
+                <BIND id="iden_indirizzo" value="#IDEN_INDIRIZZO#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_MAGAZZINI">
+            <SQL>select * from MAGAZZINO$MAGAZZINI M where M.IDEN = :iden_magazzino</SQL>
+            <BINDS>
+                <BIND id="iden_magazzino" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_NOMENCLATORE">
+            <SQL>select /*+first_rows(1)*/ * from DATI$NOMENCLATORE where IDEN = :id_esa</SQL>
+            <BINDS>
+                <BIND id="id_esa" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_ONERE">
+            <SQL>select /*+first_row(1)*/ * from DATI$ONERE where IDEN = :id_onere</SQL>
+            <BINDS>
+                <BIND id="id_onere" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_PATOLOGIA">
+            <SQL>select /*+first_row(1)*/ * from DATI$PATOLOGIE where IDEN = :id_patologia</SQL>
+            <BINDS>
+                <BIND id="id_patologia" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_PC">
+            <SQL>select /*+first_row(1)*/ * from VIEW_PC where IDEN = :id_pc</SQL>
+            <BINDS>
+                <BIND id="id_pc" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_PERSONALE">
+            <SQL>select /*+first_rows(1)*/ * from DATI$PERSONALE where IDEN = :id_per</SQL>
+            <BINDS>
+                <BIND id="id_per" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_PROFESSIONE">
+            <SQL>select /*+first_rows(1)*/ * from DATI$PROFESSIONI where IDEN = :id_professione</SQL>
+            <BINDS>
+                <BIND id="id_professione" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_PROVENIENZA">
+            <SQL>select /*+first_rows(1)*/ * from DATI$PROVENIENZE where IDEN = :id_provenienza</SQL>
+            <BINDS>
+                <BIND id="id_provenienza" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_REFERTI_STANDARD">
+            <SQL>SELECT /*+first_rows(1)*/  RST.CODICE_DECODIFICA,RST.TESTO,RST.ATTIVO,RST.DESCRIZIONE,RST.IDEN_MEDICO IDEN_MED,P.DESCRIZIONE MEDICO
+                , RST.IDEN_NOMENCLATORE FROM DATI$REFERTI_STANDARD RST LEFT JOIN DATI$PERSONALE P ON P.IDEN = RST.IDEN_MEDICO WHERE RST.IDEN = :iden</SQL>
+            <BINDS>
+                <BIND id="iden" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_SALA">
+            <SQL>select /*+first_row(1)*/ * from DATI$SALA_AREA where TIPO=&apos;SALA&apos; and  IDEN = :id_sala</SQL>
+            <BINDS>
+                <BIND id="id_sala" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_SCREENING_PRIMO_LIVELLO">
+            <SQL>select /*+first_rows(1)*/ 1 FROM DUAL</SQL>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_SEGRETERIA">
+            <SQL>select /*+first_rows(1)*/ S.*, p.descrizione DESCRIZIONE_PROVENIENZA FROM DATI$SEGRETERIA S LEFT JOIN dati$provenienze P ON S.VISIONE_REPARTO = P.IDEN WHERE IDEN_TESTATA = :iden_testata</SQL>
+            <BINDS>
+                <BIND id="iden_testata" value="#IDEN_TESTATA#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_STATO_ESAME">
+            <SQL>select /*+first_row(1)*/ * from DATI$STATO_ESAME where IDEN = :id_statoEsa</SQL>
+            <BINDS>
+                <BIND id="id_statoEsa" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_STATO_PAZIENTE">
+            <SQL>select /*+first_row(1)*/ * from DATI$STATO_PAZIENTE where IDEN = :id_statoPaz</SQL>
+            <BINDS>
+                <BIND id="id_statoPaz" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_TICKET">
+            <SQL>select /*+first_row(1)*/ * from DATI$TICKET where IDEN = :id_ticket</SQL>
+            <BINDS>
+                <BIND id="id_ticket" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_TIPO">
+            <SQL>select /*+first_row(1)*/ * from DATI$TIPI where IDEN = :id_tipo</SQL>
+            <BINDS>
+                <BIND id="id_tipo" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_SCHEDA_UTENTE">
+            <SQL>select /*+first_row(1)*/ * from POLARIS_DATI.VIEW_UTENTI where IDEN = :id_utente</SQL>
+            <BINDS>
+                <BIND id="id_utente" value="#IDEN#" type="N"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="Q_TEST_JACK">
+            <SQL>select /*+first_row(1)*/ * from DATI$TIPI where ATTIVO = &apos;S&apos; {and 1 = 1}</SQL>
+        </QUERY>
+        <QUERY id="Q_URGENZA_SI_NO">
+            <SQL>select /*+first_rows(10)*/ 1 VALUE, &apos;lblSi&apos; DESCR from dual union all select /*+first_row(10)*/ 0 VALUE, &apos;lblNo&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="Q_GGP_GRUPPI">
+            <SQL>select /*+first_rows(10)*/ &apos;PC_GRUPPO&apos; VALUE, &apos;lblPc&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;UTENTI_GRUPPO&apos; VALUE, &apos;lblUtenti&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="RAD_CAUSALE">
+            <SQL>select IDEN VALUE,DESCRIZIONE DESCR from DATI$TIPI WHERE TIPO = :tipo</SQL>
+            <BINDS>
+                <BIND id="tipo" value="MG_CAUSALE" type="V"></BIND>
+            </BINDS>
+        </QUERY>
+        <QUERY id="RAD_TIPO_UTILIZZO">
+            <SQL>select &apos;S&apos; VALUE , &apos;SCARTO&apos; DESCR FROM DUAL UNION ALL SELECT &apos;U&apos; VALUE , &apos;UTILIZZO&apos; DESCR FROM DUAL</SQL>
+        </QUERY>
+        <QUERY id="R_AND_OR">
+            <SQL>select /*+first_row(1)*/ &apos;AND&apos; VALUE, &apos;lblAnd&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;OR&apos; VALUE, &apos;lblOr&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_PC_UTENTI">
+            <SQL>select /*+first_row(1)*/ &apos;PC&apos; VALUE, &apos;lblPc&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;UTENTI&apos; VALUE, &apos;lblUtenti&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_ATTIVI_NONATTIVI_ENTRAMBI">
+            <SQL>select /*+first_row(10)*/ &apos;S&apos; VALUE, &apos;lblAttivi&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;N&apos; VALUE, &apos;lblNonAttivi&apos; DESCR from dual  union all select /*+first_row(10)*/ &apos;E&apos; VALUE, &apos;lblEntrambi&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_COD_DESCR">
+            <SQL>select /*+first_row(10)*/ &apos;CODICE&apos; VALUE, &apos;lblCodice&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;DESCRIZIONE&apos; VALUE, &apos;lblDescrizione&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_DX_SX_NESSUNA">
+            <SQL>select /*+first_row(10)*/ &apos;DX&apos; VALUE, &apos;Destra&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;SX&apos; VALUE, &apos;Sinistra&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;N&apos; VALUE, &apos;Nessuna&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_GEST_PROVENIENZA">
+            <SQL>select /*+first_row(10)*/ &apos;S&apos; VALUE, &apos;lblSingola&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;M&apos; VALUE, &apos;lblMultipla&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;T&apos; VALUE, &apos;lblTipoProvenienza&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_SCELTA_ALLEGATO_PAZIENTE_EPISODIO">
+            <SQL>select /*+first_rows(1)*/ &apos;P&apos; VALUE, &apos;Paziente&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;E&apos; VALUE, &apos;Episodio&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_SESSO">
+            <SQL>select /*+first_rows(10)*/ &apos;M&apos; VALUE, &apos;lblMaschio&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;F&apos; VALUE, &apos;lblFemmina&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;U&apos; VALUE, &apos;lblSconosciuto&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_SI_NO">
+            <SQL>select /*+first_rows(10)*/ &apos;S&apos; VALUE, &apos;lblSi&apos; DESCR from dual union all select /*+first_rows(10)*/ &apos;N&apos; VALUE, &apos;lblNo&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_SI_NO_TEMP">
+            <SQL>select /*+first_row(10)*/ &apos;S&apos; VALUE, &apos;Si&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;N&apos; VALUE, &apos;No&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_STATO_FISICO">
+            <SQL>select &apos;L&apos;  VALUE ,&apos;lblStatoLiquido&apos;  DESCR from dual union all select &apos;S&apos; VALUE, &apos;lblStatoSolido&apos; DESCR FROM DUAL union all select &apos;C&apos; VALUE ,&apos;lblStatoCapsule&apos; DESCR from dual union all select &apos;A&apos; VALUE,&apos;lblStatoAltro&apos; DESCR  from dual</SQL>
+        </QUERY>
+        <QUERY id="R_STATO_MATERIALE">
+            <SQL>select /*+first_row(10)*/ &apos;S&apos; VALUE, &apos;Solido&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;L&apos; VALUE, &apos;Liquido&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;A&apos; VALUE, &apos;Altro&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_SVILUPPO_PSICOMOTORIO">
+            <SQL>select /*+first_row(10)*/ &apos;R&apos; VALUE, &apos;Regolare&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;A&apos; VALUE, &apos;Altro&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_TIPO_AGENDA">
+            <SQL>SELECT &apos;P&apos; VALUE, &apos;lblTipoAgendaPosti&apos; DESCR FROM DUAL UNION ALL SELECT &apos;T&apos; VALUE, &apos;lblTipoAgendaTempo&apos; DESCR FROM DUAL</SQL>
+        </QUERY>
+        <QUERY id="R_TIPOLOGIA_CDC">
+            <SQL>select /*+first_row(1)*/ &apos;0&apos; VALUE, &apos;Reparto&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;1&apos; VALUE, &apos;Ambulatorio&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;2&apos; VALUE, &apos;Entrambi&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;4&apos; VALUE, &apos;Radiologia&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_TIPOLOGIA_PROVENIENZA">
+            <SQL>Select /*+first_row(10)*/  CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;PROVENIENZA&apos;</SQL>
+        </QUERY>
+        <QUERY id="R_TIPOLOGIA_PROVENIENZA_OLD">
+            <SQL>select /*+first_row(1)*/ &apos;I&apos; VALUE, &apos;lblInterno&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;E&apos; VALUE, &apos;lblEsterno&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;P&apos; VALUE, &apos;lblProntoSoccorso&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;O&apos; VALUE, &apos;lblAltriOspedali&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;L&apos; VALUE, &apos;lblLiberaProfessione&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_TIPO_MEDICO">
+            <SQL>Select /*+first_row(10)*/ CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;MEDICO&apos;</SQL>
+        </QUERY>
+        <QUERY id="R_TIPO_MEDICO_OLD">
+            <SQL>Select &apos;R&apos; VALUE, &apos;lblRefertante&apos; DESCR From DUAL Union All Select &apos;I&apos; VALUE, &apos;lblInviante&apos; DESCR From DUAL Union All Select &apos;P&apos; VALUE, &apos;lblProponente&apos; DESCR From DUAL Union All Select &apos;A&apos; VALUE, &apos;lblAnestesista&apos; DESCR From DUAL Union All Select &apos;S&apos; VALUE, &apos;lblSpecializzando&apos; DESCR From DUAL</SQL>
+        </QUERY>
+        <QUERY id="R_TIPO_PAGAMENTO">
+            <SQL>select /*+first_row(1)*/ &apos;E&apos; VALUE, &apos;lblEsente&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;P&apos; VALUE, &apos;lblPrivato&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;T&apos; VALUE, &apos;lblTicket&apos; DESCR from dual union all select /*+first_row(1)*/ &apos;I&apos; VALUE, &apos;lblIntramoenia&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_TIPO_PERSONALE">
+            <SQL>Select /*+first_row(10)*/ CODICE_DECODIFICA VALUE,DESCRIZIONE DESCR from DATI$TIPI where TIPO=&apos;PERSONALE&apos;</SQL>
+        </QUERY>
+        <QUERY id="R_TIPO_SCELTA_ESA">
+            <SQL>Select &apos;HB&apos; VALUE, &apos;lblHumanBody&apos; DESCR From DUAL Union All Select &apos;ACR&apos; VALUE, &apos;lblACR&apos; DESCR From DUAL</SQL>
+        </QUERY>
+        <QUERY id="R_TITOLO">
+            <SQL>select /*+first_row(10)*/ &apos;DOTT.&apos; VALUE, &apos;lblTit_Dottore&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;DOTT.SSA&apos; VALUE, &apos;lblTit_Dottoressa&apos; DESCR from dual  union all select /*+first_row(10)*/ &apos;INF.&apos; VALUE, &apos;lblTit_Infermiere&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;INF.RA&apos; VALUE, &apos;lblTit_Infermiera&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;SIG.&apos; VALUE, &apos;lblTit_Signore&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;SIG.RA&apos; VALUE, &apos;lblTit_Signora&apos; DESCR from dual union all select /*+first_row(10)*/ &apos;TEC.&apos; VALUE, &apos;lblTit_Tecnico&apos; DESCR from dual</SQL>
+        </QUERY>
+        <QUERY id="R_VALUTAZIONE">
+            <SQL>SELECT /*+first_row(1)*/ &apos;1&apos; VALUE, &apos;lbl1&apos; DESCR FROM DUAL UNION ALL SELECT /*+first_row(1)*/ &apos;2&apos; VALUE, &apos;lbl2&apos; DESCR FROM DUAL UNION ALL SELECT /*+first_row(1)*/ &apos;3&apos; VALUE, &apos;lbl3&apos; DESCR FROM DUAL</SQL>
+        </QUERY>
+    </QUERY_GROUP>
+	<QUERY_GROUP id="OFFLINE">
+		<QUERY id="GET_MANIFEST">
+			<SQL>select /*+first_rows(1)*/ * from OFFLINE_MANIFEST where USERNAME_IP=:username_ip and SITO=:sito and VERSIONE=:versione
+			</SQL>
+		</QUERY>
+	</QUERY_GROUP>
+    <QUERY_GROUP id="LDAP">
+        <QUERY id="GET_USE_LDAP_DOMAIN">
+            <SQL>select /*+first_rows(1)*/ UTENTI_CODICI.CODICE from UTENTI_CODICI
+                inner join UTENTI ON (UTENTI.IDEN=UTENTI_CODICI.IDEN_UTENTI)
+                where UTENTI.username=:username
+                and UTENTI_CODICI.tipo=:tipo and  UTENTI.attivo=:attivo
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+</QUERIES>

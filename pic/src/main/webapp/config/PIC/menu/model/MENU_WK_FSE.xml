@@ -1,0 +1,17 @@
+<MENU>
+	<ID>MENU_WK_FSE</ID>
+	<TITLE>"MENU"</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWFSE.APRI</ID>
+			<LINK><![CDATA[function(rec){DOCUMENTI_PAZIENTE_FSE.checkApriDocFSE(rec);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+			<!-- <WHERE><![CDATA[function(rec){return rec.length == 1;}]]></WHERE> -->
+			<WHERE><![CDATA[function(rec){return LIB.isValid(rec) && rec.length == 1;}]]></WHERE>
+			<OUTPUT>"Visualizza documento"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

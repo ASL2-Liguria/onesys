@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="DIV_CHECK">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="divCheck"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="appendAttribute">
+                <PAR value="class"/>
+                <PAR value="idx::5"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extCheck@EXT_CHECK}">
+            <PROC id="setConfigPlugin">
+                <PAR type="idx" value="3"/>
+                <PAR type="idx" value="4"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extCheck@EXT_CHECK}">
+            <PROC id="setTraduzione">
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extCheck@EXT_CHECK}">
+            <PROC id="setColSave">
+                <PAR type="idx" value="5"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extCheck@EXT_CHECK}">
+            <PROC id="generaCheck">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

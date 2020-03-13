@@ -1,0 +1,6 @@
+<INCLUDE>
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/WORKLIST.js" />
+    <JS path="js/PIC/RicercaAnagrafica/ricercaAnagrafica.js" />
+    <JS path="js/PIC/PROCESS_CLASS.js" />
+</INCLUDE>

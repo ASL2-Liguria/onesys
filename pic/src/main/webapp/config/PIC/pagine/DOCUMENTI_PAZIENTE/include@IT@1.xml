@@ -1,0 +1,10 @@
+<INCLUDE>
+    <CSS path="css/PIC/Documenti/Documenti_Paziente.css" />
+    <CSS path="css/PIC/Documenti/Documenti_PazienteFSE.css" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/PROCESS_CLASS.js" />
+    <JS path="js/PIC/Documenti/Documenti_Paziente.js" />
+    <JS path="js/PIC/Documenti/Documenti_PazienteFSE.js" />
+    <JS path="js/PIC/LOG_documenti.js" />
+</INCLUDE>

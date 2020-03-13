@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>CAREGIVER</lblTitolo>
+		
+        <fldCaregiver>
+            Gestione Caregiver del Cittadino
+        </fldCaregiver>
+        
+        	<lblCaregiverPaziente>CONSENSO GENERALE DA ACQUISIRSI UNA SOLA VOLTA</lblCaregiverPaziente>
+        	<lblCaregiverEvento>INFORMAZIONE RELATIVA SOLAMENTE ALL'EVENTO IN CORSO</lblCaregiverEvento>
+        	<lblCaregiverStatoSalute>Persone cui è consentito conoscere lo STATO DI SALUTE del paziente</lblCaregiverStatoSalute>
+        	<lblCaregiverUbicazione>Persone cui è consentito conoscere l'UBICAZIONE del paziente</lblCaregiverUbicazione>
+    </ROW>
+</ROWSET>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="STATUS_BAR_H5">
+        <OBJ classe_id="PATH::h5@0">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::h5@0">
+            <PROC id="setTagValue">
+                <PAR translate="true" type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::h5@0">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="statTitle"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::h5@1">
+            <PROC id="setId">
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::h5@1">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="statValue"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

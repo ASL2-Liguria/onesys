@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <tabStatistiche>Estrazioni</tabStatistiche>
+        <lblTitolo>GENERAZIONE</lblTitolo>
+        <fldStatistiche>Filtri</fldStatistiche>
+        <lblFiltriSalvati>Filtri Salvati</lblFiltriSalvati>
+        <lblFiltro>Aggiungi Filtro</lblFiltro>
+        <lblGroupBy>Raggruppa per</lblGroupBy>
+        <butEsportaGriglia>Esporta</butEsportaGriglia>
+        <butApplicaFiltri>Applica</butApplicaFiltri>
+        <butSalvaFiltro>SalvaFiltro</butSalvaFiltro>
+        <butDeleteSavedFilter>Rimuovi</butDeleteSavedFilter>
+        <btnRemove>&#45;</btnRemove>
+    </ROW>
+</ROWSET>

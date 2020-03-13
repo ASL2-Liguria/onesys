@@ -1,0 +1,132 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<QUERIES>
+    <QUERY_GROUP id="DATI"/>
+
+    <QUERY_GROUP id="FILTRI"/>
+    
+    <QUERY_GROUP id="FUNZIONI">
+        <QUERY id="RICERCA_PAZIENTE">
+            <SQL>
+                SELECT /*+first_rows(1)*/ IDEN_ANAGRAFICA, COGNOME, NOME, DATA_NASCITA, CODICE_FISCALE, SESSO, TESSERA_SANITARIA, COMUNE_NASCITA, COM_NASC, COMUNE_RESIDENZA, COM_RES, INDIR, ID_REMOTO, DATA_MORTE
+                FROM VIEW_PIC_ANAGRAFICA_WHALE
+                WHERE IDEN_ANAGRAFICA = TO_NUMBER(:anagrafica)
+            </SQL>
+        </QUERY> 
+        <QUERY id="RICERCA_PAZIENTE_FROM_CF">
+            <SQL>
+                SELECT /*+first_rows(1)*/ IDEN_ANAGRAFICA, COGNOME, NOME, DATA_NASCITA, SESSO, TESSERA_SANITARIA, COMUNE_NASCITA, COM_NASC, COMUNE_RESIDENZA, COM_RES, INDIR, ID_REMOTO, DATA_MORTE
+                FROM VIEW_PIC_ANAGRAFICA_WHALE
+                WHERE CODICE_FISCALE = :codice_fiscale
+            </SQL>
+        </QUERY> 
+        <QUERY id="RICERCA_UTENTE">
+            <SQL>
+                SELECT /*+first_rows(1)*/ * 
+                FROM TAB_PER 
+                WHERE IDEN = TO_NUMBER(:iden_per)
+            </SQL>
+        </QUERY> 
+        <QUERY id="RICERCA_UTENTE_COD_DEC">
+            <SQL>
+                SELECT /*+first_rows(1)*/ * 
+                FROM TAB_PER 
+                WHERE COD_DEC = :cod_dec
+            </SQL>
+        </QUERY>             
+    </QUERY_GROUP> 
+        
+    <QUERY_GROUP id="MODULI_CONSENSO"/>        
+
+    <QUERY_GROUP id="WORKLIST">
+        <QUERY id="RICERCA_ANAGRAFICA">
+            <SQL>
+                SELECT /*+first_rows(1)*/ IDEN_ANAGRAFICA, COGNOME, NOME, DATA_NASCITA, TESSERA_SANITARIA, CODICE_FISCALE, SESSO, COMUNE_NASCITA, COM_NASC, COMUNE_RESIDENZA, COM_RES, INDIR, ID_REMOTO, DATA_MORTE
+                FROM VIEW_PIC_ANAGRAFICA_WHALE
+                WHERE COGNOME LIKE :cognome AND NOME LIKE :nome AND DATA_NASCITA LIKE :data_nascita AND CODICE_FISCALE LIKE :codice_fiscale AND DELETED = 'N'
+            </SQL>
+        </QUERY>
+        <QUERY id="RICERCA_MMG">
+            <SQL>
+                SELECT /*+first_rows(1)*/ U.USERNAME, U.SITO, U.IDEN_PER, TP.COGNOME, TP.NOME, TP.DESCR, TP.TIPO, TP.TIPO_MED, TP.ATTIVO
+                FROM TAB_PER TP JOIN CONFIG_UTENTI U ON U.IDEN_PER = TP.IDEN
+                WHERE TP.ATTIVO = 'S' AND TP.TIPO_MED IN ('B','P') AND TP.TIPO = 'M'
+                AND U.SITO = 'MMG' AND TP.NOME LIKE :nome AND TP.COGNOME LIKE :cognome
+                {#ORDER#}
+            </SQL>
+        </QUERY>
+		<QUERY id="ELENCO_ACCESSI">
+			<SQL>
+            <![CDATA[
+	            SELECT
+	            	TUA.IDEN
+					, TP1.DESCR
+					, TUA.ACTION
+					, XTIPI.DESCRIZIONE ACTION_DESCR
+					, XTIPI.PARAMETRI
+					, TUA.ACTION_DATE
+					, TO_CHAR(TUA.ACTION_DATE, 'DD/MM/YYYY hh24:mi') DATA_INS
+					, TUA.CLOSE_DATE
+					, TO_CHAR(TUA.CLOSE_DATE, 'DD/MM/YYYY hh24:mi') DATA_END
+					, TUA.MODULE
+					, TUA.ID
+					, TUA.FUNZIONE
+				FROM TRACE_USER_ACTION TUA 
+        		JOIN CONFIG_UTENTI UT ON UT.USERNAME = TUA.WEBUSER AND UT.ATTIVO = 'S'
+				JOIN TAB_PER TP1 ON TP1.IDEN = UT.IDEN_PER		
+				JOIN PIC_TIPI XTIPI ON XTIPI.CODICE_DECODIFICA = TUA.ACTION AND XTIPI.ATTIVO = 'S'
+				WHERE TUA.IDEN_ANAG = :patient_id
+	        	{#ORDER#}
+            ]]>
+			</SQL>
+		</QUERY>
+		<QUERY id="ELENCO_LOG">
+			<SQL>
+            <![CDATA[
+	            SELECT
+	            	TUA.IDEN
+	            	, TUA.WEBUSER
+					, TP1.DESCR
+					, TUA.ACTION
+					, XTIPI.DESCRIZIONE ACTION_DESCR
+					, XTIPI.PARAMETRI
+					, TUA.ACTION_DATE
+					, TO_CHAR(TUA.ACTION_DATE, 'DD/MM/YYYY hh24:mi') DATA_INS
+					, TUA.MODULE
+					, TUA.ID
+					, TUA.FUNZIONE
+					, TUA.NOTE
+					, TUA.VERIFICATO
+					, TUA.CLOSE_DATE
+					, TO_CHAR(TUA.CLOSE_DATE, 'DD/MM/YYYY hh24:mi') DATA_END
+					, TO_CHAR(TUA.DATA_VERIFICA, 'DD/MM/YYYY hh24:mi') DATA_VERIFICA
+					, TO_CHAR(TUA.DATA_VERIFICA, 'YYYYMMDDhh24') DATA_VERIFICA_ISO
+					, TUA.UTE_VERIFICA
+					, TP2.DESCR UTE_VERIFICA_DESCR
+					, (VPAW.COGNOME ||' '|| VPAW.NOME) PAZIENTE
+				FROM TRACE_USER_ACTION TUA
+				LEFT OUTER JOIN VIEW_PIC_ANAGRAFICA_WHALE VPAW ON VPAW.IDEN_ANAGRAFICA = TUA.IDEN_ANAG
+        		JOIN CONFIG_UTENTI UT ON UT.USERNAME = TUA.WEBUSER AND UT.ATTIVO = 'S' AND (UT.SITO = 'PIC' or UT.SITO = 'ALL')
+				JOIN TAB_PER TP1 ON TP1.IDEN = UT.IDEN_PER
+				JOIN PIC_TIPI XTIPI ON XTIPI.CODICE_DECODIFICA = TUA.ACTION AND XTIPI.TIPO = 'TIPO_LOG' AND XTIPI.ATTIVO = 'S'
+				LEFT OUTER JOIN TAB_PER TP2 ON TP2.IDEN = TUA.UTE_VERIFICA
+				WHERE TUA.ACTION_DATE >= to_date(:data_inizio, 'YYYYMMDDhh24')
+        		AND TUA.ACTION_DATE < to_date(:data_fine , 'YYYYMMDDhh24')
+            	and TUA.ACTION in (select column_value from table(split2array(:tipo_LOG)))
+	        	{#ORDER#}
+            ]]>
+			</SQL>
+		</QUERY>
+    </QUERY_GROUP>
+
+    <QUERY_GROUP id="AUTOCOMPLETE"/>
+
+    <QUERY_GROUP id="SDJ">
+        <QUERY id="CMB_PER_LEGGE">
+            <SQL>
+                SELECT CODICE VALUE, DESCRIZIONE DESCR 
+                FROM TAB_CODIFICHE 
+                WHERE CODICE NOT IN ('001') AND TIPO_DATO = 'MOTIVO_OSCURAMENTO' AND ATTIVO = 'S' AND DELETED = 'N'
+            </SQL>
+        </QUERY>        
+    </QUERY_GROUP>    
+</QUERIES>

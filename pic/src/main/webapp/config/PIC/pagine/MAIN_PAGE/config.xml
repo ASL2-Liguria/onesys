@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CONFIG>
+    <VERSIONI>
+        <ID_DB_CONNECT>PIC</ID_DB_CONNECT>
+        <VERSIONE_DB>1</VERSIONE_DB>
+        <VERSIONE_DATA>1</VERSIONE_DATA>
+        <VERSIONE_STRUCTURE>2</VERSIONE_STRUCTURE>
+        <VERSIONE_ENGINE>1</VERSIONE_ENGINE>
+    </VERSIONI>
+</CONFIG>

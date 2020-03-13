@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="APPROPRIATEZZA">
+        <OBJ classe_id="PATH::div">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extAppropriatezza@EXT_APP}">
+            <PROC id="setidQuery">
+                <PAR value="SCHEDE_APPROPRIATEZZA_ESAMI"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extAppropriatezza@EXT_APP}">
+            <PROC id="printHtml"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

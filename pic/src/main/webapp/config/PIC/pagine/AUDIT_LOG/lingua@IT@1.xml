@@ -1,0 +1,27 @@
+<ROWSET>
+    <ROW>
+    	<lblTitolo>Elenco LOG</lblTitolo>
+    	
+    	<fldRicerca>Filtri</fldRicerca>
+	    	<lblDaData>Da data</lblDaData>
+	    	<lblOraInizio>ora</lblOraInizio>
+	    	<lblAData>A data</lblAData>
+	    	<lblOraFine>ora</lblOraFine>
+	    	<butCerca>Cerca</butCerca>
+	    	<lblTipoLOG>Tipo di LOG</lblTipoLOG>
+	    	<butSelezionaTutti>Seleziona Tutti</butSelezionaTutti>
+	    	<butDeselezionaTutti>Deseleziona Tutti</butDeselezionaTutti>
+	    	
+	    <fldElencoLOG></fldElencoLOG>
+	    	<lblWkLOGVerificato>Verificato</lblWkLOGVerificato>
+			<lblWkLOGData>In data</lblWkLOGData>
+			<lblWkLOGWebuser>Utente web</lblWkLOGWebuser>
+			<lblWkLOGUserDescr>Nome utente</lblWkLOGUserDescr>
+			<lblWkLOGAction>Motivazione</lblWkLOGAction>
+			<lblWkLOGModule>Modulo</lblWkLOGModule>
+			<lblWkLOGID>Documento/Nosologico evento</lblWkLOGID>
+			<lblWkLOGFunzione>Funzione</lblWkLOGFunzione>
+			<lblWkLOGDataFine>Data chiusura</lblWkLOGDataFine>
+			<lblWkLOGPaziente>Paziente</lblWkLOGPaziente>
+    </ROW>
+</ROWSET>

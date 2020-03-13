@@ -1,0 +1,39 @@
+<PAGINA key_id="AUDIT_LOG">
+	
+	<HEADER_PAGE key_id="AUDIT_LOG" valore="DEFAULT_PIC,SCHEDA,AUDIT_LOG#DEFAULT,AUDIT_LOG" evento="START_END">
+	</HEADER_PAGE>
+	
+	<FORM key_id="dati" valore="dati##AUDIT_LOG##IDEN#IDEN##" evento="START_END">
+		<TABULAZIONE.INIT key_id="tab" valore="Elenco_LOG#lblTitolo#butChiudi" evento="START">
+			<TABULAZIONE.CREA_TAB key_id="tabElencoLOG" valore="tabElencoLOG" evento="START">
+				<FIELDSET_TABLE key_id="fldRicerca" valore="fldRicerca"
+					evento="START">
+					<TR.INIT key_id="tr" valore="" evento="START">
+						<TD_LABEL_DATA key_id="DaData"
+							valore="lblDaData##txtDaData#DataInizio#startWithToday:false, direction:false, readonly_element: false, format: 'd/m/Y', start_date: -3#disabled:true#lblDaData#DATA_INIZIO"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_COMBO key_id="cmbOraInizio" valore="lblOraInizio##cmbOraInizio#cmbOraInizio#N#ORA_INIZIO#S#" evento="START"></TD_LABEL_COMBO>
+						<TD_LABEL_DATA key_id="AData"
+							valore="lblAData##txtAData#DataFine#startWithToday:true, direction:false, readonly_element: false, format: 'd/m/Y'#disabled:true#lblAData#DATA_FINE"
+							evento="START">
+						</TD_LABEL_DATA>
+						<TD_LABEL_COMBO key_id="cmbOraFine" valore="lblOraFine##cmbOraFine#cmbOraFine#N#ORA_FINE#S#" evento="START"></TD_LABEL_COMBO>
+						<TD_BUTTON key_id="butCerca" valore="butCerca" evento="START"></TD_BUTTON>
+					</TR.INIT>
+					<TR_TD_LABEL_CHECK key_id="chkTipoLOG" valore="lblTipoLOG##chkTipoLOG#chkTipoLOG#N#{width:280, ctrl:false}###9" evento="START"></TR_TD_LABEL_CHECK>
+					<TR.INIT key_id="trButtonsSel" valore="" evento="START">
+						<TD.INIT key_id="TD" valore="9" evento="START">
+							<BUTTON key_id="butSelezionaTutti" valore="butSelezionaTutti" evento="START"></BUTTON>
+							<BUTTON key_id="butDeselezionaTutti" valore="butDeselezionaTutti" evento="START"></BUTTON>
+						</TD.INIT>			
+					</TR.INIT>
+				</FIELDSET_TABLE>
+				<FIELDSET key_id="fldElencoLOG" valore="fldElencoLOG" evento="START">
+					<DIV.WORKLIST key_id="divWkElencoLOG" valore="divWkElencoLOG" evento="START"></DIV.WORKLIST>				
+				</FIELDSET>
+			</TABULAZIONE.CREA_TAB>	
+		</TABULAZIONE.INIT>
+	</FORM>
+	
+</PAGINA>

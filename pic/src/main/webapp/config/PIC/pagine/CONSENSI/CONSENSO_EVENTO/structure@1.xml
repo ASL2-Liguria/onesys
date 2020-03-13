@@ -1,0 +1,37 @@
+<PAGINA key_id="CONSENSO_EVENTO">
+    
+    <HEADER_PAGE key_id="CONSENSO_EVENTO" valore="DEFAULT_PIC,SCHEDA,CONSENSI/CONSENSO_EVENTO#DEFAULT,CONSENSI/CONSENSO_EVENTO" evento="START_END"></HEADER_PAGE>
+    
+    <FORM key_id="dati" valore="dati#PKG_PIC_EVENTO.OSCURA_SINGOLO_EVENTO#PORTALE_PIC##IDEN#IDEN##" evento="START_END">
+        
+        <TABULAZIONE.INIT key_id="tab" valore="Consenso#lblTitolo#butSalva,butChiudi" evento="START_END">
+            
+            <INPUT.HIDDEN key_id="h-action" valore="h-action" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-anagrafica" valore="h-anagrafica" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-assigningAuthority" valore="h-assigningAuthority" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-nosologicoPaziente" valore="h-nosologicoPaziente" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-tipo" valore="h-tipo" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-uteIns" valore="h-uteIns####N" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-versione" valore="h-versione" evento="START"></INPUT.HIDDEN>
+            <INPUT.HIDDEN key_id="h-idenConsenso" valore="h-idenConsenso" evento="START"></INPUT.HIDDEN>
+			
+            <FIELDSET_TABLE key_id="fldStatoOscuramento" valore="fldStatoOscuramento" evento="START">
+                <TR_TD_LABEL_RADIO key_id="radStatoOscuramento" valore="lblStatoOscuramento##radStatoOscuramento#radStatoOscuramento#{width:220}#N#" evento="START"></TR_TD_LABEL_RADIO>
+            </FIELDSET_TABLE>
+            
+            <FIELDSET_TABLE key_id="fldDSE" valore="fldDSE" evento="START">
+            	<TR_TD_LABEL_CHECK 	key_id="chkVisInfoDSE"  valore="lblVisInfoDSE##chkVisInfoDSE#chkVisInfoDSE#N#{width:30, ctrl:false}##" evento="START"></TR_TD_LABEL_CHECK>
+            	<TR_TD_LABEL_CHECK 	key_id="chkPazInc"  valore="lblPazInc##chkPazInc#chkPazInc#N#{width:30, ctrl:false}##" evento="START"></TR_TD_LABEL_CHECK>
+            	<!-- <TR_TD_LABEL_RADIO  key_id="radVisInfoDSE" valore="lblVisInfoDSE##radVisInfoDSE#radVisInfoDSE#{width:50}#N" evento="START"></TR_TD_LABEL_RADIO> -->
+                <TR_TD_LABEL key_id="lblInserimentoDSE" valore="lblInserimentoDSE##2" evento="START"></TR_TD_LABEL>
+                <!--<TR_TD_RADIO key_id="radInserimentoDSE" valore="radInserimentoDSE#radInserimentoDSE#{width:150}#N" evento="START"></TR_TD_RADIO>-->
+                <!--<TR_TD_LABEL key_id="lblVisib" valore="lblVisib##2" evento="START"></TR_TD_LABEL>-->
+                <TR_TD_RADIO key_id="radOscuramentoDSE" valore="radOscuramentoDSE#radOscuramentoDSE#{width:150}#N" evento="START"></TR_TD_RADIO>
+                <TR_TD_LABEL key_id="lblNONVisib" valore="lblNONVisib##2" evento="START"></TR_TD_LABEL>
+            </FIELDSET_TABLE>
+            
+        </TABULAZIONE.INIT>    
+        
+    </FORM>
+    
+</PAGINA>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>RICERCA_DOCUMENTI_OSCURATI</ID>
+    <ID-QUERY connection="PORTALE_PIC">WORKLIST.RICERCA_DOCUMENTI_OSCURATI</ID-QUERY>
+    <TITLE>"Ricerca Documenti Oscurati"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_DOCUMENTI_OSCURATI</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN', 'clsSel', false);}</CLICK>
+            </EVENTS>
+        </ROWS>               
+        <COLUMNS>
+            <LIST>                
+                <COLUMN>
+                    <ID>
+                        <COL>ID</COL>
+                        <DB>ID</DB>
+                    </ID>
+                    <DESCRIPTOR>'ID'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>10px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>PATIENTID</COL>
+                        <DB>PATIENTID</DB>
+                    </ID>
+                    <DESCRIPTOR>'Value'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>10px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <!-- <COLUMN>
+                    <ID>
+                        <COL>OSCURAMENTO</COL>
+                        <DB>OSCURAMENTO</DB>
+                    </ID>
+                    <DESCRIPTOR>'Oscuramento'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>0px</WIDTH>
+                    <VISIBLE>N</VISIBLE>
+                    <SORTABLE>N</SORTABLE>
+                    <MOVEABLE>N</MOVEABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>    -->
+                <COLUMN>
+                    <ID>
+                        <COL>AUTORE</COL>
+                        <DB>AUTORE</DB>
+                    </ID>
+                    <DESCRIPTOR>'Autore'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>240px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>CREATIONTIME</COL>
+                        <DB>CREATIONTIME</DB>
+                    </ID>
+                    <DESCRIPTOR>'Data Creazione'</DESCRIPTOR>
+					<PROCESS type="javascript"><![CDATA[function(data, wk) {
+                    	return PROCESS_CLASS.processClassDataOraISO(data);
+                        }]]></PROCESS>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN> 
+                <COLUMN>
+                    <ID>
+                        <COL>TIPODOC</COL>
+                        <DB>TIPODOC</DB>
+                    </ID>
+                    <DESCRIPTOR>'Tipo Documento'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN> 
+                <COLUMN>
+                    <ID>
+                        <COL>TIPOLOGIA_REFERTO</COL>
+                        <DB>TIPOLOGIA_REFERTO</DB>
+                    </ID>
+                    <DESCRIPTOR>'Tipo Referto'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>                                    
+                <COLUMN>
+                    <ID>
+                        <COL>REPARTOEROG</COL>
+                        <DB>REPARTOEROG</DB>
+                    </ID>
+                    <DESCRIPTOR>'Reparto Erogatore'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>180px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>                                                                                                                                                                                                                                
+            </LIST>
+			<SORT>
+				<COLUMN id="CREATIONTIME">ASC</COLUMN>
+			</SORT>                     
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

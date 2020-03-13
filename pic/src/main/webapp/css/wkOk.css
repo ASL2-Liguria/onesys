@@ -1,0 +1,186 @@
+div.clsWk
+{
+	position: relative;
+	display: block;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	z-index: 0; /* Tutti sullo stesso livello!*/
+}
+
+div.clsWk table
+{
+	table-layout: fixed;
+}
+
+/* Parte del loading */
+div.clsWk div.clsWkLdg
+{
+	position: absolute;
+	background: black;
+	background-image: url(../img/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	
+	z-index: 3;
+}
+
+/* Parte per il resize e drag & drop delle colonne */
+div.clsWk div.clsWkRsz
+{
+	top: 0;
+	position: relative;
+	width: 0px;
+	
+	z-index: 2;
+}
+
+div.clsWk div.clsWkRsz div
+{
+	position: absolute;
+	left: 0px;
+	background: none;
+	cursor: e-resize;
+	border: 2px solid transparent;
+}
+
+div.clsWk div.clsWkRsz div.clsNoRsz
+{
+	cursor: default;
+}
+
+div.clsWk div.clsWkRsz div.clsAct_resize
+{
+	border: 1px dashed;
+	width: 1px;
+}
+
+div.clsWk div.clsWkRsz div.clsAct_move
+{
+	top: 0;
+	position: absolute;
+	display: table-cell;
+	overflow: hidden;
+	cursor: move;
+	background: url(../img/bars.png) 0 0px repeat-x;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+}
+
+/*	Perte per header fissa */
+div.clsWk div.clsWkHdFix
+{
+	top: 0;
+	position: absolute;
+	height: 25px;
+	width: 100%;
+	background:url(../img/bars.png) 0 0px repeat-x;
+	overflow: visible;
+	z-index: 1;
+}
+
+/* In caso di move cambio il cursore */
+div.clsWk div.clsWkHdFix table.clsWkHdFixMv thead tr th
+{
+	cursor: move;
+}
+
+div.clsWk div.clsWkHdFix table thead tr
+{
+	height: 25px;
+}
+
+div.clsWk div.clsWkHdFix table thead tr th
+{
+	color: #000;
+	font-size: 12px;
+	padding: 0 3px;
+	height: 25px;
+	line-height: 25px;
+	/*border: solid 3px green;*/
+	border-left: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+div.clsWk div.clsWkHdFix table thead tr th.clsNoOrd
+{
+	/* Per ora non c'è nulla... Vedere se ha senso segnarli per capire che non sono ordinabili! */
+	/*cursor: default;
+	border: 2px dashed lightgray;*/
+}
+
+div.clsWk div.clsWkHdFix table thead tr th.clsOverMv
+{
+	border-left: 5px solid white;
+}
+
+div.clsWk div.clsWkHdFix table thead tr th.clsOrd_asc
+{
+	background-image:url(../img/arrow_up.gif);
+	background-repeat:no-repeat;
+	background-position:bottom center;
+}
+
+div.clsWk div.clsWkHdFix table thead tr th.clsOrd_desc
+{
+	background-image:url(../img/arrow_down.gif);
+	background-repeat:no-repeat;
+	background-position:top center;
+}
+
+/* Parte per il div scrollabile */
+div.clsWk div.clsWkScroll
+{
+	top: 0px;
+	/*border: solid 3px yellow;*/
+	position: relative;
+	overflow-y: scroll;
+}
+
+div.clsWk div.clsWkScroll table
+{
+	width: 100%;
+}
+
+div.clsWk div.clsWkScroll table tr
+{
+	height: 26px;
+}
+
+div.clsWk div.clsWkScroll table tr td
+{
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-align: left;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 3px;
+	font-size: 14px;
+	color: #000;
+	background:#fff;
+}
+
+div.clsWk div.clsWkScroll table tr.clsOdd td
+{
+	background: #dfdfdf;
+}
+
+div.clsWk div.clsWkScroll table tr td div
+{
+	padding:0 3px;
+}
+
+/* Parte per il footer */
+div.clsWk div.clsWkFt
+{
+	height: 25px;
+	width: 100%;
+	overflow: visible;
+	background: url(../img/bars.png) 0 0px repeat-x;
+}

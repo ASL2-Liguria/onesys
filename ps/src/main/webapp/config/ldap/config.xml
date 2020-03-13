@@ -6,27 +6,27 @@
     <bean id="context" class="it.elco.ldap.ElcoLDAPContext" primary="true"/>
 
     <bean id="ldap" class="it.elco.ldap.ElcoLDAP" scope="prototype">
-        <property name="suffixUser" value="@elco.local"/>
+        <property name="suffixUser" value="@my-domain"/>
         <property name="patternUsername" value="%s"/>
         <property name="enviroment">
             <map>
                 <entry key="#{context.INITIAL_CONTEXT_FACTORY}" value="com.sun.jndi.ldap.LdapCtxFactory"/>
                 <entry key="#{context.SECURITY_AUTHENTICATION}" value="simple"/>
-                <entry key="#{context.PROVIDER_URL}" value="ldap://%s:389"/>
+                <entry key="#{context.PROVIDER_URL}" value="ldap://%s:my-port"/>
             </map>
         </property>
     </bean>
     <bean id="ldapSearchAd" class="it.elco.ldap.ElcoLDAP" scope="prototype">
-        <property name="searchDomain" value="DC=elco,DC=local"/>
+        <property name="searchDomain" value="DC=my-domain-prefix,DC=my-domain-suffix"/>
         <property name="searchObj" value="member,memberOf,cn,objectClass,employeeNumber,mailNickname,mail,displayName"/>
         <property name="searchType" value="sAMAccountName=[user]"/>
         <property name="enviromentSearchAD">
             <map>
                 <entry key="#{context.INITIAL_CONTEXT_FACTORY}" value="com.sun.jndi.ldap.LdapCtxFactory"/>
                 <entry key="#{context.SECURITY_AUTHENTICATION}" value="simple"/>
-                <entry key="#{context.PROVIDER_URL}" value="ldap://elco.local:389"/>
-                <entry key="#{context.SECURITY_PRINCIPAL}" value="fabio.capra@elco.local"/>
-                <entry key="#{context.SECURITY_CREDENTIALS}" value="Elko2014b"/>
+                <entry key="#{context.PROVIDER_URL}" value="ldap://my-domain:my-port"/>
+                <entry key="#{context.SECURITY_PRINCIPAL}" value="my-user@my-domain"/>
+                <entry key="#{context.SECURITY_CREDENTIALS}" value="my-password"/>
             </map>
         </property>
     </bean>

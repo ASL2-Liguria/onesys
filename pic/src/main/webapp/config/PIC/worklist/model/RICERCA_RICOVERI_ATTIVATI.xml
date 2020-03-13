@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>RICERCA_RICOVERI_ATTIVATI</ID>
+    <ID-QUERY connection="EVENTI">WORKLIST.RICERCA_RICOVERI_ATTIVATI</ID-QUERY>
+    <TITLE>"Ricerca Ricoveri Attivati"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <STRUCTURE>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('IDEN_ANAG', 'clsSel', false);}</CLICK>
+            </EVENTS>
+        </ROWS>               
+        <COLUMNS>
+            <LIST>                
+                <COLUMN>
+                    <ID>
+                        <COL>NUM_PRATICA</COL>
+                        <DB>NUM_PRATICA</DB>
+                    </ID>
+                    <DESCRIPTOR>'N° Pratica'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>120px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>                
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INIZIO</COL>
+                        <DB>DATA_INIZIO</DB>
+                    </ID>
+                    <DESCRIPTOR>'Data Inizio'</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>                            
+                <COLUMN>
+                    <ID>
+                        <COL>ORA_INIZIO</COL>
+                        <DB>ORA_INIZIO</DB>
+                    </ID>
+                    <DESCRIPTOR>'Ora Inizio'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_FINE</COL>
+                        <DB>DATA_FINE</DB>
+                    </ID>
+                    <DESCRIPTOR>'Data Fine'</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>                            
+                <COLUMN>
+                    <ID>
+                        <COL>ORA_FINE</COL>
+                        <DB>ORA_FINE</DB>
+                    </ID>
+                    <DESCRIPTOR>'Ora Fine'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>REPARTO</COL>
+                        <DB>REPARTO</DB>
+                    </ID>
+                    <DESCRIPTOR>'Reparto'</DESCRIPTOR>
+                    <PROCESS/>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>S</MOVEABLE>
+                    <RESIZABLE>S</RESIZABLE>
+                </COLUMN>                                                                                                                            
+            </LIST> 
+            <SORT>
+                <COLUMN id="DATA_INIZIO">ASC</COLUMN>
+            </SORT>                      
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

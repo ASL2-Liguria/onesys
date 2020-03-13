@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ROWSET>
+    <ROW>
+        <lblTitolo>GESTISCI CONSENSI</lblTitolo>
+		
+        <fldRicerca>
+            Ricerca Consensi
+        </fldRicerca>
+        	<lbltxtRicerca>Consenso</lbltxtRicerca>
+        	<butCerca>Cerca</butCerca>
+        
+        <fld_Consensi>Consensi disponibili</fld_Consensi>
+        
+    </ROW>
+</ROWSET>

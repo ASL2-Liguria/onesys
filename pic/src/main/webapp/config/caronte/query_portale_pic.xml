@@ -1,0 +1,293 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<QUERIES>
+    <QUERY_GROUP id="DATI"/>
+
+    <QUERY_GROUP id="FILTRI"/>
+    
+    <QUERY_GROUP id="MODULI_CONSENSO">
+        <QUERY id="RICERCA_CONSENSO">
+            <SQL>
+                SELECT PMC.*, TO_CHAR(PMC.DATA_INS, 'yyyymmdd') DATA_INSERIMENTO 
+                FROM PIC_MODULI_CONSENSO PMC
+                WHERE PMC.PATIENT_ID = :patient_id 
+                AND PMC.TIPO = :tipo AND PMC.ATTIVA = 'S' 
+                AND PMC.DELETED = 'N' AND PMC.REVOCATO = 'N' 
+                AND PMC.REVOCA = 'N' AND PMC.TITOLARE_TRATTAMENTO = :titolare_trattamento
+            </SQL>
+        </QUERY>
+        <QUERY id="RICERCA_DOCUMENTI_PER_EVENTO_">
+            <SQL>
+                SELECT s.PARENT
+                FROM SLOT s
+                JOIN EXTERNALIDENTIFIER ei ON ei.REGISTRYOBJECT = s.PARENT AND ei.VALUE = :codice_fiscale||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO'
+                WHERE s.NAME = 'nosologico' AND s.VALUE IN (SELECT COLUMN_VALUE FROM TABLE(SPLIT2ARRAY(:lista_iden_eventi, '#')))                
+            </SQL>
+        </QUERY>  
+        <QUERY id="RICERCA_DOCUMENTI_PER_EVENTO">
+            <SQL>
+                select parent, pv119 from pv1 where 
+			    pv119 IN (SELECT COLUMN_VALUE FROM TABLE(SPLIT2ARRAY(:lista_iden_eventi, '#'))) and 
+			    patientid = :codice_fiscale||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO'              
+            </SQL>
+        </QUERY>  
+        <QUERY id="VISUALIZZA_CONSENSO_ALLEGATO">
+            <SQL>
+                SELECT DOCUMENTO_ALLEGATO AS DOCUMENTO, MIME_TYPE, NOME_ALLEGATO AS NOME_FILE FROM ALLEGATI_CONSENSO WHERE IDEN_CONSENSO = :iden AND DELETED = 'N'               
+            </SQL>
+        </QUERY>
+        <QUERY id="RICERCA_ALLEGATO">
+            <SQL>
+                select IDEN, NOTE_ALLEGATO NOTE from ALLEGATI_CONSENSO where iden_consenso = :iden_consenso and deleted = 'N'               
+            </SQL>
+        </QUERY>
+		<QUERY id="CONTA_CONSENSI_PER_REVOCA">
+			<SQL>
+            <![CDATA[
+	            select count(IDEN) CONSENSI_PER_REVOCA from PIC_MODULI_CONSENSO 
+                where PATIENT_ID = :patient_id 
+                and ASSIGNING_AUTHORITY = :assigning_authority
+                and TIPO = :tipo
+                and DELETED = 'N'
+                and REVOCATO = 'S'
+                and IDEN_MODULO_REVOCA = :iden_modulo_revoca
+                and TITOLARE_TRATTAMENTO = :titolare_trattamento
+	        	{#ORDER#}
+            ]]>
+			</SQL>
+		</QUERY>
+    </QUERY_GROUP>
+                                            
+    <QUERY_GROUP id="WORKLIST">
+        <QUERY id="RICERCA_DOCUMENTI_ATTIVATI">
+            <SQL>
+                SELECT 1 IDEN, VIEW_PIC_DOCUMENTI_ATTIVATI.* 
+                FROM VIEW_PIC_DOCUMENTI_ATTIVATI 
+                WHERE PATIENTID = :codice_fiscale||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO' 
+                AND STATUS = 'Approved' 
+                {#ORDER#} 
+            </SQL>
+        </QUERY>
+        <QUERY id="RICERCA_DOCUMENTI_OSCURATI">
+            <SQL>
+                SELECT 1 IDEN, VIEW_PIC_DOCUMENTI_OSCURATI.* 
+                FROM VIEW_PIC_DOCUMENTI_OSCURATI 
+                WHERE PATIENTID = :codice_fiscale||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO' 
+                AND STATUS = 'Approved' 
+                {#ORDER#} 
+            </SQL>
+        </QUERY>  
+        <QUERY id="RICERCA_DOCUMENTI_INESPRESSI">
+            <SQL>
+                SELECT VIEW_PIC_DOCUMENTI_INESPRESSI.* 
+                FROM VIEW_PIC_DOCUMENTI_INESPRESSI 
+                WHERE PATIENTID = :codice_fiscale||'^^^'||CHR(38)||'CF'||CHR(38)||'ISO' 
+                AND STATUS = 'Approved' 
+                {#ORDER#} 
+            </SQL>
+        </QUERY>
+		<QUERY id="VERSIONI_CONSENSO_UNICO">
+			<SQL>
+            <![CDATA[
+	            SELECT
+	            	PMC.IDEN
+	            	, PMC.PATIENT_ID
+	            	, PMC.ATTIVA
+	            	, PMC.REVOCATO
+	            	, PMC.REVOCA
+	            	, PMC.IDEN_MODULO_REVOCA
+	            	, PMC.TIPO
+	            	, TIP.DESCRIZIONE
+	            	, PMC.DATA_DIC
+	            	, PMC.UTE_DIC
+	            	, TO_CHAR(PMC.DATA_INS, 'yyyymmdd') DATA_INS
+	            	, TP1.DESCR UTE_INS
+	            	, PMC.VERSIONE
+	            	, PMC.ASSIGNING_AUTHORITY
+	            	, PMC.TITOLARE_TRATTAMENTO
+	            	, TO_CHAR(PMC.DATA_MOD, 'yyyymmdd') DATA_MOD
+	            	, TP2.DESCR UTE_MOD
+	            FROM PIC_MODULI_CONSENSO PMC
+	            INNER JOIN TABELLA_PERSONALE TP1 ON PMC.UTE_INS = TP1.COD_DEC
+	            LEFT OUTER JOIN TABELLA_PERSONALE TP2 ON PMC.UTE_MOD = TP2.COD_DEC
+	            INNER JOIN TIPI TIP ON PMC.TIPO = TIP.CODICE_DECODIFICA
+	            WHERE PMC.PATIENT_ID = :patient_id 
+	            AND TIP.TIPO = 'TIPO_CONSENSO' 
+	            AND TIP.ATTIVO = 'S'
+	            AND instr(:consensi, PMC.TIPO) > 0 
+	            AND PMC.DELETED = 'N'
+	            AND PMC.TITOLARE_TRATTAMENTO = :titolare_trattamento
+	        	{#ORDER#}
+            ]]>
+			</SQL>
+		</QUERY>
+    </QUERY_GROUP>
+
+    <QUERY_GROUP id="AUTOCOMPLETE"/>
+
+    <QUERY_GROUP id="SDJ">
+        <QUERY id="Q_CODIFICHE">
+            <SQL>               
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'CODIFICHE_DOCUMENTI' and ATTIVO = 'S' order by ORDINE
+            </SQL>  
+        </QUERY>
+        <QUERY id="Q_CODIFICHE_FSE">
+            <SQL>                
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'CODIFICHE_FSE' and ATTIVO = 'S' order by ORDINE
+            </SQL>  
+        </QUERY>
+        <QUERY id="Q_CODIFICHE_EMERGENZA_FSE">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'CODIFICHE_EMERGENZA_FSE' and ATTIVO = 'S' order by ORDINE
+            </SQL>  
+        </QUERY>
+        <QUERY id="CHK_TIPO_CONSENSO">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'TIPO_CONSENSO' and ATTIVO = 'S' order by ORDINE
+            </SQL>  
+        </QUERY>
+        <QUERY id="TIPI_CONSENSO">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                	, PARAMETRI
+                from TIPI where TIPO = 'TIPO_CONSENSO' and ATTIVO = 'S' order by ORDINE
+            </SQL>  
+        </QUERY>
+        <QUERY id="CHK_TIPO_LOG">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'TIPO_LOG' and ATTIVO = 'S' order by ORDINE
+            </SQL>  
+        </QUERY>
+        <QUERY id="RAD_STATO_CONSENSO">
+            <SQL>
+                select 
+                	DESCRIZIONE DESCR
+                	, CODICE_DECODIFICA VALUE 
+                from TIPI where TIPO = 'STATO_CONSENSO' and ATTIVO = 'S' order by ORDINE
+            </SQL>  
+        </QUERY>
+        <QUERY id="Q_TIPI_PIC">
+            <SQL>
+                select
+                DESCRIZIONE DESCR,
+                CODICE_DECODIFICA COD_DEC
+                from TIPI where TIPO = :tipo and ATTIVO = 'S' order by ORDINE
+            </SQL>
+        </QUERY>
+        <QUERY id="Q_LIST_DOC_MMG">
+            <SQL>
+                SELECT
+                t.iden AS id_doc,
+                t.codice_categoria,
+                tp.descrizione,
+                t.nome_allegato,
+                t.note_allegato,
+                t.path,
+                t.data_ins
+                FROM
+                MMG_DOCUMENTI t
+                JOIN tipi tp ON tp.codice_decodifica = t.codice_categoria
+                WHERE
+                t.iden_per = :medico
+                AND
+                deleted = 'N'
+                ORDER BY data_ins
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>
+    
+    <QUERY_GROUP id="XDSREGISTRY">   
+        <QUERY id="DOCUMENTO">
+            <SQL>
+                select 
+					substr(CREATIONTIMESTAMP,1,8) DATA_DOCUMENTO, 
+					CREATIONTIME, 
+					NOSOLOGICO, 
+					DESCRIZIONE, 
+					REPARTOEROG, 
+					REDATTORE, 
+					AUTORE, 
+					VERSIONE, 
+					PRESTASSOCIATE, 
+					URI, 
+					URISS,  
+					MIMETYPE, 
+					TIPODOC, 
+					PATIENTID, 
+					ID,
+					(select con11 from con c where c.parent = wd.ID and c.con2 = 'DSE.alimentazione') DSE_INSERIMENTO,
+					(select con11 from con c where c.parent = wd.ID and c.con2 = 'DSE.oscuramento') DSE_OSCURAMENTO
+                from VIEW_DOCUMENTI wd where STATUS = 'Approved' 
+                AND id = :iden_documento
+            </SQL>
+        </QUERY>   
+        <QUERY id="DOCUMENTI_DSE">
+            <SQL>
+                select * from ( 
+	                select 
+						substr(CREATIONTIMESTAMP,1,8) DATA_DOCUMENTO, 
+						CREATIONTIME, 
+						NOSOLOGICO, 
+						DESCRIZIONE, 
+						REPARTOEROG, 
+						REDATTORE, 
+						AUTORE, 
+						VERSIONE, 
+						PRESTASSOCIATE, 
+						URI, 
+						URISS,  
+						MIMETYPE, 
+						TIPODOC, 
+						PATIENTID, 
+						ID,
+						(select con11 from con c where c.parent = wd.ID and c.con2 = 'DSE.alimentazione') DSE_INSERIMENTO,
+						(select con11 from con c where c.parent = wd.ID and c.con2 = 'DSE.oscuramento') DSE_OSCURAMENTO
+	                from VIEW_DOCUMENTI wd where STATUS = 'Approved' 
+                ) 
+                where PATIENTID  = :patientId || '^^^&amp;' || 'CF&amp;' || 'ISO' 
+                {#ORDER#} 
+            </SQL>
+        </QUERY>
+        <QUERY id="DOCUMENTI">
+            <SQL>
+                select * from ( 
+                select substr(CREATIONTIMESTAMP,1,8) DATA_DOCUMENTO, CREATIONTIME, NOSOLOGICO, DESCRIZIONE, REPARTOEROG, REDATTORE, PROVENIENZA "RICHIEDENTE", AUTORE, VERSIONE, 
+                PATIENTID, PRESTASSOCIATE, URI, URISS, MIMETYPE, TIPODOC, id, DSE_OSCURAMENTO, FSE_ALIMENTAZIONE, FSE_OSCURAMENTO, CONFIDENTIALITY_CODE, TITOLARE_TRATTAMENTO 
+                from VIEW_DOCUMENTI where STATUS = 'Approved' 
+                ) 
+                where PATIENTID  = :idRepository || '^^^&amp;' || 'CF&amp;' || 'ISO' 
+                and instr(:codice, TIPODOC) > 0 
+                and DATA_DOCUMENTO between :da_data and :a_data 
+                {#ORDER#} 
+            </SQL>
+        </QUERY>
+        <QUERY id="DOCUMENTI_LAST">
+            <SQL>
+                select MIN(DATA_DOCUMENTO_ISO) DATA_INIZIALE_ISO, TO_CHAR(TO_DATE(MIN(DATA_DOCUMENTO_ISO),'YYYYMMDD'),'dd/MM/yyyy') DATA_INIZIALE from (
+                select substr(CREATIONTIMESTAMP,1,8) DATA_DOCUMENTO_ISO 
+                from VIEW_DOCUMENTI
+                where PATIENTID  = :patientId || '^^^&amp;' || 'CF&amp;' || 'ISO' 
+                and instr(:codice, TIPODOC) > 0 
+                order by CREATIONTIMESTAMP DESC 
+                ) WHERE ROWNUM &lt;= :number 
+				{#ORDER#} 
+            </SQL>
+        </QUERY>
+    </QUERY_GROUP>                             
+</QUERIES>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+	<title>REFERTAZIONE COLONSCOPIA</title>
+	<link media='screen' rel='stylesheet' href='css/mix.css' type='text/css'>
+    <link media='screen' rel='stylesheet' href='../../std/css/attesaRegistra.css' type='text/css'>
+    <link media='screen' rel='stylesheet' href='../../std/css/default.css' type='text/css'>    
+    <link media='screen' rel='stylesheet' href='../../std/css/attesaRegistra.css' type='text/css'>
+    
+   
+    <script type='text/javascript' src='../../std/jscript/engine/gestione.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../dwr/engine.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../dwr/util.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../dwr/interface/eventDWR.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../dwr/interface/toolKitDB.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../dwr/interface/toolKitUtility.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../std/jscript/engine/eventi.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../std/jscript/engine/prototype.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../std/jscript/engine/tabulazione.js' language='JavaScript'></script>
+    <script type='text/javascript' src='../../std/jscript/engine/toolkit_pagina.js' language='JavaScript'></script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</form>
+<table width="200" border="1">
+  <tr>
+    <th scope="col">Note Referto Istologico</th>
+  </tr>
+  <tr>
+    <th scope="row"><p>
+      <textarea name="txtIstologico" id="txtIstologico" cols="70" rows="10"></textarea>
+      </p>
+    <p>&nbsp; </p></th>
+  </tr>
+  <tr>
+    <TD class="classButtonHeader"><DIV class="pulsante"><A id="lblIstologico" href="javascript:stampa();">Stampa</A></DIV></TD>
+  </tr>
+</table>
+</body>
+<script>
+function stampa()
+{
+	var stringa_iden_esame ="";
+	stringa_iden_esame ="8";
+	url="http://10.75.4.100:8081/polaris/elabStampa?stampaFunzioneStampa=GASTRO_STD&stampaAnteprima=S&stampaReparto=OMMA02&stampaSelection=({REFERTI.IDEN} = "+ stringa_iden_esame +")";
+	var wndPreviewPrint = window.open(url,'',"top=0,left=0,width=1280,height=600,status=yes,scrollbars=yes");
+}
+</script>
+</html>

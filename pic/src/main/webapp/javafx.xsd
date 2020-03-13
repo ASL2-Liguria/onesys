@@ -1,0 +1,22 @@
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://javafx.com">
+
+  <!-- Schema for a JNLP 6.0 -->
+  <xs:element name="javafx-runtime">
+    <xs:complexType>
+      <xs:attribute name="version" type="xs:string" use="optional"/>
+      <xs:attribute name="href" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="javafx-desc">
+    <xs:complexType>
+      <xs:attribute name="main-class" type="xs:string" use="optional"/>
+      <xs:attribute name="width" type="xs:string" use="optional"/>
+      <xs:attribute name="height" type="xs:string" use="optional"/>
+      <xs:attribute name="name" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

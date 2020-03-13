@@ -1,0 +1,9 @@
+<INCLUDE>
+    <CSS path="config/PIC/pagine/CONSENSI/CONSENSO_UNICO/Unico.css" />
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_UNICO/V_CONSENSO_UNICO.js" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/PIC_bridge.js"/>
+    <JS path="config/PIC/pagine/CONSENSI/Core.js" />
+    <JS path="config/PIC/pagine/CONSENSI/CONSENSO_UNICO/Unico.js" />
+</INCLUDE>

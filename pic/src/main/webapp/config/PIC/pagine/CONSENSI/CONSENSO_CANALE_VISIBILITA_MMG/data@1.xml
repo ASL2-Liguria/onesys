@@ -1,0 +1,47 @@
+<DATI configurazione="begin :stato_pagina := 'I'; :key_query := 'Q_CONSENSO_UNICO@PORTALE_PIC'; :where := null; :campo_xml := null; end;">
+    <DATO key_id="h-idenConsenso" configurazione_stato="begin :stato := 'E'; end;" db_valore="IDEN" db_descrizione="IDEN" configurazione_multi_data="" />
+	<DATO key_id="txtSottoscrittoNome" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_NOME" db_descrizione="SOTTOSCRITTO_NOME" configurazione_multi_data="" />
+	<DATO key_id="txtSottoscrittoCognome" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_COGNOME" db_descrizione="SOTTOSCRITTO_COGNOME" configurazione_multi_data="" />
+    <DATO key_id="txtSottoscrittoLuogoNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_LN" db_descrizione="SOTTOSCRITTO_LN" configurazione_multi_data="" />
+    <DATO key_id="h-txtSottoscrittoDataNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_DN" db_descrizione="SOTTOSCRITTO_DN" configurazione_multi_data="" />
+    <DATO key_id="txtSottoscrittoResidente" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_R" db_descrizione="SOTTOSCRITTO_R" configurazione_multi_data="" />
+	<DATO key_id="txtSottoscrittoIndirizzo" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_INDIRIZZO" db_descrizione="SOTTOSCRITTO_INDIRIZZO" configurazione_multi_data="" />
+    <DATO key_id="txtSottoscrittoTesseraSanitaria" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_TESSERA_SANITARIA" db_descrizione="SOTTOSCRITTO_TESSERA_SANITARIA" configurazione_multi_data="" />
+    <DATO key_id="txtSottoscrittoCodiceFiscale" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_CF" db_descrizione="SOTTOSCRITTO_CF" configurazione_multi_data="" />
+    <DATO key_id="txtSottoscrittoNumeroDocumento" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_NUM_DOC" db_descrizione="SOTTOSCRITTO_NUM_DOC" configurazione_multi_data="" />
+    <DATO key_id="txtSottoscrittoDocumentoEmesso" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_DOC_EMESSO" db_descrizione="SOTTOSCRITTO_DOC_EMESSO" configurazione_multi_data="" />
+    <DATO key_id="chkNomeProprio" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOTTOSCRITTO_NOME_PROPRIO" db_descrizione="SOTTOSCRITTO_NOME_PROPRIO" configurazione_multi_data="CHK_NOME_PROPRIO@PORTALE_PIC" />
+    
+    <DATO key_id="radTipoDichiarante" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="RAD_TIPO_DICHIARANTE_CONSENSO@PORTALE_PIC" />
+    <DATO key_id="h-radTipoDichiarante" configurazione_stato="begin :stato := 'E'; end;" db_valore="TIPO_DICHIARANTE" db_descrizione="TIPO_DICHIARANTE" configurazione_multi_data="" />
+	<DATO key_id="txtGaranteNome" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_NOME" db_descrizione="GARANTE_NOME" configurazione_multi_data="" />
+	<DATO key_id="txtGaranteCognome" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_COGNOME" db_descrizione="GARANTE_COGNOME" configurazione_multi_data="" />
+    <DATO key_id="txtGaranteLuogoNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_LN" db_descrizione="GARANTE_LN" configurazione_multi_data="" />
+    <DATO key_id="h-txtGaranteDataNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_DN" db_descrizione="GARANTE_DN" configurazione_multi_data="" />
+    <DATO key_id="txtGaranteResidente" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_R" db_descrizione="GARANTE_R" configurazione_multi_data="" />
+	<DATO key_id="txtGaranteIndirizzo" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_INDIRIZZO" db_descrizione="GARANTE_INDIRIZZO" configurazione_multi_data="" />
+    <DATO key_id="txtGaranteTesseraSanitaria" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_TESSERA_SANITARIA" db_descrizione="GARANTE_TESSERA_SANITARIA" configurazione_multi_data="" />
+    <DATO key_id="txtGaranteCodiceFiscale" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_CF" db_descrizione="GARANTE_CF" configurazione_multi_data="" />
+    <DATO key_id="txtGaranteDocumentoIdentita" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_DOCUMENTO_IDENTITA" db_descrizione="GARANTE_DOCUMENTO_IDENTITA" configurazione_multi_data="" />
+    <DATO key_id="txtGaranteRilasciatoDa" configurazione_stato="begin :stato := 'E'; end;" db_valore="GARANTE_DOC_RILASCIATO_DA" db_descrizione="GARANTE_DOC_RILASCIATO_DA" configurazione_multi_data="" />
+    <DATO key_id="radScelta1A" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="h-radScelta1A" configurazione_stato="begin :stato := 'E'; end;" db_valore="SCELTA_A1" db_descrizione="SCELTA_A1" configurazione_multi_data="" />
+    
+    <DATO key_id="radConsensoMMGFuturo" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="h-radConsensoMMGFuturo" configurazione_stato="begin :stato := 'E'; end;" db_valore="CONSULTAZIONE_FUTURO" db_descrizione="CONSULTAZIONE_FUTURO" configurazione_multi_data="" />
+    <DATO key_id="radConsensoMMGPassato" configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="R_SI_NO" />
+    <DATO key_id="h-radConsensoMMGPassato" configurazione_stato="begin :stato := 'E'; end;" db_valore="CONSULTAZIONE_PASSATO" db_descrizione="CONSULTAZIONE_PASSATO" configurazione_multi_data="" />
+     
+    <DATO key_id="h-txtDataDichiarazione" configurazione_stato="begin :stato := 'E'; end;" db_valore="DATA_DIC" db_descrizione="DATA_DIC" configurazione_multi_data="" />
+    <DATO key_id="txtSostitutoNomeCognome" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOSTITUTO_NC" db_descrizione="SOSTITUTO_NC" configurazione_multi_data="" />
+    <DATO key_id="txtSostitutoLuogoNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOSTITUTO_LN" db_descrizione="SOSTITUTO_LN" configurazione_multi_data="" />
+    <DATO key_id="h-txtSostitutoDataNascita" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOSTITUTO_DN" db_descrizione="SOSTITUTO_DN" configurazione_multi_data="" />
+    <DATO key_id="txtSostitutoResidente" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOSTITUTO_R" db_descrizione="SOSTITUTO_R" configurazione_multi_data="" />
+	<DATO key_id="txtSostitutoIndirizzo" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOSTITUTO_INDIRIZZO" db_descrizione="SOSTITUTO_INDIRIZZO" configurazione_multi_data="" />
+    <DATO key_id="txtSostitutoDocumentoIdentita" configurazione_stato="begin :stato := 'E'; end;" db_valore="SOSTITUTO_DI" db_descrizione="SOSTITUTO_DI" configurazione_multi_data="" />
+    <DATO key_id="radTipoSostitutoDichiarante"  configurazione_stato="begin :stato := 'E'; end;" db_valore="" db_descrizione="" configurazione_multi_data="RAD_TIPO_DICHIARAZIONE_SOSTITUTIVA@PORTALE_PIC" />
+    <DATO key_id="h-radTipoSostitutoDichiarante" configurazione_stato="begin :stato := 'E'; end;" db_valore="TIPO_SOSTITUTO_DICHIARANTE" db_descrizione="TIPO_SOSTITUTO_DICHIARANTE" configurazione_multi_data="" />
+    <DATO key_id="h-versione_modulo" configurazione_stato="begin :stato := 'E'; end;" db_valore="VERSIONE_MODULO" db_descrizione="VERSIONE_MODULO" configurazione_multi_data="" />
+    <DATO key_id="txtOperatoreDichiarazione" configurazione_stato="begin :stato := 'E'; end;" db_valore="UTE_DIC" db_descrizione="UTE_DIC" configurazione_multi_data="" />
+    <DATO key_id="txtOperatoreRegistrazione" configurazione_stato="begin :stato := 'E'; end;" db_valore="DESCR_UTE_INS" db_descrizione="DESCR_UTE_INS" configurazione_multi_data="" />
+</DATI>

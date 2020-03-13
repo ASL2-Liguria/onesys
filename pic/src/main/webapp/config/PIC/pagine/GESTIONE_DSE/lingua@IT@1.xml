@@ -1,0 +1,13 @@
+<ROWSET>
+    <ROW>
+        
+        <tabDocRepository>Documenti Paziente</tabDocRepository>
+        	
+        <tabDocDSE>Documenti DSE</tabDocDSE>
+        	<fldWKDSE>Gestione documenti nel DSE</fldWKDSE>
+        	
+        <tabEventiDSE>Eventi DSE</tabEventiDSE>
+        	<fldWKEventiDSE>Gestione eventi nel DSE</fldWKEventiDSE>
+        	
+    </ROW>
+</ROWSET>

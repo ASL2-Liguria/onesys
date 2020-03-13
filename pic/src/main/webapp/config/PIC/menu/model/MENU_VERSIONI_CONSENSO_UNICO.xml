@@ -1,0 +1,72 @@
+<MENU>
+    <ID>MENU_VERSIONI_CONSENSO_UNICO</ID>
+    <TITLE>"Menu Versioni Consenso Unico"</TITLE>
+    <LIST>        
+        <ITEM>
+            <ID>ALLEGA_A_CONSENSO_SCELTO</ID>
+		      <LINK><![CDATA[function(rec) { VERSIONI_CONSENSO_UNICO.allegaConsenso(rec); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1);}]]></WHERE>
+            <OUTPUT>"Allega al consenso scelto"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+		<ITEM>
+            <ID>VISUALIZZA_ALLEGATO</ID>
+		      <LINK><![CDATA[function(rec) { window.open("showDocumentoAllegato?IDEN="+rec[0].IDEN); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1 && home.NS_FENIX_PIC.search.allegato(rec[0].IDEN) != '');}]]></WHERE>
+            <OUTPUT>"Visualizza l'allegato"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+		<ITEM>
+            <ID>CANCELLA_ALLEGATO</ID>
+		      <LINK><![CDATA[function(rec) { VERSIONI_CONSENSO_UNICO.confermaCancellazioneAllegato(rec[0].IDEN); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/rimuovi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1 && home.NS_FENIX_PIC.search.allegato(rec[0].IDEN) != '');}]]></WHERE>
+            <OUTPUT>"Cancella l'allegato"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+		<ITEM>
+            <ID>CANCELLA_CONSENSO</ID>
+		      <LINK><![CDATA[function(rec) { VERSIONI_CONSENSO_UNICO.confermaCancellazioneConsenso(rec); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/rimuovi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1 && rec[0].REVOCA == 'N' && /\bSUPERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', '')));}]]></WHERE>
+            <OUTPUT>"Cancella consenso"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+		<ITEM>
+            <ID>CANCELLA_REVOCA</ID>
+		      <LINK><![CDATA[function(rec) { VERSIONI_CONSENSO_UNICO.confermaCancellazioneRevoca(rec[0].IDEN); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/rimuovi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1 && rec[0].REVOCA == 'S' && /\bSUPERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', '')));}]]></WHERE>
+            <OUTPUT>"Cancella revoca"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+		<ITEM>
+            <ID>REVOCA_CONSENSO</ID>
+		      <LINK><![CDATA[function(rec) { VERSIONI_CONSENSO_UNICO.confermaRevocaConsenso(rec[0].IDEN, rec[0].TIPO); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/rimuovi.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1 && rec[0].ATTIVA == 'S' && rec[0].REVOCA == 'N' && (/\bSUPERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', '')) || /\bPOWERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', ''))));}]]></WHERE>
+            <OUTPUT>"Revoca consenso"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+    </LIST>
+</MENU>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TEST_XML">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="setId">
+                <PAR value="testXml"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div{.extButtons}">
+            <PROC id="test"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

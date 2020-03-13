@@ -1,0 +1,36 @@
+<MENU>
+	<ID>MENU_WK_REPOSITORY_DSE</ID>
+	<TITLE>"MENU"</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWR.APRI_DOC_DSE</ID>
+			<LINK><![CDATA[function(rec){LOG_DSE.apriDocRep(rec);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1 && home.basePermission.DOCUMENTI.VISUALIZZA === 'S');}]]></WHERE>
+			<OUTPUT>"Visualizza documento"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MWR.APRI_CONSENSO_DOCUMENTO</ID>
+			<LINK><![CDATA[function(rec){DOCUMENTI_PAZIENTE_DSE.apriConsensoDoc(rec[0].ID);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1);}]]></WHERE>
+			<OUTPUT>"Apri CONSENSO DOCUMENTO"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MWR.APRI_CONSENSO_UNICO</ID>
+			<LINK><![CDATA[function(rec){LOG_DSE.apriConsensoUnico();}]]></LINK>
+			<URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return LOG_DSE.whereApriConsensoUnico()}]]></WHERE>
+			<OUTPUT>"Apri CONSENSO GENERALE"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

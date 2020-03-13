@@ -1,0 +1,16 @@
+<PAGINA key_id="RICERCA_MMG">
+    <HEADER_WK key_id="RICERCA_MMG" valore="DEFAULT,WK,RICERCA_MMG#DEFAULT,WORKLIST" evento="START_END"></HEADER_WK>
+    <TABULAZIONE.FILTRI key_id="wkMMG" valore="WorklistMMG#butAzzeraFiltri,butApplica##divWk#divWorklist" evento="START_END">
+        <TABULAZIONE.CREA_TAB_FILTRO key_id="filtroRicercaMMG" valore="filtroRicercaMMG#RICERCA_MMG" evento="START">
+            <TABELLA.INIT key_id="table" valore="" evento="START">
+                <TR.INIT key_id="r1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Cognome" valore="lblCognome#txtCognome#cognome##T" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+                <TR.INIT key_id="r1" valore="" evento="START">
+                    <FILTRO_TEXT key_id="Nome" valore="lblNome#txtNome#nome##T" evento="START"></FILTRO_TEXT>
+                </TR.INIT>
+            </TABELLA.INIT>
+        </TABULAZIONE.CREA_TAB_FILTRO>      
+    </TABULAZIONE.FILTRI>
+</PAGINA>
+

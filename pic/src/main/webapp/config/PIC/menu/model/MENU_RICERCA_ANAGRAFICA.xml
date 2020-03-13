@@ -1,0 +1,442 @@
+<MENU>
+    <ID>MENU_RICERCA_ANAGRAFICA</ID>
+    <TITLE>"Menu Ricerca Anagrafica"</TITLE>
+    <LIST>
+        <ITEM>
+            <ID>VERSIONI_CONSENSO_UNICO</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.versioniConsenso(rec);  }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length);}]]></WHERE>
+            <OUTPUT>"Storico consensi"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>APRI_GESTISCI_CONSENSI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.apriGestisciConsensi(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length);}]]></WHERE>
+            <OUTPUT>"Gestisci Consensi"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_CONSENSO_UNICO</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.inserisciModifica(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <!-- <WHERE><![CDATA[function(rec) {return true;}]]></WHERE> -->
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && rec[0].DATA_MORTE == null && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Apri consenso GENERALE"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>Paziente deceduto</INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>VISUALIZZA_CONSENSO_UNICO</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.visualizzaConsenso(rec, 'CONSENSO_UNICO'); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Visualizza consenso GENERALE"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>   
+        <ITEM>
+            <ID>ALLEGA_A_CONSENSO_IN_VIGORE</ID>
+		      <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.allegato.allega(rec, null, 'CONSENSO_UNICO'); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.NS_FENIX_PIC.search.consensus(rec[0].IDEN_ANAGRAFICA, 'CONSENSO_UNICO') != '' && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Allega al consenso GENERALE in vigore"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>VISUALIZZA_ALLEGATO</ID>
+		      <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.allegato.visualizza(rec, 'CONSENSO_UNICO'); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[
+            	function(rec){
+            		if(LIB.isValid(rec) && rec.length && rec[0].IDEN_ANAGRAFICA && home.basePermission.DEBUGGER){
+	            		var Consenso = home.NS_FENIX_PIC.search.consensus(rec[0].IDEN_ANAGRAFICA, 'CONSENSO_UNICO')
+	            		return (home.NS_FENIX_PIC.search.consensus(rec[0].IDEN_ANAGRAFICA, 'CONSENSO_UNICO') != '' && home.NS_FENIX_PIC.search.allegato(Consenso.IDEN) != '');
+            		}else{
+            			return false;
+            		}
+            	}]]></WHERE>
+            <OUTPUT>"Visualizza l'allegato"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_CONSENSO_UNICO</ID>
+            <LINK><![CDATA[function(rec) { }]]></LINK>
+            <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Stampa consenso GENERALE"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+            <LIST>
+                <ITEM>
+                    <ID>STAMPA_CONSENSO_VUOTO</ID>
+		            <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.stampa.vuoto(rec, 'CONSENSO_UNICO');}]]></LINK>
+                    <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+                    <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+                    <OUTPUT>"Stampa consenso vuoto"</OUTPUT>
+                    <CONCEALING>N</CONCEALING>
+                    <SEPARATOR>N</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                    <INFO></INFO>
+                </ITEM>
+                <ITEM>
+                    <ID>STAMPA_CONSENSO_INTESTATO</ID>
+		            <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.stampa.datiAnagrafici(rec, 'CONSENSO_UNICO')  }]]></LINK>
+                    <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+                    <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+                    <OUTPUT>"Stampa consenso intestato"</OUTPUT>
+                    <CONCEALING>N</CONCEALING>
+                    <SEPARATOR>N</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                    <INFO></INFO>
+                </ITEM>
+                <ITEM>
+                    <ID>STAMPA_CONSENSO_IN_VIGORE</ID>
+		            <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.stampa.consensoCompleto(rec, 'CONSENSO_UNICO') }]]></LINK>
+                    <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+                    <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+                    <OUTPUT>"Stampa consenso in vigore"</OUTPUT>
+                    <CONCEALING>N</CONCEALING>
+                    <SEPARATOR>N</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                    <INFO></INFO>
+                </ITEM>
+            </LIST>
+        </ITEM>
+        <ITEM>
+            <ID>INSERISCI_CONSENSO_MMG</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.inserisciModificaMMG(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <!-- <WHERE><![CDATA[function(rec) {return true;}]]></WHERE> -->
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && rec[0].DATA_MORTE == null && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Consenso CANALE VISIBILITA' MMG"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO>Paziente deceduto</INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>VISUALIZZA_CONSENSO_MMG</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.visualizzaConsenso(rec, 'CONSENSO_CANALE_VISIBILITA_MMG'); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Visualizza consenso MMG"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ALLEGA_A_CONSENSO_MMG_IN_VIGORE</ID>
+		      <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.allegato.allega(rec, null, 'CONSENSO_CANALE_VISIBILITA_MMG'); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.NS_FENIX_PIC.search.consensus(rec[0].IDEN_ANAGRAFICA, 'CONSENSO_CANALE_VISIBILITA_MMG') != '' && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Allega al consenso MMG in vigore"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>VISUALIZZA_ALLEGATO_MMG</ID>
+		      <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.allegato.visualizza(rec, 'CONSENSO_CANALE_VISIBILITA_MMG'); }]]></LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[
+            	function(rec){
+            		if(LIB.isValid(rec) && rec.length && rec[0].IDEN_ANAGRAFICA && home.basePermission.DEBUGGER){
+	            		var Consenso = home.NS_FENIX_PIC.search.consensus(rec[0].IDEN_ANAGRAFICA, 'CONSENSO_CANALE_VISIBILITA_MMG')
+	            		return (home.NS_FENIX_PIC.search.consensus(rec[0].IDEN_ANAGRAFICA, 'CONSENSO_CANALE_VISIBILITA_MMG') != '' && home.NS_FENIX_PIC.search.allegato(Consenso.IDEN) != '');
+            		}else{
+            			return false;
+            		}
+            	}]]></WHERE>
+            <OUTPUT>"Visualizza l'allegato MMG"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>N</SEPARATOR>
+            <ENABLE>S</ENABLE>
+            <INFO></INFO>
+        </ITEM>
+        <ITEM>
+            <ID>STAMPA_CONSENSO_VISIBILITA_MMG</ID>
+            <LINK><![CDATA[function(rec) { }]]></LINK>
+            <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Stampa consenso visibilità MMG"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+            <LIST>
+                <ITEM>
+                    <ID>STAMPA_CONSENSO_MMG_VUOTO</ID>
+		            <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.stampa.vuoto(rec, 'CONSENSO_CANALE_VISIBILITA_MMG');}]]></LINK>
+                    <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+                    <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+                    <OUTPUT>"Stampa consenso MMG vuoto"</OUTPUT>
+                    <CONCEALING>N</CONCEALING>
+                    <SEPARATOR>N</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                    <INFO></INFO>
+                </ITEM>
+                <ITEM>
+                    <ID>STAMPA_CONSENSO_MMG_INTESTATO</ID>
+		            <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.stampa.datiAnagrafici(rec, 'CONSENSO_CANALE_VISIBILITA_MMG')  }]]></LINK>
+                    <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+                    <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+                    <OUTPUT>"Stampa consenso MMG intestato"</OUTPUT>
+                    <CONCEALING>N</CONCEALING>
+                    <SEPARATOR>N</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                    <INFO></INFO>
+                </ITEM>
+                <ITEM>
+                    <ID>STAMPA_CONSENSO_MMG_IN_VIGORE</ID>
+		            <LINK><![CDATA[function(rec) { WK_RICERCA_ANAGRAFICA.stampa.consensoCompleto(rec, 'CONSENSO_CANALE_VISIBILITA_MMG') }]]></LINK>
+                    <URL_IMAGE>./img/CMenu/printer.png</URL_IMAGE>
+                    <WHERE><![CDATA[function(rec){return true;}]]></WHERE>
+                    <OUTPUT>"Stampa consenso MMG in vigore"</OUTPUT>
+                    <CONCEALING>N</CONCEALING>
+                    <SEPARATOR>N</SEPARATOR>
+                    <ENABLE>S</ENABLE>
+                    <INFO></INFO>
+                </ITEM>
+            </LIST>
+        </ITEM>
+        <ITEM>
+            <ID>ESPRIMI_DOCUMENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.documenti.esprimi(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length);}]]></WHERE>
+            <OUTPUT>"DOCUMENTI consenso inespresso"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ATTIVA_DOCUMENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.documenti.attiva(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.CONSENSO.ATTIVA == 'S');}]]></WHERE>
+            <OUTPUT>"Attiva DOCUMENTI"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>OSCURA_DOCUMENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.documenti.oscura(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/delete.png</URL_IMAGE>
+            <!-- <WHERE><![CDATA[function(rec) {if(home.basePermission.CONSENSO.OSCURA == 'S'){return true;}else{return false;}}]]></WHERE> -->
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.CONSENSO.OSCURA == 'S');}]]></WHERE>
+            <OUTPUT>"Oscura DOCUMENTI"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ESPRIMI_EVENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.eventi.esprimi(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <!-- <WHERE><![CDATA[function(rec) {if(home.basePermission.CONSENSO.ATTIVA == 'S'){return true;}else{return false;}}]]></WHERE> -->
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length);}]]></WHERE>
+            <OUTPUT>"EVENTI consenso inespresso"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>ATTIVA_EVENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.eventi.attiva(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <!-- <WHERE><![CDATA[function(rec) {if(home.basePermission.CONSENSO.ATTIVA == 'S'){return true;}else{return false;}}]]></WHERE> -->
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.CONSENSO.ATTIVA == 'S');}]]></WHERE>
+            <OUTPUT>"Attiva EVENTI"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>OSCURA_EVENTI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.eventi.oscura(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/delete.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.CONSENSO.OSCURA == 'S');}]]></WHERE>
+            <OUTPUT>"Oscura EVENTI"</OUTPUT>
+            <CONCEALING>false</CONCEALING>
+            <SEPARATOR>true</SEPARATOR>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>CONSENSO_EVENTO</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.eventi.consenso(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Consenso EVENTO"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>CONSENSO_DOCUMENTO</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.documenti.consenso(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Consenso DOCUMENTO"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>CAREGIVER_EVENTO</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.caregiver.inserisciEVENTO(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Inserisci CAREGIVER EVENTO"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>CAREGIVER_PAZIENTE</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.caregiver.inserisciPAZIENTE(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && home.basePermission.DEBUGGER);}]]></WHERE>
+            <OUTPUT>"Inserisci CAREGIVER PAZIENTE"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>APRI_DOCUMENTI_PAZIENTE</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.apriDocumentiPaziente(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length);}]]></WHERE>
+            <OUTPUT>"Apri documenti paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>APRI_GESTIONE_DSE_PAZIENTE</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.apriGestioneDSE(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && (/\bSUPERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', '')) || /\bPOWERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', ''))));}]]></WHERE>
+            <OUTPUT>"Apri Gestione DSE paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+        <ITEM>
+            <ID>APRI_ELENCO_ACCESSI</ID>
+            <LINK>
+                <![CDATA[
+                    function(rec) { WK_RICERCA_ANAGRAFICA.apriElencoAccessi(rec); }
+                ]]>
+            </LINK>
+            <URL_IMAGE>./img/CMenu/search.png</URL_IMAGE>
+            <WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length && (/\bSUPERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', '')) || /\bPOWERUSER\b/i.test(LIB.getParamUserGlobal('GRUPPO_PERMESSI', ''))));}]]></WHERE>
+            <OUTPUT>"Apri Elenco Accessi paziente"</OUTPUT>
+            <CONCEALING>true</CONCEALING>
+            <SEPARATOR>false</SEPARATOR>
+            <INFO></INFO>
+            <ENABLE>S</ENABLE>
+        </ITEM>
+    </LIST>
+</MENU>

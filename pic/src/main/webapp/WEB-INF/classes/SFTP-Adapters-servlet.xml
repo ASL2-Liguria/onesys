@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-sftp="http://www.springframework.org/schema/integration/sftp"
+       xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration-3.0.xsd
+       http://www.springframework.org/schema/integration/sftp http://www.springframework.org/schema/integration/sftp/spring-integration-sftp-3.0.xsd
+       http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc-3.0.xsd">
+
+    <bean id="dataSourcePic" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@host:1521:onesys"/>
+        <property name="username" value="xdsregistry"/>
+        <property name="password" value="password"/>
+    </bean>
+
+    <bean class="it.elco.fenix.pic.documenti.DocumentiUtenteMMG"/>
+
+
+    <bean id="sftpSessionFactory" class="org.springframework.integration.sftp.session.DefaultSftpSessionFactory">
+        <property name="host" value="host"/>
+        <property name="port" value="22"/>
+        <property name="user" value="sftpuser"/>
+        <property name="password" value="password"/>
+    </bean>
+
+    <bean id="cachingSessionFactory" class="org.springframework.integration.file.remote.session.CachingSessionFactory">
+        <constructor-arg ref="sftpSessionFactory"/>
+    </bean>
+
+
+    <int:channel id="sftpChannelInsert"/>
+    <int:channel id="sftpOutputInsert"/>
+    <int:channel id="jdbcOutputInsert"/>
+
+    <int:channel id="sftpChannelDelete"/>
+    <int:channel id="jdbcOutputDelete"/>
+    <int:channel id="sftpOutputDelete"/>
+
+
+
+
+    <int-sftp:outbound-gateway id="sftpOutboundGatewayInsert"
+                               session-factory="sftpSessionFactory"
+                               command="put"
+                               expression="payload"
+                               auto-create-directory="true"
+                               request-channel="sftpChannelInsert"
+                               reply-channel="sftpOutputInsert"
+                               remote-filename-generator-expression="headers.hashcode + '.pdf'"
+                               remote-directory-expression="'/var/www/html/documenti/PIC/' + headers.percorso"/>
+
+
+    <int-jdbc:outbound-gateway id="jdbcGatewayInsert"
+                               update="insert into mmg_documenti (iden_per,codice_categoria,nome_allegato,path,note_allegato,ute_ins) values (:headers[iden_medico],:headers[codice_categoria],:headers[nome_allegato],:payload,:headers[note],:headers[ute_ins])"
+                               data-source="dataSourcePic"
+                               request-channel="sftpOutputInsert"
+                               reply-channel="nullChannel"/>
+
+    <int-jdbc:outbound-gateway id="jdbcGatewayDelete"
+                               data-source="dataSourcePic"
+                               request-channel="sftpChannelDelete"
+                               update="update mmg_documenti set deleted = 'S' where iden = :payload"
+                               reply-channel="jdbcOutputDelete"/>
+
+    <int-sftp:outbound-gateway id="sftpOutboundGatewayDelete"
+                               session-factory="sftpSessionFactory"
+                               command="rm"
+                               expression="headers.url + '/' + headers.filename"
+                               request-channel="jdbcOutputDelete"
+                               reply-channel="sftpOutputDelete"/>
+
+</beans>

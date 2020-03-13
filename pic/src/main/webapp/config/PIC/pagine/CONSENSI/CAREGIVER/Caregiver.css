@@ -1,0 +1,25 @@
+body {
+    width: 960px;
+    height: 500px;
+    margin: auto;
+}
+
+.tdRadio {
+	width: 150px;
+}
+
+.tdLbl {
+	width: 200px !important;
+	text-align: left !important;
+}
+
+#lblCaregiverPaziente, #lblCaregiverEvento {
+	text-align: center !important;
+	font-style: italic;
+	border: 1px solid black;
+}
+
+#divCaregiverPaziente {
+	text-align: center !important;;
+	border: 1px solid black;
+}

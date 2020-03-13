@@ -1,0 +1,9 @@
+<INCLUDE>
+    <CSS path="config/PIC/pagine/GESTIONE_DSE/Gestione_Documenti_PazienteDSE.css" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/PROCESS_CLASS.js" />
+    <JS path="config/PIC/pagine/GESTIONE_DSE/Gestione_Documenti_PazienteDSE.js" />
+    <JS path="config/PIC/pagine/GESTIONE_DSE/Gestione_Eventi_PazienteDSE.js" />
+    <JS path="js/PIC/LOG_documenti.js" />
+</INCLUDE>

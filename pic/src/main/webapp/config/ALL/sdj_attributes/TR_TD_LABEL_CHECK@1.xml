@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="TR_TD_LABEL_CHECK">
+        <OBJ classe_id="PATH::tr*(TD_LABEL_CHECK)">
+            <PROC id="VOID">
+                <PAR type="idx" value="0"/>
+                <PAR type="idx" value="1"/>
+                <PAR type="idx" value="2"/>
+                <PAR type="idx" value="3"/>
+                <PAR type="idx" value="4"/>
+                <PAR type="idx" value="5"/>
+                <PAR type="idx" value="6"/>
+                <PAR type="idx" value="7"/>
+                <PAR type="idx" value="8"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

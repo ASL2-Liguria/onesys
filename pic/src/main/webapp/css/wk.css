@@ -1,0 +1,413 @@
+div.clsWk
+{
+    background:#fff;
+    position:relative;
+    display:block;
+    overflow:hidden;
+    z-index:0;
+    border:1px solid #565656;
+    border-top:0;
+}
+
+div.clsWk table
+{
+    table-layout:fixed;
+}
+
+/* Parte del loading */
+div.clsWk div.clsWkLdg
+{
+    background:url(../img/loading.gif) no-repeat center black;
+    z-index:3;
+}
+
+/* Parte per la selezione delle colonne */
+div.clsWk div.clsWkSelCol
+{
+    position:fixed;
+    display:block;
+    background:white;
+    border:1px solid #565656;
+    z-index:3;
+    -moz-box-shadow:3px 3px 11px #000000;
+    -webkit-box-shadow:3px 3px 11px #000000;
+    box-shadow:3px 3px 11px #000000;
+}
+
+div.clsWk div.clsWkSelCol ul li
+{
+    padding:6px;
+    cursor:pointer;
+}
+
+div.clsWk div.clsWkSelCol ul li:hover
+{
+    background:#ccc !important;
+}
+
+div.clsWk div.clsWkSelCol ul li.clsSelV
+{
+    background:#ddd;
+}
+
+div.clsWk div.clsWkSelCol ul li.clsSelX
+{
+    background:#fff;
+}
+
+/* Gruppo che contiene la worklist (per avere lo scroll orizzontale */
+div.clsWk div.clsWkGrp
+{
+    position:relative;
+    overflow:hidden;
+}
+
+div.clsWk div.clsWkGrp div.clsWkGrpCnt
+{
+}
+
+/*	Perte per header fissa */
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix
+{
+    height:25px;
+    background:-moz-linear-gradient(top,#7e7e7e 0%,#4d4d4d);
+    background:-webkit-gradient(linear, left top, left bottom, from(#888),to(#555));
+    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #7e7e7e), color-stop(1, #a));
+    background:-moz-linear-gradient(top, #7e7e7e 5%, #4d4d4d 100%);
+    background:-webkit-linear-gradient(top, #7e7e7e 5%, #4d4d4d 100%);
+    background:-o-linear-gradient(top, #7e7e7e 5%, #4d4d4d 100%);
+    background:-ms-linear-gradient(top, #7e7e7e 5%, #4d4d4d 100%);
+    background:linear-gradient(to bottom, #7e7e7e 5%, #4d4d4d 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7e7e7e', endColorstr='#a',GradientType=0);
+    background-color:#7e7e7e;
+    overflow:visible;
+    z-index:1;
+    border-top:1px solid #565656;
+}
+
+/* In caso di move cambio il cursore */
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table.clsWkHdFixMv thead tr th
+{
+    cursor:move;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr th.clsNoMove
+{
+    cursor:no-drop;
+}
+
+/* In caso di resize cambio il cursore */
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table.clsWkHdFixRsz thead tr th
+{
+    cursor:e-resize;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr
+{
+    height:24px;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr th
+{
+    color:#fff;
+    font-size:12px;
+    padding:0 3px;
+    height:24px;
+    line-height:24px;
+    text-align:center;
+    border-left:1px solid #555;
+    white-space:nowrap;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr th:first-child
+{
+    border-left:none;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr th.clsNoOrd
+{
+    cursor:default;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr th.clsOverMv
+{
+    border-left:5px solid white;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr th.clsOrd_ASC
+{
+    background-image:url(../img/arrow_up.gif);
+    background-repeat:no-repeat;
+    background-position:bottom center;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkHdFix table thead tr th.clsOrd_DESC
+{
+    background-image:url(../img/arrow_down.gif);
+    background-repeat:no-repeat;
+    background-position:top center;
+}
+
+/* Parte per il resize e drag & drop delle colonne */
+div.clsWk div.clsWkGrpCnt div.clsWkRsz
+{
+    position:relative;
+    z-index:2;
+    left: 0px;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkRsz div
+{
+    position:absolute;
+    top:-25px;
+    height:25px;
+    width:1px;
+    background:none;
+    cursor:e-resize;
+    border:2px solid transparent;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkRsz div.clsNoRsz
+{
+    cursor:pointer;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkRsz div.clsAct_resize
+{
+    border:1px dashed;
+    width:1px;
+}
+
+div.clsWk div.clsWkGrpCnt div.clsWkRsz div.clsAct_move
+{
+    position:fixed;
+    overflow:hidden;
+    cursor:move;
+    background:-moz-linear-gradient(top,#888 0%,#555);
+    background:-webkit-gradient(linear, left top, left bottom, from(#888),to(#555));
+    text-shadow:0px -1px 0px rgba(0,0,0,0.7),0px 1px 0px rgba(255,255,255,0.1);
+    text-align:center;
+    font-size:12px;
+    font-weight:bold;
+    height:25px;
+    line-height:25px;
+}
+
+/* Parte per il div scrollabile */
+div.clsWk div.clsWkScroll
+{
+    position:relative;
+    overflow:hidden;
+}
+div.clsWk div.clsWkScroll table
+{
+    position:relative;
+}
+
+div.clsWk div.clsWkScroll table tr
+{
+}
+
+/* Classi per definire l'altezza delle righe! */
+div.clsWk div.clsTR15 table tr{height:15px;}
+div.clsWk div.clsTR16 table tr{height:16px;}
+div.clsWk div.clsTR17 table tr{height:17px;}
+div.clsWk div.clsTR18 table tr{height:18px;}
+div.clsWk div.clsTR19 table tr{height:19px;}
+div.clsWk div.clsTR20 table tr{height:20px;}
+div.clsWk div.clsTR21 table tr{height:21px;}
+div.clsWk div.clsTR22 table tr{height:22px;}
+div.clsWk div.clsTR23 table tr{height:23px;}
+div.clsWk div.clsTR24 table tr{height:24px;}
+div.clsWk div.clsTR25 table tr{height:25px;}
+div.clsWk div.clsTR26 table tr{height:26px;}
+div.clsWk div.clsTR27 table tr{height:27px;}
+div.clsWk div.clsTR28 table tr{height:28px;}
+div.clsWk div.clsTR29 table tr{height:29px;}
+div.clsWk div.clsTR30 table tr{height:30px;}
+
+div.clsWk div.clsWkScroll table tr td
+{
+    border-left:1px solid #efefef;
+    border-bottom:1px solid #eee;
+    white-space:nowrap;
+    overflow:hidden;
+    text-align:left;
+    padding:0 5px;
+    font-size:14px;
+    color:#000;
+    background:#fff;
+}
+
+div.clsWk div.clsWkScroll table tr td:first-child
+{
+    border-left:none;
+}
+
+div.clsWk div.clsWkScroll table tr.clsOdd td
+{
+    background:#ededed;
+}
+
+div.clsWk div.clsWkScroll table.clsOver tr:hover td
+{
+    background:#dfdfdf !important;
+}
+
+div.clsWk div.clsWkScroll table tr.clsDetail
+{
+}
+
+div.clsWk div.clsWkScroll table tr.clsDetail div.clsDetailContainer
+{
+    display:block;
+    height:600px;
+    margin:8px 8px 8px 8px;
+}
+
+iframe.clsDetailIframe
+{
+    width:100%;
+    height:280px;
+    padding:5px 3px 3px 3px;
+}
+
+div.clsWk div.clsWkScroll table tr.clsDetail > td
+{
+    border-right:1px solid #565656;
+    border-top:1px solid #565656;
+    border-bottom:1px solid #565656;
+    overflow:hidden;
+    background:url(../img/loading3.gif) center center no-repeat #fefbd9;
+}
+
+div.clsWk div.clsWkScroll table tr.clsSel td
+{
+    background:#fdf692 !important;
+}
+
+div.clsWk div.clsWkScroll table tr.clsSel1 td
+{
+    background:#97ff92 !important;
+}
+
+div.clsWk div.clsWkScroll table tr.clsSel2 td
+{
+    background:#fe8383 !important;
+}
+
+div.clsWk div.clsWkScroll table tr.clsSel.rowCut > td
+{
+}
+
+div.clsWk div.clsWkScroll table tr.clsSel.rowCopied > td
+{
+}
+
+div.clsWk div.clsWkScroll table tr:not(.clsDetail):not(.clsSel):hover td
+{
+    background: #ffffdd;
+}
+
+div.clsWk div.clsWkScroll table tr td.tdCenter{text-align:center;padding:0;}
+div.clsWk div.clsWkScroll table tr td.sfRosso{background:#BD0122 !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfBlu{background:#0066FF !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfAzzurro{background:#A0C6FF !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfBluScuro{background:#0045AD !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfVerde{background:#60ab89 !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfNero{background:#000000 !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfVerdone{background:#67af41 !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfVerdeChiaro{background:#9ADAAF !important;color:#000;}
+div.clsWk div.clsWkScroll table tr td.sfArancio{background:#FFB415 !important;color:#000;}
+div.clsWk div.clsWkScroll table tr td.sfArancioScuro{background:#F8A040 !important;color:#000;}
+div.clsWk div.clsWkScroll table tr td.sfGiallo{background:#FAA70F !important;color:#fff;}
+div.clsWk div.clsWkScroll table tr td.sfBianco{background:#fff !important;color:#ddd;}
+div.clsWk div.clsWkScroll table tr td.sfBiancoNero{background:#fff !important;color:#000;}
+div.clsWk div.clsWkScroll table tr td.sfViola{background: #ac00ff !important;color:#ddd;}
+div.clsWk div.clsWkScroll table tr td.sottoIndagine i{font-size:20px;}
+
+/* Parte per il footer */
+div.clsWk div.clsWkFt
+{
+    height:25px;
+    line-height:25px;
+    display:block;
+    width:100%;
+    overflow:visible;
+    color:#fff;
+    background:#686868;
+    border-top:1px solid #565656;
+    padding:0 3px;
+}
+
+div.clsWk div.clsWkFt div.clsWkFtEmpty
+{
+    display:block;
+    float:left;
+}
+
+div.clsWk div.clsWkFt div.clsWkFtBT
+{
+    width:90px;
+    float:right;
+}
+
+div.clsWk div.clsWkFt div.clsWkFtBT div
+{
+    float:left;
+}
+
+div.clsWk div.clsWkFt div.clsWkFtBT div.clsWkFtPrev
+{
+    cursor:pointer;
+    margin-top:2px;
+    width:20px;
+    height:20px;
+    background:url(../img/arrow-left-mini.png);
+}
+
+div.clsWk div.clsWkFt div.clsWkFtBT div.clsWkFtInd
+{
+    text-align:center;
+    width:50px;
+    line-height:24px;
+    font-weight:bold;
+}
+
+
+div.clsWk div.clsWkFt div.clsWkFtBT div.clsWkFtCmb
+{
+    text-align:center;
+    width:70px;
+    line-height:24px;
+    font-weight:bold;
+}
+
+div.clsWk div.clsWkFt div.clsWkFtBT div.clsWkFtNext
+{
+    cursor:pointer;
+    margin-top:2px;
+    width:20px;
+    height:20px;
+    background:url(../img/arrow-rigth-mini.png);
+}
+
+/* Terze parti */
+.btnWk{padding:2px;}
+
+div.clsWk a{color:#000;font-weight:bold;text-decoration:underline;cursor:pointer;}
+div.clsWk .openCM{font-size:20px;cursor:pointer;}
+
+i{cursor:pointer;}
+
+div.clsWk div.clsWkGrp div.mCSB_scrollTools_vertical div.mCSB_dragger_bar
+{
+    width:6px;
+}
+
+div.clsWk div.clsWkGrp div.mCSB_scrollTools_horizontal div.mCSB_dragger_bar
+{
+    height:6px;
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<WORKLIST>
+    <ID>WK_IRD_DOCUMENTI_ALLEGATI</ID>
+    <ID-QUERY connection="POLARIS_DATI">WORKLIST.WK_IRD_DOCUMENTI_ALLEGATI</ID-QUERY>
+    <TITLE>"Documenti Allegati"</TITLE>
+    <PAGER>S</PAGER>
+    <SELECT_COLUMNS>S</SELECT_COLUMNS>
+    <WHERE_BASE>IDEN=-1</WHERE_BASE>
+    <STRUCTURE>
+        <MENU>
+            <ID>MENU_DOCUMENTI_ALLEGATI</ID>
+        </MENU>
+        <ROWS>
+            <ALTERNATE_COLOR>S</ALTERNATE_COLOR>
+            <HEIGHT>26px</HEIGHT>
+            <EVENTS>
+                <CLICK>function(rec){$(this).selectedLine('', 'clsSel');}</CLICK>
+            </EVENTS>
+        </ROWS>
+        <COLUMNS>
+            <LIST>
+                <COLUMN>
+                    <ID>
+                        <COL>DATA_INSERIMENTO</COL>
+                        <DB>DATA_INSERIMENTO</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblWkData</DESCRIPTOR>
+                    <PROCESS type="java">.processData</PROCESS>
+                    <WIDTH>100px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>N</MOVEABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>NOME_FILE</COL>
+                        <DB>NOME_FILE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblWkDescri</DESCRIPTOR>
+                    <PROCESS type="javascript"><![CDATA[function(data, wk){ return $("<a>").attr("href","javascript:NS_WK_IRD_DOCUMENTI_ALLEGATI.apriDocumentoAllegato('"+ data.URL_DOCUMENTO +"','" + data.MIME_TYPE+ "','" + data.NOME_FILE + "')").html(data.NOME_FILE);}]]></PROCESS>
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>N</MOVEABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+                <COLUMN>
+                    <ID>
+                        <COL>MIME_TYPE</COL>
+                        <DB>MIME_TYPE</DB>
+                    </ID>
+                    <DESCRIPTOR>traduzione.lblWkTipoFile</DESCRIPTOR>
+                    <PROCESS />
+                    <WIDTH>150px</WIDTH>
+                    <VISIBLE>S</VISIBLE>
+                    <SORTABLE>S</SORTABLE>
+                    <MOVEABLE>N</MOVEABLE>
+                    <RESIZABLE>N</RESIZABLE>
+                </COLUMN>
+            </LIST>
+            <SORT>
+                <COLUMN id="DATA_INSERIMENTO">DESC</COLUMN>
+            </SORT>
+        </COLUMNS>
+    </STRUCTURE>
+</WORKLIST>

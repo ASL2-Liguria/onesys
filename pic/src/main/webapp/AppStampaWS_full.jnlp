@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="6.0+" codebase="$$codebase" href="$$name" version="2.7.4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="jnlp.xsd"
+>
+	<information>
+		<title>ElcoWebStart 2.7.4</title>
+		<vendor>Elco</vendor>
+		<offline-allowed/>
+	</information>
+	<security>
+		<all-permissions/>
+	</security>
+	<update check="always" policy="always" />
+	<resources>
+		<j2se version="1.6+" />
+		<jar href="app/SignedFenixApplet.jar" version="2.7.4" main="true" />
+		<jar href="app/JSon.jar" version="1.0.9" download="eager" />
+		<jar href="app/JTwain.jar" version="1.0.9" download="eager" />
+		<jar href="app/PDFOne.jar" version="1.0.9" download="eager" />
+		<jar href="app/bcpkix-jdk15on-148.jar" version="1.0.9" download="eager" />
+		<jar href="app/bcprov-jdk15on-148.jar" version="1.0.9" download="eager" />
+		<jar href="app/commons-io-2.5.jar" version="1.0.9" download="eager" />
+		<jar href="app/commons-lang3-3.4.jar" version="1.0.9" download="eager" />
+		<jar href="app/commons-logging-1.2.jar" version="1.0.9" download="eager" />
+		<jar href="app/httpclient-4.5.2.jar" version="1.0.9" download="eager" />
+		<jar href="app/httpcore-4.4.5.jar" version="1.0.9" download="eager" />
+		<jar href="app/itextpdf-5.5.9.jar" version="1.0.9" download="eager" />
+		<jar href="app/jaf.jar" version="1.0.9" download="eager" />
+		<jar href="app/javamail.jar" version="1.0.9" download="eager" />
+	</resources>
+	<application-desc
+		main-class="it.elco.applet.elcoNoApplet"
+	>
+		<argument>server_port=$$server_port</argument>
+		<argument>jtwain_dll=app/AspriseJTwain.dll</argument>
+		<argument>ShowMediaTrays=S</argument>
+		<argument>logoutOnDestroy=N</argument>
+		<argument>disableChangeHandler=true</argument>
+		<argument>codebase=$$codebase</argument>
+		<argument>name=$$name</argument>
+	</application-desc>
+</jnlp>

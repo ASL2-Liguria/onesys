@@ -1,0 +1,26 @@
+<MENU>
+	<ID>MENU_WK_ELENCO_LOG</ID>
+	<TITLE>"MENU"</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWE.VERIFICA</ID>
+			<LINK><![CDATA[function(rec){ELENCO_LOG.setVerificato(rec);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return(ELENCO_LOG.whereIfUnverified(rec));}]]></WHERE>
+			<OUTPUT>"Mostra come Verificato"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MWE.RIMUOVI_VERIFICA</ID>
+			<LINK><![CDATA[function(rec){ELENCO_LOG.unsetVerificato(rec);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return(ELENCO_LOG.whereIfVerified(rec));}]]></WHERE>
+			<OUTPUT>"Rimuovi Verifica"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

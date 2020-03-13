@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="DYNAMIC_TABS">
+        <OBJ classe_id="PATH::div*">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dynTabs"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@0">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dynTabsHeader"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@0{.extDynamicTabs}">
+            <PROC id="generaDynamicTabs">
+                <PAR type="idx" value="1"/>
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::div.div@1*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dynTabsContent"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

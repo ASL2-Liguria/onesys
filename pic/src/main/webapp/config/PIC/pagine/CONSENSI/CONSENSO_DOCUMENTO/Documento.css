@@ -1,0 +1,44 @@
+body {
+    width: 960px;
+    margin: auto;
+}
+
+.RBpuls {
+    margin-bottom: 5px;
+}
+
+#lblInserimentoDSE, #lblInserimentoFSE, #lblOscuramentoFSE {
+	text-align: left;
+	padding-top: 20px;
+}
+
+#lblVisInfoDSE, #lblVisInfoFSE {
+	text-align: left;
+	width: 470px;;
+}
+
+#lblVisib, #lblNONVisib, #lblWarning {
+	font-style: italic;
+	padding-left: 50px;
+	border: 1px solid black;
+}
+
+#lblVisib, #lblNONVisib {
+	text-align: center;
+}
+
+#lblWarning {
+	text-align: center;
+	font-size: medium; 
+}
+
+#fldlblWarning {
+	border: none;
+}
+
+#radInserimentoDSE,
+#radOscuramentoDSE, 
+#radInserimentoFSE,
+#radOscuramentoFSE {
+	margin-left: 50px;
+}

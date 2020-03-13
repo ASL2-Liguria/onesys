@@ -1,0 +1,37 @@
+<MENU>
+	<ID>MENU_WK_EVENTI_DSE</ID>
+	<TITLE>"MENU"</TITLE>
+	<LIST>
+		<ITEM>
+			<ID>MWE.APRI_CONSENSO_EVENTO</ID>
+			<LINK><![CDATA[function(rec){EVENTI_PAZIENTE_DSE.checkIfApriConsenso(rec[0]);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1);}]]></WHERE>
+			<OUTPUT>"Apri CONSENSO EVENTO"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MWE.APRI_CAREGIVER_EVENTO</ID>
+			<LINK><![CDATA[function(rec){EVENTI_PAZIENTE_DSE.apriCaregiverEvento(rec[0].NUM_PRATICA);}]]></LINK>
+			<URL_IMAGE>./img/CMenu/add.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return (LIB.isValid(rec) && rec.length == 1 && home.basePermission.DEBUGGER);}]]></WHERE>
+			<!-- <WHERE><![CDATA[function(rec){return false;}]]></WHERE> -->
+			<OUTPUT>"Caregiver EVENTO"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+		<ITEM>
+			<ID>MWE.APRI_CONSENSO_UNICO</ID>
+			<LINK><![CDATA[function(rec){LOG_DSE.apriConsensoUnico();}]]></LINK>
+			<URL_IMAGE>./img/CMenu/modifica.png</URL_IMAGE>
+			<WHERE><![CDATA[function(rec){return LOG_DSE.whereApriConsensoUnico()}]]></WHERE>
+			<OUTPUT>"Apri CONSENSO GENERALE"</OUTPUT>
+			<CONCEALING>true</CONCEALING>
+			<SEPARATOR>false</SEPARATOR>
+			<INFO>Menu</INFO>
+		</ITEM>
+	</LIST>
+</MENU>

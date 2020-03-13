@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="FORM">
+        <OBJ classe_id="PATH::form*">
+            <PROC id="setId">
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="class"/>
+                <PAR value="dati"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="data-procedura-salvataggio"/>
+                <PAR type="idx" value="1"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="data-connessione-salvataggio"/>
+                <PAR type="idx" value="2"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="data-tabella-salvataggio"/>
+                <PAR type="idx" value="3"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="data-colonna-chiave-primaria"/>
+                <PAR type="idx" value="4"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="data-campo-chiave-primaria"/>
+                <PAR type="idx" value="5"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="data-nome-campo-xml"/>
+                <PAR type="idx" value="6"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*">
+            <PROC id="addAttribute">
+                <PAR value="autocomplete"/>
+                <PAR value="off"/>
+            </PROC>
+        </OBJ>
+        <OBJ classe_id="PATH::form*{.extFieldValidator}">
+            <PROC id="setFileConfig">
+                <PAR type="idx" value="7"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+    <ATTR ev="END" id="FORM">
+        <OBJ classe_id="PATH::form*{.extHtmlForm@EXTRA_FIELD}">
+            <PROC id="appendFormExtern"/>
+        </OBJ>
+        <OBJ classe_id="PATH::form*{.extJsonData}">
+            <PROC id="generateJsonData"/>
+        </OBJ>
+    </ATTR>
+</ATTRS>

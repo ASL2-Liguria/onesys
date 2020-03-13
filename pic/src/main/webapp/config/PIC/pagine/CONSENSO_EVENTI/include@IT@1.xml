@@ -1,0 +1,7 @@
+<INCLUDE>
+    <CSS path="css/PIC/Consensi/Eventi.css" />
+    <JS path="config/PIC/validator/model/V_CONSENSO_EVENTI.js" />
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/Consensi/Eventi.js" />
+</INCLUDE>

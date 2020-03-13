@@ -1,0 +1,19 @@
+<ROWSET>
+    <ROW>
+        <tabAllegati>Documenti Allegati</tabAllegati>
+        <tabSegreteria>Segreteria</tabSegreteria>
+        <tabVersioniReferti>Versioni Referti</tabVersioniReferti>
+        <WKsegrData>Data Operazione</WKsegrData>
+        <WKsegrTipo>Tipo Operazione</WKsegrTipo>
+        <SegrApri>Apri</SegrApri>
+        <SegrCancella>Cancella</SegrCancella>
+        <WKdocDescr>Descrizione</WKdocDescr>
+        <WkdocTipo>Tipo</WkdocTipo>
+        <WKdocData>Data</WKdocData>
+        <VersioniApri>Apri</VersioniApri>
+        <VersioniVisualizza>Visualizza</VersioniVisualizza>
+        <WKverData>Data</WKverData>
+        <WKverOra>Ora</WKverOra>
+        <WKverProgr>Numero Versione</WKverProgr>
+    </ROW>
+</ROWSET>

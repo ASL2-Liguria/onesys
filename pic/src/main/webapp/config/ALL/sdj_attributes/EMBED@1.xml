@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ATTRS>
+    <ATTR ev="START" id="EMBED">
+        <OBJ classe_id="PATH::embed">
+            <PROC id="addAttribute">
+                <PAR value="wmode"/>
+                <PAR type="idx" value="0"/>
+            </PROC>
+        </OBJ>
+    </ATTR>
+</ATTRS>

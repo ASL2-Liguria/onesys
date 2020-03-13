@@ -1,0 +1,7 @@
+<INCLUDE>
+    <CSS path="config/PIC/pagine/GESTISCI_CONSENSI/Gestisci_Consensi.css"/>
+    <JS path="js/PIC/pic-service.js"/>
+    <JS path="js/PIC/NS_FUNCTIONS.js"/>
+	<JS path="js/PIC/RicercaAnagrafica/ricercaAnagrafica.js" />
+    <JS path="config/PIC/pagine/GESTISCI_CONSENSI/Gestisci_Consensi.js"/>
+</INCLUDE>

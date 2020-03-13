@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<appender name="ROLL" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern"
+				value="${catalina.home}/logs/pic-log4j.%d{yyyy-MM-dd__HH}.log.gz" />
+		</rollingPolicy>
+		<append>true</append>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d --> %p %t %c - %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="PRIVACY" class="org.apache.log4j.rolling.RollingFileAppender">
+		<rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+			<param name="FileNamePattern"
+				value="${catalina.home}/logsPrivacy/pic.%d{yyyy-MM-dd__HH}.log.gz" />
+		</rollingPolicy>
+		<append>true</append>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d --> %p %t %c - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="it.elco.privacy">
+		<level value="DEBUG" />
+		<appender-ref ref="PRIVACY" />
+	</logger>
+
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="ROLL" />
+	</root>
+</log4j:configuration>

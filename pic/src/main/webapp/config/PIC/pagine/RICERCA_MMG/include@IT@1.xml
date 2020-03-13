@@ -1,0 +1,7 @@
+<INCLUDE>
+    <CSS path="config/PIC/pagine/RICERCA_MMG/ricercaMMG.css" />
+    <JS path="js/PIC/NS_FUNCTIONS.js" />
+    <JS path="js/PIC/WORKLIST.js" />
+    <JS path="config/PIC/pagine/RICERCA_MMG/ricercaMMG.js" />
+    <JS path="js/PIC/PROCESS_CLASS.js" />
+</INCLUDE>
