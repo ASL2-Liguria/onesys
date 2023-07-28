@@ -17,7 +17,7 @@ maintenance:
   type: internal
   contacts:
     - name: Alessandro Cavaliere
-      email: riuso@liguriadigitale.it
+      email: sia@asl2.liguria.it
       affiliation: ASL2 Regione Liguria
 legal:
   license: EUPL-1.2
