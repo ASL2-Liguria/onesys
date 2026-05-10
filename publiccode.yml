@@ -1,8 +1,8 @@
-# This repository adheres to the publiccode.yml standard by including this 
+# This repository adheres to the publiccode.yml standard by including this
 # metadata file that makes public software easily discoverable.
-# More info at https://github.com/italia/publiccode.yml
+# More info at https://github.com/publiccodeyml/publiccode.yml
 
-publiccodeYmlVersion: '0.2'
+publiccodeYmlVersion: '0'
 name: ONESYS
 url: 'https://github.com/ASL2-Liguria/onesys'
 releaseDate: '2019-11-18'
@@ -25,21 +25,13 @@ localisation:
   localisationReady: false
   availableLanguages:
     - it
-it:
-  riuso:
-    codiceIPA: asl_2sav
-  conforme:
-    modelloInteroperabilita: false
-    misureMinimeSicurezza: true
-    gdpr: true
 description:
   it:
-    genericName: Sistema Informativo Ospedaliero
     shortDescription: Sistema informativo ospedaliero
     longDescription: >
       **Sistema informativo ospedaliero**
 
-       
+
 
       Applicativo modulare sviluppato con l'obiettivo di  informatizzare
       tutti i percorsi amministrativi e sanitari inerenti i  pazienti che accedono
@@ -72,9 +64,9 @@ description:
 
       8. Cartella Medici di Medicina Generale / Pediatri di Libera Scelta,
       integrata nel sistema di dossier sanitario, con condivisione del patient summary del paziente;
-      
+
       9. Portale gestione consensi
-      
+
     features:
       - Pronto Soccorso
       - Cartella di ricovero
